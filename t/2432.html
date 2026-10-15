@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ragdoll engine - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Ragdoll engine</nav></header>
+<main>
+<div class="post" id="p2169"><div class="post-head"><a class="id" href="../t/2432.html#p2169">#2169</a> <span class="index">1</span> <span class="date">2005-03-09T11:48:21Z</span> <span class="author">Trapper <span class="guest">(guest)</span></span></div><div class="post-body">excuse me, but how did you do that *FANTASTIC* engine of ninjas dead body?<br>
+You know, all the deforamtions according to hte terrain ninja falled on, etc. ?<br>
+Need to know, PLEASE!!!</div></div>
+<div class="post" id="p53365"><div class="post-head"><a class="id" href="../t/2432.html#p53365">#53365</a> <span class="index">2</span> <span class="date">2005-03-09T14:48:04Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">Maybe this should be in Raigan and Mare's next tutorial...?</div></div>
+<div class="post" id="p53414"><div class="post-head"><a class="id" href="../t/2432.html#p53414">#53414</a> <span class="index">3</span> <span class="date">2005-03-09T22:42:26Z</span> <span class="author"><a href="../u/9370717.html">arzt_haus</a></span></div><div class="post-body">dont they have the programming tutorial or something on the website?</div></div>
+<div class="post" id="p53426"><div class="post-head"><a class="id" href="../t/2432.html#p53426">#53426</a> <span class="index">4</span> <span class="date">2005-03-09T23:28:11Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yes, they do, but they haven't put up one on the ragdoll physics yet.<br>
+<br>
+Expect them to start working on it, oh, say, around maybe May or June or something.</div></div>
+<div class="post" id="p53498"><div class="post-head"><a class="id" href="../t/2432.html#p53498">#53498</a> <span class="index">5</span> <span class="date">2005-03-10T08:54:36Z</span> <span class="author">Trapper <span class="guest">(guest)</span></span></div><div class="post-body">Oh. May or June. Eeh, actually, it was about a bet. I told my friend I can invent my own ragdoll engine... until Monday 13th...   <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p64496"><div class="post-head"><a class="id" href="../t/2432.html#p64496">#64496</a> <span class="index">6</span> <span class="date">2005-05-09T00:35:20Z</span> <span class="author">Physics Guy <span class="guest">(guest)</span></span></div><div class="post-body">The ragdoll physics used in the N game is not very hard... well once you understand it... It is based off of IO interactive's game, Hitman Codename 47. The physics they used is based off of something called "Verlet Integration". Fortunately, a programmer from Hitman has an article all about the physics. The articled used to be able to be found at the IO site but here is a site where you can find it: <a href="http://www.gamasutra.com/resource_guide/20030121/jacobson_01.shtml">http://www.gamasutra.com/resource_guide/20...cobson_01.shtml</a><br>
+(it requires a sign up but its free and worth it)<br>
+<br>
+Anyway its basically based on a particle system (allowing you to simulate anything from a ragdoll, to cloth even)... If you dont understand the article and cant wait for the tutorial to come, just post here and ill try to explain as best i can<br>
+<br>
+PS - i also have a flash example with a ragdoll you can fling around and i could give the source if wanted...</div></div>
+<div class="post" id="p64509"><div class="post-head"><a class="id" href="../t/2432.html#p64509">#64509</a> <span class="index">7</span> <span class="date">2005-05-09T01:18:24Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">I somehow doubt that the bouncy ragdolls in a 2D flash game use the same programming as the ragdolls of a realistic 3D console shooter.</div></div>
+<div class="post" id="p64513"><div class="post-head"><a class="id" href="../t/2432.html#p64513">#64513</a> <span class="index">8</span> <span class="date">2005-05-09T01:46:41Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">actually, N does use the exact same stuff as hitman -- the article that was linked above has source code, all we did was port it to flash. well.. there are some tricks to make it really fast and flash-centric, geting the joints bending the right way and stuff, but really -- read that article and you'll have a ragdoll working in a weekend.<br>
+<br>
+also, our last tutorial (which covers ragdolls/etc.) has actually been written for almost a year, however we still haven't finished the diagrams, source code, etc.. but.. hopefully sometime over the summer.<br>
+<br>
+really though, that jakobsen paper has everything in it that you'd need.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p64721"><div class="post-head"><a class="id" href="../t/2432.html#p64721">#64721</a> <span class="index">9</span> <span class="date">2005-05-10T01:56:57Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">In your tutorials you point to the ioi.dk webpage for the Jakobsen paper and as it was pointed out it doesn't work anymore  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . Maybe change the link in the tutorials? I know it's not that high priority, but whenever you can would be good. Your tutorials are a good reference. I hope they don't get lost someday.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p64738"><div class="post-head"><a class="id" href="../t/2432.html#p64738">#64738</a> <span class="index">10</span> <span class="date">2005-05-10T06:01:03Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">yeah, we keep forgetting about that.<br>
+<br>
+maybe we'll look into hosting the paper on our site, the only other link is gamasutra which requires signing up..<br>
+<br>
+thanks,<br>
+raigan</div></div>
+<div class="post" id="p64778"><div class="post-head"><a class="id" href="../t/2432.html#p64778">#64778</a> <span class="index">11</span> <span class="date">2005-05-10T16:29:06Z</span> <span class="author">Guest_JeR(K) <span class="guest">(guest)</span></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2432.html#p64509">Quote: brickman, May 9 2005, 01:18 AM</a></div> I somehow doubt that the bouncy ragdolls in a 2D flash game use the same programming as the ragdolls of a realistic 3D console shooter.  </blockquote> <br>
+ "Realistic"????? Have you played any of the Hitman-games? The physics are wayyyy away from realistic in them...<br>
+<br>
+Sorry, forgot to login.</div></div>
+<div class="post" id="p65465"><div class="post-head"><a class="id" href="../t/2432.html#p65465">#65465</a> <span class="index">12</span> <span class="date">2005-05-13T19:11:19Z</span> <span class="author">GeeB <span class="guest">(guest)</span></span></div><div class="post-body">I decided to sit down and read the article yesterday. I already have a simple ragdoll to show off. I'm just having a bit of trouble getting the friction working correctly. I had to change some of his code because he used vector addition and I wanted to just use the component vectors. The concept of "verlet integration" is kind of weird (for me anyway) because I'm having so much trouble actually changing the velocity directly. It is a very interesting idea however.<br>
+<br>
+Anyway... heres the example:<br>
+<a href="http://home.comcast.net/~m.gibeau/uberdoll.html">GeeB's Ragdoll</a><br>
+<br>
+There is no friction and the points do not bounce. They simply stop when they hit the ground or walls.</div></div>
+<div class="post" id="p65758"><div class="post-head"><a class="id" href="../t/2432.html#p65758">#65758</a> <span class="index">13</span> <span class="date">2005-05-14T15:50:33Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">hi,<br>
+looks good!<br>
+<br>
+if you read through our tutorial A, and/or the flashinthecan presentaion, you'll see that in order to get bounce/friction working, you need to know (for a given collision) the unit vector which describes the collision direction. <br>
+<br>
+then, you use the unit vector to decompose the particle's velocity into two vectors: one parallel to the collision direction (this is used for bounce), and one perpendicular (this is used for friction).<br>
+<br>
+about the velocity-less thing, it is weird but you'll get used to it. anyway, if you need to know the velocity of a particle, it's just (v = newpos - oldpos).  likewise, if you want set the velocity of a particle to v, just move the oldpos (oldpos = newpos - v) or the newpos (newpos = oldpos + v).<br>
+<br>
+raigan</div></div>
+<div class="post" id="p65772"><div class="post-head"><a class="id" href="../t/2432.html#p65772">#65772</a> <span class="index">14</span> <span class="date">2005-05-14T16:34:00Z</span> <span class="author">GeeB <span class="guest">(guest)</span></span></div><div class="post-body">Thanks for the feedback, I guess since I'm only detecting collisions inside a box It should be easy to find the normal force. I'll get it working eventually.... I think I may post my constraint function, I believe theres some kind of glitch in my code which causes the particle to accelerate to the left a bit.<br>
+Meh here it is --<br>
+<br>
+function constrain(mc1,mc2,restlength){<br>
+<br>
+distance = math.pow(mc2._x-mc1._x,2) + math.pow(mc2._y-mc1._y,2);<br>
+distance = math.sqrt(distance);<br>
+<br>
+moveamount = distance - restlength;<br>
+angle = math.atan2(mc2._x-mc1._x , mc2._y-mc1._y);<br>
+an = ((-(angle*(180/math.pi)))-90);<br>
+mx = math.cos(an/(180/math.pi));<br>
+my = math.sin(an/(180/math.pi));<br>
+<br>
+mc2._x+= mx*moveamount*0.5;<br>
+mc2._y+= my*moveamount*0.5;<br>
+<br>
+mc1._x -= mx*moveamount*0.5;<br>
+mc1._y -= my*moveamount*0.5;<br>
+<br>
+}<br>
+<br>
+<br>
+I know know my radians to degrees conversion is really not nessesary. I just never got used to radians. Maybe someone can show me where I've gone wrong. (yes the code here is not case sensitive... I'm not using flash mx 2004)<br>
+<br>
+Thanks in advance.</div></div>
+<div class="post" id="p65845"><div class="post-head"><a class="id" href="../t/2432.html#p65845">#65845</a> <span class="index">15</span> <span class="date">2005-05-14T19:10:02Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">i'm 100% positive i know your problem: you're using _x and _y, which (for some reason) are implemented as single-precision floats.. any user-defined numbers are double-precision floats.<br>
+<br>
+try assigning each movie clip a .x and .y, and use THAT as the basis for all calculations; at the end, just set mc._x = mc.x, mc._y = mc.y to align the graphics with the particle position.. that should fix the drift. at least, we had that exact problem a long time ago, and that's how we fixed it.<br>
+<br>
+of course, increasing the precision isn't a _real_ solution; the actual problem is that the math we're using isn't numerically stable, and we should rearrange it so that it doesn't suffer from floating-point problems. but we haven't tried that yet as we're lazy <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p65996"><div class="post-head"><a class="id" href="../t/2432.html#p65996">#65996</a> <span class="index">16</span> <span class="date">2005-05-14T21:55:03Z</span> <span class="author">GeeB <span class="guest">(guest)</span></span></div><div class="post-body">Thanks again, that makes sense... I'll have to try that when I have some time.</div></div>
+<div class="post" id="p66020"><div class="post-head"><a class="id" href="../t/2432.html#p66020">#66020</a> <span class="index">17</span> <span class="date">2005-05-14T22:37:22Z</span> <span class="author">GeeB <span class="guest">(guest)</span></span></div><div class="post-body">Yup that did the trick. It works quite well now, and it didn't have to do with my nasty trigonometry!  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p68103"><div class="post-head"><a class="id" href="../t/2432.html#p68103">#68103</a> <span class="index">18</span> <span class="date">2005-05-20T11:13:03Z</span> <span class="author">Trapper <span class="guest">(guest)</span></span></div><div class="post-body">Yeah, thanks for help &amp; for the links to gamasutra. <br>
+I will try to do the engine on my own, but in all causes, I will wait for your tutorial (no matter how long it will take).  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p68150"><div class="post-head"><a class="id" href="../t/2432.html#p68150">#68150</a> <span class="index">19</span> <span class="date">2005-05-20T19:57:42Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">near the bottom of this thread you can find the source for our ragdoll stuff: <a href="http://www.flashkit.com/board/showthread.php?threadid=592717&amp;highlight=ragdoll">http://www.flashkit.com/board/showthread.p...ghlight=ragdoll</a><br>
+<br>
+raigan</div></div>
+<div class="post" id="p95950"><div class="post-head"><a class="id" href="../t/2432.html#p95950">#95950</a> <span class="index">20</span> <span class="date">2005-08-31T18:40:07Z</span> <span class="author">Tiinusen <span class="guest">(guest)</span></span></div><div class="post-body">Hi im a newbie. and i got some experience by making games in flash but now i want to make a ragdoll. but i dosent got any good information or anything thats helps me to complete my ragdoll game. so now i find this place i thought it was good but its almost to difficult to connect all that you wrote you chould write some more examples in the tutorials. so i and some other can see how to make a ragdoll and its more easier to understund if its many examples. dont write just 2 lines try to connect as many as the chapter is. and after that we are able to see and understund all the connections.<br>
+<br>
+all that you wrote is good but you have to read it sometimes to understund.<br>
+<br>
+im a good gamemaker but im just dont understund the ragdoll thing.<br>
+// Tiinusen<br>
+<br>
+<a href="http://www.tiinusen.hello.to">www.tiinusen.hello.to</a></div></div>
+<div class="post" id="p95973"><div class="post-head"><a class="id" href="../t/2432.html#p95973">#95973</a> <span class="index">21</span> <span class="date">2005-08-31T20:16:24Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hello<br>
+<br>
+Ive made a ragdoll and here is the source. <br>
+<br>
+The special commented version as well  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+I hope that my angeled constraint function will be done soon as well.<br>
+<br>
+This is how far I've gotten:<br>
+<pre class="code">particle.prototype.angeledConstraint = function() {
+	var fL = this.a1List;
+	var sL = this.a2List;
+	for (var p in fL) {
+  var p0 = fL[p];
+  var p1 = this;
+  var p2 = sL[p];
+  var maxDeg = this.degList[p];
+  var minDeg = this.mdegList[p];
+  var dx1 = p1.x-p0.x;
+  var dx2 = p2.x-p1.x;
+  var dy1 = p1.y-p0.y;
+  var dy2 = p2.y-p1.y;
+  var deg1 = Math.atan2(dy1, dx1)+Math.PI
+  var deg2 = Math.atan2(dy2, dx2)+Math.PI
+  if (deg2&gt;deg1) {
+  var deg = deg2-deg1
+  } else {
+  var deg = deg1-deg2
+  }
+  minDeg *=Math.PI/180
+  maxDeg *=Math.PI/180
+  if (deg&gt;maxDeg) {
+  	deg = maxDeg;
+  	
+  } else if (deg&lt;minDeg) {
+  	deg = minDeg;
+  }
+  deg = maxDeg  
+  var finalDeg = deg1-deg-(90*Math.PI/180)
+  /*if (finalDeg&gt;(2*Math.PI)) {
+  	finalDeg = finalDeg-(2*Math.PI)
+  } else if (finalDeg&lt;0) {
+  	finalDeg = (2*Math.PI) + finalDeg
+  }*/
+  
+  p2.x = p1.x + Math.sin(finalDeg)*dy2
+  trace(finalDeg/Math.PI*180)
+  p2.oldx = p2.x
+  //p2.y = p1.y+Math.sin(deg)*dy1
+	}
+};
+particle.prototype.addAngeledConstraint = function(p1, p2, deg, mdeg) {
+	this.mdegList.push(mdeg);
+	this.a1List.push(p1);
+	this.a2List.push(p2);
+	this.degList.push(deg);
+	for (var k = 0; k&lt;300; k++) {
+  this.angeledConstraint()
+	}
+};</pre><br>
+Good luck, and see the attached source.<br>
+<br>
+The Wazaa <div class="attachment attachment-missing">Attachment (lost): post-14-1125519385.zip</div></div></div>
+<div class="post" id="p96007"><div class="post-head"><a class="id" href="../t/2432.html#p96007">#96007</a> <span class="index">22</span> <span class="date">2005-08-31T22:48:22Z</span> <span class="author">Tiinusen <span class="guest">(guest)</span></span></div><div class="post-body">Thanx now i think i got it  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  thanx for you took some time to create this. whout this i was lost . if you want i can publish you on my websites. as a thanx<br>
+<br>
+<a href="http://www.tiinusen.hello.to">www.tiinusen.hello.to</a> is one of my created sites. i got more  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p96064"><div class="post-head"><a class="id" href="../t/2432.html#p96064">#96064</a> <span class="index">23</span> <span class="date">2005-09-01T02:55:37Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Cool. My name's in the comment. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Thanks.<br>
+It needs a few minor fixes though:<br>
+1. You have a addMinConstr call without having such a function. Useless line. Fixed.<br>
+2. You use invisible buttons, when you could have used just AS. Fixed.<br>
+3. Friction and bounce didn't work right. I think I fixed it, but I'm still not sure it works like it should.<br>
+4. No X bounds. Added them.<br>
+5. And some other even minor-er stuff.<br>
+<br>
+The Wazaa, I hope I'm not insulting you or anything by fixing it, but I just couldn't help myself. I like fixing stuff. <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+<br>
+A fixed source is attached. I commented in it too. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1125543337.rar</div></div></div>
+<div class="post" id="p96084"><div class="post-head"><a class="id" href="../t/2432.html#p96084">#96084</a> <span class="index">24</span> <span class="date">2005-09-01T06:13:57Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Ahh, some fixes. Nice. I like fixing stuff too. I also like short sentences <br>
+ <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> . <br>
+<br>
+But, how did you fix the bounce and that shit. I know it didn't work, thats why I changed the constants a bit. I cant see what you did to make it work though :-/.<br>
+<br>
+And I'm just happy to help.<br>
+<br>
+Any ideas of my angeled constraint? It does not work very good yet, do you think I need some <b>if</b> to make it use the trigonometry properly?<br>
+<br>
+And, should I start a sudoku solver thread? I have one half done, but it doesn't work fully, or not at all to be honest  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> . But nowadays I don't have so much time for programming, Diablo II is my first choice since the 1.11 patch.<br>
+<br>
+<br>
+<br>
+The Wazaa<br>
+<br>
+By the way, how do I put Douglas Adams name next to the quote? It's a little bit ugly where it is.</div></div>
+<div class="post" id="p96093"><div class="post-head"><a class="id" href="../t/2432.html#p96093">#96093</a> <span class="index">25</span> <span class="date">2005-09-01T10:50:08Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: Douglas Adams</div>The ships hung in the sky in much the same way that bricks don't</blockquote> bracket in the end.<br>
+BTW, nice quote <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+About the bounce and the friction:<br>
+You were changing vx and vy after using them. I just reordered the code so they change before being used. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I'd love to help you with the angeled constraint, but I'm a bit busy right now. Maybe later <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+TS</div></div>
+<div class="post" id="p96463"><div class="post-head"><a class="id" href="../t/2432.html#p96463">#96463</a> <span class="index">26</span> <span class="date">2005-09-02T13:36:59Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body"><a href="http://www.gotoandplay.it/_articles/2005/08/advCharPhysics.php">http://www.gotoandplay.it/_articles/2005/0...CharPhysics.php</a></div></div>
+<div class="post" id="p99107"><div class="post-head"><a class="id" href="../t/2432.html#p99107">#99107</a> <span class="index">27</span> <span class="date">2005-09-10T08:41:02Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">Hey all. I'm just getting my toes wet in this whole ragdoll buisness and I think I'm doing okay.<br>
+However, I can't seem to figure out how to rotate the particles in my ragdoll (see attached file ragdoll_MOD.fla). I have an angle calculation:<br>
+<pre class="code">Particle.prototype.partang = function () {
+    x = this._x;
+    y = this._y*-1;
+    angle = Math.atan(y/x)/(Math.PI/180);
+    if (x&lt;0) {
+        angle += 180;
+    }
+    if (x&gt;=0 &amp;&amp; y&lt;0) {
+        angle += 360;
+    }
+    this._rotation = angle*-1;
+    updateAfterEvent();
+}</pre>But I'm not sure how exactly things are going to turn out if I happen to put this code, only because I'm not exactly sure where this belongs.  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+Another thing is that two of my ragdolls (*_MOD.fla and *_tri.fla) are unstable and screw up if they go too fast or hit just the right spot on the stage. Any help would be appreciated!</div></div>
+<div class="post" id="p99142"><div class="post-head"><a class="id" href="../t/2432.html#p99142">#99142</a> <span class="index">28</span> <span class="date">2005-09-10T11:48:15Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">1:<br>
+REGISTER!<br>
+2:<br>
+Where's the file?</div></div>
+<div class="post" id="p100154"><div class="post-head"><a class="id" href="../t/2432.html#p100154">#100154</a> <span class="index">29</span> <span class="date">2005-09-13T07:45:34Z</span> <span class="author"><a href="../u/9371108.html">OpethRockr55</a></span></div><div class="post-body">Oops. Sorry about that.<br>
+I forgot to mention that this IS Toshosoft's code. Everything particle and vector based was written by him. Maybe if I get the time I'll write my own, but... eh.<br>
+I added a simple little movement thing with the arrow keys for the hell of it. <div class="attachment attachment-missing">Attachment (lost): post-14-1126597534.zip</div></div></div>
+<div class="post" id="p100163"><div class="post-head"><a class="id" href="../t/2432.html#p100163">#100163</a> <span class="index">30</span> <span class="date">2005-09-13T10:05:06Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">LOL. Actually, the vector object is from the Metanet Tutorials, so it wasn't actually all written by me. Also, the Particle Object was written by a guy who's name I can't recall right now. Though I DID modify it A LOT, it's still not ENTIRELY my code <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p100183"><div class="post-head"><a class="id" href="../t/2432.html#p100183">#100183</a> <span class="index">31</span> <span class="date">2005-09-13T12:19:50Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">Hey guys, I want to thank you. <br>
+<br>
+I'm working on a game called Facewound and this thread really helped me add ragdolls.<br>
+<br>
+Thanks!<br>
+<br>
+Garry</div></div>
+<div class="post" id="p100248"><div class="post-head"><a class="id" href="../t/2432.html#p100248">#100248</a> <span class="index">32</span> <span class="date">2005-09-13T16:19:49Z</span> <span class="author"><a href="../u/9370974.html">Starcrossed</a></span></div><div class="post-body">OMG! Seriously?<br>
+<br>
+You're not Garry really...</div></div>
+<div class="post" id="p100406"><div class="post-head"><a class="id" href="../t/2432.html#p100406">#100406</a> <span class="index">33</span> <span class="date">2005-09-13T22:28:07Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">hey,<br>
+cool!! it's so awesome to see other people doing wicked 2D games.<br>
+<br>
+i really can't wait to play it.. but it'll have to be on mare's laptop since my card doesn't support pixel/vertex shaders <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"><br>
+<br>
+raigan<br>
+p.s - we'll be posting source for our ragdoll very very soon, you might be interested -- we added a few tricks that aren't mentioned..</div></div>
+<div class="post" id="p100520"><div class="post-head"><a class="id" href="../t/2432.html#p100520">#100520</a> <span class="index">34</span> <span class="date">2005-09-14T13:31:33Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">Cool, I'll keep an eye on the site.. although my ragdoll is pretty much done.<br>
+<br>
+The only real thing I couldn't get working is any kind of angle constraint.. but I kind of fixed that using a hack. I just put another constraint on it to a different point and added an elasticity variable in the constaint struct.<br>
+<br>
+This makes it so you can make legs and necks that don't rotate 360 etc.<br>
+<br>
+Garry</div></div>
+<div class="post" id="p100524"><div class="post-head"><a class="id" href="../t/2432.html#p100524">#100524</a> <span class="index">35</span> <span class="date">2005-09-14T14:29:04Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">Finally got it totally FPS independant - so here's a movie <br>
+<br>
+<a href="http://www.facewound.com/img/ragdolls.avi">http://www.facewound.com/img/ragdolls.avi</a></div></div>
+<div class="post" id="p100525"><div class="post-head"><a class="id" href="../t/2432.html#p100525">#100525</a> <span class="index">36</span> <span class="date">2005-09-14T14:51:21Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2432.html#p100520">Quote: Guest, Sep 14 2005, 01:31 PM</a></div> Cool, I'll keep an eye on the site.. although my ragdoll is pretty much done.<br>
+<br>
+The only real thing I couldn't get working is any kind of angle constraint.. but I kind of fixed that using a hack. I just put another constraint on it to a different point and added an elasticity variable in the constaint struct.<br>
+<br>
+This makes it so you can make legs and necks that don't rotate 360 etc.<br>
+<br>
+Garry  </blockquote> <br>
+ hi,<br>
+like, between the shoulders and feet (to keep the legs from rotating too much)?<br>
+<br>
+any info would be appreciated, this is something we fooled with a lot but could never find a good-looking solution..<br>
+<br>
+raigan</div></div>
+<div class="post" id="p100536"><div class="post-head"><a class="id" href="../t/2432.html#p100536">#100536</a> <span class="index">37</span> <span class="date">2005-09-14T16:12:07Z</span> <span class="author"><a href="../u/9370974.html">Starcrossed</a></span></div><div class="post-body">AHHHHH! You are Garry!<br>
+<br>
+ <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p100539"><div class="post-head"><a class="id" href="../t/2432.html#p100539">#100539</a> <span class="index">38</span> <span class="date">2005-09-14T16:35:33Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2432.html#p100525">Quote: Raigan, Sep 14 2005, 02:51 PM</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/2432.html#p100520">Quote: Guest, Sep 14 2005, 01:31 PM</a></div> Cool, I'll keep an eye on the site.. although my ragdoll is pretty much done.<br>
+<br>
+The only real thing I couldn't get working is any kind of angle constraint.. but I kind of fixed that using a hack. I just put another constraint on it to a different point and added an elasticity variable in the constaint struct.<br>
+<br>
+This makes it so you can make legs and necks that don't rotate 360 etc.<br>
+<br>
+Garry </blockquote>hi,<br>
+like, between the shoulders and feet (to keep the legs from rotating too much)?<br>
+<br>
+any info would be appreciated, this is something we fooled with a lot but could never find a good-looking solution..<br>
+<br>
+raigan  </blockquote> <br>
+ Well.. let me draw a picture.<br>
+<br>
+<img class="bb-img" src="http://www.facewound.com/img/ragdoll-config.jpg" alt="" loading="lazy"><br>
+<br>
+The basic ragdoll config is on the left. This would allow all the particles to rotate 360 - so the head would sometimes be in the chest.<br>
+<br>
+I added loose elastic constraints on the right (the green ones). These don't really FORCE the distance, but they try to make the distance - so they push the legs/head outwards.<br>
+<br>
+Takes a bit of tweaking - and angle constraints would be better but this works.</div></div>
+<div class="post" id="p100679"><div class="post-head"><a class="id" href="../t/2432.html#p100679">#100679</a> <span class="index">39</span> <span class="date">2005-09-15T02:31:09Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">nice! thanks -- we tried something like this ourselves, but we could never get it "right".<br>
+<br>
+we worked on the tutorial today so hopefully it'll be done soon!<br>
+<br>
+although from the looks of it you're already doing it "our way", i.e only modelling the start and end positions of each limb (hand+shoulder, pelvis+foot) instead of explicitly modelling elbows and knees.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p111360"><div class="post-head"><a class="id" href="../t/2432.html#p111360">#111360</a> <span class="index">40</span> <span class="date">2005-10-30T00:49:49Z</span> <span class="author"><a href="../u/9371223.html">stabl</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/29.gif" alt="ashamed" title="ashamed"> how do you make the game things?????</div></div>
+<div class="post" id="p113439"><div class="post-head"><a class="id" href="../t/2432.html#p113439">#113439</a> <span class="index">41</span> <span class="date">2005-11-09T20:11:39Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">i'm noob <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> can anyone create easy tutorial how to create RagDoll Engine?</div></div>
+<div class="post" id="p113452"><div class="post-head"><a class="id" href="../t/2432.html#p113452">#113452</a> <span class="index">42</span> <span class="date">2005-11-09T21:26:46Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">No.<br>
+First, because I don't help n00bs... I help newbies, second, because noone sane will make a ragdoll tutorial when there's google for that, and third, because making ragdolls ain't that easy, so a tutorial won't be easy either.</div></div>
+<div class="post" id="p113551"><div class="post-head"><a class="id" href="../t/2432.html#p113551">#113551</a> <span class="index">43</span> <span class="date">2005-11-10T11:55:56Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">ok i'm confused i'm newbie and wan't make game like N</div></div>
+<div class="post" id="p113552"><div class="post-head"><a class="id" href="../t/2432.html#p113552">#113552</a> <span class="index">44</span> <span class="date">2005-11-10T11:56:57Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">oh and i forgot to say i'm using Flash MX</div></div>
+<div class="post" id="p114867"><div class="post-head"><a class="id" href="../t/2432.html#p114867">#114867</a> <span class="index">45</span> <span class="date">2005-11-14T09:16:39Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Wazaa has entered the building! (Back from Diablo II, finally)<br>
+<br>
+A game like N is nothing you do in half an hour, especially not if your new to flash. I'd suggest you read some tutorials on actionscript and make something easier, like a controllable bouncing ball (They are really fun to play with  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> ). If you really wanna make a ragdoll, check my source on the previous page, it's commented <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+But first: register.</div></div>
+<div class="post" id="p114956"><div class="post-head"><a class="id" href="../t/2432.html#p114956">#114956</a> <span class="index">46</span> <span class="date">2005-11-14T18:54:22Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OMFG IT'S TEH WAZAA!!!111onepnepneelevenhundredthousand<br>
+<br>
+[/SPAM]<br>
+<br>
+OK<br>
+1. Look at the tutorials on <a href="http://www.bit-101.com/">this</a> site.<br>
+2. Google "flash tutorials" and look at everything that seems interesting.<br>
+3. Visit <a href="http://www.kirupa.com/">this</a> site, and then look at the Flash stuff there.<br>
+4. Look at (and preferably understand) the metanet tutorials.<br>
+5. Come back asking questions.<br>
+6. Ask more questions.<br>
+7. Dedicate at least half an year to making a game.<br>
+<br>
+TS</div></div>
+<div class="post" id="p120067"><div class="post-head"><a class="id" href="../t/2432.html#p120067">#120067</a> <span class="index">47</span> <span class="date">2005-12-03T12:39:48Z</span> <span class="author"><a href="../u/9371246.html">Rapier</a></span></div><div class="post-body">Hi, i studied some code of the ragdoll, and i understand most of it. But how can you create a body for the ragdoll? You have the simplistic structure but how do you paste a head on it? And legs and arms... To decorate the ragdoll  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+And WHEN does the N source code comes avaible. I'm looking forward to it!<br>
+<br>
+PS: look at this. This is great codework isn't it (its not mine. I'm trying to  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  )<br>
+<br>
+<a href="http://www.stickpage.com/stickpage/ragdollv2sp.swf">http://www.stickpage.com/stickpage/ragdollv2sp.swf</a></div></div>
+</main>
+</body>
+</html>

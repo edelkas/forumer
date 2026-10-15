@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by hankbain - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9373646.html">hankbain</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p12993"><div class="post-head"><a class="id" href="../t/14634.html#p12993">#12993</a> <span class="index">1</span> <span class="date">2006-12-19T17:25:14Z</span> <span class="author"><a href="../u/9373646.html">hankbain</a></span></div><div class="post-body">In tutorial A figure 7 you show a method for detecting collision with an AABB vs a concave circular shape.<br>
+<br>
+That works great, however Im attempting to extend it to work with an OBB. The separating axis for the AABB is the axis parallel to the vector from the circle center to the the closest corner of the AABB to the arc segment.<br>
+<br>
+When the OBB is rotated the closest corner has to be determined, which Im able to do, but it still gets into trouble when the point extends past the quadrant. I don't believe you can just dump the point when its out of the quadrant like you do with the AABB. <br>
+<br>
+Any thoughts on what strategy to approach this? Ive been working on this for 2 days and I can't get my head around it.</div></div>
+</main>
+</body>
+</html>

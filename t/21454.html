@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bounce and Friction - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Bounce and Friction</nav></header>
+<main>
+<div class="post" id="p19157"><div class="post-head"><a class="id" href="../t/21454.html#p19157">#19157</a> <span class="index">1</span> <span class="date">2008-02-12T21:40:18Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Recently, I've been working on a 2D platformer, inspired by N. Anyway, I've just finished SAT for convex shapes, and now I've gone on to collision response via bounce and friction. I've read in an old tutorial that to get the velocity along the plane with which the body is intersecting I can say:<br>
+ <pre class="code">Vn = (V dot N) * N;
+ </pre>And the tangential velocity is given by : <br>
+ <pre class="code">Vt = V-Vn;
+ [CODE]
+
+However, this results in some very high bounce sometimes, even though I've set the coefficient of restitution to zero. Any ideas?
+
+P.S - I'm calculating the new velocity by : 
+ [CODE]
+newVel = Vt*(1-friction) + Vn*-bounce;
+ </pre><br>
+Help much appreciated,<br>
+laginimaineb.</div></div>
+<div class="post" id="p408972"><div class="post-head"><a class="id" href="../t/21454.html#p408972">#408972</a> <span class="index">2</span> <span class="date">2008-02-12T22:34:50Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">it looks fine on the surface -- it might have something to do with how you correct overlap. the only other thing i can think of is that N may not be unit-length, which it should be..</div></div>
+<div class="post" id="p409159"><div class="post-head"><a class="id" href="../t/21454.html#p409159">#409159</a> <span class="index">3</span> <span class="date">2008-02-13T19:27:52Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21454.html#p408972">Quote: Raigan, 2008-02-12T22:34:50Z</a></div>the only other thing i can think of is that N may not be unit-length, which it should be..</blockquote><br>
+But, of course, I forgot <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">. Thanks a lot, problem fixed.</div></div>
+<div class="post" id="p409951"><div class="post-head"><a class="id" href="../t/21454.html#p409951">#409951</a> <span class="index">4</span> <span class="date">2008-02-16T17:02:01Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">I have another question about this way of applying friction. In the game I'm working on, when you press an arrow key, the body accelerates in that direction. This means that climbing up slopes is slower than running on a horizontal surface, since you always get pushed in the direction of the normal. Now that I've added friction, climbing a slope is a near impossible feat, while moving on a horizontal surface is fine. If I change the  coefficient of friction to a lower value, a body moving on a horizontal surface will take a <b>lot</b> of time to stop, whilst a body on a slope will move nicely.<br>
+<br>
+To solve this I thought of making the arrow keys accelerate the body in the direction of the slope he's on, but then climbing up slopes isn't that hard, and I'll have to align the player (a rectangle) to the surface he's on, which will require some major refactoring (which is fine by me, if that's the way to go). What do you think?<br>
+<br>
+With thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p410010"><div class="post-head"><a class="id" href="../t/21454.html#p410010">#410010</a> <span class="index">5</span> <span class="date">2008-02-16T22:08:46Z</span> <span class="author"><a href="../u/9371289.html">Mare</a></span></div><div class="post-body">movement in 2D games is still something that there's a lot of room to improve i think -- don't worry about being realistic, just try stuff till it feels fun. for instance, you could cheat and only apply friction if the arrow keys aren't down.. i think we do something like this in N.</div></div>
+<div class="post" id="p410224"><div class="post-head"><a class="id" href="../t/21454.html#p410224">#410224</a> <span class="index">6</span> <span class="date">2008-02-17T20:59:00Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks for your reply. I've tried what you've suggested, and indeed it's starting to look better. However, I'm still curious as to a few things. In N it seems that friction is applied in proportion to the angle of the slope on which the Ninja is standing. Furthermore, when you press the left or right keys, you're moving relative to the slope you're on (or so it seems). Is it so? Is the Ninja really aligned to the surface he's on or is it just a visual trick?<br>
+<br>
+Lots of thanks,<br>
+laginimaineb.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super launchpads - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Super launchpads</nav></header>
+<main>
+<div class="post" id="p2316"><div class="post-head"><a class="id" href="../t/2591.html#p2316">#2316</a> <span class="index">1</span> <span class="date">2005-03-27T01:22:53Z</span> <span class="author">Guest</span></div><div class="post-body">i've seen maps in numa that have "super launch pads"<br>
+that can launch ya' through walls and stuff.<br>
+HOW do you make them?</div></div>
+<div class="post" id="p56339"><div class="post-head"><a class="id" href="../t/2591.html#p56339">#56339</a> <span class="index">2</span> <span class="date">2005-03-27T01:27:01Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><u>A Short Tutorial to Jump-Pad Altering</u><br>
+<br>
+Look at your level code:<br>
+<br>
+<pre class="code">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^228,564!2^372,576,0,-1</pre><br>
+The slew of numbers is the tileset. After the |, comes the objects. The 5^ is the ninja, then his x and y coordinates. The 2^ is the launchpad. It has x and y coordinates, but then two other numbers. These are x and y <i>acceleration</i>. By manually switching these numbers, you can make the jump-pad more powerful.<br>
+<br>
+For example, if you changed that code to the following:<br>
+<br>
+<pre class="code">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^228,564!2^372,576,0,-2</pre><br>
+You would make the jump-pad twice as powerful. Negative numbers move your ninja left and up, positive numbers right and down. For up, don't do anything more than 2, or you're going to launch the ninja right out of the level. Higher numbers, and you're talking teleporters.<br>
+<br>
+If you just want to make an up pad more powerful, but still playable, stick to 1.5. 2 launches you against the ceiling.<br>
+<br>
+<b>EDIT:</b><br>
+<br>
+Actually, 2 launches you into the ceiling so fast you die. 1.5 launches you against the ceiling, but you survive. 1.25 works a bit better, but is still really powerful. Be careful with modified launchpads, they can malfunction if you mess around with them.</div></div>
+<div class="post" id="p56384"><div class="post-head"><a class="id" href="../t/2591.html#p56384">#56384</a> <span class="index">3</span> <span class="date">2005-03-27T05:05:30Z</span> <span class="author">Guest</span></div><div class="post-body">*Cough*<br>
+<br>
+<a href="../t/931.html">I'm a link!</a></div></div>
+</main>
+</body>
+</html>

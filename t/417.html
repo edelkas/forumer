@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New ideas for N - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; New ideas for N</nav></header>
+<main>
+<div class="post" id="p349"><div class="post-head"><a class="id" href="../t/417.html#p349">#349</a> <span class="index">1</span> <span class="date">2004-06-24T04:42:27Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">I have some new ideas for tiles to use in the maps.  I also have an idea for N the hang on edges.  I have two pictures for this.  All the tiles I have and the two shots of N hanging and starting to climb up are in one document.  I think ledge hanging/climbing up onto platforms could be useful for say small halls with a thwump at the end, you hang on the edge, let the thump pass then climb up and go through the hall.  Also if a missle is after you, slide of an edge and turn around and grab on, it goes past you and then you can go back the way you came.  Plus it would look cool.  Also having to do those short wall jumps on one wall just to stay in one spot along a wall is not fun.<br>
+<br>
+The new tiles are basic.  They are mostly just pieces that are at the middle of the tile instead of the edge.  Also the quarter cicle with no middle would be useful for say a cilantro shelter, place for a trigger, or an enemy.  Just some ideas.<br>
+<br>
+-----<br>
+<br>
+shoot, could some one do me a favor and tell me how to attach a picture done on windows paint.  Thanks.  If Raigan or Mare want it I'll email it to them.<br>
+<br>
+thanks.</div></div>
+<div class="post" id="p23874"><div class="post-head"><a class="id" href="../t/417.html#p23874">#23874</a> <span class="index">2</span> <span class="date">2004-06-25T07:11:23Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">Raigan or Mare, is it okay If i just email the pics I have to one of you.  I can't for the life of me figure out how to get a picture posted.</div></div>
+<div class="post" id="p23878"><div class="post-head"><a class="id" href="../t/417.html#p23878">#23878</a> <span class="index">3</span> <span class="date">2004-06-25T11:51:13Z</span> <span class="author"><a href="../u/9370399.html">Rich</a></span></div><div class="post-body">Post your images on  Then use the image tags to link to it.<br>
+<br>
+For example...<br>
+<pre class="code">[IMG]http://www.mywebsite.com/mypicture.gif[/IMG]</pre></div></div>
+<div class="post" id="p23884"><div class="post-head"><a class="id" href="../t/417.html#p23884">#23884</a> <span class="index">4</span> <span class="date">2004-06-25T17:19:31Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">Thanks Rich.  I'll do that right now. *waits for confermation email*<br>
+<br>
+---edit---<br>
+<br>
+Ok I have it Its small though, so you might have to inlarge it (I made it the same size as real pieces)</div></div>
+<div class="post" id="p23885"><div class="post-head"><a class="id" href="../t/417.html#p23885">#23885</a> <span class="index">5</span> <span class="date">2004-06-25T17:25:23Z</span> <span class="author"><a href="../u/9370446.html">dybbuk</a></span></div><div class="post-body">very cool ideas, maximo!  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p23886"><div class="post-head"><a class="id" href="../t/417.html#p23886">#23886</a> <span class="index">6</span> <span class="date">2004-06-25T17:32:29Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+well.. this is going to be hard to explain.<br>
+<br>
+the first problem is that most of the shapes you're suggesting amount to doubling the resolution of the grid -- i.e the 1/4-size shapes you want are equivalent to using the current set of tiles, but shrinking the grid size.<br>
+<br>
+this can't happen, since the smaller the grid, the more tiles, the more vectors to draw, the slower things go. right now the grid is ~20x25 tiles (i think), which is 500 tiles. each tile is ~4 "curves" which the renderer needs to draw, which means 2000 curves. right now it manages this without too much of a slowdown, BUT if you add lots of objects, this increases the number of curves -- and at some point the renderer can't handle it. we haven't managed to find this point exactly, but there's definitely a cutoff where the performance suddenly drops.<br>
+<br>
+now, imagine we used a smaller grid; this would be 40x50 tiles, which is 2000 tiles. which would mean 8000 curves.. too slow <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+the idea is a good one -- we've both wished that we had 1/4-size tiles since it would allow many more possibilities. but as it is, N barely runs fast enough. this is a case of: we'd implement it if it were possible, but the flashplayer just can't handle it. during testing we found that even a 30x40 grid was too slow.<br>
+<br>
+<br>
+<br>
+the second problem is that, because of how the engine/collision works, we don't have any way of knowing what is a 'ledge' and what isn't.. this makes the hanging-off-ledges thing impossible. but i agree that it's a really fun idea!<br>
+<br>
+raigan<br>
+p.s - don't despair -- having learnt from making N, our next engine will definitely support more types of interaction with the world, such as hanging/etc..<br>
+<br>
+***Marked***</div></div>
+<div class="post" id="p23887"><div class="post-head"><a class="id" href="../t/417.html#p23887">#23887</a> <span class="index">7</span> <span class="date">2004-06-25T17:35:55Z</span> <span class="author"><a href="../u/9370446.html">dybbuk</a></span></div><div class="post-body">cool ragain! hanging! yay!<br>
+<br>
+i think N is fine with the tileset it has, it pushes the limits of our creativity. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p23891"><div class="post-head"><a class="id" href="../t/417.html#p23891">#23891</a> <span class="index">8</span> <span class="date">2004-06-25T21:14:41Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">You wouldn't have to shrink the grid. All of my quarter pieces are for use with the half walls (tile set [5] in ned if im not mistaken).  With those peices, you could have half walls that slope, curve, and twist.  Unless All of the terminology confused me, It wouldnt make a difference if it was a quarter piece.  <br>
+<br>
+Maybe I just don't understand the math involved, I probally don't so ignore my ramblings.  <br>
+<br>
+As for not being able to hang due to the physics.  How about adding a small pice (maybe a hook, poll, etc.) that if N hits he will hang of off, then you could push [up] and he would climb up onto the ledge, you could also press [down]to drop or [jump]+[left/right] to fly off.  YOu could use the same physics for jumping on the jump blocks to magnify the jump off the bar, time it right and you go flying, wrong at you just drop.</div></div>
+</main>
+</body>
+</html>

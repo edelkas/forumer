@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Userlevel file issue - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Userlevel file issue</nav></header>
+<main>
+<div class="post" id="p19125"><div class="post-head"><a class="id" href="../t/21421.html#p19125">#19125</a> <span class="index">1</span> <span class="date">2008-02-09T19:17:29Z</span> <span class="author"><a href="../u/9375141.html">xboxzombie</a></span></div><div class="post-body">I loaded a map into the userlevel.txt file. But when I play the level, one of the thwumps is facing in the wrong direction. But when I check the code in the file itself, nothing has been changed, it is identical to a similar facing thwump (with different coordinates of course.) The level loads correctly in debug mode, but fails to do so when I test in the userlevel menu. I've tried replacing it, but it still loads wrong. Any suggestions? <br>
+(pic below)<br>
+<br>
+<img class="bb-img" src="../files/images/4101.jpg" alt="" loading="lazy"></div></div>
+<div class="post" id="p408190"><div class="post-head"><a class="id" href="../t/21421.html#p408190">#408190</a> <span class="index">2</span> <span class="date">2008-02-09T19:34:44Z</span> <span class="author"><a href="../u/9370994.html">Ngaged</a></span></div><div class="post-body">Could you post the level data here so some of us can check on it too?  Not that we don't believe you or anything.   <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+The only thing I can think of is that you didn't insert the level in the right format or something.  Check again to make sure it's in this format:<br>
+$title#author#type#level data#<br>
+<br>
+Otherwise, post the data here so some of us can experiment with it.   <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p408192"><div class="post-head"><a class="id" href="../t/21421.html#p408192">#408192</a> <span class="index">3</span> <span class="date">2008-02-09T19:40:21Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body">You should post the map data here so we can take a look at it and see what we can do.<br>
+That level looks pretty fun. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p408463"><div class="post-head"><a class="id" href="../t/21421.html#p408463">#408463</a> <span class="index">4</span> <span class="date">2008-02-10T19:29:51Z</span> <span class="author"><a href="../u/9375141.html">xboxzombie</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21421.html#p408190">Quote: Ngaged, February 09, 2008 11:34 am</a></div>Could you post the level data here so some of us can check on it too?  Not that we don't believe you or anything.   <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+The only thing I can think of is that you didn't insert the level in the right format or something.  Check again to make sure it's in this format:<br>
+$title#author#type#level data#<br>
+<br>
+Otherwise, post the data here so some of us can experiment with it.   <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></blockquote>Sorry, here it is. <br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-2-1202671791.txt</div></div></div>
+<div class="post" id="p408472"><div class="post-head"><a class="id" href="../t/21421.html#p408472">#408472</a> <span class="index">5</span> <span class="date">2008-02-10T20:14:11Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">No problems from here. You probably added a character at the end, NaN-ing the thump's direction.<br>
+<br>
+EDIT: You did that. The NaN thing. If it's anything other than a 3, then it was NaN'ed and faced down.</div></div>
+<div class="post" id="p408489"><div class="post-head"><a class="id" href="../t/21421.html#p408489">#408489</a> <span class="index">6</span> <span class="date">2008-02-10T21:11:29Z</span> <span class="author"><a href="../u/9375141.html">xboxzombie</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21421.html#p408472">Quote: beginner2, February 10, 2008 12:14 pm</a></div> No problems from here. You probably added a character at the end, NaN-ing the thump's direction.<br>
+<br>
+EDIT: You did that. The NaN thing. If it's anything other than a 3, then it was NaN'ed and faced down. </blockquote>Ok, that worked. Thanks.<br>
+<br>
+Edit: Is somebody going to close this?</div></div>
+<div class="post" id="p408655"><div class="post-head"><a class="id" href="../t/21421.html#p408655">#408655</a> <span class="index">7</span> <span class="date">2008-02-11T07:56:15Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21421.html#p408489">Quote: xboxzombie, February 11, 2008 08:11 am</a></div> Edit: Is somebody going to close this?  </blockquote> <br>
+ Me.</div></div>
+</main>
+</body>
+</html>

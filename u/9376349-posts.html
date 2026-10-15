@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by paperflyer - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9376349.html">paperflyer</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p451425"><div class="post-head"><a class="id" href="../t/23060.html#p451425">#451425</a> <span class="index">97</span> <span class="date">2008-07-07T16:23:24Z</span> <span class="author"><a href="../u/9376349.html">paperflyer</a></span></div><div class="post-body">Hi, I am new here.<br>
+<br>
+I have used Windows all my life, until I stopped using it in favor of Linux (~8 years). I was happy with that until I discovered OSX (~2 years). Now, I used OSX for about half a year. Also, I have considerable programming experience, so I do have some insight knowledge in the inner workings of all three OSes.<br>
+<br>
+Obviously, I prefer OSX over (in this order) Ubuntu Linux, Vista, other Linux, XP, the rest. Since this is largely a matter of prefernce, I will not comment on the WHY. However, let's consider the technical side:<br>
+<br>
+The largest drawback of Windows is its backward compatibility. While it is great to have, it limits the technological progress of the platform considerably. Both the Win32-API and GDI essentially are very old technologies that really cause a lot of trouble. This is not saying that backward compatibility is a bad thing per se, but every few years it sould be time to move on. Now this is a difficult thing to do if you simultaneously have to support millions of legacy applications, but still it is even more futile to instead stop moving forward.<br>
+Of course, MS DID move on and provided new technologies and libraries but as it turns out, the number of developers not using newer code is just unbearable. (This is what UAC is all about: annoy users in order to persuade *developers* to for once respect user rights!) Also, as GDI is old and crappy, it lead to an enormous diversity of built-on-top UI widgets, which in effect make every application look and work suptly different. This actually is the greatest critiscism on the Windows GUI: As everything looks and works different, there just is no way to make a standard-conformant application.<br>
+However, Vista really and vastly improved on many of those aspects. Let's hope that Windows 7 will continue to bring fresh ideas and more conformity to the Windows platform.<br>
+<br>
+On the contrary, OSX is well known to make really huge changes in its design without neccesarily breaking the OS. This happened with the switch from PPC to Intel, from Carbon to Cocoa (soon), from 32 Bit to 64 Bit, from BIOS to EFI, with the inclusion of the OSS kernel and some other stuff. This makes the platform VERY interesting to developers, as it is filled with really interesting, cutting edge technology. However, it of course limits backward compatibility to roundabout 5 years. This really is the price you pay as a developer.<br>
+As far as user experience is concerned, Apple has VERY strong human Human Interface Guidelines that are both followed by users and developers which makes the whole Mac experience very consistent and -mostly- easy.<br>
+On the other hand, you are really stuck if "The Mac Way" just doesn't work for you. In that case, customizability is very hard to come by, as it -while not technically difficult- simply is not desired by either the userbase or the developers.<br>
+The next release of OSX, Snow Leopard, will feature some really increadible new technologies (OpenCL, ZFS, just to name two) that many a developer will be craving to use. <br>
+<br>
+Now lets consider Linux: Linux is a largely community-written effort to create an operating system. While this approach really only limits the possibilites by the developers' imaginations, it also creates a whole lot of redundant work and plain "noise", which somewhat blurres the very neat platform. Technology-wise there are lots of really cutting-edge sections of the source code that even go a lot farther than OSX in some places. However, at the same time there are many (boring) parts of Linux that really are even more outmoded than the W32-API. Somewhere in between lies the true nature of Linux.<br>
+As for the UI, there are two major schools of GUI-design, KDE (Qt) and Gnome (Gtk), both of which try to make their respective applications work consistently and simple. In the last few years, tremendous efforts were taken to accomplish a "desktop-readiness" similar to Windows XP or OSX. Again, there are places where this really works, while others still look like stone age. We see a pattern emerge.<br>
+For developers, Linux is very interesting, but sadly has only very limited economic possibilities, which probably hinders a larger adoption as a mainstream platform. However, this has never been the goal of Linux, so this is probably not a problem.<br>
+<br>
+I tried not to say too much about the actual user experience, as it is really a matter of preference. But take my word, it is quite possible to be productive on either platform.<br>
+Just one little warning: It takes time to unlearn and relearn how to operate your computer. You really can not comment on the user experience of an OS if you did not use it consistently for more than, say, three months. <br>
+<br>
+At any rate, have a nice life!</div></div>
+<div class="post" id="p451462"><div class="post-head"><a class="id" href="../t/23060.html#p451462">#451462</a> <span class="index">99</span> <span class="date">2008-07-07T19:46:56Z</span> <span class="author"><a href="../u/9376349.html">paperflyer</a></span></div><div class="post-body">Lets get strait what I meant:<br>
+<br>
+Windows' model for backward compatibility is that even though they keep to develop their toolkits, they still keep all the older functions for legacy reasons. So while the library does get more modern, all the older, less good code is still in. (Of course it still gets deprecated at some point, but it is kept alive rather long). That way, the W32 API got as big and ugly as it is: There are many functions that provide similar functionality, they all use differnet calling conventions, code styles and notations. This is confusing, to say the least.<br>
+However, it still means that Windows is actually BETTER at providing backward compatibility than its competitors.<br>
+<br>
+We can see such a transition in OSX at the moment, though in a much cleaner way: For years, OSX used a library called Carbon to draw windows. Then, they invented this rather more modern, MVC-powered, more sleek and just plain better replacement called Cocoa, that used more modern paradigms and thus was dubbed The New Way to draw windows.<br>
+But instead of integrating this thing in the old libraries, they started a fresh sheat but maintained both possibilities to ease the transition. With the next iteration of OSX, development for Carbon will be limited to bugfixes and there will be no 64-Bit version of it. That way, every Carbon-based application will definitly stop working at some point, but developers have plenty of time to port their GUIs from Carbon to Cocoa.<br>
+<br>
+Now, there are advantages for both ways. Kind of like the difference between evolution and revolution. However, the Apple way avoids an awful lot of cruft and provides a much cleaner cut.<br>
+<br>
+As for the deepness of cuts, OSX was a complete new OS. It was a complete new codebase, based on the Next-kernel. This is about as deep a cut as it gets. Such a thing essentially never happened anywhere anytime at all. Since then, Apple has been known to have lost fear of grand revolutions, while the rest of the software world rather relies on evolution instead.</div></div>
+<div class="post" id="p451475"><div class="post-head"><a class="id" href="../t/23060.html#p451475">#451475</a> <span class="index">100</span> <span class="date">2008-07-07T20:22:17Z</span> <span class="author"><a href="../u/9376349.html">paperflyer</a></span></div><div class="post-body">Another thing about interface guidelines:<br>
+Obviously, these guidelines are there to streamline the platform as a whole in order to make learning new applications as painless as possible. However, these guidelines really only are guides, not rules.<br>
+<br>
+The OS itself provides some widgets, such as scroll bars, buttons, radio buttons, pulldown menus, listboxes, textboxes, windows, dialogues, checkboxes, menubars, progress bars and error handlers. The net number of widgets known to man is pretty limited, however. These widgets of course all share the same design patterns, so they look consistent to the selected UI-style.<br>
+<br>
+Now Windows provides a large host of slightly-different-looking sets of menubars, buttons etc. but each and every one of them sort of does the same thing, only looks and feels slightly different. Just compare the menu bars from Office 2003 to Office 2000, Media Player (none), Internet Explorer (dropdown-thingy), Office 2007 (THE RIBBON), Wordpad Vista, Explorer XP and Explorer in the "Win95-legacy-Mode" to see what I mean. They ALL look and work differently. In OSX, they all look the same, which is a virtue.<br>
+This of course is not limited to menu bars, but also follows in button ordering, animation timings, widget sizes, keyboard shortcuts, windows behaviour and so forth. You can clearly see the problem here: If everything works and looks exactly the same, the user has to learn them one time and one time only. If everything is subtly different, the cognitive overhead is just far bigger.<br>
+<br>
+This really is not about interface diversity: What you do with your widgets is still up to you. It is just that the *same* widgets always look and work the same.<br>
+<br>
+What is different on the Mac however, is this: A program that does not conform with the Guidelines is seen as ugly. It is not only rejected morally by Apple because of nonconformancy, but also from the users because of ugliness -- unless of course the new style actually brings a benefit (delicious library is such an example). However, this really is seldomly the case.<br>
+That is the real reason why Mac software always looks so consistent and easy, and windows software looks so ugly and weird to Mac people.<br>
+<br>
+One thing really bugs me: Look at <a href="http://blogs.msdn.com/jensenh/archive/2008/03/12/the-story-of-the-ribbon.aspx">this presentation</a> (It is totally amazing! Really worth watching!). If they would put a similar amount of effort in the UI of the whole of Windows, all Mac people and Linux freaks could plain go home and a new golden age of computation would begin.<br>
+Why, why, why don't they do that? They obviously know how to!</div></div>
+</main>
+</body>
+</html>

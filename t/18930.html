@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial A - triangles problem - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Tutorial A - triangles problem</nav></header>
+<main>
+<div class="post" id="p16757"><div class="post-head"><a class="id" href="../t/18930.html#p16757">#16757</a> <span class="index">1</span> <span class="date">2007-08-15T19:27:31Z</span> <span class="author"><a href="../u/9374927.html">zerlo</a></span></div><div class="post-body">Hello. I am trying to write collision detection using SAT. I'm doing everything according to tutorial A. It works fine for axis-aligned shapes, but when it comes to triangles there are problems. I have no idea what is wrong so i will write how i do it. <br>
+<br>
+Pseudo code for people who like it better than plain text:<br>
+<br>
+1)Create 2 polygons and set its vertices.<br>
+<br>
+<pre class="code">CPolygon Poly1( 4 );
+CPolygon Poly2( 3 ); //4, 3 - vertices quantity 
+
+Poly1.SetVertex( 0, 100, 200 ); // 0 - vertex no., x, y
+...
+...
+...
+1---2
+|   |
+4---3</pre><br>
+2)Calculate axis which can separate polygons.<br>
+<pre class="code">Edge.x = vertex2.x - vertex1.x;
+Edge.y = vertex2.y - vertex1.y;
+Edge.normalize();
+
+Axis.x = -Edge.y;
+Axis.y = Edge.x;</pre>Repeat it for every edge and poly.<br>
+<br>
+3)Project vertices on axis.<br>
+<pre class="code">dp = axis.x * vertex[0].x + axis.y * vertex[0].y;
+if ( dp &gt; max )
+{
+ max = dp;
+ maxX = dp * vertex[0].x;
+ maxY = dp * vertex[0].y;
+}
+else if ( dp &lt; min )
+{
+ min = dp;
+ minX = dp * vertex[0].x;
+ minY = dp * vertex[0].y;
+}
+
+//save results for final check</pre>Repeat it for every axis and poly.<br>
+<br>
+4)Check if overlap. <br>
+<pre class="code">//final check
+cx1= ( minX1 + maxX2 ) / 2; //calculate centre of interval for poly1
+cy1 = ( minY1 + maxY2 ) / 2; //calculate centre of interval for poly1
+cx2 = ( minX2 + maxX2 ) / 2; //calculate centre of interval for poly2
+cy2 = ( minY2 + maxY2 ) / 2; //calculate centre of interval for poly2
+hlen1 = √( ( maxX2 - cx1 ) * ( maxX1 - cx1 ) + ( maxY1 - cy1 ) * ( maxY1 - cy1 )  )  //calculate half width for poly1
+hlen2 =  √( ( maxX2 - cx2 ) * ( maxX2 - cx2 ) + ( maxY2 - cy2 ) * ( maxY2 - cy2 )  )  //calculate half width for poly2
+
+if ( hlen1 + hlen2 &lt; √(  ( cx2 - cx1 ) * ( cx2 - cx1  ) + ( cy2 - cy1  ) * ( cy2 - cy1  )  )
+//overlap on axis</pre>Repeat it for every axis. <br>
+  <br>
+Any ideas? It's strange: working only for axis-aligned. Maybe it's because of projection.... <br>
+<br>
+Thanks in advance. <br>
+Sorry for my English. I hope it's possible to understand me.  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>multisample - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; multisample</nav></header>
+<main>
+<div class="post" id="p3109"><div class="post-head"><a class="id" href="../t/3443.html#p3109">#3109</a> <span class="index">1</span> <span class="date">2005-05-31T18:38:26Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">Hi, i'm back. After a lot of tests i've reached good results in making a ragdoll but i've noticed that collisions are not always perfect.<br>
+<br>
+In tutorial A, you talk about "multisample" but it's not very clear (for me)... unfortunately I googled something but I didn't find anything interesting (maybe I'm not searching right)... so I wish to have some info about it and maybe a bit of as. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Thanks.</div></div>
+<div class="post" id="p71316"><div class="post-head"><a class="id" href="../t/3443.html#p71316">#71316</a> <span class="index">2</span> <span class="date">2005-05-31T20:58:51Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OK... basicly collision multisampling is used when small objects move too fast. So first of all you need to know how fast your objects could ever move <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">. But you (probably) already know that <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">.<br>
+What you need to do is:<br>
+<br>
+1. For each step, check if the current particle moves faster than a certain limit.<br>
+2. If it does, you divide the big step into smaller ones and calculate where the object would be after each smaller step.<br>
+3. check if there is a collision for the new position of the object.<br>
+<br>
+Without this, if the object moves too fast, it might miss a collision, or in other words, it might just step "over" another object and carry on.<br>
+The problem with multisampling is, that you have to limit the number of smaller steps. So technically if an object moves fast enough no time-unexpensive algorithm can "save" it. But if you make some adjustments (like max-speed limits), you wouldn't have such a problem. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I can't give you any AS cuz I haven't really tried to write such a thing. I have thought of multisampling before, but never used it. You might want to ask Raigan about code if you're too lazy <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">. He should have some code (duh, he's used it in n <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> )<br>
+<br>
+Hope I've helped <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+TS</div></div>
+<div class="post" id="p71458"><div class="post-head"><a class="id" href="../t/3443.html#p71458">#71458</a> <span class="index">3</span> <span class="date">2005-06-01T11:43:45Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">Yes, you helped <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I can't figure out the step 2 (and this is the reason for me to ask some code).<br>
+<br>
+I know the speed, and the maxspeed. So if the speed &gt; maxspeed I should, for example, set speed = speed/2 and check again?<br>
+<br>
+Thanks again.</div></div>
+<div class="post" id="p71532"><div class="post-head"><a class="id" href="../t/3443.html#p71532">#71532</a> <span class="index">4</span> <span class="date">2005-06-01T20:13:08Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">No, that's not the way.<br>
+If you do it like that, after it collides it be twice as slower.<br>
+<br>
+OK, you have the variables:<br>
+<br>
+numdiv -&gt; the number of smaller steps<br>
+i -&gt; obvios<br>
+v -&gt; the object's position (Vector2)<br>
+v2 -&gt; the object's possible position (Vector2)<br>
+step -&gt; the velocity vector (Vector2)<br>
+sstep -&gt; the smaller velocity vector <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> (Vector2)<br>
+( <img class="smiley" src="../files/smilies/38.gif" alt=":!:" title=":!:"> please read through the code and the explanation after it <img class="smiley" src="../files/smilies/38.gif" alt=":!:" title=":!:"> it's not complete, and if you just put it in there without looking at it you'll learn nothing <img class="smiley" src="../files/smilies/38.gif" alt=":!:" title=":!:"> )<br>
+<br>
+<pre class="code">var numdiv = 4;
+var i;
+var v = new Vector2(20, 20); // for example
+var v2 = new Vector2();
+var maxspeed = 10;
+var step = new Vector2 (10, 10); // for example...
+var sstep = new Vector2(0, 0);
+if (step.len () &gt; maxspeed) {
+ sstep.x = step.x / numdiv;
+ sstep.y = step.y / numdiv;
+ v2 = v;
+ for (i = 0; i &lt; numdiv; i ++) {
+  v2.x += sstep.x;
+  v2.y += sstep.y;
+  // here you do collision-check for object at position v2,
+  // that means you check as if the object was at position v2
+  // I'm doing a trace on where the object will be
+  trace (v2.x + ", " + v2.y);
+ }
+}</pre>Now, let me explain what exactly I am doing here. First I declare all the variables (duh). I'm using the Metanet Vector2 object <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">.<br>
+After that, you check if the speed is too big. 10 * 10 + 10 * 10 = 200. Square root of 200 is approx. 14.14 (14.142135623731 to be exact <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> ) &gt; 10 so it enters the if.<br>
+Then you calculate the multisampling step. Since the big step is (10, 10) and numdiv is 4, so the smaller step is (2.5, 2.5).<br>
+Then it enters the for loop. For every i from 0 to 3 inclusive, it calculates the position and checks for collision.<br>
+<img class="smiley" src="../files/smilies/38.gif" alt=":!:" title=":!:"> When/If you find a collision be sure to break out of the main for loop <img class="smiley" src="../files/smilies/38.gif" alt=":!:" title=":!:">.<br>
+<br>
+I'm giving you a file. It's for Flash MX 2004. If you have an older one, tell me so I can convert it.<br>
+<br>
+Now, there's no way I couldn't have helped, so:<br>
+<br>
+Glad to have helped <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1117656788.fla</div></div></div>
+<div class="post" id="p71697"><div class="post-head"><a class="id" href="../t/3443.html#p71697">#71697</a> <span class="index">5</span> <span class="date">2005-06-02T08:48:21Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">Very very very thanks. Now it's clear. I don't know how i could make it without your help <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Thanks again for the help.<br>
+<br>
+(P.S. the link is broken but I can keep on by myself)</div></div>
+<div class="post" id="p71800"><div class="post-head"><a class="id" href="../t/3443.html#p71800">#71800</a> <span class="index">6</span> <span class="date">2005-06-02T19:11:03Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hey, I should be thanking you! Without you asking questions, this forum (Programming Tutorials) isn't fun at all!<br>
+Anyway, if you have that particle stuff ready, would you please give me a fla <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> ? Cuz I seem to be having problems with the relaxation  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . Prolly some stupid bug I'm not aware of. <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> <br>
+<br>
+And, hey, if you need more help, just ask <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p72042"><div class="post-head"><a class="id" href="../t/3443.html#p72042">#72042</a> <span class="index">7</span> <span class="date">2005-06-03T20:16:34Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">this is what i reached by now (I mean what works ... <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> ).<br>
+<br>
+When i'll got some time I hope to improve the system.<br>
+<br>
+bye<br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-14-1117829794.fla</div></div></div>
+<div class="post" id="p211308"><div class="post-head"><a class="id" href="../t/3443.html#p211308">#211308</a> <span class="index">8</span> <span class="date">2006-08-04T11:05:35Z</span> <span class="author"><a href="../u/9372873.html">johbar</a></span></div><div class="post-body">Hi,<br>
+<br>
+this method fails if two or more fast moving objects collide each other, or?</div></div>
+<div class="post" id="p211351"><div class="post-head"><a class="id" href="../t/3443.html#p211351">#211351</a> <span class="index">9</span> <span class="date">2006-08-04T15:06:07Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">You resurrected this topic by over an year, but I don't really care. Answer to your question: Yes, it definitely would fail. The only reason this method was used in N is simply the fact that the only fast moving object is the ninja <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . Sorry, but you'll have to find a better method to do it for two or more. If, by any chance, you are talking about circles, I can give you this site, which was posted in another thread: <a href="http://tonypa.pri.ee/vectors/start.html">http://tonypa.pri.ee/vectors/start.html</a> . I kinda found it pretty useful, I think it might help you too.<br>
+<br>
+EDIT: changed the link to the site home page.<br>
+<br>
+TS</div></div>
+<div class="post" id="p211661"><div class="post-head"><a class="id" href="../t/3443.html#p211661">#211661</a> <span class="index">10</span> <span class="date">2006-08-05T03:14:33Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">"real-time collision detection" by christer ericson is an amazing resource for this sort of thing..</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saving in Flash - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Saving in Flash</nav></header>
+<main>
+<div class="post" id="p9301"><div class="post-head"><a class="id" href="../t/10348.html#p9301">#9301</a> <span class="index">1</span> <span class="date">2006-06-07T04:04:53Z</span> <span class="author"><a href="../u/9370839.html">dhNINJA</a></span></div><div class="post-body">Ok Guys, Hopefully SOMEONE can answer this<br>
+<br>
+Ive been making flash games for the psp<br>
+and once i started to make things that require saivng now and then<br>
+i found out that the cookies dont save...<br>
+<br>
+so i ask thee, the developer comunity of metanet<br>
+<br>
+HOW DO YOU SAVE TO A FILE IN FLASH?!?!?!?<br>
+(i know how to read from .txt's just not save)<br>
+<br>
+thanks<br>
+~your fellow ninja</div></div>
+<div class="post" id="p194272"><div class="post-head"><a class="id" href="../t/10348.html#p194272">#194272</a> <span class="index">2</span> <span class="date">2006-06-25T12:11:37Z</span> <span class="author"><a href="../u/9372474.html">deathcloud33</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10348.html#p9301">Quote: dhNINJA, June 07, 2006 04:04 am</a></div> Ok Guys, Hopefully SOMEONE can answer this<br>
+<br>
+Ive been making flash games for the psp<br>
+and once i started to make things that require saivng now and then<br>
+i found out that the cookies dont save...<br>
+<br>
+so i ask thee, the developer comunity of metanet<br>
+<br>
+HOW DO YOU SAVE TO A FILE IN FLASH?!?!?!?<br>
+(i know how to read from .txt's just not save)<br>
+<br>
+thanks<br>
+~your fellow ninja  </blockquote> <br>
+ Off topic: hehe, minisigs hit another forum I go to a while ago. Funny fad.<br>
+<br>
+On topic: Shared Objects. (stored as a .sol file, written in xml format(I think))<br>
+I don't know how to use them myself, but I think I have once before. there is a tutorial on <a href="http://actionscript.org">here</a> and documentation on <a href="http://www.adobe.com/support/flash/action_scripts/local_shared_object/">here</a>.</div></div>
+<div class="post" id="p295387"><div class="post-head"><a class="id" href="../t/10348.html#p295387">#295387</a> <span class="index">3</span> <span class="date">2007-02-09T09:12:03Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Shared objects are quite simple, you can access them like variables from your code.<br>
+<br>
+var mysharedobject = SharedObject.getLocal("yourgamename");<br>
+mysharedobject.data.foo = "bar";<br>
+<br>
+The variable 'foo' now has the string 'bar' saved in your application data on the hard drive. To load it, just access it from:<br>
+<br>
+mysharedobject.data.foo<br>
+<br>
+Assuming you still have mysharedobject defined... (ie, if you defined it locally and then try to access it from another object).<br>
+<br>
+If the file is non-existant, it will return undefined so you should check for that.<br>
+<br>
+As far as it goes with text files, I don't think flash is capable of saving to files not under the control of the flash player because this would be a huge security risk.<br>
+<br>
+PS: How do you open .txt files from flash player, I have looked all over google and couldn't find how to do it?</div></div>
+<div class="post" id="p306367"><div class="post-head"><a class="id" href="../t/10348.html#p306367">#306367</a> <span class="index">4</span> <span class="date">2007-03-19T20:21:47Z</span> <span class="author"><a href="../u/9374145.html">RedShift</a></span></div><div class="post-body">Lazylump basically covered it, but there were a few things they left out.<br>
+<br>
+<br>
+You can define a new SharedObject to recall data that was saved by a SharedObject of a different name, as long as the variable being accessed is the same.<br>
+<br>
+So basically, as long as these variables are declared correctly both this:<br>
+<br>
+<i>mygame.data.foo</i><br>
+<br>
+and this<br>
+<br>
+<i>yourgame.data.foo</i><br>
+<br>
+<br>
+access the stored variable "foo"</div></div>
+</main>
+</body>
+</html>

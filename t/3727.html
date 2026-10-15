@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sine alternative - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Sine alternative</nav></header>
+<main>
+<div class="post" id="p3378"><div class="post-head"><a class="id" href="../t/3727.html#p3378">#3378</a> <span class="index">1</span> <span class="date">2005-06-19T06:32:05Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hello all,<br>
+<br>
+What would be the vector equivalent equation of the sine function?<br>
+<br>
+I have an interval that always calculate the sine.  I guess the question is, would it be more efficient to just stick with sine function rather than create more lines of code to get the equivalent value of the sine?<br>
+<br>
+Regards,<br>
+Bobo</div></div>
+<div class="post" id="p76495"><div class="post-head"><a class="id" href="../t/3727.html#p76495">#76495</a> <span class="index">2</span> <span class="date">2005-06-19T16:54:36Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I can't help ya about the sine function, the only thing I know is that using functions is slower than... not using functions <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p76528"><div class="post-head"><a class="id" href="../t/3727.html#p76528">#76528</a> <span class="index">3</span> <span class="date">2005-06-19T19:50:17Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">the vector equivalent? I'm not sure what you mean, but if you get the y component and divide by the vector magnitude you get the sine. Remember Pythagoras?<br>
+If you want the sine to be even faster use a lookup table. an array with the sine values of integer values. Of course you won't have very good precision if you angle is in between integer values but maybe you can interpolate?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p76676"><div class="post-head"><a class="id" href="../t/3727.html#p76676">#76676</a> <span class="index">4</span> <span class="date">2005-06-20T14:45:48Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Well, technically using a lookup table would work, but then it wouldn't be accurate enough. Why do you need a sine function? Anywho, one or two sin() calls won't do much harm.... I think <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p76688"><div class="post-head"><a class="id" href="../t/3727.html#p76688">#76688</a> <span class="index">5</span> <span class="date">2005-06-20T15:56:39Z</span> <span class="author">Guest</span></div><div class="post-body">when we mention that most trig can be replaced by vectors, we mean things like representing directions -- you can store a direction as an angle, and use sin and cos to get a unit vector, or you can store the unit vector directly..<br>
+<br>
+you might need to explain what you're using sin for a bit more.. but these days maybe sin isn't all that slow?<br>
+<br>
+raigan</div></div>
+<div class="post" id="p79035"><div class="post-head"><a class="id" href="../t/3727.html#p79035">#79035</a> <span class="index">6</span> <span class="date">2005-06-27T21:31:54Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hello all,<br>
+<br>
+Well I'm basically modifying Macromedia's Tween class because I believe that it contained a lot of things that were completely unnecessary.<br>
+<br>
+I have successfully created my own version of it, but I wanted to optimize it a little bit more.  For those that don't know which class I'm talking about it is located here:<br>
+<br>
+mx.effects.Tween.as<br>
+<br>
+Within that class there is a public method at the very bottom that allows you to set the easing.  By default it's set to sine.<br>
+<pre class="code">	// defaults to sin
+function easingEquation(t,b,c,d)
+{
+      return c/2 * ( Math.sin( Math.PI * (t/d-0.5) ) + 1 ) + b;
+}</pre>That method is called under an interval and expires within a specific time set by the user or at 3000 milliseconds by default.<br>
+<br>
+This is a what the arguments stand for:<br>
+t = current time<br>
+b = starting value<br>
+c = ending value minus starting value<br>
+d = duration.<br>
+<br>
+I've already replaced <b>Math.PI</b> with my own pre-calculated value, but I really want to replace the sine function if possible.<br>
+<br>
+I guess I'm curious to see if that can be optimized.  It seems possible since sine accepts an angle as an argument, but then again it might just be extra codings.  That code does look nice and easy to read; returned value contained in one line, but in this situation, I can opt for more lines if it can be optimized.<br>
+<br>
+According to my $55.00 gaming book which I have stowed away until I stumbled into this site,<br>
+<blockquote class="quote"><div class="quote-head">Quote: From my expensive $55.00 Flash gaming book</div>Because trigonometry is costly in terms of CPU usage, simplifying the math with vectors can not only make the code easier to write, but it can speed it up as well.  When we do need to use trigonometry, we can still use vectors.</blockquote>That's really my motivation in replacing trig with vectors.  Or at least try to replace most of the trig where appropriate.</div></div>
+<div class="post" id="p79184"><div class="post-head"><a class="id" href="../t/3727.html#p79184">#79184</a> <span class="index">7</span> <span class="date">2005-06-28T10:50:29Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">So...<br>
+As I said before, using just one or two sin calls isn't that much of a big deal. Also, if you want to use vectors, don't forget that you will have to write a Vector object for that. And that'll be quite useless, assuming you'll use it for just one call. Also, implementing the vector stuff will be quite time-consuming(relatively, at least).<br>
+And, finally, use the built in Math.PI. It's more accurate and it doesn't make the movie slower. If you really don't want to use Math.PI(mainly because of the damn, annoyng "Math." part <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> ), then use some variable instead of it:<br>
+<br>
+pi = Math.PI;<br>
+<br>
+That's all folks...<br>
+<br>
+TS</div></div>
+<div class="post" id="p80092"><div class="post-head"><a class="id" href="../t/3727.html#p80092">#80092</a> <span class="index">8</span> <span class="date">2005-06-30T21:16:40Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hehe, I wish the reason was because I was lazy in typing in the "Math" part.  It was actually because Macromedia doesn't seem to calculate PI past this value<br>
+<br>
+3.14159265358979<br>
+<br>
+So I figured it was pointless calling a function just to get that value.<br>
+<br>
+<br>
+I do agree that one or two sine function is okay, unfortunately my prior code sample is called from a 10 millisecond interval with updateAfterEvent() called everytime.  With a duration of 3000 millisecond and with an interval rate of 10 millisecond, refreshing the stage everytime that calls a function that contains a sine function, I do believe that this is costly in terms of CPU usage.<br>
+<br>
+Regards,<br>
+Someone named Bobo</div></div>
+<div class="post" id="p80119"><div class="post-head"><a class="id" href="../t/3727.html#p80119">#80119</a> <span class="index">9</span> <span class="date">2005-06-30T22:56:45Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">Math.Pi is a member variable, not a function, so it's no slower than having a local variable or constant. Pi is only specified to that precision,  because that's the limit of precision for the floating point numbers used.<br>
+<br>
+Calling sin() 100 times a second isn't exactly going to stress anything. You'd need to be calling it far more often than that for it to be much of an issue.</div></div>
+</main>
+</body>
+</html>

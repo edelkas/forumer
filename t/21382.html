@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help with Writing a Flash Game Engine - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Help with Writing a Flash Game Engine</nav></header>
+<main>
+<div class="post" id="p19088"><div class="post-head"><a class="id" href="../t/21382.html#p19088">#19088</a> <span class="index">1</span> <span class="date">2008-02-06T22:00:43Z</span> <span class="author"><a href="../u/9375692.html">TrueSword</a></span></div><div class="post-body">Hey Guys,<br>
+<br>
+I'm relearning flash after a long reprieve from working on it.  I been having trouble getting back into the gist of things.  I'd like a little bit of assistance with relearning it and writing an engine I wrote for flash a long time ago.  About a half year ago I was working with a borrowed copy of flash and I stumbled across something called a node garden.  Here the introductory page to the concept: <br>
+<br>
+<a href="http://www.levitated.net/bones/theNode/index.html">Node Gardens</a><br>
+<br>
+Using this concept I once implemented a crude game engine that allow a huge series of interactions between different nodes.  Originally a crude version of the main loop was implemented in this manner:<br>
+<br>
+// nodez is an array of nodes<br>
+<br>
+// Interact loop<br>
+for(int a = 0; a &lt; nodez.length() - 1; a++)<br>
+<br>
+  for(int b = a + 1; b &lt;nodez.length(); b++)<br>
+<br>
+    interact(nodez[a], nodez[b]);<br>
+<br>
+// Update loop<br>
+<br>
+for(int i = 0; i &lt; nodez.length(); i++)<br>
+<br>
+  update(nodez[a]);<br>
+<br>
+Eventually it was written to allow objects to be created and destroyed real time.  In fact most attacks in my engine were represented as short lived nodes.  Note that this is incredibly inefficient.<br>
+<br>
+The new idea for how I want to implement the engine is based of the concept of event handlers.  What I want to do is create a special type of event handler designed to handle the main loop of the game.  The handler handles two types of objects: nodes and data.  Nodes require two functions: interact and update.<br>
+<br>
+Interact takes in data and checks to see if it is important.  If it is, the node stores the data otherwise it throws it away.  Then when the update function is called the node checks any data it saved to see if it modifies its new state then it resends itself to the event handler (or not if the node has died).  New nodes are created when needed during this phase as well.<br>
+<br>
+Example Engine<br>
+<br>
+class Engine {<br>
+Node[] nodez;<br>
+Data[] datum;<br>
+<br>
+public void getNode(Node e) {<br>
+  nodez.add(e);<br>
+  for(int i = 0; i &lt; datum.length(); i++)<br>
+    e.interact(datum[i]);<br>
+}<br>
+public void getData(Data e) {<br>
+  datum.add(e);<br>
+  for(int i = 0; i &lt; nodez.length(); i++)<br>
+    nodez[i].interact(e);<br>
+}<br>
+public void update() {<br>
+  Node[] e = nodez;<br>
+  datum.clear();<br>
+  nodez = new Node[];<br>
+<br>
+  for(int i = 0; i &lt; e.length(); i++)<br>
+    e[i].update();<br>
+<br>
+  e.clear();<br>
+}<br>
+}<br>
+<br>
+Alright that is alot of code but I hope you get the idea.  My goal with the new engine is to separate data from the nodes so the I can more efficiently transfer information to who ever needs it.  Yes it does force everyone to process the data but if they don't need the information they'll just discard it.  The engine is designed for games which have a large amount of unique interactions.<br>
+<br>
+OK... I better stop I'm going way too fast for myself and I need to slow down.  Please post your comments, compliments, confusions and "What were you smoking!?!" comments so that I know I got someone's attention.  I need someone to help me focus my ideas and get me back to making games once again.  I'm way out of practice and need to start grinding my teeth on making video games again (not to mention that right now I'm using a 30 day trial edition of Flash <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> ) .  Any comments??</div></div>
+<div class="post" id="p407676"><div class="post-head"><a class="id" href="../t/21382.html#p407676">#407676</a> <span class="index">2</span> <span class="date">2008-02-07T10:47:21Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I should really learn AS3...<br>
+<br>
+well, you said you wanted comments, and even though i dont have anything particularly enlightening to say;<br>
+<br>
+im not sure i completely understand the point. are you using the concept of nodes as a basis for a fighting game (you mentioned attacks), or are you making some innovative new game that revolves around a garden of nodes evolving and stuff like some trippy version of spore?<br>
+<br>
+If you are using nodes as a new way of processing data and events for a normal game, then that's an interesting concept, and one that would allow for far more complex interaction between elements of the game.<br>
+<br>
+either way, i'd be very interested to see the way this project goes. I'd be happy to attempt to help with any problems you may have as far as programming logic and ideas go, but i may be below your level of expertise on this area. I definitely can't help you with actual implementation as I still haven't moved to AS3. Anyway, welcome to the forums.</div></div>
+<div class="post" id="p407683"><div class="post-head"><a class="id" href="../t/21382.html#p407683">#407683</a> <span class="index">3</span> <span class="date">2008-02-07T12:44:59Z</span> <span class="author"><a href="../u/9375692.html">TrueSword</a></span></div><div class="post-body">Hi mattk210,<br>
+<br>
+Thanks for welcoming me and that important question.<br>
+<br>
+I want to use Node Gardens as a new way of processing data and events for a game.  The way I want this particular version of the engine to work is based off the concept of event handling.  The original idea was that all in game objects and data are represented by "events".  Each time the game updates all game "event" objects are allowed to process any data they have received and act upon by any or all of the following:<br>
+<br>
+1.) Resend itself to the "event" handler<br>
+2.) Send new data to the "event" handler<br>
+3.) Create a new "event" object and send it to the "event" handler<br>
+<br>
+Something important about this system is that in-game objects must resend themselves to the event handler if they wish to live from loop to loop in-game.  Another important point the only way for objects to know about each other is to send "event" packets recording information about themselves.  This lets you create nodes that just go from loop to loop silently listening to the data stream.  Coding easter eggs has never been easier.  And finally creating objects is simply initiating a new object and sending it to the "event" handler.<br>
+<br>
+Cool idea, huh...</div></div>
+<div class="post" id="p417722"><div class="post-head"><a class="id" href="../t/21382.html#p417722">#417722</a> <span class="index">4</span> <span class="date">2008-03-17T04:20:18Z</span> <span class="author"><a href="../u/9375939.html">NCrafter</a></span></div><div class="post-body">Cool. I need to learn AS3 as well... I know AS2 a little but... Must stay with the ages  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+This will be interesting to mess around with...</div></div>
+</main>
+</body>
+</html>

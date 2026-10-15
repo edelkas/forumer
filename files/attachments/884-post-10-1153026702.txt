@@ -1,0 +1,82 @@
+Kavu Sensei's External Ned code breaker:
+
+The N-Editor tile system is actually very simple, the code reads tiles from top to bottom and uses these various codes:
+
+1.
+
+A:	4
+S:	5
+W:	2
+Q:	3
+
+2.
+
+A:	H
+S:	I
+W:	F
+Q:	G
+
+3.
+
+A:	@
+S:	A
+W:	>
+Q:	?
+
+4.
+
+A:	8
+S:	9
+W:	6
+Q:	7
+
+5.
+
+A:	N
+S:	O
+W:	P
+Q:	Q
+
+6.
+
+A:	L
+S:	M
+W:	J
+Q:	K
+
+7.
+
+A:	D
+S:	E
+W:	B
+Q:	C
+
+8.
+
+A:	<
+S:	-
+W:	:
+Q:	;
+
+E:	1
+D:	0
+
+you may also use these:
+
+[ENTER] or [SPACE] makes fake tiles (not a good idea if submitting to NUMA)
+
+*any lowercase letter* makes "glitch tiles" which do different things depending on *WHICH TILE WAS THERE BEFORE IT* remember that because it may help you
+
+*a note* the ninja shoots in the direction of the EMPTY space in the tile before the glitch tile
+
+EXAMPLE: if you wanted to shoot the ninja RIGHT you would use either the 1, or2 [W] tile (6 and 7 tiles if N is on a HALF tile area) and find where the tile is in the data then REPLACE the tile with a glitch tile and you have your N Cannon.
+
+Map
+
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000Z00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^276,492
+
+These are the basics for the Ned tile system, if I missed anything please P.M. me at the Metanet Forums and have a good day.
+
+Class dismissed!
+
+-Kavukamari-

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a question - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; a question</nav></header>
+<main>
+<div class="post" id="p7544"><div class="post-head"><a class="id" href="../t/8399.html#p7544">#7544</a> <span class="index">1</span> <span class="date">2006-03-21T05:03:12Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">anyone know how to make that fps speedometer in the corner of n?<br>
+<br>
+thanks in advance</div></div>
+<div class="post" id="p156402"><div class="post-head"><a class="id" href="../t/8399.html#p156402">#156402</a> <span class="index">2</span> <span class="date">2006-03-21T10:54:03Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">That's not FPS. It is milliseconds per frame.  I think a function in Flash may retreive FPS numbers.</div></div>
+<div class="post" id="p156419"><div class="post-head"><a class="id" href="../t/8399.html#p156419">#156419</a> <span class="index">3</span> <span class="date">2006-03-21T11:40:22Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Frames Per Second.<br>
+<br>
+MSPF.<br>
+<br>
+Is it really the latter?</div></div>
+<div class="post" id="p156643"><div class="post-head"><a class="id" href="../t/8399.html#p156643">#156643</a> <span class="index">4</span> <span class="date">2006-03-22T05:43:13Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">well, a mspf thing would be great too...</div></div>
+<div class="post" id="p156653"><div class="post-head"><a class="id" href="../t/8399.html#p156653">#156653</a> <span class="index">5</span> <span class="date">2006-03-22T08:01:08Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">It's really easy.<br>
+Each frame, you take the getTimer() and subtract the getTimer() from the previous frame. That's how you calculate how much MS it took to draw a frame. That's all there is to it. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS</div></div>
+<div class="post" id="p156716"><div class="post-head"><a class="id" href="../t/8399.html#p156716">#156716</a> <span class="index">6</span> <span class="date">2006-03-22T15:26:50Z</span> <span class="author"><a href="../u/9370444.html">Lucidium</a></span></div><div class="post-body">Something like this:<br>
+<br>
+<pre class="code">var oldTime:Number = 0;
+var newTime:Number;
+var frameTime:Number;
+var fps:Number;
+
+this.createTextField("fps_txt", this.getNextHighestDepth(), 100, 300, 100, 20);
+
+onEnterFrame = function () {
+  oldTime = newTime;                     // the time from the previous frame.
+  newTime = getTimer();                 // newTime is set to the current time.
+  frameTime = newTime-oldTime;    // the time the last frame took in milliseconds.
+  fps = 1000 / frameTime;               // the frames per second.
+  fps_txt.text = fps;
+}</pre></div></div>
+<div class="post" id="p156770"><div class="post-head"><a class="id" href="../t/8399.html#p156770">#156770</a> <span class="index">7</span> <span class="date">2006-03-22T21:00:56Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Uhh.. yeah, what Lucidium said. I was just avoiding actually typing code. It tends to be programming-language-specific.<br>
+<br>
+TS</div></div>
+<div class="post" id="p157164"><div class="post-head"><a class="id" href="../t/8399.html#p157164">#157164</a> <span class="index">8</span> <span class="date">2006-03-23T21:38:43Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks a lot, i was using flash, so thats great.</div></div>
+</main>
+</body>
+</html>

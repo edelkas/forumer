@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Position Based Dynamics - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Position Based Dynamics</nav></header>
+<main>
+<div class="post" id="p16437"><div class="post-head"><a class="id" href="../t/18603.html#p16437">#16437</a> <span class="index">1</span> <span class="date">2007-07-28T13:45:23Z</span> <span class="author"><a href="../u/9374829.html">Sebioff</a></span></div><div class="post-body">I'm not quite sure this is the right board or forum, but I've got a question regarding the lastest entry on the Blog and hope someone could help me... <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+So, I found the <a href="http://www.matthiasmueller.info/publications/posBasedDyn.pdf">Position Based Dynamics Paper</a> through the Blog, and since it looks really promising I tried implementing it.<br>
+<br>
+Now, I think I understood most of the content until page 5, and the implementation works nice:<br>
+<a href="http://www.rakuun.de/Stuff/PBD/applet.html">Demo</a> (Java Applet, JRE 1.6 required)<br>
+<br>
+Now I'm really stuck at 3.4.: Collision Detection and Response (page 5).<br>
+What I have is a bunch of Vertex and Constraint-Objects.<br>
+As in line 8 of the algorithm I've got a loop which checks each Vertex against each Constraint. The entry point qc and the surface normal nc are calculated<br>
+(One question here: since I'm working in 2D the "surface normal at this [entry] point" (as it is formulated in the paper) is nothing more than the orthogonal vector to the Constraint which has the same length as the constraint and starts at the entry point, right?).<br>
+<br>
+For the correction delta_p I need the derivative of the constraint function which is C(p) = (p-qc) * nc for the collision constraints, resulting in a derivative of nc (is that correct?).<br>
+In the end I've got delta_p = -((p-qc) * nc) / |nc|<br>
+This doesn't seem to be correct (shouldn't I get a vector?) and it's not working.<br>
+<br>
+I can't find the mistake, can someone help me?</div></div>
+<div class="post" id="p348346"><div class="post-head"><a class="id" href="../t/18603.html#p348346">#348346</a> <span class="index">2</span> <span class="date">2007-07-28T18:07:53Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">You're correct that the cross product in 3D becomes the "perp" operator in 2D. I think your problem is the calculation of the partial derivatives -- you have to take the derivative of the constraint function w.r.t _each_ particle involved.<br>
+<br>
+So, if you have the particles p1,p2 which form the "stick" you're colliding against, and the particle p that's colliding against the stick, your constraint function is: <br>
+<br>
+C(p,p1,p2) = Dot((p - p1), Perp(p2 - p1)/||p2-p1||)<br>
+<br>
+I suck at vector calculus so I just expand everything to scalars:<br>
+C(px,py, p1x,p1y, p2x,p2y) = ( (px - p1x)*-(p2y-p1y) + (py - p1y)*(p2x - p1x) ) / √((p2x-p1x)**** + (p2y-p1y)****)<br>
+<br>
+to make things easier to read, let len = √((p2x-p1x)**** + (p2y-p1y)****)<br>
+<br>
+dC/dpx = -(p2y - p1y) / len<br>
+dC/dpy = (p2x - p1y) / len<br>
+<br>
+so, dC/dp is your nc. <br>
+However, the gradients for the other two particles involved aren't so simple.. for instance:<br>
+<br>
+dC/dp1x = (p2y-p1y)/len + (p2x - p1x)*( (px - p1x)*-(p2y-p1y) + (py - p1y)*(p2x - p1x) )/(len*len*len)<br>
+dC/dp1y = etc..<br>
+<br>
+<br>
+this is quite messy, sticking to vectors would certainly make it nicer, but I never end up with the correct gradients when I try. We've actually been using <a href="http://www.google.ca/url?sa=t&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fwww.livemath.com%2F&amp;ei=AYWrRtT_GqCmoAT-wsCKBg&amp;usg=AFQjCNGdRQNXPkMnTVQrdEzOSi1QyCfdRQ&amp;sig2=fs53cB68GPAOPdfUsRZSwg">LiveMath!</a> to automatically calculate the gradients for us since it's so easy to make a mistake. <br>
+<br>
+Calculating the gradients is definitely the hardest part of this method.. even with LiveMath it's easy to make mistakes since the formulas tend to be horribly long and complicated.<br>
+<br>
+I'd offer you the gradients, however since we're using a somewhat weird/different approach to things than the paper presents, we don't actually have the gradients for your case calculated. The above dC/dp1x took a good 15min to get right <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Hope this helps -- i think the main mistake you made was that you need a gradient vector per particle, i.e you need dC/dp, dC/dp1, dC/dp2.. <br>
+raigan</div></div>
+<div class="post" id="p360383"><div class="post-head"><a class="id" href="../t/18603.html#p360383">#360383</a> <span class="index">3</span> <span class="date">2007-08-28T19:35:33Z</span> <span class="author"><a href="../u/9374986.html">oztune</a></span></div><div class="post-body">I implemented jakobsen's tetrahedron method, but I'm not sure how that would work with a single line<br>
+<br>
+I've been searching everywhere for the thesis that was mentioned on the blog post<br>
+<br>
+This is what I know about the paper:<br>
+<br>
+It's called "Physically based simulation and visualization - A particle based approach"<br>
+<br>
+Written by Jeroen Michiel Wagenaar<br>
+2001 phd thesis at The Mrsk Mc-Kinney Mller Institute.<br>
+<br>
+But I can't find it anywhere...Any ideas?</div></div>
+</main>
+</body>
+</html>

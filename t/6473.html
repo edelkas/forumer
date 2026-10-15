@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floor guard issue - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Floor guard issue</nav></header>
+<main>
+<div class="post" id="p5909"><div class="post-head"><a class="id" href="../t/6473.html#p5909">#5909</a> <span class="index">1</span> <span class="date">2005-12-27T08:44:25Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">Does anyone know a way to fix this? <br>
+<br>
+Load my level data from the attached file below and place N in the middle of the two floor guards. They should both fly at him and stop when they hit the edge of the tile. The Guard on the right continues, across the gap and through the tile on the other side. <br>
+<br>
+Usually this is caused by placing the guard half inside a full tile space (like touchinging a 2 or a 5 tile), but that's not the case here. <br>
+<br>
+I'm probably overlooking the stupidly obvious. <div class="attachment attachment-missing">Attachment (lost): post-11-1135673065.txt</div></div></div>
+<div class="post" id="p127254"><div class="post-head"><a class="id" href="../t/6473.html#p127254">#127254</a> <span class="index">2</span> <span class="date">2005-12-27T08:56:39Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Don't place them on the one-ways.</div></div>
+<div class="post" id="p127256"><div class="post-head"><a class="id" href="../t/6473.html#p127256">#127256</a> <span class="index">3</span> <span class="date">2005-12-27T09:02:07Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">I've done this before and it works fine. You can also do it with automatic doors. Maybe because they're diametrically opposed?<br>
+<br>
+EDIT: See the level data attached below. It seems that you it works when tiggered from the right, but not from the left. Anyone know a way around this?  <div class="attachment attachment-missing">Attachment (lost): post-11-1135674643.txt</div></div></div>
+<div class="post" id="p127262"><div class="post-head"><a class="id" href="../t/6473.html#p127262">#127262</a> <span class="index">4</span> <span class="date">2005-12-27T10:28:02Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Floor guards don't recognize one-ways, so putting them like that is just like putting them on open air. That's an odd bug though, where it's fine going right but not left.<br>
+<br>
+Normal doors on top of the one-ways would fix it, if you don't mind the way it looks.</div></div>
+<div class="post" id="p127264"><div class="post-head"><a class="id" href="../t/6473.html#p127264">#127264</a> <span class="index">5</span> <span class="date">2005-12-27T11:01:10Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">Unless I'm doing it wrong, that doesn't seem to work. Have you actually tried it yourself or is that theory?</div></div>
+<div class="post" id="p127289"><div class="post-head"><a class="id" href="../t/6473.html#p127289">#127289</a> <span class="index">6</span> <span class="date">2005-12-27T12:24:14Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">It works for me. <div class="attachment attachment-missing">Attachment (lost): post-11-1135686254.txt</div></div></div>
+<div class="post" id="p127565"><div class="post-head"><a class="id" href="../t/6473.html#p127565">#127565</a> <span class="index">7</span> <span class="date">2005-12-28T07:23:50Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">Hmm, I had no idea about this.  They work goin' right, but not left...muy interesante, seor...</div></div>
+<div class="post" id="p128284"><div class="post-head"><a class="id" href="../t/6473.html#p128284">#128284</a> <span class="index">8</span> <span class="date">2005-12-30T07:43:41Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6473.html#p127264">Quote: pariah, Dec 27 2005, 03:01 AM</a></div> Unless I'm doing it wrong, that doesn't seem to work. Have you actually tried it yourself or is that theory?  </blockquote> <br>
+ Oh! I forgot. The normal doors have to be placed before the floorguards, so you'll have to delete the floorguards and place them again after the doors are down. Sorry.</div></div>
+</main>
+</body>
+</html>

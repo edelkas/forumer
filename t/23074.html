@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Need help submitting a map - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Need help submitting a map</nav></header>
+<main>
+<div class="post" id="p20694"><div class="post-head"><a class="id" href="../t/23074.html#p20694">#20694</a> <span class="index">1</span> <span class="date">2008-07-03T08:56:54Z</span> <span class="author"><a href="../u/9376339.html">The_Pirate_King</a></span></div><div class="post-body">Ok, I know I'm a n00b, and I apologize in advance.<br>
+I have just finished making a new map, and every time I go to submit it on NUMA, it keeps giving me the error "Map data must contain at least one '|' "<br>
+And I've looked through the data, And there is a | in it.<br>
+So I don't understand what the problem is... Help please?</div></div>
+<div class="post" id="p450438"><div class="post-head"><a class="id" href="../t/23074.html#p450438">#450438</a> <span class="index">2</span> <span class="date">2008-07-03T12:40:15Z</span> <span class="author"><a href="../u/9374730.html">gloomp</a></span></div><div class="post-body">NUMA only excepts maps raw, not in userlevels ($MAPNAME#AUTHOR#TYPE#MAPDATA#) format. I don't know why it gives that error message.</div></div>
+<div class="post" id="p450474"><div class="post-head"><a class="id" href="../t/23074.html#p450474">#450474</a> <span class="index">3</span> <span class="date">2008-07-03T15:20:16Z</span> <span class="author"><a href="../u/9374453.html">heatwave</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23074.html#p450438">Quote: gloomp, July 03, 2008 12:40 pm</a></div>NUMA only excepts maps raw, not in userlevels ($MAPNAME#AUTHOR#TYPE#MAPDATA#) format.</blockquote>Which is confusing because when you copy/paste level data from NUMA into the Neditor, there's more than just the raw data. Gloomp is right though. When you create a map in the Neditor, the only thing you need to paste into the box on the submission page is the code that appears in the upper box from the neditor. Nothing else. If you take that code and paste it into a word document or something, This is what you should see:<br>
+<br>
+<span style="color:RED">11A0000000001LGK111NA0&gt;MG00G000000021111114</span><span style="color:ORANGE"><b>|</b></span><span style="color:BLUE">5^234,300!7^228,324,3!9^198,300,1,0,10,13,1,0,-1!9^276,300,0,1,10,12,0,0,0</span><br>
+<br>
+<b>Note:</b> This is an extremely abbreviated version of the code for a map.<br>
+<br>
+The code in <span style="color:RED">red</span> represents the tileset of the map. if you copy/paste only that portion of the code into the Neditor, you would only get the tileset. No objects. All of the tileset data must appear before the | character.<br>
+<br>
+The vertical separator in <span style="color:ORANGE">orange</span> is the | character that you're having trouble with. Make sure that there is only one of these throughout the data.<br>
+<br>
+The code in <span style="color:BLUE">blue</span> represents the objects you've placed in your level. If you have a ninja in your level, the first number after the | will be a 5. All object data must appear after the | character.<br>
+<br>
+Hope that helps!</div></div>
+<div class="post" id="p450476"><div class="post-head"><a class="id" href="../t/23074.html#p450476">#450476</a> <span class="index">4</span> <span class="date">2008-07-03T15:24:48Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">If heatwave's great advice doesn't help, then maybe post the data up on here so that we could have a look to see what is going wrong.</div></div>
+<div class="post" id="p450543"><div class="post-head"><a class="id" href="../t/23074.html#p450543">#450543</a> <span class="index">5</span> <span class="date">2008-07-03T19:53:52Z</span> <span class="author"><a href="../u/9376339.html">The_Pirate_King</a></span></div><div class="post-body">Omg! Thank you so much guys. I was submitting in the userlevels format. That was the problem.<br>
+I appreciate your help!<br>
+Thanks again!<br>
+ <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

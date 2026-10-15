@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NReality Mod Help Thread - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; NReality Mod Help Thread</nav></header>
+<main>
+<div class="post" id="p20943"><div class="post-head"><a class="id" href="../t/23328.html#p20943">#20943</a> <span class="index">1</span> <span class="date">2008-07-30T13:46:44Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">NReality mods can be very difficult to understand sometimes, which is why this thread exists.  Be it a bounceblock or any other mod, the people here can help!<br>
+<br>
+Example: How do you make bounceblocks deadly to the touch?<br>
+<br>
+Answer: Here is just one of many ways.   Add this to the end of your mapdata!<br>
+<br>
+<pre class="code">||||4,mass,10</pre><br>
+If all else fails, please check out the <a href="http://n.wikia.com/wiki/List_of_NReality_Mods">N wikia on NReality mods</a> that player_03 has graciously given us!<br>
+<br>
+Post.</div></div>
+<div class="post" id="p456146"><div class="post-head"><a class="id" href="../t/23328.html#p456146">#456146</a> <span class="index">2</span> <span class="date">2008-07-30T13:50:35Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body">Wait. Since when can we mod objects in the dronemod section?<br>
+<br>
+I've missed a lot over vacation, apparently. Looking through the threads here, I missed 12 updates to NReality.<br>
+<br>
+EDIT: Oh right, my question. I'm trying to make a level where the player walljumps normally, but if he jumps from the ground, he'll die or shoot off the screen. What kind of code would I use for that?</div></div>
+<div class="post" id="p456155"><div class="post-head"><a class="id" href="../t/23328.html#p456155">#456155</a> <span class="index">3</span> <span class="date">2008-07-30T14:11:45Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">I tried every combo I could think of, nothing.  I just didn't see any way to make the ninja jump while next to the wall and not when far fromt eh wall.  I had no problems making the ninja not jump, nor getting the wall slide corecct, btut ogether nothing doing.  One more idea i can think of is to equal the<br>
+<br>
+jump_y_bias and the jump_x_bias while making the gravity after the first jump really high, but I dunno, thats just a theory.</div></div>
+<div class="post" id="p457842"><div class="post-head"><a class="id" href="../t/23328.html#p457842">#457842</a> <span class="index">4</span> <span class="date">2008-08-03T12:04:49Z</span> <span class="author"><a href="../u/9375220.html">_destiny^-</a></span></div><div class="post-body">Can i have a quick tutorial on the text mod please?<br>
+<br>
+<a href="http://nmaps.net/132946">http://nmaps.net/132946</a> &lt;-- unrealitys map<br>
+<br>
+i don't properly understand how to implement this, but i would love too.<br>
+<br>
+bearing in mind i have never used NReality code before, can i have a quick guide?</div></div>
+<div class="post" id="p457929"><div class="post-head"><a class="id" href="../t/23328.html#p457929">#457929</a> <span class="index">5</span> <span class="date">2008-08-03T20:22:52Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">Everything you need is on the Map description<br>
+<br>
+<pre class="code">Text Drone : 6^x,y,Path,1,201,direction^textArray,x_offset,y_offset,align,border,textColor,backgroundColor,fontSize,font,bold,italic,underline 
+
+Apart from textArray, all other paramters are optional 
+
+textArray: escaped text characters joined by ":" 
+align: 0=left, 1=center, 2=right 
+border: 0= no border, 1=has border 
+textColor &amp; backgroundColor: from 000000 to FFFFFF 
+font: _sans, _serif, _typewriter , if you put other fonts, other players may not able to see it 
+bold,italic,underline : 0 or 1 
+
+specialOn Trigger: Display next text in array 
+SpecialOff Trigger: Hiding the text 
+
+escape your text: 
+http://n.infunity.com/swf/escape.swf </pre></div></div>
+<div class="post" id="p457974"><div class="post-head"><a class="id" href="../t/23328.html#p457974">#457974</a> <span class="index">6</span> <span class="date">2008-08-03T23:44:00Z</span> <span class="author"><a href="../u/9375220.html">_destiny^-</a></span></div><div class="post-body">i've seen that, but it's... confusing. How do you change what it says?</div></div>
+<div class="post" id="p457981"><div class="post-head"><a class="id" href="../t/23328.html#p457981">#457981</a> <span class="index">7</span> <span class="date">2008-08-04T00:01:09Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p457974">Quote: _destiny^-, August 03, 2008 11:44 pm</a></div> i've seen that, but it's... confusing. How do you change what it says? </blockquote>Okay, I've never used it before, but I'll try to decipher it for you.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p457929">Quote: kkstrong0, 2008-08-03T20:22:52Z</a></div>Text Drone : 6^x,y,Path,1,201,direction^textArray,x_offset,y_offset,align,border,textColor,backgroundColor,fontSi<br>
+ze,font,bold,italic,underline<br>
+<br>
+Apart from textArray, all other parameters are optional<br>
+<br>
+textArray: escaped text characters joined by ":"<br>
+align: 0=left, 1=center, 2=right<br>
+border: 0= no border, 1=has border<br>
+textColor &amp; backgroundColor: from 000000 to FFFFFF<br>
+font: _sans, _serif, _typewriter , if you put other fonts, other players may not able to see it<br>
+bold,italic,underline : 0 or 1<br>
+<br>
+specialOn Trigger: Display next text in array<br>
+SpecialOff Trigger: Hiding the text<br>
+<br>
+escape your text:<br>
+<a href="http://n.infunity.com/swf/escape.swf">http://n.infunity.com/swf/escape.swf</a></blockquote><br>
+All right then...as far as I can tell, x, y, Path, and direction are redundant, as it just follows you.<br>
+<br>
+Text array, as far as I can tell, is an array of string to use when triggered, separated by a colon. For example:<br>
+<br>
+I like milk:No wait, I'm lactose intolerant<br>
+<br>
+HOWEVER! That uses spaces and punctuation and such. That's not accepted. Instead, paste each clause into the escape.swf Nreality posted to convert it into URL-ese.<br>
+<br>
+The correct code for that would be I%20like%20milk:No%20wait%2C%20I%27m%20lactose%20intolerant%0D<br>
+<br>
+That above string would only show "I like milk" until triggered otherwise, I think.<br>
+<br>
+Align seems pretty self explanatory, in reference to the object you're aligning it to.<br>
+<br>
+Border also seems clear, it's a simple boolean, 0 = false, 1 = true.<br>
+<br>
+Textcolor &amp; Backgroundcolor also seem simple, it's just a hex RGB value for either one. 000000 would be black, FFFFFF would be white, FF0000 would be red, etc.<br>
+<br>
+Font: Choose from the three, I think. Might be more than that and he provided examples, but you should probably just stick with the default if it can cause problems as mentioned.<br>
+<br>
+bold, italic, underline, are more simple booleans. Put a 1 in the correct spot to get the effect.<br>
+<br>
+SpecialOn/SpecialOff, see his other map which implements these functions.<br>
+<br>
+<br>
+<br>
+I'm probably wrong about some things, and left out other things. Anyone want to help me out?</div></div>
+<div class="post" id="p457984"><div class="post-head"><a class="id" href="../t/23328.html#p457984">#457984</a> <span class="index">8</span> <span class="date">2008-08-04T00:05:04Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">Text Drone : 6^x,y,Path,1,201,direction^textArray,x_offset,y_offset,align,border,textColor,backgroundColor,fontSi<br>
+ze,font,bold,italic,underline<br>
+<br>
+6^276,564,2,0,201,0^I%20have%20been%20mute%20all%20these%20years:But%20now%20I%20can%20talk%21:BAHAHAHAHAHAHA,,-40,0,1,FF0000,FFFFFF^,,,1,2^,9,0,20<br>
+<br>
+x = 276<br>
+y = 564<br>
+direction = 0<br>
+textArray = I%20have%20been%20mute%20all%20these%20years:But%20now%20I%20can%20talk%21:BAHAHAHAHAHAHA<br>
+x_offset = 0<br>
+y_offset = -40<br>
+align = 0<br>
+border = 1<br>
+textColor = FF0000<br>
+backround = FFFFFF<br>
+fontSize = n/a<br>
+font = n/a<br>
+bold = n/a<br>
+italic = n/a<br>
+underline = n/a</div></div>
+<div class="post" id="p458115"><div class="post-head"><a class="id" href="../t/23328.html#p458115">#458115</a> <span class="index">9</span> <span class="date">2008-08-04T10:51:55Z</span> <span class="author"><a href="../u/9375220.html">_destiny^-</a></span></div><div class="post-body">so... can you not make it say more than two things? Could you have more than one special trigger to trigger different texts?</div></div>
+<div class="post" id="p458167"><div class="post-head"><a class="id" href="../t/23328.html#p458167">#458167</a> <span class="index">10</span> <span class="date">2008-08-04T15:52:56Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458115">Quote: _destiny^-, August 04, 2008 10:51 am</a></div> so... can you not make it say more than two things? Could you have more than one special trigger to trigger different texts?  </blockquote> <br>
+ Of course you can make it say more than two things. Just add in more colons.</div></div>
+<div class="post" id="p458205"><div class="post-head"><a class="id" href="../t/23328.html#p458205">#458205</a> <span class="index">11</span> <span class="date">2008-08-04T17:52:45Z</span> <span class="author"><a href="../u/9375042.html">DDRave</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458167">Quote: The Kitchen Sink, August 04, 2008 11:52 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458115">Quote: _destiny^-, August 04, 2008 10:51 am</a></div> so... can you not make it say more than two things? Could you have more than one special trigger to trigger different texts? </blockquote>Of course you can make it say more than two things. Just add in more colons.  </blockquote> <br>
+ but you're only supposed to have 1 colon...You'd be an alien if you had more.<br>
+<br>
+<br>
+<br>
+<img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> jk<br>
+<br>
+But I'm wondering if you press the switches in any order, will the text appear in the order that it says, or will it just go with whichever text corresponds with it?</div></div>
+<div class="post" id="p458252"><div class="post-head"><a class="id" href="../t/23328.html#p458252">#458252</a> <span class="index">12</span> <span class="date">2008-08-04T20:57:35Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458205">Quote: DDRave, August 04, 2008 01:52 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458167">Quote: The Kitchen Sink, August 04, 2008 11:52 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458115">Quote: _destiny^-, August 04, 2008 10:51 am</a></div> so... can you not make it say more than two things? Could you have more than one special trigger to trigger different texts? </blockquote>Of course you can make it say more than two things. Just add in more colons. </blockquote>but you're only supposed to have 1 colon...You'd be an alien if you had more.<br>
+<br>
+<br>
+<br>
+<img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> jk<br>
+<br>
+But I'm wondering if you press the switches in any order, will the text appear in the order that it says, or will it just go with whichever text corresponds with it? </blockquote><br>
+It will always appear in the order that is specified in the textDrone's code.<br>
+<br>
+O_o  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> I was playing NReality map #133787 when...<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-62-1217888596.txt</div></div></div>
+<div class="post" id="p458287"><div class="post-head"><a class="id" href="../t/23328.html#p458287">#458287</a> <span class="index">13</span> <span class="date">2008-08-04T22:13:40Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">EDIT: sorry for double post. A mod can delete this post as I've edited my message into my previous post.</div></div>
+<div class="post" id="p458526"><div class="post-head"><a class="id" href="../t/23328.html#p458526">#458526</a> <span class="index">14</span> <span class="date">2008-08-05T17:43:28Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Okay, now I need help. <br>
+<br>
+I'm using a slightly bigger rocky drone using the Chase AI...but I can't seem to change its speed. I've changed the drone's speed, the Chase AI speed, and the Rocky Drone in general speed, yet none of it seems to do anything.<br>
+<br>
+The code for the drone is currently 6^396,564,9,0,121,3^^^9,0,1<br>
+<br>
+You'd think that I could make it 6^396,564,9,0,121,3^^^9,0,2 or something and it would be faster. Nothing works.<br>
+<br>
+Help please?</div></div>
+<div class="post" id="p458542"><div class="post-head"><a class="id" href="../t/23328.html#p458542">#458542</a> <span class="index">15</span> <span class="date">2008-08-05T19:40:14Z</span> <span class="author"><a href="../u/9376205.html">~Chad</a></span></div><div class="post-body">||||2,ChaingunRate,24;2,R,100;2,chaingunPrefireDelay,0;2,chaingunPostfireDelay,0;jumpgrav,-0.10;max_jump_time,infinity;#<br>
+<br>
+the playermods aren't working, could someone please tell me what's wrong?</div></div>
+<div class="post" id="p458544"><div class="post-head"><a class="id" href="../t/23328.html#p458544">#458544</a> <span class="index">16</span> <span class="date">2008-08-05T19:47:04Z</span> <span class="author"><a href="../u/9374810.html">incluye</a></span></div><div class="post-body">||||2,ChaingunRate,24;2,R,100;2,chaingunPrefireDelay,0;2,chaingunPostfireDelay,0|jumpgrav,-0.10;max_jump_time,infinity;#<br>
+<br>
+A | separates foreground image, background image, map type, objectmods, and playermods.</div></div>
+<div class="post" id="p458550"><div class="post-head"><a class="id" href="../t/23328.html#p458550">#458550</a> <span class="index">17</span> <span class="date">2008-08-05T20:08:12Z</span> <span class="author"><a href="../u/9376205.html">~Chad</a></span></div><div class="post-body">thanks  a lot!!!<br>
+I can't believe I oversaw that, <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p458625"><div class="post-head"><a class="id" href="../t/23328.html#p458625">#458625</a> <span class="index">18</span> <span class="date">2008-08-06T01:00:59Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Also, I found out what was wrong. Adding another comma fixed it. I don't know what parameter was missing; Unreality's definition leaves it out, yet his code for the map that introduces Chase AI adds an extra comma.<br>
+<br>
+This is what it was before: <br>
+<br>
+<pre class="code">6^396,564,9,0,121,3^^,1,2^9,3,2</pre><br>
+This is the correct code:<br>
+<br>
+<pre class="code">6^396,564,9,0,121,3^^,1,2^,9,3,2</pre><br>
+Note the extra comma after the fourth ^.<br>
+<br>
+Care to explain, Unreality?</div></div>
+<div class="post" id="p458627"><div class="post-head"><a class="id" href="../t/23328.html#p458627">#458627</a> <span class="index">19</span> <span class="date">2008-08-06T01:04:06Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Since Path AI 6, the format after the fourth ^ is<br>
+<br>
+customPath,pathID,direction,speed<br>
+<br>
+like<br>
+<br>
+LLRR,6,0,1<br>
+<br>
+cahse AI 9 doesn't need custompath, so it will be<br>
+<br>
+,9,0,1</div></div>
+<div class="post" id="p458794"><div class="post-head"><a class="id" href="../t/23328.html#p458794">#458794</a> <span class="index">20</span> <span class="date">2008-08-06T20:04:06Z</span> <span class="author"><a href="../u/9376054.html">handofgod0</a></span></div><div class="post-body">I NEED HELP!!<br>
+<br>
+okay, when i submit a map on NUMA it takes away the attributes i set to a drone.  For example, when i want to make a greedy drone faster, i put in the code:<br>
+<br>
+6^x,y,#,#,121,#****.3(speed), 10(chase speed)<br>
+<br>
+but when i load it in debug mode so i can submit the data to NUMA it takes the attributes away and im left with the default!<br>
+HELP meeeeeeeee!<br>
+<br>
+oh and unreality, i think i found a bug.  I set the "chase_speed" of a greedy drone to 10 and it ran off the screen!  Thoughts?</div></div>
+<div class="post" id="p458801"><div class="post-head"><a class="id" href="../t/23328.html#p458801">#458801</a> <span class="index">21</span> <span class="date">2008-08-06T20:20:19Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458794">Quote: handofgod0, August 06, 2008 04:04 pm</a></div> I NEED HELP!!<br>
+<br>
+okay, when i submit a map on NUMA it takes away the attributes i set to a drone.  For example, when i want to make a greedy drone faster, i put in the code:<br>
+<br>
+6^x,y,#,#,121,#****.3(speed), 10(chase speed)<br>
+<br>
+but when i load it in debug mode so i can submit the data to NUMA it takes the attributes away and im left with the default!<br>
+HELP meeeeeeeee!<br>
+<br>
+oh and unreality, i think i found a bug.  I set the "chase_speed" of a greedy drone to 10 and it ran off the screen!  Thoughts?  </blockquote> <br>
+ You don't have to load it into debug mode to submit to NUMA.<br>
+@ the bug: I discovered it already with seeker drones: <a href="http://nmaps.net/128281">http://nmaps.net/128281</a></div></div>
+<div class="post" id="p458841"><div class="post-head"><a class="id" href="../t/23328.html#p458841">#458841</a> <span class="index">22</span> <span class="date">2008-08-06T22:09:42Z</span> <span class="author"><a href="../u/9376054.html">handofgod0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458801">Quote: bhz, August 06, 2008 08:20 pm</a></div> You don't have to load it into debug mode to submit to NUMA.<br>
+@ the bug: I discovered it already with seeker drones: <a href="http://nmaps.net/128281">http://nmaps.net/128281</a>  </blockquote> <br>
+ and if it says "needs at least 1 |"?<br>
+<span style="color:WHITE">im sorry im so stupid.</span></div></div>
+<div class="post" id="p458904"><div class="post-head"><a class="id" href="../t/23328.html#p458904">#458904</a> <span class="index">23</span> <span class="date">2008-08-07T02:35:36Z</span> <span class="author"><a href="../u/9374810.html">incluye</a></span></div><div class="post-body">Does it have at least one |?<br>
+<br>
+Also, is there any way to change the effective radius of a zap drone? (I know the apparent radius already, which is about 9 pixels. I can change that. The drone still won't zap outside 18px square though.)</div></div>
+<div class="post" id="p458958"><div class="post-head"><a class="id" href="../t/23328.html#p458958">#458958</a> <span class="index">24</span> <span class="date">2008-08-07T11:21:08Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">Hey guys, having a bit of trouble with the whole one way disappearing act (<a href="../t/23365.html">thread</a>).<br>
+I can get the one-ways to rotate, but not disappear. Can anybody figure out how to do this and post an example, so that I can have a go myself? Thanks!</div></div>
+<div class="post" id="p458959"><div class="post-head"><a class="id" href="../t/23328.html#p458959">#458959</a> <span class="index">25</span> <span class="date">2008-08-07T11:21:25Z</span> <span class="author"><a href="../u/9375042.html">DDRave</a></span></div><div class="post-body">Help....<br>
+<br>
+I can submit all other NReality maps to nmaps except this one....<br>
+<br>
+please help... <div class="attachment attachment-missing">Attachment (lost): post-62-1218108085.txt</div></div></div>
+<div class="post" id="p458962"><div class="post-head"><a class="id" href="../t/23328.html#p458962">#458962</a> <span class="index">26</span> <span class="date">2008-08-07T11:31:53Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458959">Quote: DDRave, August 07, 2008 12:21 pm</a></div> Help....<br>
+<br>
+I can submit all other NReality maps to nmaps except this one....<br>
+<br>
+please help... </blockquote>Nice map, confusing at first. Have an AGD.<br>
+<br>
+Anyhow, maybe it's the final exclamation mark? Probably not, but that's all I could see wrong with the code. <div class="attachment attachment-missing">Attachment (lost): post-62-1218108789.txt</div></div></div>
+<div class="post" id="p458985"><div class="post-head"><a class="id" href="../t/23328.html#p458985">#458985</a> <span class="index">27</span> <span class="date">2008-08-07T13:14:07Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458959">Quote: DDRave, August 07, 2008 07:21 pm</a></div> Help....<br>
+<br>
+I can submit all other NReality maps to nmaps except this one....<br>
+<br>
+please help...  </blockquote> <br>
+ There are a linebreak(enter) in the txt</div></div>
+<div class="post" id="p458994"><div class="post-head"><a class="id" href="../t/23328.html#p458994">#458994</a> <span class="index">28</span> <span class="date">2008-08-07T14:37:44Z</span> <span class="author"><a href="../u/9376205.html">~Chad</a></span></div><div class="post-body">!6^204,252,6,0,16,3^^^UUUUDDDD!6^396,228,6,0,16,3^^^UUUUDDDD!6^540,204,6,0,16,3^^^UUUUDDDD!6^684,204,6,0<br>
+,16,3^^^UUUUDDDD!6^36,564,NaN,1,1,3!6^756,564,NaN,1,1,3<br>
+||||1,rotateSpeed,0;1,startingAngle,270;<b>16,detectRadius,10</b>;16,forceDelayTimer,24;16,forcemaxcount,1;<br>
+<br>
+The detect radius isn't changing, What's wrong?</div></div>
+<div class="post" id="p459016"><div class="post-head"><a class="id" href="../t/23328.html#p459016">#459016</a> <span class="index">29</span> <span class="date">2008-08-07T16:13:48Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p458994">Quote: ~Chad, August 07, 2008 02:37 pm</a></div> !6^204,252,6,0,16,3^^^UUUUDDDD!6^396,228,6,0,16,3^^^UUUUDDDD!6^540,204,6,0,16,3^^^UUUUDDDD!6^684,204,6,0<br>
+,16,3^^^UUUUDDDD!6^36,564,NaN,1,1,3!6^756,564,NaN,1,1,3<br>
+||||1,rotateSpeed,0;1,startingAngle,270;<b>16,detectRadius,10</b>;16,forceDelayTimer,24;16,forcemaxcount,1;<br>
+<br>
+The detect radius isn't changing, What's wrong?  </blockquote> <br>
+ Last I knew Forcefield drones couldn't be modified that way; add in:<br>
+<br>
+<pre class="code">^10</pre><br>
+After each instance of forcefield drone. It's not too hard if you use a replace function in a Notepad clone.</div></div>
+<div class="post" id="p459039"><div class="post-head"><a class="id" href="../t/23328.html#p459039">#459039</a> <span class="index">30</span> <span class="date">2008-08-07T18:03:54Z</span> <span class="author"><a href="../u/9376205.html">~Chad</a></span></div><div class="post-body">Thanks, it works, but I'm pretty sure the other way works. <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:"> <br>
+<br>
+anyways, you get the ded, <a href="http://nmaps.net/134147">http://nmaps.net/134147</a>  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p459063"><div class="post-head"><a class="id" href="../t/23328.html#p459063">#459063</a> <span class="index">31</span> <span class="date">2008-08-07T19:52:07Z</span> <span class="author"><a href="../u/9376054.html">handofgod0</a></span></div><div class="post-body">NUMA says:<br>
+<br>
+data must have at least one "|"<br>
+<br>
+but i know i have one!  I even have the "||||" for the mod.<br>
+<br>
+wat should i do!?</div></div>
+<div class="post" id="p459177"><div class="post-head"><a class="id" href="../t/23328.html#p459177">#459177</a> <span class="index">32</span> <span class="date">2008-08-08T01:50:52Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459063">Quote: handofgod0, August 08, 2008 03:52 am</a></div> NUMA says:<br>
+<br>
+data must have at least one "|"<br>
+<br>
+but i know i have one!  I even have the "||||" for the mod.<br>
+<br>
+wat should i do!?  </blockquote> <br>
+ we won't know unless you provide us the map data text file</div></div>
+<div class="post" id="p459206"><div class="post-head"><a class="id" href="../t/23328.html#p459206">#459206</a> <span class="index">33</span> <span class="date">2008-08-08T04:15:10Z</span> <span class="author"><a href="../u/9375014.html">OneSevenNine</a></span></div><div class="post-body">When you use the mod that makes a drone chase you but the drone doesn't affect you through touch, it can get stuck on top of you and unable to fire thus exposing massive cheatability.<br>
+<br>
+I posted a demonstration of this using a chaingun on this map: <a href="http://nmaps.net/134212">http://nmaps.net/134212</a><br>
+<br>
+Can anyone think of a way around this other than slowing down the drone?</div></div>
+<div class="post" id="p459214"><div class="post-head"><a class="id" href="../t/23328.html#p459214">#459214</a> <span class="index">34</span> <span class="date">2008-08-08T05:20:22Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459206">Quote: OneSevenNine, August 08, 2008 12:15 pm</a></div> When you use the mod that makes a drone chase you but the drone doesn't affect you through touch, it can get stuck on top of you and unable to fire thus exposing massive cheatability.<br>
+<br>
+I posted a demonstration of this using a chaingun on this map: <a href="http://nmaps.net/134212">http://nmaps.net/134212</a><br>
+<br>
+Can anyone think of a way around this other than slowing down the drone? </blockquote>That is a bug in the N code, where when two positions are the same, then they don't see each other<br>
+<br>
+I'm unable to change this code as this will have some impact on the overall N codings</div></div>
+<div class="post" id="p459248"><div class="post-head"><a class="id" href="../t/23328.html#p459248">#459248</a> <span class="index">35</span> <span class="date">2008-08-08T09:47:40Z</span> <span class="author">numa_ninja <span class="guest">(guest)</span></span></div><div class="post-body">I need urgent help. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+When I try to do chaseID or Coordinates or custom path with the exit button, I can't interact with it, and therefore making the level unfinishable. Here's the code:<br>
+<pre class="code">!11^396,300,36,300^^^,2,2,2</pre></div></div>
+<div class="post" id="p459253"><div class="post-head"><a class="id" href="../t/23328.html#p459253">#459253</a> <span class="index">36</span> <span class="date">2008-08-08T10:55:51Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459248">Quote: numa_ninja, August 08, 2008 05:47 pm</a></div> I need urgent help. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+When I try to do chaseID or Coordinates or custom path with the exit button, I can't interact with it, and therefore making the level unfinishable. Here's the code:<br>
+<pre class="code">!11^396,300,36,300^^^,2,2,2</pre> </blockquote>i have no idea at all <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"><br>
+<br>
+Edited: fixed. You can try now. Later I will make the exit switch stopped when you touched it</div></div>
+<div class="post" id="p459316"><div class="post-head"><a class="id" href="../t/23328.html#p459316">#459316</a> <span class="index">37</span> <span class="date">2008-08-08T15:23:01Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Here is a note for Drone speed<br>
+<br>
+Sometimes if you set the drone speed high, you will see it move pass the grid<br>
+<br>
+Valid drone speed values are those factor of 24<br>
+<br>
+That means:<br>
+1,2,3,4,6,8,12,24 are all good values for drone speed<br>
+<br>
+<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p459356"><div class="post-head"><a class="id" href="../t/23328.html#p459356">#459356</a> <span class="index">38</span> <span class="date">2008-08-08T18:49:46Z</span> <span class="author"><a href="../u/9374810.html">incluye</a></span></div><div class="post-body">Unreality, any help for me?</div></div>
+<div class="post" id="p459357"><div class="post-head"><a class="id" href="../t/23328.html#p459357">#459357</a> <span class="index">39</span> <span class="date">2008-08-08T18:58:33Z</span> <span class="author"><a href="../u/9376054.html">handofgod0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459177">Quote: Unreality, August 08, 2008 01:50 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459063">Quote: handofgod0, August 08, 2008 03:52 am</a></div> NUMA says:<br>
+<br>
+data must have at least one "|"<br>
+<br>
+but i know i have one!  I even have the "||||" for the mod.<br>
+<br>
+wat should i do!? </blockquote>we won't know unless you provide us the map data text file  </blockquote> <br>
+ okay, heres the map data:<br>
+<br>
+$icebergs and penguins#handofgod##11111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000000111111111111100000000001111111111111000000000011111111111110000000010111111111111100000000101111111111111000000001011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111|5^36,204!1^36,228!1^60,228!1^84,228!1^108,228!1^132,228!1^156,228!1^180,228!1^204,228!1^228,228!1^252,228!1^276,228!1^300,228!1^348,180!1^348,204!1^348,228!1^348,252!1^348,276!1^348,300!1^348,324!1^348,396!1^396,396!1^396,372!1^396,348!1^396,324!1^372,276!1^396,276!1^420,276!1^444,276!1^324,276!1^300,276!1^228,252!1^228,276!1^228,300!1^228,324!1^300,372!1^276,372!1^252,372!1^228,372!1^204,372!1^180,372!1^156,372!1^300,396!1^156,300!1^132,300!1^108,300!1^84,300!1^60,300!1^36,300!1^84,276!1^84,324!1^84,348!1^468,396!1^468,372!1^468,348!1^492,300!1^372,228!1^396,228!1^468,180!1^468,204!1^468,228!1^540,396!1^516,348!1^540,348!1^564,348!1^588,348!1^612,348!1^636,348!11^636,396,636,396!1^540,180!1^540,204!1^540,228!1^540,252!1^540,276!1^636,228!1^612,228!1^588,228!1^588,300!0^252,252!0^252,264!0^264,264!0^264,252!0^312,336!0^312,348!0^312,348!0^324,348!0^324,336!0^132,252!0^132,264!0^144,264!0^144,264!0^144,252!0^108,348!0^108,360!0^120,360!0^120,348!0^432,324!0^432,336!0^432,336!0^444,336!0^444,324!0^420,216!0^420,228!0^432,228!0^432,228!0^432,216!0^540,300!0^528,312!0^540,312!0^528,300!0^612,264!0^612,276!0^624,276!0^624,264!0^492,384!0^492,396!0^504,396!0^504,396!0^504,384!9^216,396,0,0,24,16,1,-1,0!9^600,192,0,0,25,16,1,0,0!9^432,372,0,0,25,16,1,-1,0!12^156,192!12^276,324!12^48,348!12^504,252!6^324,180,5,0,101,1!6^636,180,5,0,101,1!6^36,396,5,0,101,1!6^444,300,5,0,101,2!6^636,324,5,0,16,2!6^36,396,5,0,16,0||||4,mass,1;16,forcedelaytimer,9;16,forcemaxcount,5;16,forcemaxcountdelay,160;101,acceleration,1;101,maxvelocity,2;101,alwayschase,1;#<br>
+<br>
+i think it might have something to do with the mod at the end.</div></div>
+<div class="post" id="p459364"><div class="post-head"><a class="id" href="../t/23328.html#p459364">#459364</a> <span class="index">40</span> <span class="date">2008-08-08T20:06:46Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">...<br>
+<br>
+Don't stretch the page like that. Put it in a text file and upload it here.</div></div>
+<div class="post" id="p459389"><div class="post-head"><a class="id" href="../t/23328.html#p459389">#459389</a> <span class="index">41</span> <span class="date">2008-08-08T20:54:05Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459316">Quote: Unreality, August 08, 2008 08:23 am</a></div> Here is a note for Drone speed<br>
+<br>
+Sometimes if you set the drone speed high, you will see it move pass the grid<br>
+<br>
+Valid drone speed values are those factor of 24<br>
+<br>
+That means:<br>
+1,2,3,4,6,8,12,24 are all good values for drone speed<br>
+<br>
+<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  </blockquote> <br>
+ Does that only go up to 24, or can you use speeds like 2400. . . and have it not go through the wall?</div></div>
+<div class="post" id="p459394"><div class="post-head"><a class="id" href="../t/23328.html#p459394">#459394</a> <span class="index">42</span> <span class="date">2008-08-08T20:58:50Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459357">Quote: handofgod0, 2008-08-08T18:58:33Z</a></div><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459177">Quote: Unreality, 2008-08-08T01:50:52Z</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459063">Quote: handofgod0, 2008-08-07T19:52:07Z</a></div> NUMA says:<br>
+<br>
+data must have at least one "|"<br>
+<br>
+but i know i have one!  I even have the "||||" for the mod.<br>
+<br>
+wat should i do!? </blockquote>we won't know unless you provide us the map data text file </blockquote>okay, heres the map data:<br>
+<br>
+i think it might have something to do with the mod at the end.</blockquote><br>
+I delisted it... <a href="http://nmaps.net/134306">http://nmaps.net/134306</a><br>
+<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459389">Quote: kkstrong0, 2008-08-08T20:54:05Z</a></div><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459316">Quote: Unreality, 2008-08-08T15:23:01Z</a></div> Here is a note for Drone speed<br>
+<br>
+Sometimes if you set the drone speed high, you will see it move pass the grid<br>
+<br>
+Valid drone speed values are those factor of 24<br>
+<br>
+That means:<br>
+1,2,3,4,6,8,12,24 are all good values for drone speed<br>
+<br>
+<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> </blockquote>Does that only go up to 24, or can you use speeds like 2400. . . and have it not go through the wall?</blockquote><br>
+try it for yourself <div class="attachment attachment-missing">Attachment (lost): post-62-1218229332.txt</div></div></div>
+<div class="post" id="p459397"><div class="post-head"><a class="id" href="../t/23328.html#p459397">#459397</a> <span class="index">43</span> <span class="date">2008-08-08T21:38:41Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459394">Quote: bhz, August 08, 2008 08:58 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459389">Quote: kkstrong0, 2008-08-08T20:54:05Z</a></div><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459316">Quote: Unreality, 2008-08-08T15:23:01Z</a></div> Here is a note for Drone speed<br>
+<br>
+Sometimes if you set the drone speed high, you will see it move pass the grid<br>
+<br>
+Valid drone speed values are those factor of 24<br>
+<br>
+That means:<br>
+1,2,3,4,6,8,12,24 are all good values for drone speed<br>
+<br>
+<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> </blockquote>Does that only go up to 24, or can you use speeds like 2400. . . and have it not go through the wall?</blockquote><br>
+try it for yourself  </blockquote> <br>
+ Read: Yes. But it seems to go so fast in one frame that it doesn't actually seem to go as fast as it does a full wraparound. At least on that map. On a spiral or something, maybe not.</div></div>
+<div class="post" id="p459474"><div class="post-head"><a class="id" href="../t/23328.html#p459474">#459474</a> <span class="index">44</span> <span class="date">2008-08-09T08:56:58Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">I tried 48 before and the drone go out from the screen<br>
+<br>
+handofgod please put the text in txt file <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p459485"><div class="post-head"><a class="id" href="../t/23328.html#p459485">#459485</a> <span class="index">45</span> <span class="date">2008-08-09T10:26:14Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459474">Quote: Unreality, August 09, 2008 04:56 am</a></div> I tried 48 before and the drone go out from the screen<br>
+<br>
+handofgod please put the text in txt file <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  </blockquote> <br>
+ I <a href="http://nmaps.net/134306">submitted that map</a> just fine.</div></div>
+<div class="post" id="p459566"><div class="post-head"><a class="id" href="../t/23328.html#p459566">#459566</a> <span class="index">46</span> <span class="date">2008-08-09T18:58:36Z</span> <span class="author"><a href="../u/9376054.html">handofgod0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459485">Quote: bhz, August 09, 2008 10:26 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459474">Quote: Unreality, August 09, 2008 04:56 am</a></div> I tried 48 before and the drone go out from the screen<br>
+<br>
+handofgod please put the text in txt file <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> </blockquote>I <a href="http://nmaps.net/134306">submitted that map</a> just fine. </blockquote>thanks for submitting the map.<br>
+<br>
+EDIT: ha! stroke of genius!  ive figured out what i did wrong!</div></div>
+<div class="post" id="p459761"><div class="post-head"><a class="id" href="../t/23328.html#p459761">#459761</a> <span class="index">47</span> <span class="date">2008-08-11T00:27:21Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">Help meee!<br>
+<br>
+<pre class="code">6^36,12,5,0,122,1^,,19000000P0000000000111QQ^ 1,1^36.588,8!6^60,12,5,0,122,1^,,10C11D0010000000000B11NP^ 1,1^60.588,8</pre><br>
+(spaces added to avoid forum mega code)<br>
+<br>
+Why don't they work? They did moments ago. Any help appreciated.</div></div>
+<div class="post" id="p459769"><div class="post-head"><a class="id" href="../t/23328.html#p459769">#459769</a> <span class="index">48</span> <span class="date">2008-08-11T00:54:18Z</span> <span class="author"><a href="../u/9376467.html">Plankicorn</a></span></div><div class="post-body">Ok I am totally clueless.. I don't even know how to start modding Nreality!  I hate being clueless like this but I seriously need help!  I have the game but had no idea that you could mod stuff like this without hacking!  Please show me how step by step.</div></div>
+<div class="post" id="p459772"><div class="post-head"><a class="id" href="../t/23328.html#p459772">#459772</a> <span class="index">49</span> <span class="date">2008-08-11T01:17:50Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459761">Quote: Ad, August 11, 2008 08:27 am</a></div> Help meee!<br>
+<br>
+<pre class="code">6^36,12,5,0,122,1^,,19000000P0000000000111QQ^ 1,1^36.588,8!6^60,12,5,0,122,1^,,10C11D0010000000000B11NP^ 1,1^60.588,8</pre><br>
+(spaces added to avoid forum mega code)<br>
+<br>
+Why don't they work? They did moments ago. Any help appreciated.  </blockquote> <br>
+ the ****,1 makes it initially stopped.<br>
+<br>
+Do you have the code of full map?</div></div>
+<div class="post" id="p459774"><div class="post-head"><a class="id" href="../t/23328.html#p459774">#459774</a> <span class="index">50</span> <span class="date">2008-08-11T01:33:55Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459769">Quote: Plankicorn, August 11, 2008 08:54 am</a></div> Ok I am totally clueless.. I don't even know how to start modding Nreality!  I hate being clueless like this but I seriously need help!  I have the game but had no idea that you could mod stuff like this without hacking!  Please show me how step by step.  </blockquote> <br>
+ To create your first mod map:<br>
+<br>
+Make an empty map, place one ninja, and place one zap drone, then copy the map data out to a text file<br>
+and then append "^6" to the end of the zap drone data. Save the whole map data into your userlevels, load it then you will have a faster zap drone!<br>
+<br>
+Now you are experienced with it, you can see this page for other mods<br>
+<br>
+<a href="http://n.wikia.com/wiki/List_of_NReality_Mods">http://n.wikia.com/wiki/List_of_NReality_Mods</a></div></div>
+<div class="post" id="p459779"><div class="post-head"><a class="id" href="../t/23328.html#p459779">#459779</a> <span class="index">51</span> <span class="date">2008-08-11T01:40:54Z</span> <span class="author"><a href="../u/9376467.html">Plankicorn</a></span></div><div class="post-body">Ok the faster drone thing worked but how would I like change the players speed?  Would I have to add an extra "|" to the end and add some other stuff like "speed=40000000" or something similar?<br>
+<br>
+*EDIT*  Ok I found out not even the fast drone works, it just looked faster for some reason.  Where is the zap drone data?</div></div>
+<div class="post" id="p459988"><div class="post-head"><a class="id" href="../t/23328.html#p459988">#459988</a> <span class="index">52</span> <span class="date">2008-08-11T22:13:07Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">I don't really need help with this, but I was wondering if you could use ChaseAI wiht a rocket launcher. I just did with the <a href="http://nmaps.net/134695">gauss</a>.</div></div>
+<div class="post" id="p460059"><div class="post-head"><a class="id" href="../t/23328.html#p460059">#460059</a> <span class="index">53</span> <span class="date">2008-08-12T12:18:07Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459772">Quote: Unreality, August 11, 2008 02:17 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p459761">Quote: Ad, August 11, 2008 08:27 am</a></div> Help meee!<br>
+<pre class="code">6^36,12,5,0,122,1^,,19000000P0000000000111QQ^ 1,1^36.588,8!6^60,12,5,0,122,1^,,10C11D0010000000000B11NP^ 1,1^60.588,8</pre>(spaces added to avoid forum mega code)<br>
+Why don't they work? They did moments ago. Any help appreciated. </blockquote>the ****,1 makes it initially stopped.<br>
+Do you have the code of full map? </blockquote>Yeah, they were wired up to a switch. Inexplicably, it now works, both eyes and functions, whereas before I got one or t'other. Shame, I was putting it in for the TNCC, but I overran trying to sort this. However, as luck would have it, the map fits this week's theme better.<br>
+<br>
+RunningNinja, it does work, but on my PC it crashed N after about 30 seconds. Funny, there was no lag.<br>
+<br>
+<br>
+EDIT: I figured out the crazy problems! With a custom path, the first tile from the tile drone needs to be a 1. Fixable?</div></div>
+<div class="post" id="p460065"><div class="post-head"><a class="id" href="../t/23328.html#p460065">#460065</a> <span class="index">54</span> <span class="date">2008-08-12T13:29:14Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460059">Quote: Ad, August 12, 2008 08:18 pm</a></div> EDIT: I figured out the crazy problems! With a custom path, the first tile from the tile drone needs to be a 1. Fixable?  </blockquote> <br>
+ um any map data for me to check?</div></div>
+<div class="post" id="p460281"><div class="post-head"><a class="id" href="../t/23328.html#p460281">#460281</a> <span class="index">55</span> <span class="date">2008-08-13T13:06:41Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">I want to use a sprite for a drone, any help?</div></div>
+<div class="post" id="p460310"><div class="post-head"><a class="id" href="../t/23328.html#p460310">#460310</a> <span class="index">56</span> <span class="date">2008-08-13T15:53:39Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body">runningninja: <a href="../t/23330.html">http://metanet.2.forumer.com/index.php?showtopic=23330</a><br>
+Pick the image you want, get a link (Right Click + Copy Link) and follow the directions. That should do it.<br>
+<br>
+I've got a problem. I can't figure out how to modify gausses. I'm trying to make them slow down some way to make a map easier; right now it's just brutal.</div></div>
+<div class="post" id="p460341"><div class="post-head"><a class="id" href="../t/23328.html#p460341">#460341</a> <span class="index">57</span> <span class="date">2008-08-13T18:01:46Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body"><a href="../t/19016.html">http://metanet.2.forumer.com/index.php?showtopic=19016</a><br>
+I'm trying to get the Kablizzy drone, but I don't know the url. Could someone just format it for me, I want the drone in the center of the map.<br>
+<br>
+kisler, try adding this to the end of the code: <b>||||6,prefireDelay,15;</b><br>
+That should make the delay before shots longer.</div></div>
+<div class="post" id="p460345"><div class="post-head"><a class="id" href="../t/23328.html#p460345">#460345</a> <span class="index">58</span> <span class="date">2008-08-13T18:08:19Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body">Thanks. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+Also, this is the image link for Kablizzy Drone: <a href="http://img234.imageshack.us/img234/8959/kablizzydronesv5.png">http://img234.imageshack.us/img234/8959/kablizzydronesv5.png</a><br>
+I don't know how to get it in N though.</div></div>
+<div class="post" id="p460349"><div class="post-head"><a class="id" href="../t/23328.html#p460349">#460349</a> <span class="index">59</span> <span class="date">2008-08-13T18:20:15Z</span> <span class="author"><a href="../u/9374964.html">Meta Ing</a></span></div><div class="post-body">I'm trying to make a level in which the exit switch "flys" away from the ninja, so I gave it a chasing path and set the speed to a negative number. I know from before that this used to work, but now the exit switch chases the ninja regardless.<br>
+<br>
+Does anyone know how to make it so that objects "fly" away from you instead of towards you? <div class="attachment attachment-missing">Attachment (lost): post-62-1218651615.txt</div></div></div>
+<div class="post" id="p460408"><div class="post-head"><a class="id" href="../t/23328.html#p460408">#460408</a> <span class="index">60</span> <span class="date">2008-08-14T00:19:40Z</span> <span class="author"><a href="../u/9376206.html">Riobe</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460349">Quote: Meta Ing, August 13, 2008 06:20 pm</a></div> I'm trying to make a level in which the exit switch "flys" away from the ninja, so I gave it a chasing path and set the speed to a negative number. I know from before that this used to work, but now the exit switch chases the ninja regardless.<br>
+<br>
+Does anyone know how to make it so that objects "fly" away from you instead of towards you?  </blockquote> <br>
+ I'm having the exact same problem. I need answers!</div></div>
+<div class="post" id="p460470"><div class="post-head"><a class="id" href="../t/23328.html#p460470">#460470</a> <span class="index">61</span> <span class="date">2008-08-14T07:07:59Z</span> <span class="author">numa_ninja <span class="guest">(guest)</span></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460408">Quote: Riobe, August 14, 2008 10:49 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460349">Quote: Meta Ing, August 13, 2008 06:20 pm</a></div> I'm trying to make a level in which the exit switch "flys" away from the ninja, so I gave it a chasing path and set the speed to a negative number. I know from before that this used to work, but now the exit switch chases the ninja regardless.<br>
+<br>
+Does anyone know how to make it so that objects "fly" away from you instead of towards you? </blockquote>I'm having the exact same problem. I need answers!  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+<br>
+That makes the three of us, then.</div></div>
+<div class="post" id="p460519"><div class="post-head"><a class="id" href="../t/23328.html#p460519">#460519</a> <span class="index">62</span> <span class="date">2008-08-14T14:11:17Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">I'm having trouble with coordinate pathing in the attached level. You see I haven't attached any mods yet to the level, and I want the bounceblocks in the first row to move side to side across that whole row, and the ones in the second row to move up and down, using coordinate pathing. I need help, and before this TNCC round ends. <div class="attachment attachment-missing">Attachment (lost): post-62-1218723077.txt</div></div></div>
+<div class="post" id="p460531"><div class="post-head"><a class="id" href="../t/23328.html#p460531">#460531</a> <span class="index">63</span> <span class="date">2008-08-14T15:01:59Z</span> <span class="author"><a href="../u/9374964.html">Meta Ing</a></span></div><div class="post-body">If you just want them to move side to side and up and down, why don't you just use the custompath? (eg.1^396,300<b>^^^LLLRRR,6,,1</b>)<br>
+<br>
+However, if you really want to use coordinates, (say, to make the bounceblocks move in less than one tile increments), you would do something like this:<br>
+<br>
+1^396,300<b>^^^<span style="color:#39A7E3">396</span>.<span style="color:#E33939">300</span>:<span style="color:#0977B3">436</span>.<span style="color:#B30909">300</span>,8,,1</b><br>
+<br>
+The blue numbers represent the X coordinates, and the red the Y. Each coordinate corresponds to <b>z snap</b>, so you may want to use mouse keys to determine where the exact coordinates are. Seperate the X and the Y by a <b>.</b>, and seperate each coordinate by a <b>:</b>.<br>
+<br>
+Hope this helps.</div></div>
+<div class="post" id="p460534"><div class="post-head"><a class="id" href="../t/23328.html#p460534">#460534</a> <span class="index">64</span> <span class="date">2008-08-14T15:18:58Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">Alright. Thanks.</div></div>
+<div class="post" id="p460669"><div class="post-head"><a class="id" href="../t/23328.html#p460669">#460669</a> <span class="index">65</span> <span class="date">2008-08-15T01:52:30Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460470">Quote: numa_ninja, August 14, 2008 07:07 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460408">Quote: Riobe, August 14, 2008 10:49 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460349">Quote: Meta Ing, August 13, 2008 06:20 pm</a></div> I'm trying to make a level in which the exit switch "flys" away from the ninja, so I gave it a chasing path and set the speed to a negative number. I know from before that this used to work, but now the exit switch chases the ninja regardless.<br>
+<br>
+Does anyone know how to make it so that objects "fly" away from you instead of towards you? </blockquote>I'm having the exact same problem. I need answers! </blockquote><img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+<br>
+That makes the three of us, then.  </blockquote> <br>
+ That makes four of us. I don't think this is a bug though, I think it's just not supported. I would really like it though.</div></div>
+<div class="post" id="p460682"><div class="post-head"><a class="id" href="../t/23328.html#p460682">#460682</a> <span class="index">66</span> <span class="date">2008-08-15T03:25:10Z</span> <span class="author"><a href="../u/9376327.html">Combat Hawk Telly</a></span></div><div class="post-body">There's no algorithm for "AwayFromNinja," I don't think.</div></div>
+<div class="post" id="p460692"><div class="post-head"><a class="id" href="../t/23328.html#p460692">#460692</a> <span class="index">67</span> <span class="date">2008-08-15T04:31:16Z</span> <span class="author"><a href="../u/9372713.html">Romaniac</a></span></div><div class="post-body">could someone provide me with the code for a trigger (anywhere on the map) that will make a stationary drone (anywhere else on the map) move to the right, preferably with a custom path<br>
+<br>
+I've tried looking at the wikipedia page, that confused me, also looking at other peoples maps didn't help me much either...</div></div>
+<div class="post" id="p460716"><div class="post-head"><a class="id" href="../t/23328.html#p460716">#460716</a> <span class="index">68</span> <span class="date">2008-08-15T08:04:03Z</span> <span class="author">numa_ninja <span class="guest">(guest)</span></span></div><div class="post-body">It confused me for a while, too. Here it is:<br>
+<br>
+<pre class="code">5^468,564!9^372,564,1,0,13,22,1,0,-1!6^324,516,6,0,0,1^****,2^R</pre></div></div>
+<div class="post" id="p460919"><div class="post-head"><a class="id" href="../t/23328.html#p460919">#460919</a> <span class="index">69</span> <span class="date">2008-08-16T04:52:58Z</span> <span class="author"><a href="../u/9374964.html">Meta Ing</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>Chain of quotes here<blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460669">Quote: The Kitchen Sink, August 14, 2008 07:52 pm</a></div>That makes four of us. I don't think this is a bug though, I think it's just not supported. I would really like it though.</blockquote></blockquote>The thing is, it <i>used</i> to work. I've tried it before and it did. It doesn't work now though for whatever reason.</div></div>
+<div class="post" id="p460921"><div class="post-head"><a class="id" href="../t/23328.html#p460921">#460921</a> <span class="index">70</span> <span class="date">2008-08-16T05:11:24Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460919">Quote: Meta Ing, August 16, 2008 04:52 am</a></div> <blockquote class="quote"><div class="quote-head">Quote</div>Chain of quotes here<blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460669">Quote: The Kitchen Sink, August 14, 2008 07:52 pm</a></div>That makes four of us. I don't think this is a bug though, I think it's just not supported. I would really like it though.</blockquote></blockquote>The thing is, it <i>used</i> to work. I've tried it before and it did. It doesn't work now though for whatever reason.  </blockquote> <br>
+Oh. I hadn't known that. In that case, yeah, I'd like that fixed. :)</div></div>
+<div class="post" id="p460925"><div class="post-head"><a class="id" href="../t/23328.html#p460925">#460925</a> <span class="index">71</span> <span class="date">2008-08-16T05:25:10Z</span> <span class="author"><a href="../u/9372713.html">Romaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460716">Quote: numa_ninja, August 15, 2008 08:04 pm</a></div> It confused me for a while, too. Here it is:<br>
+<br>
+<pre class="code">5^468,564!9^372,564,1,0,13,22,1,0,-1!6^324,516,6,0,0,1^****,2^R</pre> </blockquote>Thanks, now i can make my map!<br>
+and it is <a href="http://nmaps.net/135337">dedicated to numa ninja</a></div></div>
+<div class="post" id="p461291"><div class="post-head"><a class="id" href="../t/23328.html#p461291">#461291</a> <span class="index">72</span> <span class="date">2008-08-17T13:13:49Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460669">Quote: The Kitchen Sink, August 15, 2008 09:52 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460470">Quote: numa_ninja, August 14, 2008 07:07 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460408">Quote: Riobe, August 14, 2008 10:49 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p460349">Quote: Meta Ing, August 13, 2008 06:20 pm</a></div> I'm trying to make a level in which the exit switch "flys" away from the ninja, so I gave it a chasing path and set the speed to a negative number. I know from before that this used to work, but now the exit switch chases the ninja regardless.<br>
+<br>
+Does anyone know how to make it so that objects "fly" away from you instead of towards you? </blockquote>I'm having the exact same problem. I need answers! </blockquote><img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+<br>
+That makes the three of us, then. </blockquote>That makes four of us. I don't think this is a bug though, I think it's just not supported. I would really like it though.  </blockquote> <br>
+ bug fixed <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p461519"><div class="post-head"><a class="id" href="../t/23328.html#p461519">#461519</a> <span class="index">73</span> <span class="date">2008-08-17T21:53:09Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Hooray! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p462453"><div class="post-head"><a class="id" href="../t/23328.html#p462453">#462453</a> <span class="index">74</span> <span class="date">2008-08-20T00:38:17Z</span> <span class="author"><a href="../u/9375749.html">Geekhead34</a></span></div><div class="post-body">for the tile drone, if you can, how do you make it delete tiles?</div></div>
+<div class="post" id="p464084"><div class="post-head"><a class="id" href="../t/23328.html#p464084">#464084</a> <span class="index">75</span> <span class="date">2008-08-24T09:05:30Z</span> <span class="author"><a href="../u/9376230.html">UniverseZero</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p462453">Quote: Geekhead34, August 20, 2008 12:38 am</a></div>for the tile drone, if you can, how do you make it delete tiles?</blockquote><pre class="code">6^396,300,3,0,122,1,2,0^^,7,0,2.5,0,60</pre><br>
+Here's an explanation:<br>
+<br>
+6^x,y,Path,0,122,direction^speed,chase_speed,<b>tiles</b>^^^,7,0,speed,startAngle,Radius<br>
+<br>
+Tiles is the important bit. If you make it 0, it will delete tiles. If 1, it will make tiles. If 3, it will will make sloping tiles and so forth. If you make it 01 it will create every second tiles and delete the other. The last part is for rotating AI; have a look.<br>
+<br>
+I also have a question. How do you make the ninja jump continuously while hold the jump button, then if you let go, fall, and then be able to press the jump button again and for it to start drifting up without touching the ground?</div></div>
+<div class="post" id="p464092"><div class="post-head"><a class="id" href="../t/23328.html#p464092">#464092</a> <span class="index">76</span> <span class="date">2008-08-24T10:46:40Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p464084">Quote: UniverseZero, August 24, 2008 09:05 am</a></div> How do you make the ninja jump continuously while hold the jump button, then if you let go, fall, and then be able to press the jump button again and for it to start drifting up without touching the ground?  </blockquote> <br>
+ You don't, basically. You can do the first part where he jumps continuously and when you let go he falls, but he can't go back up without touching the ground, unfortunately.</div></div>
+<div class="post" id="p464270"><div class="post-head"><a class="id" href="../t/23328.html#p464270">#464270</a> <span class="index">77</span> <span class="date">2008-08-25T05:49:30Z</span> <span class="author"><a href="../u/9376230.html">UniverseZero</a></span></div><div class="post-body">Yeah, that's what I thought... Unless I can make triggers that chage the gravity and send you up again...<br>
+<br>
+Hm...</div></div>
+<div class="post" id="p464355"><div class="post-head"><a class="id" href="../t/23328.html#p464355">#464355</a> <span class="index">78</span> <span class="date">2008-08-25T14:17:30Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p464270">Quote: UniverseZero, August 25, 2008 05:49 am</a></div> Yeah, that's what I thought... Unless I can make triggers that chage the gravity and send you up again...<br>
+<br>
+Hm...  </blockquote> <br>
+ Can't do that either. It's currently impossible to change the properties established, in the middle of a game. If a rocket launcher has a turnRate of 1, it's going to stay that way throughout the game, no matter what you do.<br>
+<br>
+According to Unreality it's similarly impossible, ever. It will unfortunately never be implemented.</div></div>
+<div class="post" id="p464369"><div class="post-head"><a class="id" href="../t/23328.html#p464369">#464369</a> <span class="index">79</span> <span class="date">2008-08-25T15:55:27Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p464092">Quote: The Kitchen Sink, August 24, 2008 06:46 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/23328.html#p464084">Quote: UniverseZero, August 24, 2008 09:05 am</a></div> How do you make the ninja jump continuously while hold the jump button, then if you let go, fall, and then be able to press the jump button again and for it to start drifting up without touching the ground? </blockquote>You don't, basically. You can do the first part where he jumps continuously and when you let go he falls, but he can't go back up without touching the ground, unfortunately.  </blockquote> <br>
+ mod implemented <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p464384"><div class="post-head"><a class="id" href="../t/23328.html#p464384">#464384</a> <span class="index">80</span> <span class="date">2008-08-25T17:43:20Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Allow me to say SWEEEEEEEEEEET<br>
+<br>
+This will allow for flying maps, with functionally/practically infinite jumps <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p464587"><div class="post-head"><a class="id" href="../t/23328.html#p464587">#464587</a> <span class="index">81</span> <span class="date">2008-08-26T15:37:28Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Sorry for double post, but it's irrelevant:<br>
+<br>
+Uh, some of the "default" numbers on the N wiki for playermods are completely wrong, and I want to know what the correct measurements are.<br>
+<br>
+Namely, maxspeedGround and maxSpeedAir are definitely not 0.5. That's WAY too slow.<br>
+<br>
+The default terminal_vel is definitely not 0.9; that's nigh insta-kill ground.<br>
+<br>
+Halp?</div></div>
+<div class="post" id="p464885"><div class="post-head"><a class="id" href="../t/23328.html#p464885">#464885</a> <span class="index">82</span> <span class="date">2008-08-27T20:24:44Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">Can anyone explain jumpresetyspeed?</div></div>
+<div class="post" id="p467266"><div class="post-head"><a class="id" href="../t/23328.html#p467266">#467266</a> <span class="index">83</span> <span class="date">2008-09-05T05:32:14Z</span> <span class="author"><a href="../u/9376230.html">UniverseZero</a></span></div><div class="post-body">I was wondering if it's possible to make a drone that does nothing at all. I need this so I can make a drone moving at the same time as a lock so you can get the lock. The reason I need this is so I can attach a custom icon to the drone, as you can't do it to a lock.<br>
+<br>
+You can use any type of drone (I've tried a force field drone, but it always reacted slightly every time [I wasn't very thourgh {pardon my spelling &lt;thur-a&gt;} so a force field drone still may be possible]), but the ninja must still be able to get the lock without reacting with the drone.<br>
+<br>
+Sorry for all the brackets. <div class="attachment attachment-missing">Attachment (lost): post-62-1220592734.txt</div></div></div>
+<div class="post" id="p472056"><div class="post-head"><a class="id" href="../t/23328.html#p472056">#472056</a> <span class="index">84</span> <span class="date">2008-09-21T07:10:55Z</span> <span class="author"><a href="../u/9376585.html">rikaninja</a></span></div><div class="post-body">Could i please ask how to make greedy drones faster when they are seeking. I've tried changing the drone speed and a lot of other things but nothing seems to work <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared">  <br>
+This is the code for a "Bounce Drone" or whatever you want to call it..[CODE] 6^588,516,2,0,16,0,12,12,12,12,12,12,12</div></div>
+<div class="post" id="p472057"><div class="post-head"><a class="id" href="../t/23328.html#p472057">#472057</a> <span class="index">85</span> <span class="date">2008-09-21T07:15:51Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">You want the only the chase faster?  Or do you  want the whole drone faster?</div></div>
+</main>
+</body>
+</html>

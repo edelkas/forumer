@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firefox+adblock+imported filters = No Buttons! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/13.html">This Forum</a> &rsaquo; Firefox+adblock+imported filters = No Buttons!</nav></header>
+<main>
+<div class="post" id="p2278"><div class="post-head"><a class="id" href="../t/2552.html#p2278">#2278</a> <span class="index">1</span> <span class="date">2005-03-23T04:21:46Z</span> <span class="author"><a href="../u/9370395.html">Daddaluma</a></span></div><div class="post-body">So, I was unable to make a new topic for about 10 minutes there.<br>
+<br>
+After some research on the adblock website and looking at the blocked elements on this page, I figured out that the filter *ads* blocks everything that contains those letters in that order.<br>
+<br>
+That includes things like <a href="http://2.forumer.com/">http://2.forumer.com/</a><b>uploads</b>/metanet/post-12-1105770822.gif<br>
+<br>
+But adblock doesn't just not let you see the stuff.  It actually gets rid of it.  So I couldn't even make a new topic to ask about how to get around all this crap.<br>
+<br>
+So I went digging on the adblock forum and found a little bit of adblock code that I don't understand but worked: /[^a-zA-Z]ads*/<br>
+<br>
+That apparently restricts the filter to only things that <i>exactly</i> match "ads".<br>
+<br>
+Solved my problem.<br>
+<br>
+Anyway.  Just wanted to share my little adventure.</div></div>
+<div class="post" id="p55469"><div class="post-head"><a class="id" href="../t/2552.html#p55469">#55469</a> <span class="index">2</span> <span class="date">2005-03-23T04:42:44Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Hahahaha.  More proof that computers suck, for two people in one day.</div></div>
+<div class="post" id="p55471"><div class="post-head"><a class="id" href="../t/2552.html#p55471">#55471</a> <span class="index">3</span> <span class="date">2005-03-23T04:56:23Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Wow, Daddaluma, you're pretty clever. You really found that little piece of code? Nice job.<br>
+Computers are ok, as long as you make them your bitch. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p55476"><div class="post-head"><a class="id" href="../t/2552.html#p55476">#55476</a> <span class="index">4</span> <span class="date">2005-03-23T05:46:01Z</span> <span class="author"><a href="../u/9370395.html">Daddaluma</a></span></div><div class="post-body">I would love to accept your compliment, but really, there was nothing clever about what I did.<br>
+<br>
+I went to the adblock forum, looked in the thread about compiling a collective list of block filters, and saw that someone had posted that interesting bit of code and explained what it did.<br>
+<br>
+I merely copied and pasted.</div></div>
+<div class="post" id="p55477"><div class="post-head"><a class="id" href="../t/2552.html#p55477">#55477</a> <span class="index">5</span> <span class="date">2005-03-23T05:48:47Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Well, that's still pretty clever. I mean, I wouldn't have thought of it... Maybe that's because i'm retarded...?</div></div>
+<div class="post" id="p55490"><div class="post-head"><a class="id" href="../t/2552.html#p55490">#55490</a> <span class="index">6</span> <span class="date">2005-03-23T08:20:05Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Yeah, I used to have that problem... not on here, though. I'd made a filter for ad, and every site's downlo<b>ad</b> links stopped working.</div></div>
+<div class="post" id="p55499"><div class="post-head"><a class="id" href="../t/2552.html#p55499">#55499</a> <span class="index">7</span> <span class="date">2005-03-23T09:43:37Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2552.html#p2278">Quote: Daddaluma, Mar 23 2005, 04:21 AM</a></div> So I went digging on the adblock forum and found a little bit of adblock code that I don't understand but worked: <b>/[^a-zA-Z]ads*/</b>  </blockquote> <br>
+ That's a regular expression. The two slashes ( / ) are caled delimeters, which mark the start and end of the expression. The [^a-zA-Z] means <i>not</i> any letter of the alphabet (the caret means not). "ads" is a literal block of text. And the aterix means anything (a wildcard).<br>
+<br>
+/[^a-zA-Z]ads*/ altogether will block anything that matches that pattern.<br>
+<br>
+.adsgalore - blocked<br>
+badslaughter - not blocked<br>
+ads - not blocked<br>
+%ads% - blocked<br>
+<br>
+You get the idea <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+</main>
+</body>
+</html>

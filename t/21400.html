@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glitched Doors - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; <a href="../f/57.html">Information</a> &rsaquo; Glitched Doors</nav></header>
+<main>
+<div class="post" id="p19104"><div class="post-head"><a class="id" href="../t/21400.html#p19104">#19104</a> <span class="index">1</span> <span class="date">2008-02-08T03:16:42Z</span> <span class="author"><a href="../u/9374410.html">player03</a></span></div><div class="post-body">This thread is an attempt to explain how glitched doors work and <a href="https://www.nmaps.net/96371">what they can do</a>.<br>
+<br>
+<br>
+The Basics<br>
+<br>
+<b>Creating them:</b><br>
+Glitched doors are created when they are set to face in a direction that the program doesn't recognize (anything other than 0, 1, 2, or 3). I generally set it to NaN, because if it is set to something like 5, NUMA will <a href="https://www.nmaps.net/96160">display it as a 1-tile</a>, alerting players to the glitch.<br>
+<br>
+<b>What they are:</b><br>
+Glitched doors are particularly hard to understand because they behave in hard-to-understand ways. They kill you if you approach them in the wrong way, and they will not stop you in any way you'd expect.<br>
+This is because the door has been broken up in a way- it acts like two half-doors in different places. These will only stop you from going in one direction, and will kill (or propel) you if you approach from the opposite side.<br>
+<br>
+In the attached map, a locked door is represented by the one-way pads and normal door in the first room. I highly suggest playing around on the glitched door to see how it behaves.<br>
+<br>
+Note that these doors only do this when closed; for example, in the second room, jumping over the trapdoor switch will do nothing until the switch has been triggered. Also, the normal door will only affect you when you are far enough from the center that it is closed.<br>
+<br>
+<b>Going into tiles:</b><br>
+Probably the most important thing these doors can do is allow you (among other things) to go into tiles. If an open glitched door is placed directly above a tile, you will fall in instead of walking over it. If there are no objects inside the tile to catch you, the tile will kill you.<br>
+Drones can also enter tiles through openings such as these, and will not be affected by other tiles once inside. Open the top door in the third room to see this.<br>
+<br>
+Note: all glitched doors will do this, provided they are open. Therefore, trapdoors can be used to do this before they are closed, which allows you to execute this glitch without showing people where it will happen. See room four for an example of this.<br>
+<br>
+Go <a href="https://www.nmaps.net/96160">here</a> and <a href="https://www.nmaps.net/96371">here</a> to see the applications of this glitch.<br>
+<br>
+This glitch will also allow you to go through closed doors with no resistance. See room five for a demonstration.<br>
+<br>
+<b>Closed when open:</b><br>
+If either of the "halves" of a glitched door is inside (or partially inside) a wall, the other "half" will always be closed. This is true for open locked doors (like those in room 6) and not-yet-closed trapdoors. This glitch creates problems when you want to allow things through near a wall. If you are having such problems, you'll probably need to delete the nearby tile entirely to fix this.<br>
+<br>
+Edit: actually, though the above is always true in the case of drones, it is only sometimes true for N. As <a href="https://www.nmaps.net/116202">shown by BuddyLee and Lord_Day</a>, these doors can be set up to trap drones but not affect N.<br>
+To clarify: one part of the door will only affect N if there is a wall along the entirety of the other side of where the door <u>appears to be</u>. For clarification, see room 6 and play around with the various doors. Note that each side is independent; one side of the door next to the gold is open, but the other is closed.<br>
+<br>
+Advanced<br>
+<br>
+<b>Playing with floorguards:</b><br>
+Because these doors can make the game not register the floor in an area, if they are put under a floorguard, they can make that floorguard act as if it's floating on air. However, because of how floorguards work, they will only do this if the door loads before them and if the gap hasn't been covered by another door. You can see the results of all this in room seven.<br>
+<br>
+<b>Playing with tight spaces:</b><br>
+If a row of these doors is created and one-way pads are placed underneath, N can travel while part way in a tile. This will, for example, allow him to avoid the mines in room eight and reach the switch.<br>
+<br>
+<b>Playing with drone paths:</b><br>
+Highly advanced drone paths can be made by taking advantage of the fact that these doors will let drones through in one direction, but stop them from going the other. This can be done without putting an obstacle in N's way, as explained in the description of room six and as shown in room nine.<br>
+Also note that only the side opposite the one in the tile affects the drones; when in the tiles, they can travel through that part of the door.<br>
+<br>
+<br>
+I hope you found this useful. <div class="attachment attachment-missing">Attachment (lost): post-57-1203125131.txt</div></div></div>
+<div class="post" id="p407822"><div class="post-head"><a class="id" href="../t/21400.html#p407822">#407822</a> <span class="index">2</span> <span class="date">2008-02-08T03:34:01Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body">That's amazing. I knew very little of that. Time to start playing around with glitched doors!</div></div>
+<div class="post" id="p407825"><div class="post-head"><a class="id" href="../t/21400.html#p407825">#407825</a> <span class="index">3</span> <span class="date">2008-02-08T04:26:56Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">Those are pretty cool. I never knew how to make glitched doors before. Thanks!</div></div>
+<div class="post" id="p407828"><div class="post-head"><a class="id" href="../t/21400.html#p407828">#407828</a> <span class="index">4</span> <span class="date">2008-02-08T05:14:49Z</span> <span class="author"><a href="../u/9374116.html">T3chno</a></span></div><div class="post-body">Nice tutorial. Is this in the right section though?</div></div>
+<div class="post" id="p407842"><div class="post-head"><a class="id" href="../t/21400.html#p407842">#407842</a> <span class="index">5</span> <span class="date">2008-02-08T06:10:03Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">Nice work. time to apply knowledge <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+or i will later. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p407859"><div class="post-head"><a class="id" href="../t/21400.html#p407859">#407859</a> <span class="index">6</span> <span class="date">2008-02-08T11:52:15Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">This is very cool. It gives me a whole lot of ideas....<br>
+<br>
+Great job.</div></div>
+<div class="post" id="p407863"><div class="post-head"><a class="id" href="../t/21400.html#p407863">#407863</a> <span class="index">7</span> <span class="date">2008-02-08T12:17:31Z</span> <span class="author"><a href="../u/9374410.html">player03</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21400.html#p407828">Quote: T3chno, February 08, 2008 01:14 am</a></div> Nice tutorial. Is this in the right section though?  </blockquote> <br>
+ I originally put it under bug reports, but someone moved it here...</div></div>
+<div class="post" id="p408088"><div class="post-head"><a class="id" href="../t/21400.html#p408088">#408088</a> <span class="index">8</span> <span class="date">2008-02-09T06:44:29Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">I moved it to information because it's a tutorial, though I did consider putting it in one of the N-related forums. Meh. It's certainly not a bug report, anyway - everyone is already well aware of this.</div></div>
+<div class="post" id="p409640"><div class="post-head"><a class="id" href="../t/21400.html#p409640">#409640</a> <span class="index">9</span> <span class="date">2008-02-15T08:42:59Z</span> <span class="author"><a href="../u/9371358.html">BuddyLee</a></span></div><div class="post-body">Well I think the post misses a simple explanation of how doors work in some cases.  When you place an edited trapdoor along a wall, it processes into three distinct cases:<br>
+1. The wall on the opposite side is fully blocked (as in most of your examples, such as <a href="https://www.nmaps.net/112190">http://numa.notdot.net/map/112190</a>).  In this case, both drones AND N are affected by the trapdoor. Walls on the bottom-left edge will be solid from above yet deadly/glitchy from below, and walls on the top-right edge will be solid from below and deadly/glitchy from above.<br>
+2. The wall on the opposite side is fully open (as in the drone through wall examples, such as <a href="https://www.nmaps.net/96160">http://numa.notdot.net/map/96160</a>). Here the bottom-left and top-right edges only matter when touching tiles. The empty edges are projected to tile walls, meaning both drones AND N can go through them (as with empty squares).<br>
+3. The wall on the opposite side is not fully blocked, but the tile is not a D tile (an example, <a href="https://www.nmaps.net/116202">http://numa.notdot.net/map/116202</a>).  This is (as far as I can tell) the most eloquent and useful door glitch.  It ONLY affects drones, while N can pass through without problems.<br>
+<br>
+Possible reasoning/explanation: In the coding of N, there is probably a specific piece of code that tells objects to read other objects (such as doors) before reading tiles, which can potentially override certain functionality.  In the case of this glitch, the effects of the trapdoor are projected onto the other walls (don't know why it chose bottom-left and top-right, but that's not too important).  So when a drone would be able to go through a tile (only D tiles), the drone can always go through the projected edge. If the edge is blocked it should stop both drones AND N.  If the tile doesn't fit those, drones should still be stopped but N needs its own collision detection, so N is unaffected. When trapdoors are activated they act like locked doors, and likewise when locked doors are opened they act as unactivated trapdoors.<br>
+<br>
+I hope this is helpful. It would be somewhat easier to explain with pictures.  If anyone has questions or requires clarification about something here I will certainly try.</div></div>
+<div class="post" id="p409755"><div class="post-head"><a class="id" href="../t/21400.html#p409755">#409755</a> <span class="index">10</span> <span class="date">2008-02-15T19:52:33Z</span> <span class="author"><a href="../u/9374410.html">player03</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21400.html#p409640">Quote: BuddyLee, February 15, 2008 04:42 am</a></div> 3. The wall on the opposite side is not fully blocked, but the tile is not a D tile (an example, <a href="https://www.nmaps.net/116202">http://numa.notdot.net/map/116202</a>).  This is (as far as I can tell) the most eloquent and useful door glitch.  It ONLY affects drones, while N can pass through without problems.  </blockquote> <br>
+ I have been planning to add this ever since seeing that map, but I haven't had the time. I'll look into it and try to have it added by the end of the day. (By the way, your statement about doors behaving this way for any tile other than E isn't entirely true. Try putting it on the right side of a 1a tile.)</div></div>
+<div class="post" id="p409815"><div class="post-head"><a class="id" href="../t/21400.html#p409815">#409815</a> <span class="index">11</span> <span class="date">2008-02-15T23:42:59Z</span> <span class="author"><a href="../u/9371358.html">BuddyLee</a></span></div><div class="post-body">What I meant to say is if the edge that the trapdoor covers is completely solid. In a 1a block, the right side of the block is completely solid and therefore would stop the ninja anyway. I'll revise the post.</div></div>
+</main>
+</body>
+</html>

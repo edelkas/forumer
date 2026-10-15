@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assess my demo please - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; Assess my demo please</nav></header>
+<main>
+<div class="post" id="p280"><div class="post-head"><a class="id" href="../t/311.html#p280">#280</a> <span class="index">1</span> <span class="date">2004-06-06T04:14:31Z</span> <span class="author"><a href="../u/9370445.html">oxbeat</a></span></div><div class="post-body">Hi I'm working on a physics engine using the same technology as N.<br>
+<br>
+You'll notice that in the Loose version, segments sometimes experience tunnelling; I just test the current endpoints of the segments without thinking about velocity.<br>
+Mare and Raigan, do you guys use a swept segment vs swept particle test or do you take advantage of the "elevator's" up and down movement and simplify?<br>
+<br>
+In the Heavy version, I subdivide along the velocity and it detects collisions well, but compromises the segment's movement.  I will try to implement swept segment vs swept particle tonight, but would greatly appreciate other methods, suggestions, or criticisms.  It may run a cilantro fast or slow depending on the speed of your computer; at this point, I do not bother to lock the time.  I'm using C++ btw, and the final product should work for Mac OS X, Windows, and Linux at least; possibly more, as I am using GLFW.</div></div>
+<div class="post" id="p23539"><div class="post-head"><a class="id" href="../t/311.html#p23539">#23539</a> <span class="index">2</span> <span class="date">2004-06-06T05:15:02Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+cool!<br>
+we're really trying to get the tutorials done, but i'm not sure they'll help you specifically -- your stuff seems great (i didn't get any tunneling).<br>
+<br>
+we're just using many-static-tests, which works most of the time. it definitely isn't perfect though, the ragdoll in N often gets stuck. alas..<br>
+<br>
+someone on the gdalgorithms list mentioned that they had written a swept-lineseg-vs-swept-lineseg collision routine for one of the versions of carmageddon, maybe you should search the archives (just google gdalgorithms). i'm not sure that you'll be able to find a good geametric solution though; most of the solutions to really complex tests like that involve using numerical methods to find the roots of high-degree polynomials..<br>
+<br>
+anyway.. if you email us we can chat, but not for a week or so, we're still working on 1.3 <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p23540"><div class="post-head"><a class="id" href="../t/311.html#p23540">#23540</a> <span class="index">3</span> <span class="date">2004-06-06T06:25:06Z</span> <span class="author"><a href="../u/9370397.html">WildCorpse123</a></span></div><div class="post-body">O.O,Oh come on.I want to make a game too....Hope the tutorials will be finished.</div></div>
+<div class="post" id="p23542"><div class="post-head"><a class="id" href="../t/311.html#p23542">#23542</a> <span class="index">4</span> <span class="date">2004-06-06T08:49:28Z</span> <span class="author"><a href="../u/9370390.html">FireBall</a></span></div><div class="post-body">what is Gish,where can i get Gish?</div></div>
+<div class="post" id="p23543"><div class="post-head"><a class="id" href="../t/311.html#p23543">#23543</a> <span class="index">5</span> <span class="date">2004-06-06T16:00:38Z</span> <span class="author">Guest</span></div><div class="post-body"></div></div>
+<div class="post" id="p23572"><div class="post-head"><a class="id" href="../t/311.html#p23572">#23572</a> <span class="index">6</span> <span class="date">2004-06-07T18:42:23Z</span> <span class="author"><a href="../u/9370391.html">Triple T</a></span></div><div class="post-body">one thing: once you start playing Gish, it'll take a long time to stop, especially if you have a gamepad and a friend</div></div>
+<div class="post" id="p23585"><div class="post-head"><a class="id" href="../t/311.html#p23585">#23585</a> <span class="index">7</span> <span class="date">2004-06-08T11:00:01Z</span> <span class="author"><a href="../u/9370390.html">FireBall</a></span></div><div class="post-body">Does Gish has a level editor?</div></div>
+<div class="post" id="p23594"><div class="post-head"><a class="id" href="../t/311.html#p23594">#23594</a> <span class="index">8</span> <span class="date">2004-06-08T19:44:48Z</span> <span class="author"><a href="../u/9370391.html">Triple T</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/311.html#p23585">Quote: FireBall, Jun 8 2004, 01:00 PM</a></div> Does Gish has a level editor?  </blockquote> <br>
+ No, it doesn't have an editor, but there will probably come one in the next update.</div></div>
+<div class="post" id="p23604"><div class="post-head"><a class="id" href="../t/311.html#p23604">#23604</a> <span class="index">9</span> <span class="date">2004-06-09T00:36:41Z</span> <span class="author">Guest</span></div><div class="post-body">woah i remember pontifex! (by the same guys who made Gish) <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> god i was so addicted to that game, ill have to check out gish</div></div>
+<div class="post" id="p25695"><div class="post-head"><a class="id" href="../t/311.html#p25695">#25695</a> <span class="index">10</span> <span class="date">2004-08-08T20:01:45Z</span> <span class="author"><a href="../u/9370445.html">oxbeat</a></span></div><div class="post-body">Hi again, I'd just like to post an update.<br>
+ChronoDoll is a very primitive game, if you can even call it that, but I've had some good responses and I'm particularly interested in Raigan and Mare's opinions.<br>
+<br>
+I'm too lazy to fix now, but I have the solution to better stabilize constraint-particle collisions.  The collisions are now quite satisfying, and penetrations occur at mostly non-playable speeds ( that's a good thing <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> ).  Looking to have better friction and optimize with a quadtree or something similar.<br>
+<br>
+C++ with OpenGL, so you'll need a fairly good computer and good recipe card.  Linux binary included in addition to Windows binary.  Please read the included readme.txt.<br>
+<br>
+I don't know if I'll work on this further, but I've recently had yet another game idea (this morning haha); something like a ragdoll inside a gish-like bubble with gameplay similar to N, or perhaps web-slinging cave flyer...anyway, I'm open to suggestions and comments.  I have plans of using the irrlicht engine so hopfully performance requirements can be lowered in the future.</div></div>
+<div class="post" id="p25713"><div class="post-head"><a class="id" href="../t/311.html#p25713">#25713</a> <span class="index">11</span> <span class="date">2004-08-09T04:33:30Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+cool!!<br>
+<br>
+it was ~200fps on our p4 2ghz.<br>
+<br>
+this reminded me of a post i came across.. i'm not sure where, but anyway -- someone at lionhead studios was working on a spare-time project called "ragdoll kung fu" or something -- basically a 2D fighting game where you can control a physics-driven character instead of the usualy pre-made fighting moves.<br>
+<br>
+one thing we want to look into is how to combine keyframe animation with physics simulation --  so that simulated characters don't have to be ragdolls.  that, and a destructible world are the two coolest applications of this stuff i think.<br>
+<br>
+the only complaint i have is that my weapon kept dissapearing.. but i think this is just me not understanding <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+what do you mean by "I have the solution to better stabilize constraint-particle collisions".. do you mean like when a particle hits the "stick" part between two other particles? (please email me at raigan AT harveycartel.org if you have time to share some details).<br>
+<br>
+anyway, cool stuff!<br>
+raigan</div></div>
+</main>
+</body>
+</html>

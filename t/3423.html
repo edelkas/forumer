@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seen this behavior? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Seen this behavior?</nav></header>
+<main>
+<div class="post" id="p3091"><div class="post-head"><a class="id" href="../t/3423.html#p3091">#3091</a> <span class="index">1</span> <span class="date">2005-05-30T06:51:42Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">First, I did search the forum to see if anyone talked about this and at a glance I didn't see anything. I could have missed it thought, but if that's the case, then my search didn't show the topic so obviously. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Anyway, I was just testing the zap drones behavior in Ned, and I created 4, one facing up the other left the other down and the last right. They used the surfacefollow CCW pathfinding, and the chase algorithm was disabled. So they would just run in CCW circles. But as I was looking how they moved, I noticed they one I selected as starting up, started moving to the left. The one I chose for the left, moved down and so on. Is this ok? Am I missing something? They were placed in the middle of an empty map, with more than 5-tile space between them.<br>
+<br>
+Anyone with experience in this?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p70773"><div class="post-head"><a class="id" href="../t/3423.html#p70773">#70773</a> <span class="index">2</span> <span class="date">2005-05-30T13:49:56Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">The surfacefollow paths can sometimes start a bit goofy.  Just play around with it and hopefully you hould get it to work (or, if they're all just circling one room, just make them have normal paths)</div></div>
+<div class="post" id="p71040"><div class="post-head"><a class="id" href="../t/3423.html#p71040">#71040</a> <span class="index">3</span> <span class="date">2005-05-30T22:47:58Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">I had so much trouble trying to figure out how drone paths work. I think they act wonky when you set them to surface follow when they aren't near a surface.</div></div>
+<div class="post" id="p71079"><div class="post-head"><a class="id" href="../t/3423.html#p71079">#71079</a> <span class="index">4</span> <span class="date">2005-05-30T23:48:19Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Well, the surfacefollow with no surface is obvious.  Whats a problem is that sometimes if you use surfacefollow when they start between two walls (like in some of my "between the drones" levels) they go the wrong way half the time.</div></div>
+<div class="post" id="p71088"><div class="post-head"><a class="id" href="../t/3423.html#p71088">#71088</a> <span class="index">5</span> <span class="date">2005-05-31T00:05:03Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Earlier I was making a level and I wanted the drone to follow a surface that it was traveling down. Half of the time it would go the the left and start going in a square instead of following it down.</div></div>
+<div class="post" id="p71105"><div class="post-head"><a class="id" href="../t/3423.html#p71105">#71105</a> <span class="index">6</span> <span class="date">2005-05-31T00:54:18Z</span> <span class="author"><a href="../u/9370732.html">great_sea</a></span></div><div class="post-body">Yeah I have had stuff like that before too, nevermore. It's like they go crazy and just run around in circles...</div></div>
+<div class="post" id="p71185"><div class="post-head"><a class="id" href="../t/3423.html#p71185">#71185</a> <span class="index">7</span> <span class="date">2005-05-31T05:17:49Z</span> <span class="author">Guest</span></div><div class="post-body">I'm almost certain it has to do with the pathfollow algorithm in the drone. If the drone is placed in a certain spot where it's impossible for it to follow its algorithm (I.E. Counter-clockwise in a Clockwise position), it tries to follow the counter-clockwise algorithm, and fails, and then turns to try again, and fails, turns to try again, and fails, and continues in that fashion. I'm not sure how to counter-act this, though.</div></div>
+<div class="post" id="p71205"><div class="post-head"><a class="id" href="../t/3423.html#p71205">#71205</a> <span class="index">8</span> <span class="date">2005-05-31T06:22:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So I guess what I'm seeing is correct.<br>
+<br>
+From what I have seen, the behavior for surface follow ccw is like this:<br>
+<br>
+If you chose starting to the right, it goes up, if you chose up it goes left, if left, down, if down, right.<br>
+In other words, if you do a list of all directions (up, left, down, right), it does the next one of what you chose.<br>
+<br>
+Once started, its motion will be moving one tile in the current direction, then change to the next one, in CCW fashion.<br>
+<br>
+And that's it, it moves in an area of 4 tiles (2x2)<br>
+<br>
+But...<br>
+<br>
+If any of those 4 tiles is occupied by any kind of tile, then it starts to follow around the surface, in CCW fashion.<br>
+<br>
+If any of you having problems with this follows these rules, I think you could make your maps more predictable. And if you can confirm this theory, let me know  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Anyway, I just wanted to see if this behavior was normal and I guess it is.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p71304"><div class="post-head"><a class="id" href="../t/3423.html#p71304">#71304</a> <span class="index">9</span> <span class="date">2005-05-31T20:10:40Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">The algorithm is a lot simpler than that.  It just checks "if tile to my left/right is empty, turn left/right and move forward one.  If tile to my right is occupied, move 1 forward.  Repeat".  Its only the starting direction thats goofy.</div></div>
+<div class="post" id="p72220"><div class="post-head"><a class="id" href="../t/3423.html#p72220">#72220</a> <span class="index">10</span> <span class="date">2005-06-04T14:01:13Z</span> <span class="author"><a href="../u/9370913.html">moochai914</a></span></div><div class="post-body">i never had any luck with algorithms.<br>
+<br>
+    -when in doubt, don't speak</div></div>
+<div class="post" id="p72244"><div class="post-head"><a class="id" href="../t/3423.html#p72244">#72244</a> <span class="index">11</span> <span class="date">2005-06-04T15:22:47Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">I'm sorry, but what? That was spam, and it wasn't relevant in the least bit. Please try to cut down on posts that don't really mean anything.</div></div>
+<div class="post" id="p72267"><div class="post-head"><a class="id" href="../t/3423.html#p72267">#72267</a> <span class="index">12</span> <span class="date">2005-06-04T16:59:22Z</span> <span class="author"><a href="../u/9370913.html">moochai914</a></span></div><div class="post-body">sorry, this is pretty much the first forum i've ever been involved in. i think i've had the same problem, though. the drones i create don't do as they're told. it might be user error, but i have a lot of trouble with them. i just prefer to put them in a surfacefollow cw or ccw, they usually do the same thing every time.</div></div>
+</main>
+</body>
+</html>

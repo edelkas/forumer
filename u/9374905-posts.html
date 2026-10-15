@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by rje - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374905.html">rje</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p16707"><div class="post-head"><a class="id" href="../t/18878.html#p16707">#16707</a> <span class="index">1</span> <span class="date">2007-08-13T12:12:21Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">I'm currently halfway though translating Tutorial A into Actionscript 3.  I core is done (I have a AABB bouncing around some full tiles).  I'm probably going to make some changes, the first being replacing the Verlet Integrator with a time corrected version so the simulation can run in delta time (variable frame rate &amp; consistent simulation).<br>
+<br>
+Has anybody converted the tutorial to AS3 before?<br>
+<br>
+Is anybody interested?  Do you guys (metanet) have any issues with this?  I will of course place all original credit with Metanet.<br>
+<br>
+The AS3 version is written with the usual OOP principals and AS3 performance considerations taken into account.</div></div>
+<div class="post" id="p355216"><div class="post-head"><a class="id" href="../t/18878.html#p355216">#355216</a> <span class="index">4</span> <span class="date">2007-08-14T12:54:24Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18878.html#p354984">Quote: mattk210, August 13, 2007 09:51 pm</a></div> Well, if you're asking for help, I can't help you, but I would be very interested in the result, it would finally be a good reason to go learn AS3.  </blockquote> <br>
+ Should be ok, I've been using AS3 for about 6 months (10 years Java/C++ though) - Its mainly a restructuring/re optimizing (for AVM2/AS3) effort.  I'll try and keep the code as close to the original as possible.  However I've introduced a 2D Vector Class that pretty much halves the amount of explicit math in the main code.</div></div>
+<div class="post" id="p355230"><div class="post-head"><a class="id" href="../t/18878.html#p355230">#355230</a> <span class="index">5</span> <span class="date">2007-08-14T13:17:08Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18878.html#p355033">Quote: Raigan, August 14, 2007 12:27 am</a></div> Sounds great! We're using AS3 to prototype some stuff, someday in the future we'll hopefully find time to rewrite N using AS3 as it's soooo much faster.<br>
+<br>
+I'd really recommend against a "delta-time"/non-fixed-step simulation, as it then becomes nondeterministic; a fixed step size doesn't mean that the game will run at different speeds, only that you update the world in consistantly-sized steps.. sort of like time is quantized.<br>
+<br>
+see for instance: <a href="http://www.gaffer.org/game-physics/fix-your-timestep/">http://www.gaffer.org/game-physics/fix-your-timestep/</a>  </blockquote> <br>
+ Thanks - I'll look into it.<br>
+<br>
+Ok, you can download the latest version via this Blog:<br>
+<br>
+<a href="http://yaa-blog.blogspot.com/">http://yaa-blog.blogspot.com/</a><br>
+<br>
+This was developed with a 100% open source environment:<br>
+<br>
+- FlashDevelop 3 IDE<br>
+- Flex 3 SDK Beta<br>
+<br>
+I'm making certain design decisions based on my future requirements for the engine, the main one is that the levels for my game are big - at least 1000x1000 tiles.  For this reason I'm not storing 1 instance of a tile per tile on a level, but rather 1 instance of each individual tile and referencing that (this is why tile position is  not part of the Tile class).<br>
+<br>
+I'm pretty active on this at the moment - I'll probably be posting daily updates.</div></div>
+<div class="post" id="p355655"><div class="post-head"><a class="id" href="../t/18878.html#p355655">#355655</a> <span class="index">6</span> <span class="date">2007-08-15T13:09:44Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">The build is progressing well, however I did wonder how many people here are comfortable with AS3 and setting up the open source build environment.  Would it be useful if I posted some instructions on what to download, how to install and setup?  Its really only 15 mins effort (depends how fast you internet connection is).</div></div>
+<div class="post" id="p356147"><div class="post-head"><a class="id" href="../t/18878.html#p356147">#356147</a> <span class="index">8</span> <span class="date">2007-08-16T20:52:05Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Update:<br>
+<br>
+- All of the AABB/Tile code is moved apart from the 66 degree tile<br>
+- Some of the Circle/Tile code is done (theres a lot of math going on there!)<br>
+- I think I've settled on the right level of encapsulation (what functionality goes in what class), any comments (If you interested), I'd be glad to hear.<br>
+<br>
+If you can build the demo I wrote, then you can edit the map (look in the Main.as class). It's fast as well, I had 100 AABBs bouncing around the demo level at about 8% cpu.<br>
+<br>
+To do:<br>
+- Finish the rest of math port<br>
+- Optimize the 'engine' where needed<br>
+- Probably will add scrolling level capability to this build as I need it<br>
+<br>
+You can find it at the site above.</div></div>
+<div class="post" id="p356308"><div class="post-head"><a class="id" href="../t/18878.html#p356308">#356308</a> <span class="index">12</span> <span class="date">2007-08-17T07:47:20Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18878.html#p356174">Quote: ZeroTruths, August 16, 2007 11:23 pm</a></div> The one problem that I see with this is that if a directional key is held down for too long, the object will accelerate like crazy in the direction being held.<br>
+  </blockquote> <br>
+ Thanks.  Things can tunnel at the moment.  Once all the code is ported I'll implement multi sampling (I dont want to limit the velocity of objects if I don't have to)</div></div>
+<div class="post" id="p356310"><div class="post-head"><a class="id" href="../t/18878.html#p356310">#356310</a> <span class="index">13</span> <span class="date">2007-08-17T07:51:06Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18878.html#p356260">Quote: Raigan, August 17, 2007 03:43 am</a></div> it should be possible to really reduce the amount of code for collision by combining/collapsing stuff.. then again, once you do that you might as well make it even more general and instead of using tiles use linesegs/arcs.. and then you're in a totally different system altogether.<br>
+<br>
+that performance sounds great though.. when we wrote that it could only handle about 10 boxes.  </blockquote> <br>
+ Once I've fully understood the code and refactored it to be more OO in AS3 I'll take a look at simplifying the math.  I am however a better programmer than mathematician! There seems to be quite some common math between tiles, however like you said there is (even is AS3) and performance penalty for function calls.</div></div>
+<div class="post" id="p356316"><div class="post-head"><a class="id" href="../t/18878.html#p356316">#356316</a> <span class="index">14</span> <span class="date">2007-08-17T08:00:59Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18878.html#p356301">Quote: mattk210, August 17, 2007 06:20 am</a></div> Are you using something other than flash pro for writing this? I don't recognize some of the file formats.  </blockquote> <br>
+ I'll try and improve the controls later today - I agree its quite hard to get the box in the right place at the moment.<br>
+<br>
+The project was developed using only open source tools <br>
+<br>
+- the AS3 compiler is the Adobe Flex SDK 3 Beta. Download it <a href="http://labs.adobe.com/technologies/flex/sdk/flex3sdk.html">here</a><br>
+<br>
+- the IDE was FlashDevlope 3 Beta 2. Download it <a href="http://www.flashdevelop.org/community/">here</a> (look under releases)<br>
+<br>
+I'll post complete install &amp; setup details here to enable anybody to build the project from scratch (its about 15 mins effort).<br>
+<br>
+This is not like the MacroMedia/Adode Flash environment.  There is no timeline, graphics editing or even completely @*!# code editor.  Flash Develop gives you a great code only development environment.<br>
+<br>
+If your interested in the code start with Main.as, this is the main setup, gameloop and controls.</div></div>
+<div class="post" id="p356321"><div class="post-head"><a class="id" href="../t/18878.html#p356321">#356321</a> <span class="index">16</span> <span class="date">2007-08-17T08:40:37Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">That's a hard question to answer.  I think it depends on what you feel comfortable developing Flash in.  If your more of a designer type, and especially if you have used Flash for a long time, then you'll probably feel very lost (to start with) in FlashDevelop/Flex SDK.  If however your more of a programmer and new to Actionscript 3 then you'll be right at home.  You can pretty much do the same in both development environments although some will be harder, some will be simpler.<br>
+<br>
+As for the graphics editing there are a number of options.  In the FD/Flex solution you can import graphic assets from other SWF's, bitmap images and even SVG format vector graphics (which you can edit with the open source Inkscape program).<br>
+<br>
+Ps I'll use the edit in future</div></div>
+<div class="post" id="p356450"><div class="post-head"><a class="id" href="../t/18878.html#p356450">#356450</a> <span class="index">17</span> <span class="date">2007-08-17T18:34:36Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Update:<br>
+<br>
+- All AABB/Tile collisions implemented (last one was 66S/B)<br>
+- Refactored core engine &amp; Collidable_Object classes<br>
+- Improved controls &amp; add features (see below)<br>
+- Added AABB/AABB collision detection to allow for a more interactive environment (you can kick boxes around)<br>
+<br>
+Controls:<br>
+- Cursor: Control player.<br>
+- Mouse/click: Directly place player.<br>
+- Space: Toggle/reset extra boxes - you can kick these around.<br>
+- Enter: Apply random force to boxes.<br>
+<br>
+Things will still tunnel, I'll fix that later.  You can get into some strange situations with the new boxes, the physics code for that is temporary and needs to be improved.<br>
+<br>
+Downloads can be found <a href="http://yaa-blog.blogspot.com/">here</a>.</div></div>
+<div class="post" id="p357186"><div class="post-head"><a class="id" href="../t/18099.html#p357186">#357186</a> <span class="index">10</span> <span class="date">2007-08-19T19:51:01Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">I'm also starting to have a think about this (I'm running into the same problem more relatively often with the AS3 version).<br>
+<br>
+For A, cant you just check if the tile your transitioning to is the same as the current one and just use that same projection?<br>
+<br>
+I need to spend some time thinking about this...</div></div>
+<div class="post" id="p358717"><div class="post-head"><a class="id" href="../t/18878.html#p358717">#358717</a> <span class="index">18</span> <span class="date">2007-08-23T18:43:12Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Update:<br>
+<br>
+- Ray casting implemented.  Ray will report intersects with all tiles and AABB's.  (left click now shoots ray, these will interact with boxes)<br>
+<br>
+- Major improvements to engine - the main one being scrolling.  Levels can be as large as Array can hold (anybody know the limit?).  The camera will follow the player using a slight lag to reduce scrolling updates.<br>
+<br>
+Performance still seems to be good.  With everything on (1 player, 20 boxes, ray tests from player and scrolling) at 30fps my 1.8Ghz single core laptop reports about 10% peek cpu usage from flash player.<br>
+<br>
+I'll update the source code download later, its halfway thought a major refactoring.  <br>
+<br>
+You can download the swf <a href="http://home.planet.nl/%7Eborst595/SeperationAxis.swf">here</a><br>
+<br>
+Or the player .exe (this runs the swf with the latest Flash 9 Beta r60.120 player with multicore rendering support) <a href="http://home.planet.nl/%7Eborst595/Demo.exe">here</a></div></div>
+<div class="post" id="p359063"><div class="post-head"><a class="id" href="../t/18878.html#p359063">#359063</a> <span class="index">20</span> <span class="date">2007-08-24T19:14:55Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Hey, thanks for the feedback.  <br>
+<br>
+-I fixed the players max velocity<br>
+-smoothed the scrolling <br>
+-stabilized the physics a but<br>
+-re-wrote the control mechanism<br>
+<br>
+Anybody feel like collaborating on a game with this engine?  I had in mind a remake of the 80's classic <br>
+<a href="http://en.wikipedia.org/wiki/Exile_(arcade_adventure)">Exile</a>.  This was the first game I ever played that really incorporated physics well - it still holds it own today.<br>
+<br>
+Edit: Big changes</div></div>
+<div class="post" id="p362425"><div class="post-head"><a class="id" href="../t/18878.html#p362425">#362425</a> <span class="index">21</span> <span class="date">2007-09-05T14:04:39Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">There have been many changes &amp; additions.  The core engine is starting to look like a general purpose 2D engine (although I think I'll have to re-write a large chunk).  New features:<br>
+<br>
+-Very large level support <br>
+-Multiple bitmap images per tile (no demo for this)<br>
+-Improved collision response system<br>
+-Spring Constraints<br>
+-Composite objects (AABB/Circles/constrains can be combined)<br>
+-Full Particle system<br>
+-Enemy AI - Ballistics, Line of sight, heat seeking etc<br>
+-Projectile system<br>
+-All tiles implemented, all rays implements, All AABB/tile collisions implemented<br>
+-Circles/AABB todo<br>
+<br>
+You can find it here: <a href="http://yaa-blog.blogspot.com/">http://yaa-blog.blogspot.com/</a><br>
+<br>
+Any questions/comments about the source let me know.  <br>
+* There are still a number of performance improvements I need to.  Please let me know hoe it runs on your machine (with CPU details)</div></div>
+<div class="post" id="p362463"><div class="post-head"><a class="id" href="../t/18878.html#p362463">#362463</a> <span class="index">23</span> <span class="date">2007-09-05T19:17:11Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Thanks - the bridge was just me playing around but I think I have a plan for it.<br>
+<br>
+Just wanted to say thanks for the tutorials - especially the code.  Whilst I really dislike AS1/2, especially coding within the Flash IDE - once extracted the and OO'd the core collision code is almost untouched - I just used a Vector class to abstract some of the math.  <br>
+<br>
+I played around with some non axis aligned BB's and arbitrary polygons but you can kiss goodbye to half your cpu - and half your AI, Scrolling, Particles etc</div></div>
+<div class="post" id="p17154"><div class="post-head"><a class="id" href="../t/19342.html#p17154">#17154</a> <span class="index">1</span> <span class="date">2007-09-09T19:55:01Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Hi,<br>
+<br>
+I'm trying to implement the following tile:<br>
+<br>
+***<br>
+****<br>
+*****<br>
+*****<br>
+*****<br>
+<br>
+It like the 45 degree one, only the corner is cut out.  I have the ray intersect working but for the life me cant get the AABB intersect working.<br>
+<br>
+My slope is the same as the 45:<br>
+<br>
+slope     = sign.div(Math.√2);<br>
+<br>
+and my collision code is:<br>
+<br>
+var orig:Vector2D = new Vector2D( <br>
+    (obj.pos.x - (sign.x*obj.halfWidth.x)) - (tilePos.x + (sign.x*halfWidth.x)) ,<br>
+    (obj.pos.y - (sign.y*obj.halfWidth.y)) - (tilePos.y + (sign.y*halfWidth.y)) );<br>
+<br>
+    var dp:Number = orig.dot(slope);<br>
+    if(dp &lt; 0){<br>
+        var temp_slope:Vector2D = slope.clone();<br>
+	temp_slope.multEquals(-1*dp);<br>
+				<br>
+	var lenN:Number = temp_slope.magnitude();<br>
+	var lenP:Number = p.magnitude();<br>
+				<br>
+	if(lenP &lt; lenN) {<br>
+	    obj.ReportCollisionVsWorld(p,p.div(lenP));<br>
+	    trace("hit0");<br>
+	    return COL_AXIS;<br>
+	} else {<br>
+	    obj.ReportCollisionVsWorld( temp_slope, slope );<br>
+	    trace("hit1");<br>
+	    return COL_OTHER;<br>
+	}<br>
+<br>
+Which is a combination of the 67B and 22B.  Sorry for the code paste.... Any ideas? Anybody tried implementing other tiles?</div></div>
+<div class="post" id="p363904"><div class="post-head"><a class="id" href="../t/19342.html#p363904">#363904</a> <span class="index">4</span> <span class="date">2007-09-10T09:54:13Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19342.html#p363712">Quote: Raigan, September 09, 2007 08:47 pm</a></div> it looks like you're using a point that's in top-right corner of the tile, which would be wrong since that point doesn't lie on the 45deg edge. that's only a guess though!  </blockquote> <br>
+ Spot on.  The modified point:<br>
+<br>
+var orig:Vector2D = <br>
+new Vector2D( (obj.pos.x - (sign.x*obj.halfWidth.x)) - (tilePos.x - (sign.x*halfWidth.x)) ,<br>
+		      (obj.pos.y - (sign.y*obj.halfWidth.y)) - (tilePos.y + (sign.y*halfWidth.y*2)) );<br>
+<br>
+works.  I was multiplying both instead of one as you said.</div></div>
+<div class="post" id="p364657"><div class="post-head"><a class="id" href="../t/19342.html#p364657">#364657</a> <span class="index">7</span> <span class="date">2007-09-13T14:15:53Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Its a conversion to Actionscript 3 of the collision code &amp; tiles</div></div>
+<div class="post" id="p391061"><div class="post-head"><a class="id" href="../t/20674.html#p391061">#391061</a> <span class="index">8</span> <span class="date">2007-12-19T10:18:09Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">I was playing around with this.  I basically cast 3 rays from the 'eye' to the target covering the whole body.  The demo is here:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/SeperationAxis_LineOfSight.swf">http://home.planet.nl/~borst595/Seperation...LineOfSight.swf</a><a href="http://home.planet.nl/~borst595/SeperationAxis_LineOfSight.swf">http://home.planet.nl/~borst595/Seperation...LineOfSight.swf</a><br>
+<br>
+As the target peeks out from behind a tile its seen.  You could implement the cone by only testing targets that are within a certain segment.  <br>
+<br>
+This demo is all AS3, using the ported tutorials + my own speedups.</div></div>
+<div class="post" id="p391517"><div class="post-head"><a class="id" href="../t/20674.html#p391517">#391517</a> <span class="index">10</span> <span class="date">2007-12-20T15:06:04Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Thanks.  With that engine I got as far as this:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/Exile.html">http://home.planet.nl/~borst595/Exile.html</a><br>
+<br>
+I also developed a tool chain based on the Tiled map editor (in Java).  The collision detection in this engine is based on the tutorials.  I'm now working on replacing that code with a general tiled SAT engine that uses pre-computed cached intervals.  Basically it lets you define any tile on a 3x3 grid + a center point (there are only ever 8 axes in this case) using only 1 bitmask (uint) and one tile class.  <br>
+<br>
+The engine will also support swept circle and rectangle collisions against these tiles.<br>
+<br>
+I'll start a new thread on this.</div></div>
+<div class="post" id="p18568"><div class="post-head"><a class="id" href="../t/20836.html#p18568">#18568</a> <span class="index">1</span> <span class="date">2007-12-26T13:16:26Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">This picks up from another thread...<br>
+<br>
+So,  I've been working on a general Flash/AS3 game (dynamics) engine for a while.  I originally used a ported version of the N tutorials found on this site for collision detection.  As great and *fast* (and they are fast) as they are there are a number of issues:<br>
+<br>
+1) Each tile has a complex custom implementation (this give it the speed).<br>
+2) Creating new tile type is complex.<br>
+3) There is lots of code.<br>
+4) Its not possible to introduce continuous collision detection using this code base (as far as I'm aware)<br>
+5) There really is lots of code...<br>
+<br>
+I started to play around with different tile description systems and realize a few things:<br>
+1) on a 3x3 grid (plus a center point) - there are actually lots (&gt;100 I think) of convex tiles.<br>
+2) of all these tiles, there are only ever 8 separating axes (horizontal,vertical,45 left and right, 23 left and right and 67 left and right)<br>
+<br>
+The engine I'm building only allows bodies to be built out of rectangles (2 axes with angualr velocity) and circles (3 axes).  This allowed me to write something that actually pre-calculates all intervals for the tiles and bodies at startup.  The at run time, the engine is feed the body position, orientation and speed - the collision detection is then just a few look ups in an array.  There is no object create/deletion going on.<br>
+<br>
+The tile definition system is based on a bitmask.  If a tile grid is defined as:<br>
+<br>
+001--128--064<br>
+.|........|........|<br>
+.|........|........|<br>
+002--256--032<br>
+.|........|........|<br>
+.|........|........|<br>
+004--008--016<br>
+<br>
+Then a full, square tile has the ID 85 (1+4+16+64 or 1010101).<br>
+A 45 degree half tile, slope normal 1,-1 has the ID 21 (1+4+16).<br>
+<br>
+My tile reference array is built as simply as:<br>
+<br>
+			tileArray.push( new Tile(hw,  85));<br>
+			tileArray.push( new Tile(hw,  21));<br>
+			tileArray.push( new Tile(hw,  69));<br>
+			<br>
+and there are less than 200 lines of code for the tile.<br>
+<br>
+The axes are calculated as the tile mask is parsed, so no need for a separate axes mask.<br>
+<br>
+There is a very early demo here of some of the most interesting tiles:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/CachedSAT.swf">http://home.planet.nl/~borst595/CachedSAT.swf</a><br>
+<br>
+Mouse + left click to move rectangle.  Scroll wheel to rotate the rectangle.  <br>
+<br>
+I'll release the source as soon as possiable.  If anybody is interested before that then PM me here and I'll email it you.</div></div>
+<div class="post" id="p393812"><div class="post-head"><a class="id" href="../t/20836.html#p393812">#393812</a> <span class="index">4</span> <span class="date">2007-12-27T16:09:39Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p393716">Quote: mattk210, 2007-12-27T02:21:51Z</a></div>Also, something like this would be fast, right? comparable to N's engine?</blockquote><br>
+Yes and No.  The thing with N's tile collision detection is that:<br>
+<br>
+a) it only supports AABB's and circles<br>
+b) the collision code doesn't need to loop through vertices.  The average case only ever seems to need 10 or so actual lines of code to calculate collisions.<br>
+<br>
+The code for this example looks like a 'normal' SAT implementation except for the precalcualted part but it still needs to (worse case) loop over 9 verticies for each collision test.  The real speed up should be the swept collision tests.  In my old engine I had very small objects moving fast, I used to multisample the objects which lead to up to 10 tests per frame.<br>
+<br>
+As for curved tiles, I'm not sure what to do about them at the moment.  I'd dont think I need them, but if they are not to difficult to implement I'll have a go.</div></div>
+<div class="post" id="p403701"><div class="post-head"><a class="id" href="../t/20836.html#p403701">#403701</a> <span class="index">15</span> <span class="date">2008-01-24T08:52:53Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Sorry for the late reply.<br>
+<br>
+It does support OOB.  Once the OOB is calculate ONCE pre rotation it is cached and used on all collisions for that frame.  For example we might be checking on a 9x9 grid around the OOB.  The intervals are only calculate once for each project, cached and reused from that frame (beacuse there are only ever 8 tile axes).<br>
+<br>
+There is no ray casting at the moment - hopefully have that some point soon - its very important.<br>
+<br>
+I'll post the source in this thread.<br>
+<br>
+The multiple collisions can be a problem sometimes.  Mainly on flat, vertical surfaces.  I tried a number of things, I think the most success full is just to just the adjacent tiles, and if its also flat the only project in one direction.  I know its very limited.<br>
+<br>
+I've been working on some Rigid Body stuff - I used the C Chipmunk library as a basis and used the interesting parts (SI solver etc) in my own engine.  This doesn't have tiles support or raycasting.  In fact it has nothing apart from an extremely fast rigid body engine, but its a good start.<br>
+<br>
+Demo: <a href="http://home.planet.nl/~borst595/pEngine.html">http://home.planet.nl/~borst595/pEngine.html</a></div></div>
+<div class="post" id="p403702"><div class="post-head"><a class="id" href="../t/21187.html#p403702">#403702</a> <span class="index">21</span> <span class="date">2008-01-24T08:59:22Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">To be honest, if you want a easy place to start try BlitzMax.  <br>
+<br>
+For $80 you cant really go wrong, its fast, easy to code, lots of examples and support.  Its also OO like so it lets you program nicely.<br>
+<br>
+<a href="http://www.blitzmax.com/Home/_index_.php">http://www.blitzmax.com/Home/_index_.php</a></div></div>
+</main>
+</body>
+</html>

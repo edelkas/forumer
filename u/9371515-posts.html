@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by robodude666 - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9371515.html">robodude666</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p6273"><div class="post-head"><a class="id" href="../t/6878.html#p6273">#6273</a> <span class="index">1</span> <span class="date">2006-01-18T00:31:49Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Hello,<br>
+<br>
+I just heard about N game (adding to addictinggames.com last friday) and I played it. Got addicted as hell and I wanted to know how it works. I downloaded the tuts from the site and I have this question.<br>
+<br>
+In tut B I noticed this<br>
+<br>
+<pre class="code">MAPSTR = "A6E00002000?E000000NA0070C0N00;10B0N00:10&gt;0&gt;L0060000F000@0GH0003";</pre><br>
+I am guessing thats the var with the string that holds the info for the tiles used on the map. My question is how/where the hell is everything being parsed/rendered?! I looked through the whole file like 5 times and couldn't find it.<br>
+<br>
+Thanks for you help,<br>
+-robodude666<br>
+<br>
+P.S. N is the best game EVER! I am planning on making something like it <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Thanks for the inspiration!</div></div>
+<div class="post" id="p133558"><div class="post-head"><a class="id" href="../t/6878.html#p133558">#133558</a> <span class="index">3</span> <span class="date">2006-01-19T00:53:25Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133484">Quote: Toshosoft, Jan 18 2006, 09:23 PM</a></div> LOL<br>
+The thing you're looking for is in the "incremental loading" layer in the file... or at least that's what I think you're looking for <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+Hope that helps.<br>
+<br>
+TS  </blockquote> <br>
+ You are simply godly <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Mind telling me where I can find SetTileState? Also, If you wouldn't mind. Could you create an FLA with just the tilemap rendering code in one frame? I would be ever so thankful!</div></div>
+<div class="post" id="p133602"><div class="post-head"><a class="id" href="../t/6878.html#p133602">#133602</a> <span class="index">6</span> <span class="date">2006-01-19T02:36:03Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133589">Quote: ultima888, Jan 19 2006, 02:06 AM</a></div> You seem to have downloaded a ripped-off version of N, it is called N not N game.  </blockquote> <br>
+ Sorry, didn't know that. If you go to <a href="http://addictinggames.com/">http://addictinggames.com/</a> before the 20th (they update every friday) you will see<br>
+N-Game<br>
+Jump and bounce off walls to avoid evil homicidal robots.<br>
+<br>
+They have it titled as N-Game.. Thats what I thought it was called.. I am very sorry! But this still doesn't help me with the tilemap rendering process!</div></div>
+<div class="post" id="p133619"><div class="post-head"><a class="id" href="../t/6878.html#p133619">#133619</a> <span class="index">8</span> <span class="date">2006-01-19T05:12:01Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133604">Quote: wedgie123, Jan 19 2006, 02:43 AM</a></div> lol theres no need to apologise so much lol. some people just get a little overheated about its 'proper' name. welcome to the boards too. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  </blockquote> <br>
+ Thank you <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> But im still totally lost about where/how the tilemap is rendered!</div></div>
+<div class="post" id="p133840"><div class="post-head"><a class="id" href="../t/6878.html#p133840">#133840</a> <span class="index">10</span> <span class="date">2006-01-19T23:46:53Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">I understand that, but in the incremental loading layer there is this code<br>
+<br>
+<pre class="code">tiles.SetTileState(this.CUR_COL, this.CUR_ROW, this.mapStr.charCodeAt(this.CUR_CHAR));</pre><br>
+I can't find SetTileState(); anywhere! I looked at all the tilemap layers and couldn't find it... Also, I have this question. What the hell is the need for all these layers and functions?! You can simply put everything into one *.as file, or put everything into like a few layers. Also, some of these functions have like 1 line of code.... Makes it a total pain to look for something.<br>
+<br>
+[edit]<br>
+<br>
+Nevermind! I found SetTileState()!!!! It was in the get/set tile state layer.. never looked there  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">   <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;">  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"></div></div>
+<div class="post" id="p134318"><div class="post-head"><a class="id" href="../t/6945.html#p134318">#134318</a> <span class="index">2</span> <span class="date">2006-01-21T13:46:11Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Very Nice! Very Nice. It is no competition for N, but nontheless it is nice. There are some bugs I noticed. First thing that I noticed is that the controls suck! Sorry, but they do. Try using the good old WASD for control. W for jump, A for left, D for right and S maybe for ducking.<br>
+<br>
+Next off, jumping. You can just hold down the Z key and you go flying away, weeeeeeeee. I also noticed that you can fall onto the ground and walk there, and theres that little space on the left side. You can fall into it and get stuck.<br>
+<br>
+The animations need a bit of work also. I suggest to change the idle animation to him having both feet on the ground because man! How long can he stand on one foot?! Also, you don't see the path of the bullet.<br>
+<br>
+Other than that its a good try! Hope you build on this and make a nice platform shooter!</div></div>
+<div class="post" id="p6340"><div class="post-head"><a class="id" href="../t/6948.html#p6340">#6340</a> <span class="index">1</span> <span class="date">2006-01-21T14:59:06Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Hello,<br>
+<br>
+I have been playing N for 8 days now (  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> ) and I have had some ideas on how to maybe make it better.<br>
+<br>
+1) Make the Ned editor a bit easier to use, maybe more GUI. I am pretty tired of pressing keys on my keyboard to do something. Why not have a GUI system?<br>
+<br>
+2) Settings system. You can double click on an object and a settings box will popup. In that box you will be able to control different things. For some of the enemies, you can set speed, delay between shots, .etc This will also be helpful because it can be used to remove the need to pick a direction for the bot or object. Just place the object onto the map, and edit settings. Edit the direction with just a simple click of a checkbox/radio. For the platforms you can select the angle of the platform in addition to the speed to shot the ninja out at. I think this will increase the different types of levels people could make aswell as make DDA levels easier to make and more fun.<br>
+<br>
+3) Define enemy paths. Instead of just making the enemy "hug" the wall, why not be able to define their path? Just click on the boxes you want them to go to and they will follow that path.<br>
+<br>
+4) This one is a suggestion for NUMA. I am not sure if NUMA already has this, and if it does I am sorry.. I guess I didn't notice it. But, how about a link on NUMA's menu which will generate a txt (or zip/archived file with a txt file inside) with all of the maps in NUMA's DataBase. You could also for example, set the settings to what you want to be included in that file. Select the categories you want to include or maybe get all the maps by an author, or even select all the maps with a x or greater/less rating. This way, users don't need to copy and paste tons of snippets of map data. Also, if the user is logged in NUMA will remember their last time of downloading the file and the user can then select to download a file with all the new maps that were added since their last time downloading the file.<br>
+<br>
+The txt file could have all the maps ordered by author/category in it with comments in the file with the category/author that will follow.<br>
+ex:<br>
+<pre class="code">//----Maps by user: robodude666 ------------------------------
+
+$map.....
+
+or
+
+//----Maps in the category: Action ------------------------------
+
+$map.....</pre><br>
+C&amp;C are welcome <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> I am sorry if any of these suggestions were already suggested. I couldn't find any of them through search. I will edit this topic if I get any new ideas.</div></div>
+<div class="post" id="p134350"><div class="post-head"><a class="id" href="../t/6948.html#p134350">#134350</a> <span class="index">3</span> <span class="date">2006-01-21T16:13:12Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Oh, flash can do just about anything you want it to. There really isnt much flash can't do. If you set your mind to it and know your actionscript flash can do just about everything. And the ideas I suggested can be done with flash. Problem is, is that it will make the map data a bit longer to hold all of the info and also make the actionscript longer to parse all the new data.</div></div>
+<div class="post" id="p11871"><div class="post-head"><a class="id" href="../t/13335.html#p11871">#11871</a> <span class="index">1</span> <span class="date">2006-10-22T00:34:34Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Hey,<br>
+<br>
+I am working on a little flash game and I have been having some hittest and gravity problems. I want an object to follow a line inside a MC and so far I managed to get velocity and gravity working but it doesn't follow the line with my hittest method... I was wondering if you guys could suggest a more "advanced" way of doing this. I read the tutorials and all but that stuff is a bit confuzzing and theres a ton of code + its tile based. I want mine to follow any line that is drawn inside of the MC.<br>
+<br>
+Thanks,<br>
+-robodude666</div></div>
+<div class="post" id="p244380"><div class="post-head"><a class="id" href="../t/13335.html#p244380">#244380</a> <span class="index">3</span> <span class="date">2006-10-22T13:02:43Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">No, it could be any line. It could be a straight line, there could be caps, heck! They could even be a "loop the loop"! Reason for the gravity was I need the ball to fly when it needs to and drop when it needs to... I started making it under the idea that if the ball was forced to go down and there was a line in its path, if you make a simple hittest to make it stay above the line, then it would follow the line... But apparently that doesnt work!<br>
+<br>
+Thanks in advance,<br>
+-robodude666</div></div>
+<div class="post" id="p245551"><div class="post-head"><a class="id" href="../t/13335.html#p245551">#245551</a> <span class="index">5</span> <span class="date">2006-10-24T22:55:30Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Woops, sorry for late reply! I totally forgot about this topic.<br>
+<br>
+Yup, I am trying to create a game similar to LineFlyer (<a href="http://addictinggames.com/lineflyer">http://addictinggames.com/lineflyer</a>) but with some chances.<br>
+<br>
+Could you describe this in more detail? I am not understanding what you are saying.<br>
+<br>
+Thanks,<br>
+robodude666</div></div>
+</main>
+</body>
+</html>

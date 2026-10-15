@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyberzone - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/6.html">Messageboard Games</a> &rsaquo; <a href="../f/24.html">Forum RPGs</a> &rsaquo; Cyberzone</nav></header>
+<main>
+<div class="post" id="p14739"><div class="post-head"><a class="id" href="../t/16812.html#p14739">#14739</a> <span class="index">1</span> <span class="date">2007-04-06T18:16:39Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">This thread is for the rules to an IRC game of Cyberzone.  Players will be using the rules described here to participate in a game to be held in the #cyberzone channel on irc.waypasteleven.com.  The bot which runs the program (CyberBot) on the IRC channel was created painstakingly by thecalcgenius; the bot, its program, and its implementation are subject to copyrights, <img class="smiley" src="../files/smilies/21.gif" alt="&lt;3" title="&lt;3"> Calcy.  The Cyberzone game rules and information are subject to copyrights, <img class="smiley" src="../files/smilies/21.gif" alt="&lt;3" title="&lt;3"> Dave.<br>
+<br>
+<br>
+<br>
+<b><span style="color:RED">Playing the Game</span></b><br>
+You are a <b>hacker</b>.  Your mission is to cause your opponents to fall out of the mainframe.  You do this by moving your avatar around on a grid and leaving behind holes.<br>
+<br>
+<b>Navigating the Grid</b><br>
+At the start of the game, a grid is generated.  The players will know the dimensions of the grid.  There will be a number of rows (A, B, C...) and a number of columns (1, 2, 3...).  Moving around on this grid goes on behind the scenes, however.  On your turn, you will be notified of your position and your surroundings and you must issue your move.<br>
+<br>
+On your turn, you may change your column or your row, but not both.  To do this, you PM the bot (who has already provided you with information).  You may change to <i>any other column or row</i>, regardless of how "far away" it may seem.  For instance, if you wish to change your column, you can move from F1 to B1, from C1 to D1, or from A1 to J1.  If you wish to change your row, you may change to any other row value, but must keep your column value.<br>
+<br>
+Any time you move, you leave behind a <b>hole</b> in the space from which you moved.  Keep track of where you put your holes.  If you move into a hole that you left behind, or a hole left behind by any other player, you will drop off of the grid and lose the game.  If you enter another player's space on your turn, you have <b>hacked</b> that player, and he is removed from the grid.  There are other ways to defeat opponents, through the use of items.<br>
+<br>
+<b>Your Surroundings</b><br>
+Before taking your turn, you will be informed of the number of holes, any specific players, and any objects that are in the same row as you or the same column as you.  You are not, however, informed of the exact locations.  For instance, you may get the info: "There are two holes in your row.  GamingWolf and the Trojan Item are in your column".  You will not, however, know where those are.<br>
+<br>
+When a player falls down a hole, the hole's location is revealed publically.  When a player hacks an opponent, the location where the hack occured is revealed publically.  Sometimes, it isn't safe to hack an opponent because it will reveal your location, allowing you to be hacked in return.<br>
+<br>
+<b>Game Logic</b><br>
+At the outset of the game, no player or program will start on the same row or column as another player or program.  Therefore, the first player to take her turn will see nothing of interest within the surroundings.  After a few rounds (and every like interval thereafter), new programs will spawn onto the grid randomly.  The programs will spawn onto the grid in a row and column which are unoccupied by a player.  Programs can be spawned in the place of holes, making those holes free spaces to enter again.<br>
+<br>
+Information received in private may be freely discussed within the channel.  Players are free to lie about information which they have acquired.  Players are free to act upon public, private, and spoken information in whichever ways they deem fit.  Players are free to copy-paste information as they see fit.<br>
+<br>
+<br>
+<br>
+<b><span style="color:BLUE">Using the Channel</span></b><br>
+To begin a game of Cyberzone in the #cyberzone channel on IRC, type "<b>!start</b>".  This will start the sign-up period for players to join the game.  To join a game which has been started, players must type "<b>jack</b>".  If a player decides he no longer wishes to participate in the upcoming game, he can type "<b>unjack</b>" to be removed from the player list.<br>
+<br>
+To begin a normal game once all of the players have signed up, the game-starter (the player who typed !start initially) must type "<b>!load</b>".  Information about the game is provided publically and the firsrt round will begin.<br>
+<br>
+To begin a configured game once all of the players have signed up, the game-starter must type "<b>!config</b>".  The game-starter must then answer a series of questions to set up the custom game.  The settings that can be configured are grid size, number of programs to start in the game, which programs are to start in the game (or if they are to be random), the number of rounds between new program spawns, and which programs the players will already have installed at the start of the game (if any).  Once the configurations are complete, the game-starter must type "<b>!load</b>" to begin the game.<br>
+<br>
+<b>Conduct in the Channel</b><br>
+Players are discouraged from forming alliances or teaming up.  Ultimately, players should compete to win.  Players who are deemed unsportsmanlike by the other players can be excommunicated from games and, if such players refuse to cooperate with the other players when setting up games, can be forcibly removed from the channel.<br>
+<br>
+<b>Spam is not tolerated.</b>  Idle conversation and banter is allowed.  Heated arguments, involved conversations, and off-topic discussions should be taken to PM or a different channel.  The channel is currently maintained and operated by blue_tetris, thecalcgenius, and CyberBot (thecalcgenius's bot program).<br>
+<br>
+<br>
+<br>
+<b><span style="color:GREEN">Understanding the Programs</span></b><br>
+Programs will be randomly located on the grid.  When you move into the same space as a program, you execute it.  When the program executes, everyone in the mainframe will be informed that you have used the program.  As the game continutes, new programs spawn at a set interval.  The default program spawn interval is the number of players plus two.  Programs will spawn into rows and columns unoccupied by players, and may spawn in the place of holes (making them usable spaces again).  <br>
+<br>
+<b>Program List</b><br>
+This list is alphabetical.  Blue programs benefit you permanently; you install them and they affect you for the rest of the game.  Green programs benefit you instantly or negatively affect opponents without removing them from play; you use them to improve your current standing or assist the game.  Purple programs provide you with information instantly.  Gray programs alter the design of the grid, without directly harming or helping any player.  Red programs remove another player from the grid.<br>
+<br>
+<b><span style="color:GREEN">Backdoor</span></b>: A backdoor in the system.  A player who finds this program can transport to any space on the grid, leaving the backdoor space holed.  The player names this space in private.  If the player moves onto a hole, the hole goes away and the player is safe.  If the player moves onto an opponent, the player hacks that opponent.  If the player moves onto a program, the player uses it immediately.<br>
+<br>
+<b><span style="color:BLUE">Cloak</span></b>: An avatar masking program.  A player who gets this program can no longer be seen by other players passing into the same row or column.  A cloaked player is also unable to be seen using a scan.<br>
+<br>
+<b><span style="color:GREEN">Deadloop</span></b>: A viral code string which ties up its host's human resources.  When a player gets this program, all opponents are unable to receive information from their location for one full round (until the player's next turn).<br>
+<br>
+<b><span style="color:GREEN">Defrag</span></b>: A helpful system tool for patching holes in the grid.  When a player gets this program, half of the holes that have been made so far become free spaces.  The holes are chosen randomly and no information is given about which holes have been removed.<br>
+<br>
+<b><span style="color:PURPLE">dir.</span></b>: A soft port to a parent directory which provides an opportunity to index a sector.  A player who gets this program names a row (A, B, C...) or column (1, 2, 3...).  The player receives information in private detailing the exact locations of all the holes in this sector.<br>
+<br>
+<b><span style="color:BLUE">Flying Carpet</span></b>: An amazing (and illegal) program created to allow hacktivists to circumvent holes in a mainframe, through potent subavatar-manifestion relays.  A player who gets this program can move over holes without falling.  Each time a player using a flying carpet moves over a hole, the location of the player is revealed publically (but subavatar-manifestations prevent SysOps from ejecting the player).  A player with both Silver Cord and Flying Carpet will use Silver Cord first when moving over a hole, to obscure the location.<br>
+<br>
+<b><span style="color:BLUE">ICE</span></b>: Intrusion Counter-Electronics.  A player who gets this program cannot be hacked for the rest of the game.  Any opponent who enters this player's space will be dropped from the mainframe.  ICE also protects against Trojans.  If a Trojan hits a player with ICE, the player who used the Trojan is removed from the game.<br>
+<br>
+<b><span style="color:DARKGRAY">Invert</span></b>: An archaic binary swap protocol for sectors.  A player who gets this program names a row (A, B, C...) or column (1, 2, 3...).  All of the free spaces in the named sector become holes and all of the holed spaces in the named sector become free spaces.  Spaces containing programs or players are unaffected.<br>
+<br>
+<b><span style="color:RED">Magic bullet</span></b>: A potent virus engineered by the white hat hackers of yesteryear.  A player who lands on this program must declare either 'row'  or 'column' .  Any opponent sharing the same row or column (whichever was declared) as the player is removed from the mainframe.<br>
+<br>
+<b><span style="color:RED">Magic bullet ][</span></b>: A virus generated from the engine of its predecessor program, and nicknamed "Jade Lightning".  A player who lands on this program must name an opponent and a specific column or row.  If the named opponent is in the column or row indicated by the player, the opponent is removed from the mainframe.<br>
+<br>
+<b><span style="color:RED">Magic bullet ]|[</span></b>: A supremely deadly virus from the successful MB series, with an unfortunate code exploit.  This virus is more commonly know by its nickname "Strangelove".  A player who lands on this program must name a specific space publically.  If there are any opponents in the same row or column as this space, they are removed from the grid; then the player is moved to this space (just like the Backdoor program).  If there are no opponents in the same row or column as the declared space, the player who executed "Strangelove" is revealed to SysOps and forcibly ejected from the mainframe.<br>
+<br>
+<b><span style="color:DARKGRAY">Minesweeper</span></b>: A helpful SysOp application for repairing the grid.  A player who gets this program inputs a list of spaces.  The number of spaces is equal to the dimension of the grid.  Named spaces which are holed become free spaces.  Spaces with players or programs in them are unaffected.<br>
+<br>
+<b><span style="color:GREEN">Overclock</span></b>: A deck speedhacking tool.  A player who lands on this program immediately gets another turn.<br>
+<br>
+<b><span style="color:DARKGRAY">Phone phreak</span></b>: A subversive telecommunications hack allowing external manipulation of the grid.  A player who gets this program inputs a list of spaces.  The number of spaces is equal to the dimension of the grid.  Named spaces which are free spaces become holed.  Spaces with players or programs in them are unaffected.<br>
+<br>
+<b><span style="color:PURPLE">Query</span></b>: A query request.  A player who lands on this program names an opponent publically.  The player receives information in private revealing this opponent's exact location.<br>
+<br>
+<b><span style="color:DARKGRAY">Reboot</span></b>: A reset protocol for sectors.  A player who gets this program names a row (A, B, C...) or column (1, 2, 3...).  All of the holes in the named sector become free spaces.<br>
+<br>
+<b><span style="color:PURPLE">Scan</span></b>: A remote scanning device.  A player who lands on this program names a specific space publically.  The player receives information in private revealing what this player would see from that location (the contents of the row and column).<br>
+<br>
+<b><span style="color:DARKGRAY">Sector kill</span></b>: A supposedly failsafe kill protocol for sectors.  A player who gets this program names a row (A, B, C...) or column (1, 2, 3...).  All of the free spaces and program spaces in the named sector become holes.  Spaces with players in them are unaffected.<br>
+<br>
+<b><span style="color:BLUE">Silver Cord</span></b>: A tricky defensive program utilized by black hat hackers everywhere.  A player who gets this program becomes immune to the next hole the player would otherwise fall through.  After moving into a holed space, the player is saved and The Silver Cord is removed.<br>
+<br>
+<b><span style="color:DARKGRAY">tangerine.exe</span></b>: A mysterious executable file from the golden age of hacking.  When a player gets this program, every space on the grid becomes holed, except for spaces containing players or items.  The program contains a readme file which has been read only by an elite few.  The original diskette also included a thirty-page manifesto on hacker lifestyle, which has been long since deleted and forgotten.<br>
+<br>
+<b><span style="color:PURPLE">Torchbearer</span></b>: A commercial program providing a masterful total-scan of the grid.  A player who gets this program declares 'row' or 'column'.  The player receives information in private detailing information from every row or column (whichever was declared) as if the player were standing in those sectors.<br>
+<br>
+<b><span style="color:RED">Trojan (Godhammer)</span></b>: A strong but ineligant virus designed to damage the grid.  A player who lands on this program names a grid space publically.  That space becomes a hole.  An item or player in the targeted space is dropped from the mainframe; if a targeted opponent has ICE, the player who used the Trojan is dropped instead.<br>
+<br>
+<b><span style="color:RED">Trojan (Masquerade)</span></b>: A secretive but less potent virus designed to damage the grid.  A player who lands on this program PMs the name of a space in the same row or column as the player.  That space becomes a hole.  An item or player in the targeted space is dropped from the mainframe; if a targeted opponent has ICE, the player who used the Trojan is dropped instead.<br>
+<br>
+<b><span style="color:RED">Trojan (Monday Morning Massacre)</span></b>: A stealthy sniper virus targeted at the grid.  A player who lands on this program names a grid space in PM.  That space becomes a hole.  An item or player in the targeted space is dropped from the mainframe; if a targeted opponent has ICE, the player who used the Trojan is dropped instead.<br>
+<br>
+<b><span style="color:BLUE">White Knight</span></b>: A commercial program allowing unparalleled grid mobility.  A player who gets this program can make moves to any space on the grid, instead of just spaces in the same row or column.  Having a player with White Knight makes hacking unsafe for any other player wtihout ICE.</div></div>
+<div class="post" id="p357174"><div class="post-head"><a class="id" href="../t/16812.html#p357174">#357174</a> <span class="index">2</span> <span class="date">2007-08-19T19:20:43Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">As many of you who frequent IRC know, blue_tetris and I have remade Cyberzone with all new items and a healthy bot to moderate games. We are constantly adding items and improving the interface by the day, so come in and play!</div></div>
+<div class="post" id="p357181"><div class="post-head"><a class="id" href="../t/16812.html#p357181">#357181</a> <span class="index">3</span> <span class="date">2007-08-19T19:35:10Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">Woo. This is great fun. Somehow I prefer this to mafia. Even though mafia has the funny parts.</div></div>
+<div class="post" id="p357182"><div class="post-head"><a class="id" href="../t/16812.html#p357182">#357182</a> <span class="index">4</span> <span class="date">2007-08-19T19:40:48Z</span> <span class="author"><a href="../u/9371578.html">Ravenclaw</a></span></div><div class="post-body">Heh, I own at this game.<br>
+<br>
+ <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> @ Dave.</div></div>
+</main>
+</body>
+</html>

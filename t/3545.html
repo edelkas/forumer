@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How can I use arrow keys to move stuff? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; How can I use arrow keys to move stuff?</nav></header>
+<main>
+<div class="post" id="p3207"><div class="post-head"><a class="id" href="../t/3545.html#p3207">#3207</a> <span class="index">1</span> <span class="date">2005-06-06T16:22:24Z</span> <span class="author">Guest</span></div><div class="post-body">I need help! obviously.<br>
+<br>
+I don't know how to assign keys to an object in Flash, to make it move.<br>
+<br>
+Im designing a 2-d game, but have no idea how to move my character in the game.<br>
+<br>
+I need to know how to run left and right, and also jump.<br>
+<br>
+Please help me.</div></div>
+<div class="post" id="p72792"><div class="post-head"><a class="id" href="../t/3545.html#p72792">#72792</a> <span class="index">2</span> <span class="date">2005-06-06T17:02:33Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">go into configure in the main menu then you can assign which keys you want for what buttons.  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></div></div>
+<div class="post" id="p72798"><div class="post-head"><a class="id" href="../t/3545.html#p72798">#72798</a> <span class="index">3</span> <span class="date">2005-06-06T17:26:09Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Wedgie, you miss understood.<br>
+<br>
+SteJmatty, you need to learn Actionscript which is pretty hard.</div></div>
+<div class="post" id="p72818"><div class="post-head"><a class="id" href="../t/3545.html#p72818">#72818</a> <span class="index">4</span> <span class="date">2005-06-06T19:08:43Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3545.html#p3207">Quote: Guest, 2005-06-06T16:22:24Z</a></div>Im designing a 2-d game</blockquote><br>
+oh lol, my bad. i just assumed this was about N  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"></div></div>
+<div class="post" id="p72900"><div class="post-head"><a class="id" href="../t/3545.html#p72900">#72900</a> <span class="index">5</span> <span class="date">2005-06-07T01:39:27Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3545.html#p3207">Quote: SteJmatty, Jun 6 2005, 04:22 PM</a></div>I need help! obviously.<br>
+<br>
+I don't know how to assign keys to an object in Flash, to make it move.<br>
+<br>
+Im designing a 2-d game, but have no idea how to move my character in the game.<br>
+<br>
+I need to know how to run left and right, and also jump.<br>
+<br>
+Please help me.</blockquote><br>
+Maybe this reply will help you...<br>
+<pre class="code">// Flash MX 2004 strict data type enforced
+
+// Create a key listener.
+// Let's pretend your instance name is mcBox
+
+var oKey:Object = new Object();
+oKey.onKeyDown = function( Void ):Void {
+
+if( Key.getCode() == Key.RIGHT )  mcBox._x++; // mcBox._x += 1;
+if( Key.getCode() == Key.LEFT ) mcBox._x--; // mcBox._x -= 1;
+if( Key.getCode() == Key.UP ) mcBox._y--; // mcBox._y -= 1;
+if( Key.getCode() == Key.DOWN ) mcBox._y++; // mcBox._y += 1;
+
+}
+
+Key.addListener( oKey );</pre><br>
+If you want to implement a jump mechanism do something like this<br>
+<pre class="code">...
+var nIncrement:Number = 2;
+
+if( Key.getCode() == Key.UP ) mcBox._y -= nIncrement;
+...</pre><br>
+If you want to apply some sort of gravitational force you can try something like this.<br>
+<pre class="code">_root.onEnterFrame = function( Void ):Void{
+mcBox._y += .5;
+}
+// This will always move mcBox down .5 pixels every frame loop
+// hence creating a gravitational illusion.</pre>Of course you can make it more realistic if you apply basic physics movement.<br>
+<br>
+Actionscript is not hard.  So don't be discourage to learn it.  Once you know actionscript, then you'd pretty much know two programming languages...JavaScript and Actionscript...with slight differences.<br>
+<br>
+Regards,<br>
+Bobo</div></div>
+<div class="post" id="p73173"><div class="post-head"><a class="id" href="../t/3545.html#p73173">#73173</a> <span class="index">6</span> <span class="date">2005-06-08T11:52:25Z</span> <span class="author">Guest</span></div><div class="post-body">tHANKS Bobo<br>
+<br>
+but where do i place this<br>
+<br>
+var oKey:Object = new Object();<br>
+oKey.onKeyDown = function( Void ):Void {<br>
+<br>
+if( Key.getCode() == Key.RIGHT )  mcBox._x++; // mcBox._x += 1;<br>
+if( Key.getCode() == Key.LEFT ) mcBox._x--; // mcBox._x -= 1;<br>
+if( Key.getCode() == Key.UP ) mcBox._y--; // mcBox._y -= 1;<br>
+if( Key.getCode() == Key.DOWN ) mcBox._y++; // mcBox._y += 1;<br>
+<br>
+}<br>
+<br>
+Key.addListener( oKey );<br>
+<br>
+thanks again.</div></div>
+<div class="post" id="p73233"><div class="post-head"><a class="id" href="../t/3545.html#p73233">#73233</a> <span class="index">7</span> <span class="date">2005-06-08T15:09:50Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">You can place that code on the very top line of your code if you like.<br>
+<br>
+Just make sure to rename <b>mcBox</b> to whatever name you used for your movie clip.<br>
+<br>
+And just to note, I'm using the MX 2004 version of flash, so I'm not sure if the code will work to prior versions.</div></div>
+</main>
+</body>
+</html>

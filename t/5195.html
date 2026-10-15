@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>round shapes collision detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; round shapes collision detection</nav></header>
+<main>
+<div class="post" id="p4739"><div class="post-head"><a class="id" href="../t/5195.html#p4739">#4739</a> <span class="index">1</span> <span class="date">2005-10-13T01:54:19Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>--= round shapes =--<br>
+<br>
+We can now handle AABBs vs. convex polyhedral shapes, but what if we want circular shapes?<br>
+<br>
+Circles aren't directly handled by the SAT because, essentially, they have an infinite number of separating axes -- any direction is perpendicular to their surface.<br>
+<br>
+In order to apply our method, we need to determine which axes to test (in addition to the world axes generated from the AABB) in order to represent such circular shapes properly. Fortunately, the answer is straightforward: if you consider a point p which is the center of a circle, and a point b which is the center of the AABB, then the additional potential separating axis is the axis parallel to the vector from p to b.<br>
+<br>
+In N's collision system, tiles made of "empty" circular sections are called concave tiles, and those made by "solid" circular sections are called convex. </blockquote><br>
+shouldn't we use the nearest corner of the AABB from the round shape instead of the center of the AABB?<br>
+Using the center could lead to collision detections which don't exist! No?</div></div>
+<div class="post" id="p107915"><div class="post-head"><a class="id" href="../t/5195.html#p107915">#107915</a> <span class="index">2</span> <span class="date">2005-10-13T15:19:27Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">could somebody help me to figure out the collision alorithm with concave tiles. I spent a complete day trying to find it without success (i'm bad at maths, sorry). I don't know what to do after having done the 4 tests.  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p107919"><div class="post-head"><a class="id" href="../t/5195.html#p107919">#107919</a> <span class="index">3</span> <span class="date">2005-10-13T15:47:51Z</span> <span class="author">Guest</span></div><div class="post-body">hey, you're right -- that should be the vector from the corner to the circle, not the AABB's center..<br>
+<br>
+thanks!<br>
+<br>
+also, about the concave: have you tried reading through the source? it's the same as the convex test, except for the math dealing with the curved part is a bit different.</div></div>
+<div class="post" id="p107966"><div class="post-head"><a class="id" href="../t/5195.html#p107966">#107966</a> <span class="index">4</span> <span class="date">2005-10-13T17:56:37Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">I'va tried to understand the source but i can't, could you please explain me how this collision detection with concave tiles works.<br>
+I've tried to figure it out by myself but i can't<br>
+<br>
+than's raigan</div></div>
+<div class="post" id="p108077"><div class="post-head"><a class="id" href="../t/5195.html#p108077">#108077</a> <span class="index">5</span> <span class="date">2005-10-13T23:44:17Z</span> <span class="author">Guest</span></div><div class="post-body">AABB-vs-concave/convex is the same as circle-vs-AABB: you figure out of the AABB is in the voronoi region of the round shape, and if so, you perform an extra test vs. the round shape.<br>
+<br>
+i agree that the source isn't totally clear, it was written for speed.<br>
+<br>
+the key is to think about the corner of the AABB that's furthest "into" the round shape, and test that vs. the round shape. BUT, you should only perform these tests of the AABB is on the same side of the tile as the round shape. (the previous sentence means the same thing as find-the-voronoi-region)<br>
+<br>
+if you just spend some time stepping through the code with a pad of paper and sketching things to see what's happening, it will hopefully become clear.</div></div>
+<div class="post" id="p108165"><div class="post-head"><a class="id" href="../t/5195.html#p108165">#108165</a> <span class="index">6</span> <span class="date">2005-10-14T03:11:24Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">but what are you doing when a collision happends and no corner is touching the shape <div class="attachment attachment-missing">Attachment (lost): post-14-1129259484.jpg</div></div></div>
+<div class="post" id="p108183"><div class="post-head"><a class="id" href="../t/5195.html#p108183">#108183</a> <span class="index">7</span> <span class="date">2005-10-14T04:12:13Z</span> <span class="author">Guest</span></div><div class="post-body">in this case, the AABB's corner should be considered as colliding with the round part, because the distance from the corner to the circle-center is greater than the circle's radius. yes, the corner isn't embedded in the spae, but your tests shouldn't know or case about that, because that's a 2D problem and the tests are all 1D.<br>
+<br>
+the thing is: don't think about the actual shape of the tile; its shape is _implicitly_ defined by the series of sepaxis tests you perform. each test "carves out" part of the 2D plane, until the remaining shape is the tile.<br>
+<br>
+in this case, you start with a full plane. then you remove anything left of the tile's left edge. then you remove anything below the tile's bottom. then you remove anything closer to the circle-center than the circle-radius. the resulting shape _is_ the tile shape.<br>
+<br>
+and those three "removal" steps exist as sepaxis tests in the code.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Jason - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374560.html">Jason</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p15526"><div class="post-head"><a class="id" href="../t/17652.html#p15526">#15526</a> <span class="index">1</span> <span class="date">2007-06-04T17:17:46Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I'm attempting to to use SAT for colliding a few types of objects in 3d, and having trouble deciding what axies I should test, and how to project the widths along those axies of the shapes.  <br>
+<br>
+I am going to try and make 3d versions of some N shapes like in this picture:<br>
+<br>
+* EDIT *: I fixed the cuved images to be what they should (see later posts)<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/shapes.gif" alt="" loading="lazy"><br>
+<br>
+The upper left (ramp) is the simplest one I am tring to do, I am leaving the rest for later.  Basically my ramp is defined by the box that encloses it (the box can be of any dimention), then it will also have an axis aligned orientation and the normal of the slope the cut out creates.  (this means I could orient it anyway I want in 90 degree steps)<br>
+<br>
+The two main shapes I was tring to collide with this ramp was an axis aligned box and sphere.  I was hoping I could just test some axies, then project out of the smallest overlap, using a simliar device that was used with projecting the circle out of square, the VR's and then finding a good axis for testing against a point.  I'm not sure how I would find an axis for if the circle is closest to a line.  <br>
+<br>
+Also what are some good ways to store VR and iterate though VR's?  And accociate them with the feature that is closet to them?<br>
+<br>
+Any help would be apreciated.<br>
+<br>
+ALSO:  I plan on throwing axis aligned cylinders and axis aligned ellipsiods into this, it seems like the cylinder wouldnt be too hard because you would just test the height axis normally, and test the other two like the circle.  I think my main confusion comes from conceptualizing how to tell how many axies are going to be need to be tested to make sure you know they don't collide.</div></div>
+<div class="post" id="p327432"><div class="post-head"><a class="id" href="../t/17652.html#p327432">#327432</a> <span class="index">3</span> <span class="date">2007-06-04T20:33:08Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I think I see where I am going wrong, I'm first going have to project to a plane, then a line, as you were saying.  So I guess I need to figure out what kind of shapes get projected to the plane, otherwise I will have to determine how many seperating axies I will need dynamically for the shape that was projected to the plane.   I bet there's a way for my simple axis aligned shapes to use a similar method as the box/circle method in the tutorial.</div></div>
+<div class="post" id="p327743"><div class="post-head"><a class="id" href="../t/17652.html#p327743">#327743</a> <span class="index">5</span> <span class="date">2007-06-05T20:24:19Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">The cube was really easy, I wrote a function that takes two vectors, and returns a value that represets the projection out of each other (in this case the two vectors are half widths of the cubes) then call it for each of the 3 dimentions, and pick the smallest one.  <br>
+<br>
+I'm having trouble with the cube to sphere test, and I'm not sure exactly how I'm going to do ramp/cube, and ramp/sphere.  For the cube/sphere, I know there will be a few cases.  One is if the sphere is in the cube, directy above or below, left or right, behind or in front (sphere closest to a plane).  Then there are 12 cases that look alot like the box/circle (when the sphere is closet to a line), and the rest of the 8 cases (circle closest to point) I'm not so sure about.  I'm guessing that I test the 3 axies, then test one more that is parellel to the vector that is created from the corner the sphere is closest to, and the center of the sphere.<br>
+<br>
+For ramp/cube, I'm guessin that its the 3 world axies, then one more that is the normal to the plane that is slanted.<br>
+<br>
+I made the center of the ramp to be the center of mass, and defined vectors that represent the projections onto the different planes (two vectors, one that reperesents the distance to the edge of the ramp to the positive x direction, and one to the negative x direction, then depending on the position and orientation of the ramp, I determine which to test) I also store the two vectors that reprent the distance to the slanted plane from the center, and the distance to the opposite corner (this vector is the projection onto the slanted plane normal.<br>
+<br>
+I guess I'm sorta stuck at that...<br>
+<br>
+Also I'm tring to think how I can generalize the functions so a cylinder alinged to the x axis would use the same code as the one to the y axis.  That would get complicated for a ramp aligned to any axis coliding with a cylinder to any axis.<br>
+<br>
+EDIT:  I am accually aware of the curved problem, although the one that is basically 1/4 of a sphere and the one that is 1/4 sphere cut out I thought would be similar to box to sphere, and more doable.  The other two turn into much more complex surfaces.</div></div>
+<div class="post" id="p328041"><div class="post-head"><a class="id" href="../t/17652.html#p328041">#328041</a> <span class="index">7</span> <span class="date">2007-06-06T16:22:12Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17652.html#p327985">Quote: shoftee, 2007-06-06T11:33:05Z</a></div>Actually, you haven't included the sphere cut-out shapes in your graphic. The one you show here are a lot more complex, as you already confirmed.</blockquote><br>
+5 &amp; 9 are supposed to be the 1/4 circle cut outs, the curve tool in MSPaint doesn't let me do perfect quarter circles.  Assume all of those curves are perfect x+y=r curves.  Even with that assumption though 6 &amp; 8 are pretty complicated.<br>
+<br>
+Anyway, all that is helpful, the ones I am focusing on are sphere/box, sphere/ramp (no. 1) and box/ramp no. 1 again)  <br>
+<br>
+For testing a sphere to an edge, I figured all I need to do is make sure its in the VR that has all points closest to an edge, then find the point along that edge that is closest to the sphere, then find the distance from that point.  I guess that is two values I determined, but I'm not sure how thats like a point/plane check, maybe I just need to pencil it out more.  <br>
+<br>
+With testing the VRs, I only need to find the distance to determine which one its in?  Closest being plane checks, farther being edge, and farthest being vertex?   Do you think there would be any need to store VR's in some way for any of these shapes, or should I just manually iterate though each one, and just perform that many tests?  <br>
+<br>
+Also the no. 1 ramp doesn't nessisarily have to be 45 degree, if I make the height twice the width, it would calculate the plane normal for me.  I don't think that is a big problem, the checks would essentially be the same.<br>
+<br>
+Thanks again for the help.</div></div>
+<div class="post" id="p332014"><div class="post-head"><a class="id" href="../t/17652.html#p332014">#332014</a> <span class="index">8</span> <span class="date">2007-06-17T03:34:47Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I realized that the shapes here accually aren't accually sphere cut outs, 5 &amp; 8 need cuved tops, and 6 &amp; 9 need curved bottoms.  Oh well.  I'm sticking to these simpler all convex shapes that accually make more sense than the ones above:<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/simple.gif" alt="" loading="lazy"><br>
+<br>
+I want to do these three shapes, plus a box, ellipsoid, and cylinder.  With the non-curved ones I only need to test the axies of the side normals.  I have decided with the curved shapes, to just test every plane, point &amp; line, and fix it later.  All the VRs would do is let me throw out many of the tests.<br>
+<br>
+So the place I believe I am stuck at is accually projecting a 3d object to a single axis.  Take the ramp for example, how would I project that to an abritrary axis, when it can be scaled and alined to any axis?</div></div>
+<div class="post" id="p334214"><div class="post-head"><a class="id" href="../t/17652.html#p334214">#334214</a> <span class="index">10</span> <span class="date">2007-06-22T00:13:48Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I figured out the projection to a single axis, its accually alot easier that it seems.  There is no need to project to planes first.  I simply need to project each point to the axis, and take the smallest and largest values, and I then have the single axis interval.  With an ellipsoid, all I need to do is project the center point, then find the raduis along the projection axis, and have the interval be plus and minus the radius from the center.  The cylinder was trickier, but it turns out to be similar to the ellipsoid, I simply project the center of the circle at the top, and add the plus and minus points of that point, and do the same with the bottom.  Then its simply the interval between the smallest and largest one dimentional point.  This way I can simply apply a rotation matrix to the points to get the axis alligned orientations I need.<br>
+<br>
+Next step is to determine the finite number of axies that need to be tested with any orientation.  The circle and cylinder will be somewhat tricky, they are the only ones that have infinite normals, forcing me to test every point and line.  Thats where VRs will be helpful once I figure out how to iterate though them all, and accociate the point/line/plane they are closest to.<br>
+<br>
+* EDIT *: I fixed the cuved images to be what they should, even though I don't plan on using the curved tiles anymore:<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/shapes.gif" alt="" loading="lazy"></div></div>
+<div class="post" id="p15949"><div class="post-head"><a class="id" href="../t/18099.html#p15949">#15949</a> <span class="index">1</span> <span class="date">2007-06-28T23:46:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I have been screwing around with the multiple tile collision problem, and am brainstorming a weighted system to determine which way to project the object.  I have an image here that illistrates a few problems with pairwise operations.  <br>
+<br>
+Figure A:  Alot of times, characters will be falling into the floor constantly due to gravity.  In this figure, the charater is moving to the right, and gravity is pulling them down into the tiles.  If you were to test the square that the character is only barely touching (no. 2), it would prevent the character from walking (due to the fact that it penetrates more along the y axis than the x).  I'm tring to think of a way to instead pick the smallest projection, I could remember all of the potential projections, and somehow give the y axis more priority due to the fact that two different objects are pushing it that way, and only one is tring to push it the small distatnce to the left (in fact, the other wants to push it to the right).<br>
+<br>
+Figure B:  This is also a common occurance.  The player is running into a wall.  Here an up projection would gain some weight from tiles 1 and 2, but 3 wouldn't add to it because its up projection is way too big.  3 and 4 would add weight to a left vector, making the result (somehow) a vector pushing up and to the left.  This is just a brainstorm, so I don't know how the accual algorithm would go, but I think the idea has some potential, and seeing if anyone else could get some inspiration from it.  The details are still really fuzzy to me.  Also I would want weight be on the left projection, even if tile 4 wasn't there, so maybe weight should be increased if there is a small projection on one axis, and a really large projection on another.  For figure A, a little weight would be put on the left projection of out 2, but not alot cause the up projection isnt that much either.<br>
+<br>
+Figure C:  Here, an object moving kinda fast (not really fast) gets lodged in the tiles so the up and down vectors are smaller than the ones to the left.  This is a problem because now it will just bounce the object between them, and in my engine, that accually causes the character to die (getting crushed, remembering the first tiles projection, the second would see that the character is getting crushed).  But a better outcome would be moving the object to the left, that I would somehow detect by the fact that two tiles want to move it that way, and its not too much larger than the y axis projections. <br>
+<br>
+Figure D:  This is where things get really complicated, so far I was thinking of spliting all projections (not just remembering the smallest) and taking either the x or y axis.  With slanted tiles, you get different kinds of non-aligned axies.  Haven't thought that through too much.<br>
+<br>
+Figure E:  This one is interesting, because the two y axis projections are small, and the x ones are large.  I wouldn't want the algorithm to decide that since both want to move it way to the left, it should forget the y axis.  So I'm guessing I would only add weight to an axis if the projection is "small enough".   Here accually the outcome should be death or damage due to crushing.  <br>
+<br>
+Still real fuzzy, need to play with it some more, but If anyone has any revalations, please share... <div class="attachment attachment-missing">Attachment (lost): post-14-1183074410.gif</div></div></div>
+<div class="post" id="p337269"><div class="post-head"><a class="id" href="../t/18099.html#p337269">#337269</a> <span class="index">3</span> <span class="date">2007-06-30T15:22:45Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Wow, that looks really interesting.  Unfortunatly I would have to start all over, cause I already have SAT working with several shapes when there are only two colliding.  No time to start a whole new research project.  <br>
+<br>
+I think I'm going to try this policy:  Get all axis for all objects a single object is colliding with.  Then throw out axies that go in opposite directions.  Then use the smallest projection from the object that has the largest average projection distance along all the axies tested for that object that haven't been throw out.  A threshold will be useded for objects that have nearly the same average, and the smallest projection from both objects will be added together.  If that projection distance is too large, don't use it, and notify that object that it is being crushed.  <br>
+<br>
+Gonna see how that works out.  Unfortunatly I will have to change alot of my shape interface to be able to process the axies of all of the objects.  I think this algorithm will take care of all of the cases above, I plan on simply not allowing other configurations of objects.</div></div>
+<div class="post" id="p337953"><div class="post-head"><a class="id" href="../t/18099.html#p337953">#337953</a> <span class="index">6</span> <span class="date">2007-07-02T18:11:40Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I think the head hurting is the result of it not making much sense.  I think I have settled with only useing circles and ellipoids for avatars, (this will solve case C)  Then using only the most sigificant intersectors, which are the object with the highest average axis intersection (which is an aproximation for most intersecting area).  That will solve cases A, B and D.  Case E can be solved by after doing all of the projecting, to just do one final test to see if there is still a sigificant overlap of axies which would result in a crush notification.<br>
+<br>
+Another option would be to sweep objects one at a time, this would provide perfect non-penetration constraints, but would cause some problems if an object would have been able to move if an object infront of it moved first (order of movement would have significant impact on the simulation).  <br>
+<br>
+Perhaps I could do some ordering based on position &amp; velocity.  The order that makes the most sense is ordering along the z axis, cause most objects will fall down from gravity.  So if the objects at the bottom fall first, the objects above will have the opportunity to fall that same frame.<br>
+<br>
+Or I could have it so if an object hits another object that hasn't completed its sweep, I could put it back at the end of the line, so the object that still needs to move more has a chance to move.  Then any object that is stopped by an object that has completed its sweep, or an object that can't move, it would be taken out of the list of objects that still need updating.  Sweeps would assume all other objects were not moving.  Relative sweeps that factor in the motion of the other object would botch things up cause its possible that the other object would be constrained by other objects.<br>
+<br>
+Not sure how fast that would go.</div></div>
+<div class="post" id="p341000"><div class="post-head"><a class="id" href="../t/17652.html#p341000">#341000</a> <span class="index">11</span> <span class="date">2007-07-09T19:18:57Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I got my algorithm working perfectly for every shape except the cylinder (I'm gonna leave that for later) which means ramps and ellipsoids can be of any scale, any axis aligned rotation, and still collide perfectly.  For ellipoids I just scale the box/ramp to the space that makes the ellipsoid a sphere, and use my sphere/ramp collision algorithm.<br>
+<br>
+Right now, I check every normal to each ramp's plane, which are the axies that need to be tested if the sphere is closest to a plane, I check every axis that is created from finding the point on a line the sphere, then I check every axis created from each point to the sphere.  This is sort of like the tutorial that shows all 4 points being tested.  I need to find a way to decide which VR the sphere is in, and associate the plane, line, or point to it.  Am a really just going to calculate the distance from each plane, line and point to the sphere and take the shortest?  This seems like alot of square roots need to be found, almost as bad as doing what I am doing now with testing every axis.  <br>
+<br>
+The tutorial just says for the circle/square intersection, we already know which VR the circle is in from the x &amp; y axis tests.  I think that could be done with the box, but not the ramps.</div></div>
+<div class="post" id="p348055"><div class="post-head"><a class="id" href="../t/18099.html#p348055">#348055</a> <span class="index">8</span> <span class="date">2007-07-27T19:39:18Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">How do you calculate the distance the object needs to be moved out of the direction of the gravity vector?  When you project a ramp to the y axis, you get the same result as with a box.  Do you project the projection vector of the normal to the y axis or something?</div></div>
+<div class="post" id="p357166"><div class="post-head"><a class="id" href="../t/18099.html#p357166">#357166</a> <span class="index">9</span> <span class="date">2007-08-19T19:02:20Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Another idea that may work here is instead of choosing the least projection vector, would be to figure out which side of the object has the most contact.  In the case of C, the tiles 1 and 2 would cover the right side more than either one would cover the bottom or top.  <br>
+<br>
+So its like a bitwise and for every pixel around the perimeter of the object in question, then using that do decide which way the object goes.  I think you would only have to do this twice per frame, once to make sure theres no x axis penetration, and one in case the largest side overlap doesn't create non-penetration for the other side. <br>
+<br>
+If the top and bottom, or left and right are tagged, then you would have a crushed object.</div></div>
+<div class="post" id="p18042"><div class="post-head"><a class="id" href="../t/20291.html#p18042">#18042</a> <span class="index">1</span> <span class="date">2007-11-20T04:20:39Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">This is a stupid question, but I couldn't find the answer in any books, forums or websites.  I want to make my stage be 800x600 pixels, and when the user resizes there is no distortion.  So when the window is smaller, it just doesnt display everything, and when its bigger, it centers the stage on the window.  <br>
+<br>
+stage.scaleMode = StageScaleMode.NO_SCALE;<br>
+<br>
+This command does the trick of not rescaling, but I can't for the life of me figure out where manipulating the window takes place.  Is this done durring the swf -&gt; exe conversion?  or with setting the dimentions in the web page it is to appear?</div></div>
+<div class="post" id="p381252"><div class="post-head"><a class="id" href="../t/20291.html#p381252">#381252</a> <span class="index">4</span> <span class="date">2007-11-20T19:48:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Ah, thank you, just what I needed.  Didn't think it would be something that would be done in code.  Now is there a way to not allow the stage size to get bigger than 800x600 when the window is resized to a larger size?  Or do I have to just create a child stage that will be added to the main stage, and let that child be centered?</div></div>
+<div class="post" id="p394899"><div class="post-head"><a class="id" href="../t/20836.html#p394899">#394899</a> <span class="index">12</span> <span class="date">2007-12-31T02:55:28Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p18568">Quote: rje, 2007-12-26T13:16:26Z</a></div>The engine I'm building only allows bodies to be built out of rectangles (2 axes with angualr velocity) and circles (3 axes). </blockquote><br>
+Does this mean it supports Oriented Bounding Boxes?  You could rotate a rectangle on the fly and still have the axies pre-calculated?<br>
+<br>
+Also, how are you dealing with issues brought up in this thread: <br>
+<br>
+<a href="../t/18099.html">http://metanet.2.forumer.com/index.php?showtopic=18099</a><br>
+(Weighted System for Multiple Tile Collisions)<br>
+<br>
+I came up with a non-penetration constraint that is the same no matter what order you iterate though the other objects.  All it does is find the largest positive and largest negative projector on both axies.  Then if there is both a positive and negative projection on either axis, it simply puts the object back where it started.    It only moves one object at a time, so I guess that is affected by order, but for each object, moving it out of all objects it touches is always the same.<br>
+<br>
+Demo:<br>
+<br>
+<a href="http://eatjason.googlepages.com/collide.html">http://eatjason.googlepages.com/collide.html</a><br>
+<br>
+<br>
+*EDIT:  Didn't realize the mouse wheel rotated the box..... didn't realize flash recognized mouse wheel movements.....  is the box cached somehow?  Or are the axies for the box calculated any time its rotated?</div></div>
+<div class="post" id="p395062"><div class="post-head"><a class="id" href="../t/17652.html#p395062">#395062</a> <span class="index">13</span> <span class="date">2007-12-31T18:40:27Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Here's the final product of this attempt at SAT in 3d.  Still has a few issues, but I lost the source code.  I salvaged the collision source at least, but I wanted to switch away from Ogre anyway.  Since I have been working with actionscript more these days, I won't have the need for 3d collision, maybe I will try again if I get an opportunity to work on a 3d game again.  This engine, with a few tweaks, could be used to create platforming 3d games like Mega Man Legends, or any of the old school Playstation games that used a 3d grid of blocks.  A major improvement this engine would need is a good 3d tile culling algorithm, it goes awfully slow for as few blocks make up the level in the demo.<br>
+<br>
+<br>
+<a href="http://eatjason.googlepages.com/3dmonkey.html">http://eatjason.googlepages.com/3dmonkey.html</a></div></div>
+<div class="post" id="p401292"><div class="post-head"><a class="id" href="../t/21134.html#p401292">#401292</a> <span class="index">4</span> <span class="date">2008-01-16T18:25:57Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">AH HA!  This was the only tile in N I couldn't seem to figure out how to recreate..... I think I could even get my 3d version of this tile working with that little bit of info.  Thanks a bunch.</div></div>
+<div class="post" id="p402525"><div class="post-head"><a class="id" href="../t/21187.html#p402525">#402525</a> <span class="index">7</span> <span class="date">2008-01-21T01:50:15Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">If you think you are up to learning ActionScript 3.0, go here:<br>
+<br>
+<a href="http://www.senocular.com/flash/tutorials/as3withmxmlc/">http://www.senocular.com/flash/tutorials/as3withmxmlc/</a><br>
+<br>
+You can download the free trial of flex, and get the exe needed to compile AS files.  If you want to import vector art, you will have to get some other program, I haven't looked into it.  But with these tutorials, you can import bitmaps for your graphics.  If you want more complicated behavior like animated sprites, you will have to go inline and find more ActionScript 3.0 tutorials.  Mainly though you would want to steer clear of Flash 9 tutorials, because you won't have CS3 to work with, thus you will not be able to make movie clips.  Also you will have to find some editor to make AS files in, any text editor will do, but if you find something better, go for it.</div></div>
+<div class="post" id="p403490"><div class="post-head"><a class="id" href="../t/20836.html#p403490">#403490</a> <span class="index">13</span> <span class="date">2008-01-23T23:00:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I almost have my own implementation of this going, but I can't seem to figure out to cache axies that are created from circle centers to points, or axies created by the rotated box normals.  I suppose you are getting a speed increase from by not having to calculate the 8 axies that you can have in memory for a tile, and just project the few points of the tile for the axies that are more dynamic.  I am also attempting to do a ray cast by sweeping a box with no dimentions (a point), and calculating the axis that overlaps last as the surface hit.   Is the source code avaliable for this yet?  Does it have ray casting code?</div></div>
+<div class="post" id="p403750"><div class="post-head"><a class="id" href="../t/20836.html#p403750">#403750</a> <span class="index">16</span> <span class="date">2008-01-24T15:28:38Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I see, so the obb's calculate and cache the axis created by the obb for each tile type touched once per frame.  That makes sense.  Same goes for the circles I assume?  <br>
+<br>
+As for ray casting, one approach could be in Eberly, David. Intersection of Convex Objects: The Method of Separating Axes.  6 Separating of Moving Convex Objects.<br>
+<br>
+Then use AABB's that are simply points by not having a width or height.  Then you can just iterate though all the axis, and find the last one that intersects.  The metanet tutorial suggests this at one point.<br>
+<br>
+I have no idea how fast that would be, right now I am using ray vs. segment, and storing each segment in the tile object (I only really use the tiles that have one extra segment besides the edges).<br>
+<br>
+And for the problem of multiple tiles, try this:<br>
+<br>
+Calculate and store the average length of every object touching the object that needs to be constrained by walls.  Then sort that list by average, highest average at top.  This will solve the problems illistrated by A and B in the Weighted System thread.  If you also have multi sampling, your character won't fall too far down the  tile to be moved to the right or left if inbetween two tiles (assuming you let gravity constantly pull your character down though the floor)</div></div>
+<div class="post" id="p410089"><div class="post-head"><a class="id" href="../t/21476.html#p410089">#410089</a> <span class="index">8</span> <span class="date">2008-02-17T03:01:26Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">If you want to focus on the game instead of all of the crazy windows stuff,  use SDL or use OpenGL/DirectX frameworks.<br>
+<br>
+One possible suggestion:<br>
+<br>
+<a href="http://www-personal.umich.edu/~bazald//zenilib/">http://www-personal.umich.edu/~bazald//zenilib/</a></div></div>
+<div class="post" id="p441331"><div class="post-head"><a class="id" href="../t/18099.html#p441331">#441331</a> <span class="index">11</span> <span class="date">2008-06-02T15:15:53Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Here's a demo a made awhile back, it has a system for multiple collisions with tiles.  Really it just finds the tiles the player collides with in a single frame, then sorts them by "most significant overlap".  I forget what the function was for that, I think it just took the average of all of the projection vectors for each axis tested.  It then just projects them in the order that they were sorted.  This method solves many of the problems illustrated above.  I'm not sure if it fixed "C" for all cases.  This engine potentially can detect squish events, by simply remembering if the player was projected in two opposite directions in a single frame.  This gets difficult when you start introducing the slanted tiles however.  The player could accually crush himself just by walking into a loft like ceiling.  This is because all slopes project the player strait up on the y-axis to prevent sliding.<br>
+<br>
+Demo:  <a href="http://eatjason.googlepages.com/castle.zip">http://eatjason.googlepages.com/castle.zip</a><br>
+<br>
+Also I noticed that the Ninja in N+ no longer jitters around when dropped in an acute angle, and that he runs up slopes much easier.  Were these the main changes made to the physics?  Having it be easier to run up slopes helped the game play a lot.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Userlevels. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Userlevels.</nav></header>
+<main>
+<div class="post" id="p14731"><div class="post-head"><a class="id" href="../t/16804.html#p14731">#14731</a> <span class="index">1</span> <span class="date">2007-04-06T05:11:58Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">I searched, I posted in another topic, and I didn't get an answer. Oh well.<br>
+<br>
+I'm having trouble with my userlevel interface.  I have over 3000 maps in it, but none of them will show up. I have the userlevels.txt in the same folder as N, and I'm not getting a response. I've also tried to download N twice, and neither times worked.<br>
+<br>
+I'm thinking that it has something to do with my .sol, but I don't have the slightest clue of what. I just currently recovered 3/4 of the N progress that I had, after I lost my .sol (all the way up to MTI). I don't want to have to redo the whole game again.<br>
+<br>
+Please, help. I have some maps that need playtesting.</div></div>
+<div class="post" id="p310341"><div class="post-head"><a class="id" href="../t/16804.html#p310341">#310341</a> <span class="index">2</span> <span class="date">2007-04-06T06:03:19Z</span> <span class="author"><a href="../u/9371245.html">Borealis</a></span></div><div class="post-body">Make sure it has "&amp;userdata=" at the top, without the quotes.</div></div>
+<div class="post" id="p310394"><div class="post-head"><a class="id" href="../t/16804.html#p310394">#310394</a> <span class="index">3</span> <span class="date">2007-04-06T14:52:42Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">Hmm... this is what it says.<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote: Userlevels</div>*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+&amp;userdata=<br>
+<br>
+<br>
+<br>
+<br>
+//---- DDA --------------------------------------------<br>
+<br>
+//======+ Maps +======\\ <br>
+<br>
+&amp;userdata=<br>
+...</blockquote><br>
+Which should I get rid of?</div></div>
+<div class="post" id="p310397"><div class="post-head"><a class="id" href="../t/16804.html#p310397">#310397</a> <span class="index">4</span> <span class="date">2007-04-06T15:00:26Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16804.html#p310394">Quote: Jakel, April 06, 2007 05:52 pm</a></div>Hmm... this is what it says.<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote: Userlevels</div>*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+&amp;userdata=<br>
+<br>
+<br>
+<br>
+<br>
+//---- DDA --------------------------------------------<br>
+<br>
+//======+ Maps +======\\ <br>
+<br>
+&amp;userdata=<br>
+...</blockquote><br>
+Which should I get rid of?</blockquote>Not necessarily either, because N starts formatting levels after the last '&amp;userdata=', and you don't seem to have any maps before the second one (unless you removed them to resize the quote), so it shouldn't matter.<br>
+<br>
+But try removing the second '&amp;userdata=' just to see what happens. <br>
+<br>
+If that doesn't help, search for abnormal symbols like '' from map names - they might cause problems.</div></div>
+<div class="post" id="p310398"><div class="post-head"><a class="id" href="../t/16804.html#p310398">#310398</a> <span class="index">5</span> <span class="date">2007-04-06T15:01:13Z</span> <span class="author"><a href="../u/9373266.html">Spawn of Yanni</a></span></div><div class="post-body">Uhh...well actually, neither of them should be there, if you ask me. Here's what mine looks like.<br>
+<pre class="code">*********************************************************************************************
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!
+
+&amp;userdata=
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************
+
+
+
+
+
+
+
+//---- DDA --------------------------------------------
+
+$Rocket-Thwumped#Echarin#DDA#0000000000000</pre><br>
+Hope that helps.</div></div>
+<div class="post" id="p310401"><div class="post-head"><a class="id" href="../t/16804.html#p310401">#310401</a> <span class="index">6</span> <span class="date">2007-04-06T15:18:19Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">What you've quoted there shows that he indeed should delete the second one and keep the first.</div></div>
+<div class="post" id="p310403"><div class="post-head"><a class="id" href="../t/16804.html#p310403">#310403</a> <span class="index">7</span> <span class="date">2007-04-06T15:19:32Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">Nothing has worked yet.<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote: Userlevels</div><br>
+*********************************************************************************************<br>
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!<br>
+<br>
+&amp;userdata=<br>
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+//---- Maps --------------------------------------------<br>
+<br>
+#The Batcave, the Batcave!#Jakel#Action#I00000000?E000&gt;D0000&gt;D0000000000CA0000B@0000B@000000000JLH00K11111D&gt;D0000000000FJLH1A000F1KM@00000000000FJ10000011H1111QJ8000000010000?EFJ1111OK1190000010000CA00A00000000000001H00?E00000000000000000B1111A0000000000000000000002LH000000000000000000000B1LH0000000000000000000&gt;DFJ00000000000000000000B@0000000000G0000000000&gt;DG800000007180000000000BM101011011O111L0000000001010:1O1111900000000000101@0000&gt;110K1000000000101111Q&lt;0110110000000001O111=010B1O11000000000900000?1H000000000000070C111111111Q1100071MQ110:11111111=01100006LO11H0000000000?110000000061Q111111111111800000000101111A0000F1P1@00000001K11110K11&lt;011900000000111@0N0P06101100000000011111101D010B100000000011111=011018000000000001A0000?110111180000000G|5^474,302!12^756,54!12^654,60!12^684,102!12^420,180!12^492,300!12^492,60!12^468,180!12^540,300!12^684,204!12^768,252!0^552,300!0^564,300!0^756,252!0^744,252!0^684,216!0^684,228!0^684,114!0^684,126!0^756,78!0^642,60!0^630,60!0^468,60!0^408,180!0^396,180!0^480,180!0^492,180!9^420,348,0,0,16,4,1,-1,0!6^396,108,5,0,2,NaN!12^414,108!4^162,354,1!4^618,570,1!9^480,60,1,0,30,14,1,0,0!9^756,66,1,0,21,14,1,0,0!3^756,120!3^444,168!3^432,60!3^636,240!6^84,84,5,0,2,NaN!11^444,120,84,36!12^108,30!12^120,36!12^132,48!12^96,24!12^72,24!12^60,30!12^48,36!12^36,48!12^138,66!12^30,66!12^24,84!12^144,84!0^276,78!0^288,84!0^294,96!0^288,108!0^276,114!0^264,108!0^258,96!0^264,84!12^276,96!0^360,420!0^372,426!0^378,438!0^372,450!0^360,456!0^348,450!0^342,438!0^348,426!12^360,438!0^690,468!0^702,474!0^708,486!0^702,498!0^690,504!0^678,498!0^672,486!0^678,474!12^690,486!12^84,150!0^84,132!0^96,138!0^102,150!0^96,162!0^84,168!0^72,162!0^66,150!0^72,138!4^480,570,1!0^240,264!0^252,270!0^258,282!0^252,294!0^240,300!0^228,294!0^222,282!0^228,270!12^240,282#</blockquote><br>
+I don't know what's wrong.</div></div>
+<div class="post" id="p310404"><div class="post-head"><a class="id" href="../t/16804.html#p310404">#310404</a> <span class="index">8</span> <span class="date">2007-04-06T15:27:40Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: Jakel, April 06, 2007 06:19 pm</div><br>
+*********************************************************************************************<br>
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!<br>
+<br>
+&amp;userdata=<br>
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+//---- Maps --------------------------------------------<br>
+<br>
+<span style="color:RED"><b>#</b></span>The Batcave, the Batcave!#Jakel#Action#I00000000?E000&gt;D0000&gt;D0000000000CA0000B@0000B@000000000JLH00K11111D&gt;D0000000000FJLH1A000F1KM@00000000000FJ10000011H1111QJ8000000010000?EFJ1111OK1190000010000CA00A00000000000001H00?E00000000000000000B1111A0000000000000000000002LH000000000000000000000B1LH0000000000000000000&gt;DFJ00000000000000000000B@0000000000G0000000000&gt;DG800000007180000000000BM101011011O111L0000000001010:1O1111900000000000101@0000&gt;110K1000000000101111Q&lt;0110110000000001O111=010B1O11000000000900000?1H000000000000070C111111111Q1100071MQ110:11111111=01100006LO11H0000000000?110000000061Q111111111111800000000101111A0000F1P1@00000001K11110K11&lt;011900000000111@0N0P06101100000000011111101D010B100000000011111=011018000000000001A0000?110111180000000G|5^474,302!12^756,54!12^654,60!12^684,102!12^420,180!12^492,300!12^492,60!12^468,180!12^540,300!12^684,204!12^768,252!0^552,300!0^564,300!0^756,252!0^744,252!0^684,216!0^684,228!0^684,114!0^684,126!0^756,78!0^642,60!0^630,60!0^468,60!0^408,180!0^396,180!0^480,180!0^492,180!9^420,348,0,0,16,4,1,-1,0!6^396,108,5,0,2,NaN!12^414,108!4^162,354,1!4^618,570,1!9^480,60,1,0,30,14,1,0,0!9^756,66,1,0,21,14,1,0,0!3^756,120!3^444,168!3^432,60!3^636,240!6^84,84,5,0,2,NaN!11^444,120,84,36!12^108,30!12^120,36!12^132,48!12^96,24!12^72,24!12^60,30!12^48,36!12^36,48!12^138,66!12^30,66!12^24,84!12^144,84!0^276,78!0^288,84!0^294,96!0^288,108!0^276,114!0^264,108!0^258,96!0^264,84!12^276,96!0^360,420!0^372,426!0^378,438!0^372,450!0^360,456!0^348,450!0^342,438!0^348,426!12^360,438!0^690,468!0^702,474!0^708,486!0^702,498!0^690,504!0^678,498!0^672,486!0^678,474!12^690,486!12^84,150!0^84,132!0^96,138!0^102,150!0^96,162!0^84,168!0^72,162!0^66,150!0^72,138!4^480,570,1!0^240,264!0^252,270!0^258,282!0^252,294!0^240,300!0^228,294!0^222,282!0^228,270!12^240,282#</blockquote>I think that's supposed to be a '$'.</div></div>
+<div class="post" id="p310405"><div class="post-head"><a class="id" href="../t/16804.html#p310405">#310405</a> <span class="index">9</span> <span class="date">2007-04-06T15:34:12Z</span> <span class="author"><a href="../u/9373266.html">Spawn of Yanni</a></span></div><div class="post-body">That's weird. Why don't you try attatching your userlevels file so I can see if it works on mine?<br>
+<br>
+Edit: Or you could ignore this and listen to apg, 'cos I'm pretty sure he's right.</div></div>
+<div class="post" id="p310406"><div class="post-head"><a class="id" href="../t/16804.html#p310406">#310406</a> <span class="index">10</span> <span class="date">2007-04-06T15:38:14Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">Well, that sort of fixed it. This is what it turns up to be, but when I click it, it's just tiles of the replay.<br>
+<br>
+<b>EDIT:</b> Ehh. I have a map pack on it, SoY. I'll PM it to you. <div class="attachment attachment-missing">Attachment (lost): post-23-1175873894.png</div></div></div>
+<div class="post" id="p310407"><div class="post-head"><a class="id" href="../t/16804.html#p310407">#310407</a> <span class="index">11</span> <span class="date">2007-04-06T15:40:25Z</span> <span class="author"><a href="../u/9373266.html">Spawn of Yanni</a></span></div><div class="post-body">I have a feeling all of your levels have a # instead of a $. Just check. Oh, and censoring out the author's name doesn't really matter since you've posted the level code.</div></div>
+<div class="post" id="p310409"><div class="post-head"><a class="id" href="../t/16804.html#p310409">#310409</a> <span class="index">12</span> <span class="date">2007-04-06T15:41:27Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body">Hmm...<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/16804.html#p310398">Quote: My userlevels.txt, 2007-04-06T15:01:13Z</a></div>*********************************************************************************************<br>
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!<br>
+<br>
+&amp;userdata=<br>
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+&amp;userdata=<br>
+<br>
+*map data here*</blockquote><br>
+Mine works fine. Maybe you could copy all the level data you want, get a new userlevels.txt, and transfer it onto the fresh one?</div></div>
+<div class="post" id="p310410"><div class="post-head"><a class="id" href="../t/16804.html#p310410">#310410</a> <span class="index">13</span> <span class="date">2007-04-06T15:44:54Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">Spawn of Yanni: I have checked, and that's the name of the pack.<br>
+<br>
+Twistkill: I've tried that.<br>
+<br>
+I have no idea what's wrong.</div></div>
+<div class="post" id="p310413"><div class="post-head"><a class="id" href="../t/16804.html#p310413">#310413</a> <span class="index">14</span> <span class="date">2007-04-06T15:49:23Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16804.html#p310410">Quote: Jakel, April 06, 2007 11:44 am</a></div> Twistkill: I've tried that.<br>
+<br>
+I have no idea what's wrong.  </blockquote> <br>
+ Humph. I get angry at myself when I can't figure out what's causing an N-related problem... <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"><br>
+<br>
+Maybe... either your N or your userlevels.txt is a shortcut? Have you tried throwing your current .sol somewhere in your computer to keep it safe, redownloading N and unzipping it somewhere else to see if it works then?</div></div>
+<div class="post" id="p310414"><div class="post-head"><a class="id" href="../t/16804.html#p310414">#310414</a> <span class="index">15</span> <span class="date">2007-04-06T15:54:07Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">You'll have to go through manually, I think. Get and empty a fresh userlevels.txt and then copy and paste chunks of maps from the other one into it and progressively go down until you find the problem. Eg. find the half of the file that doesn't work, find the half of that, find the half of that, etc.</div></div>
+<div class="post" id="p310421"><div class="post-head"><a class="id" href="../t/16804.html#p310421">#310421</a> <span class="index">16</span> <span class="date">2007-04-06T16:20:53Z</span> <span class="author"><a href="../u/9372523.html">Navick</a></span></div><div class="post-body">Thanks, maestro. I found the problem. One of the author names had a "&amp;" in it, so it didn't work.<br>
+<br>
+Problem solved.<br>
+<br>
+*Locked*</div></div>
+</main>
+</body>
+</html>

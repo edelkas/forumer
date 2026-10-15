@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thwumps - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Thwumps</nav></header>
+<main>
+<div class="post" id="p1062"><div class="post-head"><a class="id" href="../t/1195.html#p1062">#1062</a> <span class="index">1</span> <span class="date">2004-10-08T22:17:22Z</span> <span class="author"><a href="../u/9370566.html">Killisk</a></span></div><div class="post-body">Found a bug today; don't know how I did it, though. I was sliding against a thwump, and I got caught between the thwump and wall. I should have died, but I went shooting off, and went through walls, etc, with the sliding animation.</div></div>
+<div class="post" id="p31127"><div class="post-head"><a class="id" href="../t/1195.html#p31127">#31127</a> <span class="index">2</span> <span class="date">2004-10-08T22:32:34Z</span> <span class="author">Guest</span></div><div class="post-body">Through walls, eh? That's news to me. Is there a way to re-create the bug somehow? Like, what episode/level was it in? what was the situation?</div></div>
+<div class="post" id="p31189"><div class="post-head"><a class="id" href="../t/1195.html#p31189">#31189</a> <span class="index">3</span> <span class="date">2004-10-09T01:18:24Z</span> <span class="author"><a href="../u/9370566.html">Killisk</a></span></div><div class="post-body">I was actually making a 'Thump Riding' map. Don't have the map anymore, sorry =/.<br>
+<br>
+I was like "WTF!?!" when I saw it.. It's like he's sliding across a wall, but moving through stuff. It was very odd, I should have taken a piccy.</div></div>
+<div class="post" id="p31197"><div class="post-head"><a class="id" href="../t/1195.html#p31197">#31197</a> <span class="index">4</span> <span class="date">2004-10-09T01:38:37Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Don't worry, I've actually discovered why this happens, even though I know nothing about Flash.<br>
+<br>
+In N's script, from the Collision Detection, N is riding the thwump. N is actually colliding with the thwump, so the script moves him upwards to avoid overlap. Result: N rides the thwump. Now, when N gets squished against the ceiling, N can no longer keep moving up. So, he dies.<br>
+<br>
+Sometimes, however, N is closer to a certain side, so the script sends N flying out of the situation. Result: the now universally known Lucidium Effect, where you can get squished between a thwump in DDAs for transportation.<br>
+<br>
+This might have been a bug in the collision script. Try playing the level again to see if it persists. <div class="attachment attachment-missing">Attachment (lost): post-3-1126477952.gif</div></div></div>
+<div class="post" id="p31964"><div class="post-head"><a class="id" href="../t/1195.html#p31964">#31964</a> <span class="index">5</span> <span class="date">2004-10-14T02:08:36Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Not just DDAs!  Did you see my demonstration level of the mine delay trick?  I used lucidium effect on the bottom.</div></div>
+</main>
+</body>
+</html>

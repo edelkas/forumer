@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the source code of the tutorial confuses me - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; the source code of the tutorial confuses me</nav></header>
+<main>
+<div class="post" id="p14107"><div class="post-head"><a class="id" href="../t/15956.html#p14107">#14107</a> <span class="index">1</span> <span class="date">2007-02-18T07:32:16Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">In updateEdges() i'm not really sure what is meant by EID_OFF and EID_SOLID<br>
+<br>
+<pre class="code">if(this.ID == TID_EMPTY)
+	{
+  //...
+  else if(n.ID == TID_FULL)
+  {
+  	this.eU = EID_SOLID;
+  }
+//...</pre><br>
+so from that i figure a solid edge is one that runs along the tile border<br>
+but later, i see<br>
+<br>
+<pre class="code">else if(this.ID == TID_FULL)
+	{
+  //...
+  else if(n.ID == TID_EMPTY)
+  {
+  	this.eU = EID_OFF;
+  }
+//...</pre><br>
+so if an empty cell is next to a full cell, its EID_SOLID but if a full cell is next to an empty cell its EID_OFF<br>
+<br>
+wtf?<br>
+<br>
+am i missing something? can someone please define the edge states very clearly?</div></div>
+<div class="post" id="p298817"><div class="post-head"><a class="id" href="../t/15956.html#p298817">#298817</a> <span class="index">2</span> <span class="date">2007-02-19T03:29:07Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">this is possibly the least well-written part of the code, aside from the editor; instead of trying to figure out the correct formula, i simply used all the conditionals i could think of until the results appeared to be correct.<br>
+<br>
+you can see a diagram of the edge states here: <a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html#section2">http://www.harveycartel.org/metanet/tutori...B.html#section2</a><br>
+<br>
+Basically, the problem is that for each edge in the grid, there are actually _two_ edges, because each cell stores the states of the 4 edges that bound the cell. Or, another way of looking at it is that if you placed a solid lineseg on the edge, you'd still need to define which side of the lineseg was "outside" and which was "inside".<br>
+<br>
+The convention we established was for a cell's edges to have their surface normals pointing towards the center of the cell. For each pair of identical edges, the one that belongs to the cell whose tile is solid along the edge is turned off (because its normal points in towards the full/solid region), while the one that belongs to the cell that's empty along the edge is turned on (because its normal points out towards the empty space).<br>
+<br>
+Doors are "double-sided" edges, both edges are solid.<br>
+<br>
+This is one of the many reasons why we encourage people to take our ideas and implement them themselves -- our methods aren't the best.<br>
+<br>
+A much better solution would be to store edges in a seperate grid, or to find a different way to represent the surface of the world. Unfortunately it'll take a while, but when we're done robotology we're going to write about our new method, which is much, much, much simpler, faster, and each to implement. Basically, the best way to represent the surface of the world is to use arbitrary linesegs and arcs, and only use "tiles" in the editor.</div></div>
+<div class="post" id="p299530"><div class="post-head"><a class="id" href="../t/15956.html#p299530">#299530</a> <span class="index">3</span> <span class="date">2007-02-21T09:52:38Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks for clearing that up.<br>
+<br>
+but if you use "only linesegs and arcs" then won't you need to test collision with the whole world every frame, rather than just the 9 possible tiles?</div></div>
+<div class="post" id="p304427"><div class="post-head"><a class="id" href="../t/15956.html#p304427">#304427</a> <span class="index">4</span> <span class="date">2007-03-11T16:37:08Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">you can still use a grid, or bounding-shapes to speed things up.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by thelochness07 - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9371947.html">thelochness07</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p7708"><div class="post-head"><a class="id" href="../t/8578.html#p7708">#7708</a> <span class="index">1</span> <span class="date">2006-03-28T23:51:16Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">as the title says, I wish for map packs. by this I mean that from the "user levels" screen instead of automatically uploading just the userlevels.txt file (which takes longer to load the more levels you have) the file would include a list of other text files to draw from so that in the user levels menu there would be a pack menu where one could choose the pack they want to play.<br>
+<br>
+the levels that come packaged with N could be divided using map type groupings or by author into seperet text files. along with the fact that a user can easilly find levels that they want to play instead of searching through the entire list, this would also speed up the data parsing speed wich has grown to enormous proportions for me(I enjoy making large trapdoor "mazes" sometimes up to 13k in text file size).<br>
+<br>
+thank you for your time</div></div>
+<div class="post" id="p8457"><div class="post-head"><a class="id" href="../t/9410.html#p8457">#8457</a> <span class="index">1</span> <span class="date">2006-05-03T22:00:32Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">hi, this is a program i made to distract myself from my AP test i had today (i made the program yesterday). <br>
+<br>
+What it does:<br>
+ it makes a maze then appends the level data to the end of userlevels .txt<br>
+<br>
+what i mean:<br>
+ this program creates a maze (either 20x9 or 20x23 depending on version) using an algoryth that always creates solvable mazes. <br>
+ there are three flavors of generators:<br>
+   1) 20x9 "blind" Maze maker (NmazeB20_09v1.exe)<br>
+   2) 20x23 normal Maze maker (Nmaze20_23v1.exe)<br>
+   3) 20x23 "blind" Maze maker (NmazeB20_23v1.exe)<br>
+<br>
+ by "blind" i mean that the walls of the maze are made of trap doors so that when you start nothing is visible, as you go the maze forms around you. (dont go too fast tho, sometimes trapdoors bite)<br>
+ normal maps use oneway platforms<br>
+<br>
+How to:<br>
+ just copy the program to your N folder (must be able to run windows programs) then run it, type in the info for your level and check your userlevels for the level.<br>
+<br>
+written in C++<br>
+<br>
+personally, i think that program 3 is the hardest followed by 1 then 2<br>
+<br>
+feedback appreciated<br>
+<br>
+oh and just so you know the level sizes go in order of smallest to bigest (1, 2, 3) <div class="attachment attachment-missing">Attachment (lost): post-33-1146693632.zip</div></div></div>
+<div class="post" id="p172443"><div class="post-head"><a class="id" href="../t/9410.html#p172443">#172443</a> <span class="index">7</span> <span class="date">2006-05-05T23:02:34Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">sure deal smartalco.<br>
+i'll post the source for this in a bit but first i think imma make it more flexible, like have it be custom sizeable and combine the hidden maze and non hidden maze into one program.<br>
+<br>
+<br>
+ i tried to use generic C++ because... wel... im lazy <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> so this should be fine for mac or anything else<br>
+<br>
+in terms of the algorythm i used i attached a flow chart of the basic idea. and you can find a really cool maze screensaver from <a href="http://www.c-wilkie.pwp.blueyonder.co.uk/software/screenhacks.html">http://www.c-wilkie.pwp.blueyonder.co.uk/s...creenhacks.html</a><br>
+<br>
+i think i used the same theory, but the code in mine is home grown.<br>
+<br>
+one last thing: i would love suggestions and always remember, explaining your ideas will make them easier to be realized<br>
+<br>
+EDIT: i am dumb, i posted without attaching!<br>
+<br>
+anyway, if you encounter problems with the flow chart feel free to pm me or just post a reply<br>
+<br>
+source code comming soon <div class="attachment attachment-missing">Attachment (lost): post-33-1146871460.jpg</div></div></div>
+<div class="post" id="p176318"><div class="post-head"><a class="id" href="../t/9410.html#p176318">#176318</a> <span class="index">9</span> <span class="date">2006-05-15T21:39:53Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">ok, well, sorry i didnt post the source up sooner... for whatever reason everytime i tried to make the programs into one i fell asleep. then i did it and it took less than an hour. i feel dumb.<br>
+<br>
+regardless here is an updated version of my maze generator<br>
+<br>
+this time it supports: different widths/heights and support for saving your configuration<br>
+<br>
+i.e.: if you want to make a series of blind mazes with 9x9 and a certain author and type (unique names are always asked for) then all you need to do is input the size and such once and then each time you run the program, just input a new name for the level.<br>
+<br>
+im sorry if that didnt make sense, just ask me if you need better instructions.<br>
+<br>
+heres the source and the program <div class="attachment attachment-missing">Attachment (lost): post-33-1147729193.cpp</div></div></div>
+<div class="post" id="p176319"><div class="post-head"><a class="id" href="../t/9410.html#p176319">#176319</a> <span class="index">10</span> <span class="date">2006-05-15T21:49:07Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">heres the program and the source<br>
+<br>
+sorry for the double post, if its a problem i'll fix it later, just ask me politely if you find my actions noobish. im in a hurry. sorry. <div class="attachment attachment-missing">Attachment (lost): post-33-1147729747.zip</div></div></div>
+<div class="post" id="p183757"><div class="post-head"><a class="id" href="../t/9410.html#p183757">#183757</a> <span class="index">13</span> <span class="date">2006-06-02T21:51:56Z</span> <span class="author"><a href="../u/9371947.html">thelochness07</a></span></div><div class="post-body">ahh, yeah i got lazy RedKlonoa, and honestly for debugging purposes its easier to have that space glitch<br>
+<br>
+but i plan on removing it when i release my labarynth(sp) generator<br>
+<br>
+a labarynth is a maze with only one path. i think its pretty cool, im working on enemy implementation and gold placing at the moment, so it should be done soon</div></div>
+</main>
+</body>
+</html>

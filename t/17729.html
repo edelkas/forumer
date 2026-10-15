@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trouble with Capturing Keystrokes - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Trouble with Capturing Keystrokes</nav></header>
+<main>
+<div class="post" id="p15600"><div class="post-head"><a class="id" href="../t/17729.html#p15600">#15600</a> <span class="index">1</span> <span class="date">2007-06-09T16:59:23Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">My problem is more oriented to M&amp;R, but anyone is welcomed to reply who think they might help.<br>
+<br>
+I've been having trouble with capturing Keyboard Events in AS3. Whenever I try to capture, nothing happens. However, I can capture Mouse Events and act on those actions. I figured, since they're both events, that they would behave similarly, and as such, needed to be declared similarly. However, this is not the case. While the Mouse Events trigger successfully, the Keyboard Events do not respond.<br>
+Is there something that I'm missing?<br>
+<br>
+PS: I've even looked at the example code, but it didn't really help...</div></div>
+<div class="post" id="p329255"><div class="post-head"><a class="id" href="../t/17729.html#p329255">#329255</a> <span class="index">2</span> <span class="date">2007-06-09T17:43:02Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Ok, I found th problem, but first, i do realize that I'm double posting. Think of this as the answer to the question above.<br>
+<br>
+Anyways, I found out that while a Mouse Event can be added anywhere in the movie, a Keyboard Event can only be added if it's being added to the Stage object. If it's added anywhere else, the Keyboard Event will not register. If you want to declare a Keyboard Event within a class that isn't the Stage, then using the parent property will allow you to eventually reach the Stage class from within the current class.<br>
+And now, I can continue...</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hi again this is on projection direction - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; hi again this is on projection direction</nav></header>
+<main>
+<div class="post" id="p3874"><div class="post-head"><a class="id" href="../t/4252.html#p3874">#3874</a> <span class="index">1</span> <span class="date">2005-07-31T05:25:46Z</span> <span class="author"><a href="../u/9371005.html">SpecialSauce</a></span></div><div class="post-body">hi its me again, <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+ok im having some problems determining the projection direction. From what i know so far, its exactly the same as the axis direction as read from the tutorials. Its nothing more then a unit vector with a direction. But heres what im confused about, although the square only has 2 axis i need to test, there really is 4 that is one for each sides, which is 0,1 1,0 and 0,-1 -1,0 well let say i did find a collision along let say, the xaxis, with small amount of 2. then that rules my projection direction to 1,0 or -1,0 now i stuck in figuring out which one to pick. cause theyre pretty much on the same axis but pointing at different directions...ehh.. what im trying to say is on the first tutorial if you were to move the blue box to the left of the red box then collide the blue with the red, the arrow would point back left and if you collide from the right it would point back right in the correct direction to move the shape back... heh im scracthing my head figureing out how to ask this.  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> ...well with a right triangle facing right the axis would be 01, 1,0 and 1,1  that would be easy to projection since all sides of the tirangle are unique. but what happens if there was a shape with 2 similar sides like a square that share a similar axis but a different direction, how would i find the correct* projection vector to push it out of the way, ....<br>
+<br>
+and do i have the theory rite?  <br>
+<br>
+thanks for taking the time to answer this.</div></div>
+<div class="post" id="p87261"><div class="post-head"><a class="id" href="../t/4252.html#p87261">#87261</a> <span class="index">2</span> <span class="date">2005-07-31T07:36:09Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+you're correct, there's an ambiguity since you get an axis, but you could go in either direction (call them + and -) along that axis.<br>
+<br>
+however, you want to push the objects apart. only one of the two directions will do this, the other will push them together. so you just need to figure out wich of the two directions is "right".<br>
+<br>
+look at the vector which points from object A's center to object B's center (call this the delta vector); this vector points away form object A, and you want to push object B in the same direction, i.e away from object A. <br>
+<br>
+only one of the two possible directions along the axis will point away from object A.. to figure out which, look at the sign of the dotproduct of the delta vector and one of the directions along the axis.<br>
+<br>
+have you tried reading the slides from flashinthecan? (they're available on the tutorials page, underneath the two tutorials) there's more info and some source there; also, reading through the source that comes with the tutorials will definitely help provide more info.. it's very simple, but at the same time there are many tiny things going on.<br>
+<br>
+thanks,<br>
+raigan</div></div>
+<div class="post" id="p87503"><div class="post-head"><a class="id" href="../t/4252.html#p87503">#87503</a> <span class="index">3</span> <span class="date">2005-08-01T17:51:30Z</span> <span class="author"><a href="../u/9371005.html">SpecialSauce</a></span></div><div class="post-body">thanks for the reply actually i did look at the slides but not the .txt file that came with it. so i missed out on some info. but yea i finally got it to work! thanks alot.   <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

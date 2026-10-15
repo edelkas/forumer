@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terrain Following in a 2D real-time game - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Terrain Following in a 2D real-time game</nav></header>
+<main>
+<div class="post" id="p15528"><div class="post-head"><a class="id" href="../t/17654.html#p15528">#15528</a> <span class="index">1</span> <span class="date">2007-06-04T19:31:49Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, this is my first time posting here so I'm not really sure this is the right place for this kind of question, if so, sorry  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> .<br>
+<br>
+Anyway, the thing is I am currently working on a Java 2D real-time game, similar to Liero. I am currently trying to figure out how to build the terrain following system. I've read most of the tutorial and still I have some questions; most importantly, what should I do with terrain following? Since the game uses terrain which is fully destructible and since each tile's size is one pixel only, this makes terrain following and collision detection a hard task. Small objects that move fast are a must-have so I really don't know what to do... I do use sweeping to detect when an object collides with the terrain, but beyond that I am clueless. Could someone please help me with the basics of what to do in 2D terrain following?<br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329244"><div class="post-head"><a class="id" href="../t/17654.html#p329244">#329244</a> <span class="index">2</span> <span class="date">2007-06-09T16:52:41Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Well, it seems that in your case, tiles would not be the best way to do what your doing. As you mentioned, basically every pixel would be a tile that would be tested. Do you know how a Liero level is made? It's basically three layers in one image, where one layer is the imagery, the next layer is indestructible walls, and the last is dirt. I don't know how Liero handles it's collisions, but your more likely to get a better answer if you head over to the Liero forums and ask over there, because, as far as I know, were more tile and vector based.<br>
+Sorry i couldn't help you.</div></div>
+<div class="post" id="p329504"><div class="post-head"><a class="id" href="../t/17654.html#p329504">#329504</a> <span class="index">3</span> <span class="date">2007-06-10T09:52:37Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hello, and thanks a lot for your answer. Anyway, I am actually also using three layers as proposed by you - one which is the background image, one which is indestructible and another destructible layer. Then, whenever an object moves, I take the last and first points which it should've reached, if there would've been no collision, and get all integer-precision points in the way - sort of like sweeping. By doing so I'm actually moving the object along all the points it would've gone through in one frame. The problem is, I really don't know which approach to take next. Oh and by the way, the original Liero forums are dead, the LieroX ones are closed-source, and the Open-LieroX I haven't tried yet <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329551"><div class="post-head"><a class="id" href="../t/17654.html#p329551">#329551</a> <span class="index">4</span> <span class="date">2007-06-10T13:53:53Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Well, then I wish you luck in your endeaver. Unfortunately, I'm not sure as to what you do next as well, so I wish you luck. Taking a quick look at the Open Source LieroX/Worms clones at sourceforge, it looks like you might do fine.</div></div>
+<div class="post" id="p329633"><div class="post-head"><a class="id" href="../t/17654.html#p329633">#329633</a> <span class="index">5</span> <span class="date">2007-06-10T16:42:53Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hi again, anyway I started by solving the problem in small steps - literally. I just finished the algorithm for climbing a slope (Added a picture below). The thing is that if, for example, theres a straight horizontal line which intersects a slope, then when the player is moved "into" the slope - a check is made to see whether the object is "submerged underground" and if so, it's moved upwards, until it's "unstuck". While the object is moved, I'm counting how many pixels it had to "climb" and then only if the step is smaller than the maximum allowed step-per-pixel the object is allowed to advance and all points on the line are changed by the change in height made by the object. (if the move was too drastic, the object is snapped back to the last good position). What do you think? Do you have a better idea? Mine seems like a bit too much... I don't know.<br>
+<br>
+<img class="bb-img" src="http://img127.imageshack.us/img127/6333/slopedj9.png" alt="" loading="lazy"><br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329787"><div class="post-head"><a class="id" href="../t/17654.html#p329787">#329787</a> <span class="index">6</span> <span class="date">2007-06-10T23:51:11Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">What you've been doing seems good. The step in which it increases seems good to me (and now that I think of it, seems a lot like LieroX movement). The one thing you might want to be concerned about is the movement smoothness. A you have it, distance traveled when the player is on a slope is going to be greater than movement on a horizontal plane.<br>
+Another thing you might want to look at is when you do the check. Do you do the check after the rendering or before? Because if it's after, then the character will look weird when it's climbing a slope.<br>
+So far, it's looking good.<br>
+Also, I appreciate that you're taking time to explain yourself. It helps me respond much better <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p329957"><div class="post-head"><a class="id" href="../t/17654.html#p329957">#329957</a> <span class="index">7</span> <span class="date">2007-06-11T10:56:30Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hi again, glad to see you respond again. Anyway, my drawing was a bit misleading, I did think about the distance traveled being bigger than horizontal movement and because of that I store the number of "points" in the line between the original start and end points, and then I move the character only X times, accordingly. That way, the distance traveled is the same. I'm currently writing and adjusting the code a bit, but so far so good. The movement looks good and fluent and I even added sliding and ceiling-following.<br>
+(If I have any trouble, I'll just add a post here. When I finish I'll publish the code if anybody wants to see it).<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p330247"><div class="post-head"><a class="id" href="../t/17654.html#p330247">#330247</a> <span class="index">8</span> <span class="date">2007-06-12T01:23:40Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Thats good to hear. I'd actually like to see the code, because I've never seen anything like this done in Java.<br>
+Keep up with the good work, and feel free to ask questions.</div></div>
+<div class="post" id="p332159"><div class="post-head"><a class="id" href="../t/17654.html#p332159">#332159</a> <span class="index">9</span> <span class="date">2007-06-17T14:13:19Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, sorry for not answering for a long while, I was abroad. Anyway, here's the relevant code I now use for terrain-following. It's far from flawless, however, I'm still having trouble finding some problems but I'm sure it'll be fine.<br>
+<br>
+<pre class="code">        Line line = new Line(fromX,fromY,toX,toY); //Creating the line from start to end
+        int movementPoints = line.getPoints().size(); //The length of the movement line
+        int pointsMoved = 0; //The number of points moved
+        Iterator&lt;Point&gt; pointsItr = line.getPoints().iterator();
+        double lastGoodX = fromX, lastGoodY = fromY;
+        while (pointsItr.hasNext() &amp;&amp; pointsMoved&lt;=movementPoints) {
+            pointsMoved++; //Increasing the number of points moved
+            Point p = pointsItr.next(); //Getting the next point
+            obj.x=p.x; //Moving the object
+            obj.y=p.y; //along both axes
+            adjustToBounds(obj); //Adjusting the object so that it won't go outside the world's bounds
+            if (submergedInGround(obj)) {
+                int stepSize=0; //How high the player climbed
+                do {
+                    obj.y--;
+                    stepSize++;
+                } while (obj.y&gt;1 &amp;&amp; submergedInGround(obj)); //Making sure the object isn't stuck underground
+                adjustToBounds(obj);
+                if (stepSize&gt;Player.maxStep) {//The slope was too steep
+                    obj.x=lastGoodX;
+                    obj.y=lastGoodY;
+                    return;
+                }
+                //The slope was fine, but now the line needs re-adjustment
+                line = new Line(obj.x,obj.y,toX,toY+obj.y-fromY);
+                pointsItr = line.getPoints().iterator();
+                pointsItr.next();
+            }
+            else {
+                lastGoodX = obj.x;
+                lastGoodY = obj.y;
+            }
+            while (obj.y&lt;height-obj.height-1 &amp;&amp; submergedInCeiling(obj)) {
+                obj.y++;
+            }
+            Direction submergeDirection = submergedInWall(obj);
+            if (submergeDirection==Direction.LEFT) {
+                do {
+                    obj.x++;
+                } while (obj.x&lt;width-obj.width-1 &amp;&amp; submergedInWall(obj)==Direction.LEFT);
+            }
+            else if (submergeDirection==Direction.RIGHT) {
+                do {
+                    obj.x--;
+                } while (obj.x&gt;1 &amp;&amp; submergedInWall(obj)==Direction.RIGHT);
+            }
+            adjustToBounds(obj);
+        }</pre><br>
+Laginimaineb.</div></div>
+<div class="post" id="p332169"><div class="post-head"><a class="id" href="../t/17654.html#p332169">#332169</a> <span class="index">10</span> <span class="date">2007-06-17T14:42:26Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Well, it looks like your managing just fine. I tried to look at the code for OpenLieroX, but I think I need to know some other programming language... (maybe C?) Anyways, keep up the good work.</div></div>
+<div class="post" id="p332208"><div class="post-head"><a class="id" href="../t/17654.html#p332208">#332208</a> <span class="index">11</span> <span class="date">2007-06-17T17:22:50Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot, I think I'll also try having a look at the Open LieroX source - just for the fun of it <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Laginimaineb.</div></div>
+<div class="post" id="p333546"><div class="post-head"><a class="id" href="../t/17654.html#p333546">#333546</a> <span class="index">12</span> <span class="date">2007-06-20T16:57:30Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">For what it's worth, when terrain-following, almost always you'll want to push the object out along the surface normal of the terrain. This gives you automatic "it's slower to climb up hills than to walk along flat ground", and is in general more accurate. The only time I've found when you want to avoid this is when the sprite is standing still on slanted ground. Gravity will push the sprite down a bit into the terrain each frame, but if you then push the sprite out along the terrain's surface normal, it'll gradually slide down the slope. So in my game I've hacked the sprite to specifically check for when its X velocity is small and its Y velocity is aligned with gravity, and push it out along its velocity vector instead in those situations.<br>
+<br>
+My problem right now is figuring out how to get the sprite to run <i>down</i> slopes when the downward velocity would be faster than gravity.</div></div>
+</main>
+</body>
+</html>

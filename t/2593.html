@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stickiness in Linux due to sound in Flash - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Stickiness in Linux due to sound in Flash</nav></header>
+<main>
+<div class="post" id="p2318"><div class="post-head"><a class="id" href="../t/2593.html#p2318">#2318</a> <span class="index">1</span> <span class="date">2005-03-27T03:44:49Z</span> <span class="author">Guest</span></div><div class="post-body">This is regards to the problem of stickiness due to (as I've read) OSS problems with the Flash player.<br>
+I am using Gentoo Linux, and installed N before installing my sound drivers (what can I say, I have priorities) and played for a while, but after installing the ALSA drivers, I am experiencing the lag encountered by other Linux users.<br>
+<br>
+I want to know if there is a way to force N to not use sound at all? Can anyone think of some way? I read a promising suggestion involving having KDE trigger a sound event when you start N, thus tying up the sound device and stopping N from using it. I tried this by playing music using XMMS, but still had lag.<br>
+<br>
+Anyone?<br>
+<br>
+Thanks.</div></div>
+<div class="post" id="p56385"><div class="post-head"><a class="id" href="../t/2593.html#p56385">#56385</a> <span class="index">2</span> <span class="date">2005-03-27T05:07:36Z</span> <span class="author">Guest</span></div><div class="post-body">Did you go into the config menu and turn the volume to 0? Beyond that, I know little of Linux. This is Raigan's area.</div></div>
+<div class="post" id="p56486"><div class="post-head"><a class="id" href="../t/2593.html#p56486">#56486</a> <span class="index">3</span> <span class="date">2005-03-27T16:45:44Z</span> <span class="author">Guest</span></div><div class="post-body">No, that doesn't work because the Flash player doesn't stop using sound, the volume is just 0.<br>
+<br>
+However, I did find a workaround, something along the lines of tying up the sound device with another program. XMMS did not work for me, and since I am using Fluxbox WM I cannot easily tag a sound event to N, unlike KDE. But I found that if I use my browser (for verbosity, Mozilla FIrefox 1.01 with Flash plugin installed) to access a Flash page with sound (such as the menu for homestarrunner.com) I was able to then start N and play without the lag experienced previously. This may have something to do with the Flash projector and plugin both using the same libraries or something, but it works. Obviously this won't work for everyone, but maybe it will work for someone else as well, which is why I am posting all this.</div></div>
+<div class="post" id="p56509"><div class="post-head"><a class="id" href="../t/2593.html#p56509">#56509</a> <span class="index">4</span> <span class="date">2005-03-27T19:48:57Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+thanks!<br>
+there's sadly no way to actually turn the flashplayer's sound OFF.<br>
+<br>
+now the question is whether the sound problem is caused by our code, or the flashplayer...<br>
+<br>
+anyway, thanks!<br>
+raigan</div></div>
+<div class="post" id="p100387"><div class="post-head"><a class="id" href="../t/2593.html#p100387">#100387</a> <span class="index">5</span> <span class="date">2005-09-13T21:43:08Z</span> <span class="author">Guest</span></div><div class="post-body">One solution i found was to create a user (with the name n) which is not in the audio group. <br>
+<br>
+Then on my normal user account do: su n -c /usr/bin/n_v14<br>
+<br>
+Runs fine for me <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p100409"><div class="post-head"><a class="id" href="../t/2593.html#p100409">#100409</a> <span class="index">6</span> <span class="date">2005-09-13T22:34:54Z</span> <span class="author">Guest</span></div><div class="post-body">thanks for the tip! we'll add it to the docs..</div></div>
+</main>
+</body>
+</html>

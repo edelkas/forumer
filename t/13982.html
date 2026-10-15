@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>help with the thwump glitch kinda - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; help with the thwump glitch kinda</nav></header>
+<main>
+<div class="post" id="p12430"><div class="post-head"><a class="id" href="../t/13982.html#p12430">#12430</a> <span class="index">1</span> <span class="date">2006-11-24T00:13:50Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">can someone tell me how to make a thwump move like the one in this level?<br>
+the 3 thwumps at the bottom that move across the screen the opposite way it's supposed to move.<br>
+i just need 3 of them to move up without having trigger them first<br>
+just play this level and you'll see the last 3 thwumps <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+much appreciated <div class="attachment attachment-missing">Attachment (lost): post-11-1164327230.txt</div></div></div>
+<div class="post" id="p258713"><div class="post-head"><a class="id" href="../t/13982.html#p258713">#258713</a> <span class="index">2</span> <span class="date">2006-11-24T00:58:52Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">To make a thwump move backwards, you should place it one-pixel less than halfway inside a wall, facing that wall. I find that the easiest way to do this is to use x-snap to place one halfway inside a wall, then go through the level code and change the number for the thwump's position by one. Thwumps have code of the form "8^767,564,0" where 8 indicates the object is a thwump, the first number is the horizontal distance from the left of the map, the second is the vertical distance (from the top of the map, for some reason) and the final number is the direction the thwump is facing. All you need to do is reduce or increase the horizontal or vertical position by one, depending on the direction the thwump is facing. The code above is for a glitched thwump at the bottom of the map, embedded in the right-hand wall, for instance (it was 8^76<b>8</b>,564,0" before I edited it).</div></div>
+<div class="post" id="p258733"><div class="post-head"><a class="id" href="../t/13982.html#p258733">#258733</a> <span class="index">3</span> <span class="date">2006-11-24T02:31:07Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">OMFG thx so much atilla<br>
+i thought when you said pixel, it meant like 1 1/4 snap down<br>
+<img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"><br>
+btw your ninja college pack is awesome<br>
+too bad i can't beat all of it lol...</div></div>
+</main>
+</body>
+</html>

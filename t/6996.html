@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problems with friction - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Problems with friction</nav></header>
+<main>
+<div class="post" id="p6384"><div class="post-head"><a class="id" href="../t/6996.html#p6384">#6384</a> <span class="index">1</span> <span class="date">2006-01-23T02:19:38Z</span> <span class="author">Mike <span class="guest">(guest)</span></span></div><div class="post-body">I'm working on a pool game but i'm having problems with friction, this is how I thought I'd do it:<br>
+a.xSpeed *= f;<br>
+a.ySpeed *= f;<br>
+and f would be something like 0.98,<br>
+when I do this, after slowing down to a point the ball starts to wander off in a completely different direction. how can I fix this?<br>
+thanks for your help...</div></div>
+<div class="post" id="p134987"><div class="post-head"><a class="id" href="../t/6996.html#p134987">#134987</a> <span class="index">2</span> <span class="date">2006-01-23T10:56:11Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">only apply friction if the speed is above a certain value? (ie &gt;1)</div></div>
+<div class="post" id="p135029"><div class="post-head"><a class="id" href="../t/6996.html#p135029">#135029</a> <span class="index">3</span> <span class="date">2006-01-23T14:20:52Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hee hee <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+OK, here's the deal: <br>
+I suppose you have vx and vy variables (actually, I'd be curious what kind of a pool game it is if you don't). So each frame/tick you multiply vx and vy with the friction. That should do it.<br>
+<br>
+Hope that helps. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS</div></div>
+<div class="post" id="p135385"><div class="post-head"><a class="id" href="../t/6996.html#p135385">#135385</a> <span class="index">4</span> <span class="date">2006-01-24T08:04:19Z</span> <span class="author"><a href="../u/9371246.html">Rapier</a></span></div><div class="post-body">Hey tohosoft, with that ticking stuff, what is it for? I guess its for to keep the framerate constant (so slower computers see the same as fast pc's?)</div></div>
+<div class="post" id="p136426"><div class="post-head"><a class="id" href="../t/6996.html#p136426">#136426</a> <span class="index">5</span> <span class="date">2006-01-27T19:23:43Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">I think he means every time setInterval('function', 'interval') runs the function, which is a lot better than onClipEvent(enterFrame).<br>
+<br>
+About your friction:<br>
+In what way do you store the position of the balls? Do you use the built-in _x, or have you created a variable called x for them? If you use _x the data type is too inaccurate and since Flash rounds that number downwards the ball will start moving. Make a variable called x (for example ball.x) and do every calculation with that. When you want to set the balls position you just:<br>
+<pre class="code">ball._x = ball.x
+ball._y = ball.y</pre><br>
+Hope that will fix it, I don't see any problems with your code anyway.<br>
+<br>
+Good luck - The Wazaa</div></div>
+<div class="post" id="p136700"><div class="post-head"><a class="id" href="../t/6996.html#p136700">#136700</a> <span class="index">6</span> <span class="date">2006-01-28T18:00:21Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Correction: *toshosoft.<br>
+I don't know why you wouldn't want to fix it though, you lazy non-editing bastard <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Aaand...<br>
+I use the 'ticking stuff' because it's much simpler to use and much cleaner than onClipEvent (of course, that's my opinion, some people might prefer using onClipEvent to intervals). And it doesn't matter what you use, it wouldn't make much difference in the framerate, but intervals are a lot more dynamic (since you can change the interval and can't change the movie FPS at run-time).<br>
+<br>
+And Mike, if it still doesn't work you might want to give us a bigger piece of your code cuz the code you gave us is correct, thus the problem is caused by something else.<br>
+<br>
+TS</div></div>
+<div class="post" id="p137708"><div class="post-head"><a class="id" href="../t/6996.html#p137708">#137708</a> <span class="index">7</span> <span class="date">2006-01-31T06:43:17Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">A book on flash games I have recommends rounding the velocity down to zero if it's absolute value is below some- very small- amount, to stop it sliding, because even if you have a perfectly accurate .x value, sticking it into _x will make flash round the position to something you don't want anyway.</div></div>
+<div class="post" id="p137737"><div class="post-head"><a class="id" href="../t/6996.html#p137737">#137737</a> <span class="index">8</span> <span class="date">2006-01-31T11:26:20Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">And what's the point in rounding it? Not only is it useless, but it might have unexpected side-effects as well.<br>
+On a side note, can you tell me what the title of the book is?<br>
+<br>
+TS</div></div>
+</main>
+</body>
+</html>

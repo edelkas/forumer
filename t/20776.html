@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Maker - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Game Maker</nav></header>
+<main>
+<div class="post" id="p18510"><div class="post-head"><a class="id" href="../t/20776.html#p18510">#18510</a> <span class="index">1</span> <span class="date">2007-12-22T03:52:59Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">OK. I'm making a mini N game, INCLUDING time limit!<br>
+<br>
+Problem 0: Since I have a time limit, AFAIK the only way I know to get N back to play after dying is...<br>
+At start of a level, save the game.<br>
+Whenever N dies, load the game.<br>
+Now this bugs up the zap drones. When N dies in a level with zap drones, the zappers don't move on the retry.<br>
+<br>
+Problem 1: How to program walljumping, laser drones, homing turrets, etc? the only enemy I know how to do is the non-homing zap drone.<br>
+<br>
+Here's the programming for the zap drones anyway:<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>On create:<br>
+Start moving in a direction: Up, right, left, or down, at a speed of 4.<br>
+On collision with a tile:<br>
+With one out of 2 chance, set the variable direction relative to 90<br>
+Else, set the variable direction relative to -90</blockquote>Now this is taken from N's info.<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>On collision with a zap drone:<br>
+If the user answers YES to the question: You died. Retry?, load the game.<br>
+Else, end the game.</blockquote><br>
+As for walljumping, <br>
+N's profile.<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>On a collision with a tile, set the vertical speed to 0</blockquote> (I only have e-tile for now so...)</div></div>
+<div class="post" id="p392194"><div class="post-head"><a class="id" href="../t/20776.html#p392194">#392194</a> <span class="index">2</span> <span class="date">2007-12-22T04:37:02Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">Well, as for the time limit, when N is created the previous level is beaten, or it is the first level, set a variable (say, start-time) and when the room starts set the time limit to that. That way, it resets the time reguardless. By the way, I would love to help you with this, email me the gmk file and I can do the tile coding.</div></div>
+<div class="post" id="p392320"><div class="post-head"><a class="id" href="../t/20776.html#p392320">#392320</a> <span class="index">3</span> <span class="date">2007-12-22T14:58:20Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20776.html#p392194">Quote: The_apprentice, December 21, 2007 11:37 pm</a></div> Well, as for the time limit, when N is created the previous level is beaten, or it is the first level, set a variable (say, start-time) and when the room starts set the time limit to that. That way, it resets the time reguardless. By the way, I would love to help you with this, email me the gmk file and I can do the tile coding. </blockquote>For time limit: I don't want the time limit to be reset at the start of each level (Like N, the timer is continuous). Also, the timer starts at 1, so you have just one second to collect the first goldpiece (which is right beside you <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">)<br>
+<br>
+GMK attached. Sorry for lousy graphics. I'm going to improve them. <br>
+Jump is up-key.<br>
+Third level is first with zap drones.<br>
+If you go out of the level, you die. So pretend there are hidden mines all over the border.<br>
+<br>
+I'm using the lite edition. <div class="attachment attachment-missing">Attachment (lost): post-14-1198335500.gmk</div></div></div>
+<div class="post" id="p392489"><div class="post-head"><a class="id" href="../t/20776.html#p392489">#392489</a> <span class="index">4</span> <span class="date">2007-12-23T00:35:43Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">You look like you are new to game maker, so I'll have to re-do the whole physics engine. <div class="attachment attachment-missing">Attachment (lost): post-14-1198371368.gmk</div></div></div>
+</main>
+</body>
+</html>

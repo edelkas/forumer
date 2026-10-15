@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP Help... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; PHP Help...</nav></header>
+<main>
+<div class="post" id="p17952"><div class="post-head"><a class="id" href="../t/20198.html#p17952">#17952</a> <span class="index">1</span> <span class="date">2007-11-18T05:00:44Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">I have the following code:<br>
+<pre class="code">&lt;?
+$date = date("Y-m-d");
+$poscontent2 = stripslashes($_POST['mytext']);
+$posctitle2 = stripslashes($_POST['posttitle']);
+$file = fopen("$posctitle2".".php","x");
+
+//some code to be executed
+// Write $somecontent to our opened file.
+      if (fwrite($file, "&lt;br&gt;"."&lt;br&gt;".
+                          "&lt;b&gt;&lt;font size=4&gt;".$posctitle2."&lt;/font&gt;\n&lt;/b&gt;&lt;br&gt;".$date."&lt;br&gt;".
+                          $poscontent2."\n\n"
+                          ) === FALSE) {
+          echo "Cannot write to file ($filename)";
+          exit;
+    }
+fclose($file);
+?&gt;
+&lt;br&gt;
+&lt;?php include("./text.txt"); ?&gt;</pre><br>
+What this does is create a new *.php file on the server named whatever the "$posctitle2" value is and in this file is the value of the "mytext" field.  What I want to do is make it so when this new *.php file is created, I want the file to visually look like: <a href="http://www.jeffkillian.com/blog/blogpage.php">http://www.jeffkillian.com/blog/blogpage.php</a><br>
+(the code for that file can be found <a href="http://phpfi.com/277021">here.</a>)<br>
+and simply paste the "mytext" field value where it says I want it to go.  <br>
+<br>
+How do you make the new *.php file open up with the formatting. <br>
+<br>
+-or- how could I achieve the same effect a different way.</div></div>
+<div class="post" id="p380455"><div class="post-head"><a class="id" href="../t/20198.html#p380455">#380455</a> <span class="index">2</span> <span class="date">2007-11-18T05:08:19Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">I would use includes. What you do is put all of the header stuff before the text you want in one file (say, header.php), all of the stuff afterwards in another file (or more than one other file), and then create a new php file that looks something like<br>
+<pre class="code">include "header.php";
+echo "this is the other text stuff you want."
+include "theotherstuff.php";</pre>This also has the advantage that, by having all the other stuff in one file, you can make a change and then it will instantly be reflected in all the other files (if this is a good thing for what you're trying to do).</div></div>
+<div class="post" id="p380460"><div class="post-head"><a class="id" href="../t/20198.html#p380460">#380460</a> <span class="index">3</span> <span class="date">2007-11-18T05:10:48Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">I have some includes on the other page, as well as on the blogpage.php file that I linked to.  Is it possible to do this if I want the data to be in a table on the page?  How would I go about putting the includes and the "mytext" in a table?</div></div>
+<div class="post" id="p380464"><div class="post-head"><a class="id" href="../t/20198.html#p380464">#380464</a> <span class="index">4</span> <span class="date">2007-11-18T05:13:18Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Well, you can put includes anywhere. To PHP, it'll just replace the include line with everything inside the file you included.<br>
+<br>
+(I'm not sure what you mean--what about the table?)</div></div>
+</main>
+</body>
+</html>

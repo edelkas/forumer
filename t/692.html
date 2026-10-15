@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What are NaN's? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; What are NaN's?</nav></header>
+<main>
+<div class="post" id="p590"><div class="post-head"><a class="id" href="../t/692.html#p590">#590</a> <span class="index">1</span> <span class="date">2004-07-29T00:50:14Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">I see that they aren't allowed on NUMA and I can see 'NaN' in the code of one of my levels (that isn't on NUMA), but I still don't know what it is and why it's outlawed.  Somebody help me out?</div></div>
+<div class="post" id="p25338"><div class="post-head"><a class="id" href="../t/692.html#p25338">#25338</a> <span class="index">2</span> <span class="date">2004-07-29T08:24:48Z</span> <span class="author"><a href="../u/9370519.html">-Gc-</a></span></div><div class="post-body">NaN means "Not a Number" and wastes your levels (places objects out of border or on other positions so you should remove the whole part with the NaN<br>
+<br>
+i.e.:<br>
+<pre class="code">0^636,300!0^624,252!0^612,252!0^636,252!0^708,276!0^708,288!0^708,300!0^720,300!0^720,288!0^720,276!0^732,288!0^732,276!0^732,360!0^732,372!0^720,372!0^708,372!0^720,384!0^732,384!0^744,384!0^744,372!0^588,312!0^588,324!0^588,336!0^588,348!0^588,360!0^600,348!0^600,360!0^600,336!0^600,288!0^600,240!0^600,264!0^672,240!0^696,396[COLOR=red]!0^708,NaN[/COLOR]!0^756,504</pre>Remove the whole red marked thingIf something is missing then, you may put it in again - just test!</div></div>
+<div class="post" id="p25341"><div class="post-head"><a class="id" href="../t/692.html#p25341">#25341</a> <span class="index">3</span> <span class="date">2004-07-29T13:15:36Z</span> <span class="author">Guest</span></div><div class="post-body">read this for more detail:<br>
+<br>
+<a href="../t/34.html">thread on NaNs and how to get rid of them</a></div></div>
+</main>
+</body>
+</html>

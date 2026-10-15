@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by oxbeat - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370445.html">oxbeat</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p280"><div class="post-head"><a class="id" href="../t/311.html#p280">#280</a> <span class="index">1</span> <span class="date">2004-06-06T04:14:31Z</span> <span class="author"><a href="../u/9370445.html">oxbeat</a></span></div><div class="post-body">Hi I'm working on a physics engine using the same technology as N.<br>
+<br>
+You'll notice that in the Loose version, segments sometimes experience tunnelling; I just test the current endpoints of the segments without thinking about velocity.<br>
+Mare and Raigan, do you guys use a swept segment vs swept particle test or do you take advantage of the "elevator's" up and down movement and simplify?<br>
+<br>
+In the Heavy version, I subdivide along the velocity and it detects collisions well, but compromises the segment's movement.  I will try to implement swept segment vs swept particle tonight, but would greatly appreciate other methods, suggestions, or criticisms.  It may run a cilantro fast or slow depending on the speed of your computer; at this point, I do not bother to lock the time.  I'm using C++ btw, and the final product should work for Mac OS X, Windows, and Linux at least; possibly more, as I am using GLFW.</div></div>
+<div class="post" id="p25695"><div class="post-head"><a class="id" href="../t/311.html#p25695">#25695</a> <span class="index">10</span> <span class="date">2004-08-08T20:01:45Z</span> <span class="author"><a href="../u/9370445.html">oxbeat</a></span></div><div class="post-body">Hi again, I'd just like to post an update.<br>
+ChronoDoll is a very primitive game, if you can even call it that, but I've had some good responses and I'm particularly interested in Raigan and Mare's opinions.<br>
+<br>
+I'm too lazy to fix now, but I have the solution to better stabilize constraint-particle collisions.  The collisions are now quite satisfying, and penetrations occur at mostly non-playable speeds ( that's a good thing <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> ).  Looking to have better friction and optimize with a quadtree or something similar.<br>
+<br>
+C++ with OpenGL, so you'll need a fairly good computer and good recipe card.  Linux binary included in addition to Windows binary.  Please read the included readme.txt.<br>
+<br>
+I don't know if I'll work on this further, but I've recently had yet another game idea (this morning haha); something like a ragdoll inside a gish-like bubble with gameplay similar to N, or perhaps web-slinging cave flyer...anyway, I'm open to suggestions and comments.  I have plans of using the irrlicht engine so hopfully performance requirements can be lowered in the future.</div></div>
+</main>
+</body>
+</html>

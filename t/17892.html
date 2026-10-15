@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N Art Spirograph Maker - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; N Art Spirograph Maker</nav></header>
+<main>
+<div class="post" id="p15750"><div class="post-head"><a class="id" href="../t/17892.html#p15750">#15750</a> <span class="index">1</span> <span class="date">2007-06-17T22:20:53Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">This program generates the object code for a spirograph in N. It requires the input of at least 5 values, one of which determines the object. Some examples of spirographs in N are <a href="https://www.nmaps.net/browse?category=10&amp;q=author:Gforce20&amp;count=3&amp;name=Spirograph">here</a>.<br>
+<br>
+I don't have the proper licsenses to make a real EXE from Liberty BASIC, but my friend does. I e-mailed him about it and he may or may not give me an actual program of it. Anyway, here's the source code:<br>
+<br>
+<pre class="code">xc=300
+yc=300
+steps=0.01
+10 PROMPT "Enter radius of fixed circle (1-99)"; R
+20 PROMPT "Enter radius of moving circle (1-99)"; r
+30 PROMPT "Enter offset point (1-99)"; O
+31 PROMPT "Enter length (1-20)"; endpoint
+32 PROMPT "Enter object code number (See the Readme file)"; object
+40 CONFIRM "Debug?"+chr$(13)+"Click yes if your previous spirograph"+chr$(13)+"was cut off the screen.";var$
+50 IF var$="yes" THEN 150
+55 PRINT "Working... (program copyright Gforce20 xanaman@gmail.com)"
+60 FOR t=1 TO endpoint STEP steps
+70 x =(R+r)*cos(t)-(r+O)*cos(((R+r)/r)*t)
+80 y =(R+r)*sin(t)-(r+O)*sin(((R+r)/r)*t)
+90 lvl$=lvl$+str$(object)+"^"+str$(x+xc)+","+str$(y+yc)+"!"
+100 NEXT
+110 length=len(lvl$)-1
+120 level$=left$(lvl$,length)
+125 CLS
+130 PRINT level$
+140 END
+150 PROMPT "Enter center point X-coordinate (default 300)"; xc
+160 PROMPT "Enter center point Y-coordinate (default 300)"; yc
+170 PROMPT "Enter step value"+chr$(13)+"higher value is lower quality (default 0.01)"; steps
+175 IF steps=0 THEN NOTICE "Cannot step 0; infinite loop" : GOTO 170
+180 CONFIRM "Change all values to integers? (default No)"; int$
+190 IF int$="yes" THEN 215
+200 GOTO 60
+210 IF var$="yes" THEN 150
+215 PRINT "Working in debug mode... (program copyright Gforce20 xanaman@gmail.com)"
+220 FOR t=1 TO endpoint STEP steps
+230 x =(R+r)*cos(t)-(r+O)*cos(((R+r)/r)*t)
+240 y =(R+r)*sin(t)-(r+O)*sin(((R+r)/r)*t)
+250 lvl$=lvl$+"10^"+str$(int(x+xc))+","+str$(int(y+yc))+"!"
+260 NEXT
+270 length=len(lvl$)-1
+280 level$=left$(lvl$,length)
+285 CLS
+290 PRINT level$
+300 END</pre><br>
+Download Liberty BASIC from <a href="http://www.libertybasic.com">www.libertybasic.com</a> and run the code to use it. Readme is in attached file. READ IT. <div class="attachment attachment-missing">Attachment (lost): post-33-1182118853.txt</div></div></div>
+<div class="post" id="p332351"><div class="post-head"><a class="id" href="../t/17892.html#p332351">#332351</a> <span class="index">2</span> <span class="date">2007-06-17T23:01:17Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">Liberty Basic? Never heard of it. Why not Visual Basic?</div></div>
+<div class="post" id="p332354"><div class="post-head"><a class="id" href="../t/17892.html#p332354">#332354</a> <span class="index">3</span> <span class="date">2007-06-17T23:03:50Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17892.html#p332351">Quote: usaswim, June 17, 2007 06:01 pm</a></div> Why not Visual Basic?  </blockquote> <br>
+ Because it's more exciting if it's invisible[/berlame]</div></div>
+<div class="post" id="p332373"><div class="post-head"><a class="id" href="../t/17892.html#p332373">#332373</a> <span class="index">4</span> <span class="date">2007-06-17T23:48:02Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17892.html#p332351">Quote: usaswim, June 17, 2007 11:01 pm</a></div> Liberty Basic? Never heard of it. Why not Visual Basic?  </blockquote> <br>
+ I'm more accustomed to Liberty Basic. I've actually hardly heard of Visual Basic myself.</div></div>
+<div class="post" id="p332381"><div class="post-head"><a class="id" href="../t/17892.html#p332381">#332381</a> <span class="index">5</span> <span class="date">2007-06-18T00:38:15Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">You should calculate (R+r), (r+O), and (R+r/r) and store them as variables, and then call the variable inside your loop. That way, you only have to calculate them once instead of doing it every time you run the loop. It'll save you three additions and a division for every iteration.</div></div>
+<div class="post" id="p332408"><div class="post-head"><a class="id" href="../t/17892.html#p332408">#332408</a> <span class="index">6</span> <span class="date">2007-06-18T02:17:45Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">Visual Basic was made by Microsoft. Liberty Basic sounds like a bank savings account <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> (<i>Liberty Premium, Liberty Enterprise</i>)</div></div>
+<div class="post" id="p332413"><div class="post-head"><a class="id" href="../t/17892.html#p332413">#332413</a> <span class="index">7</span> <span class="date">2007-06-18T02:22:43Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17892.html#p332408">Quote: usaswim, June 18, 2007 02:17 am</a></div> Visual Basic was made by Microsoft. Liberty Basic sounds like a bank savings account <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> (<i>Liberty Premium, Liberty Enterprise</i>)  </blockquote> <br>
+ Liberty BASIC is made independently. And thanks for the tip LV.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+</main>
+</body>
+</html>

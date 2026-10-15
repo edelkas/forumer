@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problem with SAT collision detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Problem with SAT collision detection</nav></header>
+<main>
+<div class="post" id="p5602"><div class="post-head"><a class="id" href="../t/6145.html#p5602">#5602</a> <span class="index">1</span> <span class="date">2005-12-10T09:49:17Z</span> <span class="author">The GMan <span class="guest">(guest)</span></span></div><div class="post-body">I have read the tutorial written on the topic several time and it is excellent (probably the best tutorial I have ever read due to those interactive diagrams that really make the points clear). However I feel there is one key element missing and I cannot figure out a solution.<br>
+<br>
+I have created a game in C++ and am redoing the collision detection to support any arbitrary convex polygon (4 sides maximum for now). A description of my code follows:<br>
+<br>
+I have created a vector class which stores and x,y pair that represents the vector. All polygons are comprised of 4 vertices which are created in a clockwise order. Since I am trying to detect collisions for arbitrary polygons I must test EVERY separation axis (which as I understand it is the normal to all 4 sides of BOTH polygons).<br>
+<br>
+To do the above I calculate the vector connecting each vertex. I do this by finding the vector going from the next vertex to the current vertex (I do it this way so that all the vectors form a counterclockwise loop around the object, this ensures that ALL right-hand normals point AWAY from the polygon).<br>
+<br>
+For each separation axis I project both polygons onto it and determine the interval along the axis in which they each lie. I then calculate the overlap. The overlap is then turned into a push vector (which is a vector that is parallel to the separation axis but has a magnitude equal to the overlap) and stored for later. This process is repeated for all polygons on all separation axes.<br>
+<br>
+Once complete, I search for the smallest (in length) push vector and push the polygon to separate it.<br>
+<br>
+Here is the problem:<br>
+<br>
+It seems to me that in the tutorial you use the line connecting the midpoints of the two polygons to determine which direction the push vector should point.  For example, assume that the minimum overlap is on the separation axis which corresponds to the negative y-axis (the axis is pointing to the top of the monitor). In the tutorial, if the midpoint of the polygon A is closer the top of the monitor than the midpoint of polygon B then polygon A is pushed toward the top of the monitor (and vice-versa).<br>
+<br>
+Since I am using arbitrary sized and shaped polygons I do not have a midpoint for each of them. I came up with a solution but cannot figure out how to implement it, my solution is a s follows:<br>
+<br>
+if an overlap exists on the separation axis I will calculate the midpoint of the total interval formed by the projections of both polygons [ (MAX(maxA, maxB) - MIN(minA, minB)) / 2 ] which I will call the <b>totalMid</b>. <br>
+Then I will calculate the midpoint of the interval formed by the overlap, <b>overlapMid</b>.<br>
+<br>
+If the <b>overlapMid</b> is further along the separation axis (by that I mean if the separation axis is pointing to the top of the monitor then <b>overlapMid</b> is closer to the top of the monitor) than <b>totalMid</b> we push the polygon we are testing along the SAME DIRECTION as the separation axis, otherwise we push it in the OPPOSITE DIRECTION.<br>
+<br>
+As far as I can tell this will always produce accurate results, however I see no way of implementing it because cannot tell which direction is "farther along the separation axis"<br>
+<br>
+I'm sorry for the long post but I wanted to be clear about what I was trying to accomplish. I appreciate any and all help, I have been struggling with this for 5 straight days now and I really need help. Thank you all in advance.<br>
+<br>
+- Greg</div></div>
+<div class="post" id="p121705"><div class="post-head"><a class="id" href="../t/6145.html#p121705">#121705</a> <span class="index">2</span> <span class="date">2005-12-10T10:24:56Z</span> <span class="author"><a href="../u/9371295.html">Ixi</a></span></div><div class="post-body">I think I could probably figure out what you're doing if I really tried--and I might try sometime in the future (winter break?) when I'm not so busy--but right now it's too thinky for me. Could you make a diagram though? That might help.</div></div>
+<div class="post" id="p121836"><div class="post-head"><a class="id" href="../t/6145.html#p121836">#121836</a> <span class="index">3</span> <span class="date">2005-12-10T18:06:58Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hm.. i can see what you mean.<br>
+<br>
+off the top of my head, all i can think of is to figure out a way to precalculate the center of each polygon. <br>
+<br>
+one method is the "centroid" of each polygon (just sum the vertex positions then divide the x and y components by the number of vertices) and use that as the "center" of the polygon.. another method would be to fit a bounding circle or box on the polygon, then use the center of the circle/box as the center point. since you're using quads you could also intersect the two diagonals of each quad and call the intersection point "the center".. i'm sure there are many more ways, since (as you noted) the "center" of a polygon isn't a really well-defined term. <br>
+<br>
+<br>
+i recommend the book "geometric tools for computer graphics", which has a lot of useful info, including stuff on SAT. the approach they recommend for two 2D polys is based on the following idea: if you're testing normal n from poly A (n is perp to the edge formed by verts a0 and a1), you only need to project poly B onto the axis and see if it goes "past" a0 or a1 ("past" meaning "futher in the direction -n").<br>
+<br>
+this may not be clear, but try doing it on paper and hopefully it will become clear: since the polygons are convex, in the above case you know (due to the definition of convexity) that no vertices of A will be "in front of" v0 or v1 ("in front of" meaning "further in the direction n").<br>
+<br>
+..now that i think about it, you would then just need to find the vertex of B which is furthest in the direction opposite the normal: this is the vertex which is most penetrating n. but it seems like you're now no longer using SAT since you're not really projecting 2D shapes onto 1D intervals..<br>
+<br>
+the concept of finding the point on a polygon which is "furthest" in a given direction is (i think) called the support mapping, and it used in a different collision detection approach which gino van den bergen has written a book about.</div></div>
+<div class="post" id="p121839"><div class="post-head"><a class="id" href="../t/6145.html#p121839">#121839</a> <span class="index">4</span> <span class="date">2005-12-10T18:15:11Z</span> <span class="author">The GMan <span class="guest">(guest)</span></span></div><div class="post-body">Her is an image to help you visualize:<br>
+<br>
+<img class="bb-img" src="http://www.shatteredrealmproductions.com/image.jpg" alt="" loading="lazy"><br>
+<br>
+As you can see, the vector represents the right hand normal to the vector connecting the angled portion of the red polygon. The <b>totalMid</b> point is the midpoint of the ENTIRE projection onto the axis. The <b>overlapMid</b> is the midpoint of the overlap on the axis.<br>
+<br>
+According to my idea, since <b>overlapMid</b> is not further along on the axis than <b>totalMid</b>, the push vector should be in the opposite direction of the axis and thus push the blue polygon downward. (now that I look at it, this does not always produce the result I want, but I'm at a loss on how to solve this problem)<br>
+<br>
+I hope that helps.<br>
+<br>
+- Greg</div></div>
+<div class="post" id="p122026"><div class="post-head"><a class="id" href="../t/6145.html#p122026">#122026</a> <span class="index">5</span> <span class="date">2005-12-11T06:57:18Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OK, after reading both posts, I can now say what your problem is.<br>
+In the picture you posted, you seem to just take the overlapMid and totalMid "y" components, which isn't what you're supposed to do.<br>
+What you're supposed to do is to project those two points on the normal (not on the global "y" axis) and then see how they're positioned. As far as I can imagine, that should work.<br>
+<br>
+I hope that helps.<br>
+<br>
+TS</div></div>
+<div class="post" id="p122214"><div class="post-head"><a class="id" href="../t/6145.html#p122214">#122214</a> <span class="index">6</span> <span class="date">2005-12-11T23:29:04Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i think i misunderstood the question <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+tohosoft is right, the lines which go from the triangle/box to the axis on the right should be _perpendicular_ to the axis (right now they're parallel to x)</div></div>
+<div class="post" id="p122540"><div class="post-head"><a class="id" href="../t/6145.html#p122540">#122540</a> <span class="index">7</span> <span class="date">2005-12-13T04:55:04Z</span> <span class="author">The GMan <span class="guest">(guest)</span></span></div><div class="post-body">Thanks for all of your help. It is still not working but I'm working on it. I will let you know if I need more help. I feel like there is one simple thing I am missing. \<br>
+<br>
+Raigan - thanks for the list of valuable resources, I will look into them.</div></div>
+<div class="post" id="p122599"><div class="post-head"><a class="id" href="../t/6145.html#p122599">#122599</a> <span class="index">8</span> <span class="date">2005-12-13T12:35:25Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6145.html#p122214">Quote: Raigan, 2005-12-11T23:29:04Z</a></div>tohosoft is right, the lines which go from the triangle/box to the axis on the right should be _perpendicular_ to the axis (right now they're parallel to x)</blockquote><br>
+Thank you for typing my name correctly. I appreciate it. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+[/sarcasm]<br>
+<br>
+EDIT:<br>
+Also, Greg, you should try registering, in case you'd like to do something more than just ask us dev questions.</div></div>
+</main>
+</body>
+</html>

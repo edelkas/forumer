@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Some bugs I found - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Some bugs I found</nav></header>
+<main>
+<div class="post" id="p241"><div class="post-head"><a class="id" href="../t/269.html#p241">#241</a> <span class="index">1</span> <span class="date">2004-05-31T11:27:18Z</span> <span class="author">Guest</span></div><div class="post-body">Okay, I found a few bugs while going through some level editing...<br>
+<br>
+1:<br>
+<br>
+sometimes the missles pass through a closed door, which I'm pretty sure isn't supposed to happen.  <br>
+<br>
+2:<br>
+<br>
+Sometimes while playing when I hit [enter] to respawn in debug mode, i die instantly, other times I just respawn, also it seems the respawn point is random, why not make it where the ninja usually starts the level?<br>
+<br>
+3:<br>
+<br>
+I'm pretty sure this has been said but I'll say it anyways, the last object I place is placed incorectly, but its just facing the wrong way.  I'm using a boost pad and instead of a North East facing its facing East, and any time I contact the pad the game crashes.  <br>
+<br>
+If you want a copy of the code for reference, I'll be happy to post it.<br>
+<br>
+thanks for the game fellas  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p23305"><div class="post-head"><a class="id" href="../t/269.html#p23305">#23305</a> <span class="index">2</span> <span class="date">2004-05-31T14:34:23Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+<br>
+1.  Are you sure it's just <b>sometimes</b>?<br>
+<br>
+2.  First off, the respawn point is the cursor position -- it's not random at all!<br>
+  Second, pressing [enter] in debug mode kills you if you're alive, or resurrects you if you're dead.  So depending on what state you're in when you press it...<br>
+<br>
+Also, I realize debug mode is currently the only way you  can play custom maps right now.  This is going to change, really soon!  you'll be able to play custom maps in game mode, with a timer and everything current game levels have -- including a respawn point and replays.<br>
+<br>
+3.  yes, please do post your code.  <br>
+But first read <a href="../t/34.html">this</a> thread to get an idea of what level code is all about, and how to look for problems in your level code.  You can fix broken objects yourself if you feel like it! <br>
+<br>
+<br>
+Mare</div></div>
+<div class="post" id="p23410"><div class="post-head"><a class="id" href="../t/269.html#p23410">#23410</a> <span class="index">3</span> <span class="date">2004-06-02T17:24:38Z</span> <span class="author">Guest</span></div><div class="post-body">Im possitive it is just a Sometimes thing.  I tested it myself.  went to the same spot did the same thing and lived once, got killed a second time.  The door is closed, im on the other side of the missle, and it just passes through.  Maybe (just wondering) if it has something to do with going "between" the two doors i have side by side.  I have a row of three doors facing the same way and sometimes it goes through them.  Maybe the problems in that there is a pixle or two or room for a missle to get through, just what I was thinking.<br>
+<br>
+Thanks for the help with the respawn.<br>
+<br>
+Thanks again for the link.<br>
+<br>
+Keep up the good work. <br>
+<br>
+and heres my code btw:<br>
+<br>
+<pre class="code">00000000000000000000000000000000000000000000000000000000000000000000011007&lt;00000000007&lt;0001101000N00000000000N0001001000N00000000000N0001001000N00000000000N0001001006=00000000006=00010000000000000000000000000000000000000000000000000000000NQ000QP0000000000000000N00000P0000000000000000N00000P0000000000000000N00000P0000000000000000000000000000000000000000000000000000000000000000000000000000000000000N00010P0000000000000000N00010P0000000000000000N00010P0000000000000000NO001OP00000000000000000000000000000000000000000000000000000001007&lt;00000000007&lt;0001001000N00000000000N0001001000N00000000000N0001001000N00000000000N0001011006=00000000006=00011000000000000000000000000000000000000000000000000000000000000000000000|5^300,348!10^36,36!10^756,36!10^756,564!10^36,564!3^36,312!3^396,564!3^396,36!3^756,300!1^528,180!1^264,180!1^528,456!1^264,456!1^324,180!1^396,180!1^468,180!7^396,240,3!7^276,300,2!7^516,300,0!7^396,372,3!7^372,372,3!7^420,372,3!0^132,420!0^144,420!0^156,420!0^156,432!0^144,432!0^132,432!0^132,444!0^144,444!0^156,444!0^612,132!0^624,132!0^636,132!0^648,132!0^660,132!0^660,144!0^648,144!0^636,144!0^624,144!0^612,144!0^612,156!0^624,156!0^636,156!0^648,156!0^660,156!1^336,288!1^360,288!1^384,288!7^372,240,3!7^420,240,3!7^276,324,2!7^276,276,2!7^516,276,0!11^492,348,636,432!9^576,564,0,0,24,23,0,-1,0!9^576,36,0,0,24,1,0,-1,0!9^180,120,1,0,7,5,0,0,-1!9^156,120,1,0,6,5,0,0,-1!9^132,408,1,0,5,17,0,0,-1!9^156,408,1,0,6,17,0,0,-1!9^612,408,1,0,25,17,0,0,-1!9^636,408,1,0,26,17,0,0,-1!9^660,408,1,0,27,17,0,0,-1!9^660,120,1,0,27,5,0,0,-1!9^636,120,1,0,26,5,0,0,-1!9^612,120,1,0,25,5,0,0,-1!0^600,564!0^612,564!0^624,564!0^636,564!0^660,564!0^600,36!0^612,36!0^624,36!0^636,36!0^660,36!2^588,132,-0.707106781186547,-0.707106781186547!1^624,324!1^180,324!1^624,252!1^180,252!1^300,72!1^516,60!1^324,456!1^468,456!1^396,456!7^372,420,3!7^396,420,3!7^420,420,3!7^348,420,3!7^444,420,3!2^588,420,-0.707106781186547,-0.707106781186547!9^660,564,1,1,15,15,0,0,0!9^660,36,1,1,17,15,0,0,0!9^216,36,0,0,8,1,0,0,0!9^132,120,1,0,5,5,0,0,-1!9^156,144,0,0,18,14,1,-1,0!9^132,36,1,1,16,15,0,0,0!0^132,36!0^156,36!0^180,36!0^168,36!0^192,36!2^204,132,0.707106781186547,-0.707106781186547!0^168,420!0^180,420!0^180,420!0^180,432!0^168,444!0^180,444!0^168,432!9^180,408,1,0,7,17,0,0,-1!9^216,564,0,0,8,23,0,0,0!9^132,564,0,1,19,14,0,-1,0!0^132,564!0^156,564!0^168,564!0^180,564!0^192,564!2^204,420,0.707106781186547,-0.707106781186547</pre><br>
+I hope that works, last time i tried to post it it didnt work.</div></div>
+<div class="post" id="p23411"><div class="post-head"><a class="id" href="../t/269.html#p23411">#23411</a> <span class="index">4</span> <span class="date">2004-06-02T17:29:21Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">Sorry, didn't know I had to be a regestered member to post code.  I'll post it now that I'm registered<br>
+<br>
+Also I dont see any "NaN" in my code.  Also its not a matter of a new object, its just rotated wrong.  Plus I have as cilantro knowledge of code as a newborn has of physics.  So he constant stream of numbers is overwhelming to me.  Plus I can deleate the object and replace it corectly and it works fine.  Just when I re-load the code, its botches the angle and makes it so if i touch the pad, the game freezes up.<br>
+<br>
+I don't really know how else to explain it.<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-3-1086197361.txt</div></div></div>
+<div class="post" id="p23413"><div class="post-head"><a class="id" href="../t/269.html#p23413">#23413</a> <span class="index">5</span> <span class="date">2004-06-02T18:20:26Z</span> <span class="author">Guest</span></div><div class="post-body">Hey, <br>
+<br>
+<br>
+Excellent -- yeah, missiles can go through doors which are open (even a tiny bit), which may explain what was happening.  In the tests I've done so far, missiles haven't been able to get through completely closed doors side by side (as in your map), but I'm still testing.<br>
+<br>
+<br>
+As for the level code and screwed up jump pad, the first test I did had the screwed up object because I had copied a 'newline character' at the end of the level code.<br>
+(these characters are invisible, which adds to the confusion)<br>
+<br>
+<br>
+In this case, when you paste your data into the text box, click outside of the box and press [L] to load, you should be able to see a cilantro NaN at the end if you've accidentally added something that wasn't supposed to be there.  (this is before you press [P] )<br>
+<br>
+<br>
+The second time, I put the cursor right at the end of the level code in the text file, pressed [shift] and then [Home] and pressed the up arrow key until I had selected all the text.  Then the level loaded properly.<br>
+<br>
+Hope this helps!</div></div>
+<div class="post" id="p23466"><div class="post-head"><a class="id" href="../t/269.html#p23466">#23466</a> <span class="index">6</span> <span class="date">2004-06-04T01:34:28Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">Alright, thanks.<br>
+<br>
+And if that is the case about missles getting through just fractionally opened doors, why not change it to the width of the missle.  It just is frustrating to be inside one of those shelters and have a missle pass right though to door.  The only bunker that I have had this happen by the way is the one with the key to open the exit (bottm right, the one not on the ground)<br>
+<br>
+Thanks again mare<br>
+<br>
+===EDIT===<br>
+<br>
+I found one more, on a new level I made.<br>
+<br>
+I went through a one way wall, the wrong way.  I was able to replicate this multipul times, in different settings too.<br>
+<br>
+The one way wall is at the bottom of two sloping walls like this and is facing up (only suposed to go through bottom):<br>
+<br>
+\.........../<br>
+..\..|_|./<br>
+....\ _ /<br>
+<br>
+Now there is a bouncing block maybe 2 or 3 spaces above that one way wall (represented by the |_|)<br>
+<br>
+If I jump up into the bottom of that bouncing block and into the sloping walls down into the one way wall, I pass through it.  Almost always does this work.<br>
+<br>
+Heres the code for the level if you want to try it yourself.<br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-3-1086321213.txt</div></div></div>
+<div class="post" id="p23470"><div class="post-head"><a class="id" href="../t/269.html#p23470">#23470</a> <span class="index">7</span> <span class="date">2004-06-04T05:24:04Z</span> <span class="author"><a href="../u/9370397.html">WildCorpse123</a></span></div><div class="post-body">Heh,these bugs are found and sometimes used in maps,by the way,these bugs you said are already said earlier by some people.Try this map,it uses some bugs. <div class="attachment attachment-missing">Attachment (lost): post-3-1086326644.txt</div></div></div>
+<div class="post" id="p23474"><div class="post-head"><a class="id" href="../t/269.html#p23474">#23474</a> <span class="index">8</span> <span class="date">2004-06-04T06:26:39Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">Hey Mare, I have a demo of Missle Through Closed Door glitch.  <br>
+<br>
+Heres the map I used, and the Demo. <div class="attachment attachment-missing">Attachment (lost): post-3-1086330399.txt</div></div></div>
+<div class="post" id="p217753"><div class="post-head"><a class="id" href="../t/269.html#p217753">#217753</a> <span class="index">9</span> <span class="date">2006-08-21T00:58:05Z</span> <span class="author"><a href="../u/9372756.html">funman</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/269.html#p23305">Quote: Mare, May 31, 2004 02:34 pm</a></div> hey,<br>
+<br>
+1.  Are you sure it's just <b>sometimes</b>?<br>
+<br>
+2.  First off, the respawn point is the cursor position -- it's not random at all!<br>
+  Second, pressing [enter] in debug mode kills you if you're alive, or resurrects you if you're dead.  So depending on what state you're in when you press it...<br>
+<br>
+Also, I realize debug mode is currently the only way you  can play custom maps right now.  This is going to change, really soon!  you'll be able to play custom maps in game mode, with a timer and everything current game levels have -- including a respawn point and replays.<br>
+<br>
+3.  yes, please do post your code.  <br>
+But first read <a href="../t/34.html">this</a> thread to get an idea of what level code is all about, and how to look for problems in your level code.  You can fix broken objects yourself if you feel like it! <br>
+<br>
+<br>
+Mare  </blockquote> <br>
+ I CAN DO that all ready</div></div>
+<div class="post" id="p217755"><div class="post-head"><a class="id" href="../t/269.html#p217755">#217755</a> <span class="index">10</span> <span class="date">2006-08-21T01:00:47Z</span> <span class="author"><a href="../u/9372854.html">AMomentLikeThis</a></span></div><div class="post-body">Dude.. June 04, <b>2004</b></div></div>
+<div class="post" id="p217764"><div class="post-head"><a class="id" href="../t/269.html#p217764">#217764</a> <span class="index">11</span> <span class="date">2006-08-21T01:29:12Z</span> <span class="author"><a href="../u/9372397.html">Spiker</a></span></div><div class="post-body">Wow, two year resurrection. At the rate things are being brought back, we're going to have zombie topics walking all over the place.</div></div>
+</main>
+</body>
+</html>

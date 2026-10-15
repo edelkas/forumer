@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>step by step physics - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; step by step physics</nav></header>
+<main>
+<div class="post" id="p5981"><div class="post-head"><a class="id" href="../t/6550.html#p5981">#5981</a> <span class="index">1</span> <span class="date">2005-12-31T02:19:07Z</span> <span class="author">I.Newton <span class="guest">(guest)</span></span></div><div class="post-body">Hi everyone<br>
+ I came across N a couple of days ago, and what a great game!! IMO the main thing that stands out is the physics. Now Ive tried to do verlet physics for the last month or so but I just cant get my head around it. I understand whats happening but I just dont know how to code it. Ive read and reread Jakobsen's paper quite a few times, but I cant seem to follow it. However, I do know how to program (not in actionScript) but in other languages, so I was hoping if someone could list step by step the things I need to do (Not in real code or anything, just normal english or psuedo). eg<br>
+ create particle, with pos,vel,mass <br>
+start loop<br>
+move particle <br>
+etc..<br>
+<br>
+Sorry if this sounds like a lot, but Ive really tried and Im not just asking without trying for myself. Any help would be appreciated.<br>
+Thanks</div></div>
+<div class="post" id="p129925"><div class="post-head"><a class="id" href="../t/6550.html#p129925">#129925</a> <span class="index">2</span> <span class="date">2006-01-05T16:34:38Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">uhhh... <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+Are you even talking about N?  Because if you're not, then leave the forums.  It sounded like you started with N, then went off on a wild tangent about physics in general.  Please explain.</div></div>
+<div class="post" id="p129929"><div class="post-head"><a class="id" href="../t/6550.html#p129929">#129929</a> <span class="index">3</span> <span class="date">2006-01-05T16:43:32Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">We're in <b>Developers' Tutorials</b>, Jiggerjaw. He's asking about the physics in N and the specific implentation of it.</div></div>
+<div class="post" id="p129949"><div class="post-head"><a class="id" href="../t/6550.html#p129949">#129949</a> <span class="index">4</span> <span class="date">2006-01-05T18:21:44Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">Wow, I have no idea how that's what YOU got out of it.  I figured jakobsen was some scientist or something, and he's just randomly talking about physics.  Whatever.<br>
+Anyway, I don't know how to answer your question, if it is in fact a question, sorry, because you make no sense.  All that junk about english or pseudo-english makes absolutely no sense.  Am I missing someting?  I'm sorry if you think that was spam maestro, but I seriously have no idea what he's talking about.</div></div>
+<div class="post" id="p129950"><div class="post-head"><a class="id" href="../t/6550.html#p129950">#129950</a> <span class="index">5</span> <span class="date">2006-01-05T18:23:26Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">There are actually a couple of verlet integration, or ragdoll, threads here already. Check them, I've put one of my own ragdolls there with comments (in actionscript). Jakobsen's paper is quite good, it gave me a lot of help. <br>
+<br>
+Its hard to make a list of steps when I don't know how good you are at the programming, and also since I'm not that good in other languages ^^. I guess that maybe this would be okay:<br>
+<br>
+* Graphics engine; do something simple so you can draw lines and dots.<br>
+<br>
+* Particle class; make a class that declares all variables that you mentioned, and an array for the constraints.<br>
+<br>
+* In the particle class do a function called main() and one other which makes sure that constraints are satisfyed (or simply put that code in the main() function) this is what Jakobsen explains in his paper.<br>
+<br>
+* The main() function should add a particles x and y position with its x and y speed, and maybe add gravity. Call for the constraint satisfaction should also be done here.<br>
+<br>
+* Register a variable as a particle with all those things.<br>
+<br>
+* Get an array that holds all of the particles.<br>
+<br>
+* In the program main loop do something like this:<br>
+<br>
+<pre class="code">for each i in partlist { // this line is "for (var i in parlist) {" in actionscript
+partlist[i].main();
+}
+//code to draw all of them...</pre><br>
+Good luck  <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"><br>
+<br>
+EDIT: Added some things in the main() function description</div></div>
+<div class="post" id="p129953"><div class="post-head"><a class="id" href="../t/6550.html#p129953">#129953</a> <span class="index">6</span> <span class="date">2006-01-05T18:52:29Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">Jiggerjaw: Back off, and stop being rude.<br>
+FYI, pseudocode is a non-code description of what the code does.<br>
+<br>
+eg "display answer" instead of <br>
+msgbox("The answer is " answer ".",vbOKonly)<br>
+<br>
+If you don't have a clue what's going on in a thread, just don't post in it. Don't suddenly insult people 'cos you don't understand what they're talking about.</div></div>
+<div class="post" id="p129967"><div class="post-head"><a class="id" href="../t/6550.html#p129967">#129967</a> <span class="index">7</span> <span class="date">2006-01-05T19:42:59Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i'm not sure which version of jakobsen's paper you've read, but the one on gamasutra has source code interspersed; if you just take all the code that's given and paste it all together, you should have a working point+stick simulator. then you just need to add collision, which is a big job.<br>
+<br>
+<a href="http://www.gamasutra.com/resource_guide/20030121/jacobson_01.shtml">http://www.gamasutra.com/resource_guide/20...cobson_01.shtml</a><br>
+<br>
+if you look through the source from our tutorials there is also a bit of physics stuff: <a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a></div></div>
+<div class="post" id="p130141"><div class="post-head"><a class="id" href="../t/6550.html#p130141">#130141</a> <span class="index">8</span> <span class="date">2006-01-06T09:52:05Z</span> <span class="author"><a href="../u/9371246.html">Rapier</a></span></div><div class="post-body">About the graphisc stuff: does anyone of you have any idea to create a function to place an image binded to two particles so we can create skinned ragdolls instead of the stupid lines?</div></div>
+<div class="post" id="p130166"><div class="post-head"><a class="id" href="../t/6550.html#p130166">#130166</a> <span class="index">9</span> <span class="date">2006-01-06T12:50:39Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">I'm sorry guys.  I didn't understand.  I still don't.  So I'll just leave.  Peace.</div></div>
+<div class="post" id="p130413"><div class="post-head"><a class="id" href="../t/6550.html#p130413">#130413</a> <span class="index">10</span> <span class="date">2006-01-07T05:54:37Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6550.html#p130141">Quote: Rapier, Jan 6 2006, 09:52 AM</a></div> About the graphisc stuff: does anyone of you have any idea to create a function to place an image binded to two particles so we can create skinned ragdolls instead of the stupid lines?  </blockquote> <br>
+ read the help file for Math.atan2 <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p130441"><div class="post-head"><a class="id" href="../t/6550.html#p130441">#130441</a> <span class="index">11</span> <span class="date">2006-01-07T09:22:06Z</span> <span class="author"><a href="../u/9371108.html">OpethRockr55</a></span></div><div class="post-body">Well, I know he has a good angle code, but he's talking about stretching the MCs, which, come to think of it, would be easy to do with simple distance formulas. <br>
+<br>
+Divide the actual distance of two points by the resting distance and use that percentage to modify the Y-scale of your MC. Why didn't I think of this before!?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p130542"><div class="post-head"><a class="id" href="../t/6550.html#p130542">#130542</a> <span class="index">12</span> <span class="date">2006-01-07T19:25:02Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i guess i assumed that atan2() was the hard part <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+actually, we didn't _know_ about atan2() when we made out first ragdoll thing -- we ended up writing our own function that did the same thing using just atan() and all sorts of "if" statements <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+there are actually many more things you can do to draw the ragdoll, if you use the drawing API -- the topic of aligning graphics to a skeleton is called "skinning" and there's a lot of good stuff in the internet about different types (hard and soft).</div></div>
+<div class="post" id="p130545"><div class="post-head"><a class="id" href="../t/6550.html#p130545">#130545</a> <span class="index">13</span> <span class="date">2006-01-07T19:33:03Z</span> <span class="author"><a href="../u/9371108.html">OpethRockr55</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol">  That's the same thing that happened to me! I was afraid to use atan2 because I didn't know how, so I used atan with two if statements to sort out the data. I guess I've come a long way from there, now that I've got a "perfect"  <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"> angular constraint code.<br>
+<br>
+I'm so proud of myself.  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"></div></div>
+<div class="post" id="p132145"><div class="post-head"><a class="id" href="../t/6550.html#p132145">#132145</a> <span class="index">14</span> <span class="date">2006-01-13T18:29:48Z</span> <span class="author">I.Newton <span class="guest">(guest)</span></span></div><div class="post-body">Thank you for the replies guys. I know my question was a bit vague and such, but those were (generally) great responses. I looked at the source code that was in the paper, but I didn't understand what each thing did as such, but now its all clear and Ive got it working. Although it's not optimised at the moment, it's a start. <br>
+Thanks "The Wazaa", that helped a lot and great tutorials Raigan! Although this is probably a bit late, congrats on the IGF award Raigan! <br>
+ <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p132570"><div class="post-head"><a class="id" href="../t/6550.html#p132570">#132570</a> <span class="index">15</span> <span class="date">2006-01-15T08:14:15Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Don't worry about the question. I understood it. I don't know for sure, but I'd assume that Jigger's never heard of programming, much less about pseudocode <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> .<br>
+What I'd suggest is to check out some of the other threads around here and you'd probably find some answers. If it's verlet physics, then I'd say that The Wazaa did most of the work <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> .<br>
+Anyways, if you know one programming lang then it shouldn't be much of a problem to understand most of the other ones. AS is much like Javascript and C++, so it shouldn't be a problem.<br>
+Try this thread: <a href="../t/3929.html">http://metanet.2.forumer.com/index.php?showtopic=3929</a> .<br>
+It's supposed to be AS-specific, but I think it might help you a little.</div></div>
+</main>
+</body>
+</html>

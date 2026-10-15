@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>some help plx :D - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; some help plx :D</nav></header>
+<main>
+<div class="post" id="p12334"><div class="post-head"><a class="id" href="../t/13872.html#p12334">#12334</a> <span class="index">1</span> <span class="date">2006-11-18T06:28:49Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">anyone have a tutorial or guide that shows how to make launchers and stuff like using thwumps or trap doors? i've been trying to use the bouncy blocks and gold but i dunno how to do it lol. can someone help me with this?  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p256348"><div class="post-head"><a class="id" href="../t/13872.html#p256348">#256348</a> <span class="index">2</span> <span class="date">2006-11-18T06:30:16Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">You mean as propulsion methods? I'm tired and cannot think very well at the moment, so help me out a little.</div></div>
+<div class="post" id="p256358"><div class="post-head"><a class="id" href="../t/13872.html#p256358">#256358</a> <span class="index">3</span> <span class="date">2006-11-18T06:42:57Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">YEAH<br>
+i didn't wanna say propulsion cause...<br>
+well it sounds really nerdy  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+but yeah propulsion methods cause it's taking too much space if i do other ways</div></div>
+<div class="post" id="p256361"><div class="post-head"><a class="id" href="../t/13872.html#p256361">#256361</a> <span class="index">4</span> <span class="date">2006-11-18T06:46:40Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">For trapdoors, put one like, let's say you want N to go right. You put a trap door on the left of a square and the switch 3/4 of a square away from him. Thwumps, you put three of them on the edges of the square, and make N go into that.</div></div>
+<div class="post" id="p256366"><div class="post-head"><a class="id" href="../t/13872.html#p256366">#256366</a> <span class="index">5</span> <span class="date">2006-11-18T06:55:23Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">what about the white bouncy blocks and gold?</div></div>
+<div class="post" id="p256369"><div class="post-head"><a class="id" href="../t/13872.html#p256369">#256369</a> <span class="index">6</span> <span class="date">2006-11-18T06:59:32Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">I still, personally haven't gotten good with bounceblock propulsion...</div></div>
+<div class="post" id="p256436"><div class="post-head"><a class="id" href="../t/13872.html#p256436">#256436</a> <span class="index">7</span> <span class="date">2006-11-18T12:50:31Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13872.html#p256358">Quote: Fallen, November 18, 2006 08:42 am</a></div> YEAH<br>
+i didn't wanna say propulsion cause...<br>
+well it sounds really nerdy  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  </blockquote> <br>
+ Heh, actually we on the forum aren't anything but a big bunch of nerds, so don't worry about that. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+Anyway for bounceblocks, it works like this:<br>
+First you put up a bounceblock and then you add a number of gold pieces on top of it (quite a high number recommended, depending on how quickly the ninja is moving). Now since the ninja only interacts with one object every frame he will pick up the gold without noticing the bounceblock (the same thing works with one-ways; put gold over them and you'll fall through). Since the speed of the ninja at a certain moment is fixed in a DDA, you would quite easily be able to edit the amount of gold so that everything's taken by the ninja while he's somewhere inside the block. And if the ninja's inside a block and then starts reacting with it, he'll fly far because the bouncing's so extreme (yea I'm bad at explainig this). Try different amount of block for different effects, but that's the basics.</div></div>
+<div class="post" id="p256545"><div class="post-head"><a class="id" href="../t/13872.html#p256545">#256545</a> <span class="index">8</span> <span class="date">2006-11-18T17:08:15Z</span> <span class="author"><a href="../u/9371987.html">scythe33</a></span></div><div class="post-body"><span style="color:#6A220B">For normal doors, put 6 (exactly six!) gold on a door, then launch the ninja at it. <br>
+<a href="https://www.nmaps.net/51577">Example</a><br>
+<br>
+For thwumps, squeeze the ninja between two thwumps that are moving backwards, between a thwump and the side of another thwump, between a thwump and the wall, between a thwump and a launchpad, or even between a thwump and a downward-facing oneway platform.<br>
+<a href="https://www.nmaps.net/59657">Example 2</a><br>
+<br>
+For locked doors, make a locked door, put the switch somewhere inside the outer border, then look at the code. Change the third number to "NaN" and reload the map. These have alot of weird properties:<br>
+<a href="https://www.nmaps.net/55476">Example</a><br>
+<br>
+I think trapdoors and bounceblocks were covered, correct?<br>
+<br>
+<i>scythe33 kicks jeca in the face</i></span></div></div>
+<div class="post" id="p256550"><div class="post-head"><a class="id" href="../t/13872.html#p256550">#256550</a> <span class="index">9</span> <span class="date">2006-11-18T17:47:03Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">ohh<br>
+so that's how you do it lol<br>
+i didn't know where to put the gold or how many in a block<br>
+so he kinda just crippled when he hit it <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+thanks alot<br>
+if anyone else knows different ways of propulsion methods<br>
+post it! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

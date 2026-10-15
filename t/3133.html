@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>umm... rotation? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; umm... rotation?</nav></header>
+<main>
+<div class="post" id="p2820"><div class="post-head"><a class="id" href="../t/3133.html#p2820">#2820</a> <span class="index">1</span> <span class="date">2005-05-12T09:46:49Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hi guys...  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+You have a really nice physics engine... Nice tutorials too <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+But I have a question:<br>
+When an object collides in the real world, it not only bounces off and stuff like that, but it also rotates, so... is there any way to make that in your engine? I'm asking cuz I need it for a project I'm workin' on. Just thought you guys can help me out <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">.</div></div>
+<div class="post" id="p65230"><div class="post-head"><a class="id" href="../t/3133.html#p65230">#65230</a> <span class="index">2</span> <span class="date">2005-05-12T15:46:09Z</span> <span class="author">Guest</span></div><div class="post-body">i don't really have time to explain this, however the method presented in this article should be sufficient: <a href="http://www.gamasutra.com/resource_guide/20030121/jacobson_01.shtml">http://www.gamasutra.com/resource_guide/20...cobson_01.shtml</a><br>
+<br>
+the short answer is: to get torque/rotational things happening, you need not only a penetration vector, but a contact point on each object. with the method outlined in our tutorials, you need to do a bit of extra work to determine the contact point... or, use a slightly different solution (as presented in the above article) where you model each object using several interconnected particles. this way, you can treat each particle in the way described by our tutorials and it should work...<br>
+<br>
+raigan</div></div>
+<div class="post" id="p65262"><div class="post-head"><a class="id" href="../t/3133.html#p65262">#65262</a> <span class="index">3</span> <span class="date">2005-05-12T22:19:22Z</span> <span class="author">Guest</span></div><div class="post-body">Thanks, Raigan.</div></div>
+<div class="post" id="p68783"><div class="post-head"><a class="id" href="../t/3133.html#p68783">#68783</a> <span class="index">4</span> <span class="date">2005-05-22T22:57:17Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Ok. I've tried both the contact point thing and the particle thing, and finally decided to go with particles, cuz their easier to understand <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> .<br>
+So it actually handles pretty good with particles, but has one tiny problem:<br>
+When I make a simple two-particle stick, it works fine, but when I try to make a triangle, the "relaxation" pushes one of the particles out of the stage <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . Any ideas on how to fix it?<br>
+<br>
+PS: Local time is 01:39 after midnight... and it's my birthday today  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p68864"><div class="post-head"><a class="id" href="../t/3133.html#p68864">#68864</a> <span class="index">5</span> <span class="date">2005-05-23T06:53:56Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+it depends what you do last each frame: apply the stick constrains, or project the particles out of the world.<br>
+<br>
+if you push them out of the world after applying the sticks, you won't have this problem.. but, the stick constraints will be slightly violated.<br>
+<br>
+<br>
+it also sounds like you need a better collision system; even if a particle is pushed into the ground by a stick constrain, you should be able to correctly push it back into the world.. in the jakobsen paper there is a simple "clamping" collision vs. the world, this guarantees that particles won't leave, you could try that.<br>
+<br>
+raigan<br>
+p.s - happy birthday</div></div>
+<div class="post" id="p69983"><div class="post-head"><a class="id" href="../t/3133.html#p69983">#69983</a> <span class="index">6</span> <span class="date">2005-05-27T16:43:17Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OK... Now, I actually tried using the 'clamping' but it was messing up the bouncing, so I decided to go with a 'project back into world' kinda thing. So it's nice, the particles don't get out of bounds now, but it still has two problem.<br>
+When two of the three particles touch the bounds, the stop moving... like it should be... but, the third particle continues moving down <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> . Eventually the whole thing bounces off the ground and then everything repeats itself. So I figured it must be something in my relaxation loop, but there's nothing wrong with it - I do exactly the same as said in the article... <br>
+And the second problem: How can I implement friction? Not that I don't know how to do it with velocities (vx and vy stuff) but how can I do it when the relaxation loop changes x and y DIRECTLY!?<br>
+<br>
+Thanks in advance.<br>
+<br>
+(I've attached the swf in case you don't understand what I mean)<br>
+<br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1117212197.zip</div></div></div>
+<div class="post" id="p82840"><div class="post-head"><a class="id" href="../t/3133.html#p82840">#82840</a> <span class="index">7</span> <span class="date">2005-07-12T03:53:13Z</span> <span class="author">Guest</span></div><div class="post-body">The reason the particles in the triangle "pushed" away strangly is because you only applied the distance constraint in one iteration... just iterate through it more times and it should be more "stiff"<br>
+<br>
+Do it like:<br>
+<br>
+for(i = 0; i &lt; NUM_ITERATIONS; i++){<br>
+Constraint();<br>
+}<br>
+<br>
+<br>
+what this does, is that it keeps the particles constrained that distance multiple times... because just once and Verlet integration will pull them apart</div></div>
+<div class="post" id="p82848"><div class="post-head"><a class="id" href="../t/3133.html#p82848">#82848</a> <span class="index">8</span> <span class="date">2005-07-12T05:29:28Z</span> <span class="author"><a href="../u/9370956.html">Coldfire</a></span></div><div class="post-body"><img class="bb-img" src="../files/images/2561.gif" alt="" loading="lazy"><br>
+old topic. If Toshosoft still had a problem, he would have posted again, despite the noobyness.</div></div>
+<div class="post" id="p82869"><div class="post-head"><a class="id" href="../t/3133.html#p82869">#82869</a> <span class="index">9</span> <span class="date">2005-07-12T06:49:59Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Nope, I haven't got that problem anymore, and that wasn't the problem.<br>
+I tried using more iterations, but it didn't help at all, the program had the same problem with or without it. The problem actually was that I was changing x and y directly, not with oldx and oldy and that velocity stuff. I fixed it long ago.<br>
+And secondly, don't ressurect old topics if you haven't got something important to say. In this case, your post was completely irrelevant.<br>
+<br>
+I'm not a n00b! I don't talk n00by and I don't do n00by stuff!! And, Flasher, I understand you wanted to help me, but, at least, test that stuff before you post it  <img class="smiley" src="../files/smilies/24.gif" alt="wth" title="wth"> .<br>
+<br>
+PS:<br>
+I've attached two files. They're what I did after I got the engine working. <div class="attachment attachment-missing">Attachment (lost): post-14-1121150999.rar</div></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUMA Error - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; NUMA Error</nav></header>
+<main>
+<div class="post" id="p1248"><div class="post-head"><a class="id" href="../t/1395.html#p1248">#1248</a> <span class="index">1</span> <span class="date">2004-10-31T14:24:05Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">An error occurred attempting to retrieve information on this map. Please try again. If this error recurs, please notify the server administrator, and provide them with the following information:<br>
+PEARDB Error: DB Error: unknown error<br>
+DB Error: SELECT mapid, version, maps.name, description, author, DATE_TRUNC('second', lastupdated) AS lastupdated, categories.name AS categoryname FROM maps INNER JOIN categories ON categories.categoryid = maps.categoryid WHERE author LIKE '%%' ORDER BY lastupdated desc LIMIT 10 OFFSET 0 [nativecode=ERROR: could not write block 1 of temporary file: No space left on device HINT: Perhaps out of disk space?]<br>
+<br>
+THis is the message I get when I click on Newest on NUMA. Help.</div></div>
+<div class="post" id="p34596"><div class="post-head"><a class="id" href="../t/1395.html#p34596">#34596</a> <span class="index">2</span> <span class="date">2004-10-31T14:29:14Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Oh, I was just about to post a topic about that. YOu're not alone. The search by author still works, though.<br>
+<br>
+Here's what I got when I looked at Newest: <div class="attachment attachment-missing">Attachment (lost): post-2-1099232954.gif</div></div></div>
+<div class="post" id="p34597"><div class="post-head"><a class="id" href="../t/1395.html#p34597">#34597</a> <span class="index">3</span> <span class="date">2004-10-31T14:30:04Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Oh, Arachnid!</div></div>
+<div class="post" id="p34606"><div class="post-head"><a class="id" href="../t/1395.html#p34606">#34606</a> <span class="index">4</span> <span class="date">2004-10-31T15:41:47Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Well, the worst has finally happened.<br>
+<br>
+As far as I can tell, NUMA has finally run out of disk space! There's no more room for any more comments. I was, luckily, able to squeeze in one more map, but I am afraid that this may be it.<br>
+<br>
+Arachnid, it looks like Notdot.net needs a memory upgrade, all those maps have taken up all the space!  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p34608"><div class="post-head"><a class="id" href="../t/1395.html#p34608">#34608</a> <span class="index">5</span> <span class="date">2004-10-31T16:00:57Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Aw, [profanity][/profanity]!<br>
+I added a few comments and submitted two maps.  well, al least we've got 3,300 levels to choose from!<br>
+And now, to award the spammers!<br>
+1) Bloodlut and his identities<br>
+2)CacaDoodoo<br>
+3)Viper</div></div>
+<div class="post" id="p34613"><div class="post-head"><a class="id" href="../t/1395.html#p34613">#34613</a> <span class="index">6</span> <span class="date">2004-10-31T16:35:43Z</span> <span class="author"><a href="../u/9370612.html">Patrick</a></span></div><div class="post-body">No, it has nothing to do with the NUMA maps. The PEAR database package is just having some problems displaying all those 3,000 maps and then dividing them into pages (at least I think so). Notice how it mentions <i>temporary</i> file. Actually, I'm not possitive. But I can see Maniac adding a few maps, so it has nothing to do with us using all the disk space.<br>
+<br>
+By the way, I'm a twelve-year-old that knows PHP <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p34614"><div class="post-head"><a class="id" href="../t/1395.html#p34614">#34614</a> <span class="index">7</span> <span class="date">2004-10-31T16:38:22Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Pat, if you realize, I tried to submit a crappy map right now and it wouldn't go.</div></div>
+<div class="post" id="p34617"><div class="post-head"><a class="id" href="../t/1395.html#p34617">#34617</a> <span class="index">8</span> <span class="date">2004-10-31T16:40:56Z</span> <span class="author"><a href="../u/9370612.html">Patrick</a></span></div><div class="post-body">Ah.. Hmm. Well, I'm out of ideas. It could either be actual disk space or something to do with that "temporary file."<br>
+<br>
+Okay, well it seems to be the actual disk space. Arachnid's gonna have to take out some maps or something. Or maybe he should switch to MySQL <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p34623"><div class="post-head"><a class="id" href="../t/1395.html#p34623">#34623</a> <span class="index">9</span> <span class="date">2004-10-31T16:59:57Z</span> <span class="author"><a href="../u/9370566.html">Killisk</a></span></div><div class="post-body">I don't know about you, but I've backed up Jump and Jump 2! =p</div></div>
+<div class="post" id="p34628"><div class="post-head"><a class="id" href="../t/1395.html#p34628">#34628</a> <span class="index">10</span> <span class="date">2004-10-31T17:22:43Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">I emailed the webmaster. I'll let you know when he replies,</div></div>
+<div class="post" id="p34640"><div class="post-head"><a class="id" href="../t/1395.html#p34640">#34640</a> <span class="index">11</span> <span class="date">2004-10-31T18:19:43Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Yikes!  A good number of my more recent maps aren't backed up!<br>
+<br>
+Wait, has anyone checked to see if gc's level manager will still download?</div></div>
+<div class="post" id="p34641"><div class="post-head"><a class="id" href="../t/1395.html#p34641">#34641</a> <span class="index">12</span> <span class="date">2004-10-31T18:23:24Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">I don't back up any maps!<br>
+<br>
+whatever, just a game... I'll be upset, but It wont matter</div></div>
+<div class="post" id="p34666"><div class="post-head"><a class="id" href="../t/1395.html#p34666">#34666</a> <span class="index">13</span> <span class="date">2004-10-31T22:20:43Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">2 hours ago, it became usable.</div></div>
+<div class="post" id="p34669"><div class="post-head"><a class="id" href="../t/1395.html#p34669">#34669</a> <span class="index">14</span> <span class="date">2004-10-31T22:27:07Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/1395.html#p34613">Quote: Patrick, Oct 31 2004, 12:35 PM</a></div> By the way, I'm a twelve-year-old that knows PHP <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  </blockquote> <br>
+ I'm an 11-year-old who doesn't.<br>
+<br>
+The "newest" page is working again, but some map thumbnails aren't loading.</div></div>
+<div class="post" id="p34672"><div class="post-head"><a class="id" href="../t/1395.html#p34672">#34672</a> <span class="index">15</span> <span class="date">2004-10-31T22:32:35Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">That's because they were submitted <i>during</i> the NUMA errors.</div></div>
+</main>
+</body>
+</html>

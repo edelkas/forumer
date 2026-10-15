@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Objects appearing off screen - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Objects appearing off screen</nav></header>
+<main>
+<div class="post" id="p19898"><div class="post-head"><a class="id" href="../t/22228.html#p19898">#19898</a> <span class="index">1</span> <span class="date">2008-04-12T00:00:08Z</span> <span class="author"><a href="../u/9376061.html">JustSomeGuy</a></span></div><div class="post-body">I made 2 levels and saved the game data into the userlevels file. But when I went to play them one of the objects appears off the playable area of the screen. One level its a gauss turret that kills you when you land on the bottom floor. In the other level its the button for the exit door. Any idea why this is happening? I cant even get rid of them in the editor because they are off screen.</div></div>
+<div class="post" id="p427291"><div class="post-head"><a class="id" href="../t/22228.html#p427291">#427291</a> <span class="index">2</span> <span class="date">2008-04-12T00:07:00Z</span> <span class="author"><a href="../u/9373110.html">max_ride</a></span></div><div class="post-body">They're called Nan'd objects, they happen by corruptions in the code. They usually result when you save something into a userlevels file without a "#" sign at the end of the code. Or, at least that is what happens to me.<br>
+<br>
+In order to get rid of them, you have to search the code for the "NaN" and erase that, and then go back into editor and delete the object. That's how I do.</div></div>
+<div class="post" id="p427293"><div class="post-head"><a class="id" href="../t/22228.html#p427293">#427293</a> <span class="index">3</span> <span class="date">2008-04-12T00:09:24Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body">It can also happen if you try loading them in debug mode, and press L to load the map without clicking outside the level data textbox first.</div></div>
+<div class="post" id="p427315"><div class="post-head"><a class="id" href="../t/22228.html#p427315">#427315</a> <span class="index">4</span> <span class="date">2008-04-12T01:22:28Z</span> <span class="author"><a href="../u/9375303.html">notkitt</a></span></div><div class="post-body">the easiest way to make sure this doesnt happen is to play the map in debug mode first, and make you you format it right in userlevels.txt</div></div>
+<div class="post" id="p427321"><div class="post-head"><a class="id" href="../t/22228.html#p427321">#427321</a> <span class="index">5</span> <span class="date">2008-04-12T01:41:21Z</span> <span class="author"><a href="../u/9376061.html">JustSomeGuy</a></span></div><div class="post-body">Ok I opened userlevels and looked through the data for NaN but didnt find it. So I opened N, opened the editor and pasted the data into the data box and loaded the level. Then  I searched the data in the data box and found the NaN and deleted it. So I guess it only shows up in the data after you load the level. Well thanks for your help guys. Much appreciated, now I can play my levels!</div></div>
+<div class="post" id="p427341"><div class="post-head"><a class="id" href="../t/22228.html#p427341">#427341</a> <span class="index">6</span> <span class="date">2008-04-12T04:35:56Z</span> <span class="author"><a href="../u/9373110.html">max_ride</a></span></div><div class="post-body">Always good to help.</div></div>
+</main>
+</body>
+</html>

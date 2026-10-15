@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My own levels keep getting screwed up! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; My own levels keep getting screwed up!</nav></header>
+<main>
+<div class="post" id="p16194"><div class="post-head"><a class="id" href="../t/18351.html#p16194">#16194</a> <span class="index">1</span> <span class="date">2007-07-12T11:22:21Z</span> <span class="author"><a href="../u/9374764.html">Methone</a></span></div><div class="post-body">I've just starting making levels for N. The thing is - I can't make "big"/"advanced" levels. My latest level I was forced to make easy, because otherwise it would be screwed up (the tiles where spread all over the level). <br>
+<br>
+This level worked:<br>
+<br>
+$Where the ants live#Methone#Kinda easy#1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110011111111111111111111100111111111111111111111001111111111111111111110011111111111111111111110111111111111111111111101111111111111111111119006111111111111111111100001111111111111111111000011111111111111111118000111119006111111111111&lt;0111110000:111111111111011111000000611111111110111110000;&lt;011111111110:11118007110:11111111180006111111180006111111111&lt;01111111111&lt;011111111110111111111110111111111101111111111101111111111011111961111011111111110:111=00:11=011111111118000000000007111111111111111111&lt;00;1111111111111111111187111111111111111111111111111|5^384,96!11^204,84,468,276!9^648,384,0,0,12,3,1,-1,0!9^720,456,0,0,13,3,1,0,0!9^468,300,0,0,13,3,1,-1,0!9^468,384,1,0,19,16,0,0,-1!0^444,276!0^444,288!0^444,300!0^444,312!0^456,312!0^468,312!0^480,312!0^492,312!0^492,300!0^492,288!0^492,276!0^492,276!0^492,288!0^492,300!0^492,312!0^480,312!0^468,312!0^456,312!0^444,312!0^444,300!0^444,288!0^444,276!0^444,276!0^444,288!0^444,300!0^444,312!0^456,312!0^468,312!0^480,312!0^492,312!0^492,300!0^492,288!0^492,276#<br>
+<br>
+But listen. When I added "trap doors" (and saved, copied to userlevels.txt) the level became totally wrong then I played it. The objects where moved. What is the problem?<br>
+<br>
+I just added trap doors to the level... <br>
+<br>
+<b>Why does the level screw up?</b></div></div>
+<div class="post" id="p342080"><div class="post-head"><a class="id" href="../t/18351.html#p342080">#342080</a> <span class="index">2</span> <span class="date">2007-07-12T11:35:45Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">Always save you levels in notepad. Why? Because other programs (and this forum) split the string up into lines, which leaves spaes in the data, curruping the level data. Always save in txt file, and upload the file to the forums, don't copy and paste the code directly here.</div></div>
+<div class="post" id="p342083"><div class="post-head"><a class="id" href="../t/18351.html#p342083">#342083</a> <span class="index">3</span> <span class="date">2007-07-12T12:03:46Z</span> <span class="author"><a href="../u/9374764.html">Methone</a></span></div><div class="post-body">OK. Upload level, I understand. I save my levels in the original userlevels.txt, as it should be...</div></div>
+<div class="post" id="p342085"><div class="post-head"><a class="id" href="../t/18351.html#p342085">#342085</a> <span class="index">4</span> <span class="date">2007-07-12T12:09:00Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">What are you opening userlevels.txt with?</div></div>
+<div class="post" id="p342105"><div class="post-head"><a class="id" href="../t/18351.html#p342105">#342105</a> <span class="index">5</span> <span class="date">2007-07-12T13:30:44Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18351.html#p16194">Quote: Methone, July 12, 2007 09:22 pm</a></div> But listen. When I added "trap doors" (and saved, copied to userlevels.txt) the level became totally wrong then I played it. The objects where moved. What is the problem? </blockquote>I think it may be that you forgot to end your data with a '#' when you copied it to userlevels. If you don't end it with a '#', N will read the last bit of code incorrectly and will register it as 'Not a Number' (NaN) and therefore change its y-axis value (vertical height).</div></div>
+<div class="post" id="p342125"><div class="post-head"><a class="id" href="../t/18351.html#p342125">#342125</a> <span class="index">6</span> <span class="date">2007-07-12T15:02:51Z</span> <span class="author"><a href="../u/9374764.html">Methone</a></span></div><div class="post-body">OK! Admin, you can delete this thread now. <br>
+The problem was that I didn't copy all the text when I were done with the level. Sorry, my bad.<br>
+<br>
+Thanks for the answers!</div></div>
+</main>
+</body>
+</html>

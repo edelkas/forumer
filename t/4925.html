@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>need help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; need help</nav></header>
+<main>
+<div class="post" id="p4488"><div class="post-head"><a class="id" href="../t/4925.html#p4488">#4488</a> <span class="index">1</span> <span class="date">2005-09-22T10:20:45Z</span> <span class="author">jimi999 <span class="guest">(guest)</span></span></div><div class="post-body">every time i go to the numa site and click on the picture of the map an error occurs. what should i do</div></div>
+<div class="post" id="p102741"><div class="post-head"><a class="id" href="../t/4925.html#p102741">#102741</a> <span class="index">2</span> <span class="date">2005-09-22T10:23:08Z</span> <span class="author">jimi999 <span class="guest">(guest)</span></span></div><div class="post-body">when i go to select some other users level</div></div>
+<div class="post" id="p102742"><div class="post-head"><a class="id" href="../t/4925.html#p102742">#102742</a> <span class="index">3</span> <span class="date">2005-09-22T10:24:55Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">What sort of error?</div></div>
+<div class="post" id="p102743"><div class="post-head"><a class="id" href="../t/4925.html#p102743">#102743</a> <span class="index">4</span> <span class="date">2005-09-22T10:27:06Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">Error<br>
+An error occurred attempting to retrieve information on this map. Please try again. If this error recurs, please notify the server administrator, and provide them with the following information:<br>
+PEARDB Error: DB Error: syntax error<br>
+DB Error: SELECT mapid, maps.userid AS userid, maps.name, COALESCE(username, author) AS author, DATE_TRUNC('second', lastupdated) AS lastupdated, DATE_TRUNC('second', created) AS created, version, description, mapdata, categories.name AS categoryname, categories.categoryid AS categoryid, rating, maps.votes AS votes, maps.favorites, maps.views, (SELECT count(*) FROM favorites WHERE mapid = maps.mapid AND userid = ) AS in_favorites FROM maps INNER JOIN categories ON categories.categoryid = maps.categoryid LEFT JOIN users ON users.userid = maps.userid WHERE mapid = 7411 [nativecode=ERROR: syntax error at or near ")" at character 407</div></div>
+<div class="post" id="p102746"><div class="post-head"><a class="id" href="../t/4925.html#p102746">#102746</a> <span class="index">5</span> <span class="date">2005-09-22T10:35:30Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+<br>
+Gosh. I havn't a clue what to do about that. Arachnid is the admin for NUMA, so I'll send a PM to him about it. I don't know when a reply will come though. I would recommend sending him an email, but I'd do that if he doesn't reply soon.</div></div>
+<div class="post" id="p102747"><div class="post-head"><a class="id" href="../t/4925.html#p102747">#102747</a> <span class="index">6</span> <span class="date">2005-09-22T10:36:27Z</span> <span class="author">jimi999 <span class="guest">(guest)</span></span></div><div class="post-body">whats his email</div></div>
+<div class="post" id="p102749"><div class="post-head"><a class="id" href="../t/4925.html#p102749">#102749</a> <span class="index">7</span> <span class="date">2005-09-22T10:42:13Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">I'm not sure of the actuall adress. I've sent him a PM, anyway.<br>
+<br>
+I don't know if non-registered users can do this, but you can get to his email by going to 'members' in this forum, finding 'arachnid' and then clicking on the e-mail button.<br>
+<br>
+You'll need to enclose the error information in your email.</div></div>
+<div class="post" id="p102751"><div class="post-head"><a class="id" href="../t/4925.html#p102751">#102751</a> <span class="index">8</span> <span class="date">2005-09-22T10:43:49Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">thanx</div></div>
+<div class="post" id="p102889"><div class="post-head"><a class="id" href="../t/4925.html#p102889">#102889</a> <span class="index">9</span> <span class="date">2005-09-22T21:05:43Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">I need more details: What page are you on when this error occurs? Paste the address for the page with the error here, please.</div></div>
+<div class="post" id="p102973"><div class="post-head"><a class="id" href="../t/4925.html#p102973">#102973</a> <span class="index">10</span> <span class="date">2005-09-23T06:47:48Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">LOL. I hadn't seen SQL code in such a long time <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+<pre class="code"> (SELECT count(*) FROM favorites WHERE mapid = maps.mapid AND userid = ) </pre><br>
+This is the problem, obviously, but I can't see why someone forgot to put something after the '=' <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+Strange.<br>
+The map should be this one(from the mapid I see in the end of the given code):<br>
+<br>
+<a href="https://www.nmaps.net/7411">Trilogy III</a><br>
+<br>
+But I haven't got any problem with opening it <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+<br>
+Sorry, but I have no idea why this problem would occur.<br>
+<br>
+TS</div></div>
+<div class="post" id="p106204"><div class="post-head"><a class="id" href="../t/4925.html#p106204">#106204</a> <span class="index">11</span> <span class="date">2005-10-07T16:36:16Z</span> <span class="author"><a href="../u/9371101.html">mavericfso</a></span></div><div class="post-body">That lvl is in N v1.4 so i dont know why any one with that build would need to get the lvl data.(if you have v1.3 go on and get v1.4 you can keep your progress)</div></div>
+</main>
+</body>
+</html>

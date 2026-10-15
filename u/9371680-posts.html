@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by rtaranu - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9371680.html">rtaranu</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p6941"><div class="post-head"><a class="id" href="../t/7624.html#p6941">#6941</a> <span class="index">1</span> <span class="date">2006-02-19T03:26:24Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">i'm making a game as part of a project for school and i'd like to share a preview demo<br>
+<br>
+hxxp://<a href="http://www.cs.mcgill.ca/~rtaran1/ecse495.jnlp">www.cs.mcgill.ca/~rtaran1/ecse495.jnlp</a> (link is dead)<br>
+<br>
+the whole thing is done in java, the game is supposed to be a multiplayer 2d side scolling shooter (think "Soldat" or counter-strike in 2D)<br>
+<br>
+controls are:<br>
+<br>
+WASD + mouse<br>
+&lt;shift&gt; zooms you in<br>
+<br>
+this demo is a singleplayer demo, the network code is coming along nicely. i would really like to hear any suggestions you guys might have.<br>
+<br>
+the game is roughly inspired N, more specifically: color scheme and the collision code was ripped our of the tutorials provided<br>
+<br>
+this might require java 1.5, and i know there is a bug linked to shooting, it will crash the game from time to time.<br>
+<br>
+<b>** update **</b><br>
+<br>
+so, i've been working on this thing for a while now and i thought i'd show you some new stuff.<br>
+<br>
+<a href="http://www.cs.mcgill.ca/~rtaran1/ecse495.jar">http://www.cs.mcgill.ca/~rtaran1/ecse495.jar</a><br>
+<br>
+here is the new demo, you really need java 1.5 now, I can't get around it anymore<br>
+<br>
+get your java updates here<br>
+<a href="http://java.sun.com/j2se/1.5.0/download.jsp">http://java.sun.com/j2se/1.5.0/download.jsp</a><br>
+you need to download the <b>JRE</b> not the JDK. I got rid of the file that was auto updating your java version since it was a pain in the ass to make one, will bring it back if i get requests<br>
+<br>
+to try it out in windows you just need to double click the file and it should launch<br>
+<br>
+under linux well.. you should know how to do this, hint: <pre class="code">java -jar ecse495.jar</pre><br>
+mac i dunno.. but i guess a double click on the file should do the trick<br>
+<br>
+still no AI or network, but it is advancing (steadily)</div></div>
+<div class="post" id="p145787"><div class="post-head"><a class="id" href="../t/7624.html#p145787">#145787</a> <span class="index">3</span> <span class="date">2006-02-19T15:13:50Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">yeah, i'm well aware of the color scheme thing. final game should have some differences. i was thinking about a parallax scrolling background and translucent tiles. it all depends on how fast i can get the java stuff to draw.<br>
+<br>
+&lt;shift&gt; is like a zoom feature. the camera is usually centered on the ball thingy, when you hold &lt;shift&gt; down, it will start drawing a line (aiming line whatever) and your camera will get re-centered further along, effectivly zooming you in. when you release &lt;shift&gt; the camera snaps back to the ball.</div></div>
+<div class="post" id="p145808"><div class="post-head"><a class="id" href="../t/7624.html#p145808">#145808</a> <span class="index">6</span> <span class="date">2006-02-19T16:02:17Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p145793">Quote: Teh Dude, Feb 19 2006, 03:21 PM</a></div>Which API are you using for Java drawing?</blockquote>standard java 2d awt. double buffering using a Canvas as my primary drawing surface. i can get quite a bit of performance (60+ frames all the time) as long as i don't try anything fancy.<br>
+<br>
+anything fancy means anti-aliasing (it makes my machine crawl) or translucent images <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+best i can probably do is a parallax background and changing the tile colors. i might make the tile colors dependent on the map or something, they don't have to always be the same.<br>
+<br>
+for the "ball"  texture.. i'm still debating this whole thing. originally i wanted to rip some sprites out of a snes game or something (it's a school project, there probably won't be a release of that version), but i'm having trouble getting sufficient sprites.<br>
+<br>
+as a gameplay mechanic i was thinking halo (health + auto-recharging shield) and so i was thinking of thicker lines to represent the strength of your shield and such. but i might as well put a smileys to represent the health (something like  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"> )</div></div>
+<div class="post" id="p148902"><div class="post-head"><a class="id" href="../t/7624.html#p148902">#148902</a> <span class="index">18</span> <span class="date">2006-02-26T18:40:47Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">ok to get this whole color copyright issue sorted out (i'm a canadian citizen btw, and mcgill is a canadian university):<br>
+<br>
+- i'll change the colors.<br>
+- you can't copyright colors, but you can copyright color schemes, like if i'm using these colors just to attract people from the n-fan base, then i see that as IP stealing.<br>
+- i used those colors because they were pleasent to the eye and there is something called Color.GRAY and Color.LIGHT_GRAY in java. any other color combiantion like Color.RED and Color.ORANGE or Color.BLUE and Color.CYAN were hurting my eyes. if any one has a suggestion for new colors, i'd love to hear about it, you can just post a (small) picture made in paintbrush if you'd like.<br>
+<br>
+- the collision detection source code was provided int the tutorials, they haven't invented anything new, and as such they can't hold patents over any of that stuff. 2d collision detection techniques can be found in many books and tutorials, and unless they came up with some new and totaly mind blowing technique (i don't think it's the case), you can't hold patents on it. that beeing said, i am more than happy to credit their (truly amazing) tutorials.<br>
+<br>
+other stuff<br>
+- the whole thing is coded to use java 1.4 features, but i think that by using the java 1.5 compiler, i'm breaking compatibility. i'll try and fix that for the next 'release'.<br>
+- there's a few mac machines at school, i'll try and see what's going on (next week after my midterms)<br>
+- the bullet bouncy effect wasn't working out how i liked it and i basicly removed it, you get sparks flying off the walls instead (i like sparks)<br>
+- clicking will now shoot continuously (like a machine gun)<br>
+- bullets arn't affected by gravity anymore, but you get accuracy instead (bullet might fly off with a bit of an angle offset)<br>
+<br>
+some of those features don't seem very impressive since my last post, but it's because coding stuff when you arn't dealing with a locked frame rate, and network traffic can be troublesome.<br>
+<br>
+thank you for the coments and interest, i'll try and keep you posted as soon as i get a multiplayer version working. i'd love to get some ppl to help me test over the wild internet (as opposed to my school lan).</div></div>
+<div class="post" id="p150243"><div class="post-head"><a class="id" href="../t/7624.html#p150243">#150243</a> <span class="index">25</span> <span class="date">2006-03-01T13:57:18Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">as i've said previously, this is mostly a multiplayer game, so "bots" will come much later, they are not part of my initial project requirments. i will try to continue the project after this semester finishes, and bots are one of the features i really would like to add.<br>
+<br>
+the current big "developpment push" is to have two or more players shooting each other. i'm getting some annoying results due to network latency and such, and i'm gonna have to do more research on the issue.<br>
+<br>
+as for the results i got using java, yeah i know, i'm pretty impressed myself that it runs fairly smooth <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">, also, stay away from evil threads. reaaaally stay away from them unless you can't find any other solution.</div></div>
+<div class="post" id="p151117"><div class="post-head"><a class="id" href="../t/7624.html#p151117">#151117</a> <span class="index">30</span> <span class="date">2006-03-03T14:03:33Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p151034">Quote: thecalcgenius, March 03, 2006 05:11 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p150243">Quote: rtaranu, March 01, 2006 07:57 am</a></div> also, stay away from evil threads. reaaaally stay away from them unless you can't find any other solution. </blockquote>If you don't use threads, what are you using then?  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  </blockquote> <br>
+ The short answer is that i use a single thread that loops with a frequency of 60fps. The game loop consists of 3 steps: update user input (figure out of the user is pressing left, right, where he's aiming and such), update game state (compute the player, bullet and spark positions, do any collision detection stuff) and render the current game state.<br>
+<br>
+The long answer is read this book if you're interested in java game development (or game dev in general). It's an O'Reiley book, but the author provides links to a draft version of the book (very readable).<br>
+<a href="http://fivedots.coe.psu.ac.th/~ad/jg/">Killer Game Programming in Java</a></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rope physics - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; rope physics</nav></header>
+<main>
+<div class="post" id="p20853"><div class="post-head"><a class="id" href="../t/23236.html#p20853">#20853</a> <span class="index">1</span> <span class="date">2008-07-21T11:18:18Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I'm considering adding a grappling powerup to my game, probably very simple, and somewhat like Umihara Kawase or this:<br>
+<a href="http://www.metanetsoftware.com/blog/?p=7">http://www.metanetsoftware.com/blog/?p=7</a><br>
+<br>
+I know you guys have a lot of rope experience from robotology, so how did you go about the physics for this demo? I've tried several things but I can't seem to get it to "wrap around the scenery" when you swing around something.<br>
+<br>
+I only need it to work for tiles (inlcuding curved), although I have a different tile system to N (no edge data), and there's no gravity in my game (top down). If the solution is really complex don't bother trying to explain, it was only an idea.</div></div>
+<div class="post" id="p454234"><div class="post-head"><a class="id" href="../t/23236.html#p454234">#454234</a> <span class="index">2</span> <span class="date">2008-07-21T18:55:22Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">There's two parts to the wrapping -- the collision detection (figuring out how the rope should wrap), and the response (adding points/segments to the rope). And then there's also the reverse -- figuring out how to "uncollide" (remove points from the rope).<br>
+<br>
+I'd really like to know how this works in Umihara, because it's on SNES so it must be simple! Our method is a bit complicated.. I'll try to quickly explain, but also it doesn't work great and we're still in the process of coming up with something better, so you might want to try your own thing since it's likely to be just as good.<br>
+<br>
+What we do is add a second set of collision data that's only used by the rope; this data is a set of directed linesegs (think of them as arrows), where one end of the lineseg (the "head") is located on a convex vert of the world, and the other end (the "tail") is located inside the world somewhere -- this doesn't need to be precise, we usually just made the lineseg extend along the vert's negative normal for a decent distance.<br>
+<br>
+To collide the rope, you just do a static yes/no intersection test between all of the rope's segments and all of the world's "arrows" -- if you find an intersection, you split the rope segment (add a point) and set that point to the head of the arrow. You then need to recursively check the newly created segments neighboring the new point for collision, etc..<br>
+<br>
+You also need to note which direction the rope is wrapping around the point, CW or CCW (this is equivalent to the sign of the signed area of the triangle formed by a rope point and its neighboring points). You use this CW/CCW info during subsequent frames to test for "uncollision" -- if the rope wrapped around a point CW, and currently the rope is making a CCW turn at this point, you should remove the point.<br>
+<br>
+This sort of idea doesn't handle moving shapes though (Umihara does though!), and it's a big pain -- whenever you add/remove a point from the rope you have to recurse over the rope checking for new collisions/uncollisions that may have been generated.<br>
+<br>
+Our new method uses sweep tests and can handle arbitrary moving shapes, but it also has problems of its own.. it's actually the polar opposite of the above method in terms of pros/cons, so we're currently trying to figure out how to combine the two approaches.<br>
+<br>
+Also, note that for that demo we just painted the rope collision data by hand, you'd ideally want to figure out how to generate this data from the tile shapes, however this isn't as easy as it may seem -- you can't just generate data for each tile, you need to correctly consider the global world shape (i.e two adjacent solid tiles should be considered a single shape)..<br>
+<br>
+Hope this helps, if you come up with any interesting ideas please let us know! This is definitely a topic that's really interesting and also not really covered online, and Umihara proves that there's a fast, simple solution that deals with moving tiles.. but we haven't figured it out yet.</div></div>
+</main>
+</body>
+</html>

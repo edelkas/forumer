@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How do u make the thawmps go up? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; How do u make the thawmps go up?</nav></header>
+<main>
+<div class="post" id="p15212"><div class="post-head"><a class="id" href="../t/17326.html#p15212">#15212</a> <span class="index">1</span> <span class="date">2007-05-13T15:26:21Z</span> <span class="author"><a href="../u/9374312.html">gmaster</a></span></div><div class="post-body">I see now in some maps that when u jump on the white box and the thwamp is under it, it will take you up... for example in this map:<br>
+<br>
+<a href="https://www.nmaps.net/84856">http://numa.notdot.net/map/84856</a><br>
+<br>
+<img class="bb-img" src="http://numa.notdot.net/map/84856/fullimg.png" alt="" loading="lazy"></div></div>
+<div class="post" id="p320801"><div class="post-head"><a class="id" href="../t/17326.html#p320801">#320801</a> <span class="index">2</span> <span class="date">2007-05-13T15:28:55Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">Moving Walls<br>
+<br>
+One very special usage of thwumps which many great DDA makers love to use is called the Moving Wall method.  It�s becoming more common, and was popularized by Lucidium�s Pressed for Time.  When placed in a specific area, half-way engulfed in a tile, a thwump is placed facing the inside of the wall.  See this diagram.<br>
+<br>
+<img class="bb-img" src="http://img359.imageshack.us/img359/8379/doorsafd1.png" alt="" loading="lazy"><br>
+<br>
+In the diagram above, as long as there is any tile in the red area, the thwump will move in the direction of the arrow when touched.  In the last two cases, a little more care is needed when placing the thwumps.  They will not obey the special �Moving Wall� rules if they are placed using 1/2 snap.  The third thwump in the diagram must be placed exactly one pixel above its 1/2 snap position to work.  The last thwump must be placed exactly one pixel left of its 1/2 snap position to work.  Both of these can be done by code-editing. Knowing that the 2 numbers directly after the 8^ represent the x- and y-coordinates of the object, you know how to manipulate its position to move it one pixel in the direction you want (you�ll be subtracting 1 to do this either way, from the x-coordinate for a leftward moving wall, or from the y-coordinate for an upward moving wall).  This is a map with plenty of moving walls to demonstrate their impact in a DDA.</div></div>
+<div class="post" id="p320802"><div class="post-head"><a class="id" href="../t/17326.html#p320802">#320802</a> <span class="index">3</span> <span class="date">2007-05-13T15:29:47Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">To get the 'thwumps' to go up just place them half into a floor tile. They work the same if you place them half into a wall or ceiling tile. You may have to play about with the exact placing by using the z snap but usually they work ok from being half into a tile.</div></div>
+<div class="post" id="p320803"><div class="post-head"><a class="id" href="../t/17326.html#p320803">#320803</a> <span class="index">4</span> <span class="date">2007-05-13T15:34:36Z</span> <span class="author"><a href="../u/9374312.html">gmaster</a></span></div><div class="post-body">thanks a lot guys <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p320807"><div class="post-head"><a class="id" href="../t/17326.html#p320807">#320807</a> <span class="index">5</span> <span class="date">2007-05-13T15:43:10Z</span> <span class="author"><a href="../u/9374312.html">gmaster</a></span></div><div class="post-body">doesnt want to work though</div></div>
+<div class="post" id="p320937"><div class="post-head"><a class="id" href="../t/17326.html#p320937">#320937</a> <span class="index">6</span> <span class="date">2007-05-13T23:40:08Z</span> <span class="author"><a href="../u/9370681.html">Kablizzy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17326.html#p320802">Quote: wedgie, May 13, 2007 09:29 am</a></div> To get the 'thwumps' to go up just place them half into a floor tile. They work the same if you place them half into a wall or ceiling tile. <b>You may have to play about with the exact placing by using the z snap but usually they work ok from being half into a tile.</b>  </blockquote> <br>
+ Bolded for emphasis.</div></div>
+<div class="post" id="p320958"><div class="post-head"><a class="id" href="../t/17326.html#p320958">#320958</a> <span class="index">7</span> <span class="date">2007-05-14T00:31:36Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">kkstrong you didn't credit jig and lord_day <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+<a href="../t/13039.html#p278002">Found here</a></div></div>
+<div class="post" id="p321105"><div class="post-head"><a class="id" href="../t/17326.html#p321105">#321105</a> <span class="index">8</span> <span class="date">2007-05-14T14:07:37Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17326.html#p320958">Quote: usaswim, May 13, 2007 05:31 pm</a></div> kkstrong you didn't credit jig and lord_day <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+<a href="../t/13039.html#p278002">Found here</a>  </blockquote> <br>
+ yeah I saved in my N game folder as a .txt, and couldn't remeber who made it, and when i searched, I couldnt find it, so I let it be<br>
+<br>
+but now that I know: <b>CRED TO JIG AND LORD_DAY</b></div></div>
+<div class="post" id="p321992"><div class="post-head"><a class="id" href="../t/17326.html#p321992">#321992</a> <span class="index">9</span> <span class="date">2007-05-17T17:07:59Z</span> <span class="author"><a href="../u/9374453.html">heatwave</a></span></div><div class="post-body">ah! I see. This helps alot. I had already figured out the left and downward moving walls, but I didn't know how to make an upward or right moving wall. thanks.</div></div>
+<div class="post" id="p327091"><div class="post-head"><a class="id" href="../t/17326.html#p327091">#327091</a> <span class="index">10</span> <span class="date">2007-06-03T21:28:18Z</span> <span class="author"><a href="../u/9373720.html">Oleary15</a></span></div><div class="post-body">ive always wondered that also...</div></div>
+</main>
+</body>
+</html>

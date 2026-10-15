@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stand Still Drones - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Stand Still Drones</nav></header>
+<main>
+<div class="post" id="p9315"><div class="post-head"><a class="id" href="../t/10368.html#p9315">#9315</a> <span class="index">1</span> <span class="date">2006-06-07T19:53:28Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">What are the NaN's to make the various drones not move?<br>
+Specifically the laser drone, as I'm trying to make it in a level but I don't want to just use the trap door bug.<br>
+<br>
+<br>
+This has probably already been posted but my search netted zero results... so... Please Help!</div></div>
+<div class="post" id="p185938"><div class="post-head"><a class="id" href="../t/10368.html#p185938">#185938</a> <span class="index">2</span> <span class="date">2006-06-07T19:56:30Z</span> <span class="author"><a href="../u/9372465.html">Xév</a></span></div><div class="post-body">To make a drone stand still, you need to delete the drone, and put it back in (To make sure it is at the end of the level code.) Then, backspace the last number in the code and change it to NaN. Click outside the box and load the level. When you press play, the drone will be motionless.</div></div>
+<div class="post" id="p185942"><div class="post-head"><a class="id" href="../t/10368.html#p185942">#185942</a> <span class="index">3</span> <span class="date">2006-06-07T20:05:25Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">Thanks Zacko, I've always wondered how that was done.</div></div>
+<div class="post" id="p186014"><div class="post-head"><a class="id" href="../t/10368.html#p186014">#186014</a> <span class="index">4</span> <span class="date">2006-06-07T22:21:25Z</span> <span class="author"><a href="../u/9371761.html">McP3000</a></span></div><div class="post-body">Make sure you *only* NaN drones though. Doing that do objects can mess up their positioning and doing it to rockets and gausses can do other more annoying stuff.</div></div>
+</main>
+</body>
+</html>

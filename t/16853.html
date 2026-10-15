@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Collision</nav></header>
+<main>
+<div class="post" id="p14774"><div class="post-head"><a class="id" href="../t/16853.html#p14774">#14774</a> <span class="index">1</span> <span class="date">2007-04-09T11:54:38Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Hi, I'm new to the forums but I've been using the N Tutorials (Specifically A for now) to help write a game in C++. I realize this all has to do with flash/ActionScript but the idea behind my question should be the same. Basically I'm creating a game where you control a ball and it rolls on lines. These lines are known only to be points (The start and end) and I'm having a hard time detecting collision properly.<br>
+<br>
+I've read the tutorials, and although I don't have adobe flash on my computer I've viewed the actionscript from tutorial B as a text file posted by another user here. The code is quite confusing for what I was having a problem with. Mostly its the projection. My code basically goes something like this<br>
+<br>
+Loop through an array of the points of the lines<br>
+x = line.x1 - line.x2;<br>
+y = line.y1 - line.y2;<br>
+d = x*ball.x + y*ball.y / x*x + y*y;<br>
+x *= d;<br>
+y *= d;<br>
+x += line.x2;<br>
+y += line.y2;<br>
+<br>
+Is the general idea. Im not sure where somethings going wrong but its projection it improperly onto the line (I draw the point while running the game, depending on the slope of the line the ball is usually inside the line or above it). It works fine for very small slopes but Im not sure why. Any insight would be helpful (And I have taken a course on Linear Algebra that used projections, but Im still a bit fuzzy). Thanks for any help you can give.</div></div>
+<div class="post" id="p312244"><div class="post-head"><a class="id" href="../t/16853.html#p312244">#312244</a> <span class="index">2</span> <span class="date">2007-04-11T22:08:57Z</span> <span class="author"><a href="../u/9371966.html">Fol67</a></span></div><div class="post-body">In latent terms x and y = the x and y coordinates on the plane. d = the x times the balls x coordinate (that or it is saying to alter x's value to that of the balls, varies by language) and and then adding the ball's y coordinates, then dividing it by x time x and y times y. Then saying x* equals d and y equals d then adding the value of the lines value(or once again altering it to specific variable value) to it's type (x or y). Hope that enlightens you, a basic understanding of Pre-Algebra helps when programming in most laguages, <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)">, and welcome to Metanet.</div></div>
+<div class="post" id="p312815"><div class="post-head"><a class="id" href="../t/16853.html#p312815">#312815</a> <span class="index">3</span> <span class="date">2007-04-13T18:12:52Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Fol67... I... I don't understand how your brain works... He wasn't asking what the code meant. He said he has problems with projection... C/C++ and ActionScript (which is based on Java/Javascript) use pretty much the same syntax. He shouldn't have <b>any</b> problem with understanding it... <br>
+<br>
+Anyways, welcome to Metanet Forums.<br>
+<br>
+I myself used to know a lot about this projection stuff, but it seems I've forgotten most of it... I haven't helped anyone with it in a long, long time. ^.^;<br>
+<br>
+I think I know what your problem is (after having to read part of the tutorial again)<br>
+<blockquote class="quote"><div class="quote-head">Quote: The tutorial page</div> The formula for projecting vector a onto vector b is:<br>
+<br>
+proj.x = ( dp / (b.x*b.x + b.y*b.y) ) * b.x;<br>
+proj.y = ( dp / (b.x*b.x + b.y*b.y) ) * b.y;<br>
+<br>
+where dp is the dotprod of a and b: dp = (a.x*b.x + a.y*b.y)<br>
+<br>
+Note that the result is a vector; also, (b.x*b.x + b.y*b.y) is simply the length of b squared.<br>
+<br>
+<u>If b is a unit vector, (b.x*b.x + b.y*b.y) = 1</u>, and thus a projected onto b reduces to:<br>
+<br>
+proj.x = dp*b.x;<br>
+proj.y = dp*b.y;</blockquote>My assumption would be that you don't normalize the vector, so it just multiplies the acceleration a lot. You normalize the vector by dividing both its x and y to its length.<br>
+[smartass]<br>
+That's easy to prove: if you have the vector (x;y), with a length of ln = √(x*x+y*y), then the new vector would have ln2 = √ ((x*x)/(ln*ln) + (y*y)/(ln*ln)) = √((x*x + y*y)/(ln*ln) = √ (x*x+y*y)/ln = ln/ln = 1...<br>
+[/smartass]<br>
+Uhm... so yeah... try that.<br>
+<br>
+Next time you encounter a problem, don't be afraid of simply posting your code in C. I doubt anyone here who could help you wouldn't understand it.<br>
+<br>
+Hope that helps.<br>
+<br>
+TS</div></div>
+<div class="post" id="p312872"><div class="post-head"><a class="id" href="../t/16853.html#p312872">#312872</a> <span class="index">4</span> <span class="date">2007-04-13T21:57:40Z</span> <span class="author"><a href="../u/9371966.html">Fol67</a></span></div><div class="post-body">"Thanks for any help you can give.", I assume helping explain the deeper meaning of the code counts as help.</div></div>
+<div class="post" id="p313381"><div class="post-head"><a class="id" href="../t/16853.html#p313381">#313381</a> <span class="index">5</span> <span class="date">2007-04-15T11:12:30Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body"><pre class="code">for(int i = 0; i &lt; size; i+=4) {
+   float x1, y1;
+  	//Do some projection stuff
+  	x1 = lineArray[i+2] - lineArray[i];
+  	y1 = lineArray[i+3] - lineArray[i+1];
+  	float d = (x1 * x + y1 * y) / (pow(x1,2) + pow(y1,2));
+
+  	x1 = x1 *d;
+  	y1 = y1 *d;
+                       
+   x1 += lineArray[i];
+  	y1 += lineArray[i+1];
+
+  	d = √(pow(x1 - x, 2) + pow(y1 - y, 2));
+
+  	//Check whether its touching the line or not
+  	if (d &lt;= radius) {
+    y -= (velY/fps);
+    forceX += mass*(400/fps)*12;
+    velY *= -0.3;
+  	}
+}</pre><br>
+Thats my code. Basically it's supposed to project the point (x,y) (IE the center of a ball) onto the line (lineArray[i],lineArray[i+1]) , (lineArray[i+2],lineArray[i+3]) . Then it finds the distance between the center of the ball and the projection on the line (IE the closest point on the line to the ball) and if its equal to or less than the radius then it's hit the line.<br>
+<br>
+The normalization 'could' be the problem, but considering its a line not a vector I'm not so sure.</div></div>
+<div class="post" id="p313463"><div class="post-head"><a class="id" href="../t/16853.html#p313463">#313463</a> <span class="index">6</span> <span class="date">2007-04-15T18:30:10Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hrm. For starters, you don't project points on lines, you project vectors on vectors. I think that at some point you mixed those three up and it all went downhill from there.<br>
+<br>
+To check if a circle is colliding with a <i>line</i> and with a <i>segment</i> are different things. If you're checking for a line, all you have to do is check the distance between the line and the circle...<br>
+(In an attempt to make my explanation clearer) I made a few diagrams:<br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d1.png" alt="" loading="lazy"><br>
+This explains why (in your case) it's not just one simple check that needs to be done. These are three possible positions of the ball and the segment you're checking for collisions with (the fourth (and last) case is the one you had in mind). The red lines are what <i>you</i> are trying to calculate, the green ones are what <i>you</i> <b>should</b> be trying to calculate. (Red + Green = Brown)<br>
+<br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d2.png" alt="" loading="lazy"><br>
+<br>
+The process of projecting a vector on another vector. The result is also a vector. I will use the same colors for the next few diagrams, too. (This diagram is actually just to show you what colors I'm using, though. The next few are the useful ones.)<br>
+<br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d5.png" alt="" loading="lazy"><br>
+<br>
+When taking the point (x,y), you're actually taking the vector (0,0)-&gt;(x,y) and trying to project it on the vector (x1,y1)-&gt;(x2,y2). That's where your mistake is, too. What you need to do is take the vector (x1,y1)-&gt;(x,y) and project it on the line (x1,y1)-&gt;(x2,y2).<br>
+<br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d3.png" alt="" loading="lazy"><br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d4.png" alt="" loading="lazy"><br>
+<br>
+These two are essentially the same. It's just that in the lower one, everything is shifted so that (x1,y1) becomes (0,0). Your mistake was that you mixed the two up. <br>
+<br>
+<img class="bb-img" src="http://i61.photobucket.com/albums/h60/toshosoft/d6.png" alt="" loading="lazy"><br>
+<br>
+This last one is the case where the collision point is in the end of the segment. In this case, what you need to check is if the resulting vector lies <b>on</b> the line, or <b>outside</b> the line.<br>
+<br>
+I think that pretty much wraps it up.<br>
+Hope you understand it (even though I highly doubt it)...<br>
+<br>
+TS</div></div>
+<div class="post" id="p313573"><div class="post-head"><a class="id" href="../t/16853.html#p313573">#313573</a> <span class="index">7</span> <span class="date">2007-04-16T00:15:25Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Thanks alot Toshosoft! That actually made alot of sense and I feel like an idiot for not noticing that before, I even said that it was a line not a vector and didn't even notice <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> Anyways I got it working properly now (Well, the detecting collision part, still working on simulating some of the physics).</div></div>
+<div class="post" id="p313673"><div class="post-head"><a class="id" href="../t/16853.html#p313673">#313673</a> <span class="index">8</span> <span class="date">2007-04-16T10:42:48Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Good!<br>
+Glad I helped ^.^<br>
+<br>
+If you have any more problems with this, ask away.</div></div>
+<div class="post" id="p313722"><div class="post-head"><a class="id" href="../t/16853.html#p313722">#313722</a> <span class="index">9</span> <span class="date">2007-04-16T18:30:26Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Well Im just gonna shoot this out there. Im never really learned about simulating physics (Or really alot of what Im doing) I just enjoy making games and am trying to learn myself. I was just curious of a good way to work with the physics of this ball. Right now it has an update() function which updates its everything (And checks for collision) but Im not sure of the best way to go about this. Right now I have Force, acceleration, velocity and obviously position. I try to make everything apply a force on the ball as that would seem to be the most intuitive way to go about it but thats not quite working. Right now I got something like this (Im not gonna paste the real code cause it wouldn't make much sense):<br>
+<br>
+forceY += 10; //Gravity constant<br>
+<br>
+accelX += forceX/mass;<br>
+accelY += forceY/mass;<br>
+<br>
+velX += accelX;<br>
+velY += accelY;<br>
+<br>
+x += velX/fps;<br>
+y += velY/fps;<br>
+<br>
+//Collision detection. Add forceX/Y based on the angle of the line it collides with<br>
+<br>
+forceY = 0;<br>
+forceX = 0;<br>
+<br>
+Oh, and this is based off the top left corner being 0,0 (Thus gravity is positive). One problem Im finding is that on key press I have it add a corresponding forceX, but because the force is just acting on the ball for 1 frame when it hits a wall (And thus calculates forces that should be applied via the angle) there is no X force, just an X velocity and it passes right through. Also, on ground it doesn't seem to be cancelling out gravity so well. I tried moving the collision detection segment to the top of the code (Before it changes accel based on force) but then you don't check for collision with the updated x/y value <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+Heres the code I use for determining forces on collision:<br>
+<pre class="code">alphaY = atan(dy/dx);
+alphaX = atan(dx/dy);
+
+normalY = cos(alphaY) * forceY;
+normalX = cos(alphaX) * forceX;
+
+forceX -= sin(alphaY) * normalY;
+forceX -= sin(alphaX) * normalX;
+
+forceY -= cos(alphaY) * normalY;
+forceY -= cos(alphaX) * normalX;</pre><br>
+With dy = difference on y, and dx = difference on x. And there is error checking for divided by 0. Thanks again for any help, Im getting really excited how this is turning out so far.</div></div>
+<div class="post" id="p314105"><div class="post-head"><a class="id" href="../t/16853.html#p314105">#314105</a> <span class="index">10</span> <span class="date">2007-04-19T00:10:09Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Yay, good ol' vectors for the win.<br>
+Nice explanation TS <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p317404"><div class="post-head"><a class="id" href="../t/16853.html#p317404">#317404</a> <span class="index">11</span> <span class="date">2007-05-01T22:21:46Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">yeah, that was a great response TS! thanks.</div></div>
+</main>
+</body>
+</html>

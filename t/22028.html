@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java Help. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Java Help.</nav></header>
+<main>
+<div class="post" id="p19708"><div class="post-head"><a class="id" href="../t/22028.html#p19708">#19708</a> <span class="index">1</span> <span class="date">2008-03-27T11:01:48Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">The problem has been resolved...Thanks for all the help guys!</div></div>
+<div class="post" id="p422332"><div class="post-head"><a class="id" href="../t/22028.html#p422332">#422332</a> <span class="index">2</span> <span class="date">2008-03-27T15:14:37Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">The Java String Class has a function called indexOf(char) which returns the index of the given character. I think that should do the job.</div></div>
+<div class="post" id="p422673"><div class="post-head"><a class="id" href="../t/22028.html#p422673">#422673</a> <span class="index">3</span> <span class="date">2008-03-28T07:39:01Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">how would i write the line...<br>
+<br>
+rcount = indexOf®<br>
+<br>
+...doesn't relate it to any user input.</div></div>
+<div class="post" id="p422678"><div class="post-head"><a class="id" href="../t/22028.html#p422678">#422678</a> <span class="index">4</span> <span class="date">2008-03-28T08:01:31Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22028.html#p422673">Quote: squibbles, March 27, 2008 11:39 pm</a></div> how would i write the line...<br>
+<br>
+rcount = indexOf<br>
+<br>
+...doesn't relate it to any user input.  </blockquote> <br>
+ rcount = userInput.indexOf('r');</div></div>
+<div class="post" id="p422682"><div class="post-head"><a class="id" href="../t/22028.html#p422682">#422682</a> <span class="index">5</span> <span class="date">2008-03-28T08:45:18Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">ok...this is what i have now...but it still doesn't work.<br>
+<br>
+<pre class="code">import static java.lang.System.in;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+class R_and_N
+{
+	public static void main(String args[])
+	{
+  out.println("Enter word.");
+  Scanner wordScanner = new Scanner(in);
+  out.println();
+  
+  int rCount = wordScanner.indexOf('r');
+  int rCountCaps = wordScanner.indexOf('R');
+  int nCount = wordScanner.indexOf('n');
+  int nCountCaps = wordScanner.indexOf('N');
+  int rCountTotal = rCountCaps + rCount;
+  int nCountTotal = nCountCaps + nCount;
+  
+  out.println("word" + "/t" + "r's" + "/t" + "n's");
+  out.println(wordScanner + "/t" + rCountTotal + "/t" + nCountTotal);
+	}
+}</pre><br>
+oh, and I am sorry for the noobism...i know it must be tedious.</div></div>
+<div class="post" id="p422687"><div class="post-head"><a class="id" href="../t/22028.html#p422687">#422687</a> <span class="index">6</span> <span class="date">2008-03-28T10:00:48Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Right now you are trying to use indexOf on a scanner, which does not have that method. You will need to fetch a string from it first:<br>
+<br>
+<pre class="code">String input = wordScanner.nextLine();
+
+int rCount = input .indexOf('r');
+int rCountCaps = input .indexOf('R');
+int nCount = input .indexOf('n');
+int nCountCaps = input .indexOf('N');</pre><br>
+Good luck!</div></div>
+<div class="post" id="p422691"><div class="post-head"><a class="id" href="../t/22028.html#p422691">#422691</a> <span class="index">7</span> <span class="date">2008-03-28T10:26:05Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22028.html#p422687">Quote: The Wazaa, March 28, 2008 10:00 am</a></div> Right now you are trying to use indexOf on a scanner, which does not have that method. You will need to fetch a string from it first:<br>
+<br>
+<pre class="code">String input = wordScanner.nextLine();
+
+int rCount = input .indexOf('r');
+int rCountCaps = input .indexOf('R');
+int nCount = input .indexOf('n');
+int nCountCaps = input .indexOf('N');</pre><br>
+Good luck! </blockquote><img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"> I'm an idiot...because this isn't exactly my first scanner...or my 5th...or even my 10th...i might be nearing 20 programs that use scanners.<br>
+<br>
+Also, thanks for all the help on that part...it's now reading all the data...however, when I input train, I get 0 r's and 3 n's.<br>
+<br>
+This is my code so far:<br>
+<br>
+<pre class="code">import static java.lang.System.in;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+class R_and_N
+{
+	public static void main(String args[])
+	{
+  int rCount = 0;
+  int rCountCaps = 0;
+  int nCount = 0;
+  int nCountCaps = 0;
+  int rCountTotal = 0;
+  int nCountTotal = 0;
+  
+  out.println("Enter word.");
+  Scanner wordScanner = new Scanner(in);
+  out.println();
+  
+  String input = wordScanner.nextLine();
+  rCount = input.indexOf('r');
+  rCountCaps = input.indexOf('R');
+  nCount = input.indexOf('n');
+  nCountCaps = input.indexOf('N');
+  rCountTotal = rCountCaps + rCount;
+  nCountTotal = nCountCaps + nCount;
+  
+  out.println("Word" + "\t" + "r's" + "\t" + "n's");
+  out.println(input + "\t" + rCountTotal + "\t" + nCountTotal);
+	}
+}</pre></div></div>
+<div class="post" id="p422725"><div class="post-head"><a class="id" href="../t/22028.html#p422725">#422725</a> <span class="index">8</span> <span class="date">2008-03-28T14:01:42Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">OK do you want to count the r's and n's or do you want to decide wich one appears first? Beacause in your first post you said that you have to determine which appears first.<br>
+<br>
+indexOf() just gives you the position of the first appearal of that character.<br>
+<br>
+If you want to count characters you have to make a loop over the whole String and check every position wheter it is the searched character.<br>
+<br>
+For exampe:<br>
+<br>
+<pre class="code">String test = new String("ingredient");
+integer position = test.indexOf('n');</pre><br>
+Now position will have the value 1. Because the n is at positon 1.<br>
+<br>
+<pre class="code">String test = new String("ingredient");
+integer nCount = 0;
+for (int i=0; i&lt; test.lenght(); i++)
+{
+  if (test.valueOf(i).equals('n'))
+    nCount = nCount+1;
+}</pre><br>
+Now nCount will have the Value 2 because there are 2 n's in this word.<br>
+<br>
+To shorten your code you can also call:<br>
+<br>
+<pre class="code">test.toLowerCase();</pre><br>
+then the whole word is lowercase and you don't have to count the upper and lowercase characters and add them later.<br>
+<br>
+Oh and are you sure that you get 0 r's and 3 n's by entering train because this looks more like rain. (r at the 0th position and n at the 3th)<br>
+<br>
+hth<br>
+<br>
+edit: just found out that indexOf() return -1 if the char was not found so that is the reason for the 0 r's and 3 n's. (You have no N nor R)</div></div>
+<div class="post" id="p422955"><div class="post-head"><a class="id" href="../t/22028.html#p422955">#422955</a> <span class="index">9</span> <span class="date">2008-03-29T03:03:50Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">yeah...i realised what an idiot i was last night...i dunno why i was adding indexes of lowercase and uppercase letters...<br>
+<br>
+I have now finished the program...Thanks for all the help guys!</div></div>
+<div class="post" id="p423882"><div class="post-head"><a class="id" href="../t/22028.html#p423882">#423882</a> <span class="index">10</span> <span class="date">2008-03-31T11:13:59Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">Hey guys, i'm back, with one last question for now...<br>
+<br>
+Is there a function to convert base 10 numbers to binary?<br>
+<br>
+and also vice-versa?</div></div>
+<div class="post" id="p423896"><div class="post-head"><a class="id" href="../t/22028.html#p423896">#423896</a> <span class="index">11</span> <span class="date">2008-03-31T13:01:20Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">To convert a base 10 number just call:<br>
+<br>
+ <pre class="code">String whatever = Integer.Integer.toBinaryString(yourInteger);</pre><br>
+As you can see it returns an String.<br>
+<br>
+For the other way round use:<br>
+<br>
+<pre class="code">Integer.parseInt(yourBinaryNumberAsString, baseOfTheNumberInTheString);</pre><br>
+This function returns an Interger. Keep in mind that paresInt() throws an NumberFormatException.<br>
+<br>
+I think the names of the Variabes expains what they do</div></div>
+<div class="post" id="p426266"><div class="post-head"><a class="id" href="../t/22028.html#p426266">#426266</a> <span class="index">12</span> <span class="date">2008-04-08T11:20:53Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22028.html#p423896">Quote: Gott, March 31, 2008 01:01 pm</a></div> To convert a base 10 number just call:<br>
+<br>
+ <pre class="code">String whatever = Integer.Integer.toBinaryString(yourInteger);</pre><br>
+As you can see it returns an String.<br>
+<br>
+For the other way round use:<br>
+<br>
+<pre class="code">Integer.parseInt(yourBinaryNumberAsString, baseOfTheNumberInTheString);</pre><br>
+This function returns an Interger. Keep in mind that paresInt() throws an NumberFormatException.<br>
+<br>
+I think the names of the Variabes expains what they do </blockquote>integer.integer?<br>
+<br>
+EDIT: never mind...i worked it out!</div></div>
+<div class="post" id="p433288"><div class="post-head"><a class="id" href="../t/22028.html#p433288">#433288</a> <span class="index">13</span> <span class="date">2008-05-02T10:35:21Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">new question...i have this:<br>
+<br>
+<pre class="code">import static java.lang.System.out;
+import static java.lang.System.in;
+import static java.lang.Object.StringBuffer;
+import static java.lang.Object.String;
+import java.util.Scanner;
+
+class pdrone
+{
+
+    public static void main(String args[])
+    {
+    	
+    	Scanner wordScanner = new Scanner (in);
+    	out.println(Enter Word);
+    	String Input = wordScanner.next();
+    	String Reversed = new StringBuffer(Input).reverse();
+    	
+    	if(Input == Reversed)
+    	{
+      out.println(Input + " is a palindrome.");
+    	}
+    	else
+    	{
+      out.println(Input + " is not a palindrome");
+    	}
+    }
+}</pre><br>
+however this is not correctly creating the string buffer.</div></div>
+<div class="post" id="p433496"><div class="post-head"><a class="id" href="../t/22028.html#p433496">#433496</a> <span class="index">14</span> <span class="date">2008-05-03T07:41:35Z</span> <span class="author"><a href="../u/9372274.html">rennaT</a></span></div><div class="post-body">This is some impressively poor code. The reason the StringBuffer isn't being properly initialized is because there's no variable for it to be stored in. You're trying to store the StringBuffer in a String variable.<br>
+<br>
+First things first: Anything in the java.lang package is part of the core Java language and doesn't need to be imported.<br>
+<br>
+Secondly, it doesn't seem important now but using the conventions for Java names will make your code easier for you and others to read. Classes are capitals. Variables are lowercase unless it's final and never going to change throughout the entire program and then it's all capitals.<br>
+<br>
+ex:<br>
+String is a class or an object.<br>
+We create a String called pie.<br>
+pie is the variable so it's all lowercase.<br>
+String pie;<br>
+Then we want to throw something in the pie variable.<br>
+String pie = new String ("Eat me!");<br>
+That's what's known as initializing the instance of the variable. You create the new data with the new command and the Class that follows the new command must (at least for the purpose of this lesson) match the Class of the variable. Read that again as it was where you ran into problems with the last program.<br>
+<br>
+Thirdly, you'll never learn anything if you get us to write your code for you but I just can't bear the thought that this code is running somewhere so I'mma rewrite it the way I would have written it from the start and then, maybe, you use that as a template.<br>
+<br>
+<pre class="code">/**
+ * @(#)Palindrome.java
+ *
+ *
+ * @author Tanner Rogalsky
+ * @version 1.00 2008/5/3
+ */
+ 
+ 
+import java.util.Scanner; //imports the scanner
+
+public class Palindrome {
+        
+    public static void main(String[] args) {
+       
+     // creates the Scanner object
+     // notice that instead of declaring static instances of the input
+     // and output streams, I just used the ones that are already in the
+     // runtime by default
+     Scanner wordScanner = new Scanner (System.in);
+     
+     // explaining what input you're asking for is just good form
+     System.out.println("Enter the word to be tested for palindromitude.");
+     
+     // gets the next word entered and puts it in the "input" variable
+     String input = wordScanner.next();
+     
+     // takes the input, flips it around and spits it back
+     // notice that I've tacked the toString() method on the end there
+     // what I did by doing that is I just saved myself a step
+     // I could have written the following instead
+     // StringBuffer buffer = new StringBuffer(input); makes the StringBuffer
+     // buffer = buffer.reverse(); reverses the contents
+     // String reversed = buffer.toString(); turns the StringBuffer back into a String
+     String reversed = new StringBuffer(input).reverse().toString();
+    
+    	// when you're comparing String objects, you have to use the
+    	// stringA.equals(stringB); method
+    	// objects are way different from just normal numbers
+     if(input.equals(reversed)){
+      	System.out.println(input + " is a palindrome.");
+     }else{
+      	System.out.println(input + " is not a palindrome.");
+     }
+    }
+}</pre></div></div>
+</main>
+</body>
+</html>

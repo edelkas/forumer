@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actionscript Help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Actionscript Help</nav></header>
+<main>
+<div class="post" id="p13846"><div class="post-head"><a class="id" href="../t/15634.html#p13846">#13846</a> <span class="index">1</span> <span class="date">2007-02-03T17:42:03Z</span> <span class="author"><a href="../u/9373573.html">Viridovix</a></span></div><div class="post-body">I would like to know how to make an interactive stick man that can run from one side of the screen to the other. Any tutorials, or better yet, is there someone who like to personally teach me actionscript?</div></div>
+<div class="post" id="p293388"><div class="post-head"><a class="id" href="../t/15634.html#p293388">#293388</a> <span class="index">2</span> <span class="date">2007-02-04T00:04:55Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">what do you mean by "interactive"?<br>
+whats "interactive" about a stick figure running back and forward?</div></div>
+<div class="post" id="p293495"><div class="post-head"><a class="id" href="../t/15634.html#p293495">#293495</a> <span class="index">3</span> <span class="date">2007-02-04T04:50:43Z</span> <span class="author"><a href="../u/9373573.html">Viridovix</a></span></div><div class="post-body">You use the arrow keys to move him...?</div></div>
+<div class="post" id="p293528"><div class="post-head"><a class="id" href="../t/15634.html#p293528">#293528</a> <span class="index">4</span> <span class="date">2007-02-04T06:07:06Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">well, you make a movieclip of a running animation and give it the instance name of "stick"<br>
+<br>
+then in the main timeline you go<br>
+<br>
+function onEnterFrame(){<br>
+ if (Key.isDown(Key.LEFT)){<br>
+  stick._x--<br>
+ }else if (Key.isDown(Key.RIGHT)){<br>
+  stick._x++<br>
+ }<br>
+}<br>
+<br>
+what that does is to check for the left/right keys being down each frame and if they are, increment/decrement the horizontal position of the stick</div></div>
+<div class="post" id="p293533"><div class="post-head"><a class="id" href="../t/15634.html#p293533">#293533</a> <span class="index">5</span> <span class="date">2007-02-04T06:31:21Z</span> <span class="author"><a href="../u/9373573.html">Viridovix</a></span></div><div class="post-body">Cool, thanks!</div></div>
+<div class="post" id="p293701"><div class="post-head"><a class="id" href="../t/15634.html#p293701">#293701</a> <span class="index">6</span> <span class="date">2007-02-04T18:21:51Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">What I like to do is have a timer instead of doing it each frame:<br>
+<br>
+<br>
+<pre class="code">var frametimer = setInterval(frame, 10);
+
+function frame() {
+    if (Key.isDown(Key.LEFT)) {
+        stick._x--;
+    } else if (Key.isDown(Key.RIGHT)) {
+        stick._x++;
+    }
+    
+    updateAfterEvent();
+}</pre></div></div>
+<div class="post" id="p293752"><div class="post-head"><a class="id" href="../t/15634.html#p293752">#293752</a> <span class="index">7</span> <span class="date">2007-02-04T20:24:14Z</span> <span class="author"><a href="../u/9373573.html">Viridovix</a></span></div><div class="post-body">What's the difference?</div></div>
+<div class="post" id="p293807"><div class="post-head"><a class="id" href="../t/15634.html#p293807">#293807</a> <span class="index">8</span> <span class="date">2007-02-04T23:26:20Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">The movement and smoothness of movement doesn't depend on the framerate. It's just controlled more easily.</div></div>
+<div class="post" id="p293858"><div class="post-head"><a class="id" href="../t/15634.html#p293858">#293858</a> <span class="index">9</span> <span class="date">2007-02-05T02:12:33Z</span> <span class="author"><a href="../u/9373573.html">Viridovix</a></span></div><div class="post-body">Cool, I'll have to use that with my little hot air balloon project...</div></div>
+</main>
+</body>
+</html>

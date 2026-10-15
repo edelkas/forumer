@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small questioN about droNes - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Small questioN about droNes</nav></header>
+<main>
+<div class="post" id="p3505"><div class="post-head"><a class="id" href="../t/3864.html#p3505">#3505</a> <span class="index">1</span> <span class="date">2005-06-29T11:26:06Z</span> <span class="author"><a href="../u/9370955.html">Brucelee</a></span></div><div class="post-body">how to make a laser drone or a chaingun drone stay blocked in 1 sector but still can shoot? i tried to place it between oneways, no result. wfr</div></div>
+<div class="post" id="p79611"><div class="post-head"><a class="id" href="../t/3864.html#p79611">#79611</a> <span class="index">2</span> <span class="date">2005-06-29T14:53:58Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Sorry, drones go through one-ways both ways.<br>
+<br>
+What you'll probably want to do is surround the drone with 4 locked doors, then put the triggers over the ninja. You will now have a turret.</div></div>
+<div class="post" id="p79612"><div class="post-head"><a class="id" href="../t/3864.html#p79612">#79612</a> <span class="index">3</span> <span class="date">2005-06-29T15:08:59Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">... I could have sworn I answerd this before...<br>
+<br>
+How odd. Oh well. Maniac has beaten me to it.</div></div>
+<div class="post" id="p79614"><div class="post-head"><a class="id" href="../t/3864.html#p79614">#79614</a> <span class="index">4</span> <span class="date">2005-06-29T15:11:43Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">You can also do it by NaN-ing a certain part of the drone object code. I can't remember what though <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p79669"><div class="post-head"><a class="id" href="../t/3864.html#p79669">#79669</a> <span class="index">5</span> <span class="date">2005-06-29T18:46:00Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3864.html#p79614">Quote: trib4lmaniac, Jun 29 2005, 08:11 AM</a></div> You can also do it by NaN-ing a certain part of the drone object code. I can't remember what though <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> </blockquote>There are two numbers you can NaN to keep it from moving. Use the last number. (!6^324,324,2,0,2,<b>NaN</b>!)</div></div>
+<div class="post" id="p84369"><div class="post-head"><a class="id" href="../t/3864.html#p84369">#84369</a> <span class="index">6</span> <span class="date">2005-07-18T07:55:56Z</span> <span class="author"><a href="../u/9370955.html">Brucelee</a></span></div><div class="post-body">thx guys! <img class="bb-img" src="../files/images/1418.gif" alt="" loading="lazy"> i don't know whats is NaNing.. can you explain it pls  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p84610"><div class="post-head"><a class="id" href="../t/3864.html#p84610">#84610</a> <span class="index">7</span> <span class="date">2005-07-19T09:52:39Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">You have to manually change the code. Place a laser/chaingun drone where you would like your turret to be located. Then, don't do anything else. Save your map, and return to the debug menu.<br>
+<br>
+Highlight the code until you reach the point that looks like this:<br>
+<br>
+<pre class="code">6^324,324,2,0,2,3</pre><br>
+Or some other number as the last number. Manually select the 3 or other number and type NaN in it's place. Or NAN will work too, as it will freak out and adjust it back to NaN.<br>
+<br>
+And load the map again. The drone will now be immobile, but it will still shoot at you.</div></div>
+<div class="post" id="p84745"><div class="post-head"><a class="id" href="../t/3864.html#p84745">#84745</a> <span class="index">8</span> <span class="date">2005-07-20T00:20:25Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Or put a q there, or a w, or anything that is NOT a NUMBER.  On second thought, q may not be the best idea, but any letter that is not attached to a debug menu command will.  Or just a blank space.  Anything.</div></div>
+<div class="post" id="p84775"><div class="post-head"><a class="id" href="../t/3864.html#p84775">#84775</a> <span class="index">9</span> <span class="date">2005-07-20T02:12:38Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">I use an 'l' as it loads the map at the same time.</div></div>
+</main>
+</body>
+</html>

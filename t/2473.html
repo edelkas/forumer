@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Separating Axis Theorem - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Separating Axis Theorem</nav></header>
+<main>
+<div class="post" id="p2206"><div class="post-head"><a class="id" href="../t/2473.html#p2206">#2206</a> <span class="index">1</span> <span class="date">2005-03-14T19:51:52Z</span> <span class="author">Dr Van Nostrand <span class="guest">(guest)</span></span></div><div class="post-body">I get the general idea of the separating axis theorem from the tutorial, but what exactly are the algorithmic steps? I cant quite get that from the examples.<br>
+<br>
+Say for testing and projecting out a rectangular shape against a right triangle tile:<br>
+<br>
+1. store the halfwidths of the rectangle<br>
+...<br>
+...<br>
+and so on<br>
+<br>
+<br>
+Thanks</div></div>
+<div class="post" id="p54180"><div class="post-head"><a class="id" href="../t/2473.html#p54180">#54180</a> <span class="index">2</span> <span class="date">2005-03-14T23:33:40Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">hi,<br>
+the basic steps are:<br>
+<br>
+-determine the set of potential seperating axes<br>
+-for each axis in the above set:<br>
+  -calculate penetration<br>
+  -if(no penetration): return/end -- the two shapes don't collide<br>
+-for all penetrations: find the minimum penetration. this is the vector which should be used to project the shapes out of each other.</div></div>
+<div class="post" id="p54190"><div class="post-head"><a class="id" href="../t/2473.html#p54190">#54190</a> <span class="index">3</span> <span class="date">2005-03-15T01:35:21Z</span> <span class="author">Guest</span></div><div class="post-body">Thanks for the quick reply.<br>
+<br>
+Would you be so kind as to be a little more granular with the 'calculate penetration' step. This is actually the area I'm having trouble with. <br>
+<br>
+I know I need to project the vector created by the center points of both shapes onto the axis, and then also project the shapes half width vectors onto the axis and then test the lengths for overlap, but I can't get it exactly.<br>
+<br>
+Im not clear on when/how I sum the halfwidth vectors. Is it before or after projection. Im confused here. Also, are the halfwidth vectors of the AABB's always relative to the AABB space or to world space?</div></div>
+<div class="post" id="p54279"><div class="post-head"><a class="id" href="../t/2473.html#p54279">#54279</a> <span class="index">4</span> <span class="date">2005-03-15T20:44:22Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">hi,<br>
+the "calculate penetration" step, in it's most general form, is identical to the typical circle-circle collision that everyone uses.<br>
+<br>
+you basically find the "halfsize" of each object (analogous the radius of each circle), then you find the distance between the object centers. if the sum of the halfsizes is larger than the distance between the objects, they're overlapping.<br>
+<br>
+the projection math can happen in any space you'd like; in the case of AABBs, as far as the math is concerned, the objects' local space is identical to world space.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p54317"><div class="post-head"><a class="id" href="../t/2473.html#p54317">#54317</a> <span class="index">5</span> <span class="date">2005-03-15T23:37:46Z</span> <span class="author">Dr Van Nostrand <span class="guest">(guest)</span></span></div><div class="post-body">Ok, that makes sense. Just to clarify here is my code:<br>
+<pre class="code">AABB.prototype.checkCollions = function () {
+	
+	// go through the list of tiles
+	var tiles = _root.tileList;
+	for (var i = 0; i &lt; tiles.length; i++) {
+  var t = tiles[i];
+  
+  // derive the vector between the center point of 
+  // this AABB and the current tile
+  var delta = new Vector(this.center.x - t.center.x, this.center.y - t.center.y);
+  
+  // go through each axis in the tile
+  var axisPen = null;
+  var axisPenCount = 0;
+  var shortestPen = Number.POSITIVE_INFINITY;
+  
+  for (var j = 0; j &lt; t.axes.length; j++) {
+  	
+  	var axis = t.axes[j];
+	
+  	// project delta onto the axis
+  	var deltProj = delta.project(axis);
+  	var deltLen = deltProj.magnitude();
+  	
+  	// sum the halfwidth vectors of the aabb and project them onto the axis
+  	var aabbSum = this.halfWX.plusNew(this.halfWY);
+  	var aabbProj = aabbSum.project(axis);
+  	var aabbLen = aabbProj.magnitude();
+  	
+  	// sum the halfwidth vectors of the tile and project them onto the axis
+  	var tileSum = t.halfWX.plusNew(t.halfWY);
+  	var tileProj = tileSum.project(axis);
+  	var tileLen = tileProj.magnitude();
+  	
+  	// test and select for the axis with the shortest penetration
+  	axis.pen = (aabbLen + tileLen) - deltLen; 
+  	if (axis.pen &gt; 0) {
+    if (axis.pen &lt; shortestPen) {
+    	axisPen = axis;
+    	shortestPen = axis.pen;
+    }
+    axisPenCount++;
+  	} else {
+    break;
+  	}
+  }
+  if (axisPenCount == t.axes.length) {
+  	_root.debugA.text = "COLLISION: " + axisPen.pen;
+  } else {
+  	_root.debugA.text = "";
+  }
+	}
+}
+}</pre>So this is working with rectangles. As I move to a test between my AABB and a right triangle Im figuring I need to test for 3 axes: the x, the y and the diagonal of the tile.  I just need to get the halfwidth vector for the diagonal axis. Does that sound correct?</div></div>
+<div class="post" id="p54325"><div class="post-head"><a class="id" href="../t/2473.html#p54325">#54325</a> <span class="index">6</span> <span class="date">2005-03-15T23:56:26Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">Just a note to Raigan:<br>
+<br>
+Try a search on google for:<br>
+<br>
+SAT tutorial "separating axis theorem" -filetype:pdf<br>
+<br>
+and yours is linked from the top 3.<br>
+In fact, the top hit is you.<br>
+<br>
+And if you carry on down the list, there a several more site linking to you tutorial.<br>
+<br>
+Seems you're voice of knowledge on the subject <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+NB:<br>
+<br>
+Interestingly, with that search in the search bar, keep hitting search and you get a 50% chance of a gamedev website sneaking in at number 2 and at other times not appearing.<br>
+Now I've never seen that before...<br>
+<br>
+Conspiracy ?  <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"></div></div>
+</main>
+</body>
+</html>

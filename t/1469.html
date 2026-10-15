@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprites in N??? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Sprites in N???</nav></header>
+<main>
+<div class="post" id="p1315"><div class="post-head"><a class="id" href="../t/1469.html#p1315">#1315</a> <span class="index">1</span> <span class="date">2004-11-10T09:31:08Z</span> <span class="author"><a href="../u/9370503.html">fordge</a></span></div><div class="post-body">Just wondering how many sprites were used for describing the Ninjas movements??<br>
+<br>
+Ofcourse ragdoll effects were used when killing off the Ninja..but arent all the rest sprites??<br>
+<br>
+and also how many??<br>
+<br>
+The movements are soooooo fluid like..<br>
+<br>
+for eg..<br>
+i noted in some screenshots i tried to take that; depending upon speed, the jump sprite too seems to be a bit more different each time<br>
+<br>
+is it the same sprite n my imagination??<br>
+or isit the same sprite  a bit rotated???<br>
+or ru guys using character physics a lot other than during the death scenes as well??<br>
+<br>
+fordge</div></div>
+<div class="post" id="p35890"><div class="post-head"><a class="id" href="../t/1469.html#p35890">#35890</a> <span class="index">2</span> <span class="date">2004-11-10T21:46:25Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">They're not sprites, they're polygons (or shapes, or whatever flash calls them) and they're manipulated as a rag-doll - not like sprite based animation at all.</div></div>
+<div class="post" id="p35900"><div class="post-head"><a class="id" href="../t/1469.html#p35900">#35900</a> <span class="index">3</span> <span class="date">2004-11-10T22:24:02Z</span> <span class="author">Guest</span></div><div class="post-body">it's hard to explain -- there are no sprites as used in other 2D games, but if you consider each segment of each limb of the ninja's body to be a sprite (which is moved and rotated), then yes, we're using sprites. you could theoretically draw the ninja on an snes or other sprite-based system by using several sprites.<br>
+<br>
+really all we're doing is animating a character by splitting them into various segments and animating the position+rotation of each segment -- this happens in many other games, for instance oni, q3a, and most other older 3D games.<br>
+<br>
+these days 3D games use the same idea, but instead of having each segment be an unconnected chunk, they sort of blend the segments together at the joints. in oni the joints are sort of obvious and they hid this by using knee/elbow/shoulder/etc. pads to cover them <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p35927"><div class="post-head"><a class="id" href="../t/1469.html#p35927">#35927</a> <span class="index">4</span> <span class="date">2004-11-11T00:59:12Z</span> <span class="author"><a href="../u/9370503.html">fordge</a></span></div><div class="post-body">sorry i posted the same query in the forums tut section too<br>
+<br>
+have replied in that section as didnt want this thread to spawn in two directions<br>
+<br>
+thankx<br>
+fordge</div></div>
+</main>
+</body>
+</html>

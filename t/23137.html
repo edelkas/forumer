@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Having problems with teh IRC... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; Having problems with teh IRC...</nav></header>
+<main>
+<div class="post" id="p20755"><div class="post-head"><a class="id" href="../t/23137.html#p20755">#20755</a> <span class="index">1</span> <span class="date">2008-07-09T19:49:46Z</span> <span class="author"><a href="../u/9372955.html">Pheidippides</a></span></div><div class="post-body">Chatzilla isn't connecting to the waypasteleven server, and I don't know why. I was able to use IRC just fine before I sent my laptop in, and since I've redownloaded ChatZilla, I can't get it to work. I did everything it said in the how to use IRC thread, and I still can't connect. I get this: <div class="attachment attachment-missing">Attachment (lost): post-5-1215632986.jpg</div></div></div>
+<div class="post" id="p451857"><div class="post-head"><a class="id" href="../t/23137.html#p451857">#451857</a> <span class="index">2</span> <span class="date">2008-07-09T19:56:23Z</span> <span class="author"><a href="../u/9371430.html">Luminaflare</a></span></div><div class="post-body">1) Uninstall ChatZilla<br>
+<br>
+2) Download mIRC<br>
+<br>
+3) Install mIRC<br>
+<br>
+4) Connect to server<br>
+<br>
+5) Talk on IRC and rejoice in IRC-y goodness.</div></div>
+<div class="post" id="p451868"><div class="post-head"><a class="id" href="../t/23137.html#p451868">#451868</a> <span class="index">3</span> <span class="date">2008-07-09T20:37:23Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">^or pretty much anything that isn't Chatzilla<br>
+<br>
+(as for why you can't connect with chatzilla, no idea)</div></div>
+<div class="post" id="p451872"><div class="post-head"><a class="id" href="../t/23137.html#p451872">#451872</a> <span class="index">4</span> <span class="date">2008-07-09T20:45:10Z</span> <span class="author"><a href="../u/9372014.html">Limer</a></span></div><div class="post-body">I had the same sort of problem with mIRC afew months ago. Had to switch to Chatzilla.</div></div>
+<div class="post" id="p451875"><div class="post-head"><a class="id" href="../t/23137.html#p451875">#451875</a> <span class="index">5</span> <span class="date">2008-07-09T20:57:44Z</span> <span class="author"><a href="../u/9373523.html">Strife</a></span></div><div class="post-body">This happens to me every time I try to use IRC in Windows, regardless of client (and believe me, I've tried many just to see if that's what was wrong), so just downloading mIRC isn't going to solve anything.<br>
+...or at least it shouldn't, if the problem is what I think it is.<br>
+But unfortunately, I'll have to conclude that I don't *actually* know what exactly the problem is, just that it's the same one I have. I only use Windows for gaming, so I just haven't taken the time to debug anything yet, so I haven't found a fix or even looked into what's happening.<br>
+<br>
+It doesn't sound like it's a permissions issue with the application itself, because it can clearly go online. But it might still be a blocked port issue if waypasteleven is trying to bounce something back to you, is failing, and therefore drops your connection. Go to Start &gt; Control Panel &gt; Security &gt; Windows Firewall &gt; Ports (or whatever those exact names are; I'm not using a Windows machine right now), and add a port for the IRC connection (6667, is it?), and let us know if that solves anything.<br>
+<br>
+Other questions:<br>
+Are you trying to do this at home? (My lab blocks all ports commonly used for chat, such as those for AIM and IRC.)<br>
+Do you use a router to connect to the internet, or is the cable coming straight from your wall and into your computer without anything else between them?<br>
+Go to Start &gt; Run, type in "cmd" in the box (without quotes), and click Run. In the window that appears (it should say something like "C:\Windows\system32\&gt;"), type in (without quotes) "ping waypasteleven.com" and hit enter, then paste what it spits back at you here.</div></div>
+<div class="post" id="p451876"><div class="post-head"><a class="id" href="../t/23137.html#p451876">#451876</a> <span class="index">6</span> <span class="date">2008-07-09T21:02:07Z</span> <span class="author"><a href="../u/9373266.html">Spawn of Yanni</a></span></div><div class="post-body">I had this problem with both mIRC and XChat when I first started coming on. Screwing about with the ports solved it for me; like Strife said, go for 6667, but 6668 and 6669 worked for me that last time.</div></div>
+<div class="post" id="p451881"><div class="post-head"><a class="id" href="../t/23137.html#p451881">#451881</a> <span class="index">7</span> <span class="date">2008-07-09T21:26:51Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">I've also had this, so I changed the port number and it worked. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>collision problem: corners - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; collision problem: corners</nav></header>
+<main>
+<div class="post" id="p13166"><div class="post-head"><a class="id" href="../t/14828.html#p13166">#13166</a> <span class="index">1</span> <span class="date">2006-12-26T14:58:34Z</span> <span class="author"><a href="../u/9373690.html">kraj0t</a></span></div><div class="post-body">Hello everyone.<br>
+<br>
+First off, thanks for this wonderful game and for the great tutorials.<br>
+<br>
+Now, I must say I'm ashamed of myself. I've been trying to solve this problem I have for a long time, in many different games I've tried to programme. Ok, I'll explain it...<br>
+<br>
+It's as simple as AABBvsRectangle Tile. I do it all Ok: it looks for penetration depth then it projects it out of the tile... Ok. But when it comes to corners, this peculiar thing happens: if the AABB is moving along the wall of the tile, and at the same time you keep pressing the direction against that wall, when it reaches the corner it sometimes detects a collision with the wall besides the first one... Let's see...<br>
+<br>
+On the image I attach is a example. On the first image, the AABB is sliding to the right on the wall of the tile. On 2, while still sliding to the right, you begin pushing the AABB down. When you get to the corner, it detects a collision on the right wall, which slows down the AABB's x_speed, which causes image 3, the AABB sliding on the right wall.<br>
+<br>
+This must happen, I suppose, because sometimes penetration on the right wall will be shorter than on upper wall. Thereby the AABB is "stopped" in a strange way. I don't know if this is avoidable... I've tried different collision detection methods and it's always the same. And, what's more, in the example of tutorial A this doesn't seem to happen.<br>
+<br>
+Should I maybe use more precision in the way I measure velocities and positions? Maybe I mess up something I can't see? Please help me, My dignity and my ego are all over the floor... :_(<br>
+<br>
+Thanks for reading!<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-14-1167145114.jpg</div></div></div>
+<div class="post" id="p277380"><div class="post-head"><a class="id" href="../t/14828.html#p277380">#277380</a> <span class="index">2</span> <span class="date">2006-12-26T15:54:00Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Welcome to the forums <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+<br>
+That's pretty easy to explain - it checks which penetration vector is smaller, and uses that (as you already said). For most cases that works perfectly, but not for this one. Technically speaking, completely eliminating the problem is impossible. The only solution I can think of is multi-sampling. That's what Mare and Raigan used in N, anyways: multi-sampling and a max-speed limit.<br>
+<br>
+Try it and tell us if it works.<br>
+<br>
+TS</div></div>
+<div class="post" id="p277669"><div class="post-head"><a class="id" href="../t/14828.html#p277669">#277669</a> <span class="index">3</span> <span class="date">2006-12-27T13:56:21Z</span> <span class="author"><a href="../u/9373690.html">kraj0t</a></span></div><div class="post-body">Thank you so much, I'll keep working on it for sure. <br>
+<br>
+I had not seen the part of multisampling yet, and for sure it should (theoretically) solve my problem. It's quite easy to understand. Well, I'll give it a try.<br>
+<br>
+Thanks again, I'll tell you if it works <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+</main>
+</body>
+</html>

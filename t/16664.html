@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ragdoll + Collision + x = SweetCharacterAnimation - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Ragdoll + Collision + x = SweetCharacterAnimation</nav></header>
+<main>
+<div class="post" id="p14654"><div class="post-head"><a class="id" href="../t/16664.html#p14654">#14654</a> <span class="index">1</span> <span class="date">2007-03-30T23:47:59Z</span> <span class="author"><a href="../u/9374214.html">mtthwhys</a></span></div><div class="post-body">Hello all,<br>
+<br>
+This is technically my second post.  So, first off thanks very much for having me.<br>
+<br>
+Okay, so now my questions.  I've been working for the past week or so with the N Tutorials and a bunch of articles that I've found thanks to the awesome bibliographies, plus a bunch of my own searching.... and I have a couple of questions.<br>
+<br>
+First:  Does anyone know more about how the ragdoll animation (pre-death) is handled... I know this stuff gets asked like every other day (I searched)... but I'm really more interested in (programmatically?) animating the feet/arms during the run, jump, etc.  Also, I'm curious about the code that goes into determining wall collision... i.e. when to wall-grab vs. slide/run, etc.<br>
+<br>
+Second:  This one's a little more broad.  Does anyone know about how the game is organized... the actual game... not like the tutorials, I assume it's pretty different, as that seems like it'd be a nightmare to keep track of, even with all the code on different layers.  I've been looking into stuff on MVC and Finite State Machines for the game, and maybe even the hero/main character... and I'm also thinking about implimenting Hash Tables and Double Linked Lists as utility classes for (more rigidly) handling the object/grid and collision function/access stuff... Like I said... this one's a little broad.  Anything useful would be greatly appreciated.<br>
+<br>
+A little about me:  I'm in my 3rd or 4rth year of Flash development.  I've worked mostly with AS2, but am getting into AS3 with Flex, and I'm excited about the upcoming release of Flash CS3.  I have an art school background, so a lot of this stuff is like new design toys for me to play with also.  I do almost all of my actual application programming OOP style... as it saves me a ton of time in debugging etc.  I've always been interested in games, and have even tried a few, but they never got out of the experimental stages, and I'd like this new project to "make it."  Projects I have finished have been mostly commercial/corporate e-learning sites, using Flash for video/audio/animation/design/etc.<br>
+<br>
+A little about my game project:  I'm working on a 2D side-scroller/platformer puzzle game... NO DUH!! In fact, It's going to be a lot like N in a lot of ways.  At least the bare bones basics of the game will resemble N, as it's really close to what I want to end up with, and seems to be super stable.  My game will be different in the "bells and whistles" I'd like to add to it.  Those being things like:  richer graphics for tiles, objects, and world backgrounds; character advancement, or levelling up; "powers;" other stuff that's too awesome to even mention.  Also, the pacing I'm aiming for with my game is a lot slower than N... no timer, no loot... etc.<br>
+<br>
+In the process of porting (copying?) the N tutorial code over to AS3, I've realized that I'm probably going to be best served by building a super-tiny, actual-physics-engines-would-laugh-at-it, kind of physics engine... built specifically for comparing collisions against this set of tiles... etc.  It'll basically be classes, Vector, Particle, Circle, AABB, Map, Cell, Tile, ColliderOrSomething(?), RayCastingThingamabob(?).  Something like these, and utility things to support them.  Obviously, it's in the works.<br>
+<br>
+I should have a pretty solid AS3 port of the N tutorials up soon, and I'll post it to see what you think as soon as I do.  I plan on releasing a real game by the end of the summer, with hopefully a sample level by the end of the month.  I don't have a job right now, and don't need money for a while... so this is all I do.  I'm going to make it freeware, and am leaning open source.<br>
+<br>
+Anyway, let me know if you can help me with my questions (remember those) and I'll try and keep checking back here to see if I can help with anyone elses.<br>
+<br>
+Thanks again all, more soon,<br>
+//Matt</div></div>
+<div class="post" id="p309744"><div class="post-head"><a class="id" href="../t/16664.html#p309744">#309744</a> <span class="index">2</span> <span class="date">2007-04-03T00:45:01Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">I doubt anyone but M&amp;R are going to be able to answer this accurately, unless someone has actually decompiled that game, but we all know that's just wrong.<br>
+Anyways, my best guess would have to be that the ninja is animated through a mixture of movie clips and action script. The rag doll might not even come into effect until the death of the Ninja.<br>
+As for the wall collision, there's probably some value that the Ninja is constantly compared to to test if its getting close to the wall.<br>
+<br>
+As for the organization of the game, now that's purely M&amp;R's area. They programmed the game, and they're the only one's with the real source code.<br>
+Btw, M&amp;R are Mare and Regan, the creators of N, if you didn't know <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p317402"><div class="post-head"><a class="id" href="../t/16664.html#p317402">#317402</a> <span class="index">3</span> <span class="date">2007-05-01T22:17:21Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hi,<br>
+1) for animation, we actually used timeline/movieclip animation for all the non-ragdoll stuff, BUT in order to be able to setup the ragdoll in the correct pose, this required us to painstakingly place invisible "marker" movieclips on the hands/feet/pelvis/shoulders of the ninja for every frame (the running animation alone is about 100 frames). this sort of thing is a tradeoff: if you animate everything in code, you don't get to use any of flash's great built-in support for animation, but your animation data is very accessible (i.e you wouldn't need a workaround like the one we used). if you animate using flash, you run into problems with getting the hand-made animations interacting with your code.<br>
+<br>
+it's hard to say what the best approach is, both have pros and cons. our method works, but if there were more animations it would quickly become a nightmare.<br>
+<br>
+2) we used finite-state machines for everything in the game, from menu-logic to enemy-logic. however, because we were using AS1 we didn't actually use a proper FSM system (where each state is an object, etc), we just "implicitly" used FSMs.<br>
+<br>
+i would _strongly_ recommend using a real FSM system, because things get horrible really quickly. it doesn't have to be complex, but a proper system where each state is an object with a Start(), Tick(), and Stop() function is a good start.<br>
+<br>
+i recommend checking out any of the Game Programming Gems or AI Game Programming Wisdom books for articles on simple FSM systems -- AIGPW 2 has an article called "the ultimate guide to FSMs in games" which sort of goes through several different ideas.<br>
+<br>
+here's a good online article: <br>
+<a href="http://ai-depot.com/FiniteStateMachines/FSM-Framework.html">http://ai-depot.com/FiniteStateMachines/FSM-Framework.html</a><br>
+<br>
+<br>
+for the player logic, we provided several query functions which are used by the logic -- as far as i remember we track isOnGround and isNearWall, the former is set when we collide the player vs the world (our CollideObjectVsTiles() function returns a boolean to indicate collision/no collision), the latter uses two point queries, one on either side of the ninja, which return true if the point is inside a tile. <br>
+<br>
+<br>
+raigan</div></div>
+</main>
+</body>
+</html>

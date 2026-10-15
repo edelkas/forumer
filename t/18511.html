@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turning the tutorial into a full game... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Turning the tutorial into a full game...</nav></header>
+<main>
+<div class="post" id="p16347"><div class="post-head"><a class="id" href="../t/18511.html#p16347">#16347</a> <span class="index">1</span> <span class="date">2007-07-22T17:29:56Z</span> <span class="author"><a href="../u/9374806.html">WarpZone</a></span></div><div class="post-body">I'm digging into the source code for <a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html">Tutorial B - [ Grid-Based Collision Detection and Raycasting. ]</a>  Thanks for providing these tutorials, by the way.  I've done some simple games in Flash before, but this is a much more elaborate system than any I've ever used before.<br>
+<br>
+Right now I'm trying to turn the "move a sphere around with gravity" tutorial into an actual platform game.  One issue is how to detect a keypress using InputManager.  After looking at the functions availible in InputManager, I've tried this:<br>
+<br>
+if(input.Pressed(Key.UP))<br>
+{<br>
+	trace("jump");<br>
+}<br>
+<br>
+in the main loop, but it doesn't seem to do anything.  Any suggestions?  <br>
+<br>
+I notice that your existing movement controls in the demo use Key.isDown instead of InputManager... would it be simpler for me to just add another key listener to the intialization and do my own Key.isDown(Key.UP) checks the usual way?  It seems like kind of a waste to not use InputManager, since it's there.</div></div>
+<div class="post" id="p346278"><div class="post-head"><a class="id" href="../t/18511.html#p346278">#346278</a> <span class="index">2</span> <span class="date">2007-07-22T20:32:07Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i use a key listener for keys that you would press and not hold, and onClipEvent to detect if keys are pressed upon entering the frame<br>
+<br>
+key listener:<br>
+<pre class="code">myListener = new Object();
+myListener.onKeyDown = function () {
+	if(Key.isDown(80)){
+  /*code to be executed when specified key is pressed*/
+	}
+}
+myListener.onKeyUp = function () {
+	
+}
+
+Key.addListener(myListener);
+}</pre><br>
+just replace the number 80 with the corresponding key code (i forgot where i found these, you will have to do some searching<br>
+<br>
+onClipEvent:<br>
+<pre class="code">onClipEvent(enterFrame) {
+	if(Key.isDown(key.RIGHT)) {
+               /*code to be executed*/
+        }
+}</pre><br>
+just replace key.RIGHT with the key you want</div></div>
+<div class="post" id="p346355"><div class="post-head"><a class="id" href="../t/18511.html#p346355">#346355</a> <span class="index">3</span> <span class="date">2007-07-23T00:14:21Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">you need to call the inputmanager's .Tick() function every frame.. i'm not sure how useful that class is, it's quite old (Flash 5)!</div></div>
+<div class="post" id="p346418"><div class="post-head"><a class="id" href="../t/18511.html#p346418">#346418</a> <span class="index">4</span> <span class="date">2007-07-23T03:51:55Z</span> <span class="author"><a href="../u/9374806.html">WarpZone</a></span></div><div class="post-body">All I know is, I told the demo to be AS 2.0, player 8, and it didn't break the old source code.<br>
+<br>
+Thanks for the tips.  Has anyone integrated this with a scrolling engine? <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+</main>
+</body>
+</html>

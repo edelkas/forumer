@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tnnl. N Level Editor - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; Tnnl. N Level Editor</nav></header>
+<main>
+<div class="post" id="p2047"><div class="post-head"><a class="id" href="../t/2292.html#p2047">#2047</a> <span class="index">1</span> <span class="date">2005-02-19T23:52:27Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Hey N level makers.<br>
+<br>
+I got a few questions for you. Have you came up with a file format for storing N levels?<br>
+<br>
+I'm making an N level editor and I'd like to know if such thing exists to make it compatible with the current format. I already implemented one, but it would be better to be compatible with what you have if such thing exists.<br>
+<br>
+The editor I'm working on has many features, some of wihich are:<br>
+<br>
+Editor<ul><li>Drawing tiles by dragging the mouse</li><li>Copying areas and pasting them</li><li>Using different pivot points for pasting so you can leave some parts of what is being pasted out</li><li>Fast copying of all text data with a button, to test in N</li><li>Auto copying of all data with just changing to another window</li><li>Showing the border of the level or not, to save screen space</li><li>Grid and half snap grid, with custom colors</li><li>Saving comments, author, difficulty, etc in the level file</li><li>500 undo/redo levels</li><li>Opening levels from the shell by double clicking</li><li>Plus many more things...</li></ul><b>Edit:</b>  File is now posted here for easier access. To see what's new, read the readme.txt file inside the zip. For an image of what the program looks like, scroll down a little to my next post.<br>
+<br>
+- TMT <div class="attachment attachment-missing">Attachment (lost): post-33-1115186260.zip</div></div></div>
+<div class="post" id="p51014"><div class="post-head"><a class="id" href="../t/2292.html#p51014">#51014</a> <span class="index">2</span> <span class="date">2005-02-20T01:06:14Z</span> <span class="author"><a href="../u/9370755.html">Assassin of Sabotage</a></span></div><div class="post-body">Looking good.<br>
+-GC- 's N Level Manager uses files with a .nrl<br>
+Ask him about it</div></div>
+<div class="post" id="p51015"><div class="post-head"><a class="id" href="../t/2292.html#p51015">#51015</a> <span class="index">3</span> <span class="date">2005-02-20T01:27:34Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">There's no established format. Use your own if you want, we usually just use .txt files.<br>
+<br>
+That looks like a very nice program, by the way. What language did you program it with? My guess is Visual Basic.</div></div>
+<div class="post" id="p51016"><div class="post-head"><a class="id" href="../t/2292.html#p51016">#51016</a> <span class="index">4</span> <span class="date">2005-02-20T01:35:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So far I am using txt files, but with a different extension (.tnnl) so when you double click them the program opens. That way I won't screw your (.txt) file association. But you can still open the file with notepad and change it.<br>
+<br>
+I thought there was more of a common file format used by everyone. Maybe we should set one file format so everyone can share it, regardless of the tool. Maybe even use it to upload files to NUMA.<br>
+<br>
+This is what I'm doing so far:<br>
+<br>
+Author:<br>
+TMT<br>
+<br>
+Level Name:<br>
+My test level<br>
+<br>
+Category:<br>
+Rescue Mission<br>
+<br>
+Difficulty:<br>
+Very Easy<br>
+<br>
+N Version:<br>
+1.3c<br>
+<br>
+Created:<br>
+2005-02-14<br>
+<br>
+Last Modified:<br>
+2005-02-16<br>
+<br>
+Description:<br>
+This is a test for the description...<br>
+<br>
+Level Data:<br>
+0000000000000000000000000000000000000000000000000000000000000.....<br>
+<br>
+<br>
+As you can see, it's really easy to parse. First line is the value name, next line the value and then an empty line. and repeat. Also, the information there is what I managed to gather from all the work you have done classifying levels. Am I missing something?<br>
+<br>
+BTW, It's not Visual Basic, It's C++.<br>
+And every pane you see there, can be scrolled, so if you have a small screen resolution, you see scrollbars in the level or the tools or whenever you need them.<br>
+<br>
+<b>Edit:</b> Now showing here a picture of the latest version.<br>
+<br>
+-TMT <div class="attachment attachment-missing">Attachment (lost): post-33-1115186620.png</div></div></div>
+<div class="post" id="p51025"><div class="post-head"><a class="id" href="../t/2292.html#p51025">#51025</a> <span class="index">5</span> <span class="date">2005-02-20T03:03:36Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Looks good. This the third one that's being worked on, so it appears level editor making has become the latest craze.</div></div>
+<div class="post" id="p51026"><div class="post-head"><a class="id" href="../t/2292.html#p51026">#51026</a> <span class="index">6</span> <span class="date">2005-02-20T03:07:38Z</span> <span class="author"><a href="../u/9370755.html">Assassin of Sabotage</a></span></div><div class="post-body">I'd make one too, however my programming skills are well... non existent. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+I have the best ideas (or so i think)... I wish i could do something with them.</div></div>
+<div class="post" id="p51050"><div class="post-head"><a class="id" href="../t/2292.html#p51050">#51050</a> <span class="index">7</span> <span class="date">2005-02-20T13:09:43Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Why the outbreak of level editors. I'm not denying that they're all great but one of the main features of the next release is supposed to be an improved Ned <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p51054"><div class="post-head"><a class="id" href="../t/2292.html#p51054">#51054</a> <span class="index">8</span> <span class="date">2005-02-20T13:56:07Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">The "outbreak" of new editors is because M&amp;R just said anyone can make an editor (I think, or maybe just gc has permission and everyone else will be breaking copyright law if they release theirs).  And I wouldn't count on that improved ned being a huge improvement.</div></div>
+<div class="post" id="p51060"><div class="post-head"><a class="id" href="../t/2292.html#p51060">#51060</a> <span class="index">9</span> <span class="date">2005-02-20T15:45:45Z</span> <span class="author"><a href="../u/9370613.html">Eli</a></span></div><div class="post-body">What would be more important to have in aneditor is to be able to place cool stuff that it's really hard to place by hand. Like diagonal one-ways or bounce blocks. And like a ton of other stuff I'm sure other people will come up with.</div></div>
+<div class="post" id="p51066"><div class="post-head"><a class="id" href="../t/2292.html#p51066">#51066</a> <span class="index">10</span> <span class="date">2005-02-20T20:32:41Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">that's about the game's programming, not level editing... until Mare and Raigan release the source code it's not gonna happnen.</div></div>
+<div class="post" id="p51096"><div class="post-head"><a class="id" href="../t/2292.html#p51096">#51096</a> <span class="index">11</span> <span class="date">2005-02-21T00:24:00Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">To be honest, I had no idea there were previous editors when I started this. Then I saw that new editor that came out and there I found out about the previous cancelled one.<br>
+<br>
+In any case, I want mine to be as easy to use as possible but also with as many "useful" features as possible.<br>
+<br>
+I almost finish the tile placement part, so if any of you wants to test it to tell me how it feels it would be great. So, any volunteers? (Windows only)<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51097"><div class="post-head"><a class="id" href="../t/2292.html#p51097">#51097</a> <span class="index">12</span> <span class="date">2005-02-21T01:11:22Z</span> <span class="author"><a href="../u/9370429.html">TornadoTK</a></span></div><div class="post-body">I'll give it a go. PM it to me, or just put up an attachment.<br>
+<br>
+EDIT: Actually, you should add in the border tiles (which cannot be edited) just so it doesn't look odd, and (if it isn't there already,) an option to make grid lines invisible.<br>
+<br>
+A little off topic, but: If N ever goes into file format for levels, how about we make them all ".ned"? Eh?</div></div>
+<div class="post" id="p51098"><div class="post-head"><a class="id" href="../t/2292.html#p51098">#51098</a> <span class="index">13</span> <span class="date">2005-02-21T01:31:24Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I think I wil post it here so you can try it. I just need to finish a couple of details.<br>
+<br>
+The 2 things you asked are already there. The third to last button in the toolbar is pushed, and that's the grid. The next one enables the border of tiles. (Also selectable in the View menu)<br>
+<br>
+About .ned. I checked that extension and is already taken by some microsoft software. Since I didn't want to mess with anyone's extensions, I didn't choose it.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51100"><div class="post-head"><a class="id" href="../t/2292.html#p51100">#51100</a> <span class="index">14</span> <span class="date">2005-02-21T01:55:30Z</span> <span class="author"><a href="../u/9370612.html">Patrick</a></span></div><div class="post-body">I'll have a go as well <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p51124"><div class="post-head"><a class="id" href="../t/2292.html#p51124">#51124</a> <span class="index">15</span> <span class="date">2005-02-21T08:00:16Z</span> <span class="author"><a href="../u/9370490.html">JeR(K)</a></span></div><div class="post-body">He suggested the grid to become <b>in</b>visible. As an option.</div></div>
+<div class="post" id="p51128"><div class="post-head"><a class="id" href="../t/2292.html#p51128">#51128</a> <span class="index">16</span> <span class="date">2005-02-21T08:08:44Z</span> <span class="author">Guest</span></div><div class="post-body">I'm actually kinda partial to the grid. Looks pretty saucy. But options are never a bad thing.</div></div>
+<div class="post" id="p51135"><div class="post-head"><a class="id" href="../t/2292.html#p51135">#51135</a> <span class="index">17</span> <span class="date">2005-02-21T11:15:32Z</span> <span class="author"><a href="../u/9370613.html">Eli</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p51066">Quote: maximo, Feb 20 2005, 08:32 PM</a></div> that's about the game's programming, not level editing... until Mare and Raigan release the source code it's not gonna happnen.  </blockquote> <br>
+ No, it's about level editing. I'm referring to the levels I made a long time ago with diagonal streamers of one-ways single pixels apart, making effectively a diagonal one-way. It was fun.</div></div>
+<div class="post" id="p51330"><div class="post-head"><a class="id" href="../t/2292.html#p51330">#51330</a> <span class="index">18</span> <span class="date">2005-02-23T06:12:04Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Right now I'd like a few more volunteers for testing Tnnl. It is still a beta, only tile placing works (no objects yet), but I would like to know how it feels for you level editors before moving on to finish it. I would rather not post it here to avoid spreading unfinished applications, but if that is what you prefer, so be it.<br>
+<br>
+Anyone else?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51341"><div class="post-head"><a class="id" href="../t/2292.html#p51341">#51341</a> <span class="index">19</span> <span class="date">2005-02-23T08:53:46Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Sure <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p51356"><div class="post-head"><a class="id" href="../t/2292.html#p51356">#51356</a> <span class="index">20</span> <span class="date">2005-02-23T15:16:47Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Let me guess. Windows only?  <img class="smiley" src="../files/smilies/29.gif" alt="ashamed" title="ashamed"></div></div>
+<div class="post" id="p51359"><div class="post-head"><a class="id" href="../t/2292.html#p51359">#51359</a> <span class="index">21</span> <span class="date">2005-02-23T15:24:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Yeah, Windows only. I don't own a Mac.<br>
+<br>
+So here it is, a beta release. I think I've already said it is not complete. This is mostly for feedback. So try it.<br>
+<br>
+EDIT: File removed from this post. Look at the first post.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51365"><div class="post-head"><a class="id" href="../t/2292.html#p51365">#51365</a> <span class="index">22</span> <span class="date">2005-02-23T15:47:57Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">Its nice. Got some pretty kick ass features. Im interested in how you will handle the objects. Compared to the tiles they are evil.<br>
+<br>
+Im actually working on a new version of my level editor. Its in about the same stage as yours except Ive started on the objects (Yes, you can place them anywhere). Im not gonna be releasing it for a while though.</div></div>
+<div class="post" id="p51367"><div class="post-head"><a class="id" href="../t/2292.html#p51367">#51367</a> <span class="index">23</span> <span class="date">2005-02-23T15:53:05Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Thats pretty cool TMT. I love the copy &amp; paste. Is there a way to draw tiles like you do in [the real] ned?<br>
+<br>
+ie. left then down does an L shape instead of a square of tiles.</div></div>
+<div class="post" id="p51369"><div class="post-head"><a class="id" href="../t/2292.html#p51369">#51369</a> <span class="index">24</span> <span class="date">2005-02-23T15:59:25Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac: If you want to use it as Ned, just activate the Ned compatibility mode in Edit &gt; Options. That way it works like Ned. Or at least it should  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Eeyore: I'm not sure about the objects yet. Maybe handle each one based on what it is. Like the gold, maybe able to draw a group of them, like tiles. But objects like mines or turrets should be placed one by one. Good luck with your own editor. Looking forward to using it.<br>
+<br>
+So it is good to know it works  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51386"><div class="post-head"><a class="id" href="../t/2292.html#p51386">#51386</a> <span class="index">25</span> <span class="date">2005-02-23T21:56:12Z</span> <span class="author"><a href="../u/9370519.html">-Gc-</a></span></div><div class="post-body">Hey - at all TMT - who said my Level Editor has been canceled?<br>
+<br>
+Actually I'm wutie working on it and I've got nearly fully working object support [ask i.e. JeR(k)]<br>
+So at all it's gonna be intersting <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Oh and your Editor is really nice!<br>
+I like the easy access to the tools!</div></div>
+<div class="post" id="p51387"><div class="post-head"><a class="id" href="../t/2292.html#p51387">#51387</a> <span class="index">26</span> <span class="date">2005-02-23T21:57:31Z</span> <span class="author"><a href="../u/9370612.html">Patrick</a></span></div><div class="post-body">Wow, this has some very useful (and time-saving) functions <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Awesome job so far!</div></div>
+<div class="post" id="p51388"><div class="post-head"><a class="id" href="../t/2292.html#p51388">#51388</a> <span class="index">27</span> <span class="date">2005-02-23T22:08:35Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Okay, I've ben experimenting with making a few (bad) tilesets, and it's definately much easier then in ned. But it would be nice if there were more options for selections other than copy/paste. Rotate and flip for instance.</div></div>
+<div class="post" id="p51396"><div class="post-head"><a class="id" href="../t/2292.html#p51396">#51396</a> <span class="index">28</span> <span class="date">2005-02-23T23:09:24Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">-Gc-: What I meant is that I learned when you cancelled yours as M&amp;R asked you to stop working on it. I know you are back working on it. Looking forward to use yours too.<br>
+<br>
+trib4lmaniac: Those are very interesting ideas. But there are a couple of issues. Rotation would only be possible if you select a square area. Otherwise the rotation wouldn't be even. However, how about copying and then rotating the tiles before pasting them? That way you could choose which tiles stay and which get overwritten.<br>
+<br>
+But for both rotation and flipping, it would be more than just reordering the tiles. If I only reorder, then it would look li ke the picture. So I'm assuming you mean keeping the original shape, which involves finding the tiles that are the angled counterparts.<br>
+<br>
+As for flipping, the same can be done, and it can be done by just selecting or pasting. <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51397"><div class="post-head"><a class="id" href="../t/2292.html#p51397">#51397</a> <span class="index">29</span> <span class="date">2005-02-23T23:10:05Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Oops, here is the picture I referenced in the last post  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-7-1109200205.png</div></div></div>
+<div class="post" id="p51398"><div class="post-head"><a class="id" href="../t/2292.html#p51398">#51398</a> <span class="index">30</span> <span class="date">2005-02-23T23:15:36Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Okay, stuff I've noticed do far...<br>
+<br>
+<b>Bugs:</b><ul><li>Ned compatibility mode does not work for E and D keys.</li><li>Select tiles -&gt; Ctrl+C -&gt; Ctrl+V -&gt; Select Pivot point -&gt; Move back into work area == Bug in screenshot. The intruding segment dissapears after a while, but it's still annoying.</li></ul><b>Missing Features:</b><ul><li>Selection tools (Flip/rotate)</li><li>Pressing delete on selected tiles should remove them (Same as tile E).</li><li>Clicking and dragging a selection should move the selection around.</li><li>Cut (as opposed to copy).</li></ul> <div class="attachment attachment-missing">Attachment (lost): post-7-1109200561.png</div></div></div>
+<div class="post" id="p51434"><div class="post-head"><a class="id" href="../t/2292.html#p51434">#51434</a> <span class="index">31</span> <span class="date">2005-02-24T01:11:15Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac, I'm working on fixing the bugs. However I'm not sure about your request for using delete to clear the selected tiles. Not that I won't implement that, but I intend to use delete for changing between tiles and objs, just like Ned, so people adapt fast. Any other key you might want to suggest? So far I'm using Ctrl+Shift+X for deleting.<br>
+<br>
+Unless emulating Ned is not that big of a deal, then I could use delete for that.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51440"><div class="post-head"><a class="id" href="../t/2292.html#p51440">#51440</a> <span class="index">32</span> <span class="date">2005-02-24T01:24:57Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">How about Backspace?</div></div>
+<div class="post" id="p51442"><div class="post-head"><a class="id" href="../t/2292.html#p51442">#51442</a> <span class="index">33</span> <span class="date">2005-02-24T01:41:06Z</span> <span class="author"><a href="../u/9370429.html">TornadoTK</a></span></div><div class="post-body">I think that Right Mouse should be assigned to Fill Square, and Left Mouse is the Draw Tiles button.<br>
+<br>
+Also, when I Fill Square drag up, then down afterwards, it leaves a stain on my screen until I let go.<br>
+<br>
+EDIT: Actually, a less confusing tile layout would be nice, no offense. Check screenshot. Coming Soon.</div></div>
+<div class="post" id="p51444"><div class="post-head"><a class="id" href="../t/2292.html#p51444">#51444</a> <span class="index">34</span> <span class="date">2005-02-24T01:51:48Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">TornadoTK: Can you be a little more specific. I kind of have an idea of what you mean, but... do you mean filling tiles like in Ned, using Ned compatibility mode? You leave the key pressed and move out?<br>
+<br>
+Or is it just dragging a block of tiles?<br>
+<br>
+Tile layout? The one when you choose the tile to use? What is confusing?<br>
+<br>
+No offense taken, that's why I made it an open beta, to see where I was falling short.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51445"><div class="post-head"><a class="id" href="../t/2292.html#p51445">#51445</a> <span class="index">35</span> <span class="date">2005-02-24T01:52:43Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Hey look! It's throwback!<br>
+Unless I'm mistaken...</div></div>
+<div class="post" id="p51454"><div class="post-head"><a class="id" href="../t/2292.html#p51454">#51454</a> <span class="index">36</span> <span class="date">2005-02-24T03:13:47Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Why must you editor-makers insist on making you have to click on every rotation of every tile?  Aside from filling in large spaces, the way ned does tiles is absolutely perfect, with only a handfull of adjacent keyboard buttons to select all of the 34 different tiles.  That beats mouse selection, rather less single tile mouse selection, any day.</div></div>
+<div class="post" id="p51465"><div class="post-head"><a class="id" href="../t/2292.html#p51465">#51465</a> <span class="index">37</span> <span class="date">2005-02-24T05:38:42Z</span> <span class="author"><a href="../u/9370519.html">-Gc-</a></span></div><div class="post-body">(If I understand you right this post makes sense.... ---&gt; )<br>
+You can also just jump through the tiles by the mousewheel i.e. - that's a function of TMT's Editor as well as one of mine</div></div>
+<div class="post" id="p51478"><div class="post-head"><a class="id" href="../t/2292.html#p51478">#51478</a> <span class="index">38</span> <span class="date">2005-02-24T10:53:20Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">And a very handy one too.<br>
+<br>
+TMT: When I say rotate I mean rotate the selection <i>above</i> the tileset. You should be able to do everything to a tile selection that you can do in paint (except resize). If you're not sure what I mean, draw some squiggles in paint and selected them. Drag them, rotate them, flip them. Not until they are dropped is it finalised and the tiles below get overwritten.<br>
+<br>
+Does that make more sense? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p51504"><div class="post-head"><a class="id" href="../t/2292.html#p51504">#51504</a> <span class="index">39</span> <span class="date">2005-02-24T15:11:09Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I'm going to use Banannakid suggestion and use Backspace as shortcut, and TornadoTK's idea of using one mouse button for dragging a block of tiles and the other to draw them<br>
+<br>
+brickman: I don't know what you mean but you can select tiles with the keyboard in my editor just like Ned, with the same keys. And if that's not enough, you can make it draw tiles like Ned too.<br>
+<br>
+trib4lmaniac: I like your idea about rotating the tiles. What I meant with the rotation picture is that when you rotate, there are 2 issues. The first is that to keep the shape of what you rotated, the actual tile values have to change. Think of a set of 4 tiles making a diamond using the 4 tiles of the third row in the tile selector. It'd be a talled than wider diamond. Once rotated 90 degrees, it'd be wider than taller. I was just pointing that out.<br>
+Second issue is that if you select some tiles and rotate them, then if the selection is not square then I'm sure you can see how it'd mess the tiles around.<br>
+<br>
+However, I just implemented the rotation. You copy what you want and as you paste, you rotate and when you get what you want, click.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  Same for flipping.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51508"><div class="post-head"><a class="id" href="../t/2292.html#p51508">#51508</a> <span class="index">40</span> <span class="date">2005-02-24T15:46:30Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">I think that was what I meant. I'll confirm that when I see it.<br>
+<br>
+Also, you cannot type directly into the level data if the key is also a shortcut (ie. 1, 2 or 3)</div></div>
+<div class="post" id="p51623"><div class="post-head"><a class="id" href="../t/2292.html#p51623">#51623</a> <span class="index">41</span> <span class="date">2005-02-26T01:34:10Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">New Tnnl version with some of the fetures you suggested.<br>
+<br>
+* Once you copy the data, you can rotate it and flip it before pasting it.<br>
+* Cut and Delete implemented<br>
+* You can place tiles like drawing with the right mouse button<br>
+<br>
+I did a fix to the bug trib4lmaniac mentioned but that's not how I want it fixed, and also I didn't fix the Text box bug. I might do some big rework in part of the code to make new features easier to implement.<br>
+<br>
+In any case, test this new version and tell me how it works for you.<br>
+<br>
+You can download it from the post where the previous version used to be.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51705"><div class="post-head"><a class="id" href="../t/2292.html#p51705">#51705</a> <span class="index">42</span> <span class="date">2005-02-26T14:09:09Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Wow, awesome! That was exactly what I meant.<br>
+Two things noticed in the new version though.<ol><li>Undo after "right click tile placement" should undo the last <i>group</i> of tiles.</li><li>An option to change cut so that it leaves squares filled in instead of empty would be nice <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></li></ol><b>Edit:</b> And we still can't drag tiles around <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"><br>
+<br>
+<b>Edit 2:</b> Now my post looks very mean. You have done a totally awesome job :thumbsupsmilyifwehadone:</div></div>
+<div class="post" id="p51713"><div class="post-head"><a class="id" href="../t/2292.html#p51713">#51713</a> <span class="index">43</span> <span class="date">2005-02-26T15:40:45Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Shall I provide the honors?<br>
+<br>
+<img class="bb-img" src="../files/images/3888.gif" alt="" loading="lazy"><br>
+<br>
+I'm still kinda bitter that there isn't a custom Neditor for Mac. I have the programming skills to do this, but my stupid compiler is fussy and won't compile any of my work. Not even an error message.<br>
+<br>
+*sits in corner, twiddling thumbs*</div></div>
+<div class="post" id="p51749"><div class="post-head"><a class="id" href="../t/2292.html#p51749">#51749</a> <span class="index">44</span> <span class="date">2005-02-26T22:29:34Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Thanks everyone.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+Keep using it and at least try to use it as a substitute for Ned in tile placement. Any ideas you get, post them here.<br>
+<br>
+I think I'm going to do a rewrite of certain part of the code to make it a lot easier to implement more features and do really interesting stuff with the objects.<br>
+<br>
+trib4lmaniac: it is some of your ideas that I could implement now, but I will rather rewrite part of the code so they are easier to implement.<br>
+<br>
+Maniac: Why don't you code it in java?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51754"><div class="post-head"><a class="id" href="../t/2292.html#p51754">#51754</a> <span class="index">45</span> <span class="date">2005-02-26T23:18:56Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p51749">Quote: TMT, Feb 26 2005, 10:29 PM</a></div> Keep using it and at least try to use it as a substitute for Ned in tile placement. Any ideas you get, post them here.  </blockquote> <br>
+ It is already my main editor (for tiles)</div></div>
+<div class="post" id="p51813"><div class="post-head"><a class="id" href="../t/2292.html#p51813">#51813</a> <span class="index">46</span> <span class="date">2005-02-27T05:04:09Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Wow, I just bothered to try Tnnl. Very cool.</div></div>
+<div class="post" id="p52031"><div class="post-head"><a class="id" href="../t/2292.html#p52031">#52031</a> <span class="index">47</span> <span class="date">2005-02-28T12:49:24Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">There should be a way to draw a line of tiles diagonally too (for slopes).</div></div>
+<div class="post" id="p56594"><div class="post-head"><a class="id" href="../t/2292.html#p56594">#56594</a> <span class="index">48</span> <span class="date">2005-03-28T02:03:08Z</span> <span class="author"><a href="../u/9370786.html">117</a></span></div><div class="post-body">Ohh this thing looks good... When will it be done???</div></div>
+<div class="post" id="p56600"><div class="post-head"><a class="id" href="../t/2292.html#p56600">#56600</a> <span class="index">49</span> <span class="date">2005-03-28T02:13:36Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p56594">Quote: 117, Mar 27 2005, 06:03 PM</a></div> Ohh this thing looks good... When will it be done???  </blockquote> <br>
+ The thing you gotta understand about programmers, is that we're a lazy bunch. I can't speak for this program in particular, but what you see now may be the furthest it'll ever get.</div></div>
+<div class="post" id="p56607"><div class="post-head"><a class="id" href="../t/2292.html#p56607">#56607</a> <span class="index">50</span> <span class="date">2005-03-28T02:40:50Z</span> <span class="author"><a href="../u/9370786.html">117</a></span></div><div class="post-body">Oh well that sucks... <br>
+<br>
+Also I got a question... the download on the "dowload page" is v1.3???</div></div>
+<div class="post" id="p56611"><div class="post-head"><a class="id" href="../t/2292.html#p56611">#56611</a> <span class="index">51</span> <span class="date">2005-03-28T02:49:06Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Well, thats because 1.4 hasn't come out just yet.</div></div>
+<div class="post" id="p56704"><div class="post-head"><a class="id" href="../t/2292.html#p56704">#56704</a> <span class="index">52</span> <span class="date">2005-03-28T16:08:30Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p56600">Quote: LittleViking001, Mar 28 2005, 02:13 AM</a></div> what you see now may be the furthest it'll ever get.  </blockquote> <br>
+ I doubt it, I had a PM from TMT recently asking me if I want to test the new version. I replied yes and I'm waiting for a response.</div></div>
+<div class="post" id="p56804"><div class="post-head"><a class="id" href="../t/2292.html#p56804">#56804</a> <span class="index">53</span> <span class="date">2005-03-28T23:30:56Z</span> <span class="author"><a href="../u/9370786.html">117</a></span></div><div class="post-body">Anyway I can be a tester ?  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p57035"><div class="post-head"><a class="id" href="../t/2292.html#p57035">#57035</a> <span class="index">54</span> <span class="date">2005-03-29T23:00:16Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">ill leave the new Ned editing software to the people who know things about computers.  hehe.  I think its okay to let them do the busywork and I play.</div></div>
+<div class="post" id="p57146"><div class="post-head"><a class="id" href="../t/2292.html#p57146">#57146</a> <span class="index">55</span> <span class="date">2005-03-30T18:49:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I'm still working on Tnnl. So far I've concentrated on cleaning and improving the source code so I can add many features easily, since I'm sure all you will come up with suggestions. Also, since N 1.4 is supposed to be done soon, I'm waiting to see what's new so I can implement those changes without double working.<br>
+<br>
+Anyone who wants to beta test can download it. It is an open beta so I can get as many suggestions as possible.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p57158"><div class="post-head"><a class="id" href="../t/2292.html#p57158">#57158</a> <span class="index">56</span> <span class="date">2005-03-30T21:04:38Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">So, um uh, any plans for Mac ports?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+<b>EDIT:</b><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p51749">Quote: TMT, 2005-02-26T22:29:34Z</a></div>Maniac: Why don't you code it in Java?</blockquote><br>
+I don't <i>know</i> Java, silly.  <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"> <br>
+<br>
+What I <i>do</i> know is C++, and my stupid C++ compiler hates me, like so many objects in my life. What a pity. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p57160"><div class="post-head"><a class="id" href="../t/2292.html#p57160">#57160</a> <span class="index">57</span> <span class="date">2005-03-30T21:07:04Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">Maniac... OS X ?<br>
+<br>
+Can't you run WINE or something ?</div></div>
+<div class="post" id="p57162"><div class="post-head"><a class="id" href="../t/2292.html#p57162">#57162</a> <span class="index">58</span> <span class="date">2005-03-30T21:09:08Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">No.<br>
+<br>
+I don't know what WINE is, other than I guess it stands for Windows Interface something something.</div></div>
+<div class="post" id="p57242"><div class="post-head"><a class="id" href="../t/2292.html#p57242">#57242</a> <span class="index">59</span> <span class="date">2005-03-31T03:04:29Z</span> <span class="author"><a href="../u/9370786.html">117</a></span></div><div class="post-body">Where do we dounload it from TMT</div></div>
+<div class="post" id="p57299"><div class="post-head"><a class="id" href="../t/2292.html#p57299">#57299</a> <span class="index">60</span> <span class="date">2005-03-31T06:57:16Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p57242">Quote: 117, Mar 30 2005, 07:04 PM</a></div> Where do we dounload it from TMT  </blockquote> <br>
+ Get it in this thread, I attached the program in one of my earlier posts. But bear in mind that it is a beta and it isn't complete by far. But I'm always interested in (constructive) comments.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62160"><div class="post-head"><a class="id" href="../t/2292.html#p62160">#62160</a> <span class="index">61</span> <span class="date">2005-04-26T04:07:58Z</span> <span class="author"><a href="../u/9370732.html">great_sea</a></span></div><div class="post-body">Oooh, exciting. I just read this thread over, sounds awesome... *goes and tries out editor*<br>
+<br>
+<br>
+Just on kind of a random note, maybe when the newest version is ready you could attach it to your original post - which started this thread. That way the file will be more in the forefront so people can find it easily.<br>
+<br>
+Alright, just tried it out. Very nice. It will be twice as cool when object placement gets implemented, but until then it is still quite useful for tiles. I am really excited that you are working on this! <br>
+<br>
+I know right now you are working on refining the coding, and not neccessarily implementing new features, but here are a couple suggestions anyway. <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> First I think it would be nice to be able to make only the 1/2 snap grid invisible. That way it would not look quite so cluttered when working only on tiles. Also, I am sure you are aware of this, but in the Ned compatible mode, it would be nice to have E insert a filled tile and D insert a blank tile. This is just minor stuff, though; overall this is an extremely useful application. I hope it is still coming along.</div></div>
+<div class="post" id="p62178"><div class="post-head"><a class="id" href="../t/2292.html#p62178">#62178</a> <span class="index">62</span> <span class="date">2005-04-26T09:41:37Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">That reminds me, I think it would be better if the left and right clicks were switched around (right-click drags a box a tiles, left draws tiles along a path).<br>
+<br>
+And the new version works fine TMT <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p62968"><div class="post-head"><a class="id" href="../t/2292.html#p62968">#62968</a> <span class="index">63</span> <span class="date">2005-04-30T18:00:45Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">New version. I implemented great_sea suggestion for disabling the half grid. Also, D and E not working was a bug and I hadn't noticed it <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">. It used to work before I rewrote part of the code. It's fixed now  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  plus many more bugs fixed.<br>
+<br>
+Now the program is located in the first post of this thread. Grab it while it's hot  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63699"><div class="post-head"><a class="id" href="../t/2292.html#p63699">#63699</a> <span class="index">64</span> <span class="date">2005-05-04T06:02:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">And another new version. In this one you can flip and rotate tiles by just selecting them. However, this type of rotation only works with selections of the same width and height. Also added a few more grid options. Not as many as what the new Ned has, but hopefully will be enough. And also added the new N version to the level properties, so you can save your new maps properly.<br>
+<br>
+Comments, Bugs? <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63774"><div class="post-head"><a class="id" href="../t/2292.html#p63774">#63774</a> <span class="index">65</span> <span class="date">2005-05-05T00:39:45Z</span> <span class="author"><a href="../u/9370818.html">mathx314</a></span></div><div class="post-body">Perhaps I'm just an idiot, but can you add in objects yet?</div></div>
+<div class="post" id="p63780"><div class="post-head"><a class="id" href="../t/2292.html#p63780">#63780</a> <span class="index">66</span> <span class="date">2005-05-05T01:26:07Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">i'm pretty sure you can't.  it's just a tile editor.</div></div>
+<div class="post" id="p63968"><div class="post-head"><a class="id" href="../t/2292.html#p63968">#63968</a> <span class="index">67</span> <span class="date">2005-05-06T16:47:18Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Bug: Cannot rotate non-square tile selections.<br>
+<blockquote class="quote"><div class="quote-head">Quote: Error</div>TileCopy::GetTile : Bad index, 0 will be returned</blockquote></div></div>
+<div class="post" id="p63993"><div class="post-head"><a class="id" href="../t/2292.html#p63993">#63993</a> <span class="index">68</span> <span class="date">2005-05-06T20:35:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">You are not supposed to rotate non-square selections, because then you'd overwrite other tiles.<br>
+<br>
+But how did you get that error message? Did you try rotating a non-square area? The option shouldn't be available unless the selected area is a square... <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+Details?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63999"><div class="post-head"><a class="id" href="../t/2292.html#p63999">#63999</a> <span class="index">69</span> <span class="date">2005-05-06T22:03:34Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Why can't I rotate non-square areas. I mean a pasted selection that I'm dragging around. Obviously I can't rotate actual tile selections.</div></div>
+<div class="post" id="p64262"><div class="post-head"><a class="id" href="../t/2292.html#p64262">#64262</a> <span class="index">70</span> <span class="date">2005-05-08T06:50:59Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">To clarify, you can rotate something you are pasting, no matter if it is square shaped or not. But if you just select a non square area, the rotation buttons should be disabled. Only if the selected area is square shaped, then you can rotate it, without the need to copy and paste.<br>
+<br>
+As for the bug, did it happen when you pasted something? Because that message you showed me is important.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p64335"><div class="post-head"><a class="id" href="../t/2292.html#p64335">#64335</a> <span class="index">71</span> <span class="date">2005-05-08T14:50:35Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Make a rectangular selection -&gt; Cut (Ctrl+X) -&gt; Paste (Ctrl+V) -&gt; Rotate.<br>
+<br>
+When you rotate clockwise, you get a bunch of errors, but as you keep pressing "ok" you see the rotation gradually happen. Counterclockwise: Infinite errors.</div></div>
+<div class="post" id="p64362"><div class="post-head"><a class="id" href="../t/2292.html#p64362">#64362</a> <span class="index">72</span> <span class="date">2005-05-08T17:57:57Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">with the new Ned, what are the benefits of Tnnl?</div></div>
+<div class="post" id="p64394"><div class="post-head"><a class="id" href="../t/2292.html#p64394">#64394</a> <span class="index">73</span> <span class="date">2005-05-08T20:11:08Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">I still like it better. For tiles at least <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Keep up the good work TMT.</div></div>
+<div class="post" id="p64492"><div class="post-head"><a class="id" href="../t/2292.html#p64492">#64492</a> <span class="index">74</span> <span class="date">2005-05-09T00:26:27Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac, I did what you told me, cut, paste (with keyboard shortcut), rotate with toolbar and nothing. clicked to paste and nothing. I had that error before every now and then, and was a somewhat known bug to me, but in version 233, I found what I thought was causing the bug and fixed it.<br>
+If you find a way to replicate the error, tell me. Also check if you are using 233.<br>
+<br>
+Eldrial, Tnnl has 500 undo/redo levels. I don't know how deep the undo stack (if any) of the new Ned is. I think undo is only for objects, but I might be wrong. Btw, if 500 is not enough, just tell me to increase it. With Tnnl you can draw tiles with keyboard (Ned compatible) or mouse, by dragging a block of as if you were paint-brushing. You can select tiles and flip them horizontally or vertically, which helps if you are making symmetric levels. You can also rotate them. You can copy any amount of tiles, and rotate or flip them before pasting them. You can store each level in its file, along with its information. You can edit any level you already made by just double clicking the file. And if you feel lazy, you can do all this with just the mouse, almost no pressing keys required. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Plus I still got more things cooking (objects), but it's a little slow because I only code it in my spare time.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p66793"><div class="post-head"><a class="id" href="../t/2292.html#p66793">#66793</a> <span class="index">75</span> <span class="date">2005-05-15T22:35:01Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">Whoa...I just tried this for the first time.  Its crazy good.  Wow.  I could never program anything from scratch.  Really, exactly what trib4l said...keep up the good work.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>framerate independence in flash - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; framerate independence in flash</nav></header>
+<main>
+<div class="post" id="p14470"><div class="post-head"><a class="id" href="../t/16400.html#p14470">#14470</a> <span class="index">1</span> <span class="date">2007-03-17T01:28:13Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">how do you achieve movement that is calculated at a set time interval, instead of upon entering the frame or upon each keystroke? (so movement speed doesnt change with a changing framerate)<br>
+<br>
+the method i thought would work would be to use a key listener, and on a key press start the action that goes with that key and repeat it ever hundreth of a second, then on key release stop that action, but i dont know how to loop something at a specific time and not on enterFrame<br>
+<br>
+how does this work for the ninja running in N? (if im completely wrong and flash automatically accounts for a slowed framerate on slower computers and i dont actually have to do anything to do this, then just tell me im stupid and i will be on my way)</div></div>
+<div class="post" id="p305777"><div class="post-head"><a class="id" href="../t/16400.html#p305777">#305777</a> <span class="index">2</span> <span class="date">2007-03-17T03:07:25Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">your stupid.<br>
+nah, just jk w/ you <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+actually, I'm not sure if flash automatically accounts for this<br>
+my initial guess would be that it doesn't<br>
+<br>
+as for how it works for N, only M&amp;R can tell you for sure<br>
+but I guess that 1)everything is mostly, if not completely, action script, and 2) the frame rate is set ridiculously high. This would practically guarantee that lag would always occur, therefore whatever code program would always run with lag. The code would always account for the lag, instead of consider it a special case.<br>
+<br>
+...I think i just lost my train of thought...</div></div>
+<div class="post" id="p305778"><div class="post-head"><a class="id" href="../t/16400.html#p305778">#305778</a> <span class="index">3</span> <span class="date">2007-03-17T03:08:29Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">[EDIT]<br>
+...damn dial-up...<br>
+Made me double post</div></div>
+<div class="post" id="p305865"><div class="post-head"><a class="id" href="../t/16400.html#p305865">#305865</a> <span class="index">4</span> <span class="date">2007-03-17T17:30:20Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">They have it set to max frame-rate (e.g 120 fps) - 8.(3) ms/f <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+The main problem in N (which is also the cause for the slow-downs) is screen redraw... The scripts account for about 10% of all CPU usage... So it doesn't actually slow down, but just "skips" drawing some frames... It should run at the same speed, otherwise.<br>
+Anyways, Flash handles that stuff. You can be sure that even if it doesn't really show it instantly, it detects the key-presses.<br>
+<br>
+Though, I'm not really sure about that, I just think that it makes sense.<br>
+<br>
+You could try setInterval() if you're really picky about the rate. You just make a function which checks for key-presses and call it every I-don't-know-how-many milliseconds. Check it up in the reference.<br>
+<br>
+TS</div></div>
+<div class="post" id="p306098"><div class="post-head"><a class="id" href="../t/16400.html#p306098">#306098</a> <span class="index">5</span> <span class="date">2007-03-18T16:11:38Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16400.html#p305865">Quote: Toshosoft, March 17, 2007 09:30 am</a></div>You could try setInterval() if you're really picky about the rate. You just make a function which checks for key-presses and call it every I-don't-know-how-many milliseconds. Check it up in the reference.</blockquote>That's what I do, because it seems like the best way to have control over the game's performance. Take note, however, that if you leave the framerate at 12 with this technique, it'll still be a little jerky. So I set the framerate to 30. And now for a short guide on how to do what TS said.<br>
+<br>
+(All this is the Actionscript for the first frame. You should only need one frame in most cases.)<br>
+<br>
+Create a timer that runs the frame() function every several milliseconds (I use 10).<br>
+<pre class="code">var frametimer = setInterval(frame, 10);</pre>Then, make the frame() function.<br>
+<pre class="code">function frame() {
+  if (Key.isDown(Key.UP)) {
+    _root.you._y--;
+  } else if (Key.isDown(Key.DOWN)) {
+    _root.you._y++;
+  }
+  
+  if (Key.isDown(Key.LEFT)) {
+    _root.you._x--;
+  } else if (Key.isDown(Key.RIGHT)) {
+    _root.you._x++;
+  }
+  
+  updateAfterEvent();
+}</pre>That's a very simple function to take the keyboard input and move around an object with the instance name "you". The updateAfterEvent(); refreshes the screen, so each time this function is run (every 10ms or so, depending on your computer's speed), the screen is redrawn and you get smooth movement.</div></div>
+<div class="post" id="p306309"><div class="post-head"><a class="id" href="../t/16400.html#p306309">#306309</a> <span class="index">6</span> <span class="date">2007-03-19T13:09:56Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">now why couldnt you just tell me that in irc when i was asking JT <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+thanks though  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p307638"><div class="post-head"><a class="id" href="../t/16400.html#p307638">#307638</a> <span class="index">7</span> <span class="date">2007-03-25T10:14:16Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">i find setInterval isn't as reliable as getTimer. Using getTimer you can actually check to see whether you're on time each frame and compensate...<br>
+<br>
+i used to use setInterval but it doesn't seem to work that well.<br>
+<br>
+EDIT: and i usually set a very high framerate. It looks smoother and lag doesn't really matter with getTimer...</div></div>
+<div class="post" id="p307880"><div class="post-head"><a class="id" href="../t/16400.html#p307880">#307880</a> <span class="index">8</span> <span class="date">2007-03-26T16:17:25Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Can you give us some example code on using getTimer?</div></div>
+<div class="post" id="p308918"><div class="post-head"><a class="id" href="../t/16400.html#p308918">#308918</a> <span class="index">9</span> <span class="date">2007-03-30T21:43:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">sorry, i had to wait for the weekend coz the school computers blocked forumer...<br>
+<br>
+<pre class="code">iterationscompleted=0
+function onEnterFrame(){
+	//frames per second is 10; gettimer measures in milliseconds
+	iterations=Math.floor(getTimer()/100)
+	for(i=0;i&lt;iterations-iterationscompleted;i++){
+  tick()
+	}
+	iterationscompleted+=iterations-iterationscompleted
+}</pre><br>
+that's very hasty code, you may find problems, but you get the idea</div></div>
+<div class="post" id="p317395"><div class="post-head"><a class="id" href="../t/16400.html#p317395">#317395</a> <span class="index">10</span> <span class="date">2007-05-01T21:52:22Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i'd recommend using a fixed-rate update: every time X ms have passed, you call TickGame() once -- this is what's used in N, we call TickGame() every 25ms.<br>
+<br>
+this article should help: <a href="http://www.gaffer.org/game-physics/fix-your-timestep/">http://www.gaffer.org/game-physics/fix-your-timestep/</a><br>
+<br>
+raigan</div></div>
+</main>
+</body>
+</html>

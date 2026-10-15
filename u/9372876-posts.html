@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Decoy - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9372876.html">Decoy</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p211717"><div class="post-head"><a class="id" href="../t/11612.html#p211717">#211717</a> <span class="index">18</span> <span class="date">2006-08-05T10:17:13Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">What Raigan's description does is project the centre of the circle onto the axis defined by the line.<br>
+<br>
+To conceptualise what's happening, draw a line on a sheet of paper, and label the start point PS and the end point PF. Draw the circle with a centre at C. Now, look at the line so that it is perfectly horizontal from your perspective, with PS on the left. V is the line from C to PS, while D is the direction in which the line points.<br>
+Draw 3 examples at least, one where the circle is off the the left, one where it is above the line and one where it is off to the right. Draw in V for each one. Now here's the cool bit: extend the line PF-PS with dots every so often. Then draw a line so that it is perpendicular to PF-PS and also goes through the centre of the circle. The point where the line you just drew touches the extension of PF-PS is given by V.D (V.D is relative to PS).<br>
+<br>
+Thus, if V.D is negative, the circle is to the left of the line. If V.D is larger than the length of the line it is to the right of it. Otherwise it must be in between.<br>
+<br>
+I'll try to explain it:<br>
+You have a circle with centre C and radius r (note that C is a Vector2 and so has .x and .y properties, while r is a scalar).<br>
+You also have a line with start point PS and end point PF (they are also Vector2's).<br>
+D is the direction of PS to PF. It is essentially a normalised Vector2 of PF - PS.<br>
+V is a Vector2, the difference of C and PS.<br>
+V.D is the dotproduct of V and D.<br>
+If V.D is negative, the circle C,r is 'behind' the line and the closest point to C is PS.<br>
+If V.D is larger than the length of the line, the circle C,r is 'beyond' the line and the closest point to C is PF.<br>
+Otherwise the closest point is somewhere on the line (at PS + V.D(PF - PS)).<br>
+<br>
+So (remembering that all the variables except r are Vector2's and not numbers):<br>
+D = normalise(PF - PS);<br>
+V = C - PS;<br>
+if(V.D &lt; 0){<br>
+   //Circle-circle test for collision between C,r and PS<br>
+} else if(V.D &gt; length(PF - PS)){<br>
+   //Circle-circle test for collision between C,r and PF<br>
+} else {<br>
+   //Circle-line test for collision between C,r and (PS + V.D(PF - PS))<br>
+};<br>
+<br>
+If we weren't using Vector2's this would be:<br>
+var Dx = (PFx - PSx)/Math.√(PFx*PFx + PFy*PFy);<br>
+var Dy = (PFy - PSy)/Math.√(PFx*PFx + PFy*PFy);<br>
+var Vx = Cx - PSx;<br>
+var Vy = Cy - PSy;<br>
+var VtimesD = Vx*Dx + Vy*Dy;<br>
+if(VtimesD &lt; 0){<br>
+   //Circle-circle test for collision between C,r and (PSx,PSy)<br>
+} else if(VtimesD &gt; Math.√(PFx*PFx + PFy*PFy));<br>
+   //Circle-circle test for collision between C,r and (PFx,PFy)<br>
+} else {<br>
+   //Circle-line test for collision between C,r and (PSx + VtimesD(PFx - PSx),PSy + VtimesD(PFy - PSy))<br>
+};<br>
+<br>
+Trying to convert vector math to non-vector math is harder than I thought it would be. Really, you should always use vectors (once you think in vectors everything becomes clear - or at least clearer), so try to master them before you do much else. One nice thing about vectors is that they have the same math in 2 dimensions and 3 dimensions. E.g. P - X is the line PX whether you're working with 2 dimensions or 3 (or more).</div></div>
+<div class="post" id="p10546"><div class="post-head"><a class="id" href="../t/11801.html#p10546">#10546</a> <span class="index">1</span> <span class="date">2006-08-09T12:04:20Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I'm having a few problems with collision detection (mostly because of my implementation rather than anything else). I'd recommend you play around with my prototype for a while before you read on, as you'll then know what my problems are.<br>
+<br>
+I've successfully implemented a point-shape collision detection and projection response system. Under this system, points are tested for collision (using a variation on the SAT) and projected out of the shape accordingly. It works for any convex shapes. The problem comes in (as you probably noticed if you took my opening advice) when the player-controlled box comes to the end of a floor segment. The point sometimes sinks between the two segments, since each is pushing it out horizontally and in opposite directions, rather than upwards.<br>
+<br>
+My question is this: How would I detect the points on a line which collide with a given shape? Once I know that, I can make a projection response to it. I could probably work it out, but it would be messy and certainly not optimised.<br>
+<br>
+EDIT: I just realised that the name of the file wouldn't exactly incline you to open it. Don't worry, its a game about biological viruses, not an actual virus. How you would make an .fla virus is beyond me.<br>
+<br>
+EDIT2: If it doesn't work, that's probably because it's a Flash 8 file. I'm just re-uploading an MX 2004 version (I can't save any earlier than that for some reason). <div class="attachment attachment-missing">Attachment (lost): post-14-1155125966.fla</div></div></div>
+<div class="post" id="p215374"><div class="post-head"><a class="id" href="../t/11801.html#p215374">#215374</a> <span class="index">6</span> <span class="date">2006-08-14T10:45:01Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I successfully solved the main problem (the points falling between segments), but in a sort of a hack-y manner. I tried to implement a line-based collision response system, but it slowed the processing down unbelievably (which most likely means I wasn't implementing it properly), so I converted the floor segments into a new class which would only project points out of the 'first' face (in this case upwards out of the floor). This also meant that I could get rid of the simple maximum and minimum constraints for colliding with the world (now I use 4 single-projection direction walls).<br>
+<br>
+This method didn't solve the secondary problem of the box lines passing through the floor and other shapes, but for my purposes it doesn't matter. What I have now is a reasonably fast collision detection system, that looks fairly good (considering that it is just using the drawing API).<br>
+<br>
+Now I have a question about implementing friction and bounce. If the projection vector of a point out of a line is (direction of right-hand normal of line)*(projection distance) and the perpendicular to this is (direction of line)*(projection distance), how do you calculate how far to offset the old position of the particle to factor in friction and bounce? <div class="attachment attachment-missing">Attachment (lost): post-14-1155552301.fla</div></div></div>
+<div class="post" id="p269309"><div class="post-head"><a class="id" href="../t/13465.html#p269309">#269309</a> <span class="index">23</span> <span class="date">2006-12-13T07:34:16Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Why is your little flash game slowing down, you ask?<br>
+<br>
+It seems that you forgot to clear() what was being drawn. So every 50 milliseconds, a filled circle was drawn. Since it's position was static you didn't notice. Basically, every time you drew on top of the circle it took more computing power. I think flash has to compute transparency effects even for opaque objects or something, but in any case, it slowed it down massively. So  you just add to the first line of the render() function: sphoid.clear();<br>
+<br>
+And there you have it: problem solved.</div></div>
+<div class="post" id="p269316"><div class="post-head"><a class="id" href="../t/14440.html#p269316">#269316</a> <span class="index">2</span> <span class="date">2006-12-13T07:52:59Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">You could try approximating it with a triangle based on the 'oldest' particle (i.e. the one closest to fading out entirely) for each stream, but it's probably easier to do a rectangle based on the 'oldest' and 'youngest'.<br>
+<br>
+Find the two parallel lines that are tangential to the two circles, and extend them such that connecting the end points of either line results in another tangential interval.<br>
+<br>
+Or, more simply:<br>
+       ___________<br>
+ (    )|OOOOOOO|<br>
+young^       old^<br>
+<br>
+It won't be perfect, but it will be good enough, and fairly fast to boot.<br>
+<br>
+EDIT: Apparently the forum removes superfluous spaces after posting. You can click the quote button above my post and look at my diagram there if you can't see it properly.</div></div>
+<div class="post" id="p19121"><div class="post-head"><a class="id" href="../t/21417.html#p19121">#19121</a> <span class="index">1</span> <span class="date">2008-02-09T13:17:55Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Hey guys, been a long time since I last stuck my neck in this part of the woods. Did absolutely nothing to do with programming since my last post and recently started using flash again. Reading <a href="http://www.emanueleferonato.com/2007/09/26/create-a-survival-horror-game-in-flash-tutorial-part-1/">this tutorial</a> gave me some inspiration, so I began coding again. The idea is that the game will end up as an undead-themed survival game. You, the blue square, will have to evade and eventually destroy growing hordes of red and (even more shockingly) green squares. You have at your disposal several badly-animated spells of minor irritation. I might put in better graphics if I feel like it, but I'm lazy right now. Currently all drawing is done using Flash's API. I'm better at drawing with code than I am with Flash itself.<br>
+<br>
+<a href="http://www.geocities.com/archevil99/rpgalpha2.swf">Version 2</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha3.swf">Version 3</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha4.swf">Version 4</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha5.swf">Version 5</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha6.swf">Version 6</a><br>
+<br>
+I realised that the tutorial's hitTest methods were antiquated and inadequate, so I used the SAT method (a simplified version since it only deals with points and AABBs, maybe eventually circles). This allowed me some additional control over the environment, for example being able to add and remove obstacles on the fly. The current version of the game is very simple. There are no goals yet and the health system is entirely for show as there is nothing that does damage. However the spell system works properly. The yellow bar, for those who are wondering, is the cooldown bar. Certain spells activate longer cooldowns.<br>
+<br>
+There are currently 7 spells for you to play around with to learn the ins and outs of my engine and give me critique or advice (all aimed with the mouse relative to the player centre, selected with the number keys).<br>
+1. Push. The spell pushes the enemy away from you. Note that it is raycasted properly, so it will not penetrate enemies or platforms unless they are flagged to ignore it (e.g. the 'window' up the top). In the current version of the game the rays are of a fixed length. In this version they have a maximal length only.<br>
+2. Pull. The opposite effect of push.<br>
+3. Smash. A short-ranged, stronger version of push.<br>
+4. Force push/cone push. Creates a cone of rays that push the enemy away. This spell doesn't penetrate the window. I'm currently modifying the raycasting slightly so that they will be able to hit enemies, pass on their effect and continue.<br>
+5. Shield. A circle of rays that push the enemy away, close range. Doesn't penetrate window.<br>
+6. Teleport. You guessed it. Teleports your box to the end destination. Currently hits enemies, the version I'm using (which I'll upload tomorrow) doesn't.<br>
+7. Ghost mode. Turns the player into a ghost. Has a mana upkeep cost. Allows you to travel through platforms/windows (but not the walls around the edge). The current version of the game has 'ghost obstacles', which solid forms can move through but ghosts can't. Player will turn back to normal upon exhausting their mana supply. The current version also features a colour change during ghost form.<br>
+<br>
+Also, press "q" to activate unlimited mana and "w" for massively reduced cooldown. Note that ghost form will over-ride these changes (note also that this is intentional <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">).<br>
+<br>
+Things I am planning to implement: multi-sampling for collision detection (so that you can't shunt enemies through the window for example), AI for the enemies (including attacks which deal damage), 'create obstacle' spells (ethereal and solid forms), a character advancement system, 'toggle ethereality' spells (for enemies and statics), perhaps ghost-specific spells. In the very distant future, also friendly units and multiple levels (or change the engine so that it supports one much larger level).<br>
+<br>
+So, thoughts? I'll release an updated version tomorrow with the features I mentioned today (as well as whatever I think of during my sleep). If demand is high enough I just may release a well-commented bare-bones version of the engine to help people learn the ropes.<br>
+<br>
+EDIT: Updated the post to contain all of the builds as per a suggestion from The Kitchen Sink (I really should stop listening to my plumbing all the time).</div></div>
+<div class="post" id="p408382"><div class="post-head"><a class="id" href="../t/21417.html#p408382">#408382</a> <span class="index">3</span> <span class="date">2008-02-10T08:54:58Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">The game isn't going to end up being never-ending. It's going to be a long game (requiring you to save and play over several hours in true rpg style) without much plot. There will be unique enemies eventually that appear and disappear based on their own criteria (for example, one will appear when you first unlock the ghost form and disappear once you push it into a 'rune wall', the transparent red ones). Because the character development will be diverse, requiring you to invest in a path (and also being infeasible for you to get all skills) you will essentially create your own plot. I've decided that I am going to implement multiple levels, but haven't yet decided on how the player will transition.<br>
+<br>
+As I promised, <a href="http://www.geocities.com/archevil99/rpgalpha3.swf">here is the next version</a> for you to play with. Among other things I've added a grid to speed things up slightly, a new spell ('toggle corporeality', 8), added a second enemy (they still have no AI) and two new wall types (barricades that players can pass through despite form and havens that enemies can't pass through), as well as just generally tidying code. The next version will feature damage (no more shifting to physical form inside walls without consequences) and rudimentary AI.<br>
+<br>
+As annoying as it is, there isn't really a better method to do the cones than the rays, assuming you want advanced functionality such as collision detection and response. It does slow the game down significantly however. I'm going to have to fiddle with settings to change that.<br>
+<br>
+EDIT: Sorry if spells 4 and 5 are a bit laggy in this version.</div></div>
+<div class="post" id="p409349"><div class="post-head"><a class="id" href="../t/21417.html#p409349">#409349</a> <span class="index">7</span> <span class="date">2008-02-14T08:38:41Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">It's like mattk210 said, I created two classes, Ray and Cone. The Ray class contains the instructions for each ray's actions, for example stepping it forward, checking for collision, rinse and repeat, as well as outcome of collision with various objects. The cone class simply creates a number of rays with equal angles between it and (using flash's drawing api) connects the dots and fills to make a cone shape.<br>
+<br>
+All you need to do the raycasting is a point versus object collision detection system. Then you create code to the effect of:<br>
+<pre class="code">1. Move point forwards along its direction vector
+2. Does the point end up inside a blocking object?
+a. If so, return which object it is, the final position of the ray and tell the global event handler what to do
+b. If not, repeat steps 1 and 2 until you reach your destination</pre><br>
+The tutorial I linked in the first post gives working code for such a system, but uses hitTest().</div></div>
+<div class="post" id="p410155"><div class="post-head"><a class="id" href="../t/21417.html#p410155">#410155</a> <span class="index">10</span> <span class="date">2008-02-17T11:22:28Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">This next update comes much later than the others because I've been somewhat busy in real life.<br>
+<a href="http://www.geocities.com/archevil99/rpgalpha4.swf">Pre-alpha v4</a><br>
+I'm not exactly sure what changes I've made since the last version I put up here either, but I'll give you some idea:<br>
+The enemies now appear in the generator (purple thing). They spawn to a max of 3 and from a range of different archetypes.<br>
+There is a new type of enemy that you can't ghostify, the hulk. It moves slower than both the zombie and the ghost, but does more damage than both.<br>
+Ghosts have a spell that they cast now. It slows the player down drastically for 3 seconds (but they can't cast it very often). I don't have an animation for showing the slowdown yet (I'll add a debuff bar in the next version I think).<br>
+You'll notice pretty quickly that the player has only a small sphere of sight around himself now. A new player spell (9 on the keyboard) doubles the size of this sphere temporarily. I decided not to use my cones for the light, as it was very cpu-intensive and not terribly beneficial. <br>
+Another new spell (0 on the keyboard) lets you create a small light at the end of a ray. You can only have one at a time, and only for a limited duration.<br>
+I almost forgot to mention that the enemies have a rudimentary AI now. They will pursue the player when he is in their line of sight (ghosts can see/move through walls), and otherwise move randomly.<br>
+Touching enemies that connect with you causes damage, as well as being too far inside walls (for example when you unghost).<br>
+<br>
+I also changed the way the drawing was done to a centralised method, which allows me to draw the HUD on top (among other things). Play around with it, give me feedback. Once again, I know that the cones are extremely slow. I think I'm going to drop them altogether.</div></div>
+<div class="post" id="p411143"><div class="post-head"><a class="id" href="../t/21417.html#p411143">#411143</a> <span class="index">13</span> <span class="date">2008-02-21T07:10:58Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">This update is a huge one in many ways. Gameplay itself is practically unchanged however (not that there is actually any gameplay at this point). You can now use WASD for movement. You can now pause the game with P (unpause by clicking on the button). The 'cheat codes' are now SHIFT+1 and SHIFT+2 (for infinite mana and no cooldown, respectively). I smoothed the AI out a lot so that they don't leap, they shuffle appropriately. And, the best part of all... I completely changed the raycasting code so there is now not the slightest amount of lag. mattk210, you might be interested in the changes.<br>
+<br>
+It works really well for short rays, but regrettably I've only bothered to make the AABB raycasting at this point. Basically, instead of 'stepping' the ray along many times until it collides with something (the old algorithm I described in an earlier post), it now calculates the point of collision based on a series of early-out boolean tests. I'll comment it and post the source if anyone wants it. It's not particularly innovative, just much more efficient for games that don't use the full gamut of shapes. I'm going to add additional shapes soon, starting with circles and then NAABBs. I've already worked out how to do the calculations for those shapes, just haven't coded it yet.<br>
+<br>
+So, enjoy <a href="http://www.geocities.com/archevil99/rpgalpha5.swf">Pre-alpha v5</a>. Please let me know about any bugs you find.</div></div>
+<div class="post" id="p453178"><div class="post-head"><a class="id" href="../t/18099.html#p453178">#453178</a> <span class="index">15</span> <span class="date">2008-07-16T04:34:54Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">In a tile-based system like this you have the potential for a pretty easy solution, one that I believe was used for some unrelated things in N. Store the 'edge info' (<a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html">section 2 of this link</a>). Then, when considering adjacent tiles, simply ignore projections in the direction where the tiles are both solid edges. So in figure A, the smallest 'legal' projection would be up in both cases, thus solving that problem. Same goes for figures B and D.<br>
+<br>
+Your solution for figure C seems reasonable, and I can't see any problem with figure E, since it is clearly not tile-based. Just implement something where your figure C solution only applies to tile-collisions. Am I missing something?</div></div>
+<div class="post" id="p455755"><div class="post-head"><a class="id" href="../t/21187.html#p455755">#455755</a> <span class="index">31</span> <span class="date">2008-07-29T09:26:46Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">There are pretty much four languages you should ever program in.<br>
+<br>
+C++ if you want to make anything that needs to run really fast (real-time 3D games for example).<br>
+<br>
+Python if you want to process information.<br>
+<br>
+Java if you want to make web applications or less computationally-intensive games.<br>
+<br>
+Actionscript if you don't give a damn about efficiency but really hate trying to add drawing capabilities to any of the above languages.<br>
+<br>
+Just about everything else is either specialised or trash.* I'd be delighted to be proved wrong.<br>
+<br>
+*For modern programming tasks.</div></div>
+<div class="post" id="p456626"><div class="post-head"><a class="id" href="../t/23348.html#p456626">#456626</a> <span class="index">4</span> <span class="date">2008-07-31T13:31:34Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Imagine you have a group of objects. You know their names (for argument's sake, Apple, Banana and Pear). If you wanted to do something to all of them one after the other, you could hard-code it. Something like doStuff(Apple); doStuff(Banana); doStuff(Pear); etc. But what if you have a fourth thing? An array is a way of organising similar objects so you can do operations on them one at a time.<br>
+<br>
+So on the main timeline, put the code<br>
+<pre class="code">shotArray = new Array();</pre><br>
+Then, when you create a new shota instance (line 4 of the cursor_mc code), put the instance into the array by using<br>
+<pre class="code">this.index = shotArray.push(_root.shota.duplicateMovieClip( "shota"+shotacount, shotacount+7000)) - 1;</pre>We use the same code to add the movie clip, but we put it into the array using shotArray.push(), and store the index of the point in the movie clip's value this.index (which is a variable we made up).<br>
+<br>
+You also have to add some code to your main timeline code:<br>
+<pre class="code">remove = function(bul){
+    bul.removeMovieClip();
+    shotArray.splice(bul.index,1);
+};</pre>and then change all the lines in the bullet code that say "this.removeMovieClip()" to "remove(this)".<br>
+<br>
+Lastly, we need to make it so that your detection works on the bullets in their array. Change the code on enemya to:<br>
+<pre class="code">onClipEvent (enterFrame) {
+for(var i = 0;i &lt; shotArray.length;i++){
+    if (shotArray[i].hitTest(this)) {
+        _root.score += 1;
+        _root.enemyahp -= 1;
+        remove(shotArray[i]);
+    }
+}</pre><br>
+I think that should work, but note that it will get slow extremely quickly with lots of bullets and enemies! It has to do [#bullets] hitTests per enemy, so a total of [#bullets]x[#enemies] hitTests per frame. But really, it's as fast as such a system can be before optimising while still using hitTest becomes farcical.</div></div>
+<div class="post" id="p475173"><div class="post-head"><a class="id" href="../t/24201.html#p475173">#475173</a> <span class="index">6</span> <span class="date">2008-10-14T13:49:37Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body"><pre class="code">px = point.x - circle.x
+py = point.y - circle.y
+
+if absolute(px) == r and absolute(py) == r:
+	T1 = (px,0)
+	T2 = (0,py)
+
+else if absolute(px) == r:
+	T1 = (px,0)
+	L2 = px*px + py*py
+	px2 = px*px
+	T2 = (-px2*px/L2,px2*py/L2)
+
+else if absolute(py) == r:
+	T1 = (0,py)
+	L2 = px*px + py*py
+	py2 = py*py
+	T2 = (py2*px/L2,-py2*py/L2)
+
+else:
+	px2 = px*px
+	py2 = py*py
+	r2 = r*r
+	D = sqrt(px2*py2 - py2 + r2)
+	mb = px2 - r2
+	pxpyonmb = px*py/mb
+	Donmb = D/mb
+	m1 = pxpyonmb + Donmb
+	m2 = pxpyonmb - Donmb
+	temp1 = r/sqrt(1 + m1*m1)
+	temp2 = r/sqrt(1 + m2*m2)
+	T1 = (m1*temp1,-temp1)
+	T2 = (-m2*temp2,temp2)
+
+T1.x += circle.ox
+T1.y += circle.oy
+T2.x += circle.ox
+T2.x += circle.oy</pre>Note that this is pseudocode. Note also that I haven't tested this beyond deriving the maths for it, and the maths has one major downside: minus signs become ambiguous. In other words, you may have to add test cases to find out whether they work (preferably with a graphical display) and fiddle around with special cases and changing signs accordingly.<br>
+<br>
+Cases you should check to see if you need to change signs for:<br>
+px*py &gt; 0<br>
+px*py == 0<br>
+px*py &lt; 0<br>
+mb &gt; 0<br>
+mb &lt; 0</div></div>
+<div class="post" id="p475206"><div class="post-head"><a class="id" href="../t/24201.html#p475206">#475206</a> <span class="index">8</span> <span class="date">2008-10-15T08:43:52Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I redid the maths and came up with a vastly more elegant and computationally-simple solution.<br>
+<br>
+<pre class="code">px = point.x - circle.x
+py = point.y - circle.y
+
+if px == 0 and py == 0:
+//No solution is possible. Alternatively, any point on the circle is a solution. Take your pick.
+return null
+
+r2 = r*r
+px2py2 = px*px + py*py
+D = r*sqrt(px2py2 - r2)
+pxr2 = px*r2
+pyr2 = py*r2
+T1 = (pxr2,pyr2)
+T2 = (pxr2,pyr2)
+pxD = px*D
+pyD = py*D
+T1.x += pyD //may need to edit
+T1.y -= pxD //these lines to
+T2.x -= pyD //get correct signs
+T2.y += pxD //for the right result
+T1.x /= px2py2
+T1.y /= px2py2
+T2.x /= px2py2
+T2.y /= px2py2
+
+T1.x += circle.x
+T1.y += circle.y
+T2.x += circle.x
+T2.y += circle.y </pre><br>
+As you can see, this version is much faster (only 1 square root), and only has one special case (where px2py2 would be 0). There might still be the ambiguity, but I don't think so. Also note that this is the absolute minimum of computation possible. You simply cannot get a more efficient method than this (unless you are a programming deity of some sort).</div></div>
+</main>
+</body>
+</html>

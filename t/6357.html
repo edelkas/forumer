@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nediting help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Nediting help</nav></header>
+<main>
+<div class="post" id="p5805"><div class="post-head"><a class="id" href="../t/6357.html#p5805">#5805</a> <span class="index">1</span> <span class="date">2005-12-20T18:29:07Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">How do you stop a Laser Drone moving yet still allow it to fire?  <img class="smiley" src="../files/smilies/29.gif" alt="ashamed" title="ashamed"></div></div>
+<div class="post" id="p125255"><div class="post-head"><a class="id" href="../t/6357.html#p125255">#125255</a> <span class="index">2</span> <span class="date">2005-12-20T18:41:17Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body">You do something with the level data... But ask someone else about that...<br>
+<br>
+You can put doors around it, that you hit the switch to open them... But the code thing is much neater, though.<br>
+<br>
+I don't know how to do it, but someone... out there in the world... will come, and will have the answer. [/religeousness]</div></div>
+<div class="post" id="p125257"><div class="post-head"><a class="id" href="../t/6357.html#p125257">#125257</a> <span class="index">3</span> <span class="date">2005-12-20T18:44:47Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I suppose I could jam it into the edge of the level but I don't really want to do that.<br>
+<br>
+Any alternate way?</div></div>
+<div class="post" id="p125312"><div class="post-head"><a class="id" href="../t/6357.html#p125312">#125312</a> <span class="index">4</span> <span class="date">2005-12-20T21:29:36Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">Without code-editing...<br>
+<br>
+Have the drone surrounded by walls/locked doors, so it can't go anywhere. When the doors are unlocked/opened, the drone will still not move, but it _will_ be able to fire. So set the swich to open the doors at the same point as where the ninja starts.</div></div>
+<div class="post" id="p125316"><div class="post-head"><a class="id" href="../t/6357.html#p125316">#125316</a> <span class="index">5</span> <span class="date">2005-12-20T21:40:13Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Kirby has pointed that out already, iangb. Anyway, with code editing:<br>
+Put the drone as last object in your map, go to debug and place the cursor behind your data. Then press L, this will reload the level and cause a NaN, wich will let the drone be unable to move. This works with every drone. If you want to make much drones this way, watch out for the code for a drone, and put the cursor behind that one. The code starts wit 6^.<br>
+Have an example: <div class="attachment attachment-missing">Attachment (lost): post-11-1135115280.txt</div></div></div>
+</main>
+</body>
+</html>

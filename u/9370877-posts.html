@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by guygriffiths - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370877.html">guygriffiths</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p67900"><div class="post-head"><a class="id" href="../t/3229.html#p67900">#67900</a> <span class="index">2</span> <span class="date">2005-05-19T09:17:32Z</span> <span class="author"><a href="../u/9370877.html">guygriffiths</a></span></div><div class="post-body">Well, I've tried it, and although I'm no expert on n, this is what I've found:<br>
+1.  Sound issues.  The games still runs very jerkily when sounds play.  This was the same in the previous version and is almost certainly a bug in the flash player.  You can disable sounds by making sure that the sound device is active when you start up n.<br>
+2.  Extra levels.  They all appear to be there, and they keep your old settings fine.<br>
+3.  User levels.  These don't appear to work.  Although the userlevels.txt file is untouched, n hangs on "parsing data".  I tried downloading the PC version to use that file, but no joy, because it appears to have reverted to v1.3c on the download page.  If I get a chance later, I'll check that there's not an error with the CR LF vs NL problem, but for the time being at least, this mode doesn't work.<br>
+Guy</div></div>
+<div class="post" id="p2914"><div class="post-head"><a class="id" href="../t/3233.html#p2914">#2914</a> <span class="index">1</span> <span class="date">2005-05-19T09:59:18Z</span> <span class="author"><a href="../u/9370877.html">guygriffiths</a></span></div><div class="post-body">User levels do not work.  The screen stays on "parsing data..." and does nothing.  I have tried changing the file to ensure it is in Unix format (and even DOS format) but this did not work.  If I remove the file, then the bug stays the same.</div></div>
+<div class="post" id="p73061"><div class="post-head"><a class="id" href="../t/3233.html#p73061">#73061</a> <span class="index">2</span> <span class="date">2005-06-07T19:26:24Z</span> <span class="author"><a href="../u/9370877.html">guygriffiths</a></span></div><div class="post-body">Problem solved.  For some reason, it only words if userlevels.txt is in .. i.e. one level higher than the program.  Then it works fine.</div></div>
+</main>
+</body>
+</html>

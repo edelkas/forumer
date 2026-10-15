@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Compressor v2 - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; Data Compressor v2</nav></header>
+<main>
+<div class="post" id="p16272"><div class="post-head"><a class="id" href="../t/18432.html#p16272">#16272</a> <span class="index">1</span> <span class="date">2007-07-17T00:09:44Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">I'm done with Liberty BASIC; I'm going to try rewriting it in PHP. The goal here is to compress level data as much as possible (perhaps people with limited hard disk space would need this to download large level packs). Development hasn't yet started, but I'm planning on having it finished sometime in October.</div></div>
+<div class="post" id="p344026"><div class="post-head"><a class="id" href="../t/18432.html#p344026">#344026</a> <span class="index">2</span> <span class="date">2007-07-17T05:56:51Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Doesn't seem particularly useful, but neat.</div></div>
+<div class="post" id="p344134"><div class="post-head"><a class="id" href="../t/18432.html#p344134">#344134</a> <span class="index">3</span> <span class="date">2007-07-17T14:11:24Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">i have no idea what im looking at right now casue im no programmer<br>
+<br>
+so put into an exe if posssible and htem submit, but in my opnion its not ready until i can figure out how to use it<br>
+<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p346692"><div class="post-head"><a class="id" href="../t/18432.html#p346692">#346692</a> <span class="index">4</span> <span class="date">2007-07-23T22:37:50Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">I'm still waiting for my friend, he might be busy right now. But I have some good news:<br>
+<br>
+In v1.3, expect an even better compression! Here's what else might happen to the code before being completely zipped:<br>
+<br>
+At the beginning of each object code, you see #^ and # is a number from 0-12. These will all be replaced with a unique character, so that !number^ will be replaced with a character that doesn't recur anywhere else in the code, except for other !number^ things. This changes as many as 4 characters into one.<br>
+<br>
+All numeric values will be replaced with base-64 before compression.<br>
+<br>
+Something might happen with the tileset code, but I can't promise anything amazing. Maybe just removing the | that separates objects from tile code.<br>
+<br>
+v1.4 will probably be the last.</div></div>
+<div class="post" id="p346711"><div class="post-head"><a class="id" href="../t/18432.html#p346711">#346711</a> <span class="index">5</span> <span class="date">2007-07-23T23:23:25Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">Um, WinZip?<br>
+<br>
+=/<br>
+<br>
+I think I could be able to use this for my program, I dunno.</div></div>
+<div class="post" id="p346732"><div class="post-head"><a class="id" href="../t/18432.html#p346732">#346732</a> <span class="index">6</span> <span class="date">2007-07-24T00:47:05Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p346692">Quote: Gforce20, July 23, 2007 03:37 pm</a></div> Something might happen with the tileset code, but I can't promise anything amazing. Maybe just removing the | that separates objects from tile code.  </blockquote> <br>
+ Most maps have strings of 0's and 1's in their tile code. You could do something like 00=a, 000=b, 0000=c, etc. and the same for 1's, and probably save a lot of space.</div></div>
+<div class="post" id="p346753"><div class="post-head"><a class="id" href="../t/18432.html#p346753">#346753</a> <span class="index">7</span> <span class="date">2007-07-24T02:16:31Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Hmm...<br>
+While I'm completely unfamiliar with the language your using, this looks kinda neat.<br>
+I just night want to make something similar just for fun <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+(nah. being realistic, I have work to do if I ever want to complete my self-balancing binary search tree)</div></div>
+<div class="post" id="p346976"><div class="post-head"><a class="id" href="../t/18432.html#p346976">#346976</a> <span class="index">8</span> <span class="date">2007-07-24T19:47:54Z</span> <span class="author"><a href="../u/9374569.html">cman4</a></span></div><div class="post-body">But wouldn't you have to decrypt it in order to play it? o_o</div></div>
+<div class="post" id="p347275"><div class="post-head"><a class="id" href="../t/18432.html#p347275">#347275</a> <span class="index">9</span> <span class="date">2007-07-25T15:57:10Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p346976">Quote: cman4, July 24, 2007 07:47 pm</a></div> But wouldn't you have to decrypt it in order to play it? o_o  </blockquote> <br>
+ Yes. The purpose of this program is to help people with not enough hard disk space save a few extra levels by compressing them. v1.2 can compress multiple levels, but with the release of v1.3, the data will be restricted to one level each.<br>
+<br>
+And @LV, what do you mean? Do the 0's represent binary? And there are 34 total characters, which would use 8-bit to 6-bit compression (ASCII to base64), but it would also screw up the latter process which involves removing every 8th bit. That's why it wouldn't work.<br>
+If there were two fewer characters involved in tileset codes, I could convert 8-bit to 5-bit with no trouble, until the binary removal process came in... It's just too difficult to do and it would have miniscule compression. Maybe 5%, just for the tileset. It's probably not worth it.</div></div>
+<div class="post" id="p347327"><div class="post-head"><a class="id" href="../t/18432.html#p347327">#347327</a> <span class="index">10</span> <span class="date">2007-07-25T18:40:17Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">He's talking about the tiles that generate a code of 0 and 1 (D and E tiles)</div></div>
+<div class="post" id="p347483"><div class="post-head"><a class="id" href="../t/18432.html#p347483">#347483</a> <span class="index">11</span> <span class="date">2007-07-26T04:29:34Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p347327">Quote: ZeroTruths, July 25, 2007 06:40 pm</a></div> He's talking about the tiles that generate a code of 0 and 1 (D and E tiles)  </blockquote> <br>
+ Okay, but what do A B and C represent?</div></div>
+<div class="post" id="p347564"><div class="post-head"><a class="id" href="../t/18432.html#p347564">#347564</a> <span class="index">12</span> <span class="date">2007-07-26T09:49:30Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">No, I think he's just saying that you would replace a series of repeated numbers in the leveldata, like '000', with a smaller letter, like 'b'.</div></div>
+<div class="post" id="p347669"><div class="post-head"><a class="id" href="../t/18432.html#p347669">#347669</a> <span class="index">13</span> <span class="date">2007-07-26T17:08:15Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Yeh, what maestro said, tho empty levels would be hard to substitute.<br>
+And besides, your already reserving some letters for the object declarations</div></div>
+<div class="post" id="p348132"><div class="post-head"><a class="id" href="../t/18432.html#p348132">#348132</a> <span class="index">14</span> <span class="date">2007-07-28T00:26:04Z</span> <span class="author"><a href="../u/9374569.html">cman4</a></span></div><div class="post-body">He's talking about compressing the tile data.<br>
+<br>
+I pulled a random map out of NUMA:<br>
+<a href="https://www.nmaps.net/27130">http://numa.notdot.net/map/27130</a><br>
+<br>
+Now just look at the tile data:<br>
+<pre class="code">11111111111P00P0000P00021111111111P00P0000P00002111111111P00P0000P00000211111111P00P0000P000000P0000000P00P0000P000000P00P0000P00P0000P000000P00P0000P00P0000P000000P00P0000P00P0000P000000P0000000P00P0000P000000P001P000P00P0000P000000P00QP000P0000000P000000P000P000P00000000000000P000P000P00P00000000000P000P000P00P00000000000P000P000P00P000000000000000P000P00P00000000000P000P000P00P00000000000P000P000P00P00000000OOOP000P000P00P000000000000000P000000P000000000000000QQQQQQQI0FQQQQQQ0000000P0000000000000000000000P0000000000000000000000P0000000000000000000000P0000000000000000000000P0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</pre><br>
+Notice how there are long strings of 0s and 1s and some other characters too.<br>
+<br>
+So you could replace those long strings with shorter strings, like ~ for 0000, Z for 000000000... etc.</div></div>
+<div class="post" id="p348148"><div class="post-head"><a class="id" href="../t/18432.html#p348148">#348148</a> <span class="index">15</span> <span class="date">2007-07-28T01:20:31Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">I'd actualy be really impressed if you were to compress the files using the Huffman Compression algorithm (mainly b/c I don't quite understand it yet <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">):<br>
+<a href="http://en.wikipedia.org/wiki/Huffman_coding">http://en.wikipedia.org/wiki/Huffman_coding</a></div></div>
+<div class="post" id="p348194"><div class="post-head"><a class="id" href="../t/18432.html#p348194">#348194</a> <span class="index">16</span> <span class="date">2007-07-28T04:01:50Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348148">Quote: ZeroTruths, July 28, 2007 01:20 am</a></div> I'd actualy be really impressed if you were to compress the files using the Huffman Compression algorithm (mainly b/c I don't quite understand it yet <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">):<br>
+<a href="http://en.wikipedia.org/wiki/Huffman_coding">http://en.wikipedia.org/wiki/Huffman_coding</a> </blockquote>That's sort of what it would be like trying to compress level data. It's far too complex for me, even though I totally understand how it works.<br>
+<br>
+And @cman4, thanks for the tip. That actually would work quite brilliantly...</div></div>
+<div class="post" id="p348382"><div class="post-head"><a class="id" href="../t/18432.html#p348382">#348382</a> <span class="index">17</span> <span class="date">2007-07-28T20:27:57Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body">I'm unable to use it 'cause it doesn't save for my computer.<br>
+When I opened my file, there was NO DATA! <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  <br>
+<br>
+So I  made something out of VB that's similar.<br>
+<br>
+The password is:<br>
+<br>
+The password is nothing. <div class="attachment attachment-missing">Attachment (lost): post-33-1185654477.exe</div></div></div>
+<div class="post" id="p348387"><div class="post-head"><a class="id" href="../t/18432.html#p348387">#348387</a> <span class="index">18</span> <span class="date">2007-07-28T20:47:18Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348382">Quote: cajsq, July 28, 2007 01:27 pm</a></div> I'm unable to use it 'cause it doesn't save for my computer.<br>
+When I opened my file, there was NO DATA! <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  <br>
+<br>
+So I  made something out of VB that's similar.<br>
+<br>
+The password is:<br>
+<br>
+The password is nothing.  </blockquote> <br>
+ Something dot OCX is missing. And I've got no idea why it doesn't work for you, it's just fine for me...</div></div>
+<div class="post" id="p348393"><div class="post-head"><a class="id" href="../t/18432.html#p348393">#348393</a> <span class="index">19</span> <span class="date">2007-07-28T21:03:59Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348387">Quote: Gforce20, July 28, 2007 08:47 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348382">Quote: cajsq, July 28, 2007 01:27 pm</a></div> I'm unable to use it 'cause it doesn't save for my computer.<br>
+When I opened my file, there was NO DATA! <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  <br>
+<br>
+So I  made something out of VB that's similar.<br>
+<br>
+The password is:<br>
+<br>
+The password is nothing. </blockquote>Something dot OCX is missing. And I've got no idea why it doesn't work for you, it's just fine for me...  </blockquote> <br>
+ What do you mean "Something dot OCX is missing"?</div></div>
+<div class="post" id="p348442"><div class="post-head"><a class="id" href="../t/18432.html#p348442">#348442</a> <span class="index">20</span> <span class="date">2007-07-29T01:24:29Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><details class="spoiler"><summary>Spoiler: Click to view what I mean.</summary><img class="bb-img" src="http://i9.tinypic.com/4vijijc.jpg" alt="" loading="lazy"></details></div></div>
+<div class="post" id="p348681"><div class="post-head"><a class="id" href="../t/18432.html#p348681">#348681</a> <span class="index">21</span> <span class="date">2007-07-29T19:31:31Z</span> <span class="author"><a href="../u/9374569.html">cman4</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348194">Quote: Gforce20, July 28, 2007 04:01 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348148">Quote: ZeroTruths, July 28, 2007 01:20 am</a></div> I'd actualy be really impressed if you were to compress the files using the Huffman Compression algorithm (mainly b/c I don't quite understand it yet <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">):<br>
+<a href="http://en.wikipedia.org/wiki/Huffman_coding">http://en.wikipedia.org/wiki/Huffman_coding</a> </blockquote>That's sort of what it would be like trying to compress level data. It's far too complex for me, even though I totally understand how it works.<br>
+<br>
+And @cman4, thanks for the tip. That actually would work quite brilliantly... </blockquote>I didn't come up with the idea, someone posted it before me.<br>
+<br>
+You just didn't seem to understand it so I rephrased it.<br>
+<br>
+Oh, and you should do the same thing with Qs and Os. They pop up in a row sometimes too.<br>
+<br>
+They're the vertical half-tiles. [5Q and 5S]</div></div>
+<div class="post" id="p355478"><div class="post-head"><a class="id" href="../t/18432.html#p355478">#355478</a> <span class="index">22</span> <span class="date">2007-08-15T00:03:11Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18432.html#p348442">Quote: Gforce20, July 29, 2007 01:24 am</a></div> <details class="spoiler"><summary>Spoiler: Click to view what I mean.</summary><img class="bb-img" src="http://i9.tinypic.com/4vijijc.jpg" alt="" loading="lazy"></details>  </blockquote> <br>
+ I think you need  <details class="spoiler"><summary>Spoiler: VB 6.1</summary>Your version must not have the correct compoment if it says "*.ocx" <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> </details></div></div>
+<div class="post" id="p358661"><div class="post-head"><a class="id" href="../t/18432.html#p358661">#358661</a> <span class="index">23</span> <span class="date">2007-08-23T14:07:30Z</span> <span class="author"><a href="../u/9371278.html">ska</a></span></div><div class="post-body">What's the point of saving a few measly kilobytes and risk losing all the data. Thanks for trying to help though...</div></div>
+<div class="post" id="p393103"><div class="post-head"><a class="id" href="../t/18432.html#p393103">#393103</a> <span class="index">24</span> <span class="date">2007-12-24T23:53:15Z</span> <span class="author"><a href="../u/9375526.html">Wasted power</a></span></div><div class="post-body">This program is kinda useless because N itself isn't such a big file and you probably won't have problems even if you downloaded every map you can find lol <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:"></div></div>
+<div class="post" id="p393105"><div class="post-head"><a class="id" href="../t/18432.html#p393105">#393105</a> <span class="index">25</span> <span class="date">2007-12-24T23:58:46Z</span> <span class="author"><a href="../u/9375258.html">TheWigginator</a></span></div><div class="post-body">When you're about to post first check how old the thread is. If it is a few months old then only revive it if you have something useful to post...</div></div>
+<div class="post" id="p455451"><div class="post-head"><a class="id" href="../t/18432.html#p455451">#455451</a> <span class="index">26</span> <span class="date">2008-07-28T05:38:39Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">Okay, I'm going to revive this project with a new plan in mind.<br>
+Rather than simply turning it from 8-bit to 7-bit, I'm going to compress the file based upon level data's structure, not just the fact that it's ASCII.<br>
+<br>
+Tile data will be 5-bit indexed, unless 33 or more of the 34 possible tiles are used, in which case it'll have a 1-bit header for 1's and 0's (blank and solid tiles) which will be further compressed, probably based upon repeating patterns.<br>
+<br>
+The object data will work quite differently. Most objects look something like this:<pre class="code">0^32,150!</pre>Each section can be compressed individually. The first section (object type) can be compressed down to 4 bits (I think... I forget how many objects there are O_o), the coordinates can be converted into 10-bit integers, and any extra data like drone paths can be compressed as well using similar methods.<br>
+<br>
+Any questions/suggestions for this new version? It might be coded in PHP, rather than Liberty BASIC, since not many people seem to have Liberty BASIC installed.</div></div>
+<div class="post" id="p455457"><div class="post-head"><a class="id" href="../t/18432.html#p455457">#455457</a> <span class="index">27</span> <span class="date">2008-07-28T06:12:45Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">unfortunately, n map data is tiny already and doesn't really need compression. But i guess it could be useful for really big databases of maps, like if NUMA decided to archive or something<br>
+<br>
+my input:<br>
+<br>
+* many customly edited maps have floating-point values for coordinates and other measurements (particularly teleporters)<br>
+<br>
+* nreality should be supported because it's incredibly uncompressed as-is<br>
+<br>
+* use something that compiles to an .exe, even if you also want an online PHP version.<br>
+<br>
+*make sure you support stuff like NaN and tiles with identifiers above the normal range, both of which are used in bug maps/glitches and stuff like stationary drones.</div></div>
+</main>
+</body>
+</html>

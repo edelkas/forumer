@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numa Highscore Helper - for windows - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; Numa Highscore Helper - for windows</nav></header>
+<main>
+<div class="post" id="p2148"><div class="post-head"><a class="id" href="../t/2397.html#p2148">#2148</a> <span class="index">1</span> <span class="date">2005-03-06T19:33:22Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">When playing a numa level and you are trying to record a good demo you have to press "\" followed by "r" followed by "1" and then finally "p". This is fine if you are just doing this once but after doing it for the thousandth time it can get repetitive. This program lets you press just one button to do all of these things for you.<br>
+<br>
+Note: This program was designed to work on my computer so it may not work on yours. On my computer I have to press the "\" key to go to the editor. Unless you have to do the same I expect it will not work for you. To make it work on everybody’s computer I need to know which key you have to press, so please tell me which key you use (I know the editor says you use either | or ~ but in effect it is the characters below these that are used). Consider this a beta and Ill upload the updated version as soon as I have the information I need. Also I’m open to suggestions. <div class="attachment attachment-missing">Attachment (lost): post-15-1110156655.zip</div></div></div>
+<div class="post" id="p52905"><div class="post-head"><a class="id" href="../t/2397.html#p52905">#52905</a> <span class="index">2</span> <span class="date">2005-03-06T19:42:58Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Hmmm, the idea is great.  I would actually use that if it worked all the time. By that I mean when I press tab (I set it to tab) it restarts all right, but if I hold down a direction key <i>before</i> play has commenced (which is often neccessary) it doesn't start <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p52906"><div class="post-head"><a class="id" href="../t/2397.html#p52906">#52906</a> <span class="index">3</span> <span class="date">2005-03-06T19:46:01Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">I could add an option so that the program doesnt press play. It leaves that up to you. What do you think?<br>
+<br>
+Edit: Well I cant seem to replicate the problem. Try increasing the "Gap after reset" value. If its too low, the 1 and p keys will be ignored. Perhaps thats the problem.</div></div>
+<div class="post" id="p52907"><div class="post-head"><a class="id" href="../t/2397.html#p52907">#52907</a> <span class="index">4</span> <span class="date">2005-03-06T20:00:15Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">No, it's not that. Hold down left or right whilst doing it.</div></div>
+<div class="post" id="p52910"><div class="post-head"><a class="id" href="../t/2397.html#p52910">#52910</a> <span class="index">5</span> <span class="date">2005-03-06T20:38:56Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">@trib4l: WHy don't you do it without pushing capslock? When the level loads, hold left or right and THEN push capslock.</div></div>
+<div class="post" id="p52923"><div class="post-head"><a class="id" href="../t/2397.html#p52923">#52923</a> <span class="index">6</span> <span class="date">2005-03-06T21:47:23Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">so_what?: Having to press caps lock twice would kinda make only a saving of one key so there would be no point in using it.<br>
+<br>
+trib4lmaniac: It works fine for me. Heres a few ideas to try to figure out whats going wrong. <br>
+<br>
+Can you try it with different keys? Also try using different speeds. For instance try 4000 ms. <br>
+<br>
+Perhaps N is hogging the cpu so try raising the priority of NHH. <br>
+<br>
+Just to make sure we are talking about the same thing. The problem is that you press tab. It goes to the debug menu, you then hold left and the level does reset but doesnt start recording the demo and start the level.<br>
+<br>
+You realize that the time is measures in ms. So 1000 ms is equal to 1 s. <br>
+<br>
+Youre sure its turned on? <br>
+<br>
+Try going to notepad and pressing the key you chose. What should happen is that "\r" will show up and then after the amount of time you specified "1p" will show up.<br>
+<br>
+Could somebody else test NHH and see if this is happening to them.<br>
+<br>
+Edit: Ive uploaded a new version. It lets you choose not to have the program press p for you. Its also sending the keys slightly different. I doubt it will make any difference but its worth a shot.</div></div>
+<div class="post" id="p52940"><div class="post-head"><a class="id" href="../t/2397.html#p52940">#52940</a> <span class="index">7</span> <span class="date">2005-03-06T23:57:06Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">I haven't tested it yet, just wanted to add this. Pressing "\1r (wait) p" is the same as pressing "\r (wait) 1p)" so you should have it press "1" for you beofre resetting.</div></div>
+<div class="post" id="p52945"><div class="post-head"><a class="id" href="../t/2397.html#p52945">#52945</a> <span class="index">8</span> <span class="date">2005-03-07T00:07:58Z</span> <span class="author">Guest</span></div><div class="post-body">I've gotten into the habit of just pushing the buttons, it's no longer even a problem for me, really. ~, r, 1, p. It's just second nature.</div></div>
+<div class="post" id="p52958"><div class="post-head"><a class="id" href="../t/2397.html#p52958">#52958</a> <span class="index">9</span> <span class="date">2005-03-07T00:36:41Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">No, Kablizzy! Convert! ~1r, p! It's wierd at first but you get used to it and then it's much easier.</div></div>
+<div class="post" id="p52960"><div class="post-head"><a class="id" href="../t/2397.html#p52960">#52960</a> <span class="index">10</span> <span class="date">2005-03-07T00:50:21Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">LittleViking001: Good point. Ive changed it to do it that way around.</div></div>
+<div class="post" id="p53378"><div class="post-head"><a class="id" href="../t/2397.html#p53378">#53378</a> <span class="index">11</span> <span class="date">2005-03-09T18:18:11Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">I think the last release solved the problem. Can you confirm this trib4lmaniac?<br>
+<br>
+Edit: Stupid spelling mistake.</div></div>
+<div class="post" id="p53381"><div class="post-head"><a class="id" href="../t/2397.html#p53381">#53381</a> <span class="index">12</span> <span class="date">2005-03-09T18:37:42Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Yep <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+<b>Edit:</b> And as a theory for the error, sometimes I have to press P twice to start playing.</div></div>
+</main>
+</body>
+</html>

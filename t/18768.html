@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to find voronoi regions for a convex polygon? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; How to find voronoi regions for a convex polygon?</nav></header>
+<main>
+<div class="post" id="p16599"><div class="post-head"><a class="id" href="../t/18768.html#p16599">#16599</a> <span class="index">1</span> <span class="date">2007-08-07T13:35:31Z</span> <span class="author"><a href="../u/9374821.html">contrast</a></span></div><div class="post-body">I have implemented polygon vs. polygon collision using SAT and it works great.  But now I want to have polygon vs. circle collision and I can't find anywhere on how to actually find the voronoi regions, or how to determine what voronoi region the circle is in.<br>
+<br>
+I have looked through the code but I can't find where it is done.  Even wikipedia doesn't seem to have a formula for it, not that I can always understand the formulas they have on their pages.<br>
+<br>
+Thanks for any help.</div></div>
+<div class="post" id="p352382"><div class="post-head"><a class="id" href="../t/18768.html#p352382">#352382</a> <span class="index">2</span> <span class="date">2007-08-07T16:05:55Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">The trick with VRs is that they're almost always "implicit" in the code, i.e you should never have to actually build the lines that define them.<br>
+<br>
+For convex polygon vs. circle, you just need lots of lineseg-vs-point tests, with a bit of added logic (WARNING: this might not be the fastest method, it's just the one we're familiar with). <br>
+<br>
+Let's start with circle-vs-lineseg: p is circle's pos, lineseg is a-&gt;b <br>
+The lineseg's VR is a rectangular strip, defined by 2 lines (one passing through each of a,b, both perpendicular to the lineseg). <br>
+<br>
+v = b - a //v is the vector from the lineseg 's start vertex to its end vertex<br>
+d = p - a //d is the vector from the lineseg's first vertex to the circle center<br>
+<br>
+len2 = Dot(v,v) //len2 is the squared-length of the lineseg<br>
+dp = Dot(d,v) <br>
+<br>
+if(dp &lt; 0) CASE 1<br>
+else if(dp &gt; len2) CASE 2<br>
+the circle is outside of the lineseg's VR on the side of a (case 1) or b (case 2); this means the closest point on the lineseg is a (case 1) or b (case 2), if you were doing lineseg-vs-circle you'd test p vs a (case 1) or b (case 2), using a circle-vs-point test, aka simple distance test.<br>
+<br>
+else:<br>
+the circle is inside the lineseg's VR; if you were doing lineseg-vs-circle, you'd want to find the perpendicular distance from p to the lineseg, i.e by looking at np = Dot(d, Normalize(Perp(v))) to measure the position of p along the lineseg's normal.<br>
+<br>
+<br>
+The only difference moving to polygon-vs-circle is that the linesegs are connected, and "sided" (i.e one side of the lineseg is "inside" the polygon, the other is "outside"). Let's say your polygon is defined by vertices v0 to vN, which are in counter-clockwise order.. you need to test your circle (call its position p) vs the edges v0-&gt;v1, v1-&gt;v2, etc.<br>
+<br>
+Whenever you hit case 1 or 2, you'd want to test vs the neighboring edge. Basically, the voronoi region of vertex v[i] is a wedge-shaped region located between the rectangular regions of the CW/prev (v[i-1]-&gt;v[i]) and CCW/next (v[i]-&gt;v[i+1]) linesegs. So, if you test p vs v[i-1]-&gt;v[i] and find case 2, and then test p vs v[i]-&gt;v[i+1] and find case 1, that means p is in v[i]'s VR, and you should test p vs v[i] using a simple distance/circle-vs-point test.<br>
+<br>
+How to best implement this so that you don't do the same tests more than once is tricky.. but it probably doesn't matter, don't get fancy until you know for a fact that this is the bottleneck of your program. Another thing to note is that if p is "outside" (np &gt; 0) _any_ of the edges, it's definitely outside the polygon, while if it's "inside" (np &lt; 0) _all_ of the edges, it's definitely inside the polygon.<br>
+<br>
+hope this helps,<br>
+raigan</div></div>
+<div class="post" id="p352396"><div class="post-head"><a class="id" href="../t/18768.html#p352396">#352396</a> <span class="index">3</span> <span class="date">2007-08-07T16:45:27Z</span> <span class="author"><a href="../u/9374821.html">contrast</a></span></div><div class="post-body">Thank you for the reply Raigan, I will give this a try.  I didn't expect I would have to test against all of the lines, but that is no big deal.</div></div>
+<div class="post" id="p352474"><div class="post-head"><a class="id" href="../t/18768.html#p352474">#352474</a> <span class="index">4</span> <span class="date">2007-08-07T20:33:51Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">if you're using boxes there are shortcuts; also, if your polygons are quite complex (many vertices) you could consider NOT testing against all of them, and instead using some sort of binary search to test in O(logN) time.. you're looking for the closest point on the polygon, and you can exploit the fact that the polygon is convex (and the ordering of the vertex list).. sadly i can't find a good reference for this, but books such as "real-time collision detection" and/or "computational geometry in C" should have something about logN searches involving convex shapes.<br>
+<br>
+however there will be a point at which this is a waste of time (i.e if you have &lt;6 verts per poly, it's probably best to just test all the points).<br>
+<br>
+you could also use bounding boxes and/or some sort of bounding-volume-hierarchy if you have really large polys.. but again, it's best to just to the braindead thing until it becomes a problem.<br>
+<br>
+finally, you could try "coherence" to speed things up; once you've found the closest vertex/edge on the polygon, you can cache it and use it next frame -- chances are that the closest point hasn't changed much, so you can start your search for the new closest point by looking at the verts/edges neighboring the previous closest point.. usually this saves you from testing vs everything.</div></div>
+</main>
+</body>
+</html>

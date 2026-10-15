@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple train simulation... GONE HORRIBLY WRONG - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Simple train simulation... GONE HORRIBLY WRONG</nav></header>
+<main>
+<div class="post" id="p14311"><div class="post-head"><a class="id" href="../t/16210.html#p14311">#14311</a> <span class="index">1</span> <span class="date">2007-03-06T06:55:51Z</span> <span class="author">glopal <span class="guest">(guest)</span></span></div><div class="post-body">The grade 11 physics not working...</div></div>
+<div class="post" id="p303112"><div class="post-head"><a class="id" href="../t/16210.html#p303112">#303112</a> <span class="index">2</span> <span class="date">2007-03-07T00:12:22Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i dont understand much of your code since java is not what i use, and i cant really help you there, but i dont understand the formulas you have in there either, partially because im not entirely sure what each one stands for... so im making my own just to see what exactly your doing in comparison (written in loose C++ structure)<br>
+<br>
+another way to have it go for so long before it stops brakeing is to just figure out exactly how far back it would be 5 seconds before it starts breaking, or you could add in your other train and actually have them both start brakeing when they are 1.2km (600 px) appart, which is what i think i am going to attempt to show<br>
+<br>
+cVel_T1 - trains current velocity<br>
+acc_T1 - acceleration<br>
+nVel_T1 - new velocity<br>
+xpos_T1 - duh<br>
+T1/T2 = train 1/ train 2<br>
+<br>
+<pre class="code">cVel_T1 = 27.777777...;
+acc_T1 = -.9;
+xpos_T1 = -300; /*arbitrary point, in px, 1/2 the distance to the left of the midpoint between the 2 trains in this case*/
+cVel_T2 = -27.777777...;
+acc_T2 = .9;
+xpos_T2 = 300;
+
+if ((xpos_T2 - xpos_T1) &lt; 600) {    //if the two trains are with 1.2km of each other
+
+    if (cVel_T1 &gt;= 0) {
+        nVel_T1 = cVel_T1 + acc_T1;
+        xpos_T1 = xpos_T1 + nVel_T1; 
+    }
+
+    if (cVel_T2 &lt;= 0) {
+        nVel_T2 = cVel_T2 + acc_T2;
+        xpos_T2 = xpos_T2 + nVel_T2;
+    }
+}
+
+//render
+
+//repeat</pre>      <br>
+<br>
+sorry again if this is exactly what you have, im not fluent in java <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p303596"><div class="post-head"><a class="id" href="../t/16210.html#p303596">#303596</a> <span class="index">3</span> <span class="date">2007-03-09T01:21:04Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">smart alco has a pretty decent point there<br>
+getting the time it will actually cross the line is better than having multiple checks<br>
+LOOK @ MY MATH SKILLZZ!!<br>
+a=(V2-V1)/t<br>
+at=V2-V1<br>
+t=(V2-V1)/a<br>
+t=-V1/a       since you want the resulting velocity to become 0<br>
+I'm working on this improvement in your code<br>
+<br>
+btw, what SDk do you use?<br>
+I use Eclipse<br>
+<br>
+EDIT: lol, slip up on the math<br>
+V1(t)=d<br>
+t=d/V1<br>
+there we go <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p303642"><div class="post-head"><a class="id" href="../t/16210.html#p303642">#303642</a> <span class="index">4</span> <span class="date">2007-03-09T02:56:52Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Ok, so i didn't <i>exactly</i> find the time it would take to get to the line, but I did do something simmilar<br>
+<br>
+I added a variable called refreshRate to TrainSim.java that controls the framerate of the applet. You already know the velocity of the train, which is in meters per <b>second</b>.<br>
+To control the framerate, in the run method, when it sleeps, replace the 10 with 1000/refreshRate. This is a good thing because when you now go and add the velocity to the train to move it, you can replace t1.incX(t1.getVelocity()) with t1.incX(t1.getVelocity()/refreshRate). This will also control the precision of the velocity, and when exactly the train reaches the line.<br>
+For example, lets say refreshRate is 1. Then the applet would refresh every second, and the train would move whatever the velocity was. Now, if refreshRate was 10, then only 1/10th of the velocity is added for every update. The train will still move the same distance as if refreshRate was 1, but now, the comparison to the line is much better. it's calculated 10 times every second, instead of once per second (or whatever your original value was).<br>
+<br>
+So yeah, I made some changes to your code which makes your code A) easier to follow, and B) more precise. The code has a 1:1 pixel to meter scale, which I will try to fix before I call it a night. just ask if you have any questions.<br>
+<br>
+<b>EDIT:</b> I managed to get scale working. So now you can change the ratio of pixels to meters in your simulation.<br>
+Hope I helped <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <div class="attachment attachment-missing">Attachment (lost): post-14-1173409715.zip</div></div></div>
+</main>
+</body>
+</html>

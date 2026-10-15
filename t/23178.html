@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play And Stop (Triggered Objects) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; Play And Stop (Triggered Objects)</nav></header>
+<main>
+<div class="post" id="p20796"><div class="post-head"><a class="id" href="../t/23178.html#p20796">#20796</a> <span class="index">1</span> <span class="date">2008-07-14T16:32:03Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">I believe this is the most revolutionary update I have ever made.<br>
+<br>
+I mod N for real usage, I don't mod N just for personal favourite features. Try this map and you will understand<br>
+<br>
+Play And Stop (Triggered Objects) <br>
+<br>
+<a href="http://nmaps.net/131345">http://nmaps.net/131345</a><br>
+<br>
+I implemented the Trigger Functions on the objects, so that you can play and pause individual object by touching the corresponding door trigger.<br>
+<br>
+Restart NReality (a mod of N, download @ n.infunity.com) to retrieve this new update of Triggered Objects<br>
+<br>
+To add "Trigger" to a door switch, append<br>
+^startTriggers(separated by "."),stopTriggers(separated by ".") to the door switch object (which starts with 9^ )<br>
+<br>
+To make the object triggerable, append<br>
+^^waitForTrigger,startTriggers(separated by "."),stopTriggers(separated by ".")<br>
+<br>
+For an example, the first line of drones can be started by the triggerID 1, and can be stopped by trigger ID 2<br>
+so their codes are<br>
+!6^180,180,3,0,0,2^^,1,2!<br>
+<br>
+The door switch which starts it has the code of<br>
+!9^228,276,0,0,27,11,1,-1,0!<br>
+and the door switch which stops it has the code of<br>
+!9^228,240,0,0,2,11,1,0,0^,2!<br>
+<br>
+The boo is initially stopped, and can be started with trigger ID 5, so it has a code of<br>
+!6^756,276,3,0,101,2^****,5!</div></div>
+<div class="post" id="p452892"><div class="post-head"><a class="id" href="../t/23178.html#p452892">#452892</a> <span class="index">2</span> <span class="date">2008-07-14T23:40:55Z</span> <span class="author"><a href="../u/9375959.html">Eiturlyf</a></span></div><div class="post-body">Genius. Pure genius.</div></div>
+<div class="post" id="p452894"><div class="post-head"><a class="id" href="../t/23178.html#p452894">#452894</a> <span class="index">3</span> <span class="date">2008-07-15T00:03:18Z</span> <span class="author"><a href="../u/9375042.html">DDRave</a></span></div><div class="post-body">*JAW DROP*<br>
+<img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> in ddas though, you could stop enemies for an extreme close call <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p452917"><div class="post-head"><a class="id" href="../t/23178.html#p452917">#452917</a> <span class="index">4</span> <span class="date">2008-07-15T01:39:58Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">This project is going too far enough. I think once you finish adding stuff you should integrate it in to the editor, this stuff would be making great DDAs/races if it didn't all evaporate in the editor.</div></div>
+<div class="post" id="p452959"><div class="post-head"><a class="id" href="../t/23178.html#p452959">#452959</a> <span class="index">5</span> <span class="date">2008-07-15T04:32:40Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Floorguards don't seem to be triggerable. They just don't stop. I tried both varieties of triggerability:<br>
+<br>
+<u>Plan A - Floorguard doesn't move until triggered</u><br>
+Floorguard: "!4^204,210,1^****,1"<br>
+Door: "!9^540,252,1,0,12,21,1,0,-1^<span style="color:BLACK">1</span>"<br>
+<br>
+<u>Plan B - Floorguard moves until stopped</u><br>
+Floorguard: "!4^204,210,1^^,,1"<br>
+Door: "!9^540,252,1,0,12,21,1,0,-1^,1"<br>
+<br>
+These exact setups work for a few other things that I've tried them on, so what's up with the floorguards?</div></div>
+<div class="post" id="p452961"><div class="post-head"><a class="id" href="../t/23178.html#p452961">#452961</a> <span class="index">6</span> <span class="date">2008-07-15T04:49:49Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">This + Rotating laser drones would make one incredible puzzle / race.<br>
+<br>
+Edit: Could you make it so that you can stop rotating laser drones but they keep on firing? So you only stop the rotation, or reverse it like in N+.</div></div>
+<div class="post" id="p452966"><div class="post-head"><a class="id" href="../t/23178.html#p452966">#452966</a> <span class="index">7</span> <span class="date">2008-07-15T05:24:27Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Nexx I will check the floorguard object<br>
+<br>
+Arona Daal N+ laser drones won't reverse... they are two groups of drones if you watch the video carefully. By the way you can stop the rotating drones but activate another fixed reverse angle laser drone with the same switch</div></div>
+<div class="post" id="p453105"><div class="post-head"><a class="id" href="../t/23178.html#p453105">#453105</a> <span class="index">8</span> <span class="date">2008-07-15T23:14:04Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Here's my attempt at using triggered objects: <a href="http://nmaps.net/131518">http://nmaps.net/131518</a></div></div>
+<div class="post" id="p453175"><div class="post-head"><a class="id" href="../t/23178.html#p453175">#453175</a> <span class="index">9</span> <span class="date">2008-07-16T04:21:16Z</span> <span class="author">Guest</span></div><div class="post-body">Can someone please tell me what's wrong with this code? The triggers are working in reverse. The 1 trigger stops the Boo drone, and the 2 trigger starts it.<br>
+<br>
+!6^636,252,3,0,103,1^75,100,2!6^252,444,3,0,121,1!9^552,144,1,0,27,23,1,0,-1!9^95,580,1,0,27,23,1,0,-1</div></div>
+<div class="post" id="p453176"><div class="post-head"><a class="id" href="../t/23178.html#p453176">#453176</a> <span class="index">10</span> <span class="date">2008-07-16T04:24:55Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23178.html#p452966">Quote: Unreality, July 15, 2008 05:24 am</a></div> Nexx I will check the floorguard object<br>
+<br>
+Arona Daal N+ laser drones won't reverse... they are two groups of drones if you watch the video carefully. By the way you can stop the rotating drones but activate another fixed reverse angle laser drone with the same switch  </blockquote> <br>
+ Ah, I wish I had thought more before I wasted your time with a stupid question &gt;.&lt;</div></div>
+<div class="post" id="p453189"><div class="post-head"><a class="id" href="../t/23178.html#p453189">#453189</a> <span class="index">11</span> <span class="date">2008-07-16T05:57:32Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23178.html#p453175">Quote: numa_ninja, July 15, 2008 08:21 pm</a></div> Can someone please tell me what's wrong with this code? The triggers are working in reverse. The 1 trigger stops the Boo drone, and the 2 trigger starts it.<br>
+<br>
+!6^636,252,3,0,103,1^75,100^<span style="color:BLACK">1</span>,2!6^252,444,3,0,121,1^<span style="color:BLACK">2</span>!9^552,144,1,0,27,23,1,0,-1^<span style="color:BLACK">2</span>!9^95,580,1,0,27,23,1,0,-1^<span style="color:BLACK">1</span> </blockquote>Your code is incorrect.<br>
+<br>
+1) Why are there 3 total uses of "^" in the first drone's code?<br>
+2) For drones, you have to use "^^" to indicate triggers.<br>
+3) For drones, there are three trigger variables. The first is for "BeginStopped". 1 = yes, any other value (I assume) = no. The second and third are for StartTrigger and StopTrigger (respectively).<br>
+<br>
+Since I'm not sure about the "^75,100" part, I'll refrain from giving you "this should work" code, but if you correct the things I mentioned above, it should work.</div></div>
+<div class="post" id="p453195"><div class="post-head"><a class="id" href="../t/23178.html#p453195">#453195</a> <span class="index">12</span> <span class="date">2008-07-16T06:21:59Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23178.html#p453175">Quote: numa_ninja, July 16, 2008 12:21 pm</a></div> Can someone please tell me what's wrong with this code? The triggers are working in reverse. The 1 trigger stops the Boo drone, and the 2 trigger starts it.<br>
+<br>
+!6^636,252,3,0,103,1^75,100,2!6^252,444,3,0,121,1!9^552,144,1,0,27,23,1,0,-1!9^95,580,1,0,27,23,1,0,-1  </blockquote> <br>
+ Hi please kindly check the trigger drone coding:<br>
+^^waitForTrigger,startTriggers(separated by "."),stopTriggers(separated by ".")<br>
+<br>
+So the first parameter is waitForTrigger<br>
+<br>
+if you want the it to be start with trigger 1 and stop with trigger 2<br>
+<br>
+you can put ^,1,2 where you ignored the first parameter<br>
+<br>
+if you want the drone to be initially stopped, you can put<br>
+<br>
+****,1,2<br>
+<br>
+<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+like<br>
+<br>
+!6^636,252,3,0,103,1^75,100^,1,2!</div></div>
+<div class="post" id="p453197"><div class="post-head"><a class="id" href="../t/23178.html#p453197">#453197</a> <span class="index">13</span> <span class="date">2008-07-16T07:29:33Z</span> <span class="author">Guest</span></div><div class="post-body">Oh right, I completely forgot about that. Thanks Unreality and Nexx.</div></div>
+</main>
+</body>
+</html>

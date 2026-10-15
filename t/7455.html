@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Making things stay still - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Making things stay still</nav></header>
+<main>
+<div class="post" id="p6788"><div class="post-head"><a class="id" href="../t/7455.html#p6788">#6788</a> <span class="index">1</span> <span class="date">2006-02-11T13:34:20Z</span> <span class="author"><a href="../u/9371633.html">skateman</a></span></div><div class="post-body">Yeah, hi. I made this level, "Indiana Jones", and people didn't really like it, but they were nice and gave me suggestions (thanks guys), but i can't understand how you make the drones stay still. Hes some of the code that one of them gave me:<br>
+Original:6^396,348,2,5,1,0<br>
+Stationary:6^396,348,2,50,1,0<br>
+<br>
+can you tell me where do i put this? i'm completely confused.</div></div>
+<div class="post" id="p142189"><div class="post-head"><a class="id" href="../t/7455.html#p142189">#142189</a> <span class="index">2</span> <span class="date">2006-02-11T13:36:39Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Put the drone as the last object, go to debug, place your cursor behind the data and press L.</div></div>
+<div class="post" id="p142230"><div class="post-head"><a class="id" href="../t/7455.html#p142230">#142230</a> <span class="index">3</span> <span class="date">2006-02-11T15:58:57Z</span> <span class="author"><a href="../u/9371245.html">Borealis</a></span></div><div class="post-body">I'd just put 4 locked doors around it, set it on a dumb ccw algorithm and then have the doors open as soon as the player starts the level (place it behind the player's start position).<br>
+<br>
+ <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></div></div>
+<div class="post" id="p142236"><div class="post-head"><a class="id" href="../t/7455.html#p142236">#142236</a> <span class="index">4</span> <span class="date">2006-02-11T16:15:10Z</span> <span class="author">girl with no pants on <span class="guest">(guest)</span></span></div><div class="post-body">Take the last number off of the code and type 'NaN' in it's place. The drone will now remain in one place with no need for messy doors.</div></div>
+<div class="post" id="p142272"><div class="post-head"><a class="id" href="../t/7455.html#p142272">#142272</a> <span class="index">5</span> <span class="date">2006-02-11T17:13:42Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body">Which, is the same as Sucker's advice.<br>
+<br>
+[off-topic]You again?</div></div>
+</main>
+</body>
+</html>

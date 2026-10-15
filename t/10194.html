@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support multiple userlevels files - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Support multiple userlevels files</nav></header>
+<main>
+<div class="post" id="p9164"><div class="post-head"><a class="id" href="../t/10194.html#p9164">#9164</a> <span class="index">1</span> <span class="date">2006-06-01T02:01:10Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Previously it has been suggested that one might be able to create folders to keep userlevels organised. Instead, I propose that N be able to handle multiple text files instead of just userlevels.txt.<br>
+<br>
+It would work like this. Instead of loading userlevels.txt when you enter the userlevels menu, there would be file called include.txt or somesuch, which would contain something like<br>
+<br>
+&amp;files=<br>
+"userlevels.txt"<br>
+"legacy.txt"<br>
+"LA^3.txt"<br>
+"atilla_and_co_training.txt"<br>
+"my_levels.txt"<br>
+<br>
+The userlevels menu would parse this file, and display the file names like it currently does the levels (maybe descriptions/authors could also be included). Clicking on one of the files would then load the levels from that file as is currently done for userlevels.txt. Of course, a "change file" button would be added to the level menu, allowing you to go back and select a different one.<br>
+<br>
+This seems technically feasible, and shouldn't require too much extra programming (particularly since you should be able to grab most of the code from the already-existing functions for parsing userlevels.txt). It would also have a large number of benefits - it would be *very* useful for level packs, it would let you keep things organised, it prevents parsing a large amount of unnecessary data, and it prevents me having to constantly rename a buch of text files. The only downside I can see is that it might be little confusing to newbies, but then, the current system isn't terribly user-friendly, either.<br>
+<br>
+EDIT: Since it doesn't actually mess with the userlevels file, the level data, or the parsing itself, it would also be totally backwards compatible.<br>
+<br>
+Thoughts, anyone? Is this impossible for some technical reason I haven't thought of? Is it just too much programming?</div></div>
+<div class="post" id="p182975"><div class="post-head"><a class="id" href="../t/10194.html#p182975">#182975</a> <span class="index">2</span> <span class="date">2006-06-01T08:11:42Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body">This way you would be able too keep a huge amount of maps without having to parse for 45 sec each time you open the userlevels. Great! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p183038"><div class="post-head"><a class="id" href="../t/10194.html#p183038">#183038</a> <span class="index">3</span> <span class="date">2006-06-01T15:36:27Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">like the idea, only i want a bit more to that... have it so you can change what pack a level is in from N (maybe possible since better user level integration is supposedly coming...) that way if i have a pack called "legacy-beat" and a pack called "legacy-unbeat" as soon as i beat a level i could transfer it and not have to worry about it...</div></div>
+<div class="post" id="p183043"><div class="post-head"><a class="id" href="../t/10194.html#p183043">#183043</a> <span class="index">4</span> <span class="date">2006-06-01T16:09:29Z</span> <span class="author"><a href="../u/9371154.html">Giacomo</a></span></div><div class="post-body">Not bad. I can imagine myself making two .txt files that say "Dark_Smiley_GX's good levels" and "Dark_Smiley_GX's stoopid levels"<br>
+<br>
+Good suggestion. It should keep the userlevels cleaner.  <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p183288"><div class="post-head"><a class="id" href="../t/10194.html#p183288">#183288</a> <span class="index">5</span> <span class="date">2006-06-02T00:03:22Z</span> <span class="author"><a href="../u/9372500.html">TorturedAzn</a></span></div><div class="post-body">That is a great idea, my userlevels.txt is over 5 mb, takes a really long time to load</div></div>
+<div class="post" id="p183292"><div class="post-head"><a class="id" href="../t/10194.html#p183292">#183292</a> <span class="index">6</span> <span class="date">2006-06-02T00:06:46Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10194.html#p183288">Quote: TorturedAzn, June 01, 2006 08:03 pm</a></div> That is a great idea, my userlevels.txt is over 5 mb, takes a really long time to load  </blockquote> <br>
+ Wow. Mine is a little over a MB.<br>
+<br>
+I am in support of this idea. The Legacy levels take up a lot of space.</div></div>
+<div class="post" id="p183529"><div class="post-head"><a class="id" href="../t/10194.html#p183529">#183529</a> <span class="index">7</span> <span class="date">2006-06-02T13:18:59Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Gets my support.</div></div>
+<div class="post" id="p183550"><div class="post-head"><a class="id" href="../t/10194.html#p183550">#183550</a> <span class="index">8</span> <span class="date">2006-06-02T14:36:16Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Indeed, I support this. In the meantime, there's <a href="../t/3192.html">this</a>. Cliiiiiick it!</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top 20 top scorer listing? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Top 20 top scorer listing?</nav></header>
+<main>
+<div class="post" id="p4014"><div class="post-head"><a class="id" href="../t/4402.html#p4014">#4014</a> <span class="index">1</span> <span class="date">2005-08-12T16:50:51Z</span> <span class="author"><a href="../u/9370624.html">HeartView</a></span></div><div class="post-body">Not exactly as the title suggests, but...  Was wondering if you folks could implement a "top 10" or "top 20" of the following:<br>
+<br>
+*  Number of #0 scores<br>
+*  Number of top 5 scores<br>
+*  Number of top 10 scores<br>
+*  Number of top 20 scores<br>
+<br>
+So, at a glance, we could see the top 10 or 20 people with #0 scores, for example.  Would be neat to see where we (as score seekers) are at in the overall scheme of things. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p90256"><div class="post-head"><a class="id" href="../t/4402.html#p90256">#90256</a> <span class="index">2</span> <span class="date">2005-08-12T17:36:57Z</span> <span class="author"><a href="../u/9370861.html">spect</a></span></div><div class="post-body">That would be awesome.<br>
+Fully accepted.<br>
+<br>
+- Yes, I thought about something like this before, but not as precise as Heartview.</div></div>
+<div class="post" id="p90270"><div class="post-head"><a class="id" href="../t/4402.html#p90270">#90270</a> <span class="index">3</span> <span class="date">2005-08-12T18:46:37Z</span> <span class="author">Guest</span></div><div class="post-body">we've been trying to do this, however we can't seem to find a fast/good method. if anyone knows php/mySQL and would like to suggest something, we'd appreciate it.<br>
+<br>
+<br>
+the main problem is that the tables themselves aren't sorted, so there's no concept of "who's #0?" or "what # is user ___?".. like, there's no built-in property you can query to get that info. <br>
+<br>
+to get the # of user ___'s score for levelX, all you can do is ask for the records for levelX sorted in order of decreasing score, then loop through them and count how many records you pass before you hit a record with name=___.. this is a horrible solution.<br>
+<br>
+to find out the number of #0 scores for a given person, we have to query each level for the #0 score, then see if the username matches.. obviously this is a terribles/slow solution. it just gets worse for "the number of top20 scores" since we have to get the top 20 for each level, then loop through all of them, counting.<br>
+<br>
+<br>
+obviously there should be a simple SQL query which will generate the results we want without us having to do all sort of manual looping and counting.. sadly we still haven't figured it out.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p90292"><div class="post-head"><a class="id" href="../t/4402.html#p90292">#90292</a> <span class="index">4</span> <span class="date">2005-08-12T20:38:41Z</span> <span class="author"><a href="../u/9370624.html">HeartView</a></span></div><div class="post-body">Could this be done as a batch file and only updated periodically?  Like daily or even weekly. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  It doesn't have to be real-time, at least for me it doesn't.</div></div>
+<div class="post" id="p90294"><div class="post-head"><a class="id" href="../t/4402.html#p90294">#90294</a> <span class="index">5</span> <span class="date">2005-08-12T20:41:26Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">i have to say that would be an awesome thing to have. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p90336"><div class="post-head"><a class="id" href="../t/4402.html#p90336">#90336</a> <span class="index">6</span> <span class="date">2005-08-12T22:24:08Z</span> <span class="author"><a href="../u/9370861.html">spect</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4402.html#p90292">Quote: HeartView, Aug 12 2005, 10:38 PM</a></div> Could this be done as a batch file and only updated periodically?  Like daily or even weekly. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  It doesn't have to be real-time, at least for me it doesn't.  </blockquote> <br>
+ /me has to agree again.<br>
+<br>
+Still, I'm thinking of a system with points: <br>
+0th gives somebody 20 points.<br>
+1st gives somebody 19 points<br>
+and so on<br>
+At the end, it will be sorted (descending) by points (trib4l would pwn this totally....).</div></div>
+</main>
+</body>
+</html>

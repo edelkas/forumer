@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating User Level - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Creating User Level</nav></header>
+<main>
+<div class="post" id="p7082"><div class="post-head"><a class="id" href="../t/7872.html#p7082">#7082</a> <span class="index">1</span> <span class="date">2006-02-26T20:12:03Z</span> <span class="author"><a href="../u/9371713.html">wilsonma08</a></span></div><div class="post-body">I created a generic 1st time map for Ned.  I was able to debug it and play it in debug mode and it worked great and the map was still in tact.<br>
+<br>
+I saved it to Userlevels.txt and added the # at the end of the code.<br>
+Went to play it for real under User levels, but when it opened the mapping moved.  the bottom half of the map moved to the top and rearranged blocks/gold/ etc.<br>
+<br>
+the links contain screenshots of what it looked like in debug mode and when trying to play against the clock.<br>
+<br>
+there is also a link to view the code.<br>
+<br>
+<a href="http://www.amoursansfin.info/ninja.php">MAP IMAGES AND CODE</a></div></div>
+<div class="post" id="p148935"><div class="post-head"><a class="id" href="../t/7872.html#p148935">#148935</a> <span class="index">2</span> <span class="date">2006-02-26T20:21:30Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">hmm dont seem to have access to those screenshots dude. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p148937"><div class="post-head"><a class="id" href="../t/7872.html#p148937">#148937</a> <span class="index">3</span> <span class="date">2006-02-26T20:29:28Z</span> <span class="author"><a href="../u/9371713.html">wilsonma08</a></span></div><div class="post-body">EVERYTHING IS WORKING NOW.  PLEASE HAVE A GANDER!  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></div></div>
+<div class="post" id="p149037"><div class="post-head"><a class="id" href="../t/7872.html#p149037">#149037</a> <span class="index">4</span> <span class="date">2006-02-26T23:51:20Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Sorry, no its not. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  Did you say "gander"? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p149278"><div class="post-head"><a class="id" href="../t/7872.html#p149278">#149278</a> <span class="index">5</span> <span class="date">2006-02-27T17:26:33Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">It works for me. But I can't see how that would happen.  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"><br>
+<br>
+<br>
+<br>
+What about the fact it goes $name#author#type (new lines) Code# ?</div></div>
+<div class="post" id="p150242"><div class="post-head"><a class="id" href="../t/7872.html#p150242">#150242</a> <span class="index">6</span> <span class="date">2006-03-01T13:46:11Z</span> <span class="author"><a href="../u/9371713.html">wilsonma08</a></span></div><div class="post-body">Here is an interesting thing.  I checked all of that and it doesn't seem to make much of a difference.  I tried the level on a different PC and still had same issue.  I even tried to edit another "user level" and actually ran across the same issue.  Is it possible that I may have just downloaded a corrupted version?</div></div>
+<div class="post" id="p150830"><div class="post-head"><a class="id" href="../t/7872.html#p150830">#150830</a> <span class="index">7</span> <span class="date">2006-03-02T19:25:00Z</span> <span class="author"><a href="../u/9371154.html">Giacomo</a></span></div><div class="post-body">It's probably this: ZZ9, I'm going to say a similar thing to what you said.<br>
+<br>
+You typed in:<br>
+$Pyramid Eye#lonewilly#Test<br>
+<br>
+The level code was here.<br>
+<br>
+If you remove that line in between the level info ($Pyramid Eye#lonewilly#Test) and the level data then add another # after "test", then that should help.</div></div>
+<div class="post" id="p150847"><div class="post-head"><a class="id" href="../t/7872.html#p150847">#150847</a> <span class="index">8</span> <span class="date">2006-03-02T20:07:04Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">ARRRRRRGGGGGGGGHHHHHHHHHHH!!!!!!!!<br>
+I loaded the level in debug and got this..... <div class="attachment attachment-missing">Attachment (lost): post-3-1141330024.png</div></div></div>
+<div class="post" id="p151405"><div class="post-head"><a class="id" href="../t/7872.html#p151405">#151405</a> <span class="index">9</span> <span class="date">2006-03-04T06:31:40Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">You have two [return]s between the last # and the level data.  Get rid of those and you'll be fine.</div></div>
+<div class="post" id="p152175"><div class="post-head"><a class="id" href="../t/7872.html#p152175">#152175</a> <span class="index">10</span> <span class="date">2006-03-06T05:35:36Z</span> <span class="author"><a href="../u/9371754.html">the splodin' chipmunk</a></span></div><div class="post-body">ifthats ur first map its bound 2 screw up&lt; if u dont want anything bad 2 happen when ur adding a new userlevel, add a thwump somewhere where its not going 2 interfere, say the the corner of the level wall, it serves as a decoy so nothing else screws up(it'll just change angles) so place it wisely. At least thats what i do, then add it 2 the userlvls.txt. And there and easy solution 2 ur troubles. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p154190"><div class="post-head"><a class="id" href="../t/7872.html#p154190">#154190</a> <span class="index">11</span> <span class="date">2006-03-12T23:33:00Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Also, make sure that there is no word wrap.<br>
+<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+</main>
+</body>
+</html>

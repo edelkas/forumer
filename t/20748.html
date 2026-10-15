@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drone Paths - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Drone Paths</nav></header>
+<main>
+<div class="post" id="p18483"><div class="post-head"><a class="id" href="../t/20748.html#p18483">#18483</a> <span class="index">1</span> <span class="date">2007-12-20T14:30:00Z</span> <span class="author">kinglibai <span class="guest">(guest)</span></span></div><div class="post-body"><span style="color:BLUE">Well, you see, when you try to put a drone in, whether it's a blue, red, or black one, it comes up with a bunch of meaningless symbols. There's one that look like arrows around a block, and yeah. I want to control my drones, so can someone explain to me what these options mean?<br>
+<br>
+Currently I avoid making drones because they usually get stuck <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono"> </span></div></div>
+<div class="post" id="p391550"><div class="post-head"><a class="id" href="../t/20748.html#p391550">#391550</a> <span class="index">2</span> <span class="date">2007-12-20T18:04:53Z</span> <span class="author"><a href="../u/9375342.html">theEpic</a></span></div><div class="post-body">Those are so you can control the motion path of the drones. For example, you can make it turn clockwise or counter when it encounters a wall.</div></div>
+<div class="post" id="p391675"><div class="post-head"><a class="id" href="../t/20748.html#p391675">#391675</a> <span class="index">3</span> <span class="date">2007-12-21T00:17:04Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Those 'meaningless symbols' are different algorithms you can set to your drones. 'Surface follow' algorithms allow your drone to follow a tile surface; basically it makes the drone complete circuits around a set of tiles. However, if it doesn't have any surface to follow, it will just go around in circles. The other three drones are fairly self explanatory. Do some experimenting in Ned to get a better feel for it.</div></div>
+<div class="post" id="p392283"><div class="post-head"><a class="id" href="../t/20748.html#p392283">#392283</a> <span class="index">4</span> <span class="date">2007-12-22T11:59:46Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">A represents dumb anti-clockwise. This makes it turn counter-clockwise whenever it <b>hits</b> a wall. Q is a bit more complicated. It makes the drone turn counter-clockwise when there is <b>no wall</b> in that direction. If you want a drone starting on a corner that uses this, make sure to point it 90 degrees clockwise of the direction that is desired. W is like A, except each time it alternates. Finally is S, which is like W but it picks a random direction. If a drone is in a corner (L or U shaped) is turns out the other side and back in the same direction respectively. If a drone had walls on all sides, it just stops moving permanently.</div></div>
+<div class="post" id="p393052"><div class="post-head"><a class="id" href="../t/20748.html#p393052">#393052</a> <span class="index">5</span> <span class="date">2007-12-24T21:37:58Z</span> <span class="author"><a href="../u/9375526.html">Wasted power</a></span></div><div class="post-body">That's VERY confusing.</div></div>
+</main>
+</body>
+</html>

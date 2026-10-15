@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doors from all tilesets - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Doors from all tilesets</nav></header>
+<main>
+<div class="post" id="p1310"><div class="post-head"><a class="id" href="../t/1464.html#p1310">#1310</a> <span class="index">1</span> <span class="date">2004-11-09T20:14:26Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">N should have doors that correspond to all the tilesets, i.e. 45 degree doors, 22.5 degree doors, round doors, half-tile doors... It would certainly make some maps more coherent, I'm having trouble putting doors in an oddly-shaped map. Hrm, now I'm wondering how hard it would be to use two sets of coordinates for a door, and it just is a line between them.</div></div>
+<div class="post" id="p35744"><div class="post-head"><a class="id" href="../t/1464.html#p35744">#35744</a> <span class="index">2</span> <span class="date">2004-11-09T21:11:59Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">45 degree doors seem to be generally accepted as a good idea that will never happen, because that stuff is "hard coded."  Whatever that means.<br>
+Other degrees have not been discussed much, but I don't think they're worth it, especially because they would require the grid locking for doors to change, which would cause the game to need a lot more code (and load time, and resources while running) in all levels, even those with normal doors only.  Round is just weird.</div></div>
+<div class="post" id="p35779"><div class="post-head"><a class="id" href="../t/1464.html#p35779">#35779</a> <span class="index">3</span> <span class="date">2004-11-10T03:45:46Z</span> <span class="author"><a href="../u/9370473.html">James</a></span></div><div class="post-body">Round is an excellent idea. Vertical and Horizontal are really getting boring.</div></div>
+<div class="post" id="p35896"><div class="post-head"><a class="id" href="../t/1464.html#p35896">#35896</a> <span class="index">4</span> <span class="date">2004-11-10T22:10:45Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/1464.html#p35744">Quote: brickman, Nov 9 2004, 09:11 PM</a></div> 45 degree doors seem to be generally accepted as a good idea that will never happen, because that stuff is "hard coded."  Whatever that means.<br>
+  </blockquote> <br>
+ if you're really interested, the most recent tutorial actually explains how doors/tiles work, and why they can only be vertical/horizontal. the short version is that the game world is based on a grid of squares: each tiles sits inside a square, and each door sits on an edge of a square.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p35915"><div class="post-head"><a class="id" href="../t/1464.html#p35915">#35915</a> <span class="index">5</span> <span class="date">2004-11-11T00:42:15Z</span> <span class="author"><a href="../u/9370473.html">James</a></span></div><div class="post-body">What about N himself? He can move freely about without any confinement to squares.</div></div>
+<div class="post" id="p35945"><div class="post-head"><a class="id" href="../t/1464.html#p35945">#35945</a> <span class="index">6</span> <span class="date">2004-11-11T03:35:01Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Yeah, I always knew somehow that the 1/4 snap on doors that made them have positions only on the edge of tiles was a key factor in how they were made, and that it would be a lot more complicated than going back and changing the number under "grid snap=" to make them work otherwise.  Not just a matter of halving the code, because it doesn't halve the position code by having a snap (as long as you aren't using no snap and throwing stuff all over).</div></div>
+</main>
+</body>
+</html>

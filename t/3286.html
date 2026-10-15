@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launchpad Teleport - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Launchpad Teleport</nav></header>
+<main>
+<div class="post" id="p2962"><div class="post-head"><a class="id" href="../t/3286.html#p2962">#2962</a> <span class="index">1</span> <span class="date">2005-05-22T23:50:10Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">i'm making a map right now, and i'd like to know how to do that one bug where you hit a trampoline and appear on the other side.  this is done in the User Levels "Pac-N", and i can't get it to work.  help? <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p68789"><div class="post-head"><a class="id" href="../t/3286.html#p68789">#68789</a> <span class="index">2</span> <span class="date">2005-05-23T00:05:16Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Alright, place a launchpad. Look in the manual code. See that 2^whatever? That's a launchpad. The first two numbers are the coordinates of the pad, and the next two are x and y acceleration. Play around with them until you get it so that N lands on the exit pad on the second frame.<br>
+<br>
+If you want a more clarified version, read the buried Manual Nediting thread.</div></div>
+<div class="post" id="p68793"><div class="post-head"><a class="id" href="../t/3286.html#p68793">#68793</a> <span class="index">3</span> <span class="date">2005-05-23T00:36:09Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">i didn't really get that, but i'll try...<br>
+<br>
+<i>Edit:</i> okay, here's what i've discovered.  and if i read nevermore's post, i would've discovered this...<br>
+<br>
+<i>2^768,564,-1,0</i> = a launch pad<br>
+<br>
+<b>2^</b> represents launch pad.<br>
+<b>768</b> determines the x axis [the higher the more right it is]<br>
+<b>564</b> determines the y axis [the higher the lower]<br>
+<b>-1</b> determines the horizontal strength [lower the stronger]<br>
+<b>0</b> determines vertical strength<br>
+<br>
+if the launch pad is facing left, then the lower the <b>-1</b> is, the stronger.  however if it's facing right, the more positive the stronger.  i still don't understand how to make you teleport however. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  he just boosts off the map.</div></div>
+<div class="post" id="p68794"><div class="post-head"><a class="id" href="../t/3286.html#p68794">#68794</a> <span class="index">4</span> <span class="date">2005-05-23T00:40:48Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Ok, place a launchpad into an empty level. There will be a couple of numbers in your level data at the end after the 0s and 1s.<br>
+Find the last two numbers in your level data. They are the x, y values for the power that the launchpad launches you.<br>
+If you make the first number higher, it will make the launch pad launch you more to the side.<br>
+If you make the second number higher, it will launch you more vertically.<br>
+Get it?</div></div>
+<div class="post" id="p68796"><div class="post-head"><a class="id" href="../t/3286.html#p68796">#68796</a> <span class="index">5</span> <span class="date">2005-05-23T00:58:53Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">*points up*<br>
+<br>
+<i>Edit:</i> yes, got it!</div></div>
+<div class="post" id="p68798"><div class="post-head"><a class="id" href="../t/3286.html#p68798">#68798</a> <span class="index">6</span> <span class="date">2005-05-23T01:16:13Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Read the <a href="../t/931.html">teleporter tutorial</a> by LV. It explains it much clearer, and you should be up and running in no time.</div></div>
+</main>
+</body>
+</html>

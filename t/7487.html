@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiple enemies hitting you at the same time - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Multiple enemies hitting you at the same time</nav></header>
+<main>
+<div class="post" id="p6819"><div class="post-head"><a class="id" href="../t/7487.html#p6819">#6819</a> <span class="index">1</span> <span class="date">2006-02-12T15:34:40Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">I just thought of an interesting thing. If you were on a map with at least one of each type of enemy, and you (somehow) manage to get hit by each type of enemy in the same frame, which type of enemy would be given the right to kill you?<br>
+If anyone is confused I'll try to rephrase it later.</div></div>
+<div class="post" id="p142605"><div class="post-head"><a class="id" href="../t/7487.html#p142605">#142605</a> <span class="index">2</span> <span class="date">2006-02-12T15:36:30Z</span> <span class="author"><a href="../u/9371450.html">9400</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  I don't quite know. Your computer would probably explode from the sheer rareness of this situation.</div></div>
+<div class="post" id="p142625"><div class="post-head"><a class="id" href="../t/7487.html#p142625">#142625</a> <span class="index">3</span> <span class="date">2006-02-12T16:18:10Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I think this will depend on the order in which the enemies have been set when the map was created. The enemy which was placed first, will get its chance before any other enemy.</div></div>
+<div class="post" id="p142626"><div class="post-head"><a class="id" href="../t/7487.html#p142626">#142626</a> <span class="index">4</span> <span class="date">2006-02-12T16:20:46Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body">It may be all of them, or maybe it will be at random. <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+<br>
+I'm not too sure.</div></div>
+<div class="post" id="p142628"><div class="post-head"><a class="id" href="../t/7487.html#p142628">#142628</a> <span class="index">5</span> <span class="date">2006-02-12T16:26:01Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">This is interesting. It is testing time! I will post If I find anything worthwhile.<br>
+<br>
+Edit: It seems as though it is immpossible for them to hit at the same time. I did several tests using floor guards mine and thwumps. Even one of the smallest notches (by editing the position on the code) makes a difference so that only one or the other hits you. Too bad but that is how it works I guess.</div></div>
+<div class="post" id="p142634"><div class="post-head"><a class="id" href="../t/7487.html#p142634">#142634</a> <span class="index">6</span> <span class="date">2006-02-12T16:37:11Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Only one collision can take place per frame - this is the reasoning behind gold delay and teleportation. So, yes, only one enemy will end up killing you.</div></div>
+<div class="post" id="p142647"><div class="post-head"><a class="id" href="../t/7487.html#p142647">#142647</a> <span class="index">7</span> <span class="date">2006-02-12T16:57:20Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142634">Quote: Maniac, Feb 12 2006, 10:37 AM</a></div> So, yes, only one enemy will end up killing you. </blockquote>Well, OK, but which one? I wonder whether it is random or dependent on the order they were created.<br>
+<br>
+*goes to test theory*<br>
+<br>
+EDIT: I need to start reading threads from top to bottom. (I didn't see Evil_Bob's post)</div></div>
+<div class="post" id="p142667"><div class="post-head"><a class="id" href="../t/7487.html#p142667">#142667</a> <span class="index">8</span> <span class="date">2006-02-12T17:18:10Z</span> <span class="author"><a href="../u/9371642.html">Adonai</a></span></div><div class="post-body">As opposed to the first enemy placed wouldnt be the last? Have you ever placed a bunch of rockets in they fire at diff times but the ones you put in last fire first?</div></div>
+<div class="post" id="p142668"><div class="post-head"><a class="id" href="../t/7487.html#p142668">#142668</a> <span class="index">9</span> <span class="date">2006-02-12T17:22:50Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142634">Quote: Maniac, Feb 12 2006, 04:37 PM</a></div> Only one collision can take place per frame - this is the reasoning behind gold delay and teleportation. So, yes, only one enemy will end up killing you.  </blockquote> <br>
+ But of course, it's possible to pick up more than one piece of gold in a frame.  Doesn't that count as multiple collisions? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p142671"><div class="post-head"><a class="id" href="../t/7487.html#p142671">#142671</a> <span class="index">10</span> <span class="date">2006-02-12T17:31:05Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">@tktktk:<br>
+Actually, you're wrong, and Maniac's right. Only one collision can take place in a frame. That's the way N works. Period.<br>
+<br>
+TS</div></div>
+<div class="post" id="p142673"><div class="post-head"><a class="id" href="../t/7487.html#p142673">#142673</a> <span class="index">11</span> <span class="date">2006-02-12T17:35:36Z</span> <span class="author"><a href="../u/9371030.html">Master Jmd</a></span></div><div class="post-body"><pre class="code">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111P00000000000111111111111111110C1111111111111111111110111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111|5^396,408!2^396,456,0,-1!7^396,180,1!6^468,324,3,0,0,2!6^396,180,3,0,1,1!12^396,324</pre><br>
+They seem to all kill the ninja at the same time...<br>
+<br>
+I mean, look:<br>
+<br>
+<img class="bb-img" src="../files/images/8254.jpg" alt="" loading="lazy"><br>
+<br>
+This is one frame before everything happens, the laser goes away, the drone zaps and the mine blows up...<br>
+<br>
+<br>
+[randomly offtopic]I just realised that 'mean' is 'naem' backwards :S[/random offtopicness]</div></div>
+<div class="post" id="p142682"><div class="post-head"><a class="id" href="../t/7487.html#p142682">#142682</a> <span class="index">12</span> <span class="date">2006-02-12T17:59:08Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">*tests*<br>
+(expect and edit of this post soon)<br>
+<br>
+Hmmm... OK.<br>
+I got it. Try removing the zap drone. THEN test it.<br>
+While I tested it. I got a frame where the ninja was killed by the laser, then blew up the mine one frame later. That means that the mine blows up only because of the randomness of the rag-doll-physics. So that leaves us a zap drone to worry about.<br>
+*continues testing*<br>
+I have yet to find out which one it is. I don't actually know which one is supposed to be checked first, but I'd say it'll be the direct circle/box collisions, so the zap drone kills the ninja. (but that's just my opinion based on my own reasoning)<br>
+<br>
+TS</div></div>
+<div class="post" id="p142683"><div class="post-head"><a class="id" href="../t/7487.html#p142683">#142683</a> <span class="index">13</span> <span class="date">2006-02-12T18:03:05Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142671">Quote: Toshosoft, Feb 12 2006, 05:31 PM</a></div> @tktktk:<br>
+Actually, you're wrong, and Maniac's right. Only one collision can take place in a frame. That's the way N works. Period.<br>
+<br>
+TS  </blockquote> <br>
+ Are you saying that picking up more than one piece of gold in a frame doesn't count as multiple collisions, or that my example isn't true?  You can try it yourself if it's the latter.  Just use the quarter snap.</div></div>
+<div class="post" id="p142690"><div class="post-head"><a class="id" href="../t/7487.html#p142690">#142690</a> <span class="index">14</span> <span class="date">2006-02-12T18:18:52Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">@tktktk:<br>
+I mean that you CANNOT take more than one piece of gold in a frame:<br>
+Proof:<br>
+<pre class="code">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^372,566!0^366,570!0^366,558!0^378,558!0^378,570!0^372,564!0^366,564!0^372,558!0^378,564!0^372,570</pre>Frame by frame shows it all.<br>
+Problem solved. Happy? <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS</div></div>
+<div class="post" id="p142698"><div class="post-head"><a class="id" href="../t/7487.html#p142698">#142698</a> <span class="index">15</span> <span class="date">2006-02-12T18:45:23Z</span> <span class="author"><a href="../u/9371023.html">Bigblargh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142682">Quote: Toshosoft, Feb 12 2006, 05:59 PM</a></div> *tests*<br>
+(expect and edit of this post soon)<br>
+<br>
+Hmmm... OK.<br>
+I got it. Try removing the zap drone. THEN test it.<br>
+While I tested it. I got a frame where the ninja was killed by the laser, then blew up the mine one frame later. That means that the mine blows up only because of the randomness of the rag-doll-physics. So that leaves us a zap drone to worry about.<br>
+*continues testing*<br>
+I have yet to find out which one it is. I don't actually know which one is supposed to be checked first, but I'd say it'll be the direct circle/box collisions, so the zap drone kills the ninja. (but that's just my opinion based on my own reasoning)<br>
+<br>
+TS  </blockquote> <br>
+ It's the laser drone. See the info at the top-left that everyone ignores? It says what you were killed by. But the ninja most certainly seem to die in two ways at once. Although, oof the two ways the ninja dies by, the laser drone is the last to be put down.  <div class="attachment attachment-missing">Attachment (lost): post-7-1139769923.jpg</div></div></div>
+<div class="post" id="p142705"><div class="post-head"><a class="id" href="../t/7487.html#p142705">#142705</a> <span class="index">16</span> <span class="date">2006-02-12T18:56:11Z</span> <span class="author"><a href="../u/9371450.html">9400</a></span></div><div class="post-body">Hmmm....I noticed that also. So I guess TS is correct, you can only hit one enemy in one frame.</div></div>
+<div class="post" id="p142709"><div class="post-head"><a class="id" href="../t/7487.html#p142709">#142709</a> <span class="index">17</span> <span class="date">2006-02-12T18:59:17Z</span> <span class="author"><a href="../u/9371023.html">Bigblargh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142705">Quote: 9_4_0_0_, Feb 12 2006, 06:56 PM</a></div> Hmmm....I noticed that also. So I guess TS is correct, you can only hit one enemy in one frame.  </blockquote> <br>
+ Then whycome you die by lazer, and see sparks in the same frame?</div></div>
+<div class="post" id="p142713"><div class="post-head"><a class="id" href="../t/7487.html#p142713">#142713</a> <span class="index">18</span> <span class="date">2006-02-12T19:05:17Z</span> <span class="author"><a href="../u/9371030.html">Master Jmd</a></span></div><div class="post-body">Huh?<br>
+<br>
+I swear earlier the mine blew up on my demo...thats strange... *confused*</div></div>
+<div class="post" id="p142716"><div class="post-head"><a class="id" href="../t/7487.html#p142716">#142716</a> <span class="index">19</span> <span class="date">2006-02-12T19:18:59Z</span> <span class="author"><a href="../u/9371023.html">Bigblargh</a></span></div><div class="post-body">The ragdoll must have hit it.<br>
+View mp map and demo in FBF. I get two gold peices at once each frame, the I die on both mines. See? More double collisions!<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^396,540!12^24,420!12^24,444!12^24,468!12^24,492!12^24,516!12^24,540!12^24,564!12^36,576!12^60,576!12^84,576!12^108,576!12^132,576!12^156,576!12^180,576!12^612,576!12^636,576!12^660,576!12^684,576!12^708,576!12^732,576!12^768,540!12^768,516!12^768,492!12^768,468!12^768,444!12^768,420!12^756,576!12^768,564!0^768,564!0^768,564!0^768,564!0^768,564!0^756,576!0^756,576!0^756,576!0^756,576!0^756,576!0^768,564!11^444,540,756,564!0^756,576!0^768,564</blockquote><blockquote class="quote"><div class="quote-head">Quote</div>108:35791394|35791394|35791394|35791394|107880994|107374182|107374182|40265318|2|0|0|17891328|35651584|8738|65808|0</blockquote></div></div>
+<div class="post" id="p142750"><div class="post-head"><a class="id" href="../t/7487.html#p142750">#142750</a> <span class="index">20</span> <span class="date">2006-02-12T21:12:50Z</span> <span class="author"><a href="../u/9370861.html">spect</a></span></div><div class="post-body">Ha, cool thing bigblargh. Still, it shows that you were killed by a mine, and it is showed only once. This is quite odd though....<br>
+The explanation to your first question (Then whycome you die by lazer, and see sparks in the same frame?) could be ragdoll. I'm not sure though.. I didn't see sparks....</div></div>
+<div class="post" id="p142768"><div class="post-head"><a class="id" href="../t/7487.html#p142768">#142768</a> <span class="index">21</span> <span class="date">2006-02-12T22:06:39Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">when you die it renders the first frame of ragdoll right away so you go from living one frame to 1 frame into ragdoll the next... so you can be killed and simotaneously have the ragdoll hit the drone, or another mine and have it appear to happen on the same frame, when really all that happened was the ragdoll started...<br>
+<br>
+also, i think it is one colission per 1/4 of a grid space(size of one tile)  per frame...  I think.</div></div>
+<div class="post" id="p142776"><div class="post-head"><a class="id" href="../t/7487.html#p142776">#142776</a> <span class="index">22</span> <span class="date">2006-02-12T22:40:17Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">hmmm. Why can't people take my word for it. I already said it was not posible. Why do people have to find stuff out for themselves. Naaaaahhhhh....<br>
+<br>
+You can't deny that I said so.</div></div>
+<div class="post" id="p142803"><div class="post-head"><a class="id" href="../t/7487.html#p142803">#142803</a> <span class="index">23</span> <span class="date">2006-02-12T23:24:22Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body">TS, hold right on this map and use frame by frame:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^36,564!0^324,570!0^324,564!0^324,558!0^330,558!0^330,564!0^330,570!0^336,570!0^336,564!0^336,558!0^342,558!0^342,564!0^342,570!0^348,570!0^348,564!0^348,558!0^354,570!0^354,564!0^354,558!0^360,570!0^360,564!0^360,558</blockquote><br>
+This shows that you quite obviously CAN take more than one piece of gold in a frame.  Problem solved. Happy? <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p142899"><div class="post-head"><a class="id" href="../t/7487.html#p142899">#142899</a> <span class="index">24</span> <span class="date">2006-02-13T03:07:44Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7487.html#p142698">Quote: bigblargh, Feb 12 2006, 12:45 PM</a></div>Although, of the two ways the ninja dies by, the laser drone is the last to be put down.</blockquote>But when I switched the locations of the mine and the laser codes (in the map data) it still shows that the laser killed the ninja. Shouldn't your theory make the mine kill it?</div></div>
+<div class="post" id="p143021"><div class="post-head"><a class="id" href="../t/7487.html#p143021">#143021</a> <span class="index">25</span> <span class="date">2006-02-13T13:54:51Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">@tktktk:<br>
+A tough guy, eh? <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Well, indeed, you can take more than one piece in a frame, can't you?<br>
+OK, I admit it, you can, but it'll happen only when the pieces are in different tiles. So, let me correct it.<br>
+<br>
+<i>It is not possible to have more than one collision taking place in one tile and in one frame.</i><br>
+<br>
+OK? Everyone wins! Yay! <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+<br>
+TS</div></div>
+<div class="post" id="p143052"><div class="post-head"><a class="id" href="../t/7487.html#p143052">#143052</a> <span class="index">26</span> <span class="date">2006-02-13T15:55:27Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body">Well, what do you know.  That's very interesting.</div></div>
+</main>
+</body>
+</html>

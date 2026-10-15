@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context delicious - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; Context delicious</nav></header>
+<main>
+<div class="post" id="p13514"><div class="post-head"><a class="id" href="../t/15238.html#p13514">#13514</a> <span class="index">1</span> <span class="date">2007-01-14T16:47:26Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">(I wasn't sure if I should put this in Images, if you think it'd be better there, please move it.)<br>
+This is a really cool (and free!) fractal program I found: <a href="http://contextfreeart.org">Context Free</a>.<br>
+<br>
+You can either play with examples or learn the language, which is not too hard; here's a little info:<br>
+<br>
+You <b>have</b> to start with <pre class="code">startshape flower</pre> or whatever the initial shape to draw is. You define shapes (rules) this way:<br>
+<pre class="code">startshape flower
+
+rule flower {
+	// code goes here
+}</pre> All shapes are basically made of squares, triangles, and circles. You make those like this:<pre class="code">startshape flower
+
+rule flower {
+	SQUARE{}
+	TRIANGLE{}
+	CIRCLE{}
+}</pre> When you draw shapes, you can give them properties. For example, this makes a square rotated 45 degrees:<pre class="code">startshape flower
+
+rule flower {
+	SQUARE{r 45}
+}</pre> and this makes the same square, 3 times bigger:<pre class="code">startshape flower
+
+rule flower {
+	SQUARE{r 45 s 3}
+}</pre><br>
+So now you see the basic way of modifying the simple shapes. These are some of the properties you can use:<br>
+y: shifts shape on the y-axis<br>
+x: shifts shape on the x-axis<br>
+s: size<br>
+r: rotation<br>
+hue: hue, from 0-255<br>
+sat: saturation, from 0-1<br>
+b: brightness, from 0-1<br>
+a: alpha (transparency)<br>
+skew: to skew a shape, can take 1 or 2 parameters ("skew 10" or "skew 10 25" or something like that)<br>
+flip: flips the shape across a line positioned at the number of degrees specified<br>
+<br>
+Now, suppose you want to draw more than just one shape; let's say a tower of squares that shrinks as it gets taller. Well, to do that, you'd write:<br>
+<pre class="code">startshape flower
+
+rule flower {
+	SQUARE{}
+	flower{y 1 s 0.99}
+}</pre> This will draw a square, then execute the flower rule again, but shifted up one unit and at 99% of the size. <i>Context Free only renders shapes until they are too small to see.</i> This means that it will not render the above code forever, only until it gets small enough to be invisible.<br>
+<br>
+How about curves? Just add an "r 1" after "y 1 s 0.99" in the above adjustments for the flower rule.<br>
+<br>
+Of course, if you want to make a tree, you're not just going to have a single line. You'd want branches, right? But how would you make them besides randomness?<pre class="code">startshape flower
+
+rule flower 1 {
+	SQUARE{}
+	flower{y 1 s 0.99}
+}
+rule flower 0.1 {
+	SQUARE{}
+	flower{y 1 s 0.99}
+	flower{y 1 s 0.5 r 45}
+}</pre>Notice the addition of numbers after the name of the rule you're defining ("rule flower <span style="color:RED">1</span>" and "rule flower <span style="color:RED">0.1</span>"): these set the probability for each version of a rule. In this case, the second definition of <i>flower</i> is 10 times less likely to be used than the first. But each time it's called, that rule will do one of those two things. Another thing to notice is that the second definition draws a flower twice: once to continue the original "trunk" of the tree, and the other for a branch. So, if you render the above, you'd get something to the effect of:<br>
+<img class="bb-img" src="http://img68.imageshack.us/img68/6640/picture1yy2.png" alt="" loading="lazy"><br>
+<br>
+Oh, noes! We only have half a tree! Why is this? Well, because we never defined a rule for the tree to go the other direction. Let's.<pre class="code">startshape flower
+
+rule flower 1 {
+	SQUARE{}
+	flower{y 1 s 0.99}
+}
+rule flower 0.1 {
+	SQUARE{}
+	flower{y 1 s 0.99}
+	flower{y 1 s 0.5 r 45}
+}
+rule flower 0.1 {
+	SQUARE{}
+	flower{y 1 s 0.99}
+	flower{y 1 s 0.5 r -45}
+}</pre> Now we've added a third rule just as likely as the second one, but it rotates the other direction. Let's render:<br>
+<img class="bb-img" src="http://img356.imageshack.us/img356/3386/picture2bc1.png" alt="" loading="lazy"><br>
+Whee, a tree! <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+Now, go download Context Free and render this:<pre class="code">startshape init
+
+rule init{
+	tree{}
+}
+
+rule tree 1{
+	SQUARE{}
+	tree {y 1 s .99 r 1}
+}
+
+rule tree .01 {
+	SQUARE{}
+	tree {y 1 s .99 r 1}
+	tree {y 1 s .99 flip 90}
+}
+
+rule tree .01 {
+	SQUARE{}
+	tree {y 1 s .99 r 1}
+	tree {y 1 s .6}
+}</pre>You'll get a very special swirly tree!</div></div>
+<div class="post" id="p285563"><div class="post-head"><a class="id" href="../t/15238.html#p285563">#285563</a> <span class="index">2</span> <span class="date">2007-01-14T16:53:15Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">This is one of the most awesome freeware programs I've ever downloaded, no contest. I still haven't got a good enough grasp at the language to make anything fancy, but I'll see what I can make.</div></div>
+<div class="post" id="p286008"><div class="post-head"><a class="id" href="../t/15238.html#p286008">#286008</a> <span class="index">3</span> <span class="date">2007-01-15T17:21:59Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">This is pretty tough to use.  This is about all I can do:<br>
+<br>
+edit: I figured out some new stuff.<br>
+here's a snow flake city thingy:<br>
+<pre class="code">startshape design
+
+rule design{
+arm{}
+arm{r 60}
+arm{r 120}
+arm{r 180}
+arm{r 240}
+arm{r 300}
+arm{r 360}
+}
+
+rule arm{
+SQUARE{}
+arm{y 1 s .99}
+}
+
+rule arm .01{
+SQUARE{}
+arm{y 1 s .99}
+arm{y 1 s .99 r 90}
+}
+
+rule arm .01{
+SQUARE{}
+arm{y 1 s .99}
+arm{y 1 s .99 r 90 flip 90}
+}</pre> <div class="attachment attachment-missing">Attachment (lost): post-5-1168881719.jpg</div></div></div>
+<div class="post" id="p286017"><div class="post-head"><a class="id" href="../t/15238.html#p286017">#286017</a> <span class="index">4</span> <span class="date">2007-01-15T17:45:55Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Heh heh, this reminds me of my days of Logo coding.<br>
+<br>
+Turtle graphics for the win!</div></div>
+<div class="post" id="p286044"><div class="post-head"><a class="id" href="../t/15238.html#p286044">#286044</a> <span class="index">5</span> <span class="date">2007-01-15T19:06:00Z</span> <span class="author"><a href="../u/9371023.html">Bigblargh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15238.html#p286017">Quote: LittleViking001, January 15, 2007 05:45 pm</a></div> Heh heh, this reminds me of my days of Logo coding.<br>
+<br>
+Turtle graphics for the win! </blockquote>to IRC<br>
+tto "littleviking<br>
+seth towards "bigblargh<br>
+glide 200 1<br>
+question [What's up, LV?]<br>
+if answer = "not much [announce [Coolio.] stopall]<br>
+announce [Hello? You there?]<br>
+end<br>
+<br>
+*types in "poop" and dialogue box pops up*<br>
+"I don't know how to poop."<br>
+*titters*</div></div>
+<div class="post" id="p286092"><div class="post-head"><a class="id" href="../t/15238.html#p286092">#286092</a> <span class="index">6</span> <span class="date">2007-01-15T20:37:28Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">Try this.<br>
+<br>
+<pre class="code">startshape swirlygig
+
+rule swirlygig{
+tree{}
+tree{r 45}
+}
+
+rule tree{
+flower{}
+flower{r 180}
+}
+
+rule flower{
+SQUARE{sat 1 b .1 h 350}
+flower{y 1 b .01 h .2 s .99 r 5}
+}
+
+rule flower .01{
+SQUARE{sat 1 b .1 h 350}
+flower{y 1 h .2 b .01 s .99 r 5}
+flower{y 1 h .2 b .01 s .99 r 5 flip 90}
+}</pre></div></div>
+<div class="post" id="p286116"><div class="post-head"><a class="id" href="../t/15238.html#p286116">#286116</a> <span class="index">7</span> <span class="date">2007-01-15T21:04:03Z</span> <span class="author"><a href="../u/9372845.html">Grassman7z7</a></span></div><div class="post-body">Haha! Oh, we made so much with MicroWorlds pro...so much fun.<br>
+<br>
+Heres another tree of mine. Looks kinda like some African Savanna tree.<br>
+<br>
+startshape test<br>
+<br>
+rule test 2{<br>
+SQUARE{}<br>
+test{y .1 s .99 r 1}<br>
+}<br>
+<br>
+rule test .01{<br>
+SQUARE{}<br>
+test {y .1 s .99 r 1}<br>
+}<br>
+<br>
+rule test .09{<br>
+SQUARE{}<br>
+test {y 1 s .99 flip -90}<br>
+test {y 1 s .99 r 1}<br>
+}<br>
+<br>
+rule test .1{<br>
+SQUARE{}<br>
+test {y .1 s .99 r 2}<br>
+test {s .09 flip -90}<br>
+}<br>
+<br>
+Enjoy!<br>
+<br>
+<br>
+<br>
+Oh, and nice find there jtbandes!</div></div>
+<div class="post" id="p286226"><div class="post-head"><a class="id" href="../t/15238.html#p286226">#286226</a> <span class="index">8</span> <span class="date">2007-01-16T00:56:14Z</span> <span class="author"><a href="../u/9372274.html">rennaT</a></span></div><div class="post-body">I changed jtbandes' tree code.<br>
+<pre class="code">startshape init
+
+rule init{
+tree{}
+}
+
+rule tree 1{
+SQUARE{}
+tree {y 1 s .99 r 1 b 0.01}
+}
+
+rule tree .03 {
+SQUARE{}
+tree {y 1 s .99 r 1}
+tree {y 1 s .99 flip 90}
+}
+
+rule tree .03 {
+SQUARE{}
+tree {y 1 s .99 r 1}
+tree {y 1 s .6}
+}</pre> <div class="attachment attachment-missing">Attachment (lost): post-5-1168908974.png</div></div></div>
+<div class="post" id="p286240"><div class="post-head"><a class="id" href="../t/15238.html#p286240">#286240</a> <span class="index">9</span> <span class="date">2007-01-16T01:35:45Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">Wow, that looks amazing rennaT. I think I'll have to try this myself.</div></div>
+<div class="post" id="p286496"><div class="post-head"><a class="id" href="../t/15238.html#p286496">#286496</a> <span class="index">10</span> <span class="date">2007-01-16T20:49:59Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">Wow. I love this program I just can't exactly get the hang of it. <br>
+<br>
+I will keep trying thouogh.<br>
+<br>
+<br>
+EDIT :  Here is something I made with it.<br>
+<blockquote class="quote"><div class="quote-head">Quote</div> <br>
+startshape TREES<br>
+background {b -.6}<br>
+<br>
+rule TREES { <br>
+BRANCH {flip 90}<br>
+BRANCH {x 3 s .6}<br>
+BRANCH {x 5 s .5}<br>
+BRANCH {x -4 s .45}<br>
+BRANCH {x -6 s .3}<br>
+BRANCH {x 6 s .7}<br>
+BRANCH {x 8 s .5}<br>
+BRANCH {x 10 s .5}<br>
+BRANCH {x -10 s .7}<br>
+BRANCH {x 12 s .5}<br>
+}<br>
+<br>
+rule BRANCH {<br>
+SQUARE {}<br>
+BRANCH {y 1 s .99 r -.5}<br>
+}<br>
+<br>
+rule BRANCH .1{<br>
+SQUARE {h 100 sat .9 b .6}<br>
+BRANCH {y 1 s .99 r 5}<br>
+BRANCH {y 1 s .5 r .1 }<br>
+}<br>
+<br>
+rule BRANCH .01{<br>
+SQUARE {h 150 sat .9 b 1}<br>
+BRANCH {y 1 s .99 r 5 }<br>
+BRANCH {y 1 s .5 r .1 }<br>
+}<br>
+<br>
+rule BRANCH .01{<br>
+SQUARE {h 200 sat .9 b 1}<br>
+BRANCH {y 1 s .99 r 5 }<br>
+BRANCH {y 1 s .5 r .1 }<br>
+}<br>
+<br>
+</blockquote><br>
+ <div class="attachment attachment-missing">Attachment (lost): post-5-1168984817.png</div></div></div>
+<div class="post" id="p286541"><div class="post-head"><a class="id" href="../t/15238.html#p286541">#286541</a> <span class="index">11</span> <span class="date">2007-01-16T22:24:14Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">Well, after fiddling around for a while I came up with this.  This is such a deep program, I hope to figure out how to use it better, because it is really neat.<br>
+<br>
+SECOND VERSION<br>
+<br>
+<pre class="code">startshape OBJECT
+background {b -1}
+
+rule OBJECT {
+9* {r 180} TRIAL {}
+}
+
+rule TRIAL {
+TEST {}
+}
+
+rule TRIAL {
+TEST{ flip 90}
+}
+rule TEST  {
+SQUARE {}
+CIRCLE {x -1 s .5}
+CIRCLE {x 1 s .5}
+TEST { b .1 y .99 s 0.99 r 1  hue -1 sat 1}
+}
+
+rule TEST 0.007 {
+TRIAL { r 90 }
+TRIAL { r -90 }
+TEST { y 0.99 s 0.99  r 4  hue -1 sat 1}
+}</pre> <div class="attachment attachment-missing">Attachment (lost): post-5-1169080954.png</div></div></div>
+<div class="post" id="p286579"><div class="post-head"><a class="id" href="../t/15238.html#p286579">#286579</a> <span class="index">12</span> <span class="date">2007-01-17T00:00:22Z</span> <span class="author"><a href="../u/9371987.html">scythe33</a></span></div><div class="post-body"><span style="color:#6A220B">Holy crap, epigone. That's really damn good.</span></div></div>
+<div class="post" id="p286663"><div class="post-head"><a class="id" href="../t/15238.html#p286663">#286663</a> <span class="index">13</span> <span class="date">2007-01-17T02:28:06Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">Does anyone here know how to make fractals with color, or even better, does anyone know of a website that explains more fully how to use this damn thing?<br>
+<br>
+latest attempt...<br>
+<br>
+edit: removed hideous broccoli tree.</div></div>
+<div class="post" id="p286678"><div class="post-head"><a class="id" href="../t/15238.html#p286678">#286678</a> <span class="index">14</span> <span class="date">2007-01-17T03:19:20Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">The forums on the linked site are quite helpful, but it's not actually that complicated.<br>
+<br>
+you simply startshape, and then define rules.</div></div>
+<div class="post" id="p286682"><div class="post-head"><a class="id" href="../t/15238.html#p286682">#286682</a> <span class="index">15</span> <span class="date">2007-01-17T03:23:42Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body">Perhaps I can mess around with this tomorrow to try and come up with something that doesn't resemble a disfigured elephant with crap all over it, but all that code looks way too complicated for me to learn, so I most likely will come up with something that resembles said disfigured elephant. <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p286763"><div class="post-head"><a class="id" href="../t/15238.html#p286763">#286763</a> <span class="index">16</span> <span class="date">2007-01-17T08:39:59Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">i want this.<br>
+but i cant dl at the moment.<br>
+i want my pc back *crys*<br>
+but the code dusnt look [u]that[/] hard. i just need to stuff about with it. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p286894"><div class="post-head"><a class="id" href="../t/15238.html#p286894">#286894</a> <span class="index">17</span> <span class="date">2007-01-17T21:08:29Z</span> <span class="author"><a href="../u/9373752.html">whykickamoocow</a></span></div><div class="post-body">Try some of these:<br>
+<br>
+<pre class="code">startshape INIT
+background {b -0.75}
+
+rule INIT {
+	LTURN[b 1 sat 0 h 0 |h 50 |b 0.5]
+	RTURN[b 1 sat 0 h 0 |h 50 |b 0.5]
+}
+
+rule RUN 85{
+	CIRCLE[x 0.0]
+	RUN[x 2]
+}
+rule RUN 5	{LTURN[sat 0.45 ]}
+rule RUN 5	{RTURN[sat 0.45 ]}
+rule RUN 5	{
+	CIRCLE[s 3]
+	RUN[r 90 h 0.1| sat -0.25]
+	RUN[r 45 h 0.1| sat -0.25]
+}
+
+
+rule LTURN 99{
+	SQUARE[s 0.25]	
+	LTURN[x 1 r 10 s 0.999]
+}
+rule LTURN 1 {
+	RUN[s 0.75]
+}
+rule RTURN 99{
+	SQUARE[s 0.25]
+	LTURN[x 1 r -10 s 0.999]
+}
+rule RTURN 1 {
+	RUN[s 0.75]
+}</pre><br>
+<br>
+And the black and white version:<br>
+<pre class="code">startshape INIT
+
+rule INIT {
+	LTURN[]
+	RTURN[]
+}
+
+rule RUN 85{
+	CIRCLE[x 0.0]
+	RUN[x 2]
+}
+rule RUN 5	{LTURN[]}
+rule RUN 5	{RTURN[]}
+rule RUN 5	{CIRCLE[s 5]RUN[r 45]RUN[r -45]}
+
+rule LTURN 99{
+	CIRCLE[s 0.25]	
+	LTURN[x 1 r 10 s 0.999]
+}
+rule LTURN 1 {
+	RUN[s 0.75]
+}
+rule RTURN 99{
+	CIRCLE[s 0.25]
+	LTURN[x 1 r -10 s 0.999]
+}
+rule RTURN 1 {
+	RUN[s 0.75]
+}</pre> <br>
+<br>
+<br>
+<br>
+<br>
+<pre class="code">startshape INIT
+background {b -1}
+
+rule INIT {
+	LINE{r 0 b 1 hue 1 sat 1}
+	LINE{r 0 flip 90 b 1 hue 1 sat 1}
+}
+
+rule LINE {
+	SQUARE {}
+	CIRCLE {s 0.5 y 1 }
+	CIRCLE {s 0.5 y -1 }
+	LINE{r 1 x 1 s 0.99 hue 1}
+}
+
+rule LINE 0.02{
+	CIRCLE {s 4}
+	LINE{x 1 s 0.99 r 45}
+	LINE{x 1 s 0.99 r -45}
+}</pre></div></div>
+<div class="post" id="p286912"><div class="post-head"><a class="id" href="../t/15238.html#p286912">#286912</a> <span class="index">18</span> <span class="date">2007-01-17T21:30:00Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">I made this. Was fiddlin with basic code.<br>
+<br>
+I'm getting there. Slowly. <div class="attachment attachment-missing">Attachment (lost): post-5-1169069400.png</div></div></div>
+<div class="post" id="p286933"><div class="post-head"><a class="id" href="../t/15238.html#p286933">#286933</a> <span class="index">19</span> <span class="date">2007-01-17T21:55:38Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">o_O, your all insane, i cant make much more then a bunch of random colored blocks... well, in all of my 15 min of use</div></div>
+<div class="post" id="p286978"><div class="post-head"><a class="id" href="../t/15238.html#p286978">#286978</a> <span class="index">20</span> <span class="date">2007-01-17T23:46:38Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">wow, whykickamoocow, that last code box creates some incredible fractals...<br>
+*runs off to fiddle around some more*</div></div>
+<div class="post" id="p287025"><div class="post-head"><a class="id" href="../t/15238.html#p287025">#287025</a> <span class="index">21</span> <span class="date">2007-01-18T02:24:00Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">damn nice job moo cow!</div></div>
+<div class="post" id="p287026"><div class="post-head"><a class="id" href="../t/15238.html#p287026">#287026</a> <span class="index">22</span> <span class="date">2007-01-18T02:29:40Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Glad you guys are enjoying this. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p287030"><div class="post-head"><a class="id" href="../t/15238.html#p287030">#287030</a> <span class="index">23</span> <span class="date">2007-01-18T02:46:13Z</span> <span class="author"><a href="../u/9371761.html">McP3000</a></span></div><div class="post-body">Did you use this program to make your current sig Jtbandes?</div></div>
+<div class="post" id="p287059"><div class="post-head"><a class="id" href="../t/15238.html#p287059">#287059</a> <span class="index">24</span> <span class="date">2007-01-18T05:06:19Z</span> <span class="author"><a href="../u/9373752.html">whykickamoocow</a></span></div><div class="post-body">And I think that topolord did as well. I'm going to have to try to make one.<br>
+<br>
+Made completly of circles:<br>
+<br>
+<pre class="code">startshape test
+
+rule test {
+LTURN[]
+RTURN[]
+}
+
+rule RUN 85{
+CIRCLE[x 0.0]
+RUN[x 2]
+}
+rule RUN 5 {LTURN[]}
+rule RUN 5 {RTURN[]}
+rule RUN 5 {CIRCLE[s 5]RUN[r 45]RUN[r -45]}
+
+rule LTURN 1 {
+RUN[s 0.75]
+}
+rule RTURN 99{
+CIRCLE[s 0.25]
+LTURN[x 1 r -10 s 0.999]
+}
+rule RTURN 1 {
+RUN[s 0.76]
+}</pre></div></div>
+<div class="post" id="p287060"><div class="post-head"><a class="id" href="../t/15238.html#p287060">#287060</a> <span class="index">25</span> <span class="date">2007-01-18T05:13:46Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">yep.  and I made vv33 one too.  It's quite simple, and it looks brilliant.</div></div>
+<div class="post" id="p287136"><div class="post-head"><a class="id" href="../t/15238.html#p287136">#287136</a> <span class="index">26</span> <span class="date">2007-01-18T15:40:43Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15238.html#p287030">Quote: McP3000, January 17, 2007 06:46 pm</a></div> Did you use this program to make your current sig Jtbandes?  </blockquote> <br>
+ Yep, I did. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p287599"><div class="post-head"><a class="id" href="../t/15238.html#p287599">#287599</a> <span class="index">27</span> <span class="date">2007-01-19T22:05:08Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">Wow.. Really nice whykickamoocow. Thoose are amazing 0_0.<br>
+<br>
+<br>
+I made some kind of half pyramid. I tried mirroring it to make a pyramid but I didn't like it. I might add more later.<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>startshape HOBO<br>
+background {b -1}<br>
+<br>
+<br>
+rule HOBO {<br>
+LINE {}<br>
+}<br>
+<br>
+rule LINE {<br>
+UP {}<br>
+HOBO {x 1 s .99}<br>
+}<br>
+<br>
+rule UP {<br>
+SHAPE {}<br>
+UP {y 1 s .99}<br>
+}<br>
+<br>
+// shapes<br>
+<br>
+<br>
+rule SHAPE {<br>
+SQUARE {}<br>
+}<br>
+<br>
+rule SHAPE .5 {<br>
+SQUARE {}<br>
+SQUARE {s .8 h 50 sat 4 b 3}<br>
+}<br>
+<br>
+rule SHAPE .2 {<br>
+SQUARE {}<br>
+SQUARE {s .8 h 10 sat 4 b 3}<br>
+}<br>
+<br>
+rule SHAPE .2 {<br>
+SQUARE {}<br>
+SQUARE {s .8 h 30 sat 4 b 3}<br>
+}</blockquote></div></div>
+<div class="post" id="p287608"><div class="post-head"><a class="id" href="../t/15238.html#p287608">#287608</a> <span class="index">28</span> <span class="date">2007-01-19T23:02:38Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body"><pre class="code">startshape one
+background{b -1}
+
+rule one{
+two{}
+}
+
+rule two{
+test{}
+one{y 1 s .99 hue 1 r -2}
+}
+
+rule test .01{
+SQUARE{}
+test{y 1 s .99}
+}
+
+rule test .05{
+SQUARE{}
+test{y -1 s .99 r -1 b 1 sat 1}
+}
+
+rule test .05{
+SQUARE{}
+test{x 1 s .99 r 1 sat 1}
+}
+
+rule test .05{
+SQUARE{}
+test{x -1 s .99 r -1 sat 1}
+}</pre><br>
+A cool-looking spiral thing.</div></div>
+<div class="post" id="p287934"><div class="post-head"><a class="id" href="../t/15238.html#p287934">#287934</a> <span class="index">29</span> <span class="date">2007-01-20T21:16:02Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Hey, neat stuff. I started messing around with this about 2 moths ago. You can make some conventional fractals with it, too. Here's the traditional Sierpinski Gasket:<br>
+<br>
+<pre class="code">startshape sierpinski
+
+rule sierpinski {
+SQUARE{}
+sierpinski{x -1 y 1 s 0.3333333}
+sierpinski{x 0 y 1 s 0.3333333}
+sierpinski{x 1 y 1 s 0.3333333}
+sierpinski{x -1 y 0 s 0.3333333}
+sierpinski{x 1 y 0 s 0.3333333}
+sierpinski{x -1 y -1 s 0.3333333}
+sierpinski{x 0 y -1 s 0.3333333}
+sierpinski{x 1 y -1 s 0.3333333}
+}</pre></div></div>
+<div class="post" id="p287965"><div class="post-head"><a class="id" href="../t/15238.html#p287965">#287965</a> <span class="index">30</span> <span class="date">2007-01-20T23:02:46Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">This is really simple, but I like it.<br>
+<br>
+<pre class="code">startshape whatever
+
+rule whatever{
+CIRCLE{}
+whatever{y 1 s .99 r 50 brightness 0.02 hue 100 sat 2}
+}
+
+rule whatever 1{
+1* {r 90}whatever{}
+}
+
+rule FRACTAL{
+CIRCLE{}
+whatever{y 1 s .99 r 50 brightness 0.02 hue 50 sat 1}
+}
+
+rule whatever 2{
+FRACTAL{x 3 y 1}
+}
+
+rule FRACTAL{
+FRACTAL{s 1}
+}</pre><br>
+<br>
+<img class="bb-img" src="http://a599.ac-images.myspacecdn.com/images01/14/l_94af7677abb3bbf63e6763ddbaa1279e.jpg" alt="" loading="lazy"></div></div>
+<div class="post" id="p287984"><div class="post-head"><a class="id" href="../t/15238.html#p287984">#287984</a> <span class="index">31</span> <span class="date">2007-01-21T00:54:03Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">its all.. circley <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+looks neat though.<br>
+<br>
+I want to try this! altaris doesnt like unknown programs though, so i have to wait for my pc..</div></div>
+<div class="post" id="p287999"><div class="post-head"><a class="id" href="../t/15238.html#p287999">#287999</a> <span class="index">32</span> <span class="date">2007-01-21T01:40:43Z</span> <span class="author"><a href="../u/9373752.html">whykickamoocow</a></span></div><div class="post-body">Another cool clack and white one of mine:<br>
+<br>
+<pre class="code">startshape START
+
+rule START {
+	FROND{}
+}
+
+rule FROND {
+	CIRCLE{}
+	FROND {y 1.3 rotate 33 b 0.01 s 0.95}
+}
+
+rule FROND {
+	CIRCLE{}
+	FROND {y 1.3 rotate -3 b 0.01 s 0.95}
+}</pre></div></div>
+<div class="post" id="p288328"><div class="post-head"><a class="id" href="../t/15238.html#p288328">#288328</a> <span class="index">33</span> <span class="date">2007-01-21T19:08:31Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">Here's another one. I really like this. Based of a tree-type thing similar to jt bandes's.<br>
+<br>
+<pre class="code">startshape render
+
+rule render{
+SQUARE{}
+render{x 1 s .99}
+}
+
+rule render 1{
+SQUARE{}
+render{x 1 s .99}
+render{x 1 s .4 r 90}
+}
+
+rule render 2{
+SQUARE{}
+render{x 1 s .99}
+render{x 1 s .4 r -90}
+}
+
+rule render 3{
+CIRCLE{}
+render{y 1 s .99}
+}</pre><br>
+<img class="bb-img" src="http://a59.ac-images.myspacecdn.com/images01/32/l_8a588e4dd765bb2492e3ef01463c0e12.jpg" alt="" loading="lazy"><br>
+<br>
+Edit: Here's one that I touched-up in paint. I lost the code for it, unfortunately.<br>
+<br>
+<img class="bb-img" src="http://a872.ac-images.myspacecdn.com/images01/6/l_3180f48d62c59daab6991e34fc2c7fb7.jpg" alt="" loading="lazy"></div></div>
+</main>
+</body>
+</html>

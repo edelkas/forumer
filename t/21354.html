@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>user levels - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; user levels</nav></header>
+<main>
+<div class="post" id="p19065"><div class="post-head"><a class="id" href="../t/21354.html#p19065">#19065</a> <span class="index">1</span> <span class="date">2008-02-03T19:37:32Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">okay, so I open up N, click on 'user levels' and what do ya know the only map ther is one called '0'.<br>
+there are no other levels!</div></div>
+<div class="post" id="p406711"><div class="post-head"><a class="id" href="../t/21354.html#p406711">#406711</a> <span class="index">2</span> <span class="date">2008-02-03T20:16:14Z</span> <span class="author"><a href="../u/9374116.html">T3chno</a></span></div><div class="post-body">N has to be in the same folder/location your userlevels file is. <br>
+<br>
+If it is, you probably have no maps in it. <br>
+In your userlevels, do you have the '&amp;userdata=' code on top?</div></div>
+<div class="post" id="p406739"><div class="post-head"><a class="id" href="../t/21354.html#p406739">#406739</a> <span class="index">3</span> <span class="date">2008-02-03T22:03:15Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">yes, N is in the same folder as userlevels file, there are maps in the userlevels file, and the '&amp;userdata=' code is on top.</div></div>
+<div class="post" id="p406754"><div class="post-head"><a class="id" href="../t/21354.html#p406754">#406754</a> <span class="index">4</span> <span class="date">2008-02-03T22:18:08Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">Have you made sure that the &amp;userdata= is at the top of the levels and <i>only</i> at the top of the levels? As only the levels that ensue the &amp;userdata= will show up in the userlevels. So make sure there isn't any of these within the other levels.<br>
+<br>
+Also, have you moved the userlevel file or the N executable out of the original folder at all?</div></div>
+<div class="post" id="p406810"><div class="post-head"><a class="id" href="../t/21354.html#p406810">#406810</a> <span class="index">5</span> <span class="date">2008-02-04T02:23:09Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">like at the top you mean that it's the very first word in the file? <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+no I have not moved the file ever</div></div>
+<div class="post" id="p406815"><div class="post-head"><a class="id" href="../t/21354.html#p406815">#406815</a> <span class="index">6</span> <span class="date">2008-02-04T02:29:39Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Have you unzipped the folder?</div></div>
+<div class="post" id="p406816"><div class="post-head"><a class="id" href="../t/21354.html#p406816">#406816</a> <span class="index">7</span> <span class="date">2008-02-04T02:30:35Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">The start of the userlevels should look like this. Make sure that the '&amp;userdata=' does not appear anywhere else in the leveldata.<br>
+<br>
+Another way of fixing this is just re-download N, and then thrown your existing userlevels file into the new N folder replacing the new userlevels file, assuming that the existing userlevels file is faultless. <br>
+<pre class="code">*********************************************************************************************
+*** INSTRUCTIONS ****************************************************************************
+
+This file contains data used to fill the [User Levels] menu in N;
+editing the contents of this file allows you to alter the contents of the in-game menu.
+We recommend that you turn Word Wrap off to edit this file.
+
+
+It's _very_ important that you format data properly when adding it to this file,
+or who knows what will happen. Wait, I know: something bad.
+
+
+To add a level to the list, simply add it into this file using the following syntax:
+
+$levelname#authorname#comments#leveldata#
+
+(it's _very_ important that you don't forget the final "#" after the level data!!)
+
+The fields should be self-explanitory:
+	levelname: the name of the level, i.e "superliminal"
+	authorname: the name of the person who made the level, i.e "jimmy"
+	comments: you can use this field to describe the level type, i.e "easy", "hard", "boring", etc.
+	leveldata: data describing the level, usually taken from the level editor
+
+
+Level and author names which contain "#" will produce errors.
+You can add text between level data as long as it doesn't contain "$" or "#" characters.  This is helpful
+for separating levels within this file, as you can see below.
+
+
+If you're a bit confused, please browse the included level data; it will hopefully provide you
+with some insight as to what needs to be done in order to add/remove user levels. 
+
+Obviously, renaming or moving this file will result in problems. 
+
+
+
+To get more user levels, please visit NUMA: http://numa.notdot.net 
+
+
+*********************************************************************************************
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!
+
+&amp;userdata=
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************</pre></div></div>
+<div class="post" id="p406819"><div class="post-head"><a class="id" href="../t/21354.html#p406819">#406819</a> <span class="index">8</span> <span class="date">2008-02-04T02:35:32Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">yes I have unzipped the file, and it looks exactly how wedgie depicted it. I'm starting to suspect conspiracy...</div></div>
+<div class="post" id="p406854"><div class="post-head"><a class="id" href="../t/21354.html#p406854">#406854</a> <span class="index">9</span> <span class="date">2008-02-04T06:31:08Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Try downloading N from the Metanet website again, and unzip it all into the one folder.<br>
+<br>
+If you're using N Reality in the some folder, depending on the version you have, some don't read the userlevels file.</div></div>
+<div class="post" id="p406909"><div class="post-head"><a class="id" href="../t/21354.html#p406909">#406909</a> <span class="index">10</span> <span class="date">2008-02-04T17:09:33Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">wow I'm dumb!  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+I actually made a copy of N and put on my desktop so I don't have to go through My Computer to look for it. So the only way I can obtain user levels is to open the <i>original</i> N not the copy that is on my desktop.<br>
+<br>
+thank you for making me realize I'm an idiot!!!?!</div></div>
+<div class="post" id="p407016"><div class="post-head"><a class="id" href="../t/21354.html#p407016">#407016</a> <span class="index">11</span> <span class="date">2008-02-05T00:38:01Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">You can always create a desktop shortcut instead, you know.<br>
+<br>
+Right click -&gt; New -&gt; Shortcut -&gt; Where you keep N.</div></div>
+<div class="post" id="p407050"><div class="post-head"><a class="id" href="../t/21354.html#p407050">#407050</a> <span class="index">12</span> <span class="date">2008-02-05T02:32:51Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">what I meant by 'copy' was a shortcut. But, like I said, userlevels doesn't load up on the shortcut</div></div>
+<div class="post" id="p407110"><div class="post-head"><a class="id" href="../t/21354.html#p407110">#407110</a> <span class="index">13</span> <span class="date">2008-02-05T10:49:59Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21354.html#p407050">Quote: bobaganuesh_2, February 05, 2008 01:02 pm</a></div> what I meant by 'copy' was a shortcut. But, like I said, userlevels doesn't load up on the shortcut  </blockquote> <br>
+ Are you sure? That's not the way shortcuts should work.</div></div>
+<div class="post" id="p407111"><div class="post-head"><a class="id" href="../t/21354.html#p407111">#407111</a> <span class="index">14</span> <span class="date">2008-02-05T11:15:19Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21354.html#p407050">Quote: bobaganuesh_2, February 05, 2008 01:32 pm</a></div> what I meant by 'copy' was a shortcut. But, like I said, userlevels doesn't load up on the shortcut  </blockquote> <br>
+ I think you copied the actual application to your desktop, not using the method I suggested. If you copied another version of N to your desktop, your userlevels file would have to be on your desktop as well for it to load correctly.</div></div>
+<div class="post" id="p407294"><div class="post-head"><a class="id" href="../t/21354.html#p407294">#407294</a> <span class="index">15</span> <span class="date">2008-02-06T00:27:18Z</span> <span class="author"><a href="../u/9375681.html">bobaganuesh_2</a></span></div><div class="post-body">oh I see now</div></div>
+</main>
+</body>
+</html>

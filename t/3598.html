@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coefficient of launch pad velocity? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Coefficient of launch pad velocity?</nav></header>
+<main>
+<div class="post" id="p3258"><div class="post-head"><a class="id" href="../t/3598.html#p3258">#3258</a> <span class="index">1</span> <span class="date">2005-06-10T08:19:17Z</span> <span class="author"><a href="../u/9370547.html">Tacroy</a></span></div><div class="post-body">(... which is probably why he turned to alchemy and all sorts of crazy stuff...)<br>
+<br>
+May I please know what the constant coefficient applied to the coefficient of the velocity that launch pads impart to the player is in pixels per frame? Experimental evidence suggests that it's close to 4.896 pix/frame, but my accuracy seems to be low enough that high velocity launch pad experiments require constant calibration.<br>
+<br>
+Such knowledge would advance the ongoing reasearch in launch pad teleportation devices by an inestimable amount.<br>
+<br>
+Also, if it's not too much trouble, what's the force of gravity? I could find out through experimentation (and I already have a table of squares per frames for a bunch of different heights) but since I'm asking for constants anyway...<br>
+<br>
+Edited to reflect the fact that they're actually launch pads, not bounce pads. <br>
+<br>
+(Remember kids, friends don't let sleep deprived friends post!)</div></div>
+<div class="post" id="p73685"><div class="post-head"><a class="id" href="../t/3598.html#p73685">#73685</a> <span class="index">2</span> <span class="date">2005-06-10T08:25:58Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">look <a href="../t/931.html">here</a> for a basic guide, raigan or mare should reply to you soon with specifics.</div></div>
+<div class="post" id="p73686"><div class="post-head"><a class="id" href="../t/3598.html#p73686">#73686</a> <span class="index">3</span> <span class="date">2005-06-10T08:40:06Z</span> <span class="author"><a href="../u/9370547.html">Tacroy</a></span></div><div class="post-body">It was actually in conversation with LittleViking that I decided to research this. If we knew the coefficient, there would be absolutely no guesswork involved, like he has in his tutorial. As it is, I can get the ninja to within one or one and a half squares of a target from across the screen. I'd like to be able to hit something dead on the first time, since that will make certain future projects easier.</div></div>
+<div class="post" id="p73773"><div class="post-head"><a class="id" href="../t/3598.html#p73773">#73773</a> <span class="index">4</span> <span class="date">2005-06-10T19:49:34Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">certainly a good idea. good luck with it. <br>
+<br>
+you could PM raigan, maybe? or wait... as i said,  he'll probably reply here.</div></div>
+<div class="post" id="p73793"><div class="post-head"><a class="id" href="../t/3598.html#p73793">#73793</a> <span class="index">5</span> <span class="date">2005-06-10T22:33:06Z</span> <span class="author">Guest</span></div><div class="post-body">the launchpads don't use "bounce" like in the tutorials -- "bounce" is when the post-collision velocity depends on the pre-collision velocity.. when a ball hits a wall, it will bounce more or less depending on if it was moving fast or slow.<br>
+<br>
+the launchpads simply change your y velocity instantly, i'm not sure what the value is, we haven't looked at that part in a while and the computers are still not yet unpacked.. sorry!!<br>
+<br>
+raigan</div></div>
+<div class="post" id="p73833"><div class="post-head"><a class="id" href="../t/3598.html#p73833">#73833</a> <span class="index">6</span> <span class="date">2005-06-11T03:50:29Z</span> <span class="author"><a href="../u/9370547.html">Tacroy</a></span></div><div class="post-body">I've edited my previous post to make things clearer, since I don't think there's anything called a bounce pad in the game...<br>
+<br>
+Anyway, once you've got the computers unpacked, could you do something like make a sticky post along the lines of "The Constants of N" or something like that, in which you list the various constants like gravity and launch pad velocity and the speed at which drones move and those sorts of things? It's allright if the way you've written the code makes extracting those values hard, though. We understand.<br>
+<br>
+Nevertheless, I'd still like to know at least the coefficient of launch pad velocity; there's a whole bunch of awesome stuffs you can do with that.</div></div>
+<div class="post" id="p74019"><div class="post-head"><a class="id" href="../t/3598.html#p74019">#74019</a> <span class="index">7</span> <span class="date">2005-06-11T18:13:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">This is what I also wanted to know. How to predict the exact trajectory given the 2 values specified in the launch pad.<br>
+<br>
+Looking forward for the information, if it ever gets posted  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p75196"><div class="post-head"><a class="id" href="../t/3598.html#p75196">#75196</a> <span class="index">8</span> <span class="date">2005-06-16T04:09:12Z</span> <span class="author"><a href="../u/9370900.html">Ryuk</a></span></div><div class="post-body">Why do you write -TMT rather than make a signature like mine?</div></div>
+<div class="post" id="p75242"><div class="post-head"><a class="id" href="../t/3598.html#p75242">#75242</a> <span class="index">9</span> <span class="date">2005-06-16T08:18:00Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3598.html#p75196">Quote: blackwolf, Jun 16 2005, 05:09 AM</a></div> Why do you write -TMT rather than make a signature like mine?  </blockquote> <br>
+ It's a common forum practice. Although I've always thought it looked a little too formal.<br>
+<br>
+-trib4l</div></div>
+<div class="post" id="p75279"><div class="post-head"><a class="id" href="../t/3598.html#p75279">#75279</a> <span class="index">10</span> <span class="date">2005-06-16T11:27:41Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>TMT is a definite noob.</blockquote><br>
+Like that, you mean?</div></div>
+<div class="post" id="p75627"><div class="post-head"><a class="id" href="../t/3598.html#p75627">#75627</a> <span class="index">11</span> <span class="date">2005-06-17T06:58:58Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Do you mean making a complex signature with quotes or images?<br>
+<br>
+So you think it is "noob" to use signatures with only your name in text? Didn't you ever use command line, text only, 1200bps bbs'?  ;) <br>
+<br>
+-TMT</div></div>
+</main>
+</body>
+</html>

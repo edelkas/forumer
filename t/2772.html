@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux version - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Linux version</nav></header>
+<main>
+<div class="post" id="p2486"><div class="post-head"><a class="id" href="../t/2772.html#p2486">#2486</a> <span class="index">1</span> <span class="date">2005-04-09T16:32:47Z</span> <span class="author">Guest</span></div><div class="post-body">N is a very cool game, and I'd like to run it on linux, too. But when i write ./n_v13c it writes:<pre class="code">./n_v13c: error while loading shared libraries: libstdc++-libc6.2-2.so.3: cannot open shared object file: No such file or directory</pre><br>
+I also tried running it with wine, but it seems that it can't store my configuration and it can't react for my keyboard (only the [press space to begin] works). Where does it store my config?<br>
+<br>
+Thanks for your help</div></div>
+<div class="post" id="p59271"><div class="post-head"><a class="id" href="../t/2772.html#p59271">#59271</a> <span class="index">2</span> <span class="date">2005-04-09T18:20:06Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">I know I'm stabbing into the dark here, but what is your flash settings? Meaning, how much storage space is it allowed to have on your hard drive? You want to set it to at least a few megs.</div></div>
+<div class="post" id="p59298"><div class="post-head"><a class="id" href="../t/2772.html#p59298">#59298</a> <span class="index">3</span> <span class="date">2005-04-09T20:08:13Z</span> <span class="author">Guest</span></div><div class="post-body">erm, how can i set it in linux under wine?<img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+and where does it store data?</div></div>
+<div class="post" id="p59323"><div class="post-head"><a class="id" href="../t/2772.html#p59323">#59323</a> <span class="index">4</span> <span class="date">2005-04-09T22:40:06Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">It looks like your using 1.3c. I would try the new 1.4. You can download it from the topic "N 1.4" in the news section. Hope that helps a bit.<br>
+<br>
+Edit: Just realized that there isnt a linux version there, but maybe the new version will work better with wine.</div></div>
+<div class="post" id="p59632"><div class="post-head"><a class="id" href="../t/2772.html#p59632">#59632</a> <span class="index">5</span> <span class="date">2005-04-11T13:11:27Z</span> <span class="author">Guest</span></div><div class="post-body">Hm, i discovered a few things.<br>
+The game works PERFECT with wine--there is cool graphics, sounds etc, and it runs at perfect speeds. The problem is with STORAGE: the flash player somehow just can't store my configuration! The keyboard works when i have to press non-preconfigured keys like "quit y/n" or "press space to start or q to quit" BUT it can't store my controls after setting them.<br>
+<br>
+I tried right click-&gt;flash settings-&gt;storage and set 1MB but it forgot it IMMEDIATELY...<br>
+So the problem is that i don't know how to make the flash player store my settings... do you know it? where does it store them? because it didn't write any error messages like "can't create directory" or something...<br>
+<br>
+help me please!  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/29.gif" alt="ashamed" title="ashamed"> <br>
+<br>
+and 1.4 didn't work also, of course.</div></div>
+<div class="post" id="p59649"><div class="post-head"><a class="id" href="../t/2772.html#p59649">#59649</a> <span class="index">6</span> <span class="date">2005-04-11T15:15:45Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+flash uses it's own special (and annoying) "cookies", called shared objects. the flashplayer and/or the OS controls where the .sol file is saved, which is probably the problem as it's typically buried in the windows directory.<br>
+<br>
+if you search for a thread on shared objects, you should be able to find an example of a path to a .sol, HOWEVER trying to reproduce this will more than likely not work, since it seems to be different for everyone. <br>
+<br>
+we're trying to get proper file-based save/load working, however it's a bit of a challenge since flash was specifically designed to not be able to do this.<br>
+<br>
+thanks,<br>
+raigan</div></div>
+<div class="post" id="p88183"><div class="post-head"><a class="id" href="../t/2772.html#p88183">#88183</a> <span class="index">7</span> <span class="date">2005-08-04T09:03:37Z</span> <span class="author">Guest</span></div><div class="post-body">I was having the same problem on ubuntu (debian based).  As the error message says it can't find a shared library.  I don't think it has anything to do with flash.  You need to install the library.  On debian it is in a package called libstdc++2.10-glibc2.2.  Your distro (if not debian) will hopefully have something similar.<br>
+<br>
+Hope that helps.</div></div>
+<div class="post" id="p88323"><div class="post-head"><a class="id" href="../t/2772.html#p88323">#88323</a> <span class="index">8</span> <span class="date">2005-08-04T19:29:45Z</span> <span class="author">Guest</span></div><div class="post-body">thanks nathan, i'm glad it's not a fundamental problem with the game.</div></div>
+<div class="post" id="p97570"><div class="post-head"><a class="id" href="../t/2772.html#p97570">#97570</a> <span class="index">9</span> <span class="date">2005-09-05T06:28:11Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2772.html#p88183">Quote: nathan collins, Aug 4 2005, 09:03 AM</a></div> I was having the same problem on ubuntu (debian based).  As the error message says it can't find a shared library.  I don't think it has anything to do with flash.  You need to install the library.  On debian it is in a package called libstdc++2.10-glibc2.2.  Your distro (if not debian) will hopefully have something similar.<br>
+<br>
+Hope that helps.  </blockquote> <br>
+ How did you get it to work on Ubuntu?  I am also using Ubungu (Hoary) and I have the libstdc++6 package installed...</div></div>
+<div class="post" id="p97575"><div class="post-head"><a class="id" href="../t/2772.html#p97575">#97575</a> <span class="index">10</span> <span class="date">2005-09-05T06:32:46Z</span> <span class="author">Guest</span></div><div class="post-body">Haha never mind, I guess it just took a minute to understand what you said... wow I'm really slow today.  I shouldn't be using GNU/Linux...</div></div>
+<div class="post" id="p97618"><div class="post-head"><a class="id" href="../t/2772.html#p97618">#97618</a> <span class="index">11</span> <span class="date">2005-09-05T13:18:34Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Hmm...N 1.4 worked fine on my Knoppix Live DVD.</div></div>
+</main>
+</body>
+</html>

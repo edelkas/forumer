@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Maker - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; <a href="../f/27.html">Other Games</a> &rsaquo; Game Maker</nav></header>
+<main>
+<div class="post" id="p9081"><div class="post-head"><a class="id" href="../t/10099.html#p9081">#9081</a> <span class="index">1</span> <span class="date">2006-05-29T00:36:07Z</span> <span class="author"><a href="../u/9371533.html">diehard</a></span></div><div class="post-body">I'm trying to make a game, and I have my main sprite, but i need to know a few things, how do i make it so a tile cant be passed through by hero/player, and how can i make him/her have a projectile weapon?</div></div>
+<div class="post" id="p181969"><div class="post-head"><a class="id" href="../t/10099.html#p181969">#181969</a> <span class="index">2</span> <span class="date">2006-05-29T21:50:15Z</span> <span class="author"><a href="../u/9371475.html">RedKlonoa</a></span></div><div class="post-body">This is preety complicated, but easy to do if you have the time.<br>
+First to do collisions.<br>
+<pre class="code">If Hero.x-4 is collision free with solid objects
+Jump: Object Hero, x-4, relitive</pre>This moves the hero left. I suggest using this with the event Left Keyboard, not the events Left Pressed or Left Released.<br>
+btw, x- = left, x+ = right, y+ = down, y- = up<br>
+<br>
+now, for projectiles... this is a bit more complicated than movement.<br>
+to make it simple, ill just make it so u control your aim by the mouse <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"><br>
+<pre class="code">Event Mouse/Global Mouse/Global Left Pressed
+Create instance of object
+Object = Shot
+
+For object Shot
+Event Create
+Set movement toward point
+mouse_x,mouse_y
+Event step/step
+[If object collides with...
+Object = shot
+Collides with = solid only]
+destroy object (self)</pre><br>
+I hope this helps, but maybe not.<br>
+If you wanna do directional firing, thats much harder, but i have a small example that i made for my programming class (problem is that its a big file <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> if i knew where i can put it at (its 5.4mb) ill host it and put the link on the forum)</div></div>
+<div class="post" id="p181971"><div class="post-head"><a class="id" href="../t/10099.html#p181971">#181971</a> <span class="index">3</span> <span class="date">2006-05-29T21:58:12Z</span> <span class="author"><a href="../u/9371570.html">rocket_thumped</a></span></div><div class="post-body">yeah game maker is hard...</div></div>
+<div class="post" id="p181973"><div class="post-head"><a class="id" href="../t/10099.html#p181973">#181973</a> <span class="index">4</span> <span class="date">2006-05-29T22:03:46Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10099.html#p181971">Quote: Rocket_Thumped, May 29, 2006 09:58 pm</a></div> yeah game maker is hard...  </blockquote> <br>
+ It is pretty easy compared to others...<br>
+<br>
+I use RPG Maker XP, it is really easy and fun to make.<br>
+<br>
+I am planning to make another RPG soon... <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"></div></div>
+<div class="post" id="p182119"><div class="post-head"><a class="id" href="../t/10099.html#p182119">#182119</a> <span class="index">5</span> <span class="date">2006-05-30T04:55:36Z</span> <span class="author"><a href="../u/9371475.html">RedKlonoa</a></span></div><div class="post-body">XP costs money, is slow, and worst of all, DOESNT FEATURE SIDE VIEW BATTLES!!<br>
+(like in the ol' SNES Final Fantasy games) <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)">\<br>
+RPGMaker 2k3 is better IMO. Heck, someone made Link's Awakening on RPG2k3!<br>
+(Yes, an exact duplicate)</div></div>
+</main>
+</body>
+</html>

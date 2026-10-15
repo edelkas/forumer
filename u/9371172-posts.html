@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by heqa - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9371172.html">heqa</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p4712"><div class="post-head"><a class="id" href="../t/5165.html#p4712">#4712</a> <span class="index">1</span> <span class="date">2005-10-11T18:11:43Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">That is che code i wrote to handle collision with triangles. The problem is that i want to rotate the triagle with following directions : (1,0); (-1,0); (0,1); (1,-1).<br>
+My questions is how to adapt the direction of the hypothenuse to the rotation of the triangle?<br>
+<br>
+I used <br>
+<pre class="code">if (boxB.dx == 1 &amp;&amp; boxB.dy == 0) {
+      trace("rotation -&gt; 0");
+      axis_x = -1/Math.SQRT2;
+      axis_y = 1/Math.SQRT2;
+    	} else {
+      if (boxB.dx == -1 &amp;&amp; boxB.dy == 0) {
+      	trace("rotation -&gt; 180");
+      	axis_x = 1/Math.SQRT2;
+      	axis_y = -1/Math.SQRT2;
+      } else {
+      	if (boxB.dx == 0 &amp;&amp; boxB.dy == 1) {
+        trace("rotation -&gt; 90");
+        axis_x = -1/Math.SQRT2;
+        axis_y = -1/Math.SQRT2;
+      	} else {
+        if (boxB.dx == 0 &amp;&amp; boxB.dy == -1) {
+        	trace("rotation -&gt; 270");
+        	axis_x = 1/Math.SQRT2;
+        	axis_y = 1/Math.SQRT2;
+        }
+      	}
+      }
+    	}</pre><br>
+But i'm sure that it should give a better solution which will allow to hanle all rotations.<br>
+Maybe somebody has the answer?<br>
+<br>
+If you can better the script from the following code please do it.<br>
+<br>
+<pre class="code">function triangle() {
+	boxA.px = boxA._x;
+	boxA.py = boxA._y;
+	boxB.px = boxB._x;
+	boxB.py = boxB._y;
+	// ---------------------------------------------------------
+	deltax = boxA.px-boxB.px;
+	deltay = boxA.py-boxB.py;
+	// ---------------------------------------------------------
+	axis_x = boxA.dx;
+	axis_y = boxA.dy;
+	asize = boxA.xw;
+	bsize = ProjectBox(boxB, axis_x, axis_y);
+	dsize = Math.abs(deltax*axis_x+deltay*axis_y);
+	penAx = (asize+bsize)-dsize;
+	if (penAx&gt;0) {
+  axis_x = boxB.dx;
+  axis_y = boxB.dy;
+  asize = ProjectBox(boxA, axis_x, axis_y);
+  bsize = boxB.xw;
+  dsize = Math.abs(deltax*axis_x+deltay*axis_y);
+  penBx = (asize+bsize)-dsize;
+  if (penBx&gt;0) {
+  	axis_x = -boxA.dy;
+  	axis_y = boxA.dx;
+  	asize = boxA.yw;
+  	bsize = ProjectBox(boxB, axis_x, axis_y);
+  	dsize = Math.abs(deltax*axis_x+deltay*axis_y);
+  	penAy = (asize+bsize)-dsize;
+  	if (penAy&gt;0) {
+    axis_x = boxB.dy;
+    axis_y = -boxB.dx;
+    asize = ProjectBox(boxA, axis_x, axis_y);
+    bsize = boxB.yw;
+    dsize = Math.abs(deltax*axis_x+deltay*axis_y);
+    penBy = (asize+bsize)-dsize;
+    if (penBy&gt;0) {
+    	if (boxB.dx == 1 &amp;&amp; boxB.dy == 0) {
+      trace("rotation -&gt; 0");
+      axis_x = -1/Math.SQRT2;
+      axis_y = 1/Math.SQRT2;
+    	} else {
+      if (boxB.dx == -1 &amp;&amp; boxB.dy == 0) {
+      	trace("rotation -&gt; 180");
+      	axis_x = 1/Math.SQRT2;
+      	axis_y = -1/Math.SQRT2;
+      } else {
+      	if (boxB.dx == 0 &amp;&amp; boxB.dy == 1) {
+        trace("rotation -&gt; 90");
+        axis_x = -1/Math.SQRT2;
+        axis_y = -1/Math.SQRT2;
+      	} else {
+        if (boxB.dx == 0 &amp;&amp; boxB.dy == -1) {
+        	trace("rotation -&gt; 270");
+        	axis_x = 1/Math.SQRT2;
+        	axis_y = 1/Math.SQRT2;
+        }
+      	}
+      }
+    	}
+    	asize = ProjectBox(boxA, axis_x, axis_y);
+    	bsize = ProjectBox(boxB, axis_x, axis_y);
+    	dsize = Math.abs(deltax*axis_x+deltay*axis_y-bsize/2);
+    	penHyp = (asize+bsize/2)-dsize;
+    	if (penHyp&gt;0) {
+      trace("COLLISION "+penHyp);
+    	} else {
+      trace("5.penAx penBx penAy penBy");
+    	}
+    } else {
+    	trace("4.penAx penBx penAy");
+    }
+  	} else {
+    trace("3.penAx penBx");
+  	}
+  } else {
+  	trace("2.penAx");
+  }
+	} else {
+  trace("1.");
+	}
+}</pre><br>
+<br>
+thank you for your help  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p107615"><div class="post-head"><a class="id" href="../t/5165.html#p107615">#107615</a> <span class="index">3</span> <span class="date">2005-10-12T18:46:24Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">very good tip, thank you!</div></div>
+<div class="post" id="p4739"><div class="post-head"><a class="id" href="../t/5195.html#p4739">#4739</a> <span class="index">1</span> <span class="date">2005-10-13T01:54:19Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>--= round shapes =--<br>
+<br>
+We can now handle AABBs vs. convex polyhedral shapes, but what if we want circular shapes?<br>
+<br>
+Circles aren't directly handled by the SAT because, essentially, they have an infinite number of separating axes -- any direction is perpendicular to their surface.<br>
+<br>
+In order to apply our method, we need to determine which axes to test (in addition to the world axes generated from the AABB) in order to represent such circular shapes properly. Fortunately, the answer is straightforward: if you consider a point p which is the center of a circle, and a point b which is the center of the AABB, then the additional potential separating axis is the axis parallel to the vector from p to b.<br>
+<br>
+In N's collision system, tiles made of "empty" circular sections are called concave tiles, and those made by "solid" circular sections are called convex. </blockquote><br>
+shouldn't we use the nearest corner of the AABB from the round shape instead of the center of the AABB?<br>
+Using the center could lead to collision detections which don't exist! No?</div></div>
+<div class="post" id="p107915"><div class="post-head"><a class="id" href="../t/5195.html#p107915">#107915</a> <span class="index">2</span> <span class="date">2005-10-13T15:19:27Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">could somebody help me to figure out the collision alorithm with concave tiles. I spent a complete day trying to find it without success (i'm bad at maths, sorry). I don't know what to do after having done the 4 tests.  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p107966"><div class="post-head"><a class="id" href="../t/5195.html#p107966">#107966</a> <span class="index">4</span> <span class="date">2005-10-13T17:56:37Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">I'va tried to understand the source but i can't, could you please explain me how this collision detection with concave tiles works.<br>
+I've tried to figure it out by myself but i can't<br>
+<br>
+than's raigan</div></div>
+<div class="post" id="p108165"><div class="post-head"><a class="id" href="../t/5195.html#p108165">#108165</a> <span class="index">6</span> <span class="date">2005-10-14T03:11:24Z</span> <span class="author"><a href="../u/9371172.html">heqa</a></span></div><div class="post-body">but what are you doing when a collision happends and no corner is touching the shape <div class="attachment attachment-missing">Attachment (lost): post-14-1129259484.jpg</div></div></div>
+</main>
+</body>
+</html>

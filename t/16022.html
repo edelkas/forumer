@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting N working on Linux - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Getting N working on Linux</nav></header>
+<main>
+<div class="post" id="p14161"><div class="post-head"><a class="id" href="../t/16022.html#p14161">#14161</a> <span class="index">1</span> <span class="date">2007-02-21T17:47:44Z</span> <span class="author"><a href="../u/9371854.html">faemir</a></span></div><div class="post-body">Trying to get N working on linux mint, - basically it's a modified ubuntu with all closed source codecs etc built in, and a number of extras, but is totally compatible with all ubuntu stuff, so just imagine i have ubuntu 6.10<br>
+<br>
+when I double click the icon nothing happens, so I tried in bash instead and it gives me this:<br>
+<br>
+while loading shared libraries: libgtk-1.2.so.0: cannot open shared object file: No such file or directory<br>
+<br>
+flash 9 _is_ installed btw<br>
+<br>
+Anyone know what is wrong?<br>
+<br>
+<br>
+thanks in advance</div></div>
+<div class="post" id="p303780"><div class="post-head"><a class="id" href="../t/16022.html#p303780">#303780</a> <span class="index">2</span> <span class="date">2007-03-09T14:00:17Z</span> <span class="author"><a href="../u/9374093.html">quick</a></span></div><div class="post-body">Try to install libgtk&lt;version&gt; via your packetmanager.<br>
+If the version supplied differs from the one demanded by N, try to symlink it to the demanded file:<br>
+As root do:<br>
+<pre class="code">ln -s /usr/lib/libgtk&lt;whatyougot&gt; /usr/lib/libgtk-1.2.so.0</pre></div></div>
+<div class="post" id="p313923"><div class="post-head"><a class="id" href="../t/16022.html#p313923">#313923</a> <span class="index">3</span> <span class="date">2007-04-18T08:25:39Z</span> <span class="author"><a href="../u/9374338.html">louis</a></span></div><div class="post-body">hi <br>
+i have xubuntu to and i installed libgtk<br>
+and it comes up with this error error while loading shared libraries: libstdc++-libc6.2-2.so.3: cannot open shared object file: No such file or directory<br>
+please help</div></div>
+<div class="post" id="p313965"><div class="post-head"><a class="id" href="../t/16022.html#p313965">#313965</a> <span class="index">4</span> <span class="date">2007-04-18T15:23:09Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body">Put the attached file in your <b>/usr/lib/</b>.<br>
+<br>
+<b>EDIT:</b> Yikes, looks like forumer renamed it.<br>
+Download the attached file and change its name to <b>libstdc++-lib6.2-2.so.3</b>, put it in your <b>/usr/lib/</b> directory, and try again. <div class="attachment attachment-missing">Attachment (lost): post-2-1176909789.3</div></div></div>
+<div class="post" id="p314192"><div class="post-head"><a class="id" href="../t/16022.html#p314192">#314192</a> <span class="index">5</span> <span class="date">2007-04-19T05:34:40Z</span> <span class="author"><a href="../u/9374338.html">louis</a></span></div><div class="post-body">hi <br>
+i renamed it and put it in that folder but it still comes up with the same message<br>
+thanks in advance</div></div>
+<div class="post" id="p314275"><div class="post-head"><a class="id" href="../t/16022.html#p314275">#314275</a> <span class="index">6</span> <span class="date">2007-04-19T18:40:20Z</span> <span class="author"><a href="../u/9370845.html">bla687</a></span></div><div class="post-body">I've recently been playing around in Ubuntu 6.1 and I've been having the same problem as louis. I'm on the x86_64 architecture, which I fear may be the problem. I don't even know that flashplayer is installed. I use the firefox flash plugin by running the 32-bit version through an emulator, and I think I may need to do the same thing for n, but being somewhat inexperienced in the world of linux, I'm not entirely sure how I would go about this. Any pointers?</div></div>
+<div class="post" id="p314331"><div class="post-head"><a class="id" href="../t/16022.html#p314331">#314331</a> <span class="index">7</span> <span class="date">2007-04-19T21:10:31Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body"><b>louis:</b> Try making a symbolic link to it within N's folder.<br>
+So if you had N in /home/louis/games/n/ directory, do this:<br>
+<pre class="code">ln -s /usr/lib/libstdc++-lib6.2-2.so.3 /home/louis/games/n/libstdc++-lib6.2-2.so.3</pre><br>
+<b>bla687:</b> Try what I've told <b>louis</b> (download the library I've attached in an earlier post), and if that doesn't work, then make sure you have the flash player installed correctly. The easiest way to do that is with a fun application called EasyUbuntu. I've attached it. It's in a tarball, so extract it with the Archive Manager before you use it. Then go into your console and run it as root.<br>
+For example, if you extracted the package to <b>/home/bla687/easyubuntu/</b> then do the following after starting up a terminal:<br>
+<pre class="code">cd ~/easyubuntu
+sudo ./launchEU.sh
+[type in your password]</pre>Then go through the tabs and check all of the fun proprietary features you want installed.<br>
+<br>
+Otherwise, I know that 64-bit processors have some fun annoyances in Ubuntu, but the computer I'm using has a Pentium 4, so I really couldn't help you out beyond that. Try asking the <a href="http://www.ubuntuforums.org">Ubuntu forums</a> if it comes to it. <div class="attachment attachment-missing">Attachment (lost): post-2-1177017071.gz</div></div></div>
+<div class="post" id="p314543"><div class="post-head"><a class="id" href="../t/16022.html#p314543">#314543</a> <span class="index">8</span> <span class="date">2007-04-20T16:13:05Z</span> <span class="author"><a href="../u/9370845.html">bla687</a></span></div><div class="post-body">I tried the suggestion you gave Louis, and I ended up just needing another file, this time it was libgtk-1.2.so.0 . I tried creating a symbolic link from the n folder to the instance I had of that library in /usr/lib, but that didn't work.<br>
+Easy Ubuntu didn't even actually have flashplayer as an option, so that's interesting. I've posted a thread in the Ubuntu forums regarding the matter, so we'll see how things turn out.<br>
+<br>
+Update: From the looks of things on the Ubuntu forums, this is a pretty confounding problem for all of us with 64-bit processors. I've yet to see anyone who knows a solution to the problem, so I'm guessing the one person who knows is hiding under a rock somewhere.</div></div>
+<div class="post" id="p342127"><div class="post-head"><a class="id" href="../t/16022.html#p342127">#342127</a> <span class="index">9</span> <span class="date">2007-07-12T15:19:15Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body">I have returned merely to set you on the path to enlightenment.<br>
+<br>
+symlinks obviously will not work as n requires the 32bit versions of the files.  You must find the .deb package containing the missing files.  Once downloaded, you can use dpkg -x to extract the files.  You must then copy them across to the lib32 folder.<br>
+<br>
+Finding the packages can be a little tricky.  You can use the search engine at <a href="http://packages.ubuntu.com/">http://packages.ubuntu.com/</a> to get them.  Choose <a href="http://packages.ubuntu.com/">http://packages.ubuntu.com/</a> then "Search the contents of packages" and enter the filename.  Make sure to choose the right version of Ubuntu too (e.g. Edgy or Feisty).<br>
+<br>
+You may have to repeat this process as n tells you that more files are missing.<br>
+<br>
+It does work though.</div></div>
+</main>
+</body>
+</html>

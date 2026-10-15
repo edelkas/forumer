@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missiles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Missiles</nav></header>
+<main>
+<div class="post" id="p2893"><div class="post-head"><a class="id" href="../t/3212.html#p2893">#2893</a> <span class="index">1</span> <span class="date">2005-05-17T20:47:01Z</span> <span class="author">Guest</span></div><div class="post-body">Hey guys.  Sorry to just be coming here for 1 question, but does anyone know how to program a missle?  (such as the missles in N)<br>
+<br>
+I've gotten a lot of it to work so far, but the negative angles are messing everything up.<br>
+<br>
+Here is what I have so far, for your reference.<br>
+<a href="http://img290.echo.cx/my.php?image=missiletest21ty.swf">http://img290.echo.cx/my.php?image=missiletest21ty.swf</a><br>
+(note: use arrow keys to move the target, or else the missile will blow up when it hits you)<br>
+<br>
+Thanks in advance.</div></div>
+<div class="post" id="p67425"><div class="post-head"><a class="id" href="../t/3212.html#p67425">#67425</a> <span class="index">2</span> <span class="date">2005-05-17T21:34:40Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+the rockets in N use some very basic "steering" behaviours, try googling "boids" to get some links, here's a good one: <a href="http://www.red3d.com/cwr/boids/">http://www.red3d.com/cwr/boids/</a><br>
+<br>
+you might find it easier to use vectors instead of angles.. the basic idea is that you track the rocket's position and velocity; every frame, you adjust the velocity so that it moves the position towards a target. to be even more fancy, you can make it aim at the future position of the target (i.e targetpos + targetvel), this makes a big difference.<br>
+<br>
+here's the code directly from N; please give credit to us if you end up using it. possibly it's not going to help much.. it's a bit confusing <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+---<br>
+	var p = this.pos;<br>
+<br>
+	//"integrate" missile forward<br>
+	if(this.speed &lt; this.maxspeed)<br>
+	{<br>
+		this.curaccel *= this.accelrate;<br>
+		this.speed += this.curaccel;<br>
+	}<br>
+	else<br>
+	{<br>
+		this.speed = this.maxspeed;<br>
+	}<br>
+	<br>
+	p.x += this.speed*this.mdir.x;<br>
+	p.y += this.speed*this.mdir.y;<br>
+	<br>
+	//we want to aim at a point in front of the player; get<br>
+	//the missileplusmissilevelocity-to-playerposplusplayervelocity vector<br>
+	var guy = player;//dereference for speed<br>
+	dx = (2*guy.pos.x - guy.oldpos.x) - (p.x + this.speed*this.mdir.x);<br>
+	dy = (2*guy.pos.y - guy.oldpos.y) - (p.y + this.speed*this.mdir.y);<br>
+	<br>
+	//steer missile<br>
+	//..if we've reached here, dx,dy is the to-player vector, and is non-zero length<br>
+	<br>
+	var len = Math.sqrt(dx*dx + dy*dy);<br>
+	dx /= len;<br>
+	dy /= len;<br>
+<br>
+	var dp = this.mdir.x*dx + this.mdir.y*dy;//dotprod of to-player vector and velocity<br>
+	var pp = -this.mdir.y*dx + this.mdir.x*dy;//dotprod of to-player vector and velocity's righthand normal<br>
+	<br>
+	var trate = this.turnrate;<br>
+	<br>
+	if(dp &lt; 0)<br>
+	{<br>
+		//player is "behind" missile.. <br>
+		//new, more "rocket-like" behaviour: we can't decellerate, but we CAN turn faster!<br>
+		//turn faster; dp varies from -1 to 0, so the further behind we are, the faster we turn<br>
+		//trate += -0.5*dp;<br>
+		//trate *= 1 + (-dp);<br>
+	}<br>
+<br>
+	<br>
+	//get steering vector (the component of dx,dy perp. tothe missile's current direction)<br>
+	var tempX = pp*-this.mdir.y;<br>
+	var tempY = pp*this.mdir.x;<br>
+	<br>
+	this.mdir.x += tempX*trate;//blend steering vector into current direction<br>
+	this.mdir.y += tempY*trate;	<br>
+	<br>
+	var len = Math.sqrt(this.mdir.x*this.mdir.x + this.mdir.y*this.mdir.y);<br>
+	if(len == 0)<br>
+	{<br>
+		//note: length should NEVER be zero because we're always adding<br>
+		//two orthogonal vecotrs, one of which is always non-zero<br>
+		trace("WARNING!!!! HomingLauncherObject.Update() is having a big problem with null direction vectors..");<br>
+		return;<br>
+	}<br>
+	<br>
+	this.mdir.x /= len;<br>
+	this.mdir.y /= len;<br>
+---</div></div>
+<div class="post" id="p67443"><div class="post-head"><a class="id" href="../t/3212.html#p67443">#67443</a> <span class="index">3</span> <span class="date">2005-05-17T22:38:45Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Wow. I had no idea rockets actually turned faster when you were behind them, and turned faster the further away you were.<br>
+<br>
+Very interesting code, and I can see how it works, too. I'm sure the guest will find it useful. <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p67461"><div class="post-head"><a class="id" href="../t/3212.html#p67461">#67461</a> <span class="index">4</span> <span class="date">2005-05-17T23:22:49Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Here's a question.<br>
+What exactly does the missile target? Where on the ninja's body does it aim at?</div></div>
+<div class="post" id="p67475"><div class="post-head"><a class="id" href="../t/3212.html#p67475">#67475</a> <span class="index">5</span> <span class="date">2005-05-17T23:31:41Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">I would suppose right in the middle of his body, but seeing as how N explodes before I could <i>really</i> tell, I'm not posotive on that...</div></div>
+<div class="post" id="p67476"><div class="post-head"><a class="id" href="../t/3212.html#p67476">#67476</a> <span class="index">6</span> <span class="date">2005-05-17T23:31:55Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">I think it would probably be the center of the image. Which means the rocket is going straight for the ninja's pelvis... ewww.</div></div>
+<div class="post" id="p67490"><div class="post-head"><a class="id" href="../t/3212.html#p67490">#67490</a> <span class="index">7</span> <span class="date">2005-05-17T23:45:38Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Not quite. More like his lower abdomen, if that 'middle target' theorum is actually correct.</div></div>
+<div class="post" id="p67501"><div class="post-head"><a class="id" href="../t/3212.html#p67501">#67501</a> <span class="index">8</span> <span class="date">2005-05-18T00:15:23Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3212.html#p67443">Quote: Maniac, May 17 2005, 10:38 PM</a></div> Wow. I had no idea rockets actually turned faster when you were behind them, and turned faster the further away you were.<br>
+<br>
+Very interesting code, and I can see how it works, too. I'm sure the guest will find it useful. <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)">  </blockquote> <br>
+ actually.. in the code those lines are commented out, which i guess means we thought it was more fun without it <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p67505"><div class="post-head"><a class="id" href="../t/3212.html#p67505">#67505</a> <span class="index">9</span> <span class="date">2005-05-18T00:33:23Z</span> <span class="author">Guest</span></div><div class="post-body">Thank you very much.  I'm going to go through and see if the solution is in these lines of code.<br>
+<br>
+I may actually join the forum now, it seems pretty cool here. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p67506"><div class="post-head"><a class="id" href="../t/3212.html#p67506">#67506</a> <span class="index">10</span> <span class="date">2005-05-18T00:56:52Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Believe me, it's worth your while. Spontaneous forum humor is the norm. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Plus, apparently this seems to be the place where a bunch of the intellectuals come out too. I've met a lot of people who are very knowledgeable about philosophy and religion, and others who are absolutely fantastic at puzzles and their creation. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> It's amazing what you can find, if you'll only register.</div></div>
+<div class="post" id="p67542"><div class="post-head"><a class="id" href="../t/3212.html#p67542">#67542</a> <span class="index">11</span> <span class="date">2005-05-18T02:29:54Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">You're kidding me right? Intellectuals. HAH!</div></div>
+<div class="post" id="p67544"><div class="post-head"><a class="id" href="../t/3212.html#p67544">#67544</a> <span class="index">12</span> <span class="date">2005-05-18T02:36:01Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Thanks, Eeyore.<br>
+No, Maniac has a point. I'm pretty sure you were joking, but if you weren't, I do believe you're utterly wrong.<br>
+I have the most fun on the forums than possibly anywhere else. It's sad, but my school/friend situation sort of sucks. I have a bunch of friends, but I don't really like them. Plus, I'm leaving my school at the end of the year, so I don't care _what_ anyone here thinks about me.</div></div>
+<div class="post" id="p67552"><div class="post-head"><a class="id" href="../t/3212.html#p67552">#67552</a> <span class="index">13</span> <span class="date">2005-05-18T02:49:45Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">It just feels wrong to add a smiley in... Makes it too obvious.<br>
+<br>
+(to show that it's a joke)</div></div>
+<div class="post" id="p69503"><div class="post-head"><a class="id" href="../t/3212.html#p69503">#69503</a> <span class="index">14</span> <span class="date">2005-05-25T21:37:22Z</span> <span class="author"><a href="../u/9370889.html">Major_kururu966</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> hey yall! just asking- how do i submit lvls?<br>
+ <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> duhhh</div></div>
+<div class="post" id="p69505"><div class="post-head"><a class="id" href="../t/3212.html#p69505">#69505</a> <span class="index">15</span> <span class="date">2005-05-25T21:39:26Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Go to <a href="https://www.nmaps.net">numa</a>. Make a name in N by going to your configure menu, and use that name to log in.</div></div>
+</main>
+</body>
+</html>

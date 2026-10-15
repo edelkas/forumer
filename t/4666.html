@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funny Clocks - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/15.html">High Scores</a> &rsaquo; Funny Clocks</nav></header>
+<main>
+<div class="post" id="p4256"><div class="post-head"><a class="id" href="../t/4666.html#p4256">#4256</a> <span class="index">1</span> <span class="date">2005-08-31T14:03:17Z</span> <span class="author"><a href="../u/9370867.html">crappitrash</a></span></div><div class="post-body">On some levels, when you hit the door, the clock stops instantly. On others, the clock continues running for a little while more, sometimes a whopping 2 seconds. <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  Anyone can explain? Mare? Raigan?<br>
+<br>
+-crappitrash</div></div>
+<div class="post" id="p95895"><div class="post-head"><a class="id" href="../t/4666.html#p95895">#95895</a> <span class="index">2</span> <span class="date">2005-08-31T14:17:42Z</span> <span class="author"><a href="../u/9370994.html">Ngaged</a></span></div><div class="post-body">Might have an answer, dunno if it's correct or not...<br>
+But I think that clock stops immediately when you don't have a lot of seconds left.  However, if you have loads of time, then the clock keeps ticking for a bit.  I sorta noticed that happening when I play.  Why it does this, I have no clue.<br>
+M&amp;R?  Can you help us a bit?</div></div>
+<div class="post" id="p95905"><div class="post-head"><a class="id" href="../t/4666.html#p95905">#95905</a> <span class="index">3</span> <span class="date">2005-08-31T14:54:07Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">The highscores are in increments of .025 seconds. So if you got a 90.024, sorry - as far as highscores are concerned, you're down to a 90.000 <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p95906"><div class="post-head"><a class="id" href="../t/4666.html#p95906">#95906</a> <span class="index">4</span> <span class="date">2005-08-31T14:56:01Z</span> <span class="author">Guest</span></div><div class="post-body">the actual variable that keeps track of your time stops immediately; the graphical display has some easing/acceleration code that we thought made it look nicer.<br>
+<br>
+i'm not 100% sure, but one reason that it might stop suddenly is if you get gold a second or two before the exit: the gold will start accelerating the time to the right, and then it will gradually accelerate to the left. if you hit the exit right in the middle (where the bar isn't really being pulled in any direction) that might make it stop automatically.<br>
+<br>
+i don't think we even know exactly what that code does, we just kept fooling with it until it looked good <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p95925"><div class="post-head"><a class="id" href="../t/4666.html#p95925">#95925</a> <span class="index">5</span> <span class="date">2005-08-31T16:31:43Z</span> <span class="author"><a href="../u/9370798.html">glenno14</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4666.html#p95906">Quote: Raigan, Aug 31 2005, 02:56 PM</a></div> i don't think we even know exactly what that code does, we just kept fooling with it until it looked good <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan  </blockquote> <br>
+ Wow your real pros  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p97184"><div class="post-head"><a class="id" href="../t/4666.html#p97184">#97184</a> <span class="index">6</span> <span class="date">2005-09-04T13:25:44Z</span> <span class="author"><a href="../u/9370867.html">crappitrash</a></span></div><div class="post-body">not necessarily maniac, sometimes ive done runs that end in .024 or .023 or slightly less than a .025 multiple-- and got it counted as the higher multiple (rounded up).<br>
+<br>
+the problem isnt solved.<br>
+<br>
+-crappitrash</div></div>
+<div class="post" id="p97196"><div class="post-head"><a class="id" href="../t/4666.html#p97196">#97196</a> <span class="index">7</span> <span class="date">2005-09-04T14:06:53Z</span> <span class="author"><a href="../u/9371031.html">pokemaniac1342</a></span></div><div class="post-body">It varies with the map. Some maps have timers that end immediately, some don't. However, it's consistent within the map, so there's no fairness issue when it comes to highscores.<br>
+<br>
+It shouldn't bother you. If you are experiencing delay, so is everyone else.</div></div>
+<div class="post" id="p97203"><div class="post-head"><a class="id" href="../t/4666.html#p97203">#97203</a> <span class="index">8</span> <span class="date">2005-09-04T14:32:12Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Raigan is right, I can even tell you what the code is supposed to be, but you probably wouldn't be interested in that. (You can just look at some AS easing tutorials and you'll get the idea)<br>
+Pokemaniac, you're wrong, the easing motion of the bar has nothing to do with the map. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p97606"><div class="post-head"><a class="id" href="../t/4666.html#p97606">#97606</a> <span class="index">9</span> <span class="date">2005-09-05T11:00:33Z</span> <span class="author"><a href="../u/9371031.html">pokemaniac1342</a></span></div><div class="post-body">I love it when people don't read.<br>
+<br>
+<br>
+Did I say the map affects the bar? No. I meant that the easing of the bar is the same for everyone within the map. No situations where one guy has the bar delay for a second while the other's bar stops instantly. If one person experiences delay within a map, so does everyone else. AND thus, there is no cause for concern since there isn't a fairness issue when it comes to highscores.</div></div>
+<div class="post" id="p97739"><div class="post-head"><a class="id" href="../t/4666.html#p97739">#97739</a> <span class="index">10</span> <span class="date">2005-09-06T00:02:09Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body">One thing I think is interesting is that in addition to changing from red to blue, the bar gets thinner as it gets longer.  Also, it maxes out at somewhere around 210.</div></div>
+<div class="post" id="p97741"><div class="post-head"><a class="id" href="../t/4666.html#p97741">#97741</a> <span class="index">11</span> <span class="date">2005-09-06T00:04:31Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p97777"><div class="post-head"><a class="id" href="../t/4666.html#p97777">#97777</a> <span class="index">12</span> <span class="date">2005-09-06T00:41:48Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Maniac, what was the point of that post?<br>
+To quote pokemaniac, "there is no cause for concern."<br>
+So this thread is officially lock'd.</div></div>
+</main>
+</body>
+</html>

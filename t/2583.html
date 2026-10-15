@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backwards moving thwumps - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Backwards moving thwumps</nav></header>
+<main>
+<div class="post" id="p2308"><div class="post-head"><a class="id" href="../t/2583.html#p2308">#2308</a> <span class="index">1</span> <span class="date">2005-03-26T01:06:03Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Yeah, so I know how to make backwards moving thwumps that move to the right. Could I just have the x coordinate for the ones that move to the left, and the y coordinates for the ones that move up or down.<br>
+I know backwards thwumps have been discussed, but I've never seen the exact coordinates come up. Thanks, guys.</div></div>
+<div class="post" id="p56383"><div class="post-head"><a class="id" href="../t/2583.html#p56383">#56383</a> <span class="index">2</span> <span class="date">2005-03-27T05:03:13Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Does nobody know these legendary coordinates!?<br>
+Yeah, my dda is on hold until I get an answer, no matter how many PMs/double posts it takes me.</div></div>
+<div class="post" id="p56433"><div class="post-head"><a class="id" href="../t/2583.html#p56433">#56433</a> <span class="index">3</span> <span class="date">2005-03-27T12:31:21Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Dude, is it really that hard to work out!? I have never done one of these in my life and got it right first time. Just place your thwump halfway into your chosen tile, and then move it 1 pixel out (manually in the level code).<br>
+<br>
+I seem to remember someone saying it has to be a tile that is empty on the other side as well. This is apparently <i>not</i> true... <div class="attachment attachment-missing">Attachment (lost): post-11-1111926681.txt</div></div></div>
+<div class="post" id="p56441"><div class="post-head"><a class="id" href="../t/2583.html#p56441">#56441</a> <span class="index">4</span> <span class="date">2005-03-27T13:16:01Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Wow, thanks. This should come in handy for my next non-Maximo-tribute level...  <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"><br>
+<br>
+<b>EDIT:</b><br>
+<br>
+BTW, backwards moving thwumps can still zap you. I don't know how this could be useful, but major props to anyone who uses that concept effectively.</div></div>
+<div class="post" id="p56457"><div class="post-head"><a class="id" href="../t/2583.html#p56457">#56457</a> <span class="index">5</span> <span class="date">2005-03-27T14:21:35Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">No, I said that it CAN'T be empty.  It can be outside the border or a full tile or a partially full one, it just can't be an empty one.<br>
+And to Maniac: um, that actually just gave me a really weird idea. . .</div></div>
+<div class="post" id="p56459"><div class="post-head"><a class="id" href="../t/2583.html#p56459">#56459</a> <span class="index">6</span> <span class="date">2005-03-27T14:30:03Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2583.html#p56457">Quote: brickman, Mar 27 2005, 02:21 PM</a></div> No, I said that it CAN'T be empty.  It can be outside the border or a full tile or a partially full one, it just can't be an empty one.  </blockquote> <br>
+ You mean that the thwump has to be half in a non-empty tile? Isn't that obvious <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p56464"><div class="post-head"><a class="id" href="../t/2583.html#p56464">#56464</a> <span class="index">7</span> <span class="date">2005-03-27T14:42:02Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">No.  The tile that the front half of the thwump is in cannot be completely empty (although it can be a half tile that doesn't actually touch the thwump), and the tile on the other side of it can't be completely empty.  All the other tiles in the level could be empty, but as long as those two tiles have SOME dark gray in them it'll work.  And for some reason, tiles outside the border count as not empty.</div></div>
+<div class="post" id="p56465"><div class="post-head"><a class="id" href="../t/2583.html#p56465">#56465</a> <span class="index">8</span> <span class="date">2005-03-27T14:54:36Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">I think I get it. Your saying that this <i>doesn't</i> work... <div class="attachment attachment-missing">Attachment (lost): post-11-1111935276.txt</div></div></div>
+<div class="post" id="p56468"><div class="post-head"><a class="id" href="../t/2583.html#p56468">#56468</a> <span class="index">9</span> <span class="date">2005-03-27T15:12:32Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Oh, sorry. I really had no idea that it was just one pixel away.<br>
+<br>
+I mean, last time I asked you(?) said it took very exact placement, so I assumed it was more complicated than that.</div></div>
+<div class="post" id="p56470"><div class="post-head"><a class="id" href="../t/2583.html#p56470">#56470</a> <span class="index">10</span> <span class="date">2005-03-27T15:49:53Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: so_what?, Mar 27 2005, 03:12 PM</div> very exact placement  </blockquote> <br>
+ Pixel perfection is as perfect as it gets so_what? (at least from N's standpoint) <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p56472"><div class="post-head"><a class="id" href="../t/2583.html#p56472">#56472</a> <span class="index">11</span> <span class="date">2005-03-27T16:15:05Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Hey, I didn't even know it was one pixel.  I just knew it was hard as s*** to place.</div></div>
+<div class="post" id="p56480"><div class="post-head"><a class="id" href="../t/2583.html#p56480">#56480</a> <span class="index">12</span> <span class="date">2005-03-27T16:23:15Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Oh, that explains it then. It is <i>far</i> easier to edit the code manually <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+<b>Edit:</b> Btw brickman, is that what you meant (a few posts up)?</div></div>
+</main>
+</body>
+</html>

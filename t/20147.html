@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial 2 Collision: Everything redrawn? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Tutorial 2 Collision: Everything redrawn?</nav></header>
+<main>
+<div class="post" id="p17904"><div class="post-head"><a class="id" href="../t/20147.html#p17904">#17904</a> <span class="index">1</span> <span class="date">2007-11-13T23:19:12Z</span> <span class="author"><a href="../u/9375307.html">ZeroHero</a></span></div><div class="post-body">Hey all,<br>
+<br>
+I've been designing flash games on and off for the past year (nothing publicly released because I usually cannot focus on a single project, hehe).  I've tried doing collision detection in a tile based world using math (I'm an engineering student, so physics comes pretty easily to me), however programming what you know is hard <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Anywho, I loved the tutorial, and understood it fairly well, but when I took a look at the code, I noticed that the circle used in the fla wasbeing redrawn all the time.  I am use to using objects with code in them, so I was wondering if anyone has modified the tutorial fla's to be more flash object based.<br>
+<br>
+The game I am developing will have multiple bullets bouncing off walls.  I suppose I could use an array of pointers for redrawing each bullet, but again, I'm not familiar with redrawing in flash.  So any advice would be appreciated.<br>
+<br>
+Regards,<br>
+Zero</div></div>
+<div class="post" id="p379489"><div class="post-head"><a class="id" href="../t/20147.html#p379489">#379489</a> <span class="index">2</span> <span class="date">2007-11-14T23:53:52Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">If i remember correctly, the tiles are drawn in "retained mode" (i.e you create the graphics object once and Flash draws it each frame), and the moving object/ray/etc are drawn in "immediate mode" (you need to call a draw function each frame). Retained/immediate is just a metaphor for how things work, which parallels the similarly named usage idioms for openGL. <br>
+<br>
+This should be a pretty simple thing to swap out, one way to do this would be to always call each object's .Draw() function each frame. If you want an object to use the retained-mode paradigm, you just need to make sure it constructs its graphics when it's created (via attachMovieClip() or similar), and then it can position/rotate/etc the movieclip inside its Draw() function. For immediate-mode objects, you can simply do nothing on creation and draw to a shared empty movieclip in the .Draw() function. <br>
+<br>
+This sort of thing is definitely something we're still learning a lot about though, designing the structure of the program and how the various systems interact is a lot more involved than solving specific problems like collision!</div></div>
+<div class="post" id="p379653"><div class="post-head"><a class="id" href="../t/20147.html#p379653">#379653</a> <span class="index">3</span> <span class="date">2007-11-15T08:55:47Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">but the question is, do you *want* to change it? when a movieclip is moved, rotated etc, flash redraws it anyway, so redrawing the object every frame isn't really a disadvantage (unless you're using bitmap caching)<br>
+<br>
+good practices involve saving and processing everything as variables independent of the graphics, and then rendering the scene every frame, so it's probably a good approach to draw the scene from scratch anyway.<br>
+<br>
+personally, i struggle with physics, but i have no problem with actual implementation and programming structure (probably something to do with the fact that I haven't even finished highschool maths yet)</div></div>
+<div class="post" id="p379699"><div class="post-head"><a class="id" href="../t/20147.html#p379699">#379699</a> <span class="index">4</span> <span class="date">2007-11-15T16:12:57Z</span> <span class="author"><a href="../u/9375307.html">ZeroHero</a></span></div><div class="post-body">Thanks for the suggestions and information.  I'll look into the retained and immediate type functions that redraw the data and see if I can manipulate them at all.  It might be easier to leave some of the stuff in the immediate mode, such as the ray, but other stuff will be a little harder to integrate.  None the less, a good learning experience. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p379714"><div class="post-head"><a class="id" href="../t/20147.html#p379714">#379714</a> <span class="index">5</span> <span class="date">2007-11-15T17:24:07Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">well, it depends on how you look at it -- in a c++ game there are both layers at work, since the game code may be using a retained-mode approach (i.e load the 3D model at the start of the level, and then just change position/orientation each frame; the rendering system will draw the model appropriately) while the lower level rendering code _is_ drawing it each frame from scratch (i.e telling openGL to draw a bunch of triangles). you could just have the game code calling openGL, but it's usually a good idea to have an intermediate layer so that you can for instance change to directX without having to dig through your whole game.<br>
+<br>
+in flash it's just confusing because the lower-level stuff is already written. for any object that's using a movieclip for graphics, it makes sense to just attach it once and then position it each frame.</div></div>
+<div class="post" id="p380889"><div class="post-head"><a class="id" href="../t/20147.html#p380889">#380889</a> <span class="index">6</span> <span class="date">2007-11-19T16:33:13Z</span> <span class="author"><a href="../u/9375307.html">ZeroHero</a></span></div><div class="post-body">I managed to figure out the redrawing and modified the code to use redrawn objects (circles, sqaures, triangles) as objects with their code in them, and it works quite well.  However, there are two issues I am facing:<br>
+1) When using a circle of radius "2", sometimes the collision detection in a tile does not activate and the circle passes beyond the edge.  I am assuming it is the velocity of the circle, but am wondering if anyone has experienced this?<br>
+2) Is it possible to move the world?  Such that perhaps the tiles are placed into a movieclip, and the movieclip moves, and the redrawn tiles/objects are reflected based on the position of the MC?</div></div>
+<div class="post" id="p380972"><div class="post-head"><a class="id" href="../t/20147.html#p380972">#380972</a> <span class="index">7</span> <span class="date">2007-11-19T22:09:56Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">1) yes, sounds like a velocity issue. use multisampling (split up velocity vector into segments and check collision for each<br>
+<br>
+2)well if you are using mcs and not redrawing every frame, you can have a container mc which everything is within. If not you'll have to do some simple math in the rendering stage to render in a position relative to the world. did i understand your question correctly?</div></div>
+<div class="post" id="p380981"><div class="post-head"><a class="id" href="../t/20147.html#p380981">#380981</a> <span class="index">8</span> <span class="date">2007-11-19T22:36:34Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">the smaller the object, the less it has to move to miss collisions -- if your objects are tiny (2-4pix) you should probably use a swept collision test.</div></div>
+</main>
+</body>
+</html>

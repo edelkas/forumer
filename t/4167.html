@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ned++ - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; Ned++</nav></header>
+<main>
+<div class="post" id="p3795"><div class="post-head"><a class="id" href="../t/4167.html#p3795">#3795</a> <span class="index">1</span> <span class="date">2005-07-23T14:36:40Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I had some thoughts about Ned.<br>
+1. It is very slow due to the fact that it uses the N engine.<br>
+2. It has no output to a file, only to textboxes.<br>
+3. You don't have any possibility for real in-game testing, only debug mode.<br>
+<br>
+So I thought it was time for another trial to make a good external editor. I called it Ned++ like C++. My possible solutions:<br>
+1. By using a normal window and Windows' fast API functions, speed can be increased significantly.<br>
+2. Like in N Art Maker, you save your level directly to a file or ...<br>
+3. ... to your existing userlevels.txt file making testing easier by just using N's userlevels mode.<br>
+<br>
+And... I'm going to integrate N Art Maker into Ned++. (Perhaps also a better version of N Pathfinder.)<br>
+But it's a long way to a good level editor. So I'll comment it here and you can test my program as it develops.<br>
+<br>
+You find the newest version always here at the top.<br>
+<br>
+The current version <b>0.15</b> contains tile setting, input from and output to file and a manual. Help me to translate it into your mother-tongue! For details see readme.txt. (At the moment, we have English and German.)<br>
+<br>
+And BTW I'm using Visual Basic 5.<br>
+<br>
+<b>Update:</b> Some guys sent me translations for Arabic, Finish, French, and Russian (Translit). These language versions are now included in the package.<br>
+<b>Yet another update:</b> I have created an installer for Ned++. It allows you to select which components (such as specific languages) you wish to install, and can create shortcuts in your start menu. You can download the installer below. (It had to be packed in a zip file because exe files are not accepted.)<br>
+<br>
+<b>Update:</b> I have worked on the implementation a bit, now it should work a bit faster. (Please report here how fast it goes for you.) Also I added some gridlines, like in Ned (but not so many types), and the translation module has been completely rewritten, allowing dynamic load of translations. The new version number is <b>0.20</b>. <div class="attachment attachment-missing">Attachment (lost): post-33-1136749286.zip</div></div></div>
+<div class="post" id="p85597"><div class="post-head"><a class="id" href="../t/4167.html#p85597">#85597</a> <span class="index">2</span> <span class="date">2005-07-23T15:22:41Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Actually, I've been thinking about making a N editor of my own... in Actionscript. Nevermind... <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+About Ned++ ... How do you put tiles? I mean, I can put full tiles by right-clicking but how do you put other tiles? And why is the window so big? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"><br>
+<br>
+TS</div></div>
+<div class="post" id="p85598"><div class="post-head"><a class="id" href="../t/4167.html#p85598">#85598</a> <span class="index">3</span> <span class="date">2005-07-23T15:33:04Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">OK i forgot a manual so here's how it goes:<br>
+The big picture is the map you're editing. (It's same size as in Ned because the tiles have to fit.)<br>
+Below you see a picture box which contains all possible tiles. (You find the picture in images/tileset.bmp.)<br>
+If you move your mouse over this picture box a cursor will appear highlighting the currently selected tile. If you click now, the selected tile will be loaded in one of the three boxes in the frame below (depending on which mouse button you pressed).<br>
+After having selected some tiles this way, you move your cursor up to the map and simply click on it. Depending on which mouse button you press, a tile will be set.<br>
+<br>
+I thought it was clever because you can easily select up to 3 tile types, e.g. you bind the full tile to left and the empty tile to right, then you can create simple forms and if you clicked on the wrong point you can easily delete the tile. (Needs some practice, but Ned does, too.) <div class="attachment attachment-missing">Attachment (lost): post-33-1122133079.png</div></div></div>
+<div class="post" id="p85608"><div class="post-head"><a class="id" href="../t/4167.html#p85608">#85608</a> <span class="index">4</span> <span class="date">2005-07-23T16:57:45Z</span> <span class="author"><a href="../u/9370408.html">LLCoolDave</a></span></div><div class="post-body">If you want it to be fast, why don't you use OpenGL for hardware acceleration?</div></div>
+<div class="post" id="p85612"><div class="post-head"><a class="id" href="../t/4167.html#p85612">#85612</a> <span class="index">5</span> <span class="date">2005-07-23T17:08:47Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">In fact this is a good idea. A very good idea. A very very very good idea.<br>
+<br>
+A VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY ...<br>
+<br>
+*hours later*<br>
+<br>
+Um... yes... um... I'll have a thought about that.</div></div>
+<div class="post" id="p85832"><div class="post-head"><a class="id" href="../t/4167.html#p85832">#85832</a> <span class="index">6</span> <span class="date">2005-07-24T17:03:07Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">No, you didn't understand. I mean too big like in gets-off-screen too big <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+And I don't see a GUI either.</div></div>
+<div class="post" id="p85850"><div class="post-head"><a class="id" href="../t/4167.html#p85850">#85850</a> <span class="index">7</span> <span class="date">2005-07-24T19:10:31Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">@Toshosoft: The big map at the top is as big as N's window. You must have a very low resolution if this goes out of your screen.<br>
+<br>
+Because people having problems with handling the program, v0.15 contains a manual (PDF). A smarter GUI makes starting out easier. And it has two languages (German and English).<br>
+<br>
+@ the community: You find a file called english.rc in the download (see top of page). The ReadMe explains how to translate it. This way you can help me create a version of Ned++ in your language.</div></div>
+<div class="post" id="p85884"><div class="post-head"><a class="id" href="../t/4167.html#p85884">#85884</a> <span class="index">8</span> <span class="date">2005-07-24T21:57:39Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">My screen resolution is 1024x768. What's wrong with that?! <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p85894"><div class="post-head"><a class="id" href="../t/4167.html#p85894">#85894</a> <span class="index">9</span> <span class="date">2005-07-24T22:28:54Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Ah, I see how it works. That's pretty cool. Though I don't think it's as efficient as Ned is. It only really works if you really really know where everything is going to go. And even then its difficult. I think whilst your additions are good, the original Ned is brilliantly designed.</div></div>
+<div class="post" id="p85968"><div class="post-head"><a class="id" href="../t/4167.html#p85968">#85968</a> <span class="index">10</span> <span class="date">2005-07-25T10:44:41Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Middle button? Not everyone has middle buttons you know. Sure, I do, but not everyone.</div></div>
+<div class="post" id="p85969"><div class="post-head"><a class="id" href="../t/4167.html#p85969">#85969</a> <span class="index">11</span> <span class="date">2005-07-25T10:57:10Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yeah, this one only has 1!</div></div>
+<div class="post" id="p85970"><div class="post-head"><a class="id" href="../t/4167.html#p85970">#85970</a> <span class="index">12</span> <span class="date">2005-07-25T11:00:28Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Hahahhah<br>
+Stupid mac user.....</div></div>
+<div class="post" id="p85971"><div class="post-head"><a class="id" href="../t/4167.html#p85971">#85971</a> <span class="index">13</span> <span class="date">2005-07-25T11:07:25Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">I had to use a Mac during work experience. The only thing that REALLY pissed me off is the way right click just half-minimizes everything on a multi-click mouse. Don't the Mac people realise how useful it is on Windows when it brings up a little menu full of choices? Yeah, I know they designed it to be easy to use... but come on, two buttons is hardly confusing.</div></div>
+<div class="post" id="p85990"><div class="post-head"><a class="id" href="../t/4167.html#p85990">#85990</a> <span class="index">14</span> <span class="date">2005-07-25T13:58:54Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">You only get ONE BUTTON?  But. . . how do you play FPSes?  Soldat?  Anything involving the mouse to aim?  They almost all assume you're using the right click for something very important.</div></div>
+<div class="post" id="p85995"><div class="post-head"><a class="id" href="../t/4167.html#p85995">#85995</a> <span class="index">15</span> <span class="date">2005-07-25T14:13:47Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">It's ridiculous, isn't it? It's like building a keyboard with only 20 keys.</div></div>
+<div class="post" id="p86021"><div class="post-head"><a class="id" href="../t/4167.html#p86021">#86021</a> <span class="index">16</span> <span class="date">2005-07-25T17:15:33Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">You don't have to use the middle or the right mouse button.<br>
+@mac users:<span style="color:#F5F9FD"> you could also use stones. moving the stone in the air moves the cursor. let the stone fall to click.</span>*lol*</div></div>
+<div class="post" id="p86042"><div class="post-head"><a class="id" href="../t/4167.html#p86042">#86042</a> <span class="index">17</span> <span class="date">2005-07-25T19:45:23Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">So what?  You're suggesting that I use the mouse to aim, use the mouse for primary fire and then use the keyboard when I want to use secondary?  I'm supposed to be running around with that hand!</div></div>
+<div class="post" id="p86064"><div class="post-head"><a class="id" href="../t/4167.html#p86064">#86064</a> <span class="index">18</span> <span class="date">2005-07-25T20:34:49Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">He was saying you don't have to in N++. And he's right.<br>
+<br>
+However, no right click, as I said, is a pain. The right click menu is far more useful than people realise, you know.</div></div>
+<div class="post" id="p86078"><div class="post-head"><a class="id" href="../t/4167.html#p86078">#86078</a> <span class="index">19</span> <span class="date">2005-07-25T21:10:17Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Do you mean that a pop-up menu would be more useful for the right mouse button?<br>
+<br>
+I already had a thought about that but I think there are no useful commands for a pop-up menu. (Perhaps for the objects, e.g. a menu to adjust drone pathfinding algos or launch-pad speed.)</div></div>
+<div class="post" id="p86152"><div class="post-head"><a class="id" href="../t/4167.html#p86152">#86152</a> <span class="index">20</span> <span class="date">2005-07-26T08:25:34Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">No! I'm referring to Macs.<br>
+<br>
+<br>
+<br>
+That's the second Mac/Ned++ confusion in this thread so far. Boy I'm confuzzled.</div></div>
+<div class="post" id="p86270"><div class="post-head"><a class="id" href="../t/4167.html#p86270">#86270</a> <span class="index">21</span> <span class="date">2005-07-26T23:48:30Z</span> <span class="author"><a href="../u/9370846.html">johnny_faneca</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p3795">Quote: LoD, Jul 23 2005, 02:36 PM</a></div> I had some thoughts about Ned.<br>
+1. It is very slow due to the fact that it uses the N engine.<br>
+2. It has no output to a file, only to textboxes.<br>
+3. You don't have any possibility for real in-game testing, only debug mode.<br>
+<br>
+So I thought it was time for another trial to make a good external editor. I called it Ned++ like C++. My possible solutions:<br>
+1. By using a normal window and Windows' fast API functions, speed can be increased significantly.<br>
+2. Like in N Art Maker, you save your level directly to a file or ...<br>
+3. ... to your existing userlevels.txt file making testing easier by just using N's userlevels mode.<br>
+<br>
+And... I'm going to integrate N Art Maker into Ned++. (Perhaps also a better version of N Pathfinder.)<br>
+But it's a long way to a good level editor. So I'll comment it here and you can test my program as it develops.<br>
+<br>
+You find the newest version always here at the top.<br>
+<br>
+The current version <b>0.15</b> contains tile setting, input from and output to file and a manual. Help me to translate it into your mother-tongue! For details see readme.txt. (At the moment, we have English and German.)<br>
+<br>
+And BTW I'm using Visual Basic 5.  </blockquote> <br>
+ It is very helpfull.<br>
+Thanks a lot for your dedication to N <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> .</div></div>
+<div class="post" id="p86602"><div class="post-head"><a class="id" href="../t/4167.html#p86602">#86602</a> <span class="index">22</span> <span class="date">2005-07-28T14:40:06Z</span> <span class="author">Guest</span></div><div class="post-body">Awwww...<br>
+<br>
+I just get an "Unexpected Error" message... <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p87891"><div class="post-head"><a class="id" href="../t/4167.html#p87891">#87891</a> <span class="index">23</span> <span class="date">2005-08-03T12:22:28Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">ok same thing as for nam 1.1.1. see this topic. see my signature to see the topic to get help.<br>
+<br>
+i don't know why my vb5 only compiles for winxp. i'm only using functions which have been approved to work with earlier versions.<br>
+<br>
+@johnny_faneca: did you change your nickname? (if yes, how does it work? i wanted it to be Lord of Destiny, but the forum said there already was somebody with that name. or is there somebody with that nickname?)</div></div>
+<div class="post" id="p87894"><div class="post-head"><a class="id" href="../t/4167.html#p87894">#87894</a> <span class="index">24</span> <span class="date">2005-08-03T12:29:48Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p86152">Quote: sweep, Jul 26 2005, 04:25 AM</a></div> No! I'm referring to Macs.  </blockquote> <br>
+ [off topic]<br>
+Actually, I can still control-click on the other Mac. And we still get a menu too! Right-click or control click both give a handy little menu of choices.<br>
+[/off topic]<br>
+<br>
+[on topic]<br>
+Yet another Ned program which is only for windows. What with Eli's absence, I'm thinking the only way I can possibly get an improved Ned is to make it myself.</div></div>
+<div class="post" id="p87905"><div class="post-head"><a class="id" href="../t/4167.html#p87905">#87905</a> <span class="index">25</span> <span class="date">2005-08-03T13:46:16Z</span> <span class="author"><a href="../u/9370861.html">spect</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p87891">Quote: LoD, Aug 3 2005, 02:22 PM</a></div> @johnny_faneca: did you change your nickname? (if yes, how does it work? i wanted it to be Lord of Destiny, but the forum said there already was somebody with that name. or is there somebody with that nickname?)  </blockquote> <br>
+ You have to ask Keron Cyst. He's the adminstrator of the forum and he can (obobviously) change everything in this forum, included nicknames.</div></div>
+<div class="post" id="p87960"><div class="post-head"><a class="id" href="../t/4167.html#p87960">#87960</a> <span class="index">26</span> <span class="date">2005-08-03T16:20:36Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">what's *wrong* with the way tiles are placed in Ned?  it's so simple and easy to use.  After like a day, you should have it down.  I think some of your additions are nice, but overall, Ned will always be simpler I think.</div></div>
+<div class="post" id="p87993"><div class="post-head"><a class="id" href="../t/4167.html#p87993">#87993</a> <span class="index">27</span> <span class="date">2005-08-03T18:04:37Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">i agree.  Ned tile placing is simply.  may take some trial and error of the number pressing to get the right tiles, but [shift] helps by selecting the opposite tile quite a bit.</div></div>
+<div class="post" id="p88174"><div class="post-head"><a class="id" href="../t/4167.html#p88174">#88174</a> <span class="index">28</span> <span class="date">2005-08-04T07:33:55Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p87894">Quote: Maniac, Aug 3 2005, 02:29 PM</a></div> Yet another Ned program which is only for windows. What with Eli's absence, I'm thinking the only way I can possibly get an improved Ned is to make it myself.<br>
+<br>
+@maximo, Eldrial: There is nothing "wrong" with the way of placing tiles in Ned. But if I do it the same way all people would say I just copy Ned.<br>
+<br>
+*thinking*<br>
+Should we make a poll like how to place?  </blockquote> <br>
+ Listen, maniac. I understand your problem. But for god's sake, I haven't got a Mac and I actually don't know anybody using a Mac because they are very expensive in Europe.<br>
+But if you want I release my source code and somebody can compile it for Mac (if  Visual Basic for Mac exists).</div></div>
+<div class="post" id="p88202"><div class="post-head"><a class="id" href="../t/4167.html#p88202">#88202</a> <span class="index">29</span> <span class="date">2005-08-04T11:00:17Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">VB on Mac is not gonna happen.</div></div>
+<div class="post" id="p89900"><div class="post-head"><a class="id" href="../t/4167.html#p89900">#89900</a> <span class="index">30</span> <span class="date">2005-08-11T09:35:45Z</span> <span class="author">Guest</span></div><div class="post-body">Actually, VB on MACs DOES exist, its just a little bit different. It also works for linux (apparently). I've neveer tested it, but if the program doesn't use too many (/any) windows APIs, it should be fine. Its called "REALBasic"<br>
+<br>
+Google will find it for you.</div></div>
+<div class="post" id="p93202"><div class="post-head"><a class="id" href="../t/4167.html#p93202">#93202</a> <span class="index">31</span> <span class="date">2005-08-22T15:31:11Z</span> <span class="author">Guest</span></div><div class="post-body">Hi Lord Of Destiny <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Thanks for such a program, i'm not very used with Ned interface (even thought a bit of practice would help mastering it...)<br>
+<br>
+I've created a french.rc file located at this URL if you're interested (i think the translation will be enought for french users, not word-close to the english one but more understandable) : <a href="http://gdvlsr.free.fr/french.rc">http://gdvlsr.free.fr/french.rc</a><br>
+<br>
+I'm also interested of the source code... got also VB at home <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I may help or not, depending on which time i can spend on the program...<br>
+<br>
+I'll register later, but if you want, my Email Adress is gdvlsr@gmail.com.<br>
+<br>
+In advance, thanks <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Nice smileys... <img class="bb-img" src="http://img205.echo.cx/img205/4162/tease8le.gif" alt="" loading="lazy"></div></div>
+<div class="post" id="p93444"><div class="post-head"><a class="id" href="../t/4167.html#p93444">#93444</a> <span class="index">32</span> <span class="date">2005-08-23T08:32:38Z</span> <span class="author"><a href="../u/9371062.html">G.D.V.L.</a></span></div><div class="post-body">Finaly registered, sorry for double post, but i can't edit the last one since it's guest mode post <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+I have other ideas to use in your program if you dont mind, like not using the right mouse button to paint but to select tiles.<br>
+<br>
+Also we could put shortcuts using F1-F10 keys to place tiles. I could also see how we could place objects in the map, since this feature is not present already. We could also use list object to store these objects so that the user could move them instead of erasing them and adding them again to a map.<br>
+<br>
+I'm pretty interested in that program ^^, but in fact, i'm not really skilled with graphics... but i could handle the way the data is stored in the program.</div></div>
+<div class="post" id="p94098"><div class="post-head"><a class="id" href="../t/4167.html#p94098">#94098</a> <span class="index">33</span> <span class="date">2005-08-25T22:02:02Z</span> <span class="author"><a href="../u/9370791.html">jflash</a></span></div><div class="post-body">I'm probably missing something, but how do you put in objects, etc. I saw the options in one of LoD's earlier screenshots, but it isn't like that in the one I downloaded. I downloaded v0.15, is there a newer version? Thanks!</div></div>
+<div class="post" id="p94106"><div class="post-head"><a class="id" href="../t/4167.html#p94106">#94106</a> <span class="index">34</span> <span class="date">2005-08-25T22:22:53Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Someone should really create a way of<br>
+a) Inversing a set of tiles<br>
+<img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> Copying a set of objects, and even inversing them if possible.<br>
+<br>
+That would be cool.</div></div>
+<div class="post" id="p94207"><div class="post-head"><a class="id" href="../t/4167.html#p94207">#94207</a> <span class="index">35</span> <span class="date">2005-08-26T09:08:14Z</span> <span class="author"><a href="../u/9371062.html">G.D.V.L.</a></span></div><div class="post-body">I was thinking also about some "special brushes"...<br>
+<br>
+It's a little long to make an entire level with curves, and some special tools could be used to make these ones without having to swap tiles brush (i don't know if you saw what i mean by that... hard to explain for a french user ^^).<br>
+<br>
+Well... there are several things that i could do... like the "inversing set of tiles" ^^ it could be very interesting <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I was thinking also about a multiple COPY&amp;PASTE method, with CTRL+FF11 for example to copy to F11 a set of tiles and F11 again to paste it.</div></div>
+<div class="post" id="p94288"><div class="post-head"><a class="id" href="../t/4167.html#p94288">#94288</a> <span class="index">36</span> <span class="date">2005-08-26T16:10:33Z</span> <span class="author"><a href="../u/9370854.html">mascote_ponto</a></span></div><div class="post-body">What about copy + paste for objects? <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p94591"><div class="post-head"><a class="id" href="../t/4167.html#p94591">#94591</a> <span class="index">37</span> <span class="date">2005-08-27T09:31:56Z</span> <span class="author"><a href="../u/9371062.html">G.D.V.L.</a></span></div><div class="post-body">That's a good idea too <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">.<br>
+<br>
+I was thinking also about a "copy/paste" list... let me explain..<br>
+<br>
+When you select tiles/objects and press CTRL+C, it adds the selection to a list of copied objects.<br>
+<br>
+When you press CTRL+V, you past the current selected object in the list.<br>
+<br>
+This way, with a list, you can export/import your most useful tilesets/objects sets and use them in any maps.<br>
+<br>
+I'm working with Visual Basic 6.0... cause i don't know many langages (in C, it would take more time and i'm kinda lazy <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">)<br>
+<br>
+I'll try to not use components so that it will maximise the compatibility.</div></div>
+<div class="post" id="p97113"><div class="post-head"><a class="id" href="../t/4167.html#p97113">#97113</a> <span class="index">38</span> <span class="date">2005-09-04T02:19:46Z</span> <span class="author"><a href="../u/9371068.html">macaddict_17</a></span></div><div class="post-body">Dudes, calm down about macs already!!!<br>
+<br>
+Right click for mac with a one button is control+click.  And now, Apple has come up with a three button mouse that looks like a one button!!!! Cool.  I want one.  <br>
+<br>
+<a href="http://www.apple.com/mightymouse/">Mighty Mouse</a></div></div>
+<div class="post" id="p97675"><div class="post-head"><a class="id" href="../t/4167.html#p97675">#97675</a> <span class="index">39</span> <span class="date">2005-09-05T20:22:22Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">As the original programmer returns...<br>
+<br>
+1. Object setting has not yet been implemented. What jflash saw was just an idea for the interface. My idea at the moment is to use something like sprites which would be the fastest way (using BitBlt in WinAPI).<br>
+2. OMG why hasn't the Open-Source idea yet come to my mind? I should make a section about Ned++ in my new homepage. (Going online soon, new design, new contents.) There you can get the source code as a VB project.<br>
+3. BTW I'm thinking about using NSIS for solving problems concerning missing DLLs and controls in my programs (NAM, NMA, NP, Ned++).<br>
+4. General question: VB or C++ (and MFC)? Shall I put up a poll? (I would prefer VB cause I'm more familiar with it.)<br>
+<br>
+Last but not least: Sorry that I have not posted for weeks but school and my homepage (looks really nice, I think) took my whole freetime.</div></div>
+<div class="post" id="p97684"><div class="post-head"><a class="id" href="../t/4167.html#p97684">#97684</a> <span class="index">40</span> <span class="date">2005-09-05T20:54:31Z</span> <span class="author"><a href="../u/9371018.html">Grimreaper0125</a></span></div><div class="post-body">If it had options to use objects, i'd use it all the time, but i love how the controls are used, you should keep working on it.</div></div>
+<div class="post" id="p99120"><div class="post-head"><a class="id" href="../t/4167.html#p99120">#99120</a> <span class="index">41</span> <span class="date">2005-09-10T09:55:54Z</span> <span class="author"><a href="../u/9370867.html">crappitrash</a></span></div><div class="post-body">I get an error saying "COMPONENT 'comdlg32.ocx' NOT CORRECTLY REGISTERED: FILE IS MISSING OR INVALID'.<br>
+<br>
+How?<br>
+<br>
+-crappitrash</div></div>
+<div class="post" id="p99123"><div class="post-head"><a class="id" href="../t/4167.html#p99123">#99123</a> <span class="index">42</span> <span class="date">2005-09-10T10:13:50Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Your common dialog control is probably an old version, or not there at all. Goto <a href="http://www.microsoft.com/downloads/info.aspx?na=22&amp;p=1&amp;SrcDisplayLang=en&amp;SrcCategoryId=&amp;SrcFamilyId=&amp;u=%2fdownloads%2fdetails.aspx%3fFamilyID%3d25437d98-51d0-41c1-bb14-64662f5f62fe%26DisplayLang%3den">http://www.microsoft.com/downloads/info.as...isplayLang%3den</a> and download it.</div></div>
+<div class="post" id="p119889"><div class="post-head"><a class="id" href="../t/4167.html#p119889">#119889</a> <span class="index">43</span> <span class="date">2005-12-02T22:36:50Z</span> <span class="author"><a href="../u/9371251.html">Villemancer</a></span></div><div class="post-body">The menu texts in Finnish!  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol">  <div class="attachment attachment-missing">Attachment (lost): post-33-1133563010.rc</div></div></div>
+<div class="post" id="p123941"><div class="post-head"><a class="id" href="../t/4167.html#p123941">#123941</a> <span class="index">44</span> <span class="date">2005-12-17T17:00:59Z</span> <span class="author">Guest</span></div><div class="post-body">can we see the newer version? becasue i saw one with items on one of your screenshots, but the one that you linked to only has tiles. please?</div></div>
+<div class="post" id="p123992"><div class="post-head"><a class="id" href="../t/4167.html#p123992">#123992</a> <span class="index">45</span> <span class="date">2005-12-17T18:39:11Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Sorry that I have not worked on Ned++ for so long but I had to work on the homepage of my school (by now learning Flash for a dynamic menu). Also, I have invented a programming language, which will soon be on the web.<br>
+<br>
+OK there are many interesting ideas for Ned++. But this forum is too unflexible for the many improvements you suggested, so I put up a board at the N wiki (at <a href="http://n.wikicities.com/wiki/User:Lord_of_Destiny/NedPlusPlus">http://n.wikicities.com/wiki/User:Lord_of_...iny/NedPlusPlus</a>) where you can write down your ideas, or comment ideas made by other persons. And I promise that I'll work on Ned++ again.<br>
+<br>
+<b>EDIT</b><br>
+<br>
+I have created a new concept for the interface design of Ned++. It is 961x707 pix big, which is enough for all monitors. (Even 15 inch monitors can display 1024x768.)<br>
+<br>
+The controls have also been overthought by me. You can place objects or tiles on the screen by binding them to the middle or right mouse button (I'm also thinking about keyboard shortcuts and/or a compatibility for Ned tile setting.) and then clicking on the map with the middle or right mouse button. The left mouse button selects objects (maybe even tiles) which have already been placed. Then the "Object Properties" dialog lets you change e.g. position (as already shown in the screenshot) or the pathfinding algorithm.<br>
+<br>
+The blank space at the bottom is for objects. The ninja is already there but does not work by now.<br>
+<br>
+Also, the translation is easier now. After having translated it, you don't have to send some .rc files to me, because the translations are binded in dynamically. <div class="attachment attachment-missing">Attachment (lost): post-33-1134906905.png</div></div></div>
+<div class="post" id="p129045"><div class="post-head"><a class="id" href="../t/4167.html#p129045">#129045</a> <span class="index">46</span> <span class="date">2006-01-01T15:07:55Z</span> <span class="author"><a href="../u/9371439.html">t1mppa</a></span></div><div class="post-body">Ned++ do this to me... Component 'comdlg32.ocx' not correctly registered: file is missing or invalid. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> <br>
+What should I do? (I am not clever with computers but I like N)</div></div>
+<div class="post" id="p129188"><div class="post-head"><a class="id" href="../t/4167.html#p129188">#129188</a> <span class="index">47</span> <span class="date">2006-01-02T11:01:59Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p99123">Quote: maestro, Sep 10 2005, 07:43 PM</a></div> Your common dialog control is probably an old version, or not there at all. Goto <a href="http://www.microsoft.com/downloads/info.aspx?na=22&amp;p=1&amp;SrcDisplayLang=en&amp;SrcCategoryId=&amp;SrcFamilyId=&amp;u=%2fdownloads%2fdetails.aspx%3fFamilyID%3d25437d98-51d0-41c1-bb14-64662f5f62fe%26DisplayLang%3den">http://www.microsoft.com/downloads/info.as...isplayLang%3den</a> and download it.  </blockquote> <br>
+  .</div></div>
+<div class="post" id="p129238"><div class="post-head"><a class="id" href="../t/4167.html#p129238">#129238</a> <span class="index">48</span> <span class="date">2006-01-02T15:01:38Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">@ all who have problems with "comdlg32.ocx":<br>
+<br>
+Search in the Explorer for this file: "C:\Windows\system32\comdlg32.ocx" (or "C:\Windows\system\comdlg32.ocx" on Win9x and WinME). Then look for information about the version of this file. I have <b>6.0.84.18</b>. If you have a version "4.x.x.x" or below or if this file even does not exist, try the following steps:<br>
+<br>
+Download the file <a href="http://activex.microsoft.com/controls/vb5/comdlg32.cab">http://activex.microsoft.com/controls/vb5/comdlg32.cab</a>. Extract this archive, right-click on the inf file in the Explorer, and choose "Install". Now, reboot your system and retry to start Ned++.<br>
+<br>
+If Ned++ does not run properly, search the ocx file again in your system(32) folder. If you find it, look for the version. If it's not <b>5.1.43.19</b>, something went wrong during the installation process. In every case, tell your experiences here (including your OS version, the file version you found, and how it worked).</div></div>
+<div class="post" id="p129740"><div class="post-head"><a class="id" href="../t/4167.html#p129740">#129740</a> <span class="index">49</span> <span class="date">2006-01-04T20:55:51Z</span> <span class="author"><a href="../u/9371457.html">Fealiks</a></span></div><div class="post-body">link on main page doesnt work....<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>Sorry, an error occurred. If you are unsure on how to use a feature, or don't know why you got this error message, try looking through the help files for more information.<br>
+<br>
+The error returned was:<br>
+<br>
+Sorry, some required files are missing, if you intended to view a topic, it's possible that it's been moved or deleted. Please go back and try again.</blockquote><br>
+:'(</div></div>
+<div class="post" id="p129976"><div class="post-head"><a class="id" href="../t/4167.html#p129976">#129976</a> <span class="index">50</span> <span class="date">2006-01-05T20:17:31Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Which main page?</div></div>
+<div class="post" id="p129984"><div class="post-head"><a class="id" href="../t/4167.html#p129984">#129984</a> <span class="index">51</span> <span class="date">2006-01-05T20:32:57Z</span> <span class="author"><a href="../u/9370884.html">kai</a></span></div><div class="post-body">it wont let me download!!!!! it keeps giving me <span class="attachment-missing">this</span> message!!!!!!!!!!!!!!!!<br>
+<br>
+<b>EDIT:</b><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p129740">Quote: fealiks, 2006-01-04T20:55:51Z</a></div><br>
+link on main page doesnt work....<br>
+<br>
+<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>Sorry, an error occurred. If you are unsure on how to use a feature, or don't know why you got this error message, try looking through the help files for more information.<br>
+<br>
+The error returned was:<br>
+<br>
+Sorry, some required files are missing, if you intended to view a topic, it's possible that it's been moved or deleted. Please go back and try again. </blockquote><br>
+<br>
+:'( </blockquote><br>
+<br>
+*phew* for a second i thought it was <i>this</i> pc that was fudging up....yeah dude, the link is broken. please fix it, i need to get this program in the next two hours (gotta catch teh bus)!</div></div>
+<div class="post" id="p130538"><div class="post-head"><a class="id" href="../t/4167.html#p130538">#130538</a> <span class="index">52</span> <span class="date">2006-01-07T18:50:27Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Fixed. Now it works fine (for me).</div></div>
+<div class="post" id="p130826"><div class="post-head"><a class="id" href="../t/4167.html#p130826">#130826</a> <span class="index">53</span> <span class="date">2006-01-08T17:47:07Z</span> <span class="author"><a href="../u/9371439.html">t1mppa</a></span></div><div class="post-body">many thanks <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p130844"><div class="post-head"><a class="id" href="../t/4167.html#p130844">#130844</a> <span class="index">54</span> <span class="date">2006-01-08T19:43:39Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I have created a new test version, showing the current working state. Version <b>0.20</b> contains internal improvements, gridlines, and an improved translation module. You can download it at the first post of this thread.</div></div>
+<div class="post" id="p131107"><div class="post-head"><a class="id" href="../t/4167.html#p131107">#131107</a> <span class="index">55</span> <span class="date">2006-01-09T16:26:13Z</span> <span class="author"><a href="../u/9370884.html">kai</a></span></div><div class="post-body">i searched for that file but it could be not be found.<br>
+<br>
+i recently had problems with the N-artmaker and the N-archiver, but i havnt tried ned++ yet so hopefully it works...<br>
+<br>
+...why is that message coming up anyway?</div></div>
+<div class="post" id="p131269"><div class="post-head"><a class="id" href="../t/4167.html#p131269">#131269</a> <span class="index">56</span> <span class="date">2006-01-10T00:43:18Z</span> <span class="author">Guest</span></div><div class="post-body">When tryed the Ned++ download, it came up looking nothing like the screenshots! It had only a tile editor and less buttons! What's up with this??</div></div>
+<div class="post" id="p131442"><div class="post-head"><a class="id" href="../t/4167.html#p131442">#131442</a> <span class="index">57</span> <span class="date">2006-01-10T20:09:24Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">1st: Please register.<br>
+2nd: If you had read my posts carefully, you would have noticed that (a) this download is a test version which contains only currently implemented features, and that (<img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> the screenshots are only concepts.</div></div>
+<div class="post" id="p131692"><div class="post-head"><a class="id" href="../t/4167.html#p131692">#131692</a> <span class="index">58</span> <span class="date">2006-01-11T19:44:31Z</span> <span class="author"><a href="../u/9370884.html">kai</a></span></div><div class="post-body">when i try to save, it says "directory not found". do i have to make a text file to save it in before hand?</div></div>
+<div class="post" id="p131923"><div class="post-head"><a class="id" href="../t/4167.html#p131923">#131923</a> <span class="index">59</span> <span class="date">2006-01-12T19:03:13Z</span> <span class="author"><a href="../u/9371484.html">ki1991</a></span></div><div class="post-body">the buttons will not be translatet</div></div>
+<div class="post" id="p132376"><div class="post-head"><a class="id" href="../t/4167.html#p132376">#132376</a> <span class="index">60</span> <span class="date">2006-01-14T18:16:57Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">@kai: When does it say this (during the download or during the program's execution)?<br>
+<br>
+@ki1991: The buttons worked for me. Check your translation file and tell your OS here.</div></div>
+<div class="post" id="p133772"><div class="post-head"><a class="id" href="../t/4167.html#p133772">#133772</a> <span class="index">61</span> <span class="date">2006-01-19T20:25:20Z</span> <span class="author"><a href="../u/9370884.html">kai</a></span></div><div class="post-body">once i make a tile set and try to save it gives me an "invalid directory" message. so i tried to make a text file before hand to save it in, but i got the same message.<br>
+<br>
+also, after i downloaded and installed comdlg32.ocx and tried to run the archiver and art maker, an "unexpected error" message comes up. the path finder works perfectly, though.</div></div>
+<div class="post" id="p137081"><div class="post-head"><a class="id" href="../t/4167.html#p137081">#137081</a> <span class="index">62</span> <span class="date">2006-01-29T16:25:24Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">[OFFTOPIC]<br>
+@unregistered n00b: There is something that is called "the topic of this thread". It tells you what this thread is about. The next time, please <b><u>read</u></b> the topic before you post ads for your site. (For example, there is in deed a thread in Off-Topic about interesting websites.)<br>
+<br>
+[ONTOPIC]<br>
+@kai: Download the Visual Basic 5 Runtimes. (You find them at <a href="http://support.microsoft.com/kb/q180071/">this Microsoft page</a>. There, download and install "msvbvm50.exe".)<br>
+<br>
+(I'm such an idiot that I forgot, up to now, to tell you about the absolutely necessary runtime files.  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> )</div></div>
+<div class="post" id="p400453"><div class="post-head"><a class="id" href="../t/4167.html#p400453">#400453</a> <span class="index">63</span> <span class="date">2008-01-13T07:14:57Z</span> <span class="author"><a href="../u/9375550.html">zer0</a></span></div><div class="post-body">good that i found this in time, my other ned+ doesn`t open for me.</div></div>
+<div class="post" id="p401004"><div class="post-head"><a class="id" href="../t/4167.html#p401004">#401004</a> <span class="index">64</span> <span class="date">2008-01-15T03:38:13Z</span> <span class="author"><a href="../u/9373204.html">Impulse</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4167.html#p400453">Quote: zer0, January 13, 2008 07:14 am</a></div> good that i found this in time, my other ned+ doesn`t open for me. </blockquote>Why did you bump this?! o_O<br>
+<br>
+Lock, please.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yet another collision problem - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; yet another collision problem</nav></header>
+<main>
+<div class="post" id="p14730"><div class="post-head"><a class="id" href="../t/16803.html#p14730">#14730</a> <span class="index">1</span> <span class="date">2007-04-05T23:44:30Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">i doubt anyone will be able to help me with this, as it's actually present in metanet's tutorials, but anyway:<br>
+<br>
+as you can see in the attached picture, when there's a valley shape and you're moving downwards quite fast, you sink down into it.<br>
+<br>
+does anyone have a fix? <div class="attachment attachment-missing">Attachment (lost): post-14-1175816670.jpg</div></div></div>
+<div class="post" id="p317403"><div class="post-head"><a class="id" href="../t/16803.html#p317403">#317403</a> <span class="index">2</span> <span class="date">2007-05-01T22:19:49Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">does the circle stay like that, or is it gradually pushed out of collision? if the former, that's a bug which i don't think is present in the game, so we may have made a mistake when porting. if the latter, you can make things converge on the correct solution much faster by running collision detection+response several times per frame.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p319991"><div class="post-head"><a class="id" href="../t/16803.html#p319991">#319991</a> <span class="index">3</span> <span class="date">2007-05-10T04:00:28Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">it occurs when you're moving into a gap like shown. if you keep moving in that direction, you stay like that. (so yeah, it's the latter.)<br>
+repeating the collision code many times helps, but it's obviously slower and it will still be overlapping slightly after many projections.<br>
+<br>
+it's an issue with my game because there's no bounce and the main character is actually displayed as a circle, so its really obvious.<br>
+<br>
+is there any way to get projection vectors for both tiles and sort of add them together to project out of both tiles at once?</div></div>
+<div class="post" id="p320948"><div class="post-head"><a class="id" href="../t/16803.html#p320948">#320948</a> <span class="index">4</span> <span class="date">2007-05-14T00:01:13Z</span> <span class="author"><a href="../u/9374145.html">RedShift</a></span></div><div class="post-body">Maybe N DOES have that glitch, just the size/collision points of the ninja in relation to the tiles is as such so that it doesn't show up.</div></div>
+<div class="post" id="p321057"><div class="post-head"><a class="id" href="../t/16803.html#p321057">#321057</a> <span class="index">5</span> <span class="date">2007-05-14T07:04:58Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">it probably does, the bounce just hides it (and the fact that the ninja isn't rendered as a circle)</div></div>
+<div class="post" id="p321139"><div class="post-head"><a class="id" href="../t/16803.html#p321139">#321139</a> <span class="index">6</span> <span class="date">2007-05-14T17:46:28Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hi,<br>
+This is a fundamental problem with any sort of tile-based collision, which is: you're only solving the problem on a tile-by-tile basis, not for all tiles at once. the reason is that solving for all tiles at once is _much_ harder.<br>
+<br>
+To answer your follow-up question, there is no simple way to add (or otherwise "munge") individual penetration info from different tiles to get a single vector that solves them all together. We spent quite a while about a year ago trying to figure out if this was possible, and concluded that it just isn't -- you have to solve the all-at-once problem for real if you want a good solution.<br>
+<br>
+One approach that might be very useful is to look at the problem from a different point of view: instead of circle-vs-world, think of this as point-vs-inflated-world: shrink your circle from radius = r to radius = 0 (i.e a point), and expand/inflate the world by r. This is an equivalent problem (i.e a vector that moves the point to the surface of the inflated world will also move the circle to the surface of the non-inflated world), but it's a bit easier to see what you're actually trying to do.<br>
+<br>
+I'll attach a picture of what i mean -- in the picture, the actual surface of the world is grey, and the inflated surface is black. <br>
+<br>
+If you sketch out these sort of things you'll find a pattern:<br>
+1) if your circle is penetrating only one edge of the world (a line or a circular arc), it should be pushed out of that edge along the edge's normal, by the amount of penetration (i.e this is what the tutorial code does)<br>
+2) if your circle is penetrating _two_ edges, then it should be pushed out to the point where the two edge's  _inflated_ versions intersect.<br>
+<br>
+the problem with (2) is that it's still only a local solution, i.e it will fail in cases where the circle penetrates more than 2 edges at once (in such cases there really 0 solutions, because the 3 or more inflated edges may not all intersect in a single point), or where the two edges' inflated surfaces never intersect (i.e if they're parallel). <br>
+<br>
+We spent some time trying to explicitly generate the inflated-intersection points, etc, but in the end it was much faster to calculate the inflated surface approximately, by using the "repeatedly push the circle out of a single edge" method.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p321552"><div class="post-head"><a class="id" href="../t/16803.html#p321552">#321552</a> <span class="index">7</span> <span class="date">2007-05-16T00:17:33Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">that's an interesting idea, and I'm not sure i fully understand, but i'll certainly investigate further.<br>
+<br>
+when you're in a "valley" such as in my diagram, and you're touching two edges at once, the ideal projection vector would always be the same, so if at loadtime, I calculated the ideal projection vector using the "inflated tile" idea, i could just use that vector whenever in that situation.<br>
+<br>
+...right?</div></div>
+<div class="post" id="p321686"><div class="post-head"><a class="id" href="../t/16803.html#p321686">#321686</a> <span class="index">8</span> <span class="date">2007-05-16T14:56:26Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">almost: the "target position" would be the same, but the vector would be whatever moved the current circle so that it's center was at the target position. probably this is what you meant -- the circle can be in many different positions and still be colliding with those two edges, so obviously you'll need different vectors to move those different positions to the same target position.<br>
+<br>
+raigan<br>
+p.s - you _could_ precalculate this, but line-line intersection is pretty simple and this would let you support different sizes of circles.<br>
+p.p.s - i forgot to attach a pic, here it is <div class="attachment attachment-missing">Attachment (lost): post-14-1179327500.gif</div></div></div>
+<div class="post" id="p321923"><div class="post-head"><a class="id" href="../t/16803.html#p321923">#321923</a> <span class="index">9</span> <span class="date">2007-05-17T06:07:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks, it's a lot more clear now.<br>
+<br>
+I'll mess around with the concept , see where i get to.</div></div>
+<div class="post" id="p323521"><div class="post-head"><a class="id" href="../t/16803.html#p323521">#323521</a> <span class="index">10</span> <span class="date">2007-05-23T10:35:05Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">EDIT: dont worry, im an idiot</div></div>
+</main>
+</body>
+</html>

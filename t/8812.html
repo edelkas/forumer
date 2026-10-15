@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bone Frames - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Bone Frames</nav></header>
+<main>
+<div class="post" id="p7926"><div class="post-head"><a class="id" href="../t/8812.html#p7926">#7926</a> <span class="index">1</span> <span class="date">2006-04-07T06:30:06Z</span> <span class="author"><a href="../u/9372041.html">Fractal Resonance</a></span></div><div class="post-body">Firstly, I'd like to thank the makers of N-Game for inspiring me to actually pursue programming in general and attempt to make a real game using flash.<br>
+<br>
+Once that's done I'd like to ask an actual question, if possible, and I'm terribly sorry if this is a repeat. I did search, perhaps I used the wrong words.<br>
+<br>
+I was wondering if anyone could explain to me how exactly a bone frame was created for the ninja in Flash and if this could be implemented in 2d animation. I am under this impression from an article I read in which one of the developers claimed that's how they did the ragdoll. This isn't a question about making ragdolls so much as the way they actually created the bones, to clarify. If I'm under a false pretense, my apologies.<br>
+<br>
+The whole idea of this would be to make a bone frame that could be used to keep the character together through long, complex 2d animation. However I'm not holding out false hope that anything as such would occur.<br>
+<br>
+Similarly, if anyone knows a good application for Flash with a trial it would be nice.<br>
+<br>
+In the end, I'm interested in the actual technique as even my teacher was fairly boggled.<br>
+<br>
+Thanks in advance.</div></div>
+<div class="post" id="p162869"><div class="post-head"><a class="id" href="../t/8812.html#p162869">#162869</a> <span class="index">2</span> <span class="date">2006-04-07T18:10:50Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i'm not sure what you mean by "bone frame"  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p163033"><div class="post-head"><a class="id" href="../t/8812.html#p163033">#163033</a> <span class="index">3</span> <span class="date">2006-04-08T06:09:45Z</span> <span class="author"><a href="../u/9372041.html">Fractal Resonance</a></span></div><div class="post-body">My apologies.<br>
+<br>
+In 3d Studio Max one can create an initial mesh for their character, then add what are practically lines that define the pivot point of the particular section and then the movement afterwards. When connected multiple times you get a bone frame, which is basically a bunch of lines that connect to each other and let the mesh move around in a humanoid manner.<br>
+<br>
+In terms of flash, this would be as if you had a head and a torso, then decided to make a line from the head to where the neck would be, then another line conjoined but seperate of that line to define how the torso moves.<br>
+<br>
+I'm trying to explain this the best I can, perhaps I am simply looking for the concept of a ragdoll.<br>
+<br>
+Sorry if that didn't help at all. <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"></div></div>
+<div class="post" id="p165873"><div class="post-head"><a class="id" href="../t/8812.html#p165873">#165873</a> <span class="index">4</span> <span class="date">2006-04-17T20:10:24Z</span> <span class="author">Guest</span></div><div class="post-body">no you meen sumthing like lucidum's N poser <img class="smiley" src="../files/smilies/35.gif" alt=":?:" title=":?:">  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p165875"><div class="post-head"><a class="id" href="../t/8812.html#p165875">#165875</a> <span class="index">5</span> <span class="date">2006-04-17T20:15:57Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I think N is just a bunch of images grafted onto a 2D skeleton. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p166162"><div class="post-head"><a class="id" href="../t/8812.html#p166162">#166162</a> <span class="index">6</span> <span class="date">2006-04-18T13:52:04Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">oh, i see -- flash doesn't really have support for "skinning" or skeletal animation, but at the same time it sort of does since it supports a hierarchy.<br>
+<br>
+for each rigid "chunk", you just need to make sure that the origin of the chunk is the pivot point you want the graphics to rotate around, and you can build the graphics that way.<br>
+<br>
+this is how we authored the animations: once all the chunks are setup, you can select multiple chunks and set a pivot point -- for instance, we would select all of the upper body chunks, set the pivot to the waist, and rotate the upper body around it.</div></div>
+</main>
+</body>
+</html>

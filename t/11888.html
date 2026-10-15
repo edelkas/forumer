@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>my game engine - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; my game engine</nav></header>
+<main>
+<div class="post" id="p10617"><div class="post-head"><a class="id" href="../t/11888.html#p10617">#10617</a> <span class="index">1</span> <span class="date">2006-08-13T06:40:43Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">Hello all.<br>
+<br>
+I am developing a game called Sphoid (the link is really underdeveloped as you'll see)<br>
+<br>
+<a href="http://www.freewebs.com/mattk210/sphoid.swf">http://www.freewebs.com/mattk210/sphoid.swf</a><br>
+<br>
+you might recall a topic I made a few days ago about collision detection problems, well collision detection is proving to be a huge problem.<br>
+<br>
+at the moment I'm running a system whereby i have all the tiles in metanet's demo A. They can be freely placed and to check for a collision, all the tiles are run through a loop.<br>
+<br>
+i suffer from the bug in<br>
+<br>
+<a href="../t/11756.html">http://metanet.2.forumer.com/index.php?showtopic=11756</a><br>
+<br>
+and i have to use only certain patterns of tiles  (no overlaps for example) to make my maps.<br>
+<br>
+my question is: for Sphoid, what do you people think is the best kind of collision detection solution? something surface based, or tile based (free placement or a grid?) also, if anyone knows of some engine that has it all coded in (like tutorial B of metanet), that would be great.<br>
+<br>
+i need varying sizes of curves, and varying angles of straight lines.<br>
+<br>
+any input would be greatly appreciated.<br>
+<br>
+mattk210</div></div>
+<div class="post" id="p215008"><div class="post-head"><a class="id" href="../t/11888.html#p215008">#215008</a> <span class="index">2</span> <span class="date">2006-08-13T08:47:07Z</span> <span class="author"><a href="../u/9372228.html">Mr_Mongoose</a></span></div><div class="post-body">fist of all, I would like to say bloody awesome effort. It looks sleek and fun so far, but I have a few complaints.<br>
+<br>
+First of all, It would look nicer if your robot 'eats' the laser after it fires it. By that I mean, when your robot runs over the laser, the part it runs over disappears, otherwise it looks sort of wierd.<br>
+<br>
+Also, can you explain the controls a little more? I found out that 'shift' does this helicopter blade thing, but I wasn't sure what that was for. And are those circles a little of the map decorative? Or is there a way to jump to them?<br>
+<br>
+All in all, it looks fantastic, and I assume it's going to be freeware, correct me if I'm wrong?<br>
+<br>
+<b>Edit-</b> I figured out the stuff about the helicopter. Cool Idea, but I would prefer it if you could use it even when it wasn't fully recharged. Also, It would be useful if yo could use it as you were falling, and it would save you. And one last thing, when the helicopter recharge bar gos over the white, it makes it impossible to see. Maybe change it's colour to a light grey making it visible wherever it is.</div></div>
+<div class="post" id="p215068"><div class="post-head"><a class="id" href="../t/11888.html#p215068">#215068</a> <span class="index">3</span> <span class="date">2006-08-13T14:34:51Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">for being v 0.07 that looks pretty good, just a couple little things would make it very good, and whats your plan for more spoids cause that is a really great gameplay idea i think<br>
+<br>
+input: helicopter bar needs to be a grey that is visible over white, when you are falling if you hit shift the helicopter will come out and stays out when you respawn, it should have where everything is reset including the helicopter energy bar thing when you respawn, adding 5 ammo to your ammo-limited weapon every time you hit enter is kinda cheap..., and finally i think, i cant figure out how to change back to the primary weapon...<br>
+<br>
+still very cool game, looking forward to version 0.08 with maybe anothe sphoid  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"> <br>
+<br>
+(sry i cant help with your programming problem, i know almost no as)</div></div>
+<div class="post" id="p215113"><div class="post-head"><a class="id" href="../t/11888.html#p215113">#215113</a> <span class="index">4</span> <span class="date">2006-08-13T17:01:15Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">cool!<br>
+<br>
+if you do want to make the laser "hit" the surface of the world, you should be able to use the raycasting code from the tutorial. if you're not using a grid you'll have to change it around slightly, but the basic idea is the same.. just intersect the ray with the edges of the shape and use the earliest intersection.<br>
+<br>
+you could even use the same approach for the collision of the bullets: you can either intersect the linesegment that represents the bullet's movement each frame, or (simpler) when the bullet is first fired, calculate the time of intersection and remember it (you'll still have to collide it vs moving objects each frame).</div></div>
+<div class="post" id="p215161"><div class="post-head"><a class="id" href="../t/11888.html#p215161">#215161</a> <span class="index">5</span> <span class="date">2006-08-13T19:29:56Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body">Wow, that's pretty nice. I even got some inspiration from it, like if there was a level maker, that would be pretty sweet. If you put enemies in it, that would be really cool. I got a level idea from the little green platforms; if you put an enemy on each one, you would have to shoot each enemy down so you could get to the next platform. And at the "YOU WIN!" platform, you could have a tougher enemy or multiple enemies as it is a bigger platform. And I would prefer it if you got ammunition by picking up crates lying around.<br>
+<br>
+This would make a great strategy game. <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p215170"><div class="post-head"><a class="id" href="../t/11888.html#p215170">#215170</a> <span class="index">6</span> <span class="date">2006-08-13T20:07:15Z</span> <span class="author"><a href="../u/9372290.html">Homestar Runner</a></span></div><div class="post-body">I can't seem to be able to play it. I have Flash 8 but when I click the word Sphoid at your website it says downloading from that url but when it is done nothing comes up. Long sentence.</div></div>
+<div class="post" id="p215286"><div class="post-head"><a class="id" href="../t/11888.html#p215286">#215286</a> <span class="index">7</span> <span class="date">2006-08-14T00:51:29Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">^right click on it and select download linked file or something</div></div>
+<div class="post" id="p215303"><div class="post-head"><a class="id" href="../t/11888.html#p215303">#215303</a> <span class="index">8</span> <span class="date">2006-08-14T02:12:02Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks for the positive feedback and advice - i will of course eventually have enemies and more sphoids. I'm planning on an action-adventure type thing.<br>
+<br>
+so do you people think my approach of free tiles is OK? could anyone perhaps contribute some code for fixing the bug<br>
+<br>
+<a href="../t/11756.html">http://metanet.2.forumer.com/index.php?showtopic=11756</a><br>
+<br>
+you see, when I change the order of collisions in this guy's scenario, it still projects in the wrong place. How do you fix that with n?...<br>
+<br>
+and yes, i hope to use raycasting when I understand vectors well enough, for many different things.<br>
+<br>
+also,<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11888.html#p215008">Quote: Mr_Mongoose, 2006-08-13T08:47:07Z</a></div>Cool Idea, but I would prefer it if you could use it even when it wasn't fully recharged. Also, It would be useful if yo could use it as you were falling, and it would save you.</blockquote><br>
+unfortunately, if that were the case you could use it infinitely by tapping it over and over. Maybe I'll ban helicopter while falling to prevent that...<br>
+<br>
+right click to change weapons, the ENTER to get ammo will change.</div></div>
+<div class="post" id="p215524"><div class="post-head"><a class="id" href="../t/11888.html#p215524">#215524</a> <span class="index">9</span> <span class="date">2006-08-14T19:55:14Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">It just redirects me here. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p215530"><div class="post-head"><a class="id" href="../t/11888.html#p215530">#215530</a> <span class="index">10</span> <span class="date">2006-08-14T20:09:16Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/11888.html#p215286">Quote: smartalco, August 13, 2006 07:51 pm</a></div> ^right click on it and select download linked file or something  </blockquote> <br>
+ once again...</div></div>
+<div class="post" id="p215535"><div class="post-head"><a class="id" href="../t/11888.html#p215535">#215535</a> <span class="index">11</span> <span class="date">2006-08-14T20:36:45Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">It seems to fail to load.</div></div>
+<div class="post" id="p215614"><div class="post-head"><a class="id" href="../t/11888.html#p215614">#215614</a> <span class="index">12</span> <span class="date">2006-08-15T00:47:29Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Here's a mirror:<br>
+<a href="http://three.fsphost.com/ZeroTruths/Mirror/N/sphoid.swf">Sophid</a><br>
+<br>
+Right/Ctrl Click and Save-As<br>
+<br>
+I didn't notice anything buggy...</div></div>
+<div class="post" id="p215653"><div class="post-head"><a class="id" href="../t/11888.html#p215653">#215653</a> <span class="index">13</span> <span class="date">2006-08-15T03:07:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yea, i've had to set up my map so that the bug didn't occur. I couldn't make those round corners square for example, because of the bug.<br>
+<br>
+and no mirrors please. (sorry but i'd like to keep all sources up to date).<br>
+<br>
+what im interested in is how it's fixed in n.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash help with collision detection. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Flash help with collision detection.</nav></header>
+<main>
+<div class="post" id="p11116"><div class="post-head"><a class="id" href="../t/12445.html#p11116">#11116</a> <span class="index">1</span> <span class="date">2006-09-07T19:06:44Z</span> <span class="author"><a href="../u/9371257.html">Alex135</a></span></div><div class="post-body">Ok, i have ben working on a basic clasic arcade game just to test how well i can make a game in flash. (i have never made any games in flash before)<br>
+But i am no n00b in the program so far, my problem is, i made a game that is similar to pong i think, cant remember the name of it really, and im trying to make it so that the ball will move, and i can intigrate blocks into the game, and the blue paddle at the botom, will move (i already have that working, it fallows the mouse.) on its X axies, And when the ball hits the paddle, it will bounce, and those grey walls on the sides and on the top the ball will bounce off of.<br>
+and when the ball hits a block it will bounce off and the block will disipear.<br>
+<br>
+later on i might intigrate sounds but i cant get collision detection working.<br>
+<br>
+here is the file.<br>
+<br>
+I made it myself, so far, but im not to stubern to ask for help. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+[edit] I have looked at the colision tutorials and 1/2 of it i dont understand, i need a nice simple explination. Hope its not to much trouble <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> <div class="attachment attachment-missing">Attachment (lost): post-14-1157656004.fla</div></div></div>
+<div class="post" id="p225317"><div class="post-head"><a class="id" href="../t/12445.html#p225317">#225317</a> <span class="index">2</span> <span class="date">2006-09-07T20:31:17Z</span> <span class="author"><a href="../u/9372639.html">Crushproof</a></span></div><div class="post-body">Things like this are much easier to do in gamemaker, because of easy collision detection, but if it's flash you need help with, i'm stumped.</div></div>
+<div class="post" id="p225323"><div class="post-head"><a class="id" href="../t/12445.html#p225323">#225323</a> <span class="index">3</span> <span class="date">2006-09-07T20:35:59Z</span> <span class="author"><a href="../u/9371257.html">Alex135</a></span></div><div class="post-body">Sorry dude, its flash. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> <br>
+<br>
+and im stuck unless someone else who knows something posts in this topic <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+lol</div></div>
+<div class="post" id="p225995"><div class="post-head"><a class="id" href="../t/12445.html#p225995">#225995</a> <span class="index">4</span> <span class="date">2006-09-08T22:22:58Z</span> <span class="author"><a href="../u/9371465.html">sept</a></span></div><div class="post-body">Well first of all just to see that the bar detects the ball when it hits put something like this into the Base's actionscript.<br>
+<br>
+<pre class="code">onClipEvent (enterFrame) {
+    if (this.hitTest(_root.bal)) {
+            trace("true");
+	} else {
+	trace("false");
+	}
+}</pre><br>
+Also, the game you are thinking of is Arkanoid/Breakout. <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p226322"><div class="post-head"><a class="id" href="../t/12445.html#p226322">#226322</a> <span class="index">5</span> <span class="date">2006-09-09T16:19:49Z</span> <span class="author"><a href="../u/9371257.html">Alex135</a></span></div><div class="post-body">Oh thankyou, <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Ill need to change the stuff... thanks verry much <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+i have some more work to do... but ill get it figured out... and if i need more help ill just post <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> thanks again. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p255817"><div class="post-head"><a class="id" href="../t/12445.html#p255817">#255817</a> <span class="index">6</span> <span class="date">2006-11-17T02:22:06Z</span> <span class="author"><a href="../u/9373438.html">sHum</a></span></div><div class="post-body">hey<br>
+<br>
+im desperately searching all over the web for help on actionscript collision as well, i've registered and posted on countless forums too lookin for some advice, but this one at least seems to have already some ball rolling and at least seems like i could get somewhere with the people here...<br>
+<br>
+so after my 'block' is able to detect a collision, what's next ? i have to tell it wat to do upon 'collision = true' rite ?<br>
+<br>
+could anyone help/guide me with this ? thanks... hope to hear soon.. just a simple 'no i cant help' or a 'i might' could work instead of a zero-response like all the other big forums.. thanks !!</div></div>
+<div class="post" id="p257718"><div class="post-head"><a class="id" href="../t/12445.html#p257718">#257718</a> <span class="index">7</span> <span class="date">2006-11-21T07:36:29Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">if you're making a really simple game, as i imagine you are, just reverse the velocity of the y value for a horizontal collision and reverse the x for a vertical collision. Forget corner collisions, they're more complex.<br>
+<br>
+if you're still here...<br>
+<br>
+there is a lot of help available as tutorials on the internet. Just try googling stuff.</div></div>
+<div class="post" id="p259814"><div class="post-head"><a class="id" href="../t/12445.html#p259814">#259814</a> <span class="index">8</span> <span class="date">2006-11-26T05:38:05Z</span> <span class="author"><a href="../u/9373438.html">sHum</a></span></div><div class="post-body">well .. i dun ask for help often .. when i ask means im really stuck even with all the help i've found on my part ..<br>
+<br>
+that note u made bout reversing the x-y, appreciate it .. at least it looks like im able to get somewhere now .. ty<br>
+<br>
+<br>
+the next thing im having trouble with is creating a movieclip-launcher.. like a cannon that fires out the balls(movieclip)... rite now i have em just shooting-out-and-down.. there's no upward motion..no arch.. just a downhill-arch..</div></div>
+<div class="post" id="p261411"><div class="post-head"><a class="id" href="../t/12445.html#p261411">#261411</a> <span class="index">9</span> <span class="date">2006-11-29T06:45:56Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">the way you should be doing this is by giving a x and y velocity of the ball. If you want an arch, give it an xvel of -5 or something and a yvel of 5 and set the grav to 1.<br>
+every frame, add the x and y vels to the pos of the ball, and also add the grav<br>
+<br>
+that clear?</div></div>
+</main>
+</body>
+</html>

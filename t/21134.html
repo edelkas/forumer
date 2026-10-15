@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concave Circular Shape SAT - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Concave Circular Shape SAT</nav></header>
+<main>
+<div class="post" id="p18852"><div class="post-head"><a class="id" href="../t/21134.html#p18852">#18852</a> <span class="index">1</span> <span class="date">2008-01-15T20:31:51Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">As you've probably guessed, I'm trying to apply SAT to a game I'm working on, and I've stumbled across a bit of a problem using SAT with concave circular shapes.<br>
+<br>
+I got the idea that when using SAT, I just project the shapes onto each potentially separating axis, and the penetration vector is given by the shortest vector from a point of one shape's projection, to the opposite point of the other's projection. While this is working great with all the shapes I've dealt with so far (normal convex ones, that is), is just doesn't work with a normal "concave" 1/4 circle. I'm probably missing something obvious, but I just can't say what. I've read the tutorial a few times now, and it clearly states that for circular shapes, the additional potentially separating axis is the axis parallel to the vector from the centre of the circle, to the centre of my AABB.<br>
+<br>
+Anyway, trying to solve this, I thought perhaps I could just project part of the circular shape - that is, project it from the point where the penetration vector intersects the shape, and onwards... This probably isn't clear so here's an illustration of what I mean : <br>
+<br>
+<img class="bb-img" src="http://img46.imageshack.us/img46/5957/concavecircularshapesn7.jpg" alt="" loading="lazy"><br>
+<br>
+Hope this is clearer... Thanks for the help.<br>
+<br>
+<br>
+P.S - The tutorials are seriously awesome <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p401268"><div class="post-head"><a class="id" href="../t/21134.html#p401268">#401268</a> <span class="index">2</span> <span class="date">2008-01-16T14:39:51Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I don't know if you said it wrong or are having the wrong idea.<br>
+<br>
+The axis you need is parallel to the axis from the center of the circle to the furthermost point of the AABB. That is because it is that point that's actually hitting the tile, and not the center.<br>
+<br>
+Other than that, I really don't think I can help.</div></div>
+<div class="post" id="p401273"><div class="post-head"><a class="id" href="../t/21134.html#p401273">#401273</a> <span class="index">3</span> <span class="date">2008-01-16T15:30:38Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">There are a few mistakes in the tutorial, such as this one -- you should consider the "furthest" point on the AABB vs the circle's center. Sorry!</div></div>
+<div class="post" id="p401292"><div class="post-head"><a class="id" href="../t/21134.html#p401292">#401292</a> <span class="index">4</span> <span class="date">2008-01-16T18:25:57Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">AH HA!  This was the only tile in N I couldn't seem to figure out how to recreate..... I think I could even get my 3d version of this tile working with that little bit of info.  Thanks a bunch.</div></div>
+<div class="post" id="p401639"><div class="post-head"><a class="id" href="../t/21134.html#p401639">#401639</a> <span class="index">5</span> <span class="date">2008-01-17T19:16:52Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot! It works <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+laginimaineb.</div></div>
+</main>
+</body>
+</html>

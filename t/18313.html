@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>calculating non-axis aligned projection vector - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; calculating non-axis aligned projection vector</nav></header>
+<main>
+<div class="post" id="p16157"><div class="post-head"><a class="id" href="../t/18313.html#p16157">#16157</a> <span class="index">1</span> <span class="date">2007-07-10T16:13:18Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body">hello,<br>
+<br>
+Just a fairly basic question about how the non-axis aligned projection vector is calculated...is trig needed for this?  Basically, I'm trying to do what's being done in 'Figure 5' of tutorial A, but I'm a bit rusty in vector math, so I'm not sure how I would modify my code to test the additional axis.<br>
+I attached a FLA that currently tests the axis aligned projections.  This works great until you rotate one of the boxes...at this point you need to test the projection perpendicular to the angled edge...I'm just not sure if this can be done for dynamically rotated shapes or not.<br>
+So, if anyone can explain the math behind getting this additional projection vector that would be great, but if you want to add in the code to do this to my source even better <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  I feel like I'm over complicating the issue but oh well.<br>
+<br>
+<br>
+(NOTE :: The attached source is based off of Toshosoft's source that was posted awhile ago (With slight modifications)...if this is a problem for anyone let me know and I'll remove it, but thought it would be ok since it's just for learning purposes).<br>
+<br>
+Thanks!<br>
+<br>
+Billy <div class="attachment attachment-missing">Attachment (lost): post-14-1184083998.zip</div></div></div>
+<div class="post" id="p341435"><div class="post-head"><a class="id" href="../t/18313.html#p341435">#341435</a> <span class="index">2</span> <span class="date">2007-07-10T18:30:56Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body">the above version is Flash 8, so I thought I'd add a mx2004 version in case some people don't have 8... <div class="attachment attachment-missing">Attachment (lost): post-14-1184092256.zip</div></div></div>
+<div class="post" id="p341585"><div class="post-head"><a class="id" href="../t/18313.html#p341585">#341585</a> <span class="index">3</span> <span class="date">2007-07-11T01:58:41Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I'm probably the wrong guy to give advice, as I struggle at this myself, but i just use basic trig to get the slope vector (and then derive the normal), and this is stored until the angle is changed. so to test collision, you project the coordinates of the closest vertex to the slope onto the slope's normal.</div></div>
+<div class="post" id="p341612"><div class="post-head"><a class="id" href="../t/18313.html#p341612">#341612</a> <span class="index">4</span> <span class="date">2007-07-11T03:04:17Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">You shouldn't need to use any trig at all, you just need to store unit vectors/directions as unit vectors, not as angles. If you're using angles, you'll have to first generate the equivalent unit vectors, which requires sin/cos.. i guess it's the same either way, since (to transform your unit vectors when your object rotates) you'll be using a matrix built out of sin/cos terms.<br>
+<br>
+I really recommend learning basic linear algebra/vector stuff to the point where you understand exactly what's going on in rotation matrices, it's great when you finally "get" it and it stops being weird black magic.</div></div>
+<div class="post" id="p341746"><div class="post-head"><a class="id" href="../t/18313.html#p341746">#341746</a> <span class="index">5</span> <span class="date">2007-07-11T13:59:42Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">But black magic is fun! <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+But yeah, if you don't understand it, step back and think about what your trying to do.</div></div>
+<div class="post" id="p341751"><div class="post-head"><a class="id" href="../t/18313.html#p341751">#341751</a> <span class="index">6</span> <span class="date">2007-07-11T14:26:33Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body">yeah, sounds i just have to review some linear algebra concepts to really figure this out...I actually did well in this class once upon a time, but that was 8 years ago <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  I guess my main disconnect is translating the vector math into code, as it seems like the above source doesn't really match the actual math in the tutorials but still *works*, so it's a little tough to get how the translation was done.  Guess it's something you just have to play around with, sorta like translating physics to code...</div></div>
+<div class="post" id="p341879"><div class="post-head"><a class="id" href="../t/18313.html#p341879">#341879</a> <span class="index">7</span> <span class="date">2007-07-11T22:22:43Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">have you read our slides? <a href="http://www.harveycartel.org/metanet/tutorials/fitc05.zip">http://www.harveycartel.org/metanet/tutorials/fitc05.zip</a><br>
+<br>
+they have some source for box-vs-box that might help.</div></div>
+<div class="post" id="p342197"><div class="post-head"><a class="id" href="../t/18313.html#p342197">#342197</a> <span class="index">8</span> <span class="date">2007-07-12T19:45:44Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body">just revisited the slides...didn't remember the same projection and axis testing code was actually contained in there...definitely makes more sense now than on the first read.<br>
+<br>
+<br>
+EDIT : <br>
+<br>
+So it looks like the 'projectBox()' function can stay the same, just need to call it on a different axis to get the box at an angle?</div></div>
+<div class="post" id="p342234"><div class="post-head"><a class="id" href="../t/18313.html#p342234">#342234</a> <span class="index">9</span> <span class="date">2007-07-12T21:34:56Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">*hits head*<br>
+Ah damn, should've seen this thread earlier, sorry 'bout that. I myself have no problem with you using my code. (Hell, <b>you</b> should be having problems with reading it anyways.)<br>
+The rotation is registered by the two values dx and dy. If you change those accordingly to the angle, it should work fine. The problem is that they're initialized in the enterFrame function, so it doesn't matter how much you change them since they switch back to parallel each frame. (Forgive my stupidity, as I rarely look through code once I get it working.)<br>
+If you want to get results, it's best that you take the initialization out of there. I'ma attach a working version.<br>
+*fixes a few miscellaneous bugs*<br>
+(This still uses trig for the rotation, though.)<br>
+<br>
+Hope that helped. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+<br>
+<i>EDIT:</i> What you noted about projectBox() <b>is</b> true, but I'd rather not play around with low-level stuff like that. Changing the value itself is a lot easier to understand, don't you think? <div class="attachment attachment-missing">Attachment (lost): post-14-1184276096.zip</div></div></div>
+<div class="post" id="p342267"><div class="post-head"><a class="id" href="../t/18313.html#p342267">#342267</a> <span class="index">10</span> <span class="date">2007-07-12T22:04:50Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18313.html#p342234">Quote: Toshosoft, July 12, 2007 09:34 pm</a></div>The rotation is registered by the two values dx and dy. If you change those accordingly to the angle, it should work fine. The problem is that they're initialized in the enterFrame function, so it doesn't matter how much you change them since they switch back to parallel each frame.</blockquote>ahhh nice thanks man...this was what I was missing...I was trying to create 2 new axes to test along instead of modifying the existing ones.  I suppose my approach could've worked but this way matches the slides better and makes more sense.  Plus I wasn't sure how to modify the axes for the rotation...I'll probably try to make a vector math version for kicks at some point, but knowing where the change needs to happen is a big help.<br>
+Thanks again!</div></div>
+<div class="post" id="p342336"><div class="post-head"><a class="id" href="../t/18313.html#p342336">#342336</a> <span class="index">11</span> <span class="date">2007-07-13T00:39:48Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yeah, i suck, but just to justify what I said about trig: i thought you had the shapes rotated by angles, and you wanted to find the vectors of the shape sides based on that angle. And for that you need trig (at least I think so)<br>
+<br>
+and those slides are really good. I think I may have finally understood SAT fully, much more than i could with those papers.</div></div>
+<div class="post" id="p342647"><div class="post-head"><a class="id" href="../t/18313.html#p342647">#342647</a> <span class="index">12</span> <span class="date">2007-07-13T16:37:13Z</span> <span class="author"><a href="../u/9374724.html">arexsvn</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18313.html#p342336">Quote: mattk210, July 13, 2007 12:39 am</a></div>i thought you had the shapes rotated by angles, and you wanted to find the vectors of the shape sides based on that angle. And for that you need trig (at least I think so)</blockquote>Actually that is pretty much what's happening in the source (if im reading you right), but I was just taking the wrong approach in getting the axes...<br>
+it is using trig at the moment, but according to the slides the vector math approach is equivalent (maybe less cpu instensive because you're not using 'Math' functions?)</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two more kinds of statistics - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Two more kinds of statistics</nav></header>
+<main>
+<div class="post" id="p4446"><div class="post-head"><a class="id" href="../t/4876.html#p4446">#4446</a> <span class="index">1</span> <span class="date">2005-09-17T21:59:08Z</span> <span class="author"><a href="../u/9371002.html">Adam Dobay</a></span></div><div class="post-body">Two ideas for new statistics that I think would be easy to implement.<br>
+<br>
+1. Game high scores<br>
+<br>
+A final high score, a valuable calculated by simply adding up all the scores reached in every episode the player has finished. That would create two things: one final high score for the player in the game, and an online high score list of ultimate N players, with the highest scores in all episodes.<br>
+This would also mean that every player who already is submitting their high scores automatically would participate in this, regardless of whether they have beaten all episodes or not.<br>
+The reason for this suggestion is that it would be nice to see in the game a number that would always increment when you finish an episode, and it would also be nice to have a list of the most superb players of N (which would mean that this grand high score list should probably have at least 50 spaces or more).<br>
+<br>
+2. Players<br>
+<br>
+It would be really fun to see a statistic on how many people have played the game, how many episodes they have finished and whether they have finished the game or not.<br>
+This would be calculated simply by that every player who has input a name in the Configuration panel of N, would upload a simple chunk of information stating that yes, he started to play the game. This would just show a number of N players who have ever started playing.<br>
+From the other two subparts in this probably the latter is easier to do, it would be another chunk of information uploaded if the player in question beat all episodes, which would also add up to a number on the website. The reason: pure curiosity. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Now the middle part would be perhaps the tricky and more complicated one, and maybe it's not that a good idea. It would be just another variable, sent up to the server, counting how many (not which) episodes has the player beaten. Then we would have a nice list of how many of all players has finished 1 episode, five, ten, fifty, etc.<br>
+<br>
+I hope you find these suggestions worthwhile. I'd be happy to receive any comment or opinion (as well as on my previous suggestions).<br>
+<br>
+Adam</div></div>
+<div class="post" id="p101422"><div class="post-head"><a class="id" href="../t/4876.html#p101422">#101422</a> <span class="index">2</span> <span class="date">2005-09-18T00:10:05Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">1) I see a few problems.  First, it would have to recalculate that value every time you beat a level if its figured offline, and calculating it online is impossible since it would need every player's score on every level and the list would take forever.  Second, it leaves no feasible way to verify it if somebody cheats to get a ridiculously high score.  Third, some levels would make more of a difference than others (a guy who competed for the highest score on a complex level with tons of gold and multiple paths would have an advantage over someone who fought long and hard for two consecutive scores on really simple/tiny levels like 59-0 or 59-1), and if you're the type who competes on some and ignores others they don't like (which I think most do) it'll take days to get the levels you didn't want to devote time to before to be competitive enough for this.  Additionally, its really not worth the work.  If you want to know who the best player is, I'll tell you its trib4lmaniac and you can move on to something else.<br>
+<br>
+2) I really, really hope you aren't naive enough to seriously expect them to be able to organize all that data, even if it WAS worth their effort.</div></div>
+<div class="post" id="p101423"><div class="post-head"><a class="id" href="../t/4876.html#p101423">#101423</a> <span class="index">3</span> <span class="date">2005-09-18T00:11:19Z</span> <span class="author"><a href="../u/9370900.html">Ryuk</a></span></div><div class="post-body">Government funding?</div></div>
+<div class="post" id="p101425"><div class="post-head"><a class="id" href="../t/4876.html#p101425">#101425</a> <span class="index">4</span> <span class="date">2005-09-18T00:13:29Z</span> <span class="author"><a href="../u/9370798.html">glenno14</a></span></div><div class="post-body">What the hell are you on about blackwolf?<br>
+<br>
+Everytime you post....yargh.</div></div>
+<div class="post" id="p103170"><div class="post-head"><a class="id" href="../t/4876.html#p103170">#103170</a> <span class="index">5</span> <span class="date">2005-09-24T09:54:34Z</span> <span class="author"><a href="../u/9371002.html">Adam Dobay</a></span></div><div class="post-body">Brickman, thank you for your comments.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/4876.html#p101422">Quote: brickman, 2005-09-18T00:10:05Z</a></div>I see a few problems.</blockquote><br>
+I agree with what you have said. I thus change my suggestion to that there be a menu item which says 'trib4lmaniac' if you click on it. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/4876.html#p101422">Quote: brickman, 2005-09-18T00:10:05Z</a></div>I really, really hope you aren't naive enough to seriously expect them to be able to organize all that data, even if it WAS worth their effort.</blockquote><br>
+No, of course not, that'd be an insane amount of data to process by hand. But a computer-generated number of how many players have played the game at least once and how many players have finished the game might not be that hard to do:<br>
+1. When you download and start the game, you enter a username, and with that a '1' gets added to a number in the database (of course privately noting the username so you don't add to the counter every time you start the game).<br>
+2. When you finish all episodes, a '1' gets added to another number in the online database.<br>
+I think it wouldn't be more complicated than the online high score table they've already done.</div></div>
+</main>
+</body>
+</html>

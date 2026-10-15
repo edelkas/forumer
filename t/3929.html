@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Need help with ragdoll - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Need help with ragdoll</nav></header>
+<main>
+<div class="post" id="p3570"><div class="post-head"><a class="id" href="../t/3929.html#p3570">#3570</a> <span class="index">1</span> <span class="date">2005-07-05T09:05:10Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hello everyone<br>
+<br>
+I'm making a ragdoll in flash right now but I can't get it working. I have attached the .fla here so just grab it and check for errors, if you feel like that. Btw only one point is draggable right now: the end of the left arm.<br>
+<br>
+I want to be able to drag it, and that almost works, the points furthest away from the point I start to drag from refuses to move and everything just jumps around and looks even wierder than in the beginning  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01">  Any suggestions how to fix that?<br>
+<br>
+<br>
+The big stuff I've commented away in the beginning of the code on frame 1 is supposed to be a dot array, that doesn't work but after some reading I found a lot better way with the movie clips and stuff. Anyway so do I want to know how to make a dot array.<br>
+<br>
+<br>
+There are instructions to find all code i've hidden everywhere on frame 1<br>
+<br>
+And comment everything that I have totally f****d up. <br>
+<br>
+<br>
+First post btw <img class="bb-img" src="../files/images/1404.gif" alt="" loading="lazy"> <div class="attachment attachment-missing">Attachment (lost): post-14-1120554310.fla</div></div></div>
+<div class="post" id="p81333"><div class="post-head"><a class="id" href="../t/3929.html#p81333">#81333</a> <span class="index">2</span> <span class="date">2005-07-05T23:44:00Z</span> <span class="author">Raigan <span class="guest">(guest)</span></span></div><div class="post-body">hi,<br>
+we're unfortunately incredibly busy at the moment, however i'm willing to bet that if you post this on flashkit <a href="http://www.flashkit.com/board/forumdisplay.php?f=5">http://www.flashkit.com/board/forumdisplay.php?f=5</a> you'll get some help.<br>
+<br>
+thanks,<br>
+raigan<br>
+p.s - probably someone else on these forums could also help... anyone? <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p81402"><div class="post-head"><a class="id" href="../t/3929.html#p81402">#81402</a> <span class="index">3</span> <span class="date">2005-07-06T06:34:08Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Thanks, I'll try that then.</div></div>
+<div class="post" id="p81403"><div class="post-head"><a class="id" href="../t/3929.html#p81403">#81403</a> <span class="index">4</span> <span class="date">2005-07-06T06:50:31Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Welcome to the MetaNet Forums! I hope you enjoy your stay here <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .<br>
+I'm willing to help ya find your mistake but it seems that I can't download the file <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . But I can still help you with the draggable stuff. So.<br>
+Are you using vertlet integration? If you're not then <a href="http://www.gamasutra.com/resource_guide/20030121/jacobson_01.shtml">here</a>'s a link. Using that WILL help you a lot.<br>
+<br>
+Since I can't download the file I can't help you without knowing how you are doing the ragdoll. But if you're using vertlet integration, then setting the "dot" mass to 0 while dragging it will help you.<br>
+<br>
+You could also try making a ZIP of your source and attaching it to your post. Then I could download the file <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> . If you have more spare time, you could also meet me in #N at irc.mware.ca <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .<br>
+<br>
+And don't forget, if you have any trouble with actionscript, I'm here for ya <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> .<br>
+<br>
+TS</div></div>
+<div class="post" id="p81453"><div class="post-head"><a class="id" href="../t/3929.html#p81453">#81453</a> <span class="index">5</span> <span class="date">2005-07-06T11:28:00Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Thanks a lot, I attach a zipped version, with some improved trigonometry functions (I've made them work sometimes instead of never  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  ) <div class="attachment attachment-missing">Attachment (lost): post-14-1120649280.zip</div></div></div>
+<div class="post" id="p81455"><div class="post-head"><a class="id" href="../t/3929.html#p81455">#81455</a> <span class="index">6</span> <span class="date">2005-07-06T11:35:45Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hi<br>
+I think I am using verlet integration, not sure though. I have read Jakobsens text about all that but was too lazy to use weights <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"> I am starting flash to try it right now.<br>
+Thanks</div></div>
+<div class="post" id="p81458"><div class="post-head"><a class="id" href="../t/3929.html#p81458">#81458</a> <span class="index">7</span> <span class="date">2005-07-06T12:02:59Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hey, it works <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> now I just have to deal with tons of nasty trigonometry to get it look decent<br>
+<br>
+Thanks a lot, I will be back with the source once the trigonometry is taken care of.  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"></div></div>
+<div class="post" id="p82560"><div class="post-head"><a class="id" href="../t/3929.html#p82560">#82560</a> <span class="index">8</span> <span class="date">2005-07-10T13:50:12Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Uhm, I have a new problem, the points floats away to the left and I can't get it work even if I do like in the other ragdoll thread  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  Apart from that, everything is almost done now  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+The Wazaa  <div class="attachment attachment-missing">Attachment (lost): post-14-1121003412.zip</div></div></div>
+<div class="post" id="p82773"><div class="post-head"><a class="id" href="../t/3929.html#p82773">#82773</a> <span class="index">9</span> <span class="date">2005-07-11T20:21:34Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Sorry I'm late, but I'm not so active on these forums nowadays. This will be the longest post I've written, so get ready.<br>
+For the source:<br>
+Oh, boy. We have some fixing to do.<br>
+Judging by the Flash Player publishing version you're using Flash MX 2004. Therefore, you can use some little optimizations that came with Flash MX:<ul><li>USE INTERVALS! Dammit, they're much more easier to work with! I haven't used (or seen anyone use for that matter) onClipEvent for about 2 years or so! (since Flash MX was released)</li><li>Look at the attached file, that's how particle physics is supposed to be done (well, at least with vertlet integration <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> )</li><li>Forget about per-movieclip actions!</li><li>Working code = first; Fancy graphics = later!</li></ul>Now, let's start from the ground up.<br>
+First, you have Particles, each particle has the following properties:<ul><li><b>.x</b> - which is obvious;</li><li><b>.y</b> - obvious;</li><li><b>.oldx</b> - the previous x position of the object;</li><li><b>.oldy</b> - the previous y position of the object;</li><li><b>.vx</b> - obvious;</li><li><b>.vy</b> - obvious;</li><li><b>.mass</b> - this is almost too obvious;<br>
+(next is the not so obvious properties)</li><li><b>.sList[]</b> - in this array property you store references ("shortcuts") to the particles that the current particle is connected to;</li><li><b>.rList[]</b> - this array holds the rest-lengths</li><li><b>.sid</b> - this is the interval ID. I can use this to "stop" the particle whenever I want to (look up <i>clearInterval()</i> in the help panel).</li></ul>So we have the basic relaxation function, and another relaxation function, that's not so basic. It's hard to explain what exactly the second one does differently from the first, but let's just say that it makes the movie work most of the times (instead some of the times).<br>
+<br>
+Next, we have the most important function in the whole source file: the <i>tick()</i> function. This function is executed every 10 milliseconds or so, and it basicly does what your onClipEvent(enterFrame) is supposed to do, but much more times per second. In the function you do the collision with the stage(friction and bounce) and the relaxation, of course.<br>
+<br>
+And last, but not least, we have the <i>addStick()</i> function. It connects the particles together and it sets the rest length between each connected pair. <br>
+<br>
+SO, that's about the particle object. Now, you make a movieclip that the will actually "represent" the particles on the stage (i.e a black dot). Then yo give it a linkage name (i.e "point"). And finally, yuo do this:<br>
+<br>
+Object.registerClass("point", Particle);<br>
+<br>
+Here, <i>Particle</i> is what the Particle object is called.<br>
+<br>
+After you call that line, every object that you "attach" (look up <i>attachMovie()</i> in the flash help panel) will be a particle. You connect the particles with the addStick() function and TADA you have a ragdoll.<br>
+<br>
+Expected reactions:<ul><li>WTF?!?! <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></li><li>*brain explodes* <img class="smiley" src="../files/smilies/27.gif" alt=":spasm:" title=":spasm:"></li><li>GET A LIFE! <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></li><li>Q: What's with all the formatting (A: I just wanted everything to look... more formatted <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> )</li></ul>If you understood half of what I've said, then you have a chance of getting a life.<br>
+If you didn't understand anything, then you shouldn't play N or get deeper into this computer stuff, first, because you don't understand any of it, and second, because you just have a life (look at sig for more details).<br>
+If you understood most of the stuff, then you still have a chance in getting a life.<br>
+If you understood all of it, then welcome to the club <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+<br>
+And that's definitely the longest post I've made. And don't worry, that'll be my longest post for a while I think <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> .<br>
+<br>
+P.S.: In the file I keep the arm and leg ends apart from each other. If you don't like it, just comment-out these two lines:<br>
+p2.addStick (p3, 200);<br>
+and<br>
+p5.addStick (p6, 200);<br>
+<br>
+I'm also sending you another thing to show you what you can do with Particles.<br>
+<br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1121113294.rar</div></div></div>
+<div class="post" id="p83362"><div class="post-head"><a class="id" href="../t/3929.html#p83362">#83362</a> <span class="index">10</span> <span class="date">2005-07-14T08:13:01Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hello, thanks a lot. I am looking at your code, and actually understanding most of it (with some help of the help panel) <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> . I am beginning to write at a new ragdoll, trying to not look at your code so much  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> . I <br>
+<br>
+My graphics was fancy? Cool, the only reason I did like that was because I simply was too lazy to learn how to make lines  <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"> . And that interval function is obviously much easier than the stuff I used, I have never seen anyone used somehting else than onClipEvent(enterFrame) in all tutorials I've read <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> .<br>
+<br>
+Thanks again, I'll be back with my source once it's done, probably in late august since I have to spend the summer in a summerhouse without a computer. <br>
+<br>
+And one more thing, what is that #N at irc.mware.ca, and where do I find it?<br>
+<br>
+<br>
+The Wazaa</div></div>
+<div class="post" id="p83368"><div class="post-head"><a class="id" href="../t/3929.html#p83368">#83368</a> <span class="index">11</span> <span class="date">2005-07-14T10:39:06Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">#N is and IRC channel and irc.mware.ca is the IRC server<br>
+<br>
+So, you're going to a summerhouse WITHOUT A COMPUTER?!!! I can't imagine what I would do if I didn't have a computer around <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> .<br>
+<br>
+About onClipEvent(enterFrame):<br>
+People write tutorials using onClipEvent because it's much easier for beginners to understand it. Intervals are much more powerful because you can control the framerate with code. And I often have scope problems with intervals (search <i>scope</i> in the help panel)<br>
+<br>
+Don't mention it <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> . I like to help people who have problems with Flash (DUH! That's the only thing I'm good at <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> )<br>
+<br>
+PS: I'm working on adding a third dimension. It will probably be isometric but a third dimension nontheless. After all implementing perspective, as easy as it seems, would be quite hard on the CPU.<br>
+<br>
+TS</div></div>
+<div class="post" id="p83371"><div class="post-head"><a class="id" href="../t/3929.html#p83371">#83371</a> <span class="index">12</span> <span class="date">2005-07-14T12:11:00Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Really man you should go on a holiday sometime. Without a computer. You might learn about the world outside, mainly, that it exists. I suggest Bornia.</div></div>
+<div class="post" id="p83374"><div class="post-head"><a class="id" href="../t/3929.html#p83374">#83374</a> <span class="index">13</span> <span class="date">2005-07-14T12:45:47Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3929.html#p83368">Quote: Toshosoft, Jul 14 2005, 10:39 AM</a></div> So, you're going to a summerhouse WITHOUT A COMPUTER?!!! I can't imagine what I would do if I didn't have a computer around <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> .<br>
+<br>
+Life is nice... make the most of it.  </blockquote> <br>
+ That is worrying. Seriously, I bet that if you went on holiday to somewhere you could relax you would forget all about computers...</div></div>
+<div class="post" id="p83378"><div class="post-head"><a class="id" href="../t/3929.html#p83378">#83378</a> <span class="index">14</span> <span class="date">2005-07-14T13:10:07Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Do you really think that going on holiday is THAT easy? Besides, I probably won't go even if I had the chance (which I won't have any time soon if not never <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> ).</div></div>
+<div class="post" id="p83382"><div class="post-head"><a class="id" href="../t/3929.html#p83382">#83382</a> <span class="index">15</span> <span class="date">2005-07-14T13:41:09Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3929.html#p83378">Quote: Toshosoft, Jul 14 2005, 01:10 PM</a></div> Do you really think that going on holiday is THAT easy? Besides, I probably won't go even if I had the chance (which I won't have any time soon if not never <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> ).  </blockquote> <br>
+ 1) I never said it was easy.<br>
+2) You wouldn't go if you had the chance? Why not?<br>
+3) Why do you think that you'll never have a chance of going on holiday? I doubt that very much. You're bullshitting.</div></div>
+<div class="post" id="p83469"><div class="post-head"><a class="id" href="../t/3929.html#p83469">#83469</a> <span class="index">16</span> <span class="date">2005-07-14T19:07:25Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">After a day and 200 lines of code my ragdoll is finally finished <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+And the vacation in my summerhouse isn't that bad, I have a guitar which is fun to play at as well.<br>
+<br>
+I have also planned to make a third dimension, or to make some commands like walk, sit, kick, punch and stand up after he's been hit. Mostly because one of my friends consider that impossible, he doesn't know any actionscript though. I have to prove him wrong  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> .<br>
+<br>
+But that must wait until tomorrow.<br>
+<br>
+Maybe I shall bring in my source here sometime, I shall just add some rotation restricts to make it all look a bit more realistic.<br>
+<br>
+So long and thanks for all the fish,  uhum I mean help, I have to stop reading Douglas Adams that much   <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .<br>
+<br>
+The Wazaa</div></div>
+<div class="post" id="p85751"><div class="post-head"><a class="id" href="../t/3929.html#p85751">#85751</a> <span class="index">17</span> <span class="date">2005-07-24T07:29:35Z</span> <span class="author">Rami7007 <span class="guest">(guest)</span></span></div><div class="post-body">Dude... Go through more iterations... it is "strechy"...</div></div>
+<div class="post" id="p91584"><div class="post-head"><a class="id" href="../t/3929.html#p91584">#91584</a> <span class="index">18</span> <span class="date">2005-08-16T10:17:48Z</span> <span class="author"><a href="../u/9371042.html">rocoe</a></span></div><div class="post-body">That code was great but how do I make it draggable?<br>
+the 'points' seem to be locked in place.</div></div>
+<div class="post" id="p91595"><div class="post-head"><a class="id" href="../t/3929.html#p91595">#91595</a> <span class="index">19</span> <span class="date">2005-08-16T11:41:19Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">LOL. The thing is that when you set the particle's mass to 0, the relaxation doesn't move it, because when it multiplies invmass by something and invmass is zero, the overall result will be zero, so the velocity doesn't change.<br>
+So the idea is to make a new Boolean property for each particle, let's name it, "dragged" and when you press on a particle you set this dragged property to true and set the particle's mass to 0. When you release it, you set it back to false.<br>
+Then in your relaxation function, you make an if-else statement, so the relaxation is in the "else". Instead of "relaxing" it, while the mouse is down, you set the x and y coordinates of the dragged particle to _root._xmouse and _root._ymouse accordingly.<br>
+I think that should work, although I haven't tested it.<br>
+Hope that helps. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS</div></div>
+<div class="post" id="p92110"><div class="post-head"><a class="id" href="../t/3929.html#p92110">#92110</a> <span class="index">20</span> <span class="date">2005-08-18T07:00:28Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Hello, I will soon be finished with my ragdoll, my rotation limit works, at least in theory  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"> , and then I will put it in here  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> . Might be in next year <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">.<br>
+<br>
+That Flash Kit page didn't work, none has answered my post yet and my expectations has shrunk like a baloon which slowly empties (spelling?) of air, or something dramatic...<br>
+<br>
+So long lngkalsong*<br>
+<br>
+*lngkalsong is a Swedish word for underwear with very long legs  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+The Wazaa<br>
+<br>
+EDIT: The angeled constraint function won't be finished for a while</div></div>
+</main>
+</body>
+</html>

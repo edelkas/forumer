@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUMA Hacking - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; NUMA Hacking</nav></header>
+<main>
+<div class="post" id="p3691"><div class="post-head"><a class="id" href="../t/4056.html#p3691">#3691</a> <span class="index">1</span> <span class="date">2005-07-15T08:54:31Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><i>NB: This is hacking like the O'Reilly series of books, like Google Hacking.<br>
+Also, the forum system shortens the URLs, so hover over them to see them in full.</i><br>
+<br>
+I discovered that you can combine all kinds of filters with NUMA to get exactly what you want, if you manuall append them onto the end of the url. I'm not sure how good I am at describing this, so here's an example:<br>
+<a href="https://www.nmaps.net/browse?sort=created&amp;order=desc&amp;q=author:nevermore&amp;category=4&amp;count=5">http://numa.notdot.net/browse?sort=created...egory=4&amp;count=5</a><br>
+That will display 5 of nevermore's race maps, in descending order from when they where created. If you add the favorites variable on, you can see 5 of nevermore's race maps in my favorites: <a href="https://www.nmaps.net/browse?sort=created&amp;order=desc&amp;q=author:nevermore&amp;category=4&amp;count=5&amp;favorites=551">http://numa.notdot.net/browse?sort=created...5&amp;favorites=551</a><br>
+I've only got one, but you can see how it would work.<br>
+<br>
+You can also use this to export userlevel.txt files, just change the browse? part into userlevels?, like: <a href="https://www.nmaps.net/userlevels?sort=rating&amp;order=desc&amp;count=100">http://numa.notdot.net/userlevels?sort=rat...=desc&amp;count=100</a> (the top 100 maps).<br>
+<br>
+All the variables that you can use (as far as I know) are:<br>
+favorites<br>
+order (asc/desc)<br>
+sort (created/lastupdated/rating/votes/random)<br>
+author<br>
+count<br>
+name<br>
+category (0[all]/1[action]/2[puzzle]/3[test level]/4[race]/5[survival]/6[incomplete]/7[dda])<br>
+<br>
+Hopefully y'all get that, if not, ask for clarification.</div></div>
+<div class="post" id="p83618"><div class="post-head"><a class="id" href="../t/4056.html#p83618">#83618</a> <span class="index">2</span> <span class="date">2005-07-15T09:31:36Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">The userlevels part of that is rather useful. There was just a thread recently on exporting the newest maps as a userlevels file.<br>
+In fact, <a href="https://www.nmaps.net/userlevels?sort=created&amp;order=desc&amp;count=20">this link will export the 20 newest levels</a>.</div></div>
+<div class="post" id="p83621"><div class="post-head"><a class="id" href="../t/4056.html#p83621">#83621</a> <span class="index">3</span> <span class="date">2005-07-15T09:33:50Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Indeed, the userlevels part is very useful. I just d'led all of the maps for the top 20 authors, the top 100 maps, and tktktk's simple challenge series. I asked for a way to export all of an author's maps, and it turns out you already can.</div></div>
+<div class="post" id="p83628"><div class="post-head"><a class="id" href="../t/4056.html#p83628">#83628</a> <span class="index">4</span> <span class="date">2005-07-15T10:04:48Z</span> <span class="author"><a href="../u/9370784.html">Bleach</a></span></div><div class="post-body">Yay! No more copying and pasting a hundred times  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">   *Gets Downloading* Thanks a bunch Maestro, I never realized you could do this  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p83665"><div class="post-head"><a class="id" href="../t/4056.html#p83665">#83665</a> <span class="index">5</span> <span class="date">2005-07-15T14:14:53Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Nice. Would have saved me a lot of work (created a userlevels.txt with gamedope's SuperN series)</div></div>
+<div class="post" id="p86317"><div class="post-head"><a class="id" href="../t/4056.html#p86317">#86317</a> <span class="index">6</span> <span class="date">2005-07-27T09:00:17Z</span> <span class="author"><a href="../u/9370729.html">Teedle</a></span></div><div class="post-body">Sorry to ressurect, but I found out another fear- instilling hack.... I think.... Well, I'm not sure if it works...<br>
+<br>
+<a href="https://www.nmaps.net/9550/rate?rating=0">Doo dee doo dah, I'm an innocent little link</a><br>
+<br>
+BEWARE!!!!!</div></div>
+<div class="post" id="p86318"><div class="post-head"><a class="id" href="../t/4056.html#p86318">#86318</a> <span class="index">7</span> <span class="date">2005-07-27T09:15:19Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">That's scary... you could link to your map, actually linking to a 5 ninja rating for it.<br>
+<br>
+<br>
+ <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p86320"><div class="post-head"><a class="id" href="../t/4056.html#p86320">#86320</a> <span class="index">8</span> <span class="date">2005-07-27T10:15:36Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">Now, the polite thing to do when you find a vulnerability like that is to inform the owner of the site and give them a reasonable amount of time to fix it before making it public. Instead, you've effectively posted an 'exploit me' sign.<br>
+<br>
+I was already aware of this, as it hhappens, and I had a fix in the works. It's now fixed.</div></div>
+<div class="post" id="p86373"><div class="post-head"><a class="id" href="../t/4056.html#p86373">#86373</a> <span class="index">9</span> <span class="date">2005-07-27T17:23:17Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Arachnid, why'd you make what maestro did impossible? It was incredibly handy.<br>
+<br>
+Hey, maestro, check it out, you've got 1234 posts.</div></div>
+<div class="post" id="p86403"><div class="post-head"><a class="id" href="../t/4056.html#p86403">#86403</a> <span class="index">10</span> <span class="date">2005-07-27T19:17:03Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">You missunderstood Nevermore, he stopped the link that The Daily Llama made from working anymore.<br>
+<br>
+<br>
+God, I don't know if it's just me, but the amount of posts I've ironed out missunderstandings in in the past few days has been off the scale.<br>
+<br>
+(well, maybe 4 or 5)</div></div>
+<div class="post" id="p86414"><div class="post-head"><a class="id" href="../t/4056.html#p86414">#86414</a> <span class="index">11</span> <span class="date">2005-07-27T19:49:34Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4056.html#p3691">Quote: maestro, Jul 15 2005, 08:54 AM</a></div> All the variables that you can use (as far as I know) are:<br>
+favorites<br>
+sort (asc/desc)<br>
+order (created/lastupdated/rating/votes/random)<br>
+author<br>
+count<br>
+name<br>
+category (0[all]/1[action]/2[puzzle]/3[test level]/4[race]/5[survival]/6[incomplete]/7[dda])<br>
+  </blockquote> <br>
+ You missed a few (but they're mostly not currently used anywhere, so that's not surprising):<br>
+<br>
+start=(number)<br>
+favorites=(userid)<br>
+rated=(true|false)<br>
+like=(mapid)<br>
+suggest=(userid)</div></div>
+<div class="post" id="p86419"><div class="post-head"><a class="id" href="../t/4056.html#p86419">#86419</a> <span class="index">12</span> <span class="date">2005-07-27T19:58:18Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Sweep - this whole thing is a little bit confusing. Maybe you're right. My understanding was that... right, forget that, you're right.</div></div>
+<div class="post" id="p86667"><div class="post-head"><a class="id" href="../t/4056.html#p86667">#86667</a> <span class="index">13</span> <span class="date">2005-07-28T21:57:37Z</span> <span class="author"><a href="../u/9370798.html">glenno14</a></span></div><div class="post-body">well I was messing around with stuff here and I got this.....<br>
+<br>
+<a href="https://www.nmaps.net/browse?sort=created&amp;order=rating&amp;order=desc&amp;q=author:nevermore">Here</a><br>
+<br>
+I dont have a clue what it is.I think it might just be nevermores maps though. But I put rating&amp;order in the adress bar. I was trying to get nevermores maps from highest rated to lowest rated......</div></div>
+<div class="post" id="p86670"><div class="post-head"><a class="id" href="../t/4056.html#p86670">#86670</a> <span class="index">14</span> <span class="date">2005-07-28T22:00:57Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4056.html#p86667">Quote: glenno14, Jul 28 2005, 02:57 PM</a></div> well I was messing around with stuff here and I got this.....<br>
+<br>
+<a href="https://www.nmaps.net/browse?sort=created&amp;order=rating&amp;order=desc&amp;q=author:nevermore">Here</a><br>
+<br>
+I dont have a clue what it is.I think it might just be nevermores maps though. But I put rating&amp;order in the adress bar. I was trying to get nevermores maps from highest rated to lowest rated......  </blockquote> <br>
+ <a href="https://www.nmaps.net/browse?sort=rating&amp;order=desc&amp;q=author:nevermore">This is the link you were looking for.</a></div></div>
+<div class="post" id="p86671"><div class="post-head"><a class="id" href="../t/4056.html#p86671">#86671</a> <span class="index">15</span> <span class="date">2005-07-28T22:02:34Z</span> <span class="author"><a href="../u/9370798.html">glenno14</a></span></div><div class="post-body">ahhh right thank you. I can add it to my favourites now. Thanks!</div></div>
+<div class="post" id="p127350"><div class="post-head"><a class="id" href="../t/4056.html#p127350">#127350</a> <span class="index">16</span> <span class="date">2005-12-27T18:47:30Z</span> <span class="author"><a href="../u/9371393.html">naem</a></span></div><div class="post-body">There's a validity check against submitting a map as "Uncategorized," but no check when you are editing the map.</div></div>
+<div class="post" id="p127875"><div class="post-head"><a class="id" href="../t/4056.html#p127875">#127875</a> <span class="index">17</span> <span class="date">2005-12-29T06:49:10Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">Wow<br>
+That userlevels thing is friggin' awesome!  I just downloaded the top 1000 maps for my userlevels list.  It'll take awhile, but it's worth it.<br>
+Thanks!</div></div>
+<div class="post" id="p128611"><div class="post-head"><a class="id" href="../t/4056.html#p128611">#128611</a> <span class="index">18</span> <span class="date">2005-12-31T00:56:33Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4056.html#p127875">Quote: Jiggerjaw12358, Dec 28 2005, 10:49 PM</a></div> ...I just downloaded the top 1000 maps for my userlevels list.  </blockquote> <br>
+ Can't you ask for a userlevels file containing all of NUMA's levels and strain the server like crazy?</div></div>
+</main>
+</body>
+</html>

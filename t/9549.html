@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bounce - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; bounce</nav></header>
+<main>
+<div class="post" id="p8582"><div class="post-head"><a class="id" href="../t/9549.html#p8582">#8582</a> <span class="index">1</span> <span class="date">2006-05-09T10:07:27Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">hi <br>
+can anybody saythis actionscript required for the effect<br>
+that when a movieclip hits an object it should bounce away<br>
+i have managed to detect the collision but anable to carryout the above effect<br>
+please any body say</div></div>
+<div class="post" id="p174423"><div class="post-head"><a class="id" href="../t/9549.html#p174423">#174423</a> <span class="index">2</span> <span class="date">2006-05-11T00:53:14Z</span> <span class="author"><a href="../u/9371644.html">abcdman2</a></span></div><div class="post-body">Thats a hell of a sentence without punctuation. Does it say it in the guide at Metanet's homepage?</div></div>
+<div class="post" id="p175032"><div class="post-head"><a class="id" href="../t/9549.html#p175032">#175032</a> <span class="index">3</span> <span class="date">2006-05-12T20:09:21Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body">Lord I hate the new-member sentances that start out:<br>
+"hi<br>
+i need this help please<br>
+and i am<br>
+asking you for<br>
+he,lp"<br>
+...<br>
+I'm sure alot of the flash tutorial sites have this script, and ways to modify it. Try google. Google has everything.<br>
+Or check metanets homepage.</div></div>
+<div class="post" id="p185704"><div class="post-head"><a class="id" href="../t/9549.html#p185704">#185704</a> <span class="index">4</span> <span class="date">2006-06-07T04:07:38Z</span> <span class="author"><a href="../u/9370839.html">dhNINJA</a></span></div><div class="post-body">um... set the x and y speed to negative<br>
+<br>
+soooo<br>
+basicly<br>
+<br>
+<br>
+have 2 variabled named xspd and yspd and have them say<br>
+<br>
+_x += xspd<br>
+_y += yspd<br>
+if(this.hitTest(object)){<br>
+xsped = -xsped<br>
+ysped = -ysped<br>
+}</div></div>
+<div class="post" id="p194267"><div class="post-head"><a class="id" href="../t/9549.html#p194267">#194267</a> <span class="index">5</span> <span class="date">2006-06-25T12:02:43Z</span> <span class="author"><a href="../u/9372474.html">deathcloud33</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/9549.html#p185704">Quote: dhNINJA, June 07, 2006 04:07 am</a></div> um... set the x and y speed to negative<br>
+<br>
+soooo<br>
+basicly<br>
+<br>
+<br>
+have 2 variabled named xspd and yspd and have them say<br>
+<br>
+_x += xspd<br>
+_y += yspd<br>
+if(this.hitTest(object)){<br>
+xsped = -xsped<br>
+ysped = -ysped<br>
+}  </blockquote> <br>
+ If you're going for a more advanced approach, such as friction and decay, you'd multiply the speeds by some number (like 0.97) for decay, and for friction figure out the angle of the object you're hitting, and subtract some small number (like 0.05) times the xy factors of the slope.</div></div>
+</main>
+</body>
+</html>

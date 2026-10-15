@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-Alpha Version Of Flash Game "Ethereality" - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Pre-Alpha Version Of Flash Game "Ethereality"</nav></header>
+<main>
+<div class="post" id="p19121"><div class="post-head"><a class="id" href="../t/21417.html#p19121">#19121</a> <span class="index">1</span> <span class="date">2008-02-09T13:17:55Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Hey guys, been a long time since I last stuck my neck in this part of the woods. Did absolutely nothing to do with programming since my last post and recently started using flash again. Reading <a href="http://www.emanueleferonato.com/2007/09/26/create-a-survival-horror-game-in-flash-tutorial-part-1/">this tutorial</a> gave me some inspiration, so I began coding again. The idea is that the game will end up as an undead-themed survival game. You, the blue square, will have to evade and eventually destroy growing hordes of red and (even more shockingly) green squares. You have at your disposal several badly-animated spells of minor irritation. I might put in better graphics if I feel like it, but I'm lazy right now. Currently all drawing is done using Flash's API. I'm better at drawing with code than I am with Flash itself.<br>
+<br>
+<a href="http://www.geocities.com/archevil99/rpgalpha2.swf">Version 2</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha3.swf">Version 3</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha4.swf">Version 4</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha5.swf">Version 5</a><br>
+<a href="http://www.geocities.com/archevil99/rpgalpha6.swf">Version 6</a><br>
+<br>
+I realised that the tutorial's hitTest methods were antiquated and inadequate, so I used the SAT method (a simplified version since it only deals with points and AABBs, maybe eventually circles). This allowed me some additional control over the environment, for example being able to add and remove obstacles on the fly. The current version of the game is very simple. There are no goals yet and the health system is entirely for show as there is nothing that does damage. However the spell system works properly. The yellow bar, for those who are wondering, is the cooldown bar. Certain spells activate longer cooldowns.<br>
+<br>
+There are currently 7 spells for you to play around with to learn the ins and outs of my engine and give me critique or advice (all aimed with the mouse relative to the player centre, selected with the number keys).<br>
+1. Push. The spell pushes the enemy away from you. Note that it is raycasted properly, so it will not penetrate enemies or platforms unless they are flagged to ignore it (e.g. the 'window' up the top). In the current version of the game the rays are of a fixed length. In this version they have a maximal length only.<br>
+2. Pull. The opposite effect of push.<br>
+3. Smash. A short-ranged, stronger version of push.<br>
+4. Force push/cone push. Creates a cone of rays that push the enemy away. This spell doesn't penetrate the window. I'm currently modifying the raycasting slightly so that they will be able to hit enemies, pass on their effect and continue.<br>
+5. Shield. A circle of rays that push the enemy away, close range. Doesn't penetrate window.<br>
+6. Teleport. You guessed it. Teleports your box to the end destination. Currently hits enemies, the version I'm using (which I'll upload tomorrow) doesn't.<br>
+7. Ghost mode. Turns the player into a ghost. Has a mana upkeep cost. Allows you to travel through platforms/windows (but not the walls around the edge). The current version of the game has 'ghost obstacles', which solid forms can move through but ghosts can't. Player will turn back to normal upon exhausting their mana supply. The current version also features a colour change during ghost form.<br>
+<br>
+Also, press "q" to activate unlimited mana and "w" for massively reduced cooldown. Note that ghost form will over-ride these changes (note also that this is intentional <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">).<br>
+<br>
+Things I am planning to implement: multi-sampling for collision detection (so that you can't shunt enemies through the window for example), AI for the enemies (including attacks which deal damage), 'create obstacle' spells (ethereal and solid forms), a character advancement system, 'toggle ethereality' spells (for enemies and statics), perhaps ghost-specific spells. In the very distant future, also friendly units and multiple levels (or change the engine so that it supports one much larger level).<br>
+<br>
+So, thoughts? I'll release an updated version tomorrow with the features I mentioned today (as well as whatever I think of during my sleep). If demand is high enough I just may release a well-commented bare-bones version of the engine to help people learn the ropes.<br>
+<br>
+EDIT: Updated the post to contain all of the builds as per a suggestion from The Kitchen Sink (I really should stop listening to my plumbing all the time).</div></div>
+<div class="post" id="p408277"><div class="post-head"><a class="id" href="../t/21417.html#p408277">#408277</a> <span class="index">2</span> <span class="date">2008-02-09T23:50:11Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">Aww, i thought this was about some new version of Flash from the shortened topic title on the main page.<br>
+<br>
+i've never really liked this sort of never-ending minigame, but I am interested in games that use clever physics manipulation, and yours seems to be heading into that territory. Maybe making a real game of it, with levels or something, will give it more of a purpose. The visuals are terrible, but you already knew that, and this is at an incredibly early stage anyway.<br>
+<br>
+I'm particularly interested in vision cones, such as the one in weapon (4). If you ever find a better method than just sending out lots of rays, I'd be very anxious to hear of it.</div></div>
+<div class="post" id="p408382"><div class="post-head"><a class="id" href="../t/21417.html#p408382">#408382</a> <span class="index">3</span> <span class="date">2008-02-10T08:54:58Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">The game isn't going to end up being never-ending. It's going to be a long game (requiring you to save and play over several hours in true rpg style) without much plot. There will be unique enemies eventually that appear and disappear based on their own criteria (for example, one will appear when you first unlock the ghost form and disappear once you push it into a 'rune wall', the transparent red ones). Because the character development will be diverse, requiring you to invest in a path (and also being infeasible for you to get all skills) you will essentially create your own plot. I've decided that I am going to implement multiple levels, but haven't yet decided on how the player will transition.<br>
+<br>
+As I promised, <a href="http://www.geocities.com/archevil99/rpgalpha3.swf">here is the next version</a> for you to play with. Among other things I've added a grid to speed things up slightly, a new spell ('toggle corporeality', 8), added a second enemy (they still have no AI) and two new wall types (barricades that players can pass through despite form and havens that enemies can't pass through), as well as just generally tidying code. The next version will feature damage (no more shifting to physical form inside walls without consequences) and rudimentary AI.<br>
+<br>
+As annoying as it is, there isn't really a better method to do the cones than the rays, assuming you want advanced functionality such as collision detection and response. It does slow the game down significantly however. I'm going to have to fiddle with settings to change that.<br>
+<br>
+EDIT: Sorry if spells 4 and 5 are a bit laggy in this version.</div></div>
+<div class="post" id="p408394"><div class="post-head"><a class="id" href="../t/21417.html#p408394">#408394</a> <span class="index">4</span> <span class="date">2008-02-10T12:13:46Z</span> <span class="author"><a href="../u/9375692.html">TrueSword</a></span></div><div class="post-body">Pretty cool Flash game concept.  Those two "demos" have a lot of potential.  Just out of curiosity are there going to be certain objects that generate enemies during the game that you'll have to destroy?  That could be how you transition from level to level by destroying said objects.</div></div>
+<div class="post" id="p409094"><div class="post-head"><a class="id" href="../t/21417.html#p409094">#409094</a> <span class="index">5</span> <span class="date">2008-02-13T08:05:18Z</span> <span class="author"><a href="../u/9375718.html">HeRuZ</a></span></div><div class="post-body">Hey Decoy, thats some nice scripting there.<br>
+<br>
+Can you please share the method that you used for the vision cone ? ( the spells are cut around corners and against players )<br>
+<br>
+Thanks in advance,<br>
+N.M.</div></div>
+<div class="post" id="p409113"><div class="post-head"><a class="id" href="../t/21417.html#p409113">#409113</a> <span class="index">6</span> <span class="date">2008-02-13T10:33:15Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">there are lots of rays cast from the player at equal angles, then the closest collision of each ray is joined to make a polygon</div></div>
+<div class="post" id="p409349"><div class="post-head"><a class="id" href="../t/21417.html#p409349">#409349</a> <span class="index">7</span> <span class="date">2008-02-14T08:38:41Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">It's like mattk210 said, I created two classes, Ray and Cone. The Ray class contains the instructions for each ray's actions, for example stepping it forward, checking for collision, rinse and repeat, as well as outcome of collision with various objects. The cone class simply creates a number of rays with equal angles between it and (using flash's drawing api) connects the dots and fills to make a cone shape.<br>
+<br>
+All you need to do the raycasting is a point versus object collision detection system. Then you create code to the effect of:<br>
+<pre class="code">1. Move point forwards along its direction vector
+2. Does the point end up inside a blocking object?
+a. If so, return which object it is, the final position of the ray and tell the global event handler what to do
+b. If not, repeat steps 1 and 2 until you reach your destination</pre><br>
+The tutorial I linked in the first post gives working code for such a system, but uses hitTest().</div></div>
+<div class="post" id="p409350"><div class="post-head"><a class="id" href="../t/21417.html#p409350">#409350</a> <span class="index">8</span> <span class="date">2008-02-14T08:58:03Z</span> <span class="author"><a href="../u/9375718.html">HeRuZ</a></span></div><div class="post-body">Thanks, thats a lot of help. I'm planing on a sort of survival horror game my self, but I'm focusing a lot on plot <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p409457"><div class="post-head"><a class="id" href="../t/21417.html#p409457">#409457</a> <span class="index">9</span> <span class="date">2008-02-14T22:21:35Z</span> <span class="author"><a href="../u/9375193.html">Ninja80p</a></span></div><div class="post-body">That sounds really awesome trying it now!</div></div>
+<div class="post" id="p410155"><div class="post-head"><a class="id" href="../t/21417.html#p410155">#410155</a> <span class="index">10</span> <span class="date">2008-02-17T11:22:28Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">This next update comes much later than the others because I've been somewhat busy in real life.<br>
+<a href="http://www.geocities.com/archevil99/rpgalpha4.swf">Pre-alpha v4</a><br>
+I'm not exactly sure what changes I've made since the last version I put up here either, but I'll give you some idea:<br>
+The enemies now appear in the generator (purple thing). They spawn to a max of 3 and from a range of different archetypes.<br>
+There is a new type of enemy that you can't ghostify, the hulk. It moves slower than both the zombie and the ghost, but does more damage than both.<br>
+Ghosts have a spell that they cast now. It slows the player down drastically for 3 seconds (but they can't cast it very often). I don't have an animation for showing the slowdown yet (I'll add a debuff bar in the next version I think).<br>
+You'll notice pretty quickly that the player has only a small sphere of sight around himself now. A new player spell (9 on the keyboard) doubles the size of this sphere temporarily. I decided not to use my cones for the light, as it was very cpu-intensive and not terribly beneficial. <br>
+Another new spell (0 on the keyboard) lets you create a small light at the end of a ray. You can only have one at a time, and only for a limited duration.<br>
+I almost forgot to mention that the enemies have a rudimentary AI now. They will pursue the player when he is in their line of sight (ghosts can see/move through walls), and otherwise move randomly.<br>
+Touching enemies that connect with you causes damage, as well as being too far inside walls (for example when you unghost).<br>
+<br>
+I also changed the way the drawing was done to a centralised method, which allows me to draw the HUD on top (among other things). Play around with it, give me feedback. Once again, I know that the cones are extremely slow. I think I'm going to drop them altogether.</div></div>
+<div class="post" id="p410208"><div class="post-head"><a class="id" href="../t/21417.html#p410208">#410208</a> <span class="index">11</span> <span class="date">2008-02-17T19:17:39Z</span> <span class="author"><a href="../u/9375193.html">Ninja80p</a></span></div><div class="post-body">Once your done you should defiantly upload this to <a href="http://www.newgrounds.com">Newgrounds</a>!</div></div>
+<div class="post" id="p410268"><div class="post-head"><a class="id" href="../t/21417.html#p410268">#410268</a> <span class="index">12</span> <span class="date">2008-02-17T23:45:12Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">pretty cool, just one suggestion, allow use of wsad for movement<br>
+<br>
+gameplay however looks like it could be very interesting</div></div>
+<div class="post" id="p411143"><div class="post-head"><a class="id" href="../t/21417.html#p411143">#411143</a> <span class="index">13</span> <span class="date">2008-02-21T07:10:58Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">This update is a huge one in many ways. Gameplay itself is practically unchanged however (not that there is actually any gameplay at this point). You can now use WASD for movement. You can now pause the game with P (unpause by clicking on the button). The 'cheat codes' are now SHIFT+1 and SHIFT+2 (for infinite mana and no cooldown, respectively). I smoothed the AI out a lot so that they don't leap, they shuffle appropriately. And, the best part of all... I completely changed the raycasting code so there is now not the slightest amount of lag. mattk210, you might be interested in the changes.<br>
+<br>
+It works really well for short rays, but regrettably I've only bothered to make the AABB raycasting at this point. Basically, instead of 'stepping' the ray along many times until it collides with something (the old algorithm I described in an earlier post), it now calculates the point of collision based on a series of early-out boolean tests. I'll comment it and post the source if anyone wants it. It's not particularly innovative, just much more efficient for games that don't use the full gamut of shapes. I'm going to add additional shapes soon, starting with circles and then NAABBs. I've already worked out how to do the calculations for those shapes, just haven't coded it yet.<br>
+<br>
+So, enjoy <a href="http://www.geocities.com/archevil99/rpgalpha5.swf">Pre-alpha v5</a>. Please let me know about any bugs you find.</div></div>
+<div class="post" id="p411154"><div class="post-head"><a class="id" href="../t/21417.html#p411154">#411154</a> <span class="index">14</span> <span class="date">2008-02-21T08:58:05Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">Thanks for thinking of me. I would be interested in the source, but I just don't like the whole concept of "brute forcing" the vision area with lots of rays. Inefficiency aside, it'll also never be 100% accurate and it shows.<br>
+<br>
+I really like the premise for this game, but you may want to request some real graphics in the image subforum because a survival horror game doesn't really convey the right atmosphere without the appropriate graphics.</div></div>
+<div class="post" id="p413039"><div class="post-head"><a class="id" href="../t/21417.html#p413039">#413039</a> <span class="index">15</span> <span class="date">2008-03-01T10:06:52Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">nice, good to see the cone not lagging anymore.<br>
+may i suggest softening the veil, so its more like fog or darkness would look.<br>
+also yes, some images would be good but theyre not necessary for the engine.</div></div>
+<div class="post" id="p413471"><div class="post-head"><a class="id" href="../t/21417.html#p413471">#413471</a> <span class="index">16</span> <span class="date">2008-03-03T06:29:20Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">I might suggest making the single beams fade more quickly. They look very awkward when they're just floating there once you move away from it. If it faded more quickly then it would just sort of seem like energy residue or whatever, rather than, um, a beam fading away.<br>
+<br>
+Second suggestion: Update the first post with all the builds, for convenience.</div></div>
+<div class="post" id="p413494"><div class="post-head"><a class="id" href="../t/21417.html#p413494">#413494</a> <span class="index">17</span> <span class="date">2008-03-03T09:01:43Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">hey look, new frontend.<br>
+<img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keron Cyst - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/13.html">This Forum</a> &rsaquo; Keron Cyst</nav></header>
+<main>
+<div class="post" id="p4167"><div class="post-head"><a class="id" href="../t/4568.html#p4167">#4167</a> <span class="index">1</span> <span class="date">2005-08-24T01:18:57Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Please, change the default search to "Any Date" instead of "30 days ago and Newer." This way, when we direct people to search for things, their searches will be more likely to find things that have already been suggested.<br>
+<br>
+If I understand it right (and it does look simple), just change the html from:<br>
+<pre class="code">&lt;select name='prune' class='forminput'&gt;
+&lt;option value='1'&gt;Today&lt;/option&gt;
+&lt;option value='7'&gt;7 days ago and...&lt;/option&gt;
+&lt;option value='30' selected="selected"&gt;30 days ago and...&lt;/option&gt;
+&lt;option value='60'&gt;60 days ago and...&lt;/option&gt;
+&lt;option value='90'&gt;90 days ago and...&lt;/option&gt;
+&lt;option value='180'&gt;180 days ago and...&lt;/option&gt;
+&lt;option value='365'&gt;365 days ago and...&lt;/option&gt;
+&lt;option value='0'&gt;Any date&lt;/option&gt;
+&lt;/select&gt;</pre>to:<br>
+<pre class="code">&lt;select name='prune' class='forminput'&gt;
+&lt;option value='1'&gt;Today&lt;/option&gt;
+&lt;option value='7'&gt;7 days ago and...&lt;/option&gt;
+&lt;option value='30'&gt;30 days ago and...&lt;/option&gt;
+&lt;option value='60'&gt;60 days ago and...&lt;/option&gt;
+&lt;option value='90'&gt;90 days ago and...&lt;/option&gt;
+&lt;option value='180'&gt;180 days ago and...&lt;/option&gt;
+&lt;option value='365'&gt;365 days ago and...&lt;/option&gt;
+&lt;option value='0' selected="selected"&gt;Any date&lt;/option&gt;
+&lt;/select&gt;</pre></div></div>
+<div class="post" id="p93742"><div class="post-head"><a class="id" href="../t/4568.html#p93742">#93742</a> <span class="index">2</span> <span class="date">2005-08-24T01:24:56Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yeah, I think that would be rather easy to do. Fixitfixitfixitfixitfixitfixitfixitfixitfixitfixitfixit</div></div>
+<div class="post" id="p93753"><div class="post-head"><a class="id" href="../t/4568.html#p93753">#93753</a> <span class="index">3</span> <span class="date">2005-08-24T01:46:02Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">OMG, lik, this has SOOOOOOOSOSOSOSOSOSOOSO ben suggested b4.  lik, even by t3h 4w350m3 bR1cKm4N!!!!!!!!111!!!  h35 lik sosososososo cuule!!!!!!!!!111122233456478459373!<br>
+<br>
+Umm, yeah.  I've been waiting for that change forever.</div></div>
+<div class="post" id="p93756"><div class="post-head"><a class="id" href="../t/4568.html#p93756">#93756</a> <span class="index">4</span> <span class="date">2005-08-24T01:56:28Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Well, we've got two moderators and Brickman begging for it to happen... it should be happening!</div></div>
+<div class="post" id="p93760"><div class="post-head"><a class="id" href="../t/4568.html#p93760">#93760</a> <span class="index">5</span> <span class="date">2005-08-24T02:26:32Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">While we're speaking of this, I think that the "Search Where" box should automatically be on "All forums," instead of the forum you're in right now.</div></div>
+<div class="post" id="p93867"><div class="post-head"><a class="id" href="../t/4568.html#p93867">#93867</a> <span class="index">6</span> <span class="date">2005-08-24T19:47:30Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">Templates updated. I don't know how to grant your request <i>nevermore</i>. If you want to try here you go.<br>
+<br>
+<table class="bb-table"><tr><td><b>HTML</b> </td></tr><tr><td>&lt;script type="<span style="color:ORANGE">text/javascript</span>"&gt;<br>
+&lt;!--<br>
+function go_gadget_simple()<br>
+{<br>
+	window.location = "{$ibforums-&gt;js_base_url}act=Search&amp;mode=simple&amp;f={$ibforums-&gt;input['f']}";<br>
+}<br>
+function win_pop()<br>
+{<br>
+    window.open('{$ibforums-&gt;js_base_url}act=Search&amp;CODE=explain','WIN','width=400,height=300,resizable=yes,scrollbars=yes'); <br>
+}<br>
+--&gt;<br>
+&lt;<span style="color:BLUE">/script</span>&gt;<br>
+&lt;<span style="color:BLUE">form action</span>="<span style="color:ORANGE">{ibf.script_url}act=Search&amp;CODE=01</span>" method="<span style="color:ORANGE">post</span>" name='<span style="color:ORANGE">sForm</span>'&gt;<br>
+$hidden_fields<br>
+&lt;<span style="color:BLUE">div class</span>="<span style="color:ORANGE">tableborder</span>"&gt;<br>
+&lt;<span style="color:BLUE">table cellpadding</span>='<span style="color:ORANGE">4</span>' cellspacing='<span style="color:ORANGE">0</span>' border='<span style="color:ORANGE">0</span>' width='<span style="color:ORANGE">100%</span>'&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td colspan</span>='<span style="color:ORANGE">2</span>' class="<span style="color:ORANGE">maintitle</span>"  align='<span style="color:ORANGE">center</span>'&gt;{ibf.lang.keywords_title}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">pformstrip</span>' width='<span style="color:ORANGE">50%</span>'&gt;{ibf.lang.key_search}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">pformstrip</span>' width='<span style="color:ORANGE">50%</span>'&gt;{ibf.lang.mem_search}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">row1</span>' valign='<span style="color:ORANGE">top</span>'&gt;<br>
+	  &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">text</span>' maxlength='<span style="color:ORANGE">100</span>' size='<span style="color:ORANGE">40</span>' name='<span style="color:ORANGE">keywords</span>' id="<span style="color:ORANGE">keywords</span>" class='<span style="color:ORANGE">forminput</span>' /&gt;<br>
+	  &lt;<span style="color:BLUE">br /</span>&gt;&lt;<span style="color:BLUE">br /</span>&gt;<br>
+	  &lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">keywords</span>"&gt;{ibf.lang.keysearch_text}&lt;<span style="color:BLUE">/label</span>&gt; &lt;!<span style="color:RED">--IBF.BOOLEAN_EXPLAIN--</span>&gt;<br>
+	&lt;<span style="color:BLUE">/td</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">row1</span>' valign='<span style="color:ORANGE">top</span>'&gt;<br>
+	&lt;<span style="color:BLUE">table width</span>='<span style="color:ORANGE">100%</span>' cellpadding='<span style="color:ORANGE">4</span>' cellspacing='<span style="color:ORANGE">0</span>' border='<span style="color:ORANGE">0</span>' align='<span style="color:ORANGE">center</span>'&gt;<br>
+	&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	 &lt;<span style="color:BLUE">td</span>&gt;&lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">text</span>' maxlength='<span style="color:ORANGE">100</span>' size='<span style="color:ORANGE">50</span>' name='<span style="color:ORANGE">namesearch</span>' class='<span style="color:ORANGE">forminput</span>' /&gt;&lt;<span style="color:BLUE">/td</span>&gt;<br>
+	&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td width</span>='<span style="color:ORANGE">40%</span>'&gt;&lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">checkbox</span>' name='<span style="color:ORANGE">exactname</span>' id='<span style="color:ORANGE">matchexact</span>' value='<span style="color:ORANGE">1</span>' class="<span style="color:ORANGE">checkbox</span>" /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">matchexact</span>"&gt;{ibf.lang.match_name_ex}&lt;<span style="color:BLUE">/label</span>&gt;&lt;<span style="color:BLUE">/td</span>&gt;<br>
+   &lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">/table</span>&gt;<br>
+&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">/table</span>&gt;<br>
+&lt;<span style="color:BLUE">/div</span>&gt;<br>
+&lt;<span style="color:BLUE">br /</span>&gt;<br>
+&lt;<span style="color:BLUE">div class</span>="<span style="color:ORANGE">tableborder</span>"&gt;<br>
+&lt;<span style="color:BLUE">table cellpadding</span>='<span style="color:ORANGE">4</span>' cellspacing='<span style="color:ORANGE">0</span>' border='<span style="color:ORANGE">0</span>' width='<span style="color:ORANGE">100%</span>'&gt;         <br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td colspan</span>='<span style="color:ORANGE">2</span>' class="<span style="color:ORANGE">maintitle</span>"  align='<span style="color:ORANGE">center</span>'&gt;{ibf.lang.search_options}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">pformstrip</span>' width='<span style="color:ORANGE">50%</span>' valign='<span style="color:ORANGE">middle</span>'&gt;{ibf.lang.search_where}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">pformstrip</span>' width='<span style="color:ORANGE">50%</span>' valign='<span style="color:ORANGE">middle</span>'&gt;{ibf.lang.search_refine}&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">row1</span>' valign='<span style="color:ORANGE">middle</span>'&gt;<br>
+	  $forums<br>
+	  &lt;<span style="color:BLUE">br /</span>&gt;<br>
+	  &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">checkbox</span>' name='<span style="color:ORANGE">searchsubs</span>' value='<span style="color:ORANGE">1</span>' id="<span style="color:ORANGE">searchsubs</span>" checked="<span style="color:ORANGE">checked</span>" /&gt;&nbsp;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">searchsubs</span>"&gt;{ibf.lang.search_in_subs}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+	&lt;<span style="color:BLUE">/td</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">row1</span>' valign='<span style="color:ORANGE">top</span>'&gt;<br>
+		&lt;<span style="color:BLUE">table cellspacing</span>='<span style="color:ORANGE">4</span>' cellpadding='<span style="color:ORANGE">0</span>' width='<span style="color:ORANGE">100%</span>' align='<span style="color:ORANGE">center</span>' border='<span style="color:ORANGE">0</span>'&gt;<br>
+		&lt;<span style="color:BLUE">tr</span>&gt;<br>
+		 &lt;<span style="color:BLUE">td valign</span>='<span style="color:ORANGE">top</span>'&gt;<br>
+		   &lt;<span style="color:BLUE">fieldset class</span>="<span style="color:ORANGE">search</span>"&gt;<br>
+		     &lt;<span style="color:BLUE">legend</span>&gt;&lt;<span style="color:BLUE">strong</span>&gt;{ibf.lang.search_from}&lt;<span style="color:BLUE">/strong</span>&gt;&lt;<span style="color:BLUE">/legend</span>&gt;<br>
+			 &lt;<span style="color:BLUE">select name</span>='<span style="color:ORANGE">prune</span>' class='<span style="color:ORANGE">forminput</span>'&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">1</span>'&gt;{ibf.lang.today}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">7</span>'&gt;{ibf.lang.this_week}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">30</span>'&gt;{ibf.lang.this_month}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">60</span>'&gt;{ibf.lang.this_60}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">90</span>'&gt;{ibf.lang.this_90}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">180</span>'&gt;{ibf.lang.this_180}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">365</span>'&gt;{ibf.lang.this_year}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">0</span>'  selected="<span style="color:ORANGE">selected</span>"&gt;{ibf.lang.ever}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">/select</span>&gt;<br>
+			 &lt;<span style="color:BLUE">br /</span>&gt;<br>
+			 &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">prune_type</span>' id="<span style="color:ORANGE">prune_older</span>" value='<span style="color:ORANGE">older</span>' class='<span style="color:ORANGE">radiobutton</span>' /&gt;&nbsp;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">prune_older</span>"&gt;{ibf.lang.older}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+			 &lt;<span style="color:BLUE">br /</span>&gt;<br>
+			 &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">prune_type</span>' id="<span style="color:ORANGE">prune_newer</span>" value='<span style="color:ORANGE">newer</span>' class='<span style="color:ORANGE">radiobutton</span>' checked="<span style="color:ORANGE">checked</span>" /&gt;&nbsp;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">prune_newer</span>"&gt;{ibf.lang.newer}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+		  &lt;<span style="color:BLUE">/fieldset</span>&gt;<br>
+		&lt;<span style="color:BLUE">/td</span>&gt;<br>
+		&lt;<span style="color:BLUE">td valign</span>='<span style="color:ORANGE">top</span>'&gt;<br>
+		  &lt;<span style="color:BLUE">fieldset class</span>="<span style="color:ORANGE">search</span>"&gt;<br>
+		     &lt;<span style="color:BLUE">legend</span>&gt;&lt;<span style="color:BLUE">strong</span>&gt;{ibf.lang.sort_results}&lt;<span style="color:BLUE">/strong</span>&gt;&lt;<span style="color:BLUE">/legend</span>&gt;<br>
+			 &lt;<span style="color:BLUE">select name</span>='<span style="color:ORANGE">sort_key</span>' class='<span style="color:ORANGE">forminput</span>'&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">last_post</span>'&gt;{ibf.lang.last_date}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">posts</span>'&gt;{ibf.lang.number_topics}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">starter_name</span>'&gt;{ibf.lang.poster_name}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">option value</span>='<span style="color:ORANGE">forum_id</span>'&gt;{ibf.lang.forum_name}&lt;<span style="color:BLUE">/option</span>&gt;<br>
+			 &lt;<span style="color:BLUE">/select</span>&gt;<br>
+			 &lt;<span style="color:BLUE">br /</span>&gt;&lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">sort_order</span>' id="<span style="color:ORANGE">sort_desc</span>" class="<span style="color:ORANGE">radiobutton</span>" value='<span style="color:ORANGE">desc</span>' checked="<span style="color:ORANGE">checked</span>" /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">sort_desc</span>"&gt;{ibf.lang.descending}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+			 &lt;<span style="color:BLUE">br /</span>&gt;&lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">sort_order</span>' id="<span style="color:ORANGE">sort_asc</span>" class="<span style="color:ORANGE">radiobutton</span>" value='<span style="color:ORANGE">asc</span>' /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">sort_asc</span>"&gt;{ibf.lang.ascending}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+		  &lt;<span style="color:BLUE">/fieldset</span>&gt;<br>
+		&lt;<span style="color:BLUE">/td</span>&gt;<br>
+		&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+		&lt;<span style="color:BLUE">tr</span>&gt;<br>
+		 &lt;<span style="color:BLUE">td nowrap</span>="<span style="color:ORANGE">nowrap</span>"&gt;<br>
+		   &lt;<span style="color:BLUE">fieldset class</span>="<span style="color:ORANGE">search</span>"&gt;<br>
+		     &lt;<span style="color:BLUE">legend</span>&gt;&lt;<span style="color:BLUE">strong</span>&gt;{ibf.lang.search_where}&lt;<span style="color:BLUE">/strong</span>&gt;&lt;<span style="color:BLUE">/legend</span>&gt;<br>
+			 &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">search_in</span>' class="<span style="color:ORANGE">radiobutton</span>" id="<span style="color:ORANGE">search_in_posts</span>" value='<span style="color:ORANGE">posts</span>' checked="<span style="color:ORANGE">checked</span>" /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">search_in_posts</span>"&gt;{ibf.lang.in_posts}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+			 &lt;<span style="color:BLUE">br /</span>&gt;<br>
+			 &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">search_in</span>' class="<span style="color:ORANGE">radiobutton</span>" id="<span style="color:ORANGE">search_in_titles</span>" value='<span style="color:ORANGE">titles</span>' /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">search_in_titles</span>"&gt;{ibf.lang.in_topics}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+		   &lt;<span style="color:BLUE">/fieldset</span>&gt;<br>
+		 &lt;<span style="color:BLUE">/td</span>&gt;<br>
+		 &lt;<span style="color:BLUE">td</span>&gt;<br>
+		    &lt;<span style="color:BLUE">fieldset class</span>="<span style="color:ORANGE">search</span>"&gt;<br>
+		     &lt;<span style="color:BLUE">legend</span>&gt;&lt;<span style="color:BLUE">strong</span>&gt;{ibf.lang.result_type}&lt;<span style="color:BLUE">/strong</span>&gt;&lt;<span style="color:BLUE">/legend</span>&gt;<br>
+		     &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">result_type</span>' class="<span style="color:ORANGE">radiobutton</span>" value='<span style="color:ORANGE">topics</span>' id="<span style="color:ORANGE">result_topics</span>" /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">result_topics</span>"&gt;{ibf.lang.results_topics}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+		     &lt;<span style="color:BLUE">br /</span>&gt;<br>
+		     &lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">radio</span>' name='<span style="color:ORANGE">result_type</span>' class="<span style="color:ORANGE">radiobutton</span>" value='<span style="color:ORANGE">posts</span>' id="<span style="color:ORANGE">result_posts</span>" checked="<span style="color:ORANGE">checked</span>" /&gt;&lt;<span style="color:BLUE">label for</span>="<span style="color:ORANGE">result_posts</span>"&gt;{ibf.lang.results_post}&lt;<span style="color:BLUE">/label</span>&gt;<br>
+		   &lt;<span style="color:BLUE">/fieldset</span>&gt;<br>
+		 &lt;<span style="color:BLUE">/td</span>&gt;<br>
+		&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+		&lt;<span style="color:BLUE">/table</span>&gt;<br>
+	&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">tr</span>&gt;<br>
+	&lt;<span style="color:BLUE">td class</span>='<span style="color:ORANGE">pformstrip</span>' colspan='<span style="color:ORANGE">2</span>' align='<span style="color:ORANGE">center</span>'&gt;&lt;<span style="color:BLUE">input type</span>='<span style="color:ORANGE">submit</span>' value='<span style="color:ORANGE">{ibf.lang.do_search}</span>' class='<span style="color:ORANGE">forminput</span>' /&gt;&lt;!<span style="color:RED">--IBF.SIMPLE_BUTTON--</span>&gt;&lt;<span style="color:BLUE">/td</span>&gt;<br>
+&lt;<span style="color:BLUE">/tr</span>&gt;<br>
+&lt;<span style="color:BLUE">/table</span>&gt;<br>
+&lt;<span style="color:BLUE">/div</span>&gt;<br>
+&lt;<span style="color:BLUE">/form</span>&gt;<br>
+    </td></tr></table></div></div>
+</main>
+</body>
+</html>

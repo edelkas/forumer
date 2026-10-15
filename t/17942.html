@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>templatecolor collector in flash - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; templatecolor collector in flash</nav></header>
+<main>
+<div class="post" id="p15797"><div class="post-head"><a class="id" href="../t/17942.html#p15797">#15797</a> <span class="index">1</span> <span class="date">2007-06-20T14:49:33Z</span> <span class="author"><a href="../u/9374662.html">djbobo2007</a></span></div><div class="post-body">Hey Guys and girls!<br>
+<br>
+I'm new to this forum, but as i can tell there is many competent people around here, so maybe i could get some help with my topic.<br>
+<br>
+I have made a flash, where the user can pick colors for different layers of a template, (templatebackground, textdocumentbackground, bannerbackground, sloganbackground) which results in a new template with different colors as the original template. So far so good.<br>
+<br>
+Now i have a problem. I want to have the final result (the new template) sendt to me. I don't know which format the result should have, but i'm thinking of perhaps jpg. <br>
+<br>
+The problem is how do i send the "new template" to me and how do i collect the individual colorsamples to one single file(newtemplate)?<br>
+<br>
+I hope this is understandable for you guys, my english is not so good as i should be.<br>
+<br>
+Hope that someone can help me.</div></div>
+<div class="post" id="p333876"><div class="post-head"><a class="id" href="../t/17942.html#p333876">#333876</a> <span class="index">2</span> <span class="date">2007-06-21T06:04:21Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">flash can't automatically send anything to anyone, and it can't save files as .jpg (or anything alse), at least as far as <a href="../t/15309.html">this topic</a> has got me.</div></div>
+<div class="post" id="p334099"><div class="post-head"><a class="id" href="../t/17942.html#p334099">#334099</a> <span class="index">3</span> <span class="date">2007-06-21T20:06:29Z</span> <span class="author"><a href="../u/9374662.html">djbobo2007</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17942.html#p333876">Quote: mattk210, June 21, 2007 06:04 am</a></div> flash can't automatically send anything to anyone, and it can't save files as .jpg (or anything alse), at least as far as <a href="../t/15309.html">this topic</a> has got me.  </blockquote> <br>
+ Hey Matt..<br>
+<br>
+I have been working a little with this again, and found out that i could print it to a pdf file. not thru website but local. <br>
+<br>
+Can i get it to print thru website and then load and send it thru, say php mailer script.<br>
+<br>
+Well i'm thinking of dump this project and maybe try it in HTML (dreamweaver), maybe there is a way through there. I'm almost sure that this can be done in HTML, but it just looks more nice in flash when my other websites are in flash. hehe <br>
+<br>
+<br>
+<br>
+My thoughts are going in this way right now:<br>
+<br>
+print to file (any file format) <br>
+save file  <br>
+load saved file and send thru (ex. php mailer)?<br>
+<br>
+I have a solution but it involves the person who visits my website and i want it to function automaticly. pardon my english.<br>
+<br>
+But anyway thanks for the answer, i will keep this project open until i suddenly stumbles over a solution according to flash. <br>
+<br>
+Have a nice day. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p334362"><div class="post-head"><a class="id" href="../t/17942.html#p334362">#334362</a> <span class="index">4</span> <span class="date">2007-06-22T06:57:41Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">In order to have pdf as a printer option, you need adobe acrobat installed.<br>
+<br>
+therefore most people can't print to pdf. However, if you're using php, you can send data to a php script and then php can save files. Google it, it's pretty simple.</div></div>
+<div class="post" id="p335346"><div class="post-head"><a class="id" href="../t/17942.html#p335346">#335346</a> <span class="index">5</span> <span class="date">2007-06-24T18:12:53Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Well, I'm a bit confused, but here it goes.<br>
+If your program is local, then more than likely, PHP or any server language won't work.<br>
+now, if your program is a web-based program, then you could call javascript functions from within flash and have those javascript functions then send the data.<br>
+<br>
+From what I can make out, your trying to make this program/animation to only interact through the web. So what i suggest is that you look up ways for flash-php and flash-javascript interactions through the web. I know they exist, but I have no experience in working with either javascript or php. Oh, and if your trying to send data to an e-mail, then flash can do that on its own (I think).<br>
+The problem with trying to send data from a desktop is that there are protective settings thet Adobe/Macromedia have put on flash programs by default. But as it seems like you don't intend to do things locally, it's nothing to worry about.</div></div>
+<div class="post" id="p335547"><div class="post-head"><a class="id" href="../t/17942.html#p335547">#335547</a> <span class="index">6</span> <span class="date">2007-06-25T07:03:04Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">no, you can't send emails with flash alone.<br>
+<br>
+you can send data to a php script if it's web-based and you can use a flash extender such as adobe AIR to do it locally.</div></div>
+</main>
+</body>
+</html>

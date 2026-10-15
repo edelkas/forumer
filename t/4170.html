@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pathfinding algos - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Pathfinding algos</nav></header>
+<main>
+<div class="post" id="p3798"><div class="post-head"><a class="id" href="../t/4170.html#p3798">#3798</a> <span class="index">1</span> <span class="date">2005-07-23T16:58:00Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">The topic description says everything:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote: Topic Description</div>What are "quasi-random" and "alternate"?</blockquote></div></div>
+<div class="post" id="p85620"><div class="post-head"><a class="id" href="../t/4170.html#p85620">#85620</a> <span class="index">2</span> <span class="date">2005-07-23T17:52:32Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+alternate means that the first time the drone hits a wall, it will turn clockwise; the second time, it will turn counter-clockwise, and then clockwise, then counter-clockwise.<br>
+<br>
+of course.. i don't actually remember which direction the 1st turn is (i.e it might be CCW/CW/CCW/CW/etc. or CW/CCW/CW/CCW/etc..)<br>
+<br>
+quasi-random means that it will turn CW or CCW; the decision is made based on the number of ticks since the start of the level, which is deterministic (i.e will happen the same way each time).<br>
+<br>
+unfortunately both of those algos weren't really all that useful in practise <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan</div></div>
+<div class="post" id="p85623"><div class="post-head"><a class="id" href="../t/4170.html#p85623">#85623</a> <span class="index">3</span> <span class="date">2005-07-23T18:00:15Z</span> <span class="author"><a href="../u/9370714.html">stepself</a></span></div><div class="post-body">"Alternate" could have uses... I've never used it before though. "Quasi-random" seems a little useless, if it does the same thing each time the level is loaded.</div></div>
+<div class="post" id="p85626"><div class="post-head"><a class="id" href="../t/4170.html#p85626">#85626</a> <span class="index">4</span> <span class="date">2005-07-23T18:05:33Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4170.html#p85623">Quote: stepself, Jul 23 2005, 06:00 PM</a></div> "Alternate" could have uses... I've never used it before though. "Quasi-random" seems a little useless, if it does the same thing each time the level is loaded.  </blockquote> <br>
+ Then again, if it were any more random than quasi-random it would be too random to post a workable demo.</div></div>
+<div class="post" id="p85631"><div class="post-head"><a class="id" href="../t/4170.html#p85631">#85631</a> <span class="index">5</span> <span class="date">2005-07-23T19:05:38Z</span> <span class="author"><a href="../u/9370577.html">Sendy</a></span></div><div class="post-body">I managed to find a use for both of those. Don't ask me to remember where though  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+</main>
+</body>
+</html>

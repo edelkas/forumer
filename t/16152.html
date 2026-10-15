@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NED help! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; NED help!</nav></header>
+<main>
+<div class="post" id="p14269"><div class="post-head"><a class="id" href="../t/16152.html#p14269">#14269</a> <span class="index">1</span> <span class="date">2007-03-02T03:13:38Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">I cant find a  map code for my awsome levl I just made  I havent quit yet  it wont eccept demo or map data and the map data doesent have A # at the end at all. please help. <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("></div></div>
+<div class="post" id="p302149"><div class="post-head"><a class="id" href="../t/16152.html#p302149">#302149</a> <span class="index">2</span> <span class="date">2007-03-02T03:32:52Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body">I can only partially understand what you are inquiring. From what I gather, you have finished making a map in Ned, and you're looking for it to give you the data in this format: "$Map name#Author of map#Category of map#all the data here#" Well, that is the userlevels format, and reading your userlevels.txt should tell you what that is all about. To test out your map in Ned, you should read the editor_manual.txt that comes with your N Download. Here's the section regarding your problem:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>---Saving and Loading Level Data---<br>
+<br>
+After youre finished creating a level, press [home] to return to the edit menu, and then [PGDN] to pull up the level data text boxes, which will then contain your level data. <br>
+<br>
+Click in the top text box and press [CTRL]+[A] (or [Command] + [A] in Mac) to select all the text and [CTRL]+C ([Command] + [C]) to copy it so you can paste it to a text file and save it.  <br>
+<br>
+You can paste level data into the top text box and press [PGUP] to load it into the editor.<br>
+<br>
+<br>
+<br>
+<br>
+We recommend that you document levels like this as you make them:<br>
+    <br>
+from Bills_levels.txt<br>
+<br>
+<br>
+//space battle 2 <br>
+//difficulty  very easy<br>
+//type - action<br>
+00000000000000000000000000000000000000000000000000001101101000000000000001100000000000000000000010000000001100000000000100000000000000000000010000000000000000000000000011000000010000000000000100000000100000000010001000000001000000000100000000000000000000000000000000000111100000000001000000011001100000100001000001100001000001000010000010000010000000000000000100000100000010000000001000001000000000000111010000000000000000000000100000100000000100000001000010000000000100000010001000000000000000000010101000000000000100000111110000000000000011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^333,344.40180371574!0^156,288<br>
+<br>
+-----<br>
+<br>
+//space battle 2 demo<br>
+444:0|0|35782656|73819758|71582788|2236966|0|35791394|0|0|0|0|0|0|0|35791394|201326626|71582788|105137220|107374182|35791398|35791394|139810|0|0|0|0|0|71614464|107374180|107374182|35808870|546|0|0|0|0|0|0|2236928|0|0|0|0|0|71584768|107365444|35791394|35791394|546|0|0|35791360|35791394|0|0|8704|35651584|2|35790848|107374306|36071014|34|0<br>
+<br>
+<br>
+------------------<br>
+<br>
+Bill Pullman<br>
+25 April 2004<br>
+billpullman at whatever dot com<br>
+<br>
+<br>
+<br>
+Level names should be short (say, no more than 50 characters), and as descriptive as you can manage.<br>
+<br>
+<br>
+<br>
+<br>
+---Testing Newly Made Levels---<br>
+<br>
+When youre done saving your level, press [~] or [|] from the editor menu to return to the debug menu, where you can play your new level by pressing [P].  See Section 6 for more info on playing in debug mode.<br>
+<br>
+Its important to test each level, to make sure its beatable.  Recording a demo of you beating the level is also a good idea, because then people will believe you when you claim your level's not impossible.<br>
+<br>
+<br>
+After testing, you can consider your level finished, and try it in User Levels mode, in which you can play it in <br>
+game mode rather than debug mode.  Read the included userlevels.txt file for more information on how to add levels.<br>
+<br>
+<br>
+----------------------------------------Section 5  About Level Data<br>
+***skipped this section, but you should read the whole manual regardless.***<br>
+<br>
+----------------------------------------Section 6  Playing in Debug Mode<br>
+<br>
+At the debug menu, you can press [P] to test a level by playing through it.  There are several controls available in debug mode which are added to help debugging and testing.<br>
+<br>
+<br>
+Gameplay commands<br>
+<br>
+[caps lock]  pause / unpause the game<br>
+       -turn caps lock on to begin playing, after pressing [P].<br>
+<br>
+[enter] - toggle between alive and dead<br>
+-if dead, you will respawn alive at the mouse cursors position. This is useful if you die while testing a level, and want to continue playing it without restarting. <br>
+ -if alive, you will be killed by a blow in the same direction as the cursor-to-player direction.<br>
+<br>
+[shift] - while dead, hold shift and move the mouse to shove the rag doll around. <br>
+<br>
+[ctrl]/[command] - while dead, hold ctrl/command and move the mouse to drag the rag doll around. <br>
+<br>
+[spacebar]  while dead, toggles between exploded and non-exploded.<br>
+<br>
+<br>
+Note: When the ninja dies in debug mode, objects will continue to behave as if the ninja was alive.</blockquote><br>
+So you see, these instructions are helpful and informative. If you any further questions, you cna read up on the <a href="../f/32.html"><b>N Wiki</b></a> or check out the <a href="http://n.wikia.com/wiki/Main_Page"><b>FAQs.</b></a> You will also need to read the <a href="../t/55.html"><b>Forum Rules,</b></a> as they can help you avoid being suspended.<br>
+<br>
+Welcome to the forums, TigerSlash. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p302175"><div class="post-head"><a class="id" href="../t/16152.html#p302175">#302175</a> <span class="index">3</span> <span class="date">2007-03-02T08:01:23Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">Edited for conveince. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p302176"><div class="post-head"><a class="id" href="../t/16152.html#p302176">#302176</a> <span class="index">4</span> <span class="date">2007-03-02T08:06:40Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">Never, ever, ever do that again. Upload your post in a text document, or use <a href="http://therealn.com/nupb/">NUPB</a> for incomplete maps.<br>
+<br>
+Also, there is two wornings which you missed in posting this topic, pay attention next time.</div></div>
+<div class="post" id="p302268"><div class="post-head"><a class="id" href="../t/16152.html#p302268">#302268</a> <span class="index">5</span> <span class="date">2007-03-03T01:02:48Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">it doesent work whats a user alis?<br>
+<br>
+<br>
+<br>
+I am stuck on the secoond box thing the one thats all cave-ey<br>
+<br>
+<br>
+can someone put there n for mac on download on box.net? so I could get A flavour <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></div></div>
+<div class="post" id="p302272"><div class="post-head"><a class="id" href="../t/16152.html#p302272">#302272</a> <span class="index">6</span> <span class="date">2007-03-03T01:28:16Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Er... pardon? Please take more care with your grammar. It's difficult to make out what you're trying to say.</div></div>
+<div class="post" id="p304840"><div class="post-head"><a class="id" href="../t/16152.html#p304840">#304840</a> <span class="index">7</span> <span class="date">2007-03-13T01:47:23Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">EDIT</div></div>
+<div class="post" id="p304844"><div class="post-head"><a class="id" href="../t/16152.html#p304844">#304844</a> <span class="index">8</span> <span class="date">2007-03-13T01:50:00Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Do you mean alias?<br>
+<br>
+Try being more specific. It's too vague.</div></div>
+<div class="post" id="p304847"><div class="post-head"><a class="id" href="../t/16152.html#p304847">#304847</a> <span class="index">9</span> <span class="date">2007-03-13T01:59:51Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16152.html#p302268">Quote: TigerSlash-X, March 03, 2007 12:02 pm</a></div>it doesent work whats a user alis?</blockquote><br>
+<br>
+Paste Name: <b>What you want to call the level</b><br>
+Member Alias: <b>Your nickname (TigerSlash-X)</b><br>
+Type: <b>What type of level it is</b><br>
+Data: <b>The map data</b><br>
+Demo: <b>A demo (optional)</b><br>
+Comment: <b>Any comments you might have</b> <br>
+Password:* <b>A password (I reccomend you don't use this, it'll just confuse people)</b><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/16152.html#p302268">Quote: TigerSlash-X, March 03, 2007 12:02 pm</a></div>can someone put there n for mac on download on box.net? so I could get A flavour <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></blockquote><br>
+If you mean that you want someone's progress throughout the game, then no. No one will give you that.<br>
+Improve your grammar and enjoy your stay.</div></div>
+<div class="post" id="p304853"><div class="post-head"><a class="id" href="../t/16152.html#p304853">#304853</a> <span class="index">10</span> <span class="date">2007-03-13T02:19:38Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">it wont let me upload it says its corupt T_T<br>
+<br>
+I DID use NUPD</div></div>
+<div class="post" id="p304854"><div class="post-head"><a class="id" href="../t/16152.html#p304854">#304854</a> <span class="index">11</span> <span class="date">2007-03-13T02:24:04Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body">Hmmm.<br>
+Attach it in a text file, so we can have a look.</div></div>
+<div class="post" id="p304906"><div class="post-head"><a class="id" href="../t/16152.html#p304906">#304906</a> <span class="index">12</span> <span class="date">2007-03-13T07:13:20Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">Probably the most likely reason is that you didn't reset the level or N isn't even on there. And if I can understand what you said... you cannot ask for a completed .sol file anywhere.<br>
+<br>
+Yes, it does take a hellish amount of time to complete N. I only recently completed columns 0, 1, and 2 &gt;&lt;<br>
+<br>
+I'm still working on the rest.</div></div>
+<div class="post" id="p305069"><div class="post-head"><a class="id" href="../t/16152.html#p305069">#305069</a> <span class="index">13</span> <span class="date">2007-03-14T01:03:40Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">ahh here we go. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  <div class="attachment attachment-missing">Attachment (lost): post-11-1173834220.txt</div></div></div>
+<div class="post" id="p305725"><div class="post-head"><a class="id" href="../t/16152.html#p305725">#305725</a> <span class="index">14</span> <span class="date">2007-03-16T22:49:23Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Ummm...this map isn't really good. The hidden mines aren't a good idea. Check <a href="http://jeffkillian.com/NUMA.htm">this guide</a> out, it'll help you a lot.<br>
+<br>
+Also, I posted a demo. <div class="attachment attachment-missing">Attachment (lost): post-11-1174085363.txt</div></div></div>
+<div class="post" id="p306018"><div class="post-head"><a class="id" href="../t/16152.html#p306018">#306018</a> <span class="index">15</span> <span class="date">2007-03-18T06:43:12Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">My new one is better. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p306019"><div class="post-head"><a class="id" href="../t/16152.html#p306019">#306019</a> <span class="index">16</span> <span class="date">2007-03-18T06:49:37Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">I think you should watch my demo. <div class="attachment attachment-missing">Attachment (lost): post-11-1174200577.txt</div></div></div>
+<div class="post" id="p306182"><div class="post-head"><a class="id" href="../t/16152.html#p306182">#306182</a> <span class="index">17</span> <span class="date">2007-03-18T22:44:31Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16152.html#p304847">Quote: Clifty, March 13, 2007 01:59 am</a></div> If you mean that you want someone's progress throughout the game, then no. No one will give you that.<br>
+  </blockquote> <br>
+ how do you find a .sol on A mac? I could give mine to someone I trust <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> like A mod</div></div>
+<div class="post" id="p306185"><div class="post-head"><a class="id" href="../t/16152.html#p306185">#306185</a> <span class="index">18</span> <span class="date">2007-03-18T23:00:46Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16152.html#p306182">Quote: TigerSlash-X, March 18, 2007 06:44 pm</a></div> how do you find a .sol on A mac? I could give mine to someone I trust <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> like A mod  </blockquote> <br>
+ <a href="../t/6036.html">http://metanet.2.forumer.com/index.php?showtopic=6036</a><br>
+<br>
+Also, you should be acquainted with the fact that .sol sharing is not allowed.</div></div>
+<div class="post" id="p306292"><div class="post-head"><a class="id" href="../t/16152.html#p306292">#306292</a> <span class="index">19</span> <span class="date">2007-03-19T08:54:49Z</span> <span class="author"><a href="../u/9373839.html">TigerSlash-X</a></span></div><div class="post-body">I reset objects but when I try to submit it refreshes and I still have 0 maps.  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p306395"><div class="post-head"><a class="id" href="../t/16152.html#p306395">#306395</a> <span class="index">20</span> <span class="date">2007-03-19T21:49:13Z</span> <span class="author"><a href="../u/9373789.html">SamuelDKelso</a></span></div><div class="post-body">1. Read all of the documents that came with the download until you can recite them to me<br>
+<br>
+2. George said you map wasnt very good, and i respect his opinion.  Therefore read A map guide (which is probably what he linked you too).<br>
+<br>
+3. A .sol (locally shared object?) file is A file that flash uses to store information (like N progress)...read the .sol for dummies sticky (which is probably what Twist linked tou to).<br>
+<br>
+4. Make A map, do the thing that takes you to the level data boxes (home then page up maybe?), copy and paste whats in the top box into a text document and save it, playtest level, if you need to make modifications: reset objects, "e", and make changes and repeat the copy and paste business, if you didnt need to make changes then open the txt document that you saved and copy and paste the data into the NUMA submit sheet...<br>
+<br>
+5. Learn grammar...A's are not capitalized...<br>
+<br>
+(sorry if step 4 (the only remotely useful step) is a little confusing)<br>
+<br>
+Have fun playing the game and all...</div></div>
+</main>
+</body>
+</html>

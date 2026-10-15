@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Want to see a wacky bug? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Want to see a wacky bug?</nav></header>
+<main>
+<div class="post" id="p17911"><div class="post-head"><a class="id" href="../t/20154.html#p17911">#17911</a> <span class="index">1</span> <span class="date">2007-11-14T12:53:54Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">In experimenting with stuff outside the borders of the map, I came across a strange bug, which crashes the program and causes two ninja spawn points to react simultaneously within the game's engine.<br>
+<br>
+Go into Ned.  Try to emulate the uploaded image by placing the objects in those locations (there is nothing hiding under the script warning).  Press the home key, press the tilde key, let the good times roll.<br>
+<br>
+If you choose to allow the script, the game will freeze up for a bit, no frames (or maybe a single frame?) will be generated, and you'll be given the prompt a second time.  If you choose to disallow the script, both ninjas start doing a wacky dance and you'll hear a series of funkay sound effects.<br>
+<br>
+Srsly, someone else try this and see if you get the same bug.  I'm interested in knowing why this occurs. <div class="attachment attachment-missing">Attachment (lost): post-7-1195044834.png</div></div></div>
+<div class="post" id="p379390"><div class="post-head"><a class="id" href="../t/20154.html#p379390">#379390</a> <span class="index">2</span> <span class="date">2007-11-14T13:01:49Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">After some testing, I found that this occurs any time I put the floorguard on the top platform.  I think it's because the floorguard (like any object placed outside the map) detects the ninja no matter where the ninja is and attempts to move towards it.  This would require the floorguard to move in an abnormal direction, so the game crashes.</div></div>
+<div class="post" id="p379391"><div class="post-head"><a class="id" href="../t/20154.html#p379391">#379391</a> <span class="index">3</span> <span class="date">2007-11-14T13:17:50Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">Yep, I was about to say that it was the floorguard that was bugging.</div></div>
+<div class="post" id="p379392"><div class="post-head"><a class="id" href="../t/20154.html#p379392">#379392</a> <span class="index">4</span> <span class="date">2007-11-14T13:19:03Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">It always occurs when a floorguard is placed outside the map, and has nothing to do with the ninjas. <br>
+<br>
+<a href="../t/17501.html">http://metanet.2.forumer.com/index.php?showtopic=17501</a></div></div>
+<div class="post" id="p379462"><div class="post-head"><a class="id" href="../t/20154.html#p379462">#379462</a> <span class="index">5</span> <span class="date">2007-11-14T22:13:37Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">*chuckles*<br>
+<br>
+Love the array of victory dances up there. Looks awesome. I didn't know about it, though.</div></div>
+<div class="post" id="p379822"><div class="post-head"><a class="id" href="../t/20154.html#p379822">#379822</a> <span class="index">6</span> <span class="date">2007-11-16T03:18:19Z</span> <span class="author"><a href="../u/9371421.html">Turtle</a></span></div><div class="post-body">That was pretty cool.</div></div>
+<div class="post" id="p379833"><div class="post-head"><a class="id" href="../t/20154.html#p379833">#379833</a> <span class="index">7</span> <span class="date">2007-11-16T03:47:34Z</span> <span class="author"><a href="../u/9374116.html">T3chno</a></span></div><div class="post-body">Lol, that was like a touchdown zone. Victory dance mania!</div></div>
+<div class="post" id="p379847"><div class="post-head"><a class="id" href="../t/20154.html#p379847">#379847</a> <span class="index">8</span> <span class="date">2007-11-16T04:32:45Z</span> <span class="author">Guest</span></div><div class="post-body">Wow. I remember stumbling across this glitch when I was making a DDA ages ago. I actually made a <a href="https://www.nmaps.net/62668">map</a> for it.</div></div>
+<div class="post" id="p379909"><div class="post-head"><a class="id" href="../t/20154.html#p379909">#379909</a> <span class="index">9</span> <span class="date">2007-11-16T11:47:04Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">hahahahahahahahaha, i didn't try running it. I don't want to abuse my friend that way.... <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+</main>
+</body>
+</html>

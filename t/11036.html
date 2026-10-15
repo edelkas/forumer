@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Possible Glitch in Level Data reading... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Possible Glitch in Level Data reading...</nav></header>
+<main>
+<div class="post" id="p9883"><div class="post-head"><a class="id" href="../t/11036.html#p9883">#9883</a> <span class="index">1</span> <span class="date">2006-07-04T17:27:01Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body">Okay...for reasons I cannot explain this data works different in debug and userlevels.  It has thwarted all my attempts to correct it and the problem continued, even after I <i>rebuilt</i> the map from scratch.<br>
+<br>
+1)Try the code in debug.  Looks normal right?<br>
+2)Try in userlevels.  ???<br>
+<br>
+Can anyone can explain this or is it a glitch in N? <div class="attachment attachment-missing">Attachment (lost): post-2-1152034021.txt</div></div></div>
+<div class="post" id="p200137"><div class="post-head"><a class="id" href="../t/11036.html#p200137">#200137</a> <span class="index">2</span> <span class="date">2006-07-08T00:14:54Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body">I kind of feel that this has been ignored.  Has my problem left you all clueless or am I missing something obvious?</div></div>
+<div class="post" id="p200140"><div class="post-head"><a class="id" href="../t/11036.html#p200140">#200140</a> <span class="index">3</span> <span class="date">2006-07-08T00:33:43Z</span> <span class="author"><a href="../u/9372310.html">SlicesOfBread</a></span></div><div class="post-body">whoah....havent seen that before. Dunno wuthappened</div></div>
+<div class="post" id="p200194"><div class="post-head"><a class="id" href="../t/11036.html#p200194">#200194</a> <span class="index">4</span> <span class="date">2006-07-08T02:46:54Z</span> <span class="author"><a href="../u/9371517.html">Kavukamari</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/11036.html#p200140">Quote: SlicesOfBread, July 07, 2006 02:33 pm</a></div> whoah....havent seen that before. Dunno wuthappened  </blockquote> <br>
+ *reply* AWESOME<br>
+<br>
+*reason i'm quoting* I love your avatars, where do you get them <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p200289"><div class="post-head"><a class="id" href="../t/11036.html#p200289">#200289</a> <span class="index">5</span> <span class="date">2006-07-08T12:50:56Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body">Ok...does anyone else have any idea what's going on or should I get this moved to bug reports?</div></div>
+<div class="post" id="p200355"><div class="post-head"><a class="id" href="../t/11036.html#p200355">#200355</a> <span class="index">6</span> <span class="date">2006-07-08T17:50:33Z</span> <span class="author"><a href="../u/9372082.html">beanhead</a></span></div><div class="post-body">to me it looks like you forgot to remove the space before the debug mode level data, or am i not getting this?</div></div>
+<div class="post" id="p200438"><div class="post-head"><a class="id" href="../t/11036.html#p200438">#200438</a> <span class="index">7</span> <span class="date">2006-07-08T22:20:23Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body">That would only happen if I took it out of a forum post.  If there are any spaces generated, then Ned itself produced them.</div></div>
+<div class="post" id="p200568"><div class="post-head"><a class="id" href="../t/11036.html#p200568">#200568</a> <span class="index">8</span> <span class="date">2006-07-09T06:12:14Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">It's because of the newline right before the actual leveldata. It's actually adding a "false tile" as the top-left corner - just the same as putting a space, a slash, a period or whatever else at the start of the code.<br>
+<br>
+Here it is without that newline. <div class="attachment attachment-missing">Attachment (lost): post-2-1152425544.txt</div></div></div>
+<div class="post" id="p200617"><div class="post-head"><a class="id" href="../t/11036.html#p200617">#200617</a> <span class="index">9</span> <span class="date">2006-07-09T13:34:08Z</span> <span class="author"><a href="../u/9371695.html">Qix</a></span></div><div class="post-body">Oh, ok.  Thanks, LV!</div></div>
+</main>
+</body>
+</html>

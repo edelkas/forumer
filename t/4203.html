@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>new guy needs help with some questions. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; new guy needs help with some questions.</nav></header>
+<main>
+<div class="post" id="p3829"><div class="post-head"><a class="id" href="../t/4203.html#p3829">#3829</a> <span class="index">1</span> <span class="date">2005-07-26T03:49:56Z</span> <span class="author"><a href="../u/9371005.html">SpecialSauce</a></span></div><div class="post-body">hi im new <br>
+<br>
+first thanks for the tutorials they helped me alot in understanding collision. especially the slides, i wish there was more.<br>
+<br>
+but i have one question about projecting something out of collision.<br>
+<br>
+let say i have shape A and shape B which are not colliding.  then there is a collision between shape A and shape B. now heres what im having problems. when im projecting out of collision, <b> should i project shape A out of shape B or shape B out of shape A? </b><br>
+<br>
+in other words what im having problems with is deciding which shape to move out of collision when the "distance" is less then or equal to the sum of the radius.</div></div>
+<div class="post" id="p86178"><div class="post-head"><a class="id" href="../t/4203.html#p86178">#86178</a> <span class="index">2</span> <span class="date">2005-07-26T12:13:12Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">To know which object to project out of the other, you should first think which object is supposed to move, and which not. Obviously, if the object that's supposed to move(or also called a dynamic object) will have to be projected out of the other object. <br>
+Of course, that's the idea if only one object is dynamic. If both objects are dynamic, then you'll have to move each object by a certain amount. That amount depends on the mass of the objects. To fix this problem... you need to know the mass of each object. If object A has mass M and object B has mass N, and you have a penetration vector with length plen, then you have:<br>
+<br>
+lenA = (M/M+N) * plen; // projection length for shape A <br>
+lenB = (N/M+N) * plen; // projection length for shape B<br>
+<br>
+I think that's what you were looking for. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+You should know that I haven't tested this, but I'm pretty sure it's correct.<br>
+<br>
+TS</div></div>
+<div class="post" id="p86223"><div class="post-head"><a class="id" href="../t/4203.html#p86223">#86223</a> <span class="index">3</span> <span class="date">2005-07-26T19:00:18Z</span> <span class="author"><a href="../u/9371005.html">SpecialSauce</a></span></div><div class="post-body">thanks that is exactly the answer i was looking for.</div></div>
+<div class="post" id="p86225"><div class="post-head"><a class="id" href="../t/4203.html#p86225">#86225</a> <span class="index">4</span> <span class="date">2005-07-26T19:09:27Z</span> <span class="author">Guest</span></div><div class="post-body">one thing to look out for is that in the slides you end up with a projection vector that moves A out of B. if you want to move B, you need to remember to reverse the direction of the vector..</div></div>
+<div class="post" id="p86228"><div class="post-head"><a class="id" href="../t/4203.html#p86228">#86228</a> <span class="index">5</span> <span class="date">2005-07-26T19:14:56Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">@ Raigan: Yeah, I was thinking of putting that too in my post, but I decided to let SpecialSauce find that out for himself <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+@ SpecialSauce: Don't mention it <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+</main>
+</body>
+</html>

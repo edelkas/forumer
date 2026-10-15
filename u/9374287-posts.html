@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Mirico - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374287.html">Mirico</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p14774"><div class="post-head"><a class="id" href="../t/16853.html#p14774">#14774</a> <span class="index">1</span> <span class="date">2007-04-09T11:54:38Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Hi, I'm new to the forums but I've been using the N Tutorials (Specifically A for now) to help write a game in C++. I realize this all has to do with flash/ActionScript but the idea behind my question should be the same. Basically I'm creating a game where you control a ball and it rolls on lines. These lines are known only to be points (The start and end) and I'm having a hard time detecting collision properly.<br>
+<br>
+I've read the tutorials, and although I don't have adobe flash on my computer I've viewed the actionscript from tutorial B as a text file posted by another user here. The code is quite confusing for what I was having a problem with. Mostly its the projection. My code basically goes something like this<br>
+<br>
+Loop through an array of the points of the lines<br>
+x = line.x1 - line.x2;<br>
+y = line.y1 - line.y2;<br>
+d = x*ball.x + y*ball.y / x*x + y*y;<br>
+x *= d;<br>
+y *= d;<br>
+x += line.x2;<br>
+y += line.y2;<br>
+<br>
+Is the general idea. Im not sure where somethings going wrong but its projection it improperly onto the line (I draw the point while running the game, depending on the slope of the line the ball is usually inside the line or above it). It works fine for very small slopes but Im not sure why. Any insight would be helpful (And I have taken a course on Linear Algebra that used projections, but Im still a bit fuzzy). Thanks for any help you can give.</div></div>
+<div class="post" id="p313381"><div class="post-head"><a class="id" href="../t/16853.html#p313381">#313381</a> <span class="index">5</span> <span class="date">2007-04-15T11:12:30Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body"><pre class="code">for(int i = 0; i &lt; size; i+=4) {
+   float x1, y1;
+  	//Do some projection stuff
+  	x1 = lineArray[i+2] - lineArray[i];
+  	y1 = lineArray[i+3] - lineArray[i+1];
+  	float d = (x1 * x + y1 * y) / (pow(x1,2) + pow(y1,2));
+
+  	x1 = x1 *d;
+  	y1 = y1 *d;
+                       
+   x1 += lineArray[i];
+  	y1 += lineArray[i+1];
+
+  	d = √(pow(x1 - x, 2) + pow(y1 - y, 2));
+
+  	//Check whether its touching the line or not
+  	if (d &lt;= radius) {
+    y -= (velY/fps);
+    forceX += mass*(400/fps)*12;
+    velY *= -0.3;
+  	}
+}</pre><br>
+Thats my code. Basically it's supposed to project the point (x,y) (IE the center of a ball) onto the line (lineArray[i],lineArray[i+1]) , (lineArray[i+2],lineArray[i+3]) . Then it finds the distance between the center of the ball and the projection on the line (IE the closest point on the line to the ball) and if its equal to or less than the radius then it's hit the line.<br>
+<br>
+The normalization 'could' be the problem, but considering its a line not a vector I'm not so sure.</div></div>
+<div class="post" id="p313573"><div class="post-head"><a class="id" href="../t/16853.html#p313573">#313573</a> <span class="index">7</span> <span class="date">2007-04-16T00:15:25Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Thanks alot Toshosoft! That actually made alot of sense and I feel like an idiot for not noticing that before, I even said that it was a line not a vector and didn't even notice <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> Anyways I got it working properly now (Well, the detecting collision part, still working on simulating some of the physics).</div></div>
+<div class="post" id="p313722"><div class="post-head"><a class="id" href="../t/16853.html#p313722">#313722</a> <span class="index">9</span> <span class="date">2007-04-16T18:30:26Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Well Im just gonna shoot this out there. Im never really learned about simulating physics (Or really alot of what Im doing) I just enjoy making games and am trying to learn myself. I was just curious of a good way to work with the physics of this ball. Right now it has an update() function which updates its everything (And checks for collision) but Im not sure of the best way to go about this. Right now I have Force, acceleration, velocity and obviously position. I try to make everything apply a force on the ball as that would seem to be the most intuitive way to go about it but thats not quite working. Right now I got something like this (Im not gonna paste the real code cause it wouldn't make much sense):<br>
+<br>
+forceY += 10; //Gravity constant<br>
+<br>
+accelX += forceX/mass;<br>
+accelY += forceY/mass;<br>
+<br>
+velX += accelX;<br>
+velY += accelY;<br>
+<br>
+x += velX/fps;<br>
+y += velY/fps;<br>
+<br>
+//Collision detection. Add forceX/Y based on the angle of the line it collides with<br>
+<br>
+forceY = 0;<br>
+forceX = 0;<br>
+<br>
+Oh, and this is based off the top left corner being 0,0 (Thus gravity is positive). One problem Im finding is that on key press I have it add a corresponding forceX, but because the force is just acting on the ball for 1 frame when it hits a wall (And thus calculates forces that should be applied via the angle) there is no X force, just an X velocity and it passes right through. Also, on ground it doesn't seem to be cancelling out gravity so well. I tried moving the collision detection segment to the top of the code (Before it changes accel based on force) but then you don't check for collision with the updated x/y value <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+Heres the code I use for determining forces on collision:<br>
+<pre class="code">alphaY = atan(dy/dx);
+alphaX = atan(dx/dy);
+
+normalY = cos(alphaY) * forceY;
+normalX = cos(alphaX) * forceX;
+
+forceX -= sin(alphaY) * normalY;
+forceX -= sin(alphaX) * normalX;
+
+forceY -= cos(alphaY) * normalY;
+forceY -= cos(alphaX) * normalX;</pre><br>
+With dy = difference on y, and dx = difference on x. And there is error checking for divided by 0. Thanks again for any help, Im getting really excited how this is turning out so far.</div></div>
+<div class="post" id="p409570"><div class="post-head"><a class="id" href="../t/21476.html#p409570">#409570</a> <span class="index">4</span> <span class="date">2008-02-15T02:48:28Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Programing windows based programs in C++ can be challenging at first - You'll probably have to just accept that some code works without fully understanding how. Thankfully thats mostly in the initialization of it. Something you should work on understanding is the message loop though.<br>
+<br>
+<pre class="code">while(GetMessage(&amp;Msg, NULL, 0, 0) &gt; 0)
+    {
+        TranslateMessage(&amp;Msg);
+        DispatchMessage(&amp;Msg);
+    }</pre><br>
+Something like that is a simple message loop. Essentially takes in messages for your window, translates them, and dispatches them (IE it sends it to your WndProc function to handle the message.)<br>
+<br>
+<pre class="code">LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    switch(msg) {
+        case WM_CLOSE:
+            DestroyWindow(hwnd);
+        break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+        break;
+        default:
+            return DefWindowProc(hwnd, msg, wParam, lParam);
+    }
+    return 0;
+}</pre><br>
+Thats a very basic WndProc. Takes in a handle to your window, the message dispatched to it, and then 2 parameters (Some messages send more info than just the message). WM_CLOSE is a message sent when the X is clicked or alt+f4. It destroys your window (Handling alot of the clean up for you). DefWindowProc(hwnd, msg, wParam, lParam); just handles all messages your WndProc doesn't. You can do things like add the case WM_LBUTTONDOWN, which would be Left Mouse Button being pressed down.<br>
+<br>
+<pre class="code">case WM_LBUTTONDOWN:
+  MessageBox(hwnd, "You pressed the left mouse button!", "WOW!", MB_OK);
+break;</pre><br>
+That code would just make it so a message box popped up when you left clicked.<br>
+<br>
+WM_PAINT is the message you'd want to handle for drawing a rectangle (Its more complicated than that. You have to create a brush and stuff, but not too bad)<br>
+<br>
+Creating a text box is actually creating a window in your window (Text-Boxes, buttons etc are all actually windows)<br>
+<pre class="code">#define IDC_EDIT 101   //Up top with the rest of your defines/includes
+
+//in your WndProc function
+          case WM_CREATE:
+           HWND hEdit;
+
+           hEdit = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", "This is a text box",
+                           WS_CHILD | WS_VISIBLE | ES_AUTOVSCROLL | ES_MULTILINE, 10,10,50,15, hwnd,
+                           (HMENU)IDC_EDIT, GetModuleHandle(NULL), NULL);
+           if(hEdit == NULL)
+                  MessageBox(hwnd, "Could not create edit box.", "Error", MB_OK | MB_ICONERROR);
+          break;</pre>WM_CREATE is a message send when your window is created. This code will create an Extended Window (Extended just means it has a few more features than a normal). hEdit is just a handle to your text box window (CreateWindowEx returns the handle after creating).<br>
+- WS_EX_CLIENTEDGE is just part of the appearance - the extended window style. There's a few other things you can add with or (|). <br>
+- "EDIT" means its an edit box (a text box). <br>
+- The text is what text it start with in it. <br>
+-The next few arguments are just window styles, meaning its visible, can handle multiple lines, and when a multiple line occurs it'll auto-scroll vertically (You'll want WS_CHILD | WS_VISIBLE with most of your windows). <br>
+-The next 4 numbers are your starting X Y pos and your width and height. <br>
+-Then the handle to the parent window (IE the window the edit box is being created in, hwnd, an argument of the WndProc function, is the handle to your main window). <br>
+-(HMENU)IDC_EDIT is just used to identify your edit box globally via integer (You define IDC_EDIT as 101 at the top. 101 can be any number really, but must be unique. This way you can use IDC_EDIT to refer to this edit box). <br>
+-GetModuleHandle(NULL) is just a handle to the instance of the module to be associated with the window... Which is a little harder to explain, but you'll usually just want to keep it as GetModuleHandle(NULL).<br>
+-The last parameter is if you want to send a parameter to your edit box on creation (In most simple cases you won't and can just be NULL).<br>
+<br>
+It then checks to make sure the window was created successfully.<br>
+<br>
+My explanation probably wasn't so great but hopefully it helped a little. Try  <a href="http://www.winprog.org/tutorial/">http://www.winprog.org/tutorial/</a>  , probably a little more understandable <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+</main>
+</body>
+</html>

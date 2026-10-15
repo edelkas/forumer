@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rigid vs. soft collisions - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Rigid vs. soft collisions</nav></header>
+<main>
+<div class="post" id="p20525"><div class="post-head"><a class="id" href="../t/22895.html#p20525">#20525</a> <span class="index">1</span> <span class="date">2008-06-14T17:35:54Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">I'm making a simple circle collision thing, and I think I've got all the basics there, but the circles act as if they're somewhat soft. Does anyone know how to make them act rigid? I'll attach the zipped SWF. Here's the code:<br>
+<br>
+<pre class="code">function doFrame(event:TimerEvent) {
+	for each (var ball:Ball in balls) {
+  if (!ball.dragging) {
+  	ball.yvel += GRAVITY * 0.05;
+  	
+  	ball.x += ball.xvel;
+  	ball.y += ball.yvel;
+  	
+  	if (ball.x - ball.radius &lt; 0) {
+    ball.x = ball.radius;
+    ball.xvel *= -BOUNCE;
+  	} else if (ball.x + ball.radius &gt; stage.stageWidth) {
+    ball.x = stage.stageWidth - ball.radius;
+    ball.xvel *= -BOUNCE;
+  	}
+  	if (ball.y - ball.radius &lt; 0) {
+    ball.y = ball.radius;
+    ball.yvel *= -BOUNCE;
+  	} else if (ball.y + ball.radius &gt; stage.stageHeight) {
+    ball.y = stage.stageHeight - ball.radius;
+    ball.yvel *= -BOUNCE;
+    ball.xvel *= FRICTION;
+    if (Math.abs(ball.yvel) &lt; 0.5) ball.yvel = 0;
+  	}
+  }
+	}
+	for (var b:int = 0; b &lt; balls.length; b++) {
+  for (var b2:int = b+1; b2 &lt; balls.length; b2++) {
+  	ball = balls[b];
+  	var ball2:Ball = balls[b2];
+  	
+  	var xdif:Number = ball2.x - ball.x;
+  	var ydif:Number = ball2.y - ball.y;
+  	var hyp:Number = Math.√(Math.pow(xdif,2) + Math.pow(ydif,2));
+  	
+  	var overlap:Number = ball.radius + ball2.radius - hyp;
+  	var cosine:Number = xdif / hyp;
+  	var sine:Number = ydif / hyp;
+  	
+  	const velmult:Number = 0.5; // velocity multiplier (arbitrary)
+  	
+  	if (hyp != 0 &amp;&amp; hyp &lt; ball.radius + ball2.radius) {
+    // make sure balls equally share repulsion (keeping dragged ones in place)
+    const ball2dragmod = (ball2.dragging ? 0 : (ball.dragging ? 2 : 0.5));
+    const balldragmod = (ball.dragging ? 0 : (ball2.dragging ? 2 : 0.5));
+    
+    ball2.x += ball2dragmod * overlap * cosine;
+    ball.x -= balldragmod * overlap * cosine;
+    ball2.xvel += ball2dragmod * overlap * cosine * velmult;
+    ball.xvel -= balldragmod * overlap * cosine * velmult;
+    
+    ball2.y += ball2dragmod * overlap * sine;
+    ball.y -= balldragmod * overlap * sine;
+    ball2.yvel += ball2dragmod * overlap * sine * velmult;
+    ball.yvel -= balldragmod * overlap * sine * velmult;
+  	}
+  }
+	}
+	event.updateAfterEvent();
+}</pre> <div class="attachment attachment-missing">Attachment (lost): post-14-1213464954.zip</div></div></div>
+<div class="post" id="p444637"><div class="post-head"><a class="id" href="../t/22895.html#p444637">#444637</a> <span class="index">2</span> <span class="date">2008-06-15T01:30:44Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">colliding with more than 2 or 3 objects at once and getting an "exact" rigid collision is very difficult, as many past threads in this board will show. (the reason is that pushing one object out of collision will probably push it back into another object's collision). the best method seems to be iterating the collision several times.<br>
+<br>
+sorry I couldn't be of more help, maybe a more experienced person could guide you; there probably is a good way to do rigid collision with just circles.</div></div>
+<div class="post" id="p444821"><div class="post-head"><a class="id" href="../t/22895.html#p444821">#444821</a> <span class="index">3</span> <span class="date">2008-06-15T14:26:23Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">one thing is that you're using weights (0.5,0.5) if none are dragged, and (0,2) if one is dragged -- you should probably use (0,1) for the dragged case, since you want the sum of the corrections to be 1.<br>
+<br>
+what you're doing for the positions looks okay, but it doesn't make sense to apply the same correction to the velocities -- what you really want to do is remove the "inward" component of the balls' relative velocity.<br>
+<br>
+<pre class="code">dx = cosine;
+dy = sine;//i prefer thinking of things in terms of vectors rather than trig, it's the same either way though
+
+vx = ball2.xvel - ball.xvel;
+vy = ball2.yvel - ball.yvel;//v is the velocity of ball2 relative to ball
+
+dp = dx*vx + dy*vy;//dotproduct of relative velocity and direction
+
+if(dp &gt; 0)
+{
+    //balls are headed away from each other, don't change their velocities
+    return;
+}
+
+vx_n = dp*dx;
+vy_n = dp*dy;//v_n is the normal component of the velocity vector (i.e velocity along the collision direction)
+
+vx_t = vx - vx_n;
+vy_t = vy - vy_n;//v_t is the tangent component of the velocity vector (i.e velocity perpendicular to the collision direction)
+
+//just like you did for positions, you can now correct velocities by projecting out v_n to remove inward velocity, or subtracting 1.5*v_n to make them bounce; you can also remove a bit of v_t to simulate friction</pre><br>
+..i may have made a mistake or two, it's early <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+as matt said, if you have more than a pair of balls, then you're not going to get the correct solution. you can do multiple iterations of collision to try and get closer to the correct solution, but in general it's very hard or impossible to prevent all penetration.</div></div>
+<div class="post" id="p445016"><div class="post-head"><a class="id" href="../t/22895.html#p445016">#445016</a> <span class="index">4</span> <span class="date">2008-06-15T19:39:46Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Thanks for catching that weight error <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+I don't see how removing the inward component is different from what I've done... I added some velocity to each ball in the direction outward from the collision (times velmult). Is there really a difference? You used the dot product instead of the overlap size...</div></div>
+<div class="post" id="p446423"><div class="post-head"><a class="id" href="../t/22895.html#p446423">#446423</a> <span class="index">5</span> <span class="date">2008-06-19T18:05:43Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">It probably works okay, but what's actually going to happen is that the inward velocity will be gradually reduced over a period of frames instead of perfectly cancelled in one step.<br>
+<br>
+To see why velocity should be treated independently of position, consider that two pairs of objects could be overlapping by identical amounts, but their relative velocities could be arbitrarily different (i.e one pair could be travelling inward at 10x the speed of the other pair). But, since your correction is purely based on position, both will receive the same amount of velocity correction -- which can't be right.<br>
+<br>
+Then again, your way could potentially avoid some of the "bounce" problems that position-based solvers have: objects that overlap and are pushed apart gain outward momentum, and by not fully correcting the velocities, the remaining inward velocities would counteract the outward momentum.</div></div>
+</main>
+</body>
+</html>

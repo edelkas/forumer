@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Objects in level editor - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Objects in level editor</nav></header>
+<main>
+<div class="post" id="p12061"><div class="post-head"><a class="id" href="../t/13550.html#p12061">#12061</a> <span class="index">1</span> <span class="date">2006-11-02T21:31:08Z</span> <span class="author"><a href="../u/9373344.html">darkmario</a></span></div><div class="post-body">Okay, I've been making some of my own levels, and when I finish I copy the code onto userlevels.txt, exactly how it was, but for some reason when I play it from the user levels section an item sometime gets lodged in the ceiling at the top of the screen!!! It's the same place every time too, help!</div></div>
+<div class="post" id="p249202"><div class="post-head"><a class="id" href="../t/13550.html#p249202">#249202</a> <span class="index">2</span> <span class="date">2006-11-02T21:33:39Z</span> <span class="author"><a href="../u/9371744.html">Zres</a></span></div><div class="post-body">It's a NaNed object. The only way to remove it is to manually remove it out of the data box.</div></div>
+<div class="post" id="p249210"><div class="post-head"><a class="id" href="../t/13550.html#p249210">#249210</a> <span class="index">3</span> <span class="date">2006-11-02T21:36:36Z</span> <span class="author"><a href="../u/9373344.html">darkmario</a></span></div><div class="post-body">No I mean an item I purposely put on there got moved to the top it's not an extra item!!</div></div>
+<div class="post" id="p249229"><div class="post-head"><a class="id" href="../t/13550.html#p249229">#249229</a> <span class="index">4</span> <span class="date">2006-11-02T21:58:47Z</span> <span class="author"><a href="../u/9372056.html">Britannia</a></span></div><div class="post-body">As Zres says... NaN... Go and load it back to Ned and look of r it that take it out.</div></div>
+<div class="post" id="p249230"><div class="post-head"><a class="id" href="../t/13550.html#p249230">#249230</a> <span class="index">5</span> <span class="date">2006-11-02T22:01:46Z</span> <span class="author"><a href="../u/9373344.html">darkmario</a></span></div><div class="post-body">I already did that...<br>
+My item is the exit door opener. When I go back to Ned it's lodged in the ceiling. I move it back, copy the code again and whenever I play it it goes back into the ceiling!</div></div>
+<div class="post" id="p249241"><div class="post-head"><a class="id" href="../t/13550.html#p249241">#249241</a> <span class="index">6</span> <span class="date">2006-11-02T22:23:18Z</span> <span class="author"><a href="../u/9372854.html">AMomentLikeThis</a></span></div><div class="post-body">Make sure it has "$Levelname#yourname#maptype#[paste the map data here]#" in your userlevels file.</div></div>
+<div class="post" id="p249244"><div class="post-head"><a class="id" href="../t/13550.html#p249244">#249244</a> <span class="index">7</span> <span class="date">2006-11-02T22:29:17Z</span> <span class="author"><a href="../u/9373336.html">apd05</a></span></div><div class="post-body">I've got the same problem darkmario has</div></div>
+<div class="post" id="p249259"><div class="post-head"><a class="id" href="../t/13550.html#p249259">#249259</a> <span class="index">8</span> <span class="date">2006-11-02T23:13:08Z</span> <span class="author"><a href="../u/9373344.html">darkmario</a></span></div><div class="post-body">I figured it out.<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13550.html#p249241">Quote: AMomentLikeThis, 2006-11-02T22:23:18Z</a></div>Make sure it has "$Levelname#yourname#maptype#[paste the map data here]#" in your userlevels file.</blockquote>When you do that you have to put that # at the end...so that's what not a number means?</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hidden drone enemy - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Hidden drone enemy</nav></header>
+<main>
+<div class="post" id="p16981"><div class="post-head"><a class="id" href="../t/19165.html#p16981">#16981</a> <span class="index">1</span> <span class="date">2007-08-27T19:06:18Z</span> <span class="author"><a href="../u/9374703.html">CX gamer</a></span></div><div class="post-body">I was making a catalog for all map elements and objects because I was bored:<br>
+<br>
+<pre class="code"># is a number that is not mentioned on the above list
+
+Level data, from start to "|"
+
+This space is filled with digits,
+the first digit represents the up-left-corner.
+The second one represents the square below it.
+And so on for the whole colomn, then we move a square to the right
+untill the "|"...
+The digits represent a type of block:
+
+0 = Empty square
+1 = Filled square
+2 = 45 slope open on the top-right
+3 = 45 slope open on the top-left
+4 = 45 slope open on the down-left
+5 = 45 slope open on the down-right
+6 = Hollow slope open on the top-right
+7 = Hollow slope open on the top-left
+8 = Hollow slope open on the down-left
+9 = Hollow slope open on the down-right
+: = Globe slope open on the top-right
+; = Globe slope open on the top-left
+&lt; = Globe slope open on the down-left
+= = Globe slope open on the down-right
+&gt; = 30 open horizontal slope open on the top-right
+? = 30 open horizontal slope open on the top-left
+@ = 30 open horizontal slope open on the down-left
+A = 30 open horizontal slope open on the down-right
+B = 30 filled horizontal slope open on the top-right
+C = 30 filled horizontal slope open on the top-left
+D = 30 filled horizontal slope open on the down-left
+E = 30 filled horizontal slope open on the down-right
+F = 30 open vertical slope open on the top-right
+G = 30 open vertical slope open on the top-left
+H = 30 open vertical slope open on the down-left
+I = 30 open vertical slope open on the down-right
+J = 30 filled vertical slope open on the top-right
+K = 30 filled vertical slope open on the top-left
+L = 30 filled vertical slope open on the down-left
+M = 30 filled vertical slope open on the down-right
+N = Halfopen square open at the top
+O = Halfopen square open at the left
+P = Halfopen square open at the bottom
+Q = Halfopen square open at the right
+# = halfopen square open at the right.
+
+Item data, from "|" to "!"
+
+First comes the item number, a "^", then the X-cordinate, then the Y-cordinate, then eventual special things depending on 
+
+the item.
+
+Item name: Gold
+Item number: 0
+Special numbers: 0
+Output: 0^X,Y
+Comment: None
+
+Item name: Bounce block
+Item number: 1
+Special numbers: 0
+Output: 1^X,Y
+Comment: None
+
+Item name: Jump pad
+Item number: 2
+Special numbers: 2
+Output: 2^X,Y,Xdir,Ydir
+Comment: Xdir and Ydir are the speed numbers when you hit the jump pad
+
+Item name: Gauss turret
+Item number: 3
+Special numbers: 0
+Output: 3^X,Y
+Comment: None
+
+Item name: Floor guard
+Item number: 4
+Special numbers: 1
+Output: 4^X,Y,1
+Comment: The "1" cannot be changed for some reason
+
+Item name: The ninja
+Item number: 5
+Special numbers: 0
+Output: 5^X,Y
+Comment: None
+
+Item name: Zap drone/Lazer drone
+Item number: 6
+Special numbers: 4
+Output: 6^X,Y,AI,folw,shoot,dir
+Comment: AI:  0 = Surfacefollow CW
+               1 = Surfacefollow CCW
+               2 = Dumb CW
+               3 = Dumb CCW
+               4 = Alterrnating
+               5 = Quasi-random
+               # = Standing still
+         dir:  0 = Facing right
+               1 = Facing down
+               2 = Facing left
+               3 = Facing up
+               # = Facing down
+         folw: 0 = Doesn't follow you
+               1 = Follows you
+         shoot:0 = Doesn't shoot at you
+               1 = Shoots at you with lazer
+               2 = Shoots at you with machine gun
+               # = HIDDEN ENEMY (This enemy disappears when you go into the editor)
+         If folw = 1 and shoot = 1, folw will turn into 0
+
+Item name: Oneway platform
+Item number: 7
+Special numbers: 1
+Output: 7^X,Y,dir
+Comment: dir: 0 = Facing right
+               1 = Facing down
+               2 = Facing left
+               3 = Facing up
+               # = Facing up
+
+Item name: Thwump
+Item number: 8
+Special numbers: 1
+Output: 8^X,Y,dir
+Comment: dir: 0 = Facing right
+               1 = Facing down
+               2 = Facing left
+               3 = Facing up
+               # = Facing down
+
+Item name: Normal door/Trapdoor/Locked door
+Item number: 9
+Special numbers: 7
+Output: 9^X,Y,pos,trap,dX,dY,lock,Xadd,Yadd
+Comment: pos: 0 = Vertical
+               1 = Horizontal
+               # = Vertical
+         trap: 0 = Normal door
+               1 = Trapdoor
+               # = Trapdoor
+         dX:   X in squares of the door
+         dY:   Y in squares of the door
+         lock: 0 = Normal door
+               1 = Locked door
+               # = Locked door
+         Xadd: Additional X-movement of the door measured in squares
+         Yadd: Additional Y-movement of the door measured in squares
+
+         If trap = 1 and lock = 1, trap will turn into 0
+         In case of trap- or locked door, the X and Y is from the switch,
+         not the door.
+
+Item name: Homing launcher
+Item number: 10
+Special numbers: 0
+Output: 10^X,Y
+Comment: None
+
+Item name: Exit
+Item number: 11
+Special numbers: 2
+Output: 11^X,Y,kX,kY
+Comment: kX and kY are the cordinates of the key
+         The X and Y are for the door
+
+Item name: Mine
+Item number: 12
+Special numbers: 0
+Output: 12^X,Y
+Comment: None
+
+Item name: Mine
+Item number: 12
+Special numbers: 0
+Output: 12^X,Y
+Comment: None</pre><br>
+Let's pay more attention to this:<br>
+<pre class="code">Comment: AI: 0 = Surfacefollow CW
+               1 = Surfacefollow CCW
+               2 = Dumb CW
+               3 = Dumb CCW
+               4 = Alterrnating
+               5 = Quasi-random
+               # = Standing still
+         dir:  0 = Facing right
+               1 = Facing down
+               2 = Facing left
+               3 = Facing up
+               # = Facing down
+         folw: 0 = Doesn't follow you
+               1 = Follows you
+         shoot:0 = Doesn't shoot at you
+               1 = Shoots at you with lazer
+               2 = Shoots at you with machine gun
+               # = HIDDEN ENEMY (This enemy disappears when you go into the editor)
+         If folw = 1 and shoot = 1, folw will turn into 0</pre> <br>
+Fill in for # = 3 or something, you'll get a black circeled enemy that doesn't shoot at you, doesn't follow you and cannot harm you in any way. It is able, like any drone, to follow surfaces of stand still...<br>
+I can onle be used for decoration or for N-artists to get the perfect black...<br>
+Enjoy!<br>
+<br>
+PS: I used the "?" post icon because it's more noticable, because there are too much who choose "!"...<br>
+PPS:  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:"> &lt;-- Weird smily called mull</div></div>
+<div class="post" id="p360024"><div class="post-head"><a class="id" href="../t/19165.html#p360024">#360024</a> <span class="index">2</span> <span class="date">2007-08-27T19:08:07Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">why did you do thid...althoguh i must admit you did a good job, but i dont see how this will be helpfull..except maybe to some programmer?<br>
+<br>
+OH  ive seen this beofre with the black drone -- it is actually called a NaN'd drone what you are seeing is just teh eyeball of the drone</div></div>
+<div class="post" id="p360262"><div class="post-head"><a class="id" href="../t/19165.html#p360262">#360262</a> <span class="index">3</span> <span class="date">2007-08-28T05:50:06Z</span> <span class="author"><a href="../u/9373671.html">Bunniesandsheep</a></span></div><div class="post-body">you just wasted some of your life for no reason.<br>
+<br>
+I applaud you</div></div>
+<div class="post" id="p360264"><div class="post-head"><a class="id" href="../t/19165.html#p360264">#360264</a> <span class="index">4</span> <span class="date">2007-08-28T05:53:11Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Not really new, but nice work. You can see lots of levelcode oddities here: <a href="../t/771.html">http://metanet.2.forumer.com/index.php?showtopic=771</a></div></div>
+<div class="post" id="p360273"><div class="post-head"><a class="id" href="../t/19165.html#p360273">#360273</a> <span class="index">5</span> <span class="date">2007-08-28T06:33:44Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Also, <a href="http://n.wikia.com/wiki/Code_editing">http://n.wikia.com/wiki/Code_editing</a></div></div>
+</main>
+</body>
+</html>

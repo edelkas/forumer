@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quasi random dissected - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Quasi random dissected</nav></header>
+<main>
+<div class="post" id="p18523"><div class="post-head"><a class="id" href="../t/20790.html#p18523">#18523</a> <span class="index">1</span> <span class="date">2007-12-23T00:11:27Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">Okay, I asked raigan for an explanation of why quasi-random is so repetitive, and it turns out that it is all based on a timer. Therefore, I am now dissecting exactly how long it takes for the direction to switch. So far, this is what I have on zap drones:<br>
+<img class="bb-img" src="../files/images/5986.png" alt="" loading="lazy"><br>
+I've got them clocked at 2 pixels per step, which is 12 steps a square. So this is what I've got:<br>
+121=clockwise<br>
+145=clockwise<br>
+169=clockwise<br>
+193=clockwise<br>
+217=clockwise<br>
+241=clockwise<br>
+265=clockwise<br>
+289=clockwise<br>
+313=clockwise<br>
+337=clockwise<br>
+361=clockwise<br>
+385=clockwise<br>
+409=counter-clockwise<br>
+433=clockwise<br>
+457=counter-clockwise<br>
+481=clockwise<br>
+505=counter-clockwise<br>
+529=clockwise<br>
+553=counter-clockwise<br>
+577=clockwise<br>
+601=counter-clockwise<br>
+If anybody can come up with a formula for that, please say so.</div></div>
+<div class="post" id="p392585"><div class="post-head"><a class="id" href="../t/20790.html#p392585">#392585</a> <span class="index">2</span> <span class="date">2007-12-23T05:17:39Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">How strange... I would never have guessed it was a timer!<br>
+Anyway, the points seem too unrelated to me. But here's a suggestion:<br>
+<br>
+If you base the random clockwise/counterclockwise motions upon the <a href="http://en.wikipedia.org/wiki/Thue-Morse_Sequence">Thue-Morse Sequence</a>, you'll get a more random result.</div></div>
+<div class="post" id="p392591"><div class="post-head"><a class="id" href="../t/20790.html#p392591">#392591</a> <span class="index">3</span> <span class="date">2007-12-23T05:32:14Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">This map gives a bit more of an in-depth look at the pattern, can badly slow down your computer though. <div class="attachment attachment-missing">Attachment (lost): post-11-1198387934.txt</div></div></div>
+<div class="post" id="p394767"><div class="post-head"><a class="id" href="../t/20790.html#p394767">#394767</a> <span class="index">4</span> <span class="date">2007-12-30T15:07:28Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">Hmmm. Load this map. All the chain guns end up in the right side, 3 zappers in the right (rest in left), and 3 lasers in the left (rest in right). <br>
+<br>
+NB. Behind every chain gun is a zapper and a laser drone. <div class="attachment attachment-missing">Attachment (lost): post-11-1199027248.txt</div></div></div>
+<div class="post" id="p394912"><div class="post-head"><a class="id" href="../t/20790.html#p394912">#394912</a> <span class="index">5</span> <span class="date">2007-12-31T03:46:09Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">Yeah, you can see that there is a pattern that develops. You can see that it starts out all turing anti-c, then the was two ant-c to one clockwise, then one each, then two clockwise to one anti-c and then all clockwise.</div></div>
+</main>
+</body>
+</html>

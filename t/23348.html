@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code not working - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Code not working</nav></header>
+<main>
+<div class="post" id="p20961"><div class="post-head"><a class="id" href="../t/23348.html#p20961">#20961</a> <span class="index">1</span> <span class="date">2008-07-31T07:26:18Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body">I'm working on my first flash game, and it's gone reasonably well so far. Physics are all working, however, for some reason, and I can't figure out why, shooting is not.<br>
+I got the code I use for shooting directly from a tutorial somewhere on the internet, so I'm not really sure how it works. It's all pretty basic stuff, but I'm pretty new to this, so I don't really get some of it. I'm fairly sure with most of it, not so much with the duplicateMovieClip() stuff.<br>
+<br>
+Anyway, here's the code on the bullet (instance name 'shota'):<br>
+<br>
+<pre class="code">onClipEvent(load)
+{
+	if(this._name=="shota")
+	{
+  this._visible=false;
+	}
+	else
+	{
+  this._visible=true;
+	}
+	this._x=_root.cursor_mc._x;
+	this._y=_root.cursor_mc._y;
+	shotaxspeed=20*Math.sin(_root.cursor_mc._rotation*(Math.PI/180));
+	shotayspeed=20*Math.cos(_root.cursor_mc._rotation*(Math.PI/180));
+}
+onClipEvent(enterFrame)
+{
+	this._x+=shotaxspeed;
+	this._y-=shotayspeed;
+	if(this._x&lt;-200)
+	{
+  this.removeMovieClip();
+	}
+	if(this._x&gt;1000)
+	{
+  this.removeMovieClip();
+	}
+	if(this._y&gt;800)
+	{
+  this.removeMovieClip();
+	}
+	if(this._y&lt;-200)
+	{
+  this.removeMovieClip();
+	}
+	
+	
+	
+
+}</pre><br>
+<br>
+And here's the code on the enemy "enemya" :<br>
+<br>
+<pre class="code">onClipEvent (enterFrame) {
+	if (_root.shota.hitTest(this)) {
+    	_root.score += 1;
+  _root.enemyahp -= 1;
+  }
+  
+
+}</pre><br>
+And lastly, the code on the player, 'cursor_mc'<br>
+<br>
+<pre class="code">onClipEvent(mouseDown) {
+	mousedown += 1;
+    if (_root.score &lt;= 499) {
+  _root.shota.duplicateMovieClip( "shota"+shotacount, shotacount+7000);
+    	_root["shota"+shotacount]._visible=true;
+    	shotacount++;
+    	if(shotacount&gt;100) {
+    shotacount=1;
+    	}
+	}
+}</pre><br>
+Anyway, when the bullets hit the enemy, they just go through it, and don't deal damage.<br>
+It's probably a dumb mistake, but like I said before, I'm not quite sure how the duplicateMovieClip stuff works.  <img class="smiley" src="../files/smilies/24.gif" alt="wth" title="wth"></div></div>
+<div class="post" id="p456604"><div class="post-head"><a class="id" href="../t/23348.html#p456604">#456604</a> <span class="index">2</span> <span class="date">2008-07-31T10:09:39Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">well, mc.duplicatemovieclip("myName",depth) is the format, it copies mc into a new movieclip with name "myName".<br>
+the name is shota+a number when duplicating<br>
+so testing for a hit with shota won't return a collision with that mc.<br>
+<br>
+To be honest, that's some pretty messy code. I would suggest a complete rewrite but barring that, an array of shots should work -- have a shot movieclip in your library, attach it to the stage when a shot is fired and store it in a variable in the array. Then for hit detection loop through the array.<br>
+<br>
+setting up the array:<br>
+var shotArray:Array=new Array()<br>
+<br>
+assigning a movieclip to an element of the array (replace i with a number)<br>
+shotArray[i]=_root.attachMovie(ID, name, depth)<br>
+<br>
+You may not have understood that, try reading up on it or i can walk you through the correct way to program this game.<br>
+<br>
+But really, you should look up some good programming principles and stuff. Movieclips and rendering stuff on screen should be discrete from the logic of your game. Also, I find it much more manageable to have all your code on the main timeline and not on individual movieclips.</div></div>
+<div class="post" id="p456615"><div class="post-head"><a class="id" href="../t/23348.html#p456615">#456615</a> <span class="index">3</span> <span class="date">2008-07-31T12:01:13Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, July 31, 2008 08:09 pm</a></div>well, mc.duplicatemovieclip("myName",depth) is the format, it copies mc into a new movieclip with name "myName".<br>
+the name is shota+a number when duplicating<br>
+so testing for a hit with shota won't return a collision with that mc.</blockquote><br>
+Ah yeah, thanks. I had a feeling that was where the problem was. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, 2008-07-31T10:09:39Z</a></div>To be honest, that's some pretty messy code.</blockquote><br>
+Yeah, I knew it probably would be. This is basically the first time I've used actionscript beyond gotoAndPlay, so a lot is just block pasted from various tutorials. ;_;<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, 2008-07-31T10:09:39Z</a></div> I would suggest a complete rewrite but barring that, an array of shots should work -- have a shot movieclip in your library, attach it to the stage when a shot is fired and store it in a variable in the array. Then for hit detection loop through the array.<br>
+<br>
+setting up the array:<br>
+var shotArray:Array=new Array()<br>
+<br>
+assigning a movieclip to an element of the array (replace i with a number)<br>
+shotArray<i>=_root.attachMovie(ID, name, depth)<br>
+<br>
+You may not have understood that, try reading up on it or i can walk you through the correct way to program this game.</i></blockquote><br>
+Yeah, I didn't understand that. ;_; I know I'm kinda saying the same thing over and over, but I really don't know what I'm doing half the time. Redoing it might be wise, I dunno, you probably have a much better idea than me.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, 2008-07-31T10:09:39Z</a></div>But really, you should look up some good programming principles and stuff. Movieclips and rendering stuff on screen should be discrete from the logic of your game. </blockquote>No idea what that means! ;_;<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, 2008-07-31T10:09:39Z</a></div>Also, I find it much more manageable to have all your code on the main timeline and not on individual movieclips.</blockquote><br>
+And yeah, I've heard that before, but I'd already started programming the game and didn't want to go back and do it again. Probably should have.</div></div>
+<div class="post" id="p456626"><div class="post-head"><a class="id" href="../t/23348.html#p456626">#456626</a> <span class="index">4</span> <span class="date">2008-07-31T13:31:34Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Imagine you have a group of objects. You know their names (for argument's sake, Apple, Banana and Pear). If you wanted to do something to all of them one after the other, you could hard-code it. Something like doStuff(Apple); doStuff(Banana); doStuff(Pear); etc. But what if you have a fourth thing? An array is a way of organising similar objects so you can do operations on them one at a time.<br>
+<br>
+So on the main timeline, put the code<br>
+<pre class="code">shotArray = new Array();</pre><br>
+Then, when you create a new shota instance (line 4 of the cursor_mc code), put the instance into the array by using<br>
+<pre class="code">this.index = shotArray.push(_root.shota.duplicateMovieClip( "shota"+shotacount, shotacount+7000)) - 1;</pre>We use the same code to add the movie clip, but we put it into the array using shotArray.push(), and store the index of the point in the movie clip's value this.index (which is a variable we made up).<br>
+<br>
+You also have to add some code to your main timeline code:<br>
+<pre class="code">remove = function(bul){
+    bul.removeMovieClip();
+    shotArray.splice(bul.index,1);
+};</pre>and then change all the lines in the bullet code that say "this.removeMovieClip()" to "remove(this)".<br>
+<br>
+Lastly, we need to make it so that your detection works on the bullets in their array. Change the code on enemya to:<br>
+<pre class="code">onClipEvent (enterFrame) {
+for(var i = 0;i &lt; shotArray.length;i++){
+    if (shotArray[i].hitTest(this)) {
+        _root.score += 1;
+        _root.enemyahp -= 1;
+        remove(shotArray[i]);
+    }
+}</pre><br>
+I think that should work, but note that it will get slow extremely quickly with lots of bullets and enemies! It has to do [#bullets] hitTests per enemy, so a total of [#bullets]x[#enemies] hitTests per frame. But really, it's as fast as such a system can be before optimising while still using hitTest becomes farcical.</div></div>
+<div class="post" id="p456997"><div class="post-head"><a class="id" href="../t/23348.html#p456997">#456997</a> <span class="index">5</span> <span class="date">2008-08-01T06:27:29Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yeah, that's a much more understandable explanation than mine. Expanding on that, you can very easily replace hittest by comparing the squared distance between the two objects to a precalculated length.<br>
+<br>
+Basically, if your bullets are just a point, and the enemies are circular-ish with a radius of 50 pixels, the distance code is:<br>
+<br>
+var xdist=bullet.x-enemy.x;<br>
+var ydist=bullet.y-enemy.y;<br>
+var dist_squared=xdist*xdist+ydist+ydist;<br>
+<br>
+that's pythagoras by the way.<br>
+<br>
+so if dist_squared is less than 50 squared (2500), then we have a collision<br>
+<br>
+I hope that was more clear than my last (very convoluted) explanation.</div></div>
+<div class="post" id="p457758"><div class="post-head"><a class="id" href="../t/23348.html#p457758">#457758</a> <span class="index">6</span> <span class="date">2008-08-03T04:07:58Z</span> <span class="author"><a href="../u/9374410.html">player03</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456604">Quote: mattk210, July 31, 2008 06:09 am</a></div>Also, I find it much more manageable to have all your code on the main timeline and not on individual movieclips.</blockquote>That depends whether or not the code is on the clip instances or within the clips themselves.<br>
+Putting code on every movie clip instance would make things hard to manage, but movie clips themselves can essentially substitute for classes and are quite useful for keeping track of things.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p456997">Quote: mattk210, August 01, 2008 02:27 am</a></div>var xdist=bullet.x-enemy.x;<br>
+var ydist=bullet.y-enemy.y;<br>
+var dist_squared=xdist*xdist+ydist<span style="color:RED">+</span>ydist;<br>
+<br>
+that's pythagoras by the way.</blockquote>Not quite. That + should be a *.<br>
+In order to use this instead of hitTest, make a function like this:<br>
+<pre class="code">function hitTestCircles(circle1, circle2){
+var xDist = circle1.x - circle2.x;
+var yDist = circle1.y - circle2.y;
+var distSquared = xDist*xDist + yDist*yDist;
+var combinedRadius = circle1.radius + circle2.radius;
+return(distSquared &lt;= combinedRadius * combinedRadius);
+}</pre>Define your bullet's radius to be 0 and your enemy's radius to be something reasonable. This must be done within the objects' movie clips.</div></div>
+<div class="post" id="p457776"><div class="post-head"><a class="id" href="../t/23348.html#p457776">#457776</a> <span class="index">7</span> <span class="date">2008-08-03T05:07:28Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p457758">Quote: player_03, August 03, 2008 02:07 pm</a></div> Not quite. That + should be a *.<br>
+ </blockquote>whoops; nice find<br>
+<br>
+for your replacement hittest, it should probably use _width, _x, _y etc instead of radius, x, y, because Clifty doesn't have variables for these things: he just directly accesses the mc.<br>
+<br>
+How about:<br>
+<pre class="code">MovieClip.prototype.new_hitTest=function(mc){
+var xDist = this._x - mc._x
+var yDist = this._y - mc._y
+var distSquared = xDist*xDist + yDist*yDist;
+var rad1=(this._width+this._height)/4
+var rad2=(mc._width+mc._height)/4
+var combinedRadius = rad1 + rad2
+return(distSquared &lt;=  combinedRadius * combinedRadius);
+}</pre>it approximates the radius with the average of width and height.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/23348.html#p457758">Quote: player03, 2008-08-03T04:07:58Z</a></div>That depends whether or not the code is on the clip instances or within the clips themselves.<br>
+Putting code on every movie clip instance would make things hard to manage, but movie clips themselves can essentially substitute for classes and are quite useful for keeping track of things.</blockquote><br>
+you can actually have classes in AS now. It comes down to personal preference but I think its simpler to be able to share code just by copypasting a block rather than explaining which code goes where etc. Also, it's a bit more efficient to have all the per-frame code in one "onEnterFrame" block instead of shared between all the frame events of every clip. Also it can be bothersome to access variables from other clips.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Sebioff - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374829.html">Sebioff</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p16437"><div class="post-head"><a class="id" href="../t/18603.html#p16437">#16437</a> <span class="index">1</span> <span class="date">2007-07-28T13:45:23Z</span> <span class="author"><a href="../u/9374829.html">Sebioff</a></span></div><div class="post-body">I'm not quite sure this is the right board or forum, but I've got a question regarding the lastest entry on the Blog and hope someone could help me... <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+So, I found the <a href="http://www.matthiasmueller.info/publications/posBasedDyn.pdf">Position Based Dynamics Paper</a> through the Blog, and since it looks really promising I tried implementing it.<br>
+<br>
+Now, I think I understood most of the content until page 5, and the implementation works nice:<br>
+<a href="http://www.rakuun.de/Stuff/PBD/applet.html">Demo</a> (Java Applet, JRE 1.6 required)<br>
+<br>
+Now I'm really stuck at 3.4.: Collision Detection and Response (page 5).<br>
+What I have is a bunch of Vertex and Constraint-Objects.<br>
+As in line 8 of the algorithm I've got a loop which checks each Vertex against each Constraint. The entry point qc and the surface normal nc are calculated<br>
+(One question here: since I'm working in 2D the "surface normal at this [entry] point" (as it is formulated in the paper) is nothing more than the orthogonal vector to the Constraint which has the same length as the constraint and starts at the entry point, right?).<br>
+<br>
+For the correction delta_p I need the derivative of the constraint function which is C(p) = (p-qc) * nc for the collision constraints, resulting in a derivative of nc (is that correct?).<br>
+In the end I've got delta_p = -((p-qc) * nc) / |nc|<br>
+This doesn't seem to be correct (shouldn't I get a vector?) and it's not working.<br>
+<br>
+I can't find the mistake, can someone help me?</div></div>
+</main>
+</body>
+</html>

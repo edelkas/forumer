@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by mistercrabb - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9371352.html">mistercrabb</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p122615"><div class="post-head"><a class="id" href="../t/6079.html#p122615">#122615</a> <span class="index">7</span> <span class="date">2005-12-13T16:45:23Z</span> <span class="author"><a href="../u/9371352.html">mistercrabb</a></span></div><div class="post-body">you made it with gamemaker, didnt you? I can tell <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Not actually that bad, nice graphics compared to what most people use, anyway</div></div>
+<div class="post" id="p130798"><div class="post-head"><a class="id" href="../t/6079.html#p130798">#130798</a> <span class="index">17</span> <span class="date">2006-01-08T15:20:18Z</span> <span class="author"><a href="../u/9371352.html">mistercrabb</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6079.html#p129306">Quote: TwistClock, 2006-01-02T20:49:04Z</a></div>Yes and a warning: GAME MAKER IS BLOODY HARD TO USE.</blockquote>Its easy... <br>
+<pre class="code">if keyboard_check_direct(vk_left)=false
+{if shiprotspeed&gt;0 
+{shiprotspeed=(shiprotspeed/1.1)
+if shiprotspeed&lt;2 then shiprotspeed=0}
+}
+if keyboard_check_direct(vk_right)=false
+{if shiprotspeed&lt;0 {shiprotspeed=(shiprotspeed/1.1)
+if shiprotspeed&gt;-2 then shiprotspeed=0}
+}
+
+if shiprotspeed&gt;44 then shiprotspeed=44
+if shiprotspeed&lt;-44 then shiprotspeed=-44
+shipdir=shipdir+shiprotspeed
+
+if speed&gt;8 then speed=8
+image_index=shipdir/5
+
+if reload&lt;100 then reload+=1
+if !keyboard_check(ord('k'))
+{
+if abf&lt;1 then recharge=true
+if recharge=true
+{abf+=1}
+}
+if abf=1000 recharge=false</pre>See? perfectly simple.<br>
+P.S. if anyone wants help with it either pm me or go to forums.gamemaker.nl</div></div>
+<div class="post" id="p6338"><div class="post-head"><a class="id" href="../t/6946.html#p6338">#6338</a> <span class="index">1</span> <span class="date">2006-01-21T12:21:36Z</span> <span class="author"><a href="../u/9371352.html">mistercrabb</a></span></div><div class="post-body">hi everyone... seeing that quite a lot of you use gamemaker, i decided to post my game made with gamemaker. Its my first game i made (sometime last year) and i havent made any more yet (im so lazy...).<br>
+Its called rat shoot. Basicly, you look around the room with the arrow keys, and click to shoot. Kill those rats! <br>
+<a href="http://host-a.net/getfile.php?usern=mistercrabb&amp;file=Rat%20Shoot.zip">Clicky</a><br>
+filesize=3.03mb<br>
+comments welcome  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+Oooh, and play till the time runs out and see if you can unlock the machine gun. Read the help file (click help on the main menu) fo full instructions.</div></div>
+</main>
+</body>
+</html>

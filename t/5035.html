@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to solve what may be wrong with NUMA. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/36.html">NUMA Discussion</a> &rsaquo; How to solve what may be wrong with NUMA.</nav></header>
+<main>
+<div class="post" id="p4588"><div class="post-head"><a class="id" href="../t/5035.html#p4588">#4588</a> <span class="index">1</span> <span class="date">2005-10-02T22:55:04Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Okay. Seeing as Arachnid's thread about this was totally hijacked, I'm starting a new one.<br>
+<br>
+Now, in order to be dissatisfied with NUMA, there must be problems with it, right?<br>
+To solve these problems, we must first define what they are. We must form a consensus about what these problems are, if we are to solve them to the greatest satisfaction of the community.<br>
+<br>
+We're not done yet. In order to help figure out solutions, we must trace the causes of these problems. Why do these problems occur?<br>
+<br>
+After this, we can finally start thinking about solutions. We should think up as many solutions as possible, and make sure to say which problems they attempt to solve, and which causes of those problems they are supposed to alleviate.<br>
+<br>
+Next, we can start to narrow the list of solutions, until we have the list of the most effective and most pleasing solutions to the problems. Hopefully we can narrow it down so that we have just enough solutions to solve the problems.<br>
+<br>
+Okay. So, four steps. But one additional one. We need to decide, is this the right path for us to fix the problems that we have? Please, only respond to the step that we are on.<br>
+<br>
+1. Decide if steps in path (i.e. 2-6) are correct path to fix problems.<br>
+--- Done.<br>
+<b>2. Define what problems are.</b><br>
+3. Define causes of the problems.<br>
+4. Brainstorm solutions to the problems and the causes.<br>
+5. Define all modes of failure of all possible solutions.<br>
+6. Narrow down list and select solutions.<br>
+<br>
+I will try to edit my post to reflect what's going on and summarise what's happened.<br>
+I will ask mods to ruthlessly get rid of posts that are not on what step we are on, especially if they are ahead of where we are. If people have problems with what has already been decided, we might have to go back and fix some stuff and/or add things.<br>
+<br>
+<b>Right now we are on step two. Post any problems with NUMA that you have. PROBLEMS ONLY, NOT SOLUTIONS YET. THAT'S TWO STEPS LATER.</b> I'll try to congeal them into a definitive list.<br>
+<br>
+[EDITED;] Added step 5 inbetween 4 and 6, old 5 is now 6, as per <a href="../t/5035.html">Templex's suggestion</a><br>
+[EDITED:] Reworded step 1 to try to reduce confusion.</div></div>
+<div class="post" id="p105040"><div class="post-head"><a class="id" href="../t/5035.html#p105040">#105040</a> <span class="index">2</span> <span class="date">2005-10-02T23:01:08Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">You should add after 4:<br>
+List all the possible failures of all solutions.</div></div>
+<div class="post" id="p105042"><div class="post-head"><a class="id" href="../t/5035.html#p105042">#105042</a> <span class="index">3</span> <span class="date">2005-10-02T23:02:23Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Shouldn't #1 be after #3?</div></div>
+<div class="post" id="p105043"><div class="post-head"><a class="id" href="../t/5035.html#p105043">#105043</a> <span class="index">4</span> <span class="date">2005-10-02T23:05:59Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Templex: Good idea. I was thinking this could be part of step 5, but it is probably useful to have it seperated out. I'll edit my post.<br>
+<br>
+Trogdor: I see how you're getting confused. Step 1 means to validate the procedure. We're not looking for solutions at this point, but a method to get from recognising that there are problems to implementing the solutions. My steps are a first attempt, and I'm looking to see if people agree that's how we need to get there.</div></div>
+<div class="post" id="p105047"><div class="post-head"><a class="id" href="../t/5035.html#p105047">#105047</a> <span class="index">5</span> <span class="date">2005-10-02T23:11:26Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Shouldn't we know the problems before we find a solution?</div></div>
+<div class="post" id="p105050"><div class="post-head"><a class="id" href="../t/5035.html#p105050">#105050</a> <span class="index">6</span> <span class="date">2005-10-02T23:15:16Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Yes. That's why step 2 comes next. I don't mean to be rude, but did you read all of the first post?<br>
+We have to decide how we are going to come up with and decide on solutions before we can come up with and decide on solutions. The first step is to see, are the steps I've described the steps that we need? Yes, or, if no, what needs to be changed?</div></div>
+<div class="post" id="p105051"><div class="post-head"><a class="id" href="../t/5035.html#p105051">#105051</a> <span class="index">7</span> <span class="date">2005-10-02T23:16:05Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">I read it all, I just feel that two should go before one.</div></div>
+<div class="post" id="p105054"><div class="post-head"><a class="id" href="../t/5035.html#p105054">#105054</a> <span class="index">8</span> <span class="date">2005-10-02T23:22:14Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Okay. I tried to change #1 to see if it lessens confusion about what it is.<br>
+<br>
+Argh, I didn't expect there to be a problem with step 1 being first. It doesn't make sense to have it any other way, to me.</div></div>
+<div class="post" id="p105065"><div class="post-head"><a class="id" href="../t/5035.html#p105065">#105065</a> <span class="index">9</span> <span class="date">2005-10-03T00:21:51Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Ok, that works.  Sorry for the confusion.</div></div>
+<div class="post" id="p105070"><div class="post-head"><a class="id" href="../t/5035.html#p105070">#105070</a> <span class="index">10</span> <span class="date">2005-10-03T00:35:59Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">General Problem Solving Thread Template A<br>
+<br>
+Ahem. Anyway, I totally agree with everything you said in your post, AlliedEnvy. I agree with step 1.</div></div>
+<div class="post" id="p105093"><div class="post-head"><a class="id" href="../t/5035.html#p105093">#105093</a> <span class="index">11</span> <span class="date">2005-10-03T02:07:37Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Despite not wanting to just go with whatever is presented, so as to seperate myself from the clueless majority who just goes along with whoever was the last person to provide a strong arguement, I can't find anything wrong with that.  It seems solid.</div></div>
+<div class="post" id="p105154"><div class="post-head"><a class="id" href="../t/5035.html#p105154">#105154</a> <span class="index">12</span> <span class="date">2005-10-03T07:18:26Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Slack members, who only look for certain names or 'pretty' tilesets.<br>
+A huge number of maps, so that rating a days worth can take an hour or more.</div></div>
+<div class="post" id="p105159"><div class="post-head"><a class="id" href="../t/5035.html#p105159">#105159</a> <span class="index">13</span> <span class="date">2005-10-03T07:46:59Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Looks like we're ready for step two. Remember guys, we're only on step two. We need to be able to get as many ideas as possible. I'll edit my first post.</div></div>
+<div class="post" id="p105160"><div class="post-head"><a class="id" href="../t/5035.html#p105160">#105160</a> <span class="index">14</span> <span class="date">2005-10-03T07:50:49Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Just for the record, me and Arachnid are currently talking about the training ground solution. Hopefully it'll be in place in some form or another eventually... if you have any comments to do with it, feel free to PM me.</div></div>
+<div class="post" id="p105167"><div class="post-head"><a class="id" href="../t/5035.html#p105167">#105167</a> <span class="index">15</span> <span class="date">2005-10-03T08:20:49Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">*whacks sweep with a rolled-up newspaper*<br>
+<br>
+Bad sweep! We're not on step 4, we're on step 2! Save it for later!</div></div>
+<div class="post" id="p105170"><div class="post-head"><a class="id" href="../t/5035.html#p105170">#105170</a> <span class="index">16</span> <span class="date">2005-10-03T08:29:23Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><b>Problem:</b> This might be just me, but I think the Newest page is almost becoming obsolete. There are so many maps submitted each day that they often go unrated. Right at this moment, 26 of the newest 100 maps are rated (which is actually a lot more than I expected), but the maps that don't have ratings only have one or two votes on them.<br>
+<br>
+I, personally, spend more time in the Random and Suggested maps pages.</div></div>
+<div class="post" id="p105171"><div class="post-head"><a class="id" href="../t/5035.html#p105171">#105171</a> <span class="index">17</span> <span class="date">2005-10-03T08:32:09Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Organise a rating marathon with a certain target number to be rated per person.</div></div>
+<div class="post" id="p105172"><div class="post-head"><a class="id" href="../t/5035.html#p105172">#105172</a> <span class="index">18</span> <span class="date">2005-10-03T08:41:30Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Is that a problem, Maestro? NO! WE'RE NOT TO STEP FOUR PEOPLE! How many times do I have to say it?<br>
+<br>
+Argh. I'm trying not to flame. I really am. Sorry.</div></div>
+<div class="post" id="p105173"><div class="post-head"><a class="id" href="../t/5035.html#p105173">#105173</a> <span class="index">19</span> <span class="date">2005-10-03T08:45:00Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Sweep already had the training ground idea before the Patented AlliedEnvy 5 (Or 6) Step Program.</div></div>
+<div class="post" id="p105174"><div class="post-head"><a class="id" href="../t/5035.html#p105174">#105174</a> <span class="index">20</span> <span class="date">2005-10-03T08:57:54Z</span> <span class="author"><a href="../u/9370659.html">AlliedEnvy</a></span></div><div class="post-body">Yes, I know, I've read about it. I think it could be a good idea. But it doesn't have a place in this thread yet. Can y'all please save the solutions until <u>we've defined what problems we're trying to solve</u>?</div></div>
+<div class="post" id="p105175"><div class="post-head"><a class="id" href="../t/5035.html#p105175">#105175</a> <span class="index">21</span> <span class="date">2005-10-03T09:03:14Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Okay, I'll try to contribute.  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+<b>Problem:</b> People giving extreme ratings to maps, either snipering with very low scores or over-rating with very high scores.<br>
+<br>
+I have an idea, but I'll keep that to myself for the time being.</div></div>
+<div class="post" id="p105176"><div class="post-head"><a class="id" href="../t/5035.html#p105176">#105176</a> <span class="index">22</span> <span class="date">2005-10-03T09:26:20Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Alright, fair enough. You probably should relax a bit though - this is a forum thread, not a lecture.<br>
+<br>
+I do appreciate what you're trying to do though.<br>
+<br>
+/edit: I like that rating marathon idea.</div></div>
+<div class="post" id="p105185"><div class="post-head"><a class="id" href="../t/5035.html#p105185">#105185</a> <span class="index">23</span> <span class="date">2005-10-03T10:26:11Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><b>Problem:</b> People have recently been swearing in comments, or otherwise being very dirty in their maps or presence. There's a 5-year old on the site, for goodness sake!</div></div>
+<div class="post" id="p105191"><div class="post-head"><a class="id" href="../t/5035.html#p105191">#105191</a> <span class="index">24</span> <span class="date">2005-10-03T10:46:57Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Oh, the one M &amp; R made a thread about?  I liked his maps.<br>
+<br>
+<b>PROBLEM</b>-  Members have followed certain authors, and give their maps 0s, no matter what.  They wait for a new map, just to crap on it.</div></div>
+<div class="post" id="p105219"><div class="post-head"><a class="id" href="../t/5035.html#p105219">#105219</a> <span class="index">25</span> <span class="date">2005-10-03T14:15:43Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Yeah well, quite often it is zero worthy. Someone who makes a zero map, is likely to make another, or one pretty close to a zero. The same problem exists with people giving high ratings just cause they know the author.</div></div>
+<div class="post" id="p105763"><div class="post-head"><a class="id" href="../t/5035.html#p105763">#105763</a> <span class="index">26</span> <span class="date">2005-10-05T17:45:57Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">One major problem-<br>
+We need more than 10 maps on one webpage...<br>
+solution is obvious...<br>
+failure of this is that the loading time for each webpage should be more.<br>
+<br>
+ As a footnote:<br>
+I'm aware that you can do this by modifying the "count" part of the website.  but I think the default count should be more than 10...just a thought</div></div>
+<div class="post" id="p105766"><div class="post-head"><a class="id" href="../t/5035.html#p105766">#105766</a> <span class="index">27</span> <span class="date">2005-10-05T18:54:29Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/5035.html#p105763">Quote: Jiggerjaw12358, Oct 5 2005, 10:45 AM</a></div> One major problem-<br>
+We need more than 10 maps on one webpage...<br>
+solution is obvious...<br>
+failure of this is that the loading time for each webpage should be more.<br>
+<br>
+ As a footnote:<br>
+I'm aware that you can do this by modifying the "count" part of the website.  but I think the default count should be more than 10...just a thought </blockquote>You're only supposed to be presenting problems right now, we'll get to the arguements and possible solutions later.<br>
+<br>
+(Although, I already have an argument against this. Arachnid once said that only a small percentage of visitors ever even click on to the second page. Doubling the server load on the front page just to satisfy a small percent of users wouldn't be worth it.)<br>
+<br>
+<b>Edit:</b> Over 70% of page visits on Numa are to that first page in Newest.</div></div>
+<div class="post" id="p105768"><div class="post-head"><a class="id" href="../t/5035.html#p105768">#105768</a> <span class="index">28</span> <span class="date">2005-10-05T19:23:41Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body"><b>Problem:</b><br>
+<br>
+It is currently too easy to cheat the rating system, whether by multi-accounting or by other means.</div></div>
+<div class="post" id="p105794"><div class="post-head"><a class="id" href="../t/5035.html#p105794">#105794</a> <span class="index">29</span> <span class="date">2005-10-05T22:56:01Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body"><b>Problem:</b><br>
+<br>
+NUMA n00bs aren't educated enough about N and how to make good maps.</div></div>
+<div class="post" id="p105811"><div class="post-head"><a class="id" href="../t/5035.html#p105811">#105811</a> <span class="index">30</span> <span class="date">2005-10-06T00:10:36Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body"><b>Problem:</b> Your face. Hahahahah!<br>
+<br>
+No, but seriously.<br>
+<br>
+<b>Problem:</b> People just don't know what constitutes a good map. A map that isn't fun in the least bit/has had all of thirty seconds dedicated to making it is given a five by someone, while a well thought out highly fun map is given a three, because they 'don't think the room looks pretty enough' or something along those lines.<br>
+<br>
+I've actually seen a guy give an absolutely horrid map a 5, while later he gave a great map a three.</div></div>
+<div class="post" id="p105820"><div class="post-head"><a class="id" href="../t/5035.html#p105820">#105820</a> <span class="index">31</span> <span class="date">2005-10-06T01:04:57Z</span> <span class="author"><a href="../u/9370990.html">GamingWolf</a></span></div><div class="post-body"><b>Problem</b><br>
+<br>
+On many maps too many people vote without leaving a comment<br>
+<br>
+I'm just putting that out on the table.<br>
+<br>
+EDIT: I'm just saying that it is a problem... we must disregard the outcomes for now.</div></div>
+<div class="post" id="p105916"><div class="post-head"><a class="id" href="../t/5035.html#p105916">#105916</a> <span class="index">32</span> <span class="date">2005-10-06T11:09:06Z</span> <span class="author"><a href="../u/9371105.html">orange_tetris</a></span></div><div class="post-body">OMG!  If I post to tell someone what's wrong with their maps, they just get annoyed and don't change anything! <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+ <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:"> I'm sure people get sniped because of this.  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> <br>
+<br>
+Let's force people to take our advice! <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono"></div></div>
+<div class="post" id="p106031"><div class="post-head"><a class="id" href="../t/5035.html#p106031">#106031</a> <span class="index">33</span> <span class="date">2005-10-07T00:26:55Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">Another problem.<br>
+<br>
+Some noobs go about commenting on other people's maps, giving crud advice that will actually make them worse instead of better, an example would be Chaotix. He's giving advice that'll lead noobs to the <i>wrong</i> direction. Not really a concern though.<br>
+<br>
+Another problem.<br>
+<br>
+Ratings don't reflect the actual map itself, they're mostly based on the author's popularity(hehe, I'm innocent!), overratings, underratings, and eh, cheating.</div></div>
+<div class="post" id="p106267"><div class="post-head"><a class="id" href="../t/5035.html#p106267">#106267</a> <span class="index">34</span> <span class="date">2005-10-07T23:18:32Z</span> <span class="author"><a href="../u/9371061.html">Pitch</a></span></div><div class="post-body">Just thought I'd sum up all the problems (I can't think of anymore, maybe move onto solutions some time soon?)<br>
+<br>
+1. Slack members, who only look for certain names or 'pretty' tilesets.<br>
+<br>
+2. the Newest page is almost becoming obsolete. There are so many maps submitted each day that they often go unrated.<br>
+<br>
+3. People giving extreme ratings to maps, either snipering with very low scores or over-rating with very high scores.<br>
+<br>
+4. People have recently been swearing in comments, or otherwise being very dirty in their maps or presence.<br>
+<br>
+5. Members have followed certain authors, and give their maps 0s, no matter what. They wait for a new map, just to crap on it. (similar to 3)<br>
+<br>
+6. Only 10 Maps allowed on a page<br>
+<br>
+7. It is currently too easy to cheat the rating system, whether by multi-accounting or by other means. <br>
+<br>
+8. NUMA n00bs aren't educated enough about N and how to make good maps. <br>
+<br>
+9. People just don't know what constitutes a good map. A map that isn't fun in the least bit/has had all of thirty seconds dedicated to making it is given a five by someone, while a well thought out highly fun map is given a three, because they 'don't think the room looks pretty enough' or something along those lines.<br>
+<br>
+10. On many maps too many people vote without leaving a comment<br>
+<br>
+11. Some noobs go about commenting on other people's maps, giving crud advice that will actually make them worse instead of better<br>
+<br>
+12. Ratings don't reflect the actual map itself, they're mostly based on the author's popularity(hehe, I'm innocent!), overratings, underratings, and eh, cheating. <br>
+<br>
+(copy and paste)</div></div>
+<div class="post" id="p106284"><div class="post-head"><a class="id" href="../t/5035.html#p106284">#106284</a> <span class="index">35</span> <span class="date">2005-10-08T01:43:37Z</span> <span class="author"><a href="../u/9370729.html">Teedle</a></span></div><div class="post-body">Yeah.... I've thought for ages that 20 maps on the front page would be more likely to get a few more maps rated, or at least "out there", enough to be seen.</div></div>
+<div class="post" id="p106299"><div class="post-head"><a class="id" href="../t/5035.html#p106299">#106299</a> <span class="index">36</span> <span class="date">2005-10-08T03:12:37Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">Another problem:<br>
+<br>
+<br>
+Spamming of n00b maps, spamming on comments, and creating maps with such horrendous load time that while you watch it load you pull out a pistol to shoot yourself.<br>
+<br>
+{Edit}  I'll move this last section to a later comment, read it if you want, it's about solutions, I didn't realize that this was a serious step-by-step procedure<br>
+Say you we go to possible solutions?<br>
+<br>
+<br>
+If so, definately the swearing, dirty comment content, dirty map content can definately be fixed, simply by monitoring this kind of stuff, perhaps creating a warnings system, in which a dirty comment, map, or the like will get 1 strike.  3 strikes=ban.  I'm not suggesting exactly that, but something of the like would be effective for wading out the crap like maps such as 'sex with a girl' and 'PENIS' (and yes, I'm aware these users were banned, but these maps came to mind for a reference to future maps).  A warning system like this could also be applied to fix ^^ that problem ^^<br>
+<br>
+<br>
+The 10 maps per page thing is fixed by a simple web page format modification.<br>
+<br>
+<br>
+To solve problem #5 on Pitch's list, (and this is just shooting the breeze) we could possibly eliminate the anonymity of ratings, telling the creater who rated their map what, when.  This, I know, is a controversial suggestion, as so many spite votes are given every day, but you never know.  People who catch spite voting on many of their maps PM Arachnid, and he gets 'em banned.<br>
+<br>
+<br>
+Other than that...nothing I can think of.  Hope I helped a bit.</div></div>
+<div class="post" id="p106315"><div class="post-head"><a class="id" href="../t/5035.html#p106315">#106315</a> <span class="index">37</span> <span class="date">2005-10-08T03:48:19Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">I don't think it's time to look at the solutions yet. We'll probably consolidate several of the problems before we look at solutions. In the end, we'll want as few changes as possible so we can present them to Arachnid for approval and implementation.</div></div>
+<div class="post" id="p106317"><div class="post-head"><a class="id" href="../t/5035.html#p106317">#106317</a> <span class="index">38</span> <span class="date">2005-10-08T04:07:28Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">gotcha!  I edited it ^^ see? ^^</div></div>
+</main>
+</body>
+</html>

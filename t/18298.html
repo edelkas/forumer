@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thwumps?? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Thwumps??</nav></header>
+<main>
+<div class="post" id="p16143"><div class="post-head"><a class="id" href="../t/18298.html#p16143">#16143</a> <span class="index">1</span> <span class="date">2007-07-09T18:51:28Z</span> <span class="author"><a href="../u/9374637.html">Etz</a></span></div><div class="post-body">I know the bug with the thwumps:<br>
+<br>
+<br>
+Place them with the blue side in the wall, tap them and they go off backwards.<br>
+But i cant do that when the thwump is placed with the blue side downwards. He doesnt lift off.<br>
+Plaese help.<br>
+<br>
+<br>
+------GOT IT--------</div></div>
+<div class="post" id="p343838"><div class="post-head"><a class="id" href="../t/18298.html#p343838">#343838</a> <span class="index">2</span> <span class="date">2007-07-16T20:54:53Z</span> <span class="author"><a href="../u/9374334.html">mr_pac</a></span></div><div class="post-body">try tampering with z-snap.</div></div>
+<div class="post" id="p343841"><div class="post-head"><a class="id" href="../t/18298.html#p343841">#343841</a> <span class="index">3</span> <span class="date">2007-07-16T20:56:22Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18298.html#p343838">Quote: mr_pac, July 16, 2007 04:54 pm</a></div> try tampering with z-snap.  </blockquote> <br>
+ He already stated that he figured it out, but thanks for trying to help him anyways.</div></div>
+<div class="post" id="p344044"><div class="post-head"><a class="id" href="../t/18298.html#p344044">#344044</a> <span class="index">4</span> <span class="date">2007-07-17T07:39:52Z</span> <span class="author"><a href="../u/9374575.html">writetyper</a></span></div><div class="post-body">never heard of this bug, so i don't know how to help. is this the one in the userlevel claustrophobia by brickman?</div></div>
+<div class="post" id="p344076"><div class="post-head"><a class="id" href="../t/18298.html#p344076">#344076</a> <span class="index">5</span> <span class="date">2007-07-17T10:45:57Z</span> <span class="author"><a href="../u/9374157.html">mistaken72</a></span></div><div class="post-body">I love the fact that you can activate it just by going past it.<br>
+<br>
+*unrelated*: Totally adore and drool over ur sig, Twistkill. What game is that?</div></div>
+<div class="post" id="p344138"><div class="post-head"><a class="id" href="../t/18298.html#p344138">#344138</a> <span class="index">6</span> <span class="date">2007-07-17T14:38:37Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18298.html#p344076">Quote: mistaken72, July 17, 2007 06:45 am</a></div> *unrelated*: Totally adore and drool over ur sig, Twistkill. What game is that? </blockquote>The guy in my avy is Moby Psymon, the guy on the left side of my sig is Mac, both from <a href="http://en.wikipedia.org/wiki/SSX_3">SSX 3.</a> The guy on the right in my signature is also Mac, but it's the one from <a href="http://en.wikipedia.org/wiki/SSX_On_Tour">SSX On Tour.</a> <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p347803"><div class="post-head"><a class="id" href="../t/18298.html#p347803">#347803</a> <span class="index">7</span> <span class="date">2007-07-27T01:02:56Z</span> <span class="author"><a href="../u/9374549.html">Thomas</a></span></div><div class="post-body">Where's Psymon? WWWHHHEEERRREEE'SSS PSSSYYYMMMOOONNN???<br>
+<br>
+(On-topic) - I find that the thuump glitch doesn't always work. I don't know why. (And I try with tampering with z-snap and using x-snap)</div></div>
+<div class="post" id="p347908"><div class="post-head"><a class="id" href="../t/18298.html#p347908">#347908</a> <span class="index">8</span> <span class="date">2007-07-27T07:46:12Z</span> <span class="author"><a href="../u/9373719.html">fingersonthefrets</a></span></div><div class="post-body">it has to be one z snap above or to the left and just x snap for down and right</div></div>
+<div class="post" id="p347935"><div class="post-head"><a class="id" href="../t/18298.html#p347935">#347935</a> <span class="index">9</span> <span class="date">2007-07-27T09:02:39Z</span> <span class="author"><a href="../u/9374296.html">Mr__X</a></span></div><div class="post-body">It works as such. You place a thwump half-snapped inside a tile. Then, you edit the code so the thwump is moved one pixel AWAY from the tile.<br>
+<br>
+The code for a thwump is 8^X, Y, N<br>
+<br>
+For up facing thwumps: add 1 to Y<br>
+For down: subtract 1 from Y<br>
+Left: add 1 to X<br>
+Right: subtract 1 from X<br>
+<br>
+It should work every time, without having to use Z snapping.</div></div>
+</main>
+</body>
+</html>

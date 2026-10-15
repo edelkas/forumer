@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by the_V_dude - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370982.html">the_V_dude</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p3630"><div class="post-head"><a class="id" href="../t/3993.html#p3630">#3630</a> <span class="index">1</span> <span class="date">2005-07-10T09:44:14Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Well, I figured out how THWUMPER'S numbers go...<br>
+<br>
+<span style="color:BLUE">!</span><span style="color:RED">8^</span><span style="color:PURPLE">420</span>,<span style="color:ORANGE">540</span>,<span style="color:GREEN">1</span><br>
+<br>
+The <b><span style="color:BLUE">!</span></b> tells N that's its something new, the <b><span style="color:RED">8^</span></b> tells N it's a thwumper and it's about to give location, the <b><span style="color:PURPLE">420</span></b> is it's position on the X axis, the <b><span style="color:ORANGE">540</span></b> is it's position on the Y axis, and the <b><span style="color:GREEN">1</span></b> is the direction the thwumper is facing.<br>
+<br>
+If you change the <b><span style="color:GREEN">1</span></b> to anything other than <b>1-4</b>, it'll shock from YOUR right, computer screen's left.<br>
+<br>
+Now, you can make tiles like this, makes walls like this...<br>
+<br>
+I made a crappy little teleport, added some stuff, made a WALL OF EVIL and a shock block...<br>
+<br>
+So far I haven't figured out how to make it shock up, down, or your left, computers right without the thwumper moving. I've tried BIG numbers, I've tried NEGATIVE numbers, it never works.<br>
+<br>
+Anyway, my level code is:<br>
+<pre class="code">000000000000000000N0000000000000000000000N0000000000000000000000 N0000000000000000000000N0000000000000000000000N0000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000001000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 00000000000000000000000|5^252,36!7^36,72,3!7^60,72,3!7^84,72,3!7^108,72,3!7 ^132,72,3!7^156,72,3!7^180,72,3!7^204,72,3!7^228,72,3!2^252,60,0,32!2^252,540 ,0,-1!2^756,576,0,-1.5!8^494,540,5!1^300,492!1^204,492!1^660,348!8^14,570,5!8^ 14,550,5!8^14,530,5!8^14,510,5!8^14,490,5!0^72,192!0^72,204!0^72,216!0^84,228 !0^96,216!0^96,204!0^108,228!0^120,216!0^120,204!0^120,192!0^114,222!0^102, 222!0^90,222!0^78,222!0^72,210!0^72,198!0^96,210!0^120,210!0^120,198!0^150, 192!0^156,192!0^162,192!0^144,198!0^138,204!0^138,210!0^138,216!0^138,228!0 ^138,222!0^144,216!0^150,216!0^156,216!0^168,198!0^174,204!0^174,210!0^174 ,216!0^174,222!0^174,228!0^162,216!0^168,216!0^192,198!0^192,192!0^192,204! 0^192,210!0^192,216!0^192,222!0^192,228!0^198,228!0^204,228!0^210,228!0^21 6,228!0^234,192!0^234,198!0^234,204!0^234,210!0^234,216!0^234,222!0^234,228 !0^240,228!0^246,228!0^246,228!0^252,228!0^258,228!0^120,270!0^126,270!0^13 2,270!0^138,276!0^114,276!0^114,282!0^114,288!0^114,294!0^114,300!0^114,306 !0^120,312!0^126,312!0^132,312!0^138,306!0^138,300!0^138,294!0^138,288!0^13 8,282!0^162,270!0^162,276!0^162,282!0^162,288!0^162,294!0^162,300!0^162,306 !0^162,312!0^168,270!0^174,270!0^180,270!0^186,270!0^168,288!0^174,288!0^18 0,288!0^72,342!0^72,348!0^72,354!0^72,360!0^72,366!0^72,372!0^72,378!0^78,37 8!0^84,378!0^90,378!0^96,378!0^78,342!0^84,342!0^90,342!0^96,342!0^78,360!0^ 84,360!0^90,360!0^114,342!0^114,348!0^114,354!0^114,360!0^114,366!0^120,372! 0^126,378!0^132,372!0^138,366!0^138,360!0^138,354!0^138,348!0^138,342!0^156 ,342!0^162,342!0^168,342!0^174,342!0^180,342!0^168,348!0^168,354!0^168,360!0 ^168,366!0^168,372!0^168,378!0^162,378!0^156,378!0^174,378!0^180,378!0^198, 342!0^198,348!0^198,354!0^198,366!0^198,360!0^198,372!0^198,378!0^204,378!0 ^210,378!0^216,378!0^222,378!0^42,456!0^42,450!0^42,444!0^42,438!0^42,432!0 ^48,456!0^54,456!0^60,456!0^66,456!0^48,450!0^54,444!0^60,438!0^66,432!0^72 ,426!0^78,420!0^84,414</pre><br>
+Delete spaces as needed. (I didn't feel like stretching the page)<br>
+<br>
+Also, if you put a launch pad at ground level, and change it to -1.5 going up, you'll make it to the top of the level.<br>
+<br>
+If you put it in a corner and wallkick/launch, you'll die from the top!</div></div>
+<div class="post" id="p82541"><div class="post-head"><a class="id" href="../t/3993.html#p82541">#82541</a> <span class="index">3</span> <span class="date">2005-07-10T11:35:19Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">That's because I had to add spaces, I have this on NUMA, called Wall of Doom in testing.<br>
+<br>
+I'd make one with all the walls bugged, but I can't get it so it faces up, down, or my left...</div></div>
+<div class="post" id="p82542"><div class="post-head"><a class="id" href="../t/34.html#p82542">#82542</a> <span class="index">21</span> <span class="date">2005-07-10T11:42:21Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I could make this happen on purpose!<br>
+<br>
+I could make N's outside, I could put ANYTHING outside the border, or I could hide it under the border, like with my level, BOING!<br>
+<br>
+I put modified launch pads JUST beneath the ground, so they hit you up, but you don't see them.<br>
+<br>
+I modified them to -1.5, just enough to not kill you! <div class="attachment attachment-missing">Attachment (lost): post-11-1120995741.txt</div></div></div>
+<div class="post" id="p82545"><div class="post-head"><a class="id" href="../t/2872.html#p82545">#82545</a> <span class="index">5</span> <span class="date">2005-07-10T12:00:29Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Copy what you have as the original, then if you die, paste that in the thing, click somewhere, and hit L.</div></div>
+<div class="post" id="p82629"><div class="post-head"><a class="id" href="../t/3993.html#p82629">#82629</a> <span class="index">6</span> <span class="date">2005-07-10T20:46:39Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">It's on NUMA, let me find it...<br>
+<br>
+The teleporter works fine for me...<br>
+<br>
+EDIT: Found it, <a href="https://www.nmaps.net/10328">Wall Of DOOM!</a></div></div>
+<div class="post" id="p86127"><div class="post-head"><a class="id" href="../t/2682.html#p86127">#86127</a> <span class="index">170</span> <span class="date">2005-07-26T03:11:10Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I suck, I can't get 5-0, the damn mines on the wall at the end...<br>
+<br>
+Stupid fucking mines...</div></div>
+<div class="post" id="p86360"><div class="post-head"><a class="id" href="../t/2682.html#p86360">#86360</a> <span class="index">172</span> <span class="date">2005-07-27T15:24:55Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I've gone into practice mode and skipped it, but it's not the same...</div></div>
+<div class="post" id="p93120"><div class="post-head"><a class="id" href="../t/4442.html#p93120">#93120</a> <span class="index">4</span> <span class="date">2005-08-22T04:17:32Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Yeah.<br>
+<br>
+I saw LittleVikings demo AFTER I did it, but that doesn't matter.<br>
+<br>
+You have to use a bug in the game.</div></div>
+<div class="post" id="p93121"><div class="post-head"><a class="id" href="../t/4439.html#p93121">#93121</a> <span class="index">3</span> <span class="date">2005-08-22T04:26:19Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Gimme some time to research this, I think it might be possible.</div></div>
+<div class="post" id="p93127"><div class="post-head"><a class="id" href="../t/4539.html#p93127">#93127</a> <span class="index">9</span> <span class="date">2005-08-22T05:38:43Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I was looking for how to get the internet with a game on HackADay.</div></div>
+<div class="post" id="p93336"><div class="post-head"><a class="id" href="../t/4554.html#p93336">#93336</a> <span class="index">3</span> <span class="date">2005-08-22T22:23:16Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">There's a test map on numa that shows this.<br>
+<br>
+I think it's called "Non-tower jump" or something like that.<br>
+<br>
+<b>EDIT</b><br>
+<br>
+If you use a 4, this works WITHOUT jumping.<br>
+<br>
+Just letting you know.</div></div>
+<div class="post" id="p93350"><div class="post-head"><a class="id" href="../t/4539.html#p93350">#93350</a> <span class="index">11</span> <span class="date">2005-08-22T22:37:16Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm sure someone is working on a homebrew to get flash and stuff on a PSP, it's just a matter of time.</div></div>
+<div class="post" id="p95158"><div class="post-head"><a class="id" href="../t/4606.html#p95158">#95158</a> <span class="index">8</span> <span class="date">2005-08-29T20:48:07Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I like this. I'd also like to see a trick zap drone, that pretends you don't exist, but only once.</div></div>
+<div class="post" id="p4267"><div class="post-head"><a class="id" href="../t/4677.html#p4267">#4267</a> <span class="index">1</span> <span class="date">2005-09-01T18:03:42Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Deleted N from his HD, and he's lost his place.<br>
+<br>
+I know that I can just e-mail him my .sol files, but I don't know where they are at...<br>
+<br>
+A little help?<br>
+<br>
+<b>EDIT</b>: I had helped him on some of the levels, and we are both stuck on 5-4 (Because we suck like that).</div></div>
+<div class="post" id="p96223"><div class="post-head"><a class="id" href="../t/4642.html#p96223">#96223</a> <span class="index">15</span> <span class="date">2005-09-01T18:15:32Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I've thought about this for a long time and I've decided why they don't switch it...<br>
+<br>
+Because...<br>
+<br>
+If they did, we'd have to get use to turning it ON for frame by frame.</div></div>
+<div class="post" id="p4387"><div class="post-head"><a class="id" href="../t/4814.html#p4387">#4387</a> <span class="index">1</span> <span class="date">2005-09-12T22:03:25Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">If you are to MANUALLY EDIT N's location, and you set him 8 pixels into a tile, thwump, trap door, or locked door, he will automatically pop up. You can set it lower than 8, and he won't jump as high, but no higher than 8 UNLESS you put a launch pad in the ground, which would make it NON-USERLEVEL FRIENDLY, but provide a further toss.<br>
+<br>
+I haven't seen anything like this, and I'd like to call it "V's Auto Jump"<br>
+<br>
+The beginning of <a href="https://www.nmaps.net/13416">THIS</a> level uses this effect, I made it just to show how it works. It works in EVERY direction, and you can do it in more than one direction (such as in the corner at the bottom left or right, and he'll shoot up and out).<br>
+<br>
+I discovered this when I was playing around in NED, and noticed that if you put the cursor near a wall, and hit enter (to respawn) he'll get shot away from the wall.<br>
+<br>
+I'd like to see a DDA with this, but I'm a bad DDA maker, so I'll let you guys try something if you want.</div></div>
+<div class="post" id="p99965"><div class="post-head"><a class="id" href="../t/4814.html#p99965">#99965</a> <span class="index">3</span> <span class="date">2005-09-12T22:18:38Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Darn...<br>
+<br>
+Well, I'm still pretty damn proud of myself.<br>
+<br>
+And I'mma show another thing I found tomorrow, when I can. Because I gotta go, have a nice day.</div></div>
+<div class="post" id="p108860"><div class="post-head"><a class="id" href="../t/4497.html#p108860">#108860</a> <span class="index">11</span> <span class="date">2005-10-17T01:19:23Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">That was a very on-topic post.<br>
+<br>
+Almost as on-topic as this one.</div></div>
+<div class="post" id="p112431"><div class="post-head"><a class="id" href="../t/2682.html#p112431">#112431</a> <span class="index">255</span> <span class="date">2005-11-04T23:10:57Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Basically what I did was try to draw the drones out from the middle, and jump over or under them at the end, it worked pretty well.</div></div>
+<div class="post" id="p113094"><div class="post-head"><a class="id" href="../t/5541.html#p113094">#113094</a> <span class="index">22</span> <span class="date">2005-11-07T15:35:33Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">If practice mode was on it'll do the same thing it if takes longer than 90 seconds and you get no gold.<br>
+<br>
+EDIT: Lemme clear this up...<br>
+<br>
+If you play a level in practice mode, it'll record the demo.<br>
+<br>
+Sometimes it takes longer than 90 seconds, but that's all recorded.<br>
+<br>
+Now if you go watch the demo with practice mode OFF, it'll go into negative time.</div></div>
+<div class="post" id="p114391"><div class="post-head"><a class="id" href="../t/5614.html#p114391">#114391</a> <span class="index">8</span> <span class="date">2005-11-13T03:33:32Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Fake tiles are really easy, you make a level, then chose tiles you want to be fake, then instead of that tile, make it a space ( like 11 014 ) and it'll be fake.<br>
+<br>
+Real easy.</div></div>
+<div class="post" id="p115099"><div class="post-head"><a class="id" href="../t/5673.html#p115099">#115099</a> <span class="index">5</span> <span class="date">2005-11-15T01:46:16Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">What I did was I jumped over to where the two regular drones where circling around the square tiles, then jumped over the other mines.<br>
+<br>
+That's the easiest way I found.</div></div>
+<div class="post" id="p5203"><div class="post-head"><a class="id" href="../t/5697.html#p5203">#5203</a> <span class="index">1</span> <span class="date">2005-11-15T01:48:16Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I don't mean MASSIVE changes, just sometimes I get tired of the blue zap drones, and the grey backwall.<br>
+<br>
+Sometimes I want a little green, but no, because I can't.<br>
+<br>
+But if N came with a little color set thing, where you could choose a different set, with the regular greys as default, I'd be happy.<br>
+<br>
+I think a pink N running through a blue level would be nifty.</div></div>
+<div class="post" id="p115101"><div class="post-head"><a class="id" href="../t/5668.html#p115101">#115101</a> <span class="index">7</span> <span class="date">2005-11-15T01:50:22Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">There is a way, but almost no-one knows how.<br>
+<br>
+If you open the .sol, it becomes corrupt and no longer works.</div></div>
+<div class="post" id="p115359"><div class="post-head"><a class="id" href="../t/5697.html#p115359">#115359</a> <span class="index">9</span> <span class="date">2005-11-16T03:13:45Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Yeah, it could get distracting, and I know you can open colors for the ninja, but I didn't really bright colors, I meant like, the tiles dark blue and the BG the color of the forum.</div></div>
+<div class="post" id="p115579"><div class="post-head"><a class="id" href="../t/5349.html#p115579">#115579</a> <span class="index">5</span> <span class="date">2005-11-17T03:49:11Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Highscores for that level don't really help...</div></div>
+<div class="post" id="p117754"><div class="post-head"><a class="id" href="../t/5877.html#p117754">#117754</a> <span class="index">4</span> <span class="date">2005-11-25T03:41:56Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">There is pretty much no way to edit the .sol file, if you open it, it gets corrupt. But playing with the settings doesn't sound like a good idea unless you back up your .sol!</div></div>
+<div class="post" id="p117780"><div class="post-head"><a class="id" href="../t/5879.html#p117780">#117780</a> <span class="index">13</span> <span class="date">2005-11-25T05:33:01Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'll have a submission up within the next day or two, depending on how long each day I work on it. But if you want to see it so far...<br>
+<br>
+<a href="https://www.nmaps.net/19580">Fun?!</a><br>
+<br>
+Also, 20000 is coming up, so get a map made in advance, so you'll be sure to get 20000.</div></div>
+<div class="post" id="p5372"><div class="post-head"><a class="id" href="../t/5885.html#p5372">#5372</a> <span class="index">1</span> <span class="date">2005-11-25T06:13:17Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I just noticed that if you place N in the level in editor mode, then load it, then go back and delete N and play again, you'll control where he was, and still interact with things.</div></div>
+<div class="post" id="p118267"><div class="post-head"><a class="id" href="../t/5917.html#p118267">#118267</a> <span class="index">4</span> <span class="date">2005-11-26T19:29:16Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'll judge, I have tons of free time.<br>
+<br>
+As soon as we get a back-up judge, I'll get my submission up.</div></div>
+<div class="post" id="p5419"><div class="post-head"><a class="id" href="../t/5934.html#p5419">#5419</a> <span class="index">1</span> <span class="date">2005-11-27T06:35:26Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'd like to thank CaptZeroth for his <a href="../t/5313.html">Sprite Sheet</a><br>
+<br>
+It's short, sweet, and to the point.<br>
+<br>
+<img class="bb-img" src="http://img.photobucket.com/albums/v287/XxPR4NKST3RxX/comic1tng.png" alt="" loading="lazy"><br>
+<br>
+<a href="http://img.photobucket.com/albums/v287/XxPR4NKST3RxX/comic1tng.png">Link</a> if you have images turned off.<br>
+<br>
+Anyway, this only took me a few minutes, because I was bored real quick.<br>
+<br>
+Not that hard, If you like it I'll make more, PM me ideas.<br>
+<br>
+I have a lot of free time.<br>
+<br>
+Edit: Feel free to critique, I won't cry. I promise.<br>
+<br>
+Actually, I'mma go to sleep for now, this comic was to tide me over because I can't play N on the computer I'm on.</div></div>
+<div class="post" id="p118559"><div class="post-head"><a class="id" href="../t/5934.html#p118559">#118559</a> <span class="index">5</span> <span class="date">2005-11-27T20:55:47Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Bah, I liked it. It was supposed to be that he was in NED and some noob went out and hit 4 keys "Home, \, L, P" (Because Mac users would NEVER NaN a launchpad) and that NaNed a launchpad and the blue was some noob building a crappy level and s/he thought it was a new glitch.<br>
+<br>
+Oh well, I'll make a real good one eventually.</div></div>
+<div class="post" id="p122750"><div class="post-head"><a class="id" href="../t/5919.html#p122750">#122750</a> <span class="index">13</span> <span class="date">2005-12-14T01:24:40Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Pgup is 9 and Pgdown is 3.</div></div>
+<div class="post" id="p124504"><div class="post-head"><a class="id" href="../t/6313.html#p124504">#124504</a> <span class="index">8</span> <span class="date">2005-12-19T02:05:46Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">And if you are to use them, numlock must be OFF. Good job, though.</div></div>
+<div class="post" id="p124506"><div class="post-head"><a class="id" href="../t/6263.html#p124506">#124506</a> <span class="index">5</span> <span class="date">2005-12-19T02:08:27Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">iangb must use a different keyboard (The D one) and you can also use the ~ (next to one) or \ (next to ], or 3 right from P)</div></div>
+<div class="post" id="p124509"><div class="post-head"><a class="id" href="../t/6096.html#p124509">#124509</a> <span class="index">16</span> <span class="date">2005-12-19T02:11:50Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I remember being stuck on the last wall in 5-0 and near the end in 5-4. Those are STILL my favorite levels.</div></div>
+<div class="post" id="p125427"><div class="post-head"><a class="id" href="../t/6362.html#p125427">#125427</a> <span class="index">3</span> <span class="date">2005-12-21T01:51:20Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I think it's wonderful that he FINALLY realized he's a spammer.</div></div>
+<div class="post" id="p126886"><div class="post-head"><a class="id" href="../t/6332.html#p126886">#126886</a> <span class="index">53</span> <span class="date">2005-12-25T17:37:24Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I use W.<br>
+<br>
+Really, and I have A and D go left and right.<br>
+<br>
+I like quake.</div></div>
+<div class="post" id="p126933"><div class="post-head"><a class="id" href="../t/6281.html#p126933">#126933</a> <span class="index">30</span> <span class="date">2005-12-25T23:48:57Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">20-2 Deku.<br>
+<br>
+I love that level, it's not hard, good for speed (if you take a few shortcuts)<br>
+<br>
+Really awesome tileset, and my ninja loves it, too.</div></div>
+<div class="post" id="p126935"><div class="post-head"><a class="id" href="../t/6388.html#p126935">#126935</a> <span class="index">9</span> <span class="date">2005-12-25T23:57:24Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Search userlevels.txt for this<br>
+<pre class="code">&amp;userdata=</pre><br>
+And delete that.</div></div>
+<div class="post" id="p126936"><div class="post-head"><a class="id" href="../t/6447.html#p126936">#126936</a> <span class="index">5</span> <span class="date">2005-12-26T00:06:02Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Wedgie, that just happened to me. I came here to tell everyone...</div></div>
+<div class="post" id="p126971"><div class="post-head"><a class="id" href="../t/3852.html#p126971">#126971</a> <span class="index">211</span> <span class="date">2005-12-26T02:44:02Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>&lt;Tofu&gt;          yOUR MAP SUCKS, i DEEM IT IMPSSIBLE AND WORTHY OF A 0 CAUSE i WILL NOT ADMIT I SUCK AT PLAYING N AND AT LIFE!!1!1111111111336!!!!!!!!<br>
+&lt;Niccus&gt;	OMG BUT U MUST IMAGIN UR IN A CAEV!!!!!1!!!!!11<br>
+&lt;KinGAleX&gt;	OMG CAEV!?<br>
+&lt;KinGAleX&gt;	I FKN H8 CAEVZZZ</blockquote></div></div>
+<div class="post" id="p127125"><div class="post-head"><a class="id" href="../t/6431.html#p127125">#127125</a> <span class="index">5</span> <span class="date">2005-12-26T20:33:57Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">These are the ones he has...<br>
+<br>
+<a href="http://sb2k4.t35.com/individual/">http://sb2k4.t35.com/individual/</a><br>
+<br>
+As least, the ones he has now.</div></div>
+<div class="post" id="p127128"><div class="post-head"><a class="id" href="../t/2226.html#p127128">#127128</a> <span class="index">222</span> <span class="date">2005-12-26T20:40:59Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body"><a href="http://sb2k4.t35.com/individual/">http://sb2k4.t35.com/individual/</a></div></div>
+<div class="post" id="p127129"><div class="post-head"><a class="id" href="../t/6417.html#p127129">#127129</a> <span class="index">5</span> <span class="date">2005-12-26T20:41:51Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Male<br>
+<br>
+Would you rather eat cat or eat dog?</div></div>
+<div class="post" id="p127196"><div class="post-head"><a class="id" href="../t/6470.html#p127196">#127196</a> <span class="index">2</span> <span class="date">2005-12-27T04:23:03Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I already don't like you.<br>
+<br>
+But what I like doesn't matter...</div></div>
+<div class="post" id="p127222"><div class="post-head"><a class="id" href="../t/6128.html#p127222">#127222</a> <span class="index">81</span> <span class="date">2005-12-27T05:40:00Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Here it is, my entry!<br>
+<br>
+<a href="https://www.nmaps.net/23090">http://numa.notdot.net/map/23090</a><br>
+<br>
+::edit:: Sucker, you should do MY avatar. That'd be mega sweet!</div></div>
+<div class="post" id="p127232"><div class="post-head"><a class="id" href="../t/1432.html#p127232">#127232</a> <span class="index">433</span> <span class="date">2005-12-27T06:20:52Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Me and my hat... <div class="attachment attachment-missing">Attachment (lost): post-20-1135664452.jpg</div></div></div>
+<div class="post" id="p127233"><div class="post-head"><a class="id" href="../t/1432.html#p127233">#127233</a> <span class="index">434</span> <span class="date">2005-12-27T06:21:10Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Me and my hair. <div class="attachment attachment-missing">Attachment (lost): post-20-1135664470.jpg</div></div></div>
+<div class="post" id="p5962"><div class="post-head"><a class="id" href="../t/6528.html#p5962">#5962</a> <span class="index">1</span> <span class="date">2005-12-30T05:40:07Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">:: SORRY IF I STRETCH THE PAGE ::<br>
+<br>
+I imaged searched taco and found this<br>
+<img class="bb-img" src="../files/images/14730.jpg" alt="" loading="lazy"><br>
+<br>
+And I decided it would look pretty cool colored in. So I took the liberty of my photoshop and did it.<br>
+<br>
+<img class="bb-img" src="../files/images/8317.png" alt="" loading="lazy"></div></div>
+<div class="post" id="p128263"><div class="post-head"><a class="id" href="../t/6528.html#p128263">#128263</a> <span class="index">3</span> <span class="date">2005-12-30T06:07:30Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I was google image searching random things.</div></div>
+<div class="post" id="p128279"><div class="post-head"><a class="id" href="../t/6530.html#p128279">#128279</a> <span class="index">2</span> <span class="date">2005-12-30T07:29:13Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Well, as long as we're being honest, I don't like fat chicks who wear tight shirts. It's like "You don't like looking at yourself, why would we?" you know?<br>
+<br>
+And I don't really like you, either.</div></div>
+<div class="post" id="p128283"><div class="post-head"><a class="id" href="../t/3852.html#p128283">#128283</a> <span class="index">219</span> <span class="date">2005-12-30T07:41:03Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Only because of his kickass "Teh" shirt though.<br>
+<br>
+Not the hair.<br>
+<br>
+EDIT so as not to double post...<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>the_V_Dude	So just don't use IE<br>
+	the_V_Dude	Problem solved.</blockquote><br>
+Ongoing conversation about the stupid exploit.<br>
+<br>
+Go to the logs for today and search for betty crocker...</div></div>
+<div class="post" id="p128291"><div class="post-head"><a class="id" href="../t/6530.html#p128291">#128291</a> <span class="index">5</span> <span class="date">2005-12-30T08:20:50Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">according to arachnid, he wasn't sniped.</div></div>
+<div class="post" id="p128302"><div class="post-head"><a class="id" href="../t/6528.html#p128302">#128302</a> <span class="index">4</span> <span class="date">2005-12-30T09:12:32Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">also, Mr.Rogers<br>
+<br>
+<img class="bb-img" src="http://img.photobucket.com/albums/v287/XxPR4NKST3RxX/rogersdance.gif" alt="" loading="lazy"><br>
+<br>
+From <a href="http://www.newgrounds.com/portal/view/285267">Ultimate Showdown of Ultimate Destiny</a></div></div>
+<div class="post" id="p129085"><div class="post-head"><a class="id" href="../t/6475.html#p129085">#129085</a> <span class="index">6</span> <span class="date">2006-01-01T19:55:09Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">We already have these.<br>
+<br>
+Put a regular door on a oneway. It kinda works, unless you want drones to go through the other way. Then it's a tad harder.<br>
+<br>
+Depending on what you have the drones set to, it still isn't hard, unless the drones you are stopping with the one way are on surface follow, because you could make an opening above or below the oneway+door, and the other drone coming from the other way could just go right in.<br>
+<br>
+None could be on surface follow, though.<br>
+<br>
+I'll post a picture in an edit.<br>
+<br>
+Edit- Here's a text document... <div class="attachment attachment-missing">Attachment (lost): post-8-1136146356.txt</div></div></div>
+<div class="post" id="p129582"><div class="post-head"><a class="id" href="../t/6616.html#p129582">#129582</a> <span class="index">2</span> <span class="date">2006-01-04T02:07:42Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm too lazy to add, but it was suicide, and it is in around 550. I recently reset my game, yes.</div></div>
+<div class="post" id="p129608"><div class="post-head"><a class="id" href="../t/6613.html#p129608">#129608</a> <span class="index">4</span> <span class="date">2006-01-04T03:52:22Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm sure someone would have made a good flash app. for PSP. I like homebrew apps, but it's all on the lockdown. Damn sony.</div></div>
+<div class="post" id="p129682"><div class="post-head"><a class="id" href="../t/6606.html#p129682">#129682</a> <span class="index">11</span> <span class="date">2006-01-04T13:55:55Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I don't want a scarf, but if the ninja was moving real fast, a blurred trail would be pretty cool.<br>
+<br>
+But that's just my opinion.</div></div>
+<div class="post" id="p130233"><div class="post-head"><a class="id" href="../t/6128.html#p130233">#130233</a> <span class="index">109</span> <span class="date">2006-01-06T20:47:37Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body"><b>YOU</b> need to learn how to spell the word <b>YOU</b></div></div>
+<div class="post" id="p130236"><div class="post-head"><a class="id" href="../t/5474.html#p130236">#130236</a> <span class="index">68</span> <span class="date">2006-01-06T21:12:50Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">kai, that's somewhat disturbing.<br>
+<br>
+I like it.</div></div>
+<div class="post" id="p6122"><div class="post-head"><a class="id" href="../t/6709.html#p6122">#6122</a> <span class="index">1</span> <span class="date">2006-01-09T03:48:33Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Think back to a long, long time ago.<br>
+<br>
+What was the first level you got stuck on? It's okay to admit it...<br>
+<br>
+Mine was 5-0. Then 5-4. Then 9-4.<br>
+<br>
+Anyway, I know this has probably been done a gazillion times, I'm just curious.</div></div>
+<div class="post" id="p130988"><div class="post-head"><a class="id" href="../t/6709.html#p130988">#130988</a> <span class="index">3</span> <span class="date">2006-01-09T03:58:33Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I meant noob, as in the very first level you got stuck on ever.</div></div>
+<div class="post" id="p133343"><div class="post-head"><a class="id" href="../t/6811.html#p133343">#133343</a> <span class="index">16</span> <span class="date">2006-01-18T02:54:37Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Make one that says "The_V_Dude Sucks"<br>
+<br>
+That'd be cool.</div></div>
+<div class="post" id="p145193"><div class="post-head"><a class="id" href="../t/7546.html#p145193">#145193</a> <span class="index">9</span> <span class="date">2006-02-18T03:35:55Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">modding from exe to swf isn't that hard, I was considering doing it for v1.4, but I remembered N was going to be open source soon anyway, so I'll wait for that. But in the mean time, I'm using the v1.2 illegal swf for online play.</div></div>
+<div class="post" id="p147590"><div class="post-head"><a class="id" href="../t/5917.html#p147590">#147590</a> <span class="index">57</span> <span class="date">2006-02-23T21:19:17Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm working on judging right now.<br>
+<br>
+Calm down.</div></div>
+<div class="post" id="p147600"><div class="post-head"><a class="id" href="../t/5917.html#p147600">#147600</a> <span class="index">58</span> <span class="date">2006-02-23T21:37:44Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Pong (Furious_Gopher):<br>
+Not really fun, or hard. It was a kind of puzzle, and that I like. Also, pong is not really fun or hard.<br>
+<span style="color:BLUE">35</span><br>
+<br>
+Pacman (wellsj):<br>
+Well planned level, used the pacman map, and the teleporter worked well.<br>
+I also liked that it was only one tile high, so you had to think.<br>
+<span style="color:BLUE">45</span><br>
+<br>
+Balloon duel (kirby/kirby777):<br>
+Not a real challenge, you can practically <i>fly</i> through this level. I like how you made it difficult to move without a tileset.<br>
+<span style="color:BLUE">40</span><br>
+<br>
+Donkey Kong (kirby/kirby777):<br>
+A few too many drones, and it's a little touch-and-go. Fun either way, though. I admit I died a couple of times.<br>
+<span style="color:BLUE">30</span><br>
+<br>
+Super mario (Dex22):<br>
+I knew exactly what everything in this level was, but a few things could've been done a bit better. Either than that, pretty nice.<br>
+<span style="color:BLUE">30</span></div></div>
+<div class="post" id="p154190"><div class="post-head"><a class="id" href="../t/7872.html#p154190">#154190</a> <span class="index">11</span> <span class="date">2006-03-12T23:33:00Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Also, make sure that there is no word wrap.<br>
+<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p154191"><div class="post-head"><a class="id" href="../t/8112.html#p154191">#154191</a> <span class="index">6</span> <span class="date">2006-03-12T23:35:26Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Yeah, if you hit "~" then "M" over and over again, it creates lag, because that's forcing the game to load many levels and replays fast.</div></div>
+<div class="post" id="p204999"><div class="post-head"><a class="id" href="../t/8280.html#p204999">#204999</a> <span class="index">6</span> <span class="date">2006-07-20T07:52:23Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Both have been found.<br>
+<br>
+I played around with NaN's for a day or two a while ago, there's nothing too fun to do with them.</div></div>
+<div class="post" id="p206604"><div class="post-head"><a class="id" href="../t/11431.html#p206604">#206604</a> <span class="index">29</span> <span class="date">2006-07-24T05:05:05Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm only disappointed because I missed most of it.</div></div>
+<div class="post" id="p17547"><div class="post-head"><a class="id" href="../t/19753.html#p17547">#17547</a> <span class="index">1</span> <span class="date">2007-10-14T16:25:33Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I'm back for a while. I wasn't that great of a map maker or a player, but I've finished N now, I've got the secrety secrets.<br>
+<br>
+I still don't have any highscores. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"><br>
+<br>
+I'm still VERY BAD at making maps. But I'm not going to post any on NUMA until I'm very satisfied with one. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+Welcome back?</div></div>
+<div class="post" id="p372250"><div class="post-head"><a class="id" href="../t/19753.html#p372250">#372250</a> <span class="index">5</span> <span class="date">2007-10-15T20:59:57Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I like shark!</div></div>
+<div class="post" id="p430004"><div class="post-head"><a class="id" href="../t/9751.html#p430004">#430004</a> <span class="index">379</span> <span class="date">2008-04-19T23:00:06Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Wewt. Finished them all up in today. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

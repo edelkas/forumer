@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by failrate - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9372552.html">failrate</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p186614"><div class="post-head"><a class="id" href="../t/9717.html#p186614">#186614</a> <span class="index">16</span> <span class="date">2006-06-09T06:35:53Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">You don't actually need Macromedia's Flash IDE.  You could just use Motion-Twin (mtasc.org).  Tougher, sure, but free and open source.</div></div>
+<div class="post" id="p187112"><div class="post-head"><a class="id" href="../t/10216.html#p187112">#187112</a> <span class="index">3</span> <span class="date">2006-06-10T06:16:41Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">I'm having a similar problem where I have large groups of moving AABB sprites colliding.  It basically works just fine, but about 1 in 10 cycles through the collision routine results in a sprite embedded in another.<br>
+<br>
+I cribbed my collision and resolution routines from the Tutorial source code and converted them to Python.<br>
+<br>
+This is my main collision loop:<br>
+<br>
+<pre class="code">for i in range(0, 4):  # The world is split up into four overlapping quads to reduce tests
+    allColls =  world.collQuad[i].sprites() # all sprites in quad
+    tmplist = [(x.moving, x) for x in allColls] # Generates a list of
+    tmplist.sort()                                         # sprites sorted by whether
+    tmplist.reverse()                                       # they moved this tick
+    allColls = [x for (key, x) in tmplist]                 # True first
+    index = 0
+    for s in allColls:
+        if s.moving == False:                    # The first time it hits a non-moving 
+                                                          # it should exit, as the remainder of tests are meaningless
+            break
+        index += 1
+        for other in allColls[index:]:           # The [index:] is a slice, which means that for all sprite objects, it will only test sprite objects later in the list than s
+            if cast.collideAABBVsTile(s,other):
+                 s.touch(other)  # Some special code for other
+                 other.touch(s)  # non-physics collision interaction</pre><br>
+I figure the collision and projection is either being resolved in the wrong order, and/or is getting called multiple times on the same sprites.</div></div>
+<div class="post" id="p188106"><div class="post-head"><a class="id" href="../t/10216.html#p188106">#188106</a> <span class="index">5</span> <span class="date">2006-06-11T23:53:00Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">Hmm, that demo is quite lovely, but it's not actually the kind of collision and response I need.  I'm doing rather simple AABB sprite and tile interaction, where the moving sprites are people and the non-moving sprites are stuff like walls, rocks, turrets, etc. that are totally solid.<br>
+<br>
+What I've just tried is a message system, where the enemy sprite objects don't project from each other (they're relatively soft bodies, after all), but instead pass a message based on their relative position when they collide (sprite1: "Hey, you're crowding me to the left!", sprite2 "Yeah, well, you're crowding me to the right!"), so in their next update, they look at their messages and use that to make a decision about their next position.<br>
+<br>
+Still tuning it, but this seems like a cheap way to keep the speed, keep the moving on solid collision response, and cheat the moving on moving collision interaction.<br>
+<br>
+In a nutshell:<br>
+<pre class="code">def touch(self, other):
+    # Crowding avoidance
+    	
+    if ['person',True] in other.quality_set:
+        if other.coll_rect.centerx &gt; self.coll_rect.centerx:
+            self.messages.append("CROWD_RIGHT")
+        elif other.coll_rect.centerx &lt; self.coll_rect.centerx:
+            self.messages.append("CROWD_LEFT")
+        else:
+            pass
+        if other.coll_rect.centery &gt; self.coll_rect.centery:
+            self.messages.append("CROWD_DOWN")
+        elif other.coll_rect.centery &lt; self.coll_rect.centery:
+            self.messages.append("CROWD_UP")
+        else:
+            pass
+
+def think(self):
+    if self.target == None:
+        self.target = world.ego
+    target = self.target.coll_rect
+    coll = self.coll_rect
+    if target.centerx &gt; coll.centerx+self.speed:
+        if "CROWD_RIGHT" in self.messages:
+            if self.x_direction == right:
+                 self.stopRight()
+        else:
+            if self.x_direction != right:
+                self.startRight()
+    else:
+            if "CROWD_LEFT" in self.messages:
+                if self.x_direction == left:
+                     self.stopLeft()
+            else:
+                if self.x_direction != left:
+                     self.startLeft()    
+    if target.centery &lt; coll.centery-self.speed:
+           if "CROWD_UP" in self.messages:
+               if self.y_direction == up:
+                    self.stopUp()
+           else:
+               if self.y_direction != up:
+                    self.startUp()
+    else:
+           if "CROWD_DOWN" in self.messages:
+                if self.y_direction == down:
+                    self.stopDown()
+           else:
+                if self.y_direction != down:
+                    self.startDown()
+    self.messages = []</pre></div></div>
+<div class="post" id="p194634"><div class="post-head"><a class="id" href="../t/9717.html#p194634">#194634</a> <span class="index">29</span> <span class="date">2006-06-26T04:17:11Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">If you want free server-side SWFs, try using Motion-Twin (mtasc.org).  The SWF standard (Flash movies) is actually open-source.  What you're paying for with Macromedia tools (or SWiSH) is the IDE and such.  You could pop open a hex editor and write a SWF based on its white paper...  I wouldn't recommend it, but it's entirely possible.</div></div>
+<div class="post" id="p212895"><div class="post-head"><a class="id" href="../t/11756.html#p212895">#212895</a> <span class="index">3</span> <span class="date">2006-08-07T21:22:02Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p10510">Quote: Grazer2, 2006-08-07T16:04:47Z</a></div> As soon as a collision occurs i set the velocity that's pointing in direction of the projection vector to 0.</blockquote>I believe this step is unnecessary.  I tried with and without, and I didn't notice any real difference.</div></div>
+</main>
+</body>
+</html>

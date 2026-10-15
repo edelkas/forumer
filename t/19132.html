@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mIRC scripting help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/26.html">Tests &amp; Inquiries</a> &rsaquo; mIRC scripting help</nav></header>
+<main>
+<div class="post" id="p16950"><div class="post-head"><a class="id" href="../t/19132.html#p16950">#16950</a> <span class="index">1</span> <span class="date">2007-08-26T03:08:29Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">I'm obviously having some trouble, being a newb at this. What I'm trying to do is load this script into my bot, and when I say "away", then the script will perform. During the period in which I'm away, if somebody says "usaswim" in the channel, my bot will reply "I'm sorry, usaswim is currently away. May I take a message?" The possible answers are "yes" and "no". If "yes", then my bot will reply "Thank you. Please say your message after the asterisk" Then whatever that person says will be in a memo by MemoServ.<br>
+<br>
+There's obviously some problems with the code.<br>
+<br>
+<pre class="code">    on *:TEXT:away:#: {
+      if ($nick = usaswim) {
+        msg $chan I am currently away. Please don't disturb me. The consequences are severe.
+        timer1 0 1 awaymsg
+      }
+    }
+    alias -l awaymsg {
+      set %text $1-
+      if (%text = usaswim) {
+        notice $nick Do you want to leave a message?
+        notice $nick Choices are "yes" or "no"
+      }
+    }
+    on *:TEXT:yes:*: {
+      notice $nick Thank you. Please say your message after the asterick.
+      msg $chan *
+      timer2 0 1 msreply
+    }
+    alias -l msreply {
+      set %msreply $1-
+      ms send usaswim $1-
+    }
+    else {
+      notice $nick Thanks. No message will be sent to usaswim.
+      halt
+    }
+    on *:TEXT:back:#: {
+      if ($nick = usaswim) {
+        msg $chan usaswim is back.
+        unset %msreply
+        unset %text
+        timer0? off
+      }
+    }</pre></div></div>
+<div class="post" id="p359508"><div class="post-head"><a class="id" href="../t/19132.html#p359508">#359508</a> <span class="index">2</span> <span class="date">2007-08-26T06:40:32Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body">This scripting language looks terrible.<br>
+Get irssi, which lets you make plugins written in Perl!</div></div>
+<div class="post" id="p359612"><div class="post-head"><a class="id" href="../t/19132.html#p359612">#359612</a> <span class="index">3</span> <span class="date">2007-08-26T14:44:30Z</span> <span class="author"><a href="../u/9372738.html">Sockmonkey</a></span></div><div class="post-body">Shove this in your bots remotes:<br>
+<br>
+<pre class="code">on *:TEXT:away*:#: {
+  if ($nick = usaswim) {
+    if ($2 = $null) { set %away.msg No reason Given }
+    else set %away.msg $2-
+    set %ms On
+    msg $chan usaswim is now away. Please don't disturb him. The consequences are severe. | msg $chan usaswim is away for %away.msg
+  }
+}
+on *:Text:*usaswim*:#: {
+  if (%ms = On) {
+    notice $nick usaswim is away, %away.msg $+ .  If you would like to leave him a memo, type !memo &lt;&lt;memo&gt;&gt;.
+  }
+}
+on *:text:*memo*:#: {
+  set %memo $2-
+  notice $nick Your memo " $+ %memo $+ " has been sent to usaswim.
+  ms send usaswim %memo
+}
+on *:Text:back:#: {
+  if ($nick = usaswim) {
+    msg $chan usaswim is back from %away.msg $+ .
+    set %ms Off
+  }
+}</pre></div></div>
+<div class="post" id="p359614"><div class="post-head"><a class="id" href="../t/19132.html#p359614">#359614</a> <span class="index">4</span> <span class="date">2007-08-26T15:00:08Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/21.gif" alt="&lt;3" title="&lt;3"></div></div>
+</main>
+</body>
+</html>

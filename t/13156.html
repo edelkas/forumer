@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can't add user levels!!! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Can't add user levels!!!</nav></header>
+<main>
+<div class="post" id="p11721"><div class="post-head"><a class="id" href="../t/13156.html#p11721">#11721</a> <span class="index">1</span> <span class="date">2006-10-13T16:52:48Z</span> <span class="author"><a href="../u/9371578.html">Ravenclaw</a></span></div><div class="post-body">I can't add user levels!! I've tried everything!! I can't add legacy, I can't add level packs, It just won't work period. <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("></div></div>
+<div class="post" id="p240553"><div class="post-head"><a class="id" href="../t/13156.html#p240553">#240553</a> <span class="index">2</span> <span class="date">2006-10-13T17:32:05Z</span> <span class="author"><a href="../u/9372854.html">AMomentLikeThis</a></span></div><div class="post-body">You should have a text document named "userlevels", located in the same folder as the game.<br>
+<br>
+In that document it clearly says:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>*********************************************************************************************<br>
+*** INSTRUCTIONS ****************************************************************************<br>
+<br>
+This file contains data used to fill the [User Levels] menu in N;<br>
+editing the contents of this file allows you to alter the contents of the in-game menu.<br>
+We recommend that you turn Word Wrap off to edit this file.<br>
+<br>
+<br>
+It's _very_ important that you format data properly when adding it to this file,<br>
+or who knows what will happen. Wait, I know: something bad.<br>
+<br>
+<br>
+To add a level to the list, simply add it into this file using the following syntax:<br>
+<br>
+$levelname#authorname#comments#leveldata#<br>
+<br>
+(it's _very_ important that you don't forget the final "#" after the level data!!)<br>
+<br>
+The fields should be self-explanitory:<br>
+	levelname: the name of the level, i.e "superliminal"<br>
+	authorname: the name of the person who made the level, i.e "jimmy"<br>
+	comments: you can use this field to describe the level type, i.e "easy", "hard", "boring", etc.<br>
+	leveldata: data describing the level, usually taken from the level editor<br>
+<br>
+<br>
+Level and author names which contain "#" will produce errors.<br>
+You can add text between level data as long as it doesn't contain "$" or "#" characters. This is helpful<br>
+for separating levels within this file, as you can see below.<br>
+<br>
+<br>
+If you're a bit confused, please browse the included level data; it will hopefully provide you<br>
+with some insight as to what needs to be done in order to add/remove user levels. <br>
+<br>
+Obviously, renaming or moving this file will result in problems. <br>
+<br>
+<br>
+<br>
+To get more user levels, please visit NUMA: <a href="https://www.nmaps.net">http://numa.notdot.net</a> <br>
+<br>
+<br>
+*********************************************************************************************<br>
+IMPORTANT: changing the following line in any way will screw everything up. Don't do it!!<br>
+<br>
+&amp;userdata=<br>
+*** ALL LEVEL DATA MUST BE ENTERED BELOW THIS LINE ******************************************<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</blockquote><br>
+If you don't have the folder at all, redownload N and continue from there. It should be quite simple.<br>
+<br>
+<b>Edit:</b> Oh, and if copying from Numa, make sure you copy the box with #[level name]#[username] etc., the other box is used in debug mode.</div></div>
+<div class="post" id="p240582"><div class="post-head"><a class="id" href="../t/13156.html#p240582">#240582</a> <span class="index">3</span> <span class="date">2006-10-13T18:50:59Z</span> <span class="author"><a href="../u/9371578.html">Ravenclaw</a></span></div><div class="post-body">I tried that before and it didn't work, but this time it did!!! Thanks! <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+</main>
+</body>
+</html>

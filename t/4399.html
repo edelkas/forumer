@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selecting tiles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Selecting tiles</nav></header>
+<main>
+<div class="post" id="p4011"><div class="post-head"><a class="id" href="../t/4399.html#p4011">#4011</a> <span class="index">1</span> <span class="date">2005-08-12T10:32:41Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">It has been a while since I last made a topic here... So here goes...<br>
+I know this question is a little strange, because it hasn't got anything to do with the physics <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+How did you make the tile-selection in Ned? Cuz I've thought about it a little and I couldn't figure it out <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+Thanks in advance.<br>
+<br>
+TS</div></div>
+<div class="post" id="p90271"><div class="post-head"><a class="id" href="../t/4399.html#p90271">#90271</a> <span class="index">2</span> <span class="date">2005-08-12T18:50:37Z</span> <span class="author">Guest</span></div><div class="post-body">it's just logic driven by keypresses.<br>
+<br>
+for instance, the variable "current tile type" is changed when you press one of the 1-8 keys.<br>
+<br>
+when you press a draw key (q/w/a/s/etc.), it checks what the current tile type is, then makes the appropriate selection.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p90274"><div class="post-head"><a class="id" href="../t/4399.html#p90274">#90274</a> <span class="index">3</span> <span class="date">2005-08-12T19:04:01Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">No no, not that. Honestly, I'm not that dumb, I did that already.<br>
+What I mean is selecting tiles with the mouse, like in Ned.</div></div>
+<div class="post" id="p90371"><div class="post-head"><a class="id" href="../t/4399.html#p90371">#90371</a> <span class="index">4</span> <span class="date">2005-08-13T00:03:04Z</span> <span class="author">Guest</span></div><div class="post-body">oh, you mean the copy/paste stuff!! sorry -- i forgot about that feature <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+you need to be able to figure out which square of the grid contains a given point -- this is something you need anyway for normal tile editing. <br>
+<br>
+then, you just store the two points that the user defined (the mouse-down point and mouse-up point), figure out which squares contain them, and use min/max (or logic) to get the min/max coordinates that describe the rectangle of squares containing those two squares.<br>
+<br>
+so, you describe the user's selection as a rectangle, which can be represented however you like (i.e min+max corners, or center point+size, etc.)<br>
+<br>
+raigan</div></div>
+</main>
+</body>
+</html>

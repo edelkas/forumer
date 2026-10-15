@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locked Door Propulsion - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Locked Door Propulsion</nav></header>
+<main>
+<div class="post" id="p17535"><div class="post-head"><a class="id" href="../t/19741.html#p17535">#17535</a> <span class="index">1</span> <span class="date">2007-10-13T15:51:24Z</span> <span class="author"><a href="../u/9374530.html">blaze-N</a></span></div><div class="post-body">I'm in the middle of making a DDA and I'm a tad confused about how to make locked doors make you move.  Can someone either tell me how to do it or show me a forum where it tells you.  Thanks.</div></div>
+<div class="post" id="p371782"><div class="post-head"><a class="id" href="../t/19741.html#p371782">#371782</a> <span class="index">2</span> <span class="date">2007-10-14T00:10:46Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: From Clifty's Making DDAs thread</div>Locked door<br>
+<br>
+.....More complicated. Also very unpredictable, but useful sometimes.<br>
+<br>
+1. Make a locked door<br>
+2. Go to the debug menu and have a look at the level data, the last part should look something like this: 9^210,588,0,0,7,21,1,0,-1<br>
+3. Ignore most of it, you only need the third number after the ^. (it should be a 0 or a 1.) Change that number to read NaN. (not a number). The code should now look something like this: 9^210,588,NaN,0,7,21,1,0,-1<br>
+4. Press 'L' to load the edited level data.<br>
+5. Try it out.</blockquote>The thread itself can be found <a href="../t/14692.html">here</a>.</div></div>
+<div class="post" id="p378406"><div class="post-head"><a class="id" href="../t/19741.html#p378406">#378406</a> <span class="index">3</span> <span class="date">2007-11-11T02:07:01Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">There is another form of locked door propulsion too. Here's a quick example that I made. The way it works is that if too locked doors are placed on top of each other, if the bottom one opens then you can go through it. When the second door is opened, it closes just like a trap door. <div class="attachment attachment-missing">Attachment (lost): post-11-1194746821.txt</div></div></div>
+</main>
+</body>
+</html>

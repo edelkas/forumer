@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Another one on Collision Detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Another one on Collision Detection</nav></header>
+<main>
+<div class="post" id="p10546"><div class="post-head"><a class="id" href="../t/11801.html#p10546">#10546</a> <span class="index">1</span> <span class="date">2006-08-09T12:04:20Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I'm having a few problems with collision detection (mostly because of my implementation rather than anything else). I'd recommend you play around with my prototype for a while before you read on, as you'll then know what my problems are.<br>
+<br>
+I've successfully implemented a point-shape collision detection and projection response system. Under this system, points are tested for collision (using a variation on the SAT) and projected out of the shape accordingly. It works for any convex shapes. The problem comes in (as you probably noticed if you took my opening advice) when the player-controlled box comes to the end of a floor segment. The point sometimes sinks between the two segments, since each is pushing it out horizontally and in opposite directions, rather than upwards.<br>
+<br>
+My question is this: How would I detect the points on a line which collide with a given shape? Once I know that, I can make a projection response to it. I could probably work it out, but it would be messy and certainly not optimised.<br>
+<br>
+EDIT: I just realised that the name of the file wouldn't exactly incline you to open it. Don't worry, its a game about biological viruses, not an actual virus. How you would make an .fla virus is beyond me.<br>
+<br>
+EDIT2: If it doesn't work, that's probably because it's a Flash 8 file. I'm just re-uploading an MX 2004 version (I can't save any earlier than that for some reason). <div class="attachment attachment-missing">Attachment (lost): post-14-1155125966.fla</div></div></div>
+<div class="post" id="p213541"><div class="post-head"><a class="id" href="../t/11801.html#p213541">#213541</a> <span class="index">2</span> <span class="date">2006-08-09T12:07:11Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">*downloads file, even though the name of it is 'virus'*<br>
+*finds file doesn't work*<br>
+*closes flash mx 5*<br>
+*does a spyware and virus check*</div></div>
+<div class="post" id="p213542"><div class="post-head"><a class="id" href="../t/11801.html#p213542">#213542</a> <span class="index">3</span> <span class="date">2006-08-09T12:07:42Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">*downloads file, even though the name of it is 'virus'*<br>
+*finds file doesn't work*<br>
+*closes flash mx 5*<br>
+*does a spyware and virus check*<br>
+*walks off*</div></div>
+<div class="post" id="p213565"><div class="post-head"><a class="id" href="../t/11801.html#p213565">#213565</a> <span class="index">4</span> <span class="date">2006-08-09T14:57:34Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">one thing specific to your game would be to try considering _two_ segments at once, instead of one-by-one.. so, you'll have to write code that projects a point out of a "V" shape. we actually did something like this as a test a couple years ago..<br>
+<br>
+<br>
+for convex Vs, just find the penetration with each side and push out of the smallest one (or, push out of whatever side the rest of the box is on, or whatever). if the point isn't penetrating one of the segs, it's not penetrating either.<br>
+<br>
+<br>
+for concave Vs, it's slightly trickier. first, test if the point is "behind" the lines that contain the linesegs (it's behind if the dotprod of the line normal and the point-on-line-&gt;test-point vector is -ve). if it's not behind either, no hit. if it's behind one but not the other, just project it out of that one. if it's behind both, things get slightly more complicated: you'll either have to push it out of one of the segs, OR push it to the point where the segs intersect.<br>
+<br>
+if you understand about voronoi regions you can usee them to decide what to do in this case: if you're in the VR of the point where the segs meet, then project out to the point, otherwise you're in the VR of one of the segs -- project out of that seg.<br>
+<br>
+hopefully this makes sense or at least gives you some ideas. mainly, i don't think you can't solve this problem if you only consider each segment in isolation. i really wish i knew better resources or more theory about this sort of thing, because it's something that happens all the time (i.e you have to add extra information in order to represent something you want).<br>
+<br>
+you can even extend this idea to handle points with size (i.e circles).<br>
+<br>
+we had a .fla that showed all of this (circle vs "V"), but i totally can't find it anymore.. RGH!</div></div>
+<div class="post" id="p213597"><div class="post-head"><a class="id" href="../t/11801.html#p213597">#213597</a> <span class="index">5</span> <span class="date">2006-08-09T16:40:58Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">That was fun <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+Anyways, unless you're intending on allowing the object, the square in this case, to stretch, I think you should switch to line based collision...</div></div>
+<div class="post" id="p215374"><div class="post-head"><a class="id" href="../t/11801.html#p215374">#215374</a> <span class="index">6</span> <span class="date">2006-08-14T10:45:01Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I successfully solved the main problem (the points falling between segments), but in a sort of a hack-y manner. I tried to implement a line-based collision response system, but it slowed the processing down unbelievably (which most likely means I wasn't implementing it properly), so I converted the floor segments into a new class which would only project points out of the 'first' face (in this case upwards out of the floor). This also meant that I could get rid of the simple maximum and minimum constraints for colliding with the world (now I use 4 single-projection direction walls).<br>
+<br>
+This method didn't solve the secondary problem of the box lines passing through the floor and other shapes, but for my purposes it doesn't matter. What I have now is a reasonably fast collision detection system, that looks fairly good (considering that it is just using the drawing API).<br>
+<br>
+Now I have a question about implementing friction and bounce. If the projection vector of a point out of a line is (direction of right-hand normal of line)*(projection distance) and the perpendicular to this is (direction of line)*(projection distance), how do you calculate how far to offset the old position of the particle to factor in friction and bounce? <div class="attachment attachment-missing">Attachment (lost): post-14-1155552301.fla</div></div></div>
+</main>
+</body>
+</html>

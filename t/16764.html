@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>data collection menu - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; data collection menu</nav></header>
+<main>
+<div class="post" id="p14701"><div class="post-head"><a class="id" href="../t/16764.html#p14701">#14701</a> <span class="index">1</span> <span class="date">2007-04-03T00:18:24Z</span> <span class="author"><a href="../u/9371403.html">Harley</a></span></div><div class="post-body">Much like a drop down menu, how do you create an input that has a set of data. I.e. a menu where you can choose your favourite colour:<br>
+<br>
+ <details class="spoiler"><summary>Spoiler: please select your favourite colour     \/</summary><ul><li>blue</li><li>green</li><li>red</li></ul></details><br>
+that will then send the variable $favcolour=$_POST['favcolour'] to a php script.<br>
+<br>
+I tried a component, but that seemed to be quite obselete as I cannot set vars or values.<br>
+<br>
+Inside flash 8 <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+~Harley</div></div>
+<div class="post" id="p309783"><div class="post-head"><a class="id" href="../t/16764.html#p309783">#309783</a> <span class="index">2</span> <span class="date">2007-04-03T03:00:55Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Are you trying to do this inside a .swf, or just with HTML?<br>
+<br>
+Edit: If you just want HTML, it should look like this:<br>
+<pre class="code">&lt;form method='POST' name='colorform' action='http://website.com/pageToGoTo.html'&gt;
+  &lt;select name='favcolor'&gt;
+    &lt;option value='0'&gt;Please select your favorite color&lt;/option&gt;
+    &lt;option value='1'&gt;Blue&lt;/option&gt;
+    &lt;option value='2'&gt;Red&lt;/option&gt;
+    &lt;option value='3'&gt;Green&lt;/option&gt;
+  &lt;/select&gt;
+  &nbsp;
+  &lt;input type='submit' value='Go' /&gt;
+&lt;/form&gt;</pre></div></div>
+<div class="post" id="p309810"><div class="post-head"><a class="id" href="../t/16764.html#p309810">#309810</a> <span class="index">3</span> <span class="date">2007-04-03T06:56:12Z</span> <span class="author"><a href="../u/9371403.html">Harley</a></span></div><div class="post-body">oh, sorry forgot to say, in a flash docuent. thank though LV</div></div>
+<div class="post" id="p309821"><div class="post-head"><a class="id" href="../t/16764.html#p309821">#309821</a> <span class="index">4</span> <span class="date">2007-04-03T08:37:27Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body"><a href="http://www.devshed.com/c/a/Flash/Building-Web-Forms-In-Flash/2/">http://www.devshed.com/c/a/Flash/Building-...rms-In-Flash/2/</a><br>
+<br>
+It's called a combo-box.<br>
+<br>
+Bah, here's my attempt to make a form, I got the drop down thingo working,, but I have no idea with actionscript.<br>
+<br>
+[Well, it turns out I can't save it properly.]</div></div>
+<div class="post" id="p309834"><div class="post-head"><a class="id" href="../t/16764.html#p309834">#309834</a> <span class="index">5</span> <span class="date">2007-04-03T10:32:52Z</span> <span class="author"><a href="../u/9371403.html">Harley</a></span></div><div class="post-body">thats not a drop down menu... they are radio buttons.</div></div>
+</main>
+</body>
+</html>

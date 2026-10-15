@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Just some minor tweaks to the code - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Just some minor tweaks to the code</nav></header>
+<main>
+<div class="post" id="p10415"><div class="post-head"><a class="id" href="../t/11644.html#p10415">#10415</a> <span class="index">1</span> <span class="date">2006-08-02T02:13:53Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">This first idea doesnt seem to compeling for me as if it NEEDS to be done, but couldn't the one-way platforms consist of all the tiles? At least the flat ones?<br>
+Just think about it: Levels that are completely transparent.<br>
+<br>
+My other idea is to allow launch pads the freedom of being places in any angle.<br>
+The code already esists to allow this. Its in the object code itself:<br>
+Syntax: x pos, y pos, cos(angle), sin(angle)<br>
+   where angle is a multiple of 45<br>
+Not that big of a deal, but it seems obvious if the syntax is going to be like that...<br>
+Otherwise, change the syntax...</div></div>
+<div class="post" id="p210253"><div class="post-head"><a class="id" href="../t/11644.html#p210253">#210253</a> <span class="index">2</span> <span class="date">2006-08-02T03:20:35Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">I'm not sure exactly what you mean by the first suggestion, but you can make levels completely transparent if you use one-ways and no tiles.<br>
+<br>
+For the second one: unless I'm mistaken, launchpads <i>can</i> be at any angle. Check any complicated DDA and go to the edit mode, and you'll see some launchpads pointing at oblique angles. (Feel free to correct me if I'm wrong on any of this.)</div></div>
+<div class="post" id="p210536"><div class="post-head"><a class="id" href="../t/11644.html#p210536">#210536</a> <span class="index">3</span> <span class="date">2006-08-02T18:35:25Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">What I mean is that there can be slanted one-way tiles like pieces F or J (they look like this:<br>
+<br>
+|\<br>
+|_\<br>
+__<br>
+|  \<br>
+|__\<br>
+<br>
+)<br>
+so that they slant like this:<br>
+\<br>
+  \<br>
+and mabey even turn the curved tiles ontoone way platforms as well<br>
+<br>
+As for the launchpads, I've tested them myself and I'm sure that they ony occur in 45 increments. Even if the numbers in the parameters aren't results of either cos(angle) or sin(angle) where angle is a multiple of 45, the launchpad is rotated to some multiple of 45. Now, I even checked the DDA's in the Userlevels.txt file and they were all at 45 degrees... If you have or have seen some map disobeying the 45 degree rule, I'd be happy to see it.<br>
+My conclusion: launchpads CAN't be at any angle.</div></div>
+<div class="post" id="p210537"><div class="post-head"><a class="id" href="../t/11644.html#p210537">#210537</a> <span class="index">4</span> <span class="date">2006-08-02T18:42:07Z</span> <span class="author"><a href="../u/9372544.html">Shark</a></span></div><div class="post-body">Is this really crucial? will this drastically improve gameplay?<br>
+<br>
+is it even a worthwhile suggesion?</div></div>
+<div class="post" id="p210542"><div class="post-head"><a class="id" href="../t/11644.html#p210542">#210542</a> <span class="index">5</span> <span class="date">2006-08-02T18:55:23Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Honestly, not really, I'm just bored. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p210543"><div class="post-head"><a class="id" href="../t/11644.html#p210543">#210543</a> <span class="index">6</span> <span class="date">2006-08-02T18:56:03Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><a href="http://pastebin.ca/112142">http://pastebin.ca/112142</a><br>
+<br>
+If you manually edit the code of a launchpad, you can make it any angle you want. My link is a level with 0-, 30-, 45-, 60-, and 90-degree launchpads. Now, the <i>graphics</i> only show them at 45 degree snaps, but they launch like 30- and 60-degree pads should launch. Also, if you go into edit mode, you'll see them at their correct angles.</div></div>
+<div class="post" id="p210674"><div class="post-head"><a class="id" href="../t/11644.html#p210674">#210674</a> <span class="index">7</span> <span class="date">2006-08-03T00:08:52Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"><br>
+Wow, i didn't know that...<br>
+Thanks for the example<br>
+The only thing I don't understand is why the creators of N would not just render the launchpad movie clip's angle by using the rotate() method to turn it.<br>
+What could've been simpler?<br>
+Was there some advantage to not using rotate()?</div></div>
+<div class="post" id="p210678"><div class="post-head"><a class="id" href="../t/11644.html#p210678">#210678</a> <span class="index">8</span> <span class="date">2006-08-03T00:12:11Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">They do rotate it, but only in edit mode.</div></div>
+<div class="post" id="p210720"><div class="post-head"><a class="id" href="../t/11644.html#p210720">#210720</a> <span class="index">9</span> <span class="date">2006-08-03T01:38:28Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">What I mean is that they can be seen as rotated DURRING gameplay.<br>
+I already know that they show up rotated while editing...</div></div>
+<div class="post" id="p210768"><div class="post-head"><a class="id" href="../t/11644.html#p210768">#210768</a> <span class="index">10</span> <span class="date">2006-08-03T03:05:10Z</span> <span class="author"><a href="../u/9370933.html">Razorstar</a></span></div><div class="post-body">They didn't show up as rotated for me<br>
+<br>
+But the second last one gave more of a 60 degree launch<br>
+<br>
+Which is interesting at the least</div></div>
+<div class="post" id="p210784"><div class="post-head"><a class="id" href="../t/11644.html#p210784">#210784</a> <span class="index">11</span> <span class="date">2006-08-03T03:47:12Z</span> <span class="author"><a href="../u/9371517.html">Kavukamari</a></span></div><div class="post-body">oh GOD PLEASE make slanted one ways M&amp;R I need them in my DDA</div></div>
+</main>
+</body>
+</html>

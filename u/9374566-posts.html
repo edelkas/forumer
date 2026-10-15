@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by laginimaineb - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374566.html">laginimaineb</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p15528"><div class="post-head"><a class="id" href="../t/17654.html#p15528">#15528</a> <span class="index">1</span> <span class="date">2007-06-04T19:31:49Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, this is my first time posting here so I'm not really sure this is the right place for this kind of question, if so, sorry  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> .<br>
+<br>
+Anyway, the thing is I am currently working on a Java 2D real-time game, similar to Liero. I am currently trying to figure out how to build the terrain following system. I've read most of the tutorial and still I have some questions; most importantly, what should I do with terrain following? Since the game uses terrain which is fully destructible and since each tile's size is one pixel only, this makes terrain following and collision detection a hard task. Small objects that move fast are a must-have so I really don't know what to do... I do use sweeping to detect when an object collides with the terrain, but beyond that I am clueless. Could someone please help me with the basics of what to do in 2D terrain following?<br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329504"><div class="post-head"><a class="id" href="../t/17654.html#p329504">#329504</a> <span class="index">3</span> <span class="date">2007-06-10T09:52:37Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hello, and thanks a lot for your answer. Anyway, I am actually also using three layers as proposed by you - one which is the background image, one which is indestructible and another destructible layer. Then, whenever an object moves, I take the last and first points which it should've reached, if there would've been no collision, and get all integer-precision points in the way - sort of like sweeping. By doing so I'm actually moving the object along all the points it would've gone through in one frame. The problem is, I really don't know which approach to take next. Oh and by the way, the original Liero forums are dead, the LieroX ones are closed-source, and the Open-LieroX I haven't tried yet <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329633"><div class="post-head"><a class="id" href="../t/17654.html#p329633">#329633</a> <span class="index">5</span> <span class="date">2007-06-10T16:42:53Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hi again, anyway I started by solving the problem in small steps - literally. I just finished the algorithm for climbing a slope (Added a picture below). The thing is that if, for example, theres a straight horizontal line which intersects a slope, then when the player is moved "into" the slope - a check is made to see whether the object is "submerged underground" and if so, it's moved upwards, until it's "unstuck". While the object is moved, I'm counting how many pixels it had to "climb" and then only if the step is smaller than the maximum allowed step-per-pixel the object is allowed to advance and all points on the line are changed by the change in height made by the object. (if the move was too drastic, the object is snapped back to the last good position). What do you think? Do you have a better idea? Mine seems like a bit too much... I don't know.<br>
+<br>
+<img class="bb-img" src="http://img127.imageshack.us/img127/6333/slopedj9.png" alt="" loading="lazy"><br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p329957"><div class="post-head"><a class="id" href="../t/17654.html#p329957">#329957</a> <span class="index">7</span> <span class="date">2007-06-11T10:56:30Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hi again, glad to see you respond again. Anyway, my drawing was a bit misleading, I did think about the distance traveled being bigger than horizontal movement and because of that I store the number of "points" in the line between the original start and end points, and then I move the character only X times, accordingly. That way, the distance traveled is the same. I'm currently writing and adjusting the code a bit, but so far so good. The movement looks good and fluent and I even added sliding and ceiling-following.<br>
+(If I have any trouble, I'll just add a post here. When I finish I'll publish the code if anybody wants to see it).<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p332159"><div class="post-head"><a class="id" href="../t/17654.html#p332159">#332159</a> <span class="index">9</span> <span class="date">2007-06-17T14:13:19Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, sorry for not answering for a long while, I was abroad. Anyway, here's the relevant code I now use for terrain-following. It's far from flawless, however, I'm still having trouble finding some problems but I'm sure it'll be fine.<br>
+<br>
+<pre class="code">        Line line = new Line(fromX,fromY,toX,toY); //Creating the line from start to end
+        int movementPoints = line.getPoints().size(); //The length of the movement line
+        int pointsMoved = 0; //The number of points moved
+        Iterator&lt;Point&gt; pointsItr = line.getPoints().iterator();
+        double lastGoodX = fromX, lastGoodY = fromY;
+        while (pointsItr.hasNext() &amp;&amp; pointsMoved&lt;=movementPoints) {
+            pointsMoved++; //Increasing the number of points moved
+            Point p = pointsItr.next(); //Getting the next point
+            obj.x=p.x; //Moving the object
+            obj.y=p.y; //along both axes
+            adjustToBounds(obj); //Adjusting the object so that it won't go outside the world's bounds
+            if (submergedInGround(obj)) {
+                int stepSize=0; //How high the player climbed
+                do {
+                    obj.y--;
+                    stepSize++;
+                } while (obj.y&gt;1 &amp;&amp; submergedInGround(obj)); //Making sure the object isn't stuck underground
+                adjustToBounds(obj);
+                if (stepSize&gt;Player.maxStep) {//The slope was too steep
+                    obj.x=lastGoodX;
+                    obj.y=lastGoodY;
+                    return;
+                }
+                //The slope was fine, but now the line needs re-adjustment
+                line = new Line(obj.x,obj.y,toX,toY+obj.y-fromY);
+                pointsItr = line.getPoints().iterator();
+                pointsItr.next();
+            }
+            else {
+                lastGoodX = obj.x;
+                lastGoodY = obj.y;
+            }
+            while (obj.y&lt;height-obj.height-1 &amp;&amp; submergedInCeiling(obj)) {
+                obj.y++;
+            }
+            Direction submergeDirection = submergedInWall(obj);
+            if (submergeDirection==Direction.LEFT) {
+                do {
+                    obj.x++;
+                } while (obj.x&lt;width-obj.width-1 &amp;&amp; submergedInWall(obj)==Direction.LEFT);
+            }
+            else if (submergeDirection==Direction.RIGHT) {
+                do {
+                    obj.x--;
+                } while (obj.x&gt;1 &amp;&amp; submergedInWall(obj)==Direction.RIGHT);
+            }
+            adjustToBounds(obj);
+        }</pre><br>
+Laginimaineb.</div></div>
+<div class="post" id="p332208"><div class="post-head"><a class="id" href="../t/17654.html#p332208">#332208</a> <span class="index">11</span> <span class="date">2007-06-17T17:22:50Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot, I think I'll also try having a look at the Open LieroX source - just for the fun of it <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Laginimaineb.</div></div>
+<div class="post" id="p336069"><div class="post-head"><a class="id" href="../t/18065.html#p336069">#336069</a> <span class="index">10</span> <span class="date">2007-06-26T23:01:17Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">pfft... No Linux? Guess that forced me to choose a Type-Writer - has to be better than Windows (and I haven't used a Mac).</div></div>
+<div class="post" id="p336072"><div class="post-head"><a class="id" href="../t/18027.html#p336072">#336072</a> <span class="index">40</span> <span class="date">2007-06-26T23:11:31Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Here are ten reasons why the suck: <a href="http://www.abc.net.au/dig/stories/s1519238.htm">http://www.abc.net.au/dig/stories/s1519238.htm</a><br>
+<br>
+Oh, by the way, they <i>do</i> have one good song: <a href="http://www.newgrounds.com/portal/view/239712">http://www.newgrounds.com/portal/view/239712</a><br>
+<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p18852"><div class="post-head"><a class="id" href="../t/21134.html#p18852">#18852</a> <span class="index">1</span> <span class="date">2008-01-15T20:31:51Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">As you've probably guessed, I'm trying to apply SAT to a game I'm working on, and I've stumbled across a bit of a problem using SAT with concave circular shapes.<br>
+<br>
+I got the idea that when using SAT, I just project the shapes onto each potentially separating axis, and the penetration vector is given by the shortest vector from a point of one shape's projection, to the opposite point of the other's projection. While this is working great with all the shapes I've dealt with so far (normal convex ones, that is), is just doesn't work with a normal "concave" 1/4 circle. I'm probably missing something obvious, but I just can't say what. I've read the tutorial a few times now, and it clearly states that for circular shapes, the additional potentially separating axis is the axis parallel to the vector from the centre of the circle, to the centre of my AABB.<br>
+<br>
+Anyway, trying to solve this, I thought perhaps I could just project part of the circular shape - that is, project it from the point where the penetration vector intersects the shape, and onwards... This probably isn't clear so here's an illustration of what I mean : <br>
+<br>
+<img class="bb-img" src="http://img46.imageshack.us/img46/5957/concavecircularshapesn7.jpg" alt="" loading="lazy"><br>
+<br>
+Hope this is clearer... Thanks for the help.<br>
+<br>
+<br>
+P.S - The tutorials are seriously awesome <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p401639"><div class="post-head"><a class="id" href="../t/21134.html#p401639">#401639</a> <span class="index">5</span> <span class="date">2008-01-17T19:16:52Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot! It works <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+laginimaineb.</div></div>
+<div class="post" id="p19157"><div class="post-head"><a class="id" href="../t/21454.html#p19157">#19157</a> <span class="index">1</span> <span class="date">2008-02-12T21:40:18Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Recently, I've been working on a 2D platformer, inspired by N. Anyway, I've just finished SAT for convex shapes, and now I've gone on to collision response via bounce and friction. I've read in an old tutorial that to get the velocity along the plane with which the body is intersecting I can say:<br>
+ <pre class="code">Vn = (V dot N) * N;
+ </pre>And the tangential velocity is given by : <br>
+ <pre class="code">Vt = V-Vn;
+ [CODE]
+
+However, this results in some very high bounce sometimes, even though I've set the coefficient of restitution to zero. Any ideas?
+
+P.S - I'm calculating the new velocity by : 
+ [CODE]
+newVel = Vt*(1-friction) + Vn*-bounce;
+ </pre><br>
+Help much appreciated,<br>
+laginimaineb.</div></div>
+<div class="post" id="p409159"><div class="post-head"><a class="id" href="../t/21454.html#p409159">#409159</a> <span class="index">3</span> <span class="date">2008-02-13T19:27:52Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21454.html#p408972">Quote: Raigan, 2008-02-12T22:34:50Z</a></div>the only other thing i can think of is that N may not be unit-length, which it should be..</blockquote><br>
+But, of course, I forgot <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">. Thanks a lot, problem fixed.</div></div>
+<div class="post" id="p409951"><div class="post-head"><a class="id" href="../t/21454.html#p409951">#409951</a> <span class="index">4</span> <span class="date">2008-02-16T17:02:01Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">I have another question about this way of applying friction. In the game I'm working on, when you press an arrow key, the body accelerates in that direction. This means that climbing up slopes is slower than running on a horizontal surface, since you always get pushed in the direction of the normal. Now that I've added friction, climbing a slope is a near impossible feat, while moving on a horizontal surface is fine. If I change the  coefficient of friction to a lower value, a body moving on a horizontal surface will take a <b>lot</b> of time to stop, whilst a body on a slope will move nicely.<br>
+<br>
+To solve this I thought of making the arrow keys accelerate the body in the direction of the slope he's on, but then climbing up slopes isn't that hard, and I'll have to align the player (a rectangle) to the surface he's on, which will require some major refactoring (which is fine by me, if that's the way to go). What do you think?<br>
+<br>
+With thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p410224"><div class="post-head"><a class="id" href="../t/21454.html#p410224">#410224</a> <span class="index">6</span> <span class="date">2008-02-17T20:59:00Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks for your reply. I've tried what you've suggested, and indeed it's starting to look better. However, I'm still curious as to a few things. In N it seems that friction is applied in proportion to the angle of the slope on which the Ninja is standing. Furthermore, when you press the left or right keys, you're moving relative to the slope you're on (or so it seems). Is it so? Is the Ninja really aligned to the surface he's on or is it just a visual trick?<br>
+<br>
+Lots of thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p19392"><div class="post-head"><a class="id" href="../t/21697.html#p19392">#19392</a> <span class="index">1</span> <span class="date">2008-03-04T15:20:33Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, as you probably already know, I'm working on an N-style platformer. Anyway, I've implemented collision detection and response using SAT, as written in the tutorials. Now I'm trying to move on to angular movement of the colliding bodies. To do this, I need to find the point (or points) of collision between colliding player's OBB and the tile. I've thought of, perhaps, checking for intersection of the OBB and each of the tile's line segments. Is this practical? I've got a feeling there's  better or more correct way. <br>
+<br>
+P.S - I've already got the direction and size of the penetration vector, perhaps that could help.<br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p413821"><div class="post-head"><a class="id" href="../t/21697.html#p413821">#413821</a> <span class="index">3</span> <span class="date">2008-03-04T16:54:47Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot. This is exactly what I thought I'd have to do (though I was hoping I was missing something <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">). I've already figured this out on paper, so I hope I can make it work. I'll keep you posted, though  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .<br>
+<br>
+Thanks a lot again for all your help,<br>
+laginimaineb.</div></div>
+<div class="post" id="p415924"><div class="post-head"><a class="id" href="../t/21697.html#p415924">#415924</a> <span class="index">4</span> <span class="date">2008-03-11T19:44:04Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">So... I've thought about using a rigid OBB with SAT and tiles, and I've ran into a little problem. I've finished writing the methods to deal with finding the closest point on the OBB to the correcting tile, or the contact lineseg. However, I've just thought of something - since the tile only "knows" about itself, it will return a contact lineseg which is only within it's borders. Therefore, whilst torque should not be applied, I'm fooled into believing the body is on the edge of the tile, and so the body starts rotating. Here's an image to try and make the situation clearer: <br>
+<img class="bb-img" src="http://img222.imageshack.us/img222/1356/postimageps9.jpg" alt="" loading="lazy"><br>
+<br>
+Anyway, I've thought of moving to small connected circular particles, however, the above problem remains. One of the circles will be checked first, moved (together with the other one) out of the tile, and rotated - even if it shouldn't. I've thought of merging the tiles but then I'd have lost the biggest advantage of tiles - simplicity.<br>
+<br>
+Any ideas?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+Lots of thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p416235"><div class="post-head"><a class="id" href="../t/21697.html#p416235">#416235</a> <span class="index">7</span> <span class="date">2008-03-12T09:59:32Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot for your responses. taaveti, I'm not quite sure I understand what you mean. Did you mean I should perform multiple tests and only after testing against the whole body should I move it? If so, that an option (as suggested by Raigan) which is possible. I was, however, thinking of merging the tiles as this seems like a very safe way (not much room for error). Anyway, I'll keep you guys posted.<br>
+<br>
+P.S - I've thought of only keeping the merged tiles as individual shapes in a list, and have each shape "know" over which tiles it spans. That way, I can have a simple binary search through all tiles listed within the shape, know if the current tile I'm checking against is contained within a certain shape, and if so, start the SAT collision magic. Does this seem reasonable? I'm curious as to how you got it to work in N. Any clues? <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Lots of thanks (again),<br>
+laginimaineb.</div></div>
+<div class="post" id="p417451"><div class="post-head"><a class="id" href="../t/21697.html#p417451">#417451</a> <span class="index">11</span> <span class="date">2008-03-16T15:09:04Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot for all of your interest. I'm still reading about and thinking about what I'm going to do, though it seems as though I'll go for merging tiles. By the way, zzzzrrr, this is really amazing - I've just ran into your library a few days ago, and I thought it was awesome. Keep up the great work.<br>
+<br>
+With thanks,<br>
+laginimaineb.</div></div>
+</main>
+</body>
+</html>

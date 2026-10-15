@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/define script for XChat - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; /define script for XChat</nav></header>
+<main>
+<div class="post" id="p17103"><div class="post-head"><a class="id" href="../t/19291.html#p17103">#17103</a> <span class="index">1</span> <span class="date">2007-09-06T14:15:24Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">This script allows you to define macros for commands. For example, I might type:<br>
+<br>
+<b>/define k kick %0-</b><br>
+<br>
+And then I could simply do:<br>
+<br>
+<b>/k nick reason</b><br>
+<br>
+to kick someone. Or, for a simple "fish" script,<br>
+<br>
+<b>/define fish me slaps %0 around a bit with a fish %1-</b><br>
+<br>
+<b>/fish jtbandes because he feels like it.</b><br>
+<br>
+And that would send:<br>
+<br>
+<b>/me slaps jtbandes around a bit with a fish because he feels like it.</b><br>
+<br>
+Get it?<br>
+<br>
+<a href="http://pastebin.com/f1d191b08">http://pastebin.com/f1d191b08</a><br>
+<br>
+Take that and save it as "define.pl", then load it as a script in XChat.<br>
+<span style="color:RED">Note to windows users: if the script does not work, as in it says something about register(), delete every instance of "Xchat::" (without quotes) in the file.</span><br>
+<br>
+From the help:<br>
+<pre class="code">Usage: DEFINE [-t] &lt;cmd1&gt; &lt;cmd2&gt; [&lt;format&gt; ...], defines cmd1 as a macro for cmd2.
+    The -t option creates a temporary command that will be destroyed
+       when X-Chat quits, or when the define script is unloaded.
+       All other command definitions are saved and reloaded
+       when X-Chat starts up again.
+    cmd1 and cmd2 MUST NOT include leading slashes.
+    Format syntax: %n  Inserts the nth argument (first argument is 0)
+           %x-y Inserts the arguments from x to y, inclusive
+           %x-  Inserts arguments from x to the end of the input
+           %-y  Inserts arguments up to and including y
+           \%  A literal % character
+    All other text in the format string will be taken literally. Be careful!
+    Defined commands are saved in the file definedcommands.txt in the same folder
+       as X-Chat. Deleting this file will clear all of your defined commands.
+    The UNDEFINE and DEFINEDCMDS commands are also available.
+       See /help undefine and /help definedcmds, respectively.</pre></div></div>
+<div class="post" id="p362747"><div class="post-head"><a class="id" href="../t/19291.html#p362747">#362747</a> <span class="index">2</span> <span class="date">2007-09-06T20:42:16Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">jt, you rock (even though you already gave me this yesterday, you still rock)</div></div>
+</main>
+</body>
+</html>

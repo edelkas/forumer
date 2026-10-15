@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dot product question - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Dot product question</nav></header>
+<main>
+<div class="post" id="p1857"><div class="post-head"><a class="id" href="../t/2088.html#p1857">#1857</a> <span class="index">1</span> <span class="date">2005-01-21T05:02:40Z</span> <span class="author">Guest</span></div><div class="post-body">I read this definition in one of the N tutorials:<br>
+<br>
+ <blockquote class="quote"><div class="quote-head">Quote</div> the dot product of two vectors a and b is given by:<br>
+<br>
+dp = a.x*b.x + a.y*b.y;<br>
+<br>
+Note that the result is a scalar value (a single number).<br>
+You can think of it as describing the relative orientation of a and b; a negative dot product means that a and b point away from each other; a positive dot product means they point in the same direction.<br>
+<br>
+However, since the magnitude of the dot product is determined by the lengths of a and b, only the sign (positive/negative) of the dot product is directly useful without further manipulation. </blockquote><br>
+And this raises I question I've had before...my understanding of a vector is that it is more than just a point...it requires a direction (often an angle) and a magnitude.<br>
+<br>
+But how can you find "a and b point away from each other" when, in the above example, a and b are both simply points? How can they point anywhere? I'm obviously missing something, please illuminate.</div></div>
+<div class="post" id="p47139"><div class="post-head"><a class="id" href="../t/2088.html#p47139">#47139</a> <span class="index">2</span> <span class="date">2005-01-21T10:00:45Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">the dot product as I understand it:<br>
+<br>
+If you have two vectors (not position vectors), they can be called <b>a</b> and <b>b</b> but they stand for the movement you have to do. eg: <b>a</b> = 5i +6j, and <b>b</b> = 2i + 3j. <b>a + b</b> = (5 + 2)i + (6 + 3)j = 7i + 9j, so from the origin you go 7 across and 9 up.<br>
+<br>
+the dot product I use is used to work out the angle between two vectors. Using <b>a</b> and <b>b</b> again, <br>
+<br>
+<b>a</b>.<b>b</b> = |<b>a</b>|*|<b>b</b>|*cos(x) where x is the angle between the two vectors.<br>
+<br>
+<b>a</b>.<b>b</b> = (5*2) + (6*3) (multiply the i values and the j values and add them together)<br>
+<br>
+|<b>a</b>| = square root of (5^2 + 6^2) (think pythagorus: |<b>a</b>| means the size of <b>a</b><br>
+<br>
+using these, find out what cosx is, find out what x is.<br>
+<br>
+from your quote, <br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>a negative dot product means that a and b point away from each other; a positive dot product means they point in the same direction.</blockquote><br>
+this makes sense: if x is &gt; 180 degrees (they point away from each other) cosx will be negative, the same with x &lt; 180 = cosx is positive.<br>
+<br>
+edit: Phew.   <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> I think thats all correct, but anyone else feel free to put me in my place. Hope this helps, iangb<br>
+<br>
+Maybe maths has a use after all!</div></div>
+<div class="post" id="p47142"><div class="post-head"><a class="id" href="../t/2088.html#p47142">#47142</a> <span class="index">3</span> <span class="date">2005-01-21T12:05:52Z</span> <span class="author"><a href="../u/9370726.html">shem</a></span></div><div class="post-body">That is PERFECTLY clear. Thanks. Now I understand.</div></div>
+</main>
+</body>
+</html>

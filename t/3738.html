@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floorguard bug - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Floorguard bug</nav></header>
+<main>
+<div class="post" id="p3388"><div class="post-head"><a class="id" href="../t/3738.html#p3388">#3388</a> <span class="index">1</span> <span class="date">2005-06-20T10:01:31Z</span> <span class="author"><a href="../u/9370490.html">JeR(K)</a></span></div><div class="post-body">..but I'm still making a new topic for it.<br>
+<br>
+So: Load the following map and demo into N and see what happens. <div class="attachment attachment-missing">Attachment (lost): post-3-1119261691.txt</div></div></div>
+<div class="post" id="p76640"><div class="post-head"><a class="id" href="../t/3738.html#p76640">#76640</a> <span class="index">2</span> <span class="date">2005-06-20T10:10:03Z</span> <span class="author"><a href="../u/9370598.html">Igelós</a></span></div><div class="post-body">You just went to that floor guard and then it started to keep that voice.<br>
+<br>
+That isn't very great bug.</div></div>
+<div class="post" id="p76641"><div class="post-head"><a class="id" href="../t/3738.html#p76641">#76641</a> <span class="index">3</span> <span class="date">2005-06-20T10:12:06Z</span> <span class="author"><a href="../u/9370490.html">JeR(K)</a></span></div><div class="post-body">The idea is that it didn't kill me. It didn't move towards me.</div></div>
+<div class="post" id="p76650"><div class="post-head"><a class="id" href="../t/3738.html#p76650">#76650</a> <span class="index">4</span> <span class="date">2005-06-20T10:58:05Z</span> <span class="author"><a href="../u/9370846.html">johnny_faneca</a></span></div><div class="post-body">Yes, you are right<br>
+he didnt move</div></div>
+<div class="post" id="p76675"><div class="post-head"><a class="id" href="../t/3738.html#p76675">#76675</a> <span class="index">5</span> <span class="date">2005-06-20T14:45:45Z</span> <span class="author"><a href="../u/9370598.html">Igelós</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3738.html#p76641">Quote: JeR(K), 2005-06-20T10:12:06Z</a></div>The idea is that it didn't kill me.</blockquote>It <b>did</b> kill you<br>
+<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/3738.html#p76641">Quote: JeR(K), 2005-06-20T10:12:06Z</a></div>It didn't move towards me.</blockquote>Yeah, but it isn't very big thing</div></div>
+<div class="post" id="p76692"><div class="post-head"><a class="id" href="../t/3738.html#p76692">#76692</a> <span class="index">6</span> <span class="date">2005-06-20T15:59:33Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">I think this is happening because the floorguard is embedded in a tile. Technically, the ninja can go through the part where the floorguard is, but the floorguard recognizes it as a tile and stops. Thus, it goes nowhere.</div></div>
+<div class="post" id="p76706"><div class="post-head"><a class="id" href="../t/3738.html#p76706">#76706</a> <span class="index">7</span> <span class="date">2005-06-20T16:38:01Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Weird and interesting. I can't explain it.</div></div>
+<div class="post" id="p76750"><div class="post-head"><a class="id" href="../t/3738.html#p76750">#76750</a> <span class="index">8</span> <span class="date">2005-06-20T18:27:04Z</span> <span class="author"><a href="../u/9370787.html">jeffkillian</a></span></div><div class="post-body">I think some of us have not actually seen it.  If you play it with the demo, he dies.  However, if you just let him fall, after clicking play, and don't do anything, then it should work.</div></div>
+<div class="post" id="p76851"><div class="post-head"><a class="id" href="../t/3738.html#p76851">#76851</a> <span class="index">9</span> <span class="date">2005-06-20T21:55:47Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">perhaps it's because of the NaN?</div></div>
+<div class="post" id="p76859"><div class="post-head"><a class="id" href="../t/3738.html#p76859">#76859</a> <span class="index">10</span> <span class="date">2005-06-20T22:06:48Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Shouldn't be a NaN. That's something you did.</div></div>
+<div class="post" id="p76978"><div class="post-head"><a class="id" href="../t/3738.html#p76978">#76978</a> <span class="index">11</span> <span class="date">2005-06-21T10:33:53Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">2 things.<br>
+<br>
+1) JeR(K) - you took your map data without resetting your map. The ninja should start on top of the bounce block, right?<br>
+So everyone else - put the ninja one square above the bounce block (go into edit mode)before playing the demo. Unless JeR(K) fixes the map data.<br>
+<br>
+2) I <i>think</i> that it is because the floorguard algorithm checks every tile that the floorguard can go to, to see if the ninja is there (if it is there, then the floorguard moves as far as possible in that direction). As at the end of the demo, the ninja is on the same tile as the one the floorguard is on, so it is not detected, because the floorguard doesn't check it's own tile (programming that adjustment in would be possible, but I can see why M&amp;R thought there was no need in the first place). If, at the end of the demo, you move a little bit to the left, onto the other tile, then the floorguard reacts.<br>
+<br>
+Solved! <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p76982"><div class="post-head"><a class="id" href="../t/3738.html#p76982">#76982</a> <span class="index">12</span> <span class="date">2005-06-21T12:22:28Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">I posted about this before. On one of Mechoir's threads about his stalagtite/mite  highscore threads. Or did I start a new thread about it. Anyway, a floorguard didn't react to me.<br>
+<br>
+Although I'm sure I was <i>much</i> further away from the guard than in that demo!</div></div>
+<div class="post" id="p124621"><div class="post-head"><a class="id" href="../t/3738.html#p124621">#124621</a> <span class="index">13</span> <span class="date">2005-12-19T12:57:52Z</span> <span class="author"><a href="../u/9371278.html">ska</a></span></div><div class="post-body">Interesting, Ianb's reasoning sounds very plausible and I guess there's nothing you can do to fix it, plus it would mess up the highscores!</div></div>
+<div class="post" id="p124681"><div class="post-head"><a class="id" href="../t/3738.html#p124681">#124681</a> <span class="index">14</span> <span class="date">2005-12-19T15:11:44Z</span> <span class="author"><a href="../u/9371126.html">krusch</a></span></div><div class="post-body">*sighs*<br>
+Please look at the dates before you post ben, this thread hasn't had a reply for six months and resurrecting things like this is a good way to get yourself into trouble.<br>
+It might not hurt to take a little glimpse at the forum rules as well.<br>
+Cheers</div></div>
+<div class="post" id="p125087"><div class="post-head"><a class="id" href="../t/3738.html#p125087">#125087</a> <span class="index">15</span> <span class="date">2005-12-20T06:44:14Z</span> <span class="author"><a href="../u/9371278.html">ska</a></span></div><div class="post-body">Oh, I didn't realise I will read th forum rules <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> (again)</div></div>
+<div class="post" id="p125128"><div class="post-head"><a class="id" href="../t/3738.html#p125128">#125128</a> <span class="index">16</span> <span class="date">2005-12-20T08:43:19Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">That's not a bug, that's a moron running into a floor guard.</div></div>
+<div class="post" id="p125209"><div class="post-head"><a class="id" href="../t/3738.html#p125209">#125209</a> <span class="index">17</span> <span class="date">2005-12-20T16:06:34Z</span> <span class="author"><a href="../u/9371195.html">Guiseppi</a></span></div><div class="post-body">Rofl, a 5 month resurrection, way to go, BS.  And yeah, that's just an NaNed floorguard.</div></div>
+<div class="post" id="p125211"><div class="post-head"><a class="id" href="../t/3738.html#p125211">#125211</a> <span class="index">18</span> <span class="date">2005-12-20T16:14:13Z</span> <span class="author"><a href="../u/9371126.html">krusch</a></span></div><div class="post-body">No the floorguard isn't NaNed, Guiseppi.<br>
+It is just snapped in an odd position.<br>
+Now will you please let this thread rest in peace!</div></div>
+<div class="post" id="p125309"><div class="post-head"><a class="id" href="../t/3738.html#p125309">#125309</a> <span class="index">19</span> <span class="date">2005-12-20T21:20:27Z</span> <span class="author"><a href="../u/9371195.html">Guiseppi</a></span></div><div class="post-body">I will if everyone else will, but it would help if someone locked it.</div></div>
+<div class="post" id="p130089"><div class="post-head"><a class="id" href="../t/3738.html#p130089">#130089</a> <span class="index">20</span> <span class="date">2006-01-06T03:30:42Z</span> <span class="author"><a href="../u/9371266.html">Aries_Griff</a></span></div><div class="post-body">I found a bug similar to this in a metanet level(well user made level) 86-1, just yesterday. I jumped towards the left wall and missed the first edge, landing right next to the left floorguard, extremely close to it, and it didn't come at me. The other floorguard came at me as usual, but the one next to me didnt kill me. Needless to say I was puzzled, and when I jumped and landed on the ground the next time, the left floorguard came towards me as normal (just not in sync with his counterpart).</div></div>
+<div class="post" id="p130146"><div class="post-head"><a class="id" href="../t/3738.html#p130146">#130146</a> <span class="index">21</span> <span class="date">2006-01-06T10:22:51Z</span> <span class="author"><a href="../u/9370490.html">JeR(K)</a></span></div><div class="post-body">I think this is the third rez for this thread...<br>
+<br>
+I'll close it, I am a MetaNember after all.</div></div>
+</main>
+</body>
+</html>

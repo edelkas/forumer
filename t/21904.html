@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexx's Image Map Tutorial - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; Nexx's Image Map Tutorial</nav></header>
+<main>
+<div class="post" id="p19592"><div class="post-head"><a class="id" href="../t/21904.html#p19592">#19592</a> <span class="index">1</span> <span class="date">2008-03-19T23:13:21Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body"><div class="align-center"><span style="font-family:IMPACT"><span style="color:GREEN"><u>Nexx's Image Map Tutorial</u></span></span></div><br>
+First and foremost, <span style="color:RED"><b>you need NReality v6c2 to play maps with images!</b></span> <details class="spoiler"><summary>Spoiler: Expand this to read a little more about NReality.</summary>For those who havent heard of it, NReality is a sort of an expansion for N v1.4 while we all wait for v1.5 to be released. It adds new functionalities (privatecontest, image maps, playing maps straight off of NUMA, etc) and 10 new columns (2 columns of blue_tetris, 8 columns of Legacy maps (the Origins pack)), and provides a more cheat-free environment, all while maintaining everything from v1.4.</details>Click <a href="../t/19543.html">here</a> to go to the NReality thread, or click <a href="http://n.infunity.com/downloads/NReality6c2.zip">here</a> to download v6c2 without further ado.<br>
+<br>
+So, if youve been around NUMA for the past few months, chances are youve stumbled across an image map or two. (If not, check out the <a href="../t/21871.html">Image Map Thread</a> to learn how to play them and to see all the image maps made so far.) These image maps are a whole new style of mapping, so naturally there are a lot of new things to consider. In this tutorial Ill break down how they work and how you can make some of your own. (Click on any section below to expand it)<br>
+<details class="spoiler"><summary>Spoiler: How do image maps work?</summary>First, NReality recognizes that a map uses images by the level data. The formatting is:<br>
+<br>
+$title#author#genre#tilesetdata|objectdata|backgroundimageURL|foregroundimageURL|#<br>
+<br>
+Note: You can have a foreground without a background or vice versa, just keep the |'s intact.<br>
+<br>
+NReality then proceeds to download the images at the given urls. (As a sidenote, there is no error or anything if there are no images at the given urls; the map will load normally) The background and foreground images are both 792x600 pixels large, which is the size of N levels (including the tiles that make up the border).<br>
+<br>
+As for how the images interact with the tileset and objects, you can think of the whole level as four layers:<br>
+<br>
+Foreground image - TOP LAYER<br>
+Original foreground (tileset) &amp; objects <br>
+Background image<br>
+Original background (light gray) - BOTTOM LAYER<br>
+<br>
+So foreground images cover all else: the light gray, the dark gray, all objects, everything. Background images only cover up the light gray, and everything else is rendered on top of them. <br>
+<br>
+The trick: foreground images have transparent sections (they are just saved in a format that supports transparency) so you can see the objects and whatnot. And thats all there is to it.</details><details class="spoiler"><summary>Spoiler: What you need to put together an image map</summary>Image maps may look sleek, but putting them together aint all puppies and sunshine.<br>
+<br>
+But before we dive into the making of one, there are two essentials:<br>
+<br>
+1) <b>A place to host images.</b> There are many popular sites created specifically for this purpose, such as Image Shack, Photobucket, Flickr, Tinypic, etc. You might be able to get by with a website account (ex: Geocities) or other online storage place, but youre much better off getting an account with an image-hosting site.<br>
+<br>
+2) <b>A graphics editor that supports transparency.</b> Without this youll only be able to make backgrounds. If all youve got is MSPaint, its time to upgrade. My personal favorite is (of course) Adobe Photoshop, but Adobe Illustrator will also work, Im pretty sure Paint Shop Pro will work, and Ill bet there are many others out there that will work. Use whatever youre comfortable with.<br>
+<br>
+Note: <u>Ill be doing the rest of this tutorial with Photoshop</u>, so my apologies to those who dont have it. <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  (Also, I use a PC, so I may say some things that only apply to PC users. I hope those with Macs wont get too lost.)</details><details class="spoiler"><summary>Spoiler: Putting together a very basic image map using Photoshop</summary>Ill keep this tutorial <b>very</b> basic from all perspectives, just to make sure that everyone can keep their bearings. If at any point things arent turning out as expected, post below and Ill try to help you out.<br>
+<br>
+Well be doing the following transformation:<br>
+<br>
+<img class="bb-img" src="../files/images/8632.png" alt="" loading="lazy"> ==&gt; <img class="bb-img" src="../files/images/8636.png" alt="" loading="lazy"><br>
+<br>
+Ugly, I know, but it gets the job done.<br>
+<br>
+<b>Step 0:</b> Make a map like the one above (on the left). The tileset must be the same, but put in whatever objects you like - I chose a rocket and some gold. Save the map data in a text file.<br>
+<br>
+<b>Step 1: Take a screenshot of the map and load it into Photoshop.</b><br>
+<br>
+The thing is that we only want to edit the tileset; if there are objects in your image then they will be part of the background/foreground! To get rid of the objects, look for the | separator in the map data (in the editor  dont touch your text file), and delete everything after it. Load up the map again, but this time in N v1.4 (youll see why later). Maximize the window (not necessary but it helps), press p, and then press Print Screen. Close N. Open Photoshop. Go to File &gt; New. The given width and height should be your screen size (ex: 1024x768), and the given resolution should be 72 pixels/inch (normal screen resolution). If not, make it so. Hit OK. Go to Edit &gt; Paste.<br>
+<br>
+<b>Step 2: Crop!</b><br>
+<br>
+Enter the handy dandy Magic Wand tool (<img class="bb-img" src="../files/images/8627.png" alt="" loading="lazy">), which well be using a lot of from here on out. For the magic wand tool, you pick a starting color, and it selects all pixels that are connected to it that are similar enough in color (which you can adjust in the Tolerance field). Select the magic wand tool, set the tolerance to 0, and uncheck the box for Anti-aliased.<br>
+<br>
+<img class="bb-img" src="../files/images/8628.png" alt="" loading="lazy"><br>
+<br>
+Click somewhere on the dark gray area, and it should select the whole box minus some parts here and there. Thats okay. Go to Image &gt; Crop. Your image should now look something like this (only much bigger):<br>
+<br>
+<img class="bb-img" src="../files/images/8633.png" alt="" loading="lazy"><br>
+<br>
+Just to make sure you have the right size, go to Image &gt; Image Size. Width should be 792 and Height should be 600. If so, press OK. From now on, you should save your work after every step. Just save it as a PSD. This file is there only for backup, and you can delete it later.<br>
+<br>
+<b>Step 3:</b> This is where things get complicated. At this point I would normally separate the background and foreground sections into different layers, but this time well just make a foreground layer and then make the background from scratch.<br>
+<br>
+First, we have to select what will become the foreground. Using the magic wand tool, click anywhere on the light gray area. Go to Select &gt; Inverse. You should now have all E tiles selected. We actually dont want the upper right E tile selected, so (still using the magic want tool) hold ALT and click on it. (A small minus sign should appear to the left of the cursor as you hold alt) That tile should now be deselected. Go to Layer &gt; New &gt; Layer via Copy. Just so you dont get confused, right click on Layer 2, go to Properties, and for Name, put Foreground.<br>
+<br>
+So you get more used to transparency, click the eye next to Layer 1 to make the layer invisible. The checkered area you now see represents transparent pixels.<br>
+<br>
+<img class="bb-img" src="../files/images/8625.png" alt="" loading="lazy"><br>
+<br>
+One last thing before we finish this step. Youll notice that your foreground layer has your framerate in the bottom left. If you had taken the screenshot in NReality, youd also see things on the sides, like HIGHSCORES, GRID, n.infunity.com, etc. Youll want to get rid of these. (So you see, its not a big deal if you take a screenshot from NReality, but youd have to cover up more stuff at this point)<br>
+<br>
+Select the eyedropper tool and click on a dark gray part of the image. Select the paint brush tool (Note: If you dont see the paintbrush tool, click and hold on the pencil tool and it should pop up on the right), select an appropriate size brush (9 pixels should do it), and make sure Mode is Normal and Opacity is 100%.<br>
+<br>
+<img class="bb-img" src="../files/images/8629.png" alt="" loading="lazy"><br>
+<br>
+Make sure the foreground layer is selected, and then draw over the framerate in the bottom left.<br>
+<br>
+<b>Step 4: Creating the background from scratch.</b><br>
+<br>
+Go to Layer &gt; New &gt; Layer, and click OK. Rename this layer to Background. Drag your this layer underneath the layer Foreground. (the background layer should remain selected) Click on your foreground color (see below) and pick the color you want for your level background.<br>
+<br>
+<img class="bb-img" src="../files/images/8624.png" alt="" loading="lazy"><br>
+(Photoshop uses the terms "foreground color" and "background color", as shown above. To reduce confusion, we will only be using the foreground color, and I don't think I even use the term again beyond this point.)<br>
+<br>
+Click on the paint bucket tool. (Note: If you dont see a paint bucket, click and hold on the gradient tool and it should pop up on the right) Make sure it says Foreground in the Fill field (at the top), and then click anywhere on the image.<br>
+<br>
+Select the Foreground layer, and use the magic wand tool to select the E tile in the middle. Make a new layer, choose a new color, and fill it in with that. Switch to the arrow tool and move the square up and to the right. You dont have to match this up with a tile, so just guesstimate. Click on the background layer, then click on the empty box to the left of Layer 3. A little chain link should show up:<br>
+<br>
+<img class="bb-img" src="../files/images/8626.png" alt="" loading="lazy"><br>
+<br>
+Go to Layer &gt; Merge Linked. Youre done with the background! It should look something like this:<br>
+<br>
+<img class="bb-img" src="../files/images/8634.png" alt="" loading="lazy"><br>
+<br>
+<b>Step 5: Finishing the foreground.</b><br>
+<br>
+Select the Foreground layer. Magic wand the dark gray E tile, and use the paint bucket to fill it in with a color of your choosing. Make a new layer, fill the selection in again with a new color. Move the selection to the left (again, just guesstimate). Select the foreground, click the empty box next to Layer 2 to link it, and then go to Layer &gt; Merge Linked.<br>
+<br>
+One last thing: the outer foreground color. If you want to leave it dark gray, just skip to the end of this paragraph, but otherwise pick a new color. Magic wand anywhere in the outer dark gray. Do the same ol, same ol: make a new layer, paint bucket your selection, click on the Foreground layer again, make the new layer linked, and then go to Layer &gt; Merge Linked.<br>
+<br>
+Congratulations! Youre done with the image-making part! It should look something like this:<br>
+<br>
+<img class="bb-img" src="../files/images/8635.png" alt="" loading="lazy"><br>
+<br>
+<b>Step 6: Saving the files.</b><br>
+<br>
+First, a brief statement about file formats. Youre probably most familiar with JPG files, but unfortunately they dont support transparency! Were going to be working with PNG files because they do support transparency, and they also result in smaller filesizes for simple images like these.<br>
+ <br>
+Lets save the foreground first. (Make sure youve saved your work so far!) Delete the Layer 1 first, and then delete the Background layer (drag them to the little trash bin in the bottom right or right click and select Delete Layer). Go to File &gt; Save as. Name it whatever you want, but putting front in the name is helpful. Make sure the format is PNG. Click OK. A little window will pop up about interlacing, just click OK.<br>
+<br>
+Now the background. You can reopen the PSD, but its more fun to just go to Edit &gt; Step Backward. Now delete the Foreground layer. Go to Layer &gt; Flatten Image (this is not necessary, but I do it anyway), then File &gt; Save as. Again, it helps to have back in the name, and PNG should still be selected. Click OK twice. Close Photoshop! Youre almost there!<br>
+<br>
+<b>Step 7: Uploading the files and editing the map data</b><br>
+<br>
+Upload the foreground and background images to your image hosting service. Open the text file of the original level, find the urls of the uploaded images, and at the end of the map data, add:<br>
+|backgroundURL|foregroundURL| (without the quotes)<br>
+<br>
+For example, I added:<br>
+|<a href="http://img.photobucket.com/albums/v443/theBAMNman/forN/imt/sampleback.png">http://img.photobucket.com/albums/v443/theBAMNman/forN/imt/sampleback.png</a> (continued on next line)<br>
+|<a href="http://img.photobucket.com/albums/v443/theBAMNman/forN/imt/samplefront.png|">http://img.photobucket.com/albums/v443/theBAMNman/forN/imt/samplefront.png|</a>"<br>
+<br>
+<b>And youre done! <span style="color:RED">Congratulations!</span></b> Save the file, reopen it, and load the map in the editor. It should look something like the picture I showed you at the beginning. The map data for the above map is attached below if you want to check it out.</details><details class="spoiler"><summary>Spoiler: A few more things to know before you dive into making your own image map</summary>- Remember, the image size is <b>792x600</b>! (That includes the one-tile border)<br>
+<br>
+- For selecting more complicated shapes (i.e., anything but horizontal and vertical edges), you can either play with the tolerance and anti-aliased options of the magic wand tool, or you can try using Select &gt; Color Range, which has all the settings right there for you (use the drop-down menu at the bottom of that window to see a preview of your selection). Below is an example of the different settings for the magic wand tool.<br>
+<br>
+<img class="bb-img" src="../files/images/8637.png" alt="" loading="lazy"><br>
+<br>
+- <b>If you want to put a repeated texture for your foreground or background</b>, do this:<br>
+<br>
+Load up the texture file. Go to Select &gt; All. Go to Edit &gt; Define Pattern. Name it whatever you like. Go back to your map. Im assuming youve got your foreground and background layers all set up. Magic wand/color range your foreground or background, and then click on the paint bucket tool. At the top, where it says Fill, drop down the menu and pick Pattern. Then pick your pattern from the drop down box to the right of that (it should be the last one).<br>
+<br>
+<img class="bb-img" src="../files/images/8630.png" alt="" loading="lazy"><br>
+<br>
+Then just click anywhere within your selection and voila!<br>
+<br>
+<img class="bb-img" src="../files/images/8631.png" alt="" loading="lazy"></details><br>
+If you want to know anything else, just post below and I'll add it above!<br>
+<br>
+Also, feel free to post images of the image map you make from this tutorial! <div class="attachment attachment-missing">Attachment (lost): post-10-1206054523.txt</div></div></div>
+<div class="post" id="p418904"><div class="post-head"><a class="id" href="../t/21904.html#p418904">#418904</a> <span class="index">2</span> <span class="date">2008-03-19T23:18:37Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">This is my first tutorial, so feel free to criticize it harshly.<br>
+<br>
+Also, when the actual level-making spoiler (the third one) expands, the text takes up much more horizontal space. Does anyone know how to fix this?</div></div>
+<div class="post" id="p418911"><div class="post-head"><a class="id" href="../t/21904.html#p418911">#418911</a> <span class="index">3</span> <span class="date">2008-03-19T23:30:55Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">The page is being stretched because of that super-long string with the image URLs and whatnot.<br>
+<br>
+Good tutorial, covers all the bases. I would suggest replacing the Magic Wand step with Color Range, though.</div></div>
+<div class="post" id="p418914"><div class="post-head"><a class="id" href="../t/21904.html#p418914">#418914</a> <span class="index">4</span> <span class="date">2008-03-19T23:44:57Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Thanks. I forgot about that line.<br>
+<br>
+Also, which Magic Wand use are you referring to? The last one? (in the fourth spoiler)</div></div>
+<div class="post" id="p418919"><div class="post-head"><a class="id" href="../t/21904.html#p418919">#418919</a> <span class="index">5</span> <span class="date">2008-03-19T23:53:00Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">Pretty much every use of it. Color Range cuts out the light gray perfectly, so there's no need for all that anti-aliasing and tolerance futzing.</div></div>
+<div class="post" id="p418922"><div class="post-head"><a class="id" href="../t/21904.html#p418922">#418922</a> <span class="index">6</span> <span class="date">2008-03-19T23:55:13Z</span> <span class="author"><a href="../u/9375303.html">notkitt</a></span></div><div class="post-body">Very nice<br>
+Even though I already knew all this it will be good for people who have not tried to make one before</div></div>
+<div class="post" id="p418944"><div class="post-head"><a class="id" href="../t/21904.html#p418944">#418944</a> <span class="index">7</span> <span class="date">2008-03-20T01:10:54Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Wow, great tutorial! <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+By the way shouldn't this topic post at custom map forum?</div></div>
+<div class="post" id="p418947"><div class="post-head"><a class="id" href="../t/21904.html#p418947">#418947</a> <span class="index">8</span> <span class="date">2008-03-20T01:27:13Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">EDIT: Yes, that would be better. Can someone please move it?<br>
+<br>
+EDIT 2: @Templex: I added the Color Range function in the last section, so people know about it and can use it from here on out. Thanks for the tip!</div></div>
+<div class="post" id="p419280"><div class="post-head"><a class="id" href="../t/21904.html#p419280">#419280</a> <span class="index">9</span> <span class="date">2008-03-20T21:24:52Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">Just a little correction, it's actually Select &gt; Color Range, not Edit &gt; Color Range.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p419287"><div class="post-head"><a class="id" href="../t/21904.html#p419287">#419287</a> <span class="index">10</span> <span class="date">2008-03-20T21:37:57Z</span> <span class="author"><a href="../u/9375220.html">_destiny^-</a></span></div><div class="post-body">to solve your extending writing thing, buy i bigger monitor (like me <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">)<br>
+<br>
+lol sarcasm <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> i don't actually have a clue</div></div>
+<div class="post" id="p419340"><div class="post-head"><a class="id" href="../t/21904.html#p419340">#419340</a> <span class="index">11</span> <span class="date">2008-03-20T23:02:22Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">@destiny: The problem was solved, thanks to Templex.<br>
+<br>
+@Templex: Well aren't you just the most helpful person? Thanks <i>again</i> for the tip.</div></div>
+<div class="post" id="p419452"><div class="post-head"><a class="id" href="../t/21904.html#p419452">#419452</a> <span class="index">12</span> <span class="date">2008-03-21T03:23:52Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">Nice tutorial. Covers everthing you need to know. Well done.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p421668"><div class="post-head"><a class="id" href="../t/21904.html#p421668">#421668</a> <span class="index">13</span> <span class="date">2008-03-26T01:18:46Z</span> <span class="author"><a href="../u/9375917.html">Sting::Ray</a></span></div><div class="post-body">Thanks SO much for making this; it will be a very useful aid in creating my own image maps (coming soon!). Also, I have Photoshop, so it shouldn't even be very hard... <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p422295"><div class="post-head"><a class="id" href="../t/21904.html#p422295">#422295</a> <span class="index">14</span> <span class="date">2008-03-27T12:28:25Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">This is a post copied from NReality main thread: <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+The awesomeness of NReality knows no bound.<br>
+<br>
+Now the foreground of NReality supports different blendmodes!<br>
+<br>
+This is a transparent update where you don't need to download anything to have this happened.<br>
+<br>
+The default NReality map has the inverted blendmode applied. <br>
+Please take a look at the bottom left corner of the ninja, half of the body is inverted to white color, and half of the body is remained to be black<br>
+<br>
+<img class="bb-img" src="../files/images/1887.jpg" alt="" loading="lazy"><br>
+<br>
+The blend mode can affect the ninja, as well as drones tiles gold mines and everything underneath the foreground image.<br>
+<br>
+There are 1 to 14 blend modes, description copied from flash help<br>
+<br>
+1<br>
+ "normal"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-1.jpg" alt="" loading="lazy"><br>
+ The movie clip appears in front of the background. Pixel values of the movie clip override those of the background. Where the movie clip is transparent, the background is visible.<br>
+ <br>
+2<br>
+ "layer"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-2.jpg" alt="" loading="lazy"><br>
+ Forces the creation of a temporary buffer for precomposition for the movie clip. This is done automatically if there is more than one child object in a movie clip and a blendMode setting other than "normal" is selected for the child. <br>
+ <br>
+3<br>
+ "multiply"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-3.jpg" alt="" loading="lazy"><br>
+ Multiplies the values of the movie clip constituent colors by those of the background color, and then normalizes by dividing by 0xFF, resulting in darker colors. This setting is commonly used for shadows and depth effects. <br>
+<br>
+For example, if a constituent color (such as red) of one pixel in the movie clip and the corresponding color of the pixel in the background both have the value 0x88, the multiplied result is 0x4840. Dividing by 0xFF yields a value of 0x48 for that constituent color, which is a darker shade than that of the movie clip or that of the background.<br>
+ <br>
+4<br>
+ "screen"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-4.jpg" alt="" loading="lazy"><br>
+ Multiplies the complement (inverse) of the movie clip color by the complement of the background color, resulting in a bleaching effect. This setting is commonly used for highlights or to remove black areas of the movie clip. <br>
+ <br>
+5<br>
+ "lighten"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-5.jpg" alt="" loading="lazy"><br>
+ Selects the lighter of the constituent colors of the movie clip and those of the background (the ones with the larger values). This setting is commonly used for superimposing type. <br>
+<br>
+For example, if the movie clip has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, then the resulting RGB value for the displayed pixel is 0xFFF833 (because 0xFF &gt; 0xDD, 0xCC &lt; 0xF8, and 0x33 &gt; 0x00 = 33).<br>
+ <br>
+6<br>
+ "darken"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-6.jpg" alt="" loading="lazy"><br>
+ Selects the darker of the constituent colors of the movie clip and those of the background (the ones with the smaller values). This setting is commonly used for superimposing type. <br>
+<br>
+For example, if the movie clip has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xDDCC00 (because 0xFF &gt; 0xDD, 0xCC &lt; 0xF8, and 0x33 &gt; 0x00 = 33).<br>
+ <br>
+7<br>
+ "difference"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-7.jpg" alt="" loading="lazy"><br>
+ Compares the constituent colors of the movie clip with those of its background, and subtracts the darker of the values of the two constituent colors from the lighter one. This setting is commonly used for more vibrant colors. <br>
+<br>
+For example, if the movie clip has a pixel with a RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0x222C33 (because 0xFF - 0xDD = 0x22, 0xF8 - 0xCC = 0x2C, and 0x33 - 0x00 = 0x33).<br>
+ <br>
+8<br>
+ "add"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-8.jpg" alt="" loading="lazy"><br>
+ Adds the values of the constituent colors of the movie clip to those of its background, applying a ceiling of 0xFF. This setting is commonly used for animating a lightening dissolve between two objects. <br>
+<br>
+For example, if the movie clip has a pixel with an RGB value of 0xAAA633, and the background pixel has an RGB value of 0xDD2200, the resulting RGB value for the displayed pixel is 0xFFC833 (because 0xAA + 0xDD &gt; 0xFF, 0xA6 + 0x22 = 0xC8, and 0x33 + 0x00 = 0x33).<br>
+ <br>
+9<br>
+ "subtract"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-9.jpg" alt="" loading="lazy"><br>
+ Subtracts the values of the constituent colors in the movie clip from those of the background, applying a floor of 0. This setting is commonly used for animating a darkening dissolve between two objects. <br>
+<br>
+For example, if the movie clip has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 &lt; 0x00).<br>
+ <br>
+10<br>
+ "invert"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-10.jpg" alt="" loading="lazy"><br>
+ Inverts the background.<br>
+ <br>
+11<br>
+ "alpha"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-11.jpg" alt="" loading="lazy"><br>
+ Applies the alpha value of each pixel of the movie clip to the background. This requires the "layer" blendMode setting to be applied to a parent movie clip. For example, in the illustration, the parent movie clip, which is a white background, has blendMode = "layer".<br>
+ <br>
+12<br>
+ "erase"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-12.jpg" alt="" loading="lazy"><br>
+ Erases the background based on the alpha value of the movie clip. This requires the "layer" blendMode to be applied to a parent movie clip. For example, in the illustration, the parent movie clip, which is a white background, has blendMode = "layer".<br>
+ <br>
+13<br>
+ "overlay"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-13.jpg" alt="" loading="lazy"><br>
+ Adjusts the color of each bitmap based on the darkness of the background. If the background is lighter than 50% gray, the movie clip and background colors are screened, which results in a lighter color. If the background is darker than 50% gray, the colors are multiplied, which results in a darker color. This setting is commonly used for shading effects. <br>
+ <br>
+14<br>
+ "hardlight"<br>
+ <img class="bb-img" src="http://livedocs.adobe.com/flash/8/main/images/blendmode-14.jpg" alt="" loading="lazy"><br>
+ Adjusts the color of each bitmap based on the darkness of the movie clip. If the movie clip is lighter than 50% gray, the movie clip and background colors are screened, which results in a lighter color. If the movie clip is darker than 50% gray, the colors are multiplied, which results in a darker color. This setting is commonly used for shading effects. <br>
+ <br>
+To apply blendmode to the foreground image, just add a ?[blendmode] to the end of image url<br>
+e.g.<br>
+<a href="http://img480.imageshack.us/img480/4760/ichigo28bh.png?10">http://img480.imageshack.us/img480/4760/ichigo28bh.png?10</a><br>
+<br>
+You can load the default NReality map 111791 and look at the map data for reference <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p422401"><div class="post-head"><a class="id" href="../t/21904.html#p422401">#422401</a> <span class="index">15</span> <span class="date">2008-03-27T20:37:11Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">You. Are. F***ing. Kidding. Me.<br>
+<br>
+That's.... You.... Wow. I just have no words to describe this awesomeness. Unreality, would you mind copying that post and putting it in the image-map thread?</div></div>
+<div class="post" id="p423937"><div class="post-head"><a class="id" href="../t/21904.html#p423937">#423937</a> <span class="index">16</span> <span class="date">2008-03-31T16:35:21Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">Yeah . I am definitely using blend modes on some new maps. The tutorial is pretty good though my methods are much different than yours. Especial with the whole hand drawn map scene. I might share my method if anyone wishes ( I could do a step by step process of a map =D )</div></div>
+<div class="post" id="p424306"><div class="post-head"><a class="id" href="../t/21904.html#p424306">#424306</a> <span class="index">17</span> <span class="date">2008-04-01T22:02:42Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p19592">Quote: Nexx, March 19, 2008 04:13 pm</a></div>you can try using Select &gt; Color Range, which has all the settings right there for you <b>(but you can't zoom in...  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">)</b></blockquote>LIES! Do Alt+Space or Ctrl+Space or whatever it is on Windows and click on the image, or make a rectangle with the keys held to zoom into that area.</div></div>
+<div class="post" id="p425158"><div class="post-head"><a class="id" href="../t/21904.html#p425158">#425158</a> <span class="index">18</span> <span class="date">2008-04-05T01:57:39Z</span> <span class="author"><a href="../u/9374700.html">Sithmaster</a></span></div><div class="post-body">can this be done in GIMP, I tried, but I couldn't find a magic wand, only a tool for "selecting contiguous region." Is that the same thing, I'm having a lot of trouble with this? If this guide doesn't work for GIMP, can someone explain how to get this idea to work on GIMP?</div></div>
+<div class="post" id="p425190"><div class="post-head"><a class="id" href="../t/21904.html#p425190">#425190</a> <span class="index">19</span> <span class="date">2008-04-05T04:40:26Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p425158">Quote: Sithmaster, April 04, 2008 06:57 pm</a></div> can this be done in GIMP, I tried, but I couldn't find a magic wand, only a tool for "selecting contiguous region." Is that the same thing, I'm having a lot of trouble with this? If this guide doesn't work for GIMP, can someone explain how to get this idea to work on GIMP?  </blockquote> <br>
+ Color to Alpha</div></div>
+<div class="post" id="p427332"><div class="post-head"><a class="id" href="../t/21904.html#p427332">#427332</a> <span class="index">20</span> <span class="date">2008-04-12T03:17:57Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Okay, so I'm in PS and I'm using the paintbrush to draw lines (on an otherwise transparent layer). I have my lines, now how do I paint a solid color on one side of that line while leaving the other side transparent? I really don't want to use the polygonal lasso tool to trace the whole line over again (which is a loop) - that's my last resort. But everything else I try leaves a little border between the painted area and the paintbrush line. This is such a simple thing, there MUST be a simple solution!</div></div>
+<div class="post" id="p427428"><div class="post-head"><a class="id" href="../t/21904.html#p427428">#427428</a> <span class="index">21</span> <span class="date">2008-04-12T13:46:27Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">...Niiiice.<br>
+<br>
+*Gives imaginary Good Karma*</div></div>
+<div class="post" id="p427849"><div class="post-head"><a class="id" href="../t/21904.html#p427849">#427849</a> <span class="index">22</span> <span class="date">2008-04-13T01:12:17Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body">Even with this amazing tutorial, I still have a few questions.<br>
+<br>
+1. What is the size of each grid square? I can't tell if you're counting the outside boundaries or not.<br>
+2. Would uploading an image for use as foreground into MappyWin32 v1.4, with the blank parts pink because that's what it recognizes as transparent, upload with the background pink or transparent?</div></div>
+<div class="post" id="p427864"><div class="post-head"><a class="id" href="../t/21904.html#p427864">#427864</a> <span class="index">23</span> <span class="date">2008-04-13T01:59:00Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">1. 792x600 includes the border. If you just want the playable area, then it's 744x552 (each grid square is 24x24).<br>
+<br>
+2. I know nothing about the program you're talking about, but it seems to me that it would depend on whether or not the program could distinguish between translucent and non-translucent pink. But maybe not. In any case, give it a try. If it doesn't work, you can always try out blendmodes (this sounds complicated, but it isn't too bad).<br>
+<br>
+See, I just realized the other day that you CAN use Paint to make your images, you just have to figure out a blendmode that works for you. For example, if the colors you've putting over the foreground are all lighter than the dark gray default color, then set the pink area to black and choose the blendmode "lighten". If it's the other way around, set the pink to white and choose "darken". If it's a mix, you may have to mess around with it more (ex: hardlight), but you should be able to get it to work. I haven't actually tested this out yet, but it should be fine.</div></div>
+<div class="post" id="p427900"><div class="post-head"><a class="id" href="../t/21904.html#p427900">#427900</a> <span class="index">24</span> <span class="date">2008-04-13T03:05:25Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p427332">Quote: Nexx, April 11, 2008 08:17 pm</a></div> Okay, so I'm in PS and I'm using the paintbrush to draw lines (on an otherwise transparent layer). I have my lines, now how do I paint a solid color on one side of that line while leaving the other side transparent? I really don't want to use the polygonal lasso tool to trace the whole line over again (which is a loop) - that's my last resort. But everything else I try leaves a little border between the painted area and the paintbrush line. This is such a simple thing, there MUST be a simple solution!  </blockquote> <br>
+ Magic wand that area and increase the selection size by 1 or 2 pixels (Select &gt; Modify &gt; Expand). Then fill it with whatever you want.</div></div>
+<div class="post" id="p427930"><div class="post-head"><a class="id" href="../t/21904.html#p427930">#427930</a> <span class="index">25</span> <span class="date">2008-04-13T05:49:56Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Arg, duh!!!!<br>
+<br>
+I was thinking that expanding/contracting would do the trick, but for whatever reason I was drawing a blank as to how exactly it would help.<br>
+<br>
+In retrospect, that's so obvious!</div></div>
+<div class="post" id="p427983"><div class="post-head"><a class="id" href="../t/21904.html#p427983">#427983</a> <span class="index">26</span> <span class="date">2008-04-13T11:00:38Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p427864">Quote: Nexx, April 12, 2008 09:59 pm</a></div> 1. 792x600 includes the border. If you just want the playable area, then it's 744x552 (each grid square is 24x24).<br>
+<br>
+2. I know nothing about the program you're talking about, but it seems to me that it would depend on whether or not the program could distinguish between translucent and non-translucent pink. But maybe not. In any case, give it a try. If it doesn't work, you can always try out blendmodes (this sounds complicated, but it isn't too bad).<br>
+<br>
+See, I just realized the other day that you CAN use Paint to make your images, you just have to figure out a blendmode that works for you. For example, if the colors you've putting over the foreground are all lighter than the dark gray default color, then set the pink area to black and choose the blendmode "lighten". If it's the other way around, set the pink to white and choose "darken". If it's a mix, you may have to mess around with it more (ex: hardlight), but you should be able to get it to work. I haven't actually tested this out yet, but it should be fine. </blockquote>1. Thanks!<br>
+<br>
+2. If the map has multiple layers, MappyWin32 will take pink (color 255,0,255) and make it transparent so you can see the layers behind. If you use black or white, the color will show up in the picture. I'm dealing with two layers, the background and the foreground, so I wonder if I make the foreground image in Paint and then slather pink over the open parts, then bring it into Mappy and export it as an image file, if it will retain transparency. The instruction manual gives me nothing on this matter, so that's why I'm asking.<br>
+<br>
+And that last part...what?? Last I checked, there's no blending in MS Paint.</div></div>
+<div class="post" id="p428144"><div class="post-head"><a class="id" href="../t/21904.html#p428144">#428144</a> <span class="index">27</span> <span class="date">2008-04-13T20:06:14Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">Oh, sorry, blendmode is something you can use in NReality. Basically you design your foreground and background as you like, and then you set a particular blendmode in the mapdata and see how it looks. I'll try to get an example up either today or tomorrow so you can see.</div></div>
+<div class="post" id="p442111"><div class="post-head"><a class="id" href="../t/21904.html#p442111">#442111</a> <span class="index">28</span> <span class="date">2008-06-05T05:06:37Z</span> <span class="author"><a href="../u/9376230.html">UniverseZero</a></span></div><div class="post-body">Nexx,<br>
+<br>
+What program can I get to use transparencey that I can get free online?</div></div>
+<div class="post" id="p442112"><div class="post-head"><a class="id" href="../t/21904.html#p442112">#442112</a> <span class="index">29</span> <span class="date">2008-06-05T05:15:43Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body">If you use Windows, you can get <a href="http://www.getpaint.net/">Paint.NET</a>, or you can get <a href="http://gimp.org/">The GIMP</a>, which is compatible with Linux, Mac, and Windows. I'm sure there are others, but those are the only two I've used, and both work very well.</div></div>
+<div class="post" id="p442128"><div class="post-head"><a class="id" href="../t/21904.html#p442128">#442128</a> <span class="index">30</span> <span class="date">2008-06-05T06:14:10Z</span> <span class="author"><a href="../u/9376230.html">UniverseZero</a></span></div><div class="post-body">OK...<br>
+<br>
+I've got Gimp, how do I create transparency?</div></div>
+<div class="post" id="p442390"><div class="post-head"><a class="id" href="../t/21904.html#p442390">#442390</a> <span class="index">31</span> <span class="date">2008-06-06T06:16:54Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body">I know nothing about GIMP, but Templex addressed this question before:<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p425190">Quote: Templex, April 04, 2008 08:40 pm</a></div><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p425158">Quote: Sithmaster, April 04, 2008 06:57 pm</a></div> can this be done in GIMP, I tried, but I couldn't find a magic wand, only a tool for "selecting contiguous region." Is that the same thing, I'm having a lot of trouble with this? If this guide doesn't work for GIMP, can someone explain how to get this idea to work on GIMP? </blockquote>Color to Alpha</blockquote>Let me know if that helps.<br>
+<br>
+EDIT: 45 downloads? Wow, when did that happen? I'm not seeing a whole lot of new image maps...</div></div>
+<div class="post" id="p442500"><div class="post-head"><a class="id" href="../t/21904.html#p442500">#442500</a> <span class="index">32</span> <span class="date">2008-06-06T20:10:27Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p428144">Quote: Nexx, April 13, 2008 04:06 pm</a></div> Oh, sorry, blendmode is something you can use in NReality. Basically you design your foreground and background as you like, and then you set a particular blendmode in the mapdata and see how it looks. I'll try to get an example up either today or tomorrow so you can see. </blockquote>I'll explain the situation better.<br>
+<br>
+1. I create my image in Paint. (I used to have black lines, but they caused trouble later, so I changed them to white.) I fill the rest of the space with pink (255,0,255) which is recognized as transparent by Mappy.<br>
+<br>
+<a href="http://www.postimage.org/image.php?v=Pq2gsOBA"><img class="bb-img" src="http://www.postimage.org/Pq2gsOBA.jpg" alt="" loading="lazy"></a><br>
+<br>
+2. I open up Mappy. Since the image I created was 100x100, I enter the values 100, 100 for each tile, and 1, 1 for the number of tiles.<br>
+<br>
+<a href="http://www.postimage.org/image.php?v=aV2zngGA"><img class="bb-img" src="http://www.postimage.org/aV2zngGA.jpg" alt="" loading="lazy"></a><br>
+<br>
+3. I don't want the image to separate into tiles, so I choose "Create map from big picture" under "MapTools." Not pictured: Mappy asks me if I want to remove any similar tiles. Right now, this makes no difference, but I'll probably opt out of that later.<br>
+<br>
+<a href="http://www.postimage.org/image.php?v=Pq2gt7yJ"><img class="bb-img" src="http://www.postimage.org/Pq2gt7yJ.jpg" alt="" loading="lazy"></a><br>
+<br>
+4. This is what the imported tile looks like. The pink has changed to black.<br>
+<br>
+<a href="http://www.postimage.org/image.php?v=aV2zo63A"><img class="bb-img" src="http://www.postimage.org/aV2zo63A.jpg" alt="" loading="lazy"></a><br>
+<br>
+5. And here's where my question comes in. Will any of the export methods listed in the picture retain Mappy's transparency in N? Not pictured: There is also an "Export Text" option, which doesn't act like it's being used for Game Boy Advance like the one pictured does.<br>
+<br>
+<a href="http://www.postimage.org/image.php?v=aV2zoCur"><img class="bb-img" src="http://www.postimage.org/aV2zoCur.jpg" alt="" loading="lazy"></a><br>
+<br>
+<a href="http://www.tilemap.co.uk/mappy.php">Mappy page with downloads</a><br>
+As you can (hopefully) see from the pictures, I am using MappyWin32, and I can't tell which download that is. (Oooh, cool. Blitz Basic download! I needed that...for something else.)<br>
+<br>
+So that's my conundrum.<br>
+<br>
+Edit: Added full-size links.<br>
+Edit2: Fixed full-size links.</div></div>
+<div class="post" id="p457084"><div class="post-head"><a class="id" href="../t/21904.html#p457084">#457084</a> <span class="index">33</span> <span class="date">2008-08-01T14:23:58Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">Really really sorry for reviving old topic, I know its two months old, but shouldn't this be pinned?</div></div>
+<div class="post" id="p457087"><div class="post-head"><a class="id" href="../t/21904.html#p457087">#457087</a> <span class="index">34</span> <span class="date">2008-08-01T14:32:28Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Definately should be pinned <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+In this NReality forum, please feel absolutely free to post, even if you are reviving old topic.</div></div>
+<div class="post" id="p459265"><div class="post-head"><a class="id" href="../t/21904.html#p459265">#459265</a> <span class="index">35</span> <span class="date">2008-08-08T13:08:32Z</span> <span class="author"><a href="../u/9375959.html">Eiturlyf</a></span></div><div class="post-body">VERY simple indeed...</div></div>
+<div class="post" id="p466078"><div class="post-head"><a class="id" href="../t/21904.html#p466078">#466078</a> <span class="index">36</span> <span class="date">2008-08-31T21:32:25Z</span> <span class="author"><a href="../u/9374624.html">Nexx</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21904.html#p459265">Quote: Eiturlyf, August 08, 2008 05:08 am</a></div>VERY simple indeed...</blockquote>Yes, I never got around to putting together a more advanced level mostly because, at least for my own image maps, you make good images using the techniques introduced here. The example map may be simple, but the same techniques can be used to make much more detailed and complicated things. I probably should have added a mention about how to do tileset outlines and general transparencies, and I have been meaning to answer kisler's question for ages, because I have an idea but testing the images and blendmodes can be rather painstaking.<br>
+<br>
+In any case, what <i>would</i> be useful are more advanced tutorials on different types of image maps, like the "drawn in PS" stuff that Evil_Bob has used so successfully. If anyone wants to put together anything for this thread (even little things or a more advanced general tutorial), feel free to. I won't be able to add it to the first post for a while, but you can make your own thread for it if it's a whole tutorial, or, if it's a small contribution, you can probably just post it in a reply here.<br>
+<br>
+Oh and thanks for the pin.  <img class="smiley" src="../files/smilies/31.gif" alt="B)" title="B)"></div></div>
+<div class="post" id="p466300"><div class="post-head"><a class="id" href="../t/21904.html#p466300">#466300</a> <span class="index">37</span> <span class="date">2008-09-01T21:00:36Z</span> <span class="author"><a href="../u/9376426.html">Kass</a></span></div><div class="post-body">Thanks ;D</div></div>
+</main>
+</body>
+</html>

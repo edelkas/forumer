@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Need help with zappers - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Need help with zappers</nav></header>
+<main>
+<div class="post" id="p17511"><div class="post-head"><a class="id" href="../t/19716.html#p17511">#17511</a> <span class="index">1</span> <span class="date">2007-10-11T03:33:16Z</span> <span class="author"><a href="../u/9375181.html">MoxRavager</a></span></div><div class="post-body">On my level I created eventually all the zappers get stuck in a loop. Is their anyway to fix it without ruining my level<br>
+<br>
+<a href="https://www.nmaps.net/105024">http://numa.notdot.net/map/105024</a></div></div>
+<div class="post" id="p371191"><div class="post-head"><a class="id" href="../t/19716.html#p371191">#371191</a> <span class="index">2</span> <span class="date">2007-10-11T03:46:00Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Could you please post your data in a .txt file? Word wrapping on the forum corrupts the data.</div></div>
+<div class="post" id="p371193"><div class="post-head"><a class="id" href="../t/19716.html#p371193">#371193</a> <span class="index">3</span> <span class="date">2007-10-11T03:50:17Z</span> <span class="author"><a href="../u/9375181.html">MoxRavager</a></span></div><div class="post-body">Is that better?</div></div>
+<div class="post" id="p371201"><div class="post-head"><a class="id" href="../t/19716.html#p371201">#371201</a> <span class="index">4</span> <span class="date">2007-10-11T04:37:54Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">You probably created the drones with an alternating algorithm (i.e. you held down 'W'). Trying using the quasi-random, surface following (that probably works best), of dumb algorithms. Experiment to see what works best.</div></div>
+<div class="post" id="p371203"><div class="post-head"><a class="id" href="../t/19716.html#p371203">#371203</a> <span class="index">5</span> <span class="date">2007-10-11T04:40:25Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body">He meant to attach a nameoffile.txt file containing the map data, but that works too.<br>
+<br>
+Solution: If you're using "Left, Right, Left, Right" type of pathing for the drones, don't make it so they can travel in a square. Use your mouse cursor to trace their paths while in Ned. It isn't the tiles, it's the method the Zap Drones use for movement. Try holding different placement-keys while placing the Drone. (W is left,right,left,right, other paths with other keys would be Q,E,A,S, and D; and they are all explained in Ned).<br>
+<br>
+I hope that helped,<br>
+~Mosh<br>
+<br>
+Edit: George beat me to it.</div></div>
+<div class="post" id="p371348"><div class="post-head"><a class="id" href="../t/19716.html#p371348">#371348</a> <span class="index">6</span> <span class="date">2007-10-11T22:46:03Z</span> <span class="author"><a href="../u/9375181.html">MoxRavager</a></span></div><div class="post-body">Both the alternating zappers and the random ones get stuck in a loop. (differently though so I know they are not the same zappers)</div></div>
+<div class="post" id="p371389"><div class="post-head"><a class="id" href="../t/19716.html#p371389">#371389</a> <span class="index">7</span> <span class="date">2007-10-12T03:06:28Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">The way the map is constructed channels the drones into a position where they get stuck. I don't think you can fix that without altering the tiles or adding doors.</div></div>
+<div class="post" id="p371427"><div class="post-head"><a class="id" href="../t/19716.html#p371427">#371427</a> <span class="index">8</span> <span class="date">2007-10-12T07:09:12Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19716.html#p371389">Quote: Atilla, October 12, 2007 01:06 pm</a></div> The way the map is constructed channels the drones into a position where they get stuck. I don't think you can fix that without altering the tiles or adding doors.  </blockquote> <br>
+ I think if you use the surface following algorithm, they won't get stuck in a loop because they only stick to one side of the tile.</div></div>
+<div class="post" id="p371430"><div class="post-head"><a class="id" href="../t/19716.html#p371430">#371430</a> <span class="index">9</span> <span class="date">2007-10-12T07:37:42Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">That would lead to a similar problem. Initially they'd all be fine, yes, but once one charged you it would end up going 'round and 'round one of the small pieces. Still, at least they wouldn't all end up stuck to the same piece...</div></div>
+<div class="post" id="p371434"><div class="post-head"><a class="id" href="../t/19716.html#p371434">#371434</a> <span class="index">10</span> <span class="date">2007-10-12T08:30:31Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">You're right. Ah well, I guess you really can't do anything about it, then.</div></div>
+<div class="post" id="p371963"><div class="post-head"><a class="id" href="../t/19716.html#p371963">#371963</a> <span class="index">11</span> <span class="date">2007-10-14T17:22:08Z</span> <span class="author"><a href="../u/9375181.html">MoxRavager</a></span></div><div class="post-body">Thanks everyone for your help. I am completely redoing the map with teleporters and a few doors to keep the zappers from getting stuck</div></div>
+</main>
+</body>
+</html>

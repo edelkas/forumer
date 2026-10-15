@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto Resizing the window in AS3 - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Auto Resizing the window in AS3</nav></header>
+<main>
+<div class="post" id="p18042"><div class="post-head"><a class="id" href="../t/20291.html#p18042">#18042</a> <span class="index">1</span> <span class="date">2007-11-20T04:20:39Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">This is a stupid question, but I couldn't find the answer in any books, forums or websites.  I want to make my stage be 800x600 pixels, and when the user resizes there is no distortion.  So when the window is smaller, it just doesnt display everything, and when its bigger, it centers the stage on the window.  <br>
+<br>
+stage.scaleMode = StageScaleMode.NO_SCALE;<br>
+<br>
+This command does the trick of not rescaling, but I can't for the life of me figure out where manipulating the window takes place.  Is this done durring the swf -&gt; exe conversion?  or with setting the dimentions in the web page it is to appear?</div></div>
+<div class="post" id="p381139"><div class="post-head"><a class="id" href="../t/20291.html#p381139">#381139</a> <span class="index">2</span> <span class="date">2007-11-20T05:43:58Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">could you rephrase that please? I'm not sure what you mean</div></div>
+<div class="post" id="p381205"><div class="post-head"><a class="id" href="../t/20291.html#p381205">#381205</a> <span class="index">3</span> <span class="date">2007-11-20T13:33:23Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">you need to use the compiler option:<br>
+-default-size 800 600</div></div>
+<div class="post" id="p381252"><div class="post-head"><a class="id" href="../t/20291.html#p381252">#381252</a> <span class="index">4</span> <span class="date">2007-11-20T19:48:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Ah, thank you, just what I needed.  Didn't think it would be something that would be done in code.  Now is there a way to not allow the stage size to get bigger than 800x600 when the window is resized to a larger size?  Or do I have to just create a child stage that will be added to the main stage, and let that child be centered?</div></div>
+<div class="post" id="p381462"><div class="post-head"><a class="id" href="../t/20291.html#p381462">#381462</a> <span class="index">5</span> <span class="date">2007-11-21T08:11:16Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">its clear that i'm so much more of a novice than raigan, but can't it actually be done in code with <br>
+<pre class="code">fscommand("allowscale", "false");</pre></div></div>
+</main>
+</body>
+</html>

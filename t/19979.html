@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Line-line collision - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Line-line collision</nav></header>
+<main>
+<div class="post" id="p17767"><div class="post-head"><a class="id" href="../t/19979.html#p17767">#17767</a> <span class="index">1</span> <span class="date">2007-11-02T13:42:58Z</span> <span class="author"><a href="../u/9375262.html">voidSkipper</a></span></div><div class="post-body">Thought this would be the best place to ask, seeing as you fellows seem to be geniuses.<br>
+<br>
+Ok, I have an engine. It supports points (defined by x position, y position and x and y component vectors), and constraints between points (defined by a desired length, and two points).<br>
+<br>
+This works quite nicely.<br>
+<br>
+My next step is to integrate collisions between the constrained points. My question is how.<br>
+<br>
+If two sets of two constrained points (so, two independent sticks) collide, what is the best way to detect this, and solve it realistically, in relation to the defining points of the line?<br>
+<br>
+I've been told elsewhere that this can be solved with SAT, but I'm not quite clear as to how. <br>
+<br>
+If possible, could you all go easy on the convention-defined abbreviations for things (all your funny little symbols and what have you), as I'm mostly self taught and don't know how to talk the talk.</div></div>
+<div class="post" id="p376278"><div class="post-head"><a class="id" href="../t/19979.html#p376278">#376278</a> <span class="index">2</span> <span class="date">2007-11-02T15:31:08Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">considering i haven't done this, this is kinda a shot in the dark, but here it goes<br>
+<br>
+the best way I can think of is to test if one point from one line crosses the line made from the other points<br>
+<br>
+I would somehow decide which would be the outer and inner side of the line, then if at any time a point from the other line crosses from inner to outer or outer to inner you know you have a collision, as far as actually coding it, don't ask me <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p376287"><div class="post-head"><a class="id" href="../t/19979.html#p376287">#376287</a> <span class="index">3</span> <span class="date">2007-11-02T16:10:38Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hi,<br>
+you might have already seen this, but definitely the best place to start is to try the original stick-based method of Jakobsen (see section 5, fig4a,4b here <a href="http://www.teknikus.dk/tj/gdc2001.htm">http://www.teknikus.dk/tj/gdc2001.htm</a>)<br>
+this is probably your best bet, it's pretty simple and works well.<br>
+<br>
+collision detection is much more involved, you'll always want to collide the end of one stick vs. a point on the other stick. to figure out which stick's end and where on the other stick, you can use sweep tests or static intersection tests.<br>
+<br>
+you can sweep the sticks against each other (sweep each stick's endpoints vs the other stick's lineseg, see this thread <a href="http://bulletphysics.com/Bullet/phpBB3/viewtopic.php?f=4&amp;t=1041">http://bulletphysics.com/Bullet/phpBB3/vie....php?f=4&amp;t=1041</a>)<br>
+<br>
+for static intersection tests, you want to intersect two linesegs. here's a page with an explanation of this: <a href="http://softsurfer.com/Archive/algorithm_0101/algorithm_0101.htm">http://softsurfer.com/Archive/algorithm_01...orithm_0101.htm</a><br>
+<br>
+one way to do this is to compare the endpoints of one stick vs the line containing the other stick. lets call your sticks sA=p0,p1, sB=p2,p3. if p0 and p1 lie on opposite sides of the line passing through p2,p3, AND p2,p3 lie on opposite sides of the line passing through p0,p1, the sticks are intersecting. try this on paper to see how it works. you can use the formula for the signed area of the triangles (p2,p3,p0),(p2,p3,p1),(p0,p1,p2),(p0,p1,p3) to figure out what points on on which sides. <br>
+<br>
+i'm sorry for not providing more info, there's too much to say! i would suggest inflating the sticks into "capsules", and then use distance queries rather than intersection tests. really thin objects are hard to collide since it's so easy for them to spin through each other, and most of the time you don't really want to model objects that are that thin anyway.<br>
+<br>
+i'm sorry i can't write more but we're crazy busy today -- definitely try to check out some free physics engines such as (in flash) APE, fisix, etc as they all have this functionality and source code to learn from.<br>
+<br>
+good luck!<br>
+raigan</div></div>
+<div class="post" id="p376761"><div class="post-head"><a class="id" href="../t/19979.html#p376761">#376761</a> <span class="index">4</span> <span class="date">2007-11-04T01:18:41Z</span> <span class="author"><a href="../u/9375262.html">voidSkipper</a></span></div><div class="post-body">Thanks for your replies.<br>
+<br>
+With inflating into capsules, are you saying perform a radius collision test on the endpoints, and a distance-from-point-to-line test on the rest of the line?</div></div>
+<div class="post" id="p376904"><div class="post-head"><a class="id" href="../t/19979.html#p376904">#376904</a> <span class="index">5</span> <span class="date">2007-11-04T16:39:48Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">You're right that you would then use a lineseg-lineseg distance test, there are a few ways to implement this test though -- doing four point-vs-lineseg tests is the best idea to start, since the other methods are more involved and it's always better to get things working before worrying about optimizing.</div></div>
+</main>
+</body>
+</html>

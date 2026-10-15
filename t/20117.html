@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>More "setting up a forum" questions... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/26.html">Tests &amp; Inquiries</a> &rsaquo; More "setting up a forum" questions...</nav></header>
+<main>
+<div class="post" id="p17878"><div class="post-head"><a class="id" href="../t/20117.html#p17878">#17878</a> <span class="index">1</span> <span class="date">2007-11-12T05:56:07Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">OK, I know I've asked tons of questions about setting up forums and stuff, but... I've got some more <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+If you know the answer and wouldn't mind answering, that'd be helpful. If you can't answer the question, don't worry about it.<br>
+(If you're interested, my forum is <a href="http://cgschool.30.forumer.com">CGSchool</a>. Any comments and stuff would be helpful, and if you want to get an account, feel free.<br>
+<br>
+Firstly, I'm wondering how you do the header. I mean, I know how to put custom images etc, but I was wondering how to make it so that you can make the picture extend the whole length of the address bar, no matter the screen size. I know it involves two or three different images, I'm just no exactly sure how to do it. If that question still makes no sense, just ask and I'll see if I can explain it better.<br>
+<br>
+Secondly, I was wondering how to change the picture that appears in the address bar. E.g. in the address bar for this forum, you've got the "M" followed by the url. How did you use that instead of the normal forumer picture that comes up?<br>
+<br>
+Oh, and is it possibe to move your forum to a different site? For example, would it be possibly to move this forum to, say, metanetsoftware.com/forum, or something like that, or would you have to start a new one?<br>
+<br>
+EDIT: Wow, you mods fixed that quickly.<br>
+<br>
+Thanks,<br>
+<br>
+Lenny</div></div>
+<div class="post" id="p379516"><div class="post-head"><a class="id" href="../t/20117.html#p379516">#379516</a> <span class="index">2</span> <span class="date">2007-11-15T01:49:29Z</span> <span class="author"><a href="../u/9370995.html">bonzai</a></span></div><div class="post-body">1) Banners can be replaced in "HTML Templates&gt;Global HTML elements&gt;Board Header". Scroll down to where it says "&lt;!--IBF.BANNER--&gt;" and slightly below that you should see <blockquote class="quote"><div class="quote-head">Quote</div>&lt;img src='<span style="color:BLUE">{ibf.vars.img_url}/logo4.gif</span>'</blockquote> Replace what's in blue with another image you uploaded somewhere like imageshack or photobucket.<br>
+<br>
+2) Icons can be changed if you follow the directions <a href="http://www.fmods.com/index.php?showtopic=9811&amp;hl=favicon">here</a>.<br>
+<br>
+3) Forumer won't ever let you get a backup or your forum, and won't let you transfer the database to a new server. So yeah, we'd be stuck with them if we decided to move unless we were willing to lose all the old posts and such.<br>
+<br>
+For future reference, not many people here would know a whole lot about forum coding and all that good stuff, so you'd be better off asking on the main support site. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p379595"><div class="post-head"><a class="id" href="../t/20117.html#p379595">#379595</a> <span class="index">3</span> <span class="date">2007-11-15T05:35:00Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20117.html#p379516">Quote: bonzai, November 15, 2007 11:49 am</a></div> 1) Banners can be replaced in "HTML Templates&gt;Global HTML elements&gt;Board Header". Scroll down to where it says "&lt;!--IBF.BANNER--&gt;" and slightly below that you should see <blockquote class="quote"><div class="quote-head">Quote</div>&lt;img src='<span style="color:BLUE">{ibf.vars.img_url}/logo4.gif</span>'</blockquote> Replace what's in blue with another image you uploaded somewhere like imageshack or photobucket. </blockquote>Awesome, thanks!<br>
+<br>
+However... just with number 1... I know that'll add in a new picture, but how can you make the picture stretch to fill the screen, no matter the resolution? Well, not stretch, just... fill it. Like, you need to divide the image into three parts, the start, middle and end images, the duplicate the middle to fit the screen size. I'm just not sure how to do that.<br>
+<br>
+Oh, and where can you host a .ico file?</div></div>
+<div class="post" id="p379786"><div class="post-head"><a class="id" href="../t/20117.html#p379786">#379786</a> <span class="index">4</span> <span class="date">2007-11-16T01:24:14Z</span> <span class="author"><a href="../u/9370995.html">bonzai</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20117.html#p379595">Quote: Weisslenny0, 2007-11-15T05:35:00Z</a></div><blockquote class="quote"><div class="quote-head">Quote</div><span style="color:CRIMSON">*some blah*</span></blockquote>Awesome, thanks!<br>
+<br>
+However... just with number 1... I know that'll add in a new picture, but how can you make the picture stretch to fill the screen, no matter the resolution? Well, not stretch, just... fill it. Like, you need to divide the image into three parts, the start, middle and end images, the duplicate the middle to fit the screen size. I'm just not sure how to do that.<br>
+<br>
+Oh, and where can you host a .ico file? </blockquote>1) You could add a background image to the #logostrip that will repeat without any obvious transitions (like a gradient). In other words, something like this:<blockquote class="quote"><div class="quote-head">Quote</div>#logostrip { border:1px solid #FFF;background-color: #FFF;background-image:url(<span style="color:BLUE">put url in here</span>); padding:0px;margin:0px; }</blockquote>From there, the banner can be adjusted to fit. For something like what metanet has, you'll have to ask Pembie; he is, after all, the one who coded the skin for this forum, and right now I don't know how to do that.<br>
+<br>
+2) <a href="http://tools.dynamicdrive.com/favicon/">http://tools.dynamicdrive.com/favicon/</a><br>
+all the directions are in that thread I linked, you may have to read some of the posts below though.</div></div>
+<div class="post" id="p379894"><div class="post-head"><a class="id" href="../t/20117.html#p379894">#379894</a> <span class="index">5</span> <span class="date">2007-11-16T09:47:41Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20117.html#p379786">Quote: bonzai, November 16, 2007 11:24 am</a></div> 1) You could add a background image to the #logostrip that will repeat without any obvious transitions (like a gradient). In other words, something like this:<blockquote class="quote"><div class="quote-head">Quote</div>#logostrip { border:1px solid #FFF;background-color: #FFF;background-image:url(<span style="color:BLUE">put url in here</span>); padding:0px;margin:0px; }</blockquote>From there, the banner can be adjusted to fit. For something like what metanet has, you'll have to ask Pembie; he is, after all, the one who coded the skin for this forum, and right now I don't know how to do that.<br>
+<br>
+2) <a href="http://tools.dynamicdrive.com/favicon/">http://tools.dynamicdrive.com/favicon/</a><br>
+all the directions are in that thread I linked, you may have to read some of the posts below though.  </blockquote> <br>
+ Ah, OK. I PMd Pembie a few times, but I didn't really know any HTML and stuff, so he couldn't really explain it to me. Still, I shall try that and see what happens.<br>
+<br>
+As for 2... oh. Right, the posts below that... will do <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

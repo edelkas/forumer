@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiple keystrokes. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Multiple keystrokes.</nav></header>
+<main>
+<div class="post" id="p15306"><div class="post-head"><a class="id" href="../t/17426.html#p15306">#15306</a> <span class="index">1</span> <span class="date">2007-05-21T00:08:25Z</span> <span class="author"><a href="../u/9374494.html">Asinus</a></span></div><div class="post-body">I've seen in games when a player can hit the down and right key, and it will make the character go both down and to the right, for instance.<br>
+<br>
+I've been trying this in Flash.<br>
+<br>
+onClipEvent(keyDown)<br>
+{<br>
+if(Key.getCode() == Key.DOWN)<br>
+{<br>
+ _root.Main._y++;<br>
+}<br>
+if(Key.getCode() == Key.RIGHT)<br>
+{<br>
+_root.Main._x++;<br>
+}<br>
+}<br>
+<br>
+and it merely goes for the second button pressed. I was wondering how I could combine it so that it would go diagonally.</div></div>
+<div class="post" id="p323035"><div class="post-head"><a class="id" href="../t/17426.html#p323035">#323035</a> <span class="index">2</span> <span class="date">2007-05-21T06:51:59Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">use<br>
+<br>
+function onEnterFrame(){<br>
+if(Key.isDown(Key.LEFT)){<br>
+mc._x-=10<br>
+}<br>
+if(Key.isDown(Key.RIGHT)){<br>
+mc._x+=10<br>
+}<br>
+//etc...<br>
+}</div></div>
+<div class="post" id="p323111"><div class="post-head"><a class="id" href="../t/17426.html#p323111">#323111</a> <span class="index">3</span> <span class="date">2007-05-21T18:58:17Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body">I use a program called Dark Basic. Much easier to use.</div></div>
+<div class="post" id="p323133"><div class="post-head"><a class="id" href="../t/17426.html#p323133">#323133</a> <span class="index">4</span> <span class="date">2007-05-21T20:54:25Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i would use the way you described asinus to react to single random strokes, like hitting the escape key to bring up a menu, for detecting keys that will be held down (and in possible combination with other keys) i would use the method mattk described</div></div>
+<div class="post" id="p323196"><div class="post-head"><a class="id" href="../t/17426.html#p323196">#323196</a> <span class="index">5</span> <span class="date">2007-05-22T00:08:41Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Personally, this is how I do it:<br>
+<pre class="code">var myListener:Object = new Object();
+myListener.onKeyDown = function() {
+	switch (Key.getCode()) {
+	case Key.LEFT :
+                mc._x-=10;
+  break;
+	case Key.RIGHT:
+                mc._x-=10;
+  break;
+        //Obviously, you can add more cases for more keys...
+};
+Key.addListener(myListener);</pre></div></div>
+<div class="post" id="p323327"><div class="post-head"><a class="id" href="../t/17426.html#p323327">#323327</a> <span class="index">6</span> <span class="date">2007-05-22T19:07:52Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Personally, I'd use a much leeter approach:<br>
+<pre class="code">_root.onEnterFrame = function () {
+ mc._x += Key.isDown(Key.RIGHT) * step;
+ mc._x -= Key.isDown(Key.LEFT) * step;
+}</pre>Huzzah for leet stuff I've read off of papers.<br>
+<br>
+TS</div></div>
+<div class="post" id="p323373"><div class="post-head"><a class="id" href="../t/17426.html#p323373">#323373</a> <span class="index">7</span> <span class="date">2007-05-22T22:41:02Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Hmm, I must say, that is some nice code TS.<br>
+However, while your code is small and siml,e I perfer my code to be flexible  and organized for whatever I might need to find or change.<br>
+Personally, I think it's just a matter of taste.</div></div>
+<div class="post" id="p325182"><div class="post-head"><a class="id" href="../t/17426.html#p325182">#325182</a> <span class="index">8</span> <span class="date">2007-05-29T01:49:37Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17426.html#p323373">Quote: ZeroTruths, May 22, 2007 10:41 pm</a></div> Hmm, I must say, that is some nice code TS.<br>
+However, while your code is small and siml,e I perfer my code to be flexible  and organized for whatever I might need to find or change.<br>
+Personally, I think it's just a matter of taste. </blockquote>I use <a href="http://hkn.eecs.berkeley.edu/~mcmartin/vcontrol/">VControl</a> for my C++ work; it's a library that's intended to abstract away the keyboard into a "virtual controller" (hence the name). The short of it is that you can take a file that looks like this:<br>
+<pre class="code">jump: key Space
+left: key Left
+right: key Right</pre>feed it into VControl's initialization, and then turn your input loop into this:<pre class="code">  while (SDL_PollEvent(&amp;event))
+  {
+    VControl_HandleEvent(&amp;event);
+  }
+  for (int i = 0; i &lt; numActions; ++i)
+  {
+    if (curInputState[i] != 0)
+    {
+      switch (controlTable[i].name)
+      {
+        case INPUT_JUMP:
+          foo;
+          break;
+        case INPUT_LEFT:
+          bar; 
+          break;
+        case ET_CETERA:
+          break;
+      }
+    }
+  }</pre>where numActions is the number of actions you have recorded in the text file and controlTable is an array of VControl_NameBindings that you get when you initialize it. It's all pretty simple; you don't need to worry about keydowns, keyups, and the like, and you can assign arbitrary names to keys (and multiple keys can get the same name, for example if you wanted to have multiple keys for left and right).<br>
+<br>
+The big win, mind you, is that all of your control definitions are in a text file, so they're easy to change, either by you or by your players.</div></div>
+</main>
+</body>
+</html>

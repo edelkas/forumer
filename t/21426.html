@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thumb lightbox for NUMA - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/36.html">NUMA Discussion</a> &rsaquo; Thumb lightbox for NUMA</nav></header>
+<main>
+<div class="post" id="p19130"><div class="post-head"><a class="id" href="../t/21426.html#p19130">#19130</a> <span class="index">1</span> <span class="date">2008-02-10T00:22:45Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">I hate having to click a thumbnail then pressing back. Seriously, why bother when you can add a line into the &lt;head&gt; for the javascript file (and a few lines of css), and change<br>
+<br>
+<pre class="code">&lt;div class="thumbnail"&gt;&lt;a href="http://static.notdot.net/numa/full/106967"&gt;&lt;img src="http://static.notdot.net/numa/thumbs/106967" alt="Thumbnail of the map 'On route 666'" title="Click to see a full-size version." style="border: 0;" /&gt;&lt;/a&gt;&lt;p class="caption"&gt;Click on the image for a full-size version.&lt;/p&gt;&lt;/div&gt;</pre><br>
+to<br>
+<br>
+<pre class="code">&lt;div class="thumbnail"&gt;&lt;a href="http://static.notdot.net/numa/full/106967" rel="lightobx"&gt;&lt;img src="http://static.notdot.net/numa/thumbs/106967" alt="Thumbnail of the map 'On route 666'" title="Click to see a full-size version." style="border: 0;" /&gt;&lt;/a&gt;&lt;p class="caption"&gt;Click on the image for a full-size version.&lt;/p&gt;&lt;/div&gt;</pre>adding <b> rel="lightbox"</b> to the link.<br>
+<br>
+this is assuming, there is a template for map pages and a global &lt;head&gt; file.<br>
+<br>
+It would just be more userfriedly..</div></div>
+<div class="post" id="p408319"><div class="post-head"><a class="id" href="../t/21426.html#p408319">#408319</a> <span class="index">2</span> <span class="date">2008-02-10T02:31:01Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">The lightbox script is unobtrusive enough that you can apply it from your local machine as long as your browser allows custom javascript and CSS.<br>
+<br>
+In Opera 9:<br>
+Save <a href="http://www.huddletogether.com/projects/lightbox/lightbox.js">lightbox.js</a> and <a href="http://www.huddletogether.com/projects/lightbox/lightbox.css">lightbox.css</a> to your hard drive. (Doesn't matter where you save them to.)<br>
+<br>
+Open lightbox.js and edit these lines:<br>
+<blockquote class="quote"><div class="quote-head">Quote: Lines 38-39</div>var loadingImage = 'loading.gif';<br>
+var closeButton = 'close.gif';<br>
+<br>
+to<br>
+<br>
+var loadingImage = '<a href="http://i26.tinypic.com/ivllya.gif">http://i26.tinypic.com/ivllya.gif</a>';<br>
+var closeButton = '<a href="http://i30.tinypic.com/112a5vk.gif">http://i30.tinypic.com/112a5vk.gif</a>';</blockquote><blockquote class="quote"><div class="quote-head">Quote: Line 292</div>if (anchor.getAttribute("href") &amp;&amp; (anchor.getAttribute("rel") == "lightbox")){<br>
+<br>
+to<br>
+<br>
+if (anchor.getAttribute("href").substr(0,13) == "<a href="http://static">http://static</a>"){</blockquote>Now open lightbox.css and change:<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>#overlay{ background-image: url(<b>overlay.png</b>); }<br>
+<br>
+* html #overlay{<br>
+	background-color: #333;<br>
+	back\ground-color: transparent;<br>
+	background-image: url(blank.gif);<br>
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="<b>overlay.png</b>", sizingMethod="scale");<br>
+	}<br>
+<br>
+to<br>
+<br>
+#overlay{ background-image: url("<b><a href="http://i30.tinypic.com/15mhf1e.png">http://i30.tinypic.com/15mhf1e.png</a></b>"); }<br>
+<br>
+* html #overlay{<br>
+	background-color: #333;<br>
+	back\ground-color: transparent;<br>
+	background-image: url(blank.gif);<br>
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="<b><a href="http://i30.tinypic.com/15mhf1e.png">http://i30.tinypic.com/15mhf1e.png</a></b>", sizingMethod="scale");<br>
+	}</blockquote>Then in your browser, open up a Numa map page. Right-click anywhere, go to 'Edit site preferences...', and at the bottom of the Display tab and Scripting tab, select the lightbox files you just edited. Restart your browser, and if everything went well, you now have lightboxes on Numa thumbnails.</div></div>
+<div class="post" id="p408905"><div class="post-head"><a class="id" href="../t/21426.html#p408905">#408905</a> <span class="index">3</span> <span class="date">2008-02-12T09:47:53Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">thanks.</div></div>
+</main>
+</body>
+</html>

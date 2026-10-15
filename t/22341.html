@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nReality Help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/36.html">NUMA Discussion</a> &rsaquo; nReality Help</nav></header>
+<main>
+<div class="post" id="p20001"><div class="post-head"><a class="id" href="../t/22341.html#p20001">#20001</a> <span class="index">1</span> <span class="date">2008-04-19T17:06:13Z</span> <span class="author"><a href="../u/9375951.html">DaggaFork</a></span></div><div class="post-body">Many people have trouble with nReality. Either they don't know how to use it, make puctures with it, or do not know any ways to use the mods. I here have counted up many mods that may help you!<br>
+<br>
+I hope you enjoy these tricks.<br>
+By: DaggaFork<br>
+And some other authors.<br>
+If there is a '' that means I made it myself. (Found it myself)<br>
+Anyways here are the authors I would like to credit:<br>
+<br>
+<br>
+<br>
+<br>
+ <details class="spoiler"><summary>Spoiler: Credit To:</summary>Evil_Bob<br>
+mrgy05<br>
+SkyRay (I did not use anything from him, but he is awesome with Nreality)<br>
+guy_zap<br>
+pepi321 (same as SkyRay)<br>
+T3chno (You get it already)<br>
+numa_ninja<br>
+player_03<br>
+amconline ('')<br>
+00tinytim00 (Gave ideas. None taken)<br>
+Templex<br>
+ska (same as 00tinytim00)<br>
+Nexx (awesome)<br>
+Ad (NUMA:TheAdster)<br>
+blue_tetris<br>
+drikam (he made 'small fear', but nothing taken)<br>
+condog_111 (Nreality award for: Best At Messing With Zaps)<br>
+Tapp<br>
+astheoceansblue (none used)<br>
+etdeshon (none used)<br>
+remote (none used)<br>
+<br>
+And (Duh) Unreality!!!<br>
+<br>
+<br>
+Yah, why dont I just write:<br>
+AND THE REST OF NUMA  AND METANET THAT MAKE NREALITY LEVELS (with a (none used) at the end)</details><br>
+ <details class="spoiler"><summary>Spoiler: Some gravity tricks:</summary>Cool space effect:<br>
+|||||skidFriction,0.99;wallFriction,-0.005;max_jump_time,100;jumpAmt,1.5;normGrav,0.1;G,0.1<br>
+<br>
+<br>
+Jupiter effect (Hold and Fall)<br>
+|||||normGrav,0.6;g,0.6;jumpGrav,0.000;max_jump_time,60<br>
+<br>
+<br>
+Neverfall / Sticky floors<br>
+|||||normGrav,.7E-001;airAccel,1E-001;winDrag,10.000000E-001;skidFriction,2E-001;<br>
+<br>
+<br>
+Super Slip<br>
+|||||wallFriction,0;skidFriction,1.0;standFriction,1.0;normDrag,1;d,1<br>
+<br>
+<br>
+Slowly raise<br>
+||0,speed,30|||normGrav,-.002;g,-.002;jumpGrav,-.002;wallFriction,.04;skidFriction,1;standFriction,1;max_jump_time,800<br>
+<br>
+<br>
+Stay level, until dropped<br>
+|||||normGrav,0;g,0;jumpGrav,0;max_jump_time,100<br>
+<br>
+<br>
+Fly!<br>
+|||||normGrav,-1.500000E-001;g,-1.500000E-001;wallFriction,-1.300000E-001<br>
+<br>
+<br>
+Smack Down <br>
+|||||normGrav,3.00000E-001;g,3.00000E-001;wallFriction,-2.00000E-001<br>
+<br>
+<br>
+Controlable Flying <br>
+|||||normGrav,3.00000E-001;g,2.00000E-001;wallFriction,-1.00000E-001<br>
+<br>
+<br>
+Friction Unite <br>
+|||||wallFriction,0.6;skidFriction,0;standFriction,0;normDrag,0;d,1<br>
+<br>
+Light as a Feather <br>
+|||||normGrav,0.0000000001;g,0.6;jumpGrav,0.000;max_jump_time,10000000<br>
+<br>
+Tip Toeish<br>
+Could not find it. Accedentaly deleted it.<br>
+<br>
+No-jump, wallspring, and deathspring (1.72319s).<br>
+|||no-jump||wallFriction,1.06;jump_y_bias,1000;terminal_vel,0;</details><br>
+ <details class="spoiler"><summary>Spoiler: Enemy tricks:</summary>Fast Drones - Laser / Chain<br>
+||||1,laserPrefireDelay,1;1,laserPostfireDelay,10000;1,R,0;0,Speed,2;2,chaingunprefiredelay,1;2,chaingunpostfiredelay,0;1,speed,0;2,Speed,0.55<br>
+<br>
+Fast Lasers Only  (Invisible) <br>
+||||1,laserPrefireDelay,1;1,laserPostfireDelay,10000;1,R,0;0,Speed,2;2<br>
+<br>
+Fast Chains Only <br>
+||||2,chaingunprefiredelay,1;2,chaingunpostfiredelay,0;1,speed,0;2,Speed,0.55<br>
+<br>
+Slow Drones<br>
+|||N-Reality|0,SPEED,0.50;2,SPEED,0.50<br>
+<br>
+Fast Drones <br>
+|||N-Reality|0,SPEED,50;2,SPEED,50<br>
+<br>
+Snail Paced <br>
+|||N-Reality|0,SPEED,0.1;2,SPEED,0.1<br>
+<br>
+...Run! <br>
+|||N-Reality|0,SPEED,200;2,SPEED,200<br>
+<br>
+Minnie Zaps (Normal) <br>
+||||0,r,2;0,speed,1<br>
+<br>
+Minnie Zaps (Fast) <br>
+||||0,r,2;0,speed,3<br>
+<br>
+Minnie Zaps (Slow) <br>
+||||0,r,2;0,speed,0.5<br>
+<br>
+Minnie Zaps (Snail) <br>
+||||0,r,2;0,speed,0.1<br>
+<br>
+Big! (By: Unreality) (They do nothing) (For looks?)<br>
+||||0,r,100#<br>
+<br>
+Bigger! (They do nothing) (For looks?) <br>
+||||0,r,100<br>
+<br>
+Small But Deadly <br>
+|||N-Reality|0,r,2;0,speed,3<br>
+<br>
+Sniping Lasers <br>
+||||1,laserPrefireDelay,0.1;0.1,laserPostfireDelay,0.1;0.1,R,3;6,Speed,50;30<br>
+<br>
+Big Drones that Hit you<br>
+||||0,r,36|<br>
+<br>
+Fast Lasers (Half Invisible)<br>
+||||1,r,1;1,speed,5;0,r,1;0,speed,2;jumpGrav,0.000;laserLen,2;laserPrefireDelay,20<br>
+<br>
+-Ninja Tricks-<br>
+<br>
+Big ninja<br>
+|||PlayerMod||r,17<br>
+<br>
+Small Ninja <br>
+|||PlayerMod||r,7<br>
+<br>
+Giant Ninja <br>
+|||PlayerMod||r,30</details><br>
+ <details class="spoiler"><summary>Spoiler: Ninja tricks:</summary>Big ninja<br>
+|||PlayerMod||r,17<br>
+<br>
+Small Ninja <br>
+|||PlayerMod||r,7<br>
+<br>
+Giant Ninja <br>
+|||PlayerMod||r,30</details><br>
+<br>
+ <details class="spoiler"><summary>Spoiler: Some glitch help</summary>'(f)' means I found it out myself.<br>
+<br>
+Transdoor:  (f)<br>
+If you have a trapdoor and a lockeddoor over eachother. You can close the trapdoor, then open the lockeddoor and make<br>
+ so that you can go through.<br>
+<br>
+Doubledoor: <br>
+If you have a ndoor with a lockeddoor ontop of eachother (the lockeddoor has to be on the same square as the lockeddoor<br>
+ opener key). You jump on the lockeddoor opener and you cannot get through untill you move away.<br>
+<br>
+Brick door: <br>
+If you want drones to go into a brick, simple. Put the trapdoor ontop of the brick (vertical) with the key in the brick.<br>
+ The code will look like this:<br>
+9^372,348,0,1,15,13,0,0,0<br>
+Change the 3rd number after the '^' into a NaN. Drones will be able to pass right into the wall.<br>
+<br>
+Teleports: (f)<br>
+In your trampoline code you will see that the two last numbers are a:<br>
+,0,-1<br>
+,0,1<br>
+,1,0<br>
+or a<br>
+,-1,0<br>
+<br>
+Change the one to a higher number if it is in the positives, change it to a lower number if it is in the negatives.<br>
+Where ever the ninja flies. You will need some tramp's to stop him</details></div></div>
+<div class="post" id="p429908"><div class="post-head"><a class="id" href="../t/22341.html#p429908">#429908</a> <span class="index">2</span> <span class="date">2008-04-19T17:23:33Z</span> <span class="author"><a href="../u/9375434.html">Be_Happy_:)</a></span></div><div class="post-body">Hey this could be really helpful! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p429913"><div class="post-head"><a class="id" href="../t/22341.html#p429913">#429913</a> <span class="index">3</span> <span class="date">2008-04-19T17:37:49Z</span> <span class="author"><a href="../u/9372660.html">victimBF2</a></span></div><div class="post-body">You placed the Ninja Tricks under Enemy Tricks. Its at the very end.</div></div>
+<div class="post" id="p429916"><div class="post-head"><a class="id" href="../t/22341.html#p429916">#429916</a> <span class="index">4</span> <span class="date">2008-04-19T17:54:03Z</span> <span class="author"><a href="../u/9375890.html">Pikman</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22341.html#p429913">Quote: victimBF2, April 19, 2008 01:37 pm</a></div> You placed the Ninja Tricks under Enemy Tricks. Its at the very end.  </blockquote> <br>
+ Actually there are two Ninja Tricks sections. First is its own spoiler, the other is in Enemy Tricks.<br>
+<br>
+This is a cool guide, though.</div></div>
+<div class="post" id="p429933"><div class="post-head"><a class="id" href="../t/22341.html#p429933">#429933</a> <span class="index">5</span> <span class="date">2008-04-19T19:09:42Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body">a lot of those tricks that you said you found, are -really- old.</div></div>
+<div class="post" id="p429998"><div class="post-head"><a class="id" href="../t/22341.html#p429998">#429998</a> <span class="index">6</span> <span class="date">2008-04-19T22:41:34Z</span> <span class="author"><a href="../u/9373673.html">mam</a></span></div><div class="post-body">..but that's not to say he couldn't have found them independently, is it?</div></div>
+<div class="post" id="p429999"><div class="post-head"><a class="id" href="../t/22341.html#p429999">#429999</a> <span class="index">7</span> <span class="date">2008-04-19T22:46:06Z</span> <span class="author"><a href="../u/9375434.html">Be_Happy_:)</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22341.html#p429998">Quote: mam, April 19, 2008 06:41 pm</a></div> ..but that's not to say he couldn't have found them independently, is it? </blockquote>True, but he should have known that Unreality already posted all of these and<br>
+more on a different thread.<br>
+<br>
+I'll post a link to it in a second<br>
+<br>
+EDIT: Here it is: <a href="../t/22072.html">http://metanet.2.forumer.com/index.php?showtopic=22072</a></div></div>
+<div class="post" id="p430397"><div class="post-head"><a class="id" href="../t/22341.html#p430397">#430397</a> <span class="index">8</span> <span class="date">2008-04-21T01:25:27Z</span> <span class="author"><a href="../u/9376094.html">uber</a></span></div><div class="post-body">I just downloaded Nreality, so where do I put those codes?<br>
+(sorry i know it sounds real n00bish)</div></div>
+<div class="post" id="p430400"><div class="post-head"><a class="id" href="../t/22341.html#p430400">#430400</a> <span class="index">9</span> <span class="date">2008-04-21T01:29:34Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22341.html#p430397">Quote: uber, April 20, 2008 05:25 pm</a></div> I just downloaded Nreality, so where do I put those codes?<br>
+(sorry i know it sounds real n00bish)  </blockquote> <br>
+ When you make a level, you put it at the end of the level data to change the properties of that certain map.</div></div>
+<div class="post" id="p430409"><div class="post-head"><a class="id" href="../t/22341.html#p430409">#430409</a> <span class="index">10</span> <span class="date">2008-04-21T01:41:41Z</span> <span class="author"><a href="../u/9376094.html">uber</a></span></div><div class="post-body">But when I load the <b>gravity tricks </b>it does nothing. <br>
+<br>
+Btw, this is meant to be in Ned mode, right?</div></div>
+<div class="post" id="p437970"><div class="post-head"><a class="id" href="../t/22341.html#p437970">#437970</a> <span class="index">11</span> <span class="date">2008-05-21T05:05:32Z</span> <span class="author"><a href="../u/9376148.html">keatoNinja</a></span></div><div class="post-body">how do you use these??</div></div>
+</main>
+</body>
+</html>

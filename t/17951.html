@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setting up the forum - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/26.html">Tests &amp; Inquiries</a> &rsaquo; Setting up the forum</nav></header>
+<main>
+<div class="post" id="p15805"><div class="post-head"><a class="id" href="../t/17951.html#p15805">#15805</a> <span class="index">1</span> <span class="date">2007-06-21T07:47:25Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">I'm making a forum for school work, and that sort of thing. It's currently in a beta stage, as not all the folders have been created yet. If you're interested, the forum address is cgschool.forumer.com<br>
+<br>
+Anyway, I'm wondering two things on forum set-up:<br>
+<br>
+The first is how you can put custom pictures up the top, instead of the default message saying what skin the forum is in.<br>
+<br>
+The second is how you can create custom pictures for the rating image, the 'new topic' image, and those images. I know how to see which ones there are currently, but I'm not too sure how to change it to a custom one.<br>
+<br>
+Also, how do you enable "fast reply"?<br>
+<br>
+<br>
+If a moderator or admin has time to answer it would be much appreciated.<br>
+<br>
+Thanks,</div></div>
+<div class="post" id="p333900"><div class="post-head"><a class="id" href="../t/17951.html#p333900">#333900</a> <span class="index">2</span> <span class="date">2007-06-21T08:20:10Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17951.html#p15805">Quote: Weisslenny0, June 21, 2007 10:47 am</a></div>The first is how you can put custom pictures up the top, instead of the default message saying what skin the forum is in.</blockquote>In the Admin CP, go to <b>Skins &amp; Templates -&gt; HTML Templates -&gt; Manage HTML.</b><br>
+<br>
+Click on 'Global HTML Elements'. Another list will show up on top of the existing one. In that list, the first section is 'Board Header'. Click on 'Edit Single'. You will see some HTML coding. Find the following piece of code:<br>
+<br>
+<table class="bb-table"><tr><td><b>HTML</b> </td></tr><tr><td>&lt;<span style="color:BLUE">img src</span>='<span style="color:ORANGE">{ibf.vars.img_url}/logo4.gif</span>' alt='<span style="color:ORANGE">Powered by Invision Power Board</span>' border="<span style="color:ORANGE">0</span>" /&gt;</td></tr></table>Now, insert the image's URL between the first apostrophes, right after the "img src=". Finally, click on 'Update Templates', and you're done.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/17951.html#p15805">Quote: Weisslenny0, June 21, 2007 10:47 am</a></div>The second is how you can create custom pictures for the rating image, the 'new topic' image, and those images. I know how to see which ones there are currently, but I'm not too sure how to change it to a custom one.</blockquote>See <b>Skins &amp; Templates &gt; Images Only</b>.<br>
+<br>
+Each icon is accompanied with HTML code. For example, the standard rating image has this:<br>
+<br>
+<table class="bb-table"><tr><td><b>HTML</b> </td></tr><tr><td>&lt;<span style="color:BLUE">img src</span>='<span style="color:ORANGE">style_images/&lt;<span style="color:BLUE">#IMG_DIR#</span>&gt;/pip.gif</span>' border='<span style="color:ORANGE">0</span>'  alt='<span style="color:ORANGE">*</span>' /&gt;</td></tr></table>Just like with the banner, insert the image's URL between the first apostrophes. Scroll down, and press Save Changes.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/17951.html#p15805">Quote: Weisslenny0, June 21, 2007 10:47 am</a></div>Also, how do you enable "fast reply"?</blockquote><b>Forum Control &gt; Manage Forums &gt;</b> Select a forum <b>&gt; Settings</b>. Scroll down, and set 'Turn on the Quick Reply Box?' to 'Yes'.<br>
+<br>
+Hope this helps.</div></div>
+<div class="post" id="p333911"><div class="post-head"><a class="id" href="../t/17951.html#p333911">#333911</a> <span class="index">3</span> <span class="date">2007-06-21T10:05:14Z</span> <span class="author"><a href="../u/9370681.html">Kablizzy</a></span></div><div class="post-body">o_O<br>
+<br>
+Erm... yeah. What he said.</div></div>
+<div class="post" id="p334017"><div class="post-head"><a class="id" href="../t/17951.html#p334017">#334017</a> <span class="index">4</span> <span class="date">2007-06-21T15:24:00Z</span> <span class="author"><a href="../u/9372544.html">Shark</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: cathal, June 21, 2007 10:16 am</div> It uses IPB so its quite similar to this forum, the forum is quite new and we need moderators, so just sign up and PM me for a position </blockquote>It does <b>not</b> need any moderators. It just need members. The only time you should even consider hiring other staff members is when you cannot handle your members alone. Many people make this mistake of hiring staff members too early, when they should be concentrating on attracting and trapping guests, customizing the board, etc.<br>
+<br>
+My forum is school-based, so it was a lot easier for me to get members, because I knew them in real life. For you and everyone else who wants to start their own forum, it's a lot harder. Especially if their forum theme is a little generic (such as graphics design, video games, anime, or Off-Topic) and there are thousands of other, more established, forums just like yours out there. But yours is about some game, right? And you claim that there isn't any other forum about it, so I guess it's original. Good luck with your forum, Cathal.</div></div>
+<div class="post" id="p334018"><div class="post-head"><a class="id" href="../t/17951.html#p334018">#334018</a> <span class="index">5</span> <span class="date">2007-06-21T15:26:40Z</span> <span class="author"><a href="../u/9374649.html">cmg</a></span></div><div class="post-body">Yeah, you're probably right. I'm trying to customise it as much as possible but its so hard to find transparent images from the game on the net, can anyone help?</div></div>
+<div class="post" id="p334229"><div class="post-head"><a class="id" href="../t/17951.html#p334229">#334229</a> <span class="index">6</span> <span class="date">2007-06-22T00:35:08Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">Stop stealing his thread. This is about Weisslenny0's forum and Weisslenny0's alone. Make your own if you desperately need that much assistance (or ask to have this thread split)<br>
+<br>
+Edit: Original post that caused this deleted. Don't advertise your forums, please.</div></div>
+<div class="post" id="p334350"><div class="post-head"><a class="id" href="../t/17951.html#p334350">#334350</a> <span class="index">7</span> <span class="date">2007-06-22T06:42:42Z</span> <span class="author"><a href="../u/9371403.html">Harley</a></span></div><div class="post-body">beta? <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> define beta for me</div></div>
+<div class="post" id="p334353"><div class="post-head"><a class="id" href="../t/17951.html#p334353">#334353</a> <span class="index">8</span> <span class="date">2007-06-22T06:44:46Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">first try<br>
+still in testing<br>
+still working out the bugs<br>
+if it were a big anticipated program, it would be the version released before they charged money for it becuase there is no garuntee of it having bugs</div></div>
+<div class="post" id="p334389"><div class="post-head"><a class="id" href="../t/17951.html#p334389">#334389</a> <span class="index">9</span> <span class="date">2007-06-22T08:06:55Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17951.html#p334350">Quote: Harley, June 22, 2007 06:42 am</a></div> beta? <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> define beta for me  </blockquote> <br>
+ Beta as in still in testing, and not all forums created. however, there are close to 10 members now, which is nice <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+Also, thanks to everyone who's joined from here. I don't know why you have, but that shouldn't matter <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p334669"><div class="post-head"><a class="id" href="../t/17951.html#p334669">#334669</a> <span class="index">10</span> <span class="date">2007-06-23T00:51:48Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">Another question...<br>
+<br>
+How do you make it possible for users to change their description. eg: Kablizzy's is "Blizzbot v4.02", Keron Cyst's is " Forum Dominator". How can I make it possible for people to change theirs on my forum?</div></div>
+<div class="post" id="p334840"><div class="post-head"><a class="id" href="../t/17951.html#p334840">#334840</a> <span class="index">11</span> <span class="date">2007-06-23T07:55:04Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">Go to <b>Admin CP &gt; System Settings &gt; User Profiles</b>, and insert a 1 to the first textbox. The members will now have to have <i>over</i> 1 posts to change their custom titles. <br>
+<br>
+Note that setting the value to 0 disables the feature, instead of allowing everyone to change their titles.</div></div>
+<div class="post" id="p334846"><div class="post-head"><a class="id" href="../t/17951.html#p334846">#334846</a> <span class="index">12</span> <span class="date">2007-06-23T08:21:48Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">Thanks <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+I made it 10 in my forum, just to encourage the "newbies".<br>
+<br>
+Something else I'm wondering... two things actually:<br>
+<br>
+1: How can you make the "online/offline" status things for users? They'd really come in handy.<br>
+<br>
+2: How'd you do the location flags? I don't really mind if I can do this; I was just wondering because it looks good.<br>
+<br>
+And sorry for double-posting. It's just that people probably wouldn't read this if I just edited my old post.</div></div>
+<div class="post" id="p335139"><div class="post-head"><a class="id" href="../t/17951.html#p335139">#335139</a> <span class="index">13</span> <span class="date">2007-06-24T04:49:19Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">Considering your activity here... yes, we would. Please edit.<br>
+<br>
+The online/offline tracker is available at the official Forumer Modifications Center. Seek it out there. As for the nation flags, well... those are exclusive to Metanet. You must pay $1,000 for it to both Mare and Raigan. Separately.<br>
+<br>
+<b>EDIT</b> Wait, no... scratch that. 1000 EUROS.</div></div>
+<div class="post" id="p335157"><div class="post-head"><a class="id" href="../t/17951.html#p335157">#335157</a> <span class="index">14</span> <span class="date">2007-06-24T05:15:42Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17951.html#p335139">Quote: Keron Cyst, June 24, 2007 04:49 am</a></div> Considering your activity here... yes, we would. Please edit.<br>
+<br>
+The online/offline tracker is available at the official Forumer Modifications Center. Seek it out there.<br>
+<br>
+You must pay $1,000 for it to both Mare and Raigan. Separately. </blockquote>First thing, does that mean my activity is good? <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+Second thing, Thanks.<br>
+EDIT: Where's that... I think I may have found it, but it says that there's an error of some sort.<br>
+<br>
+Third thing, don't you get any money too? <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("><br>
+<br>
+EDIT: And edited.</div></div>
+</main>
+</body>
+</html>

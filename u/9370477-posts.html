@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by tunah - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370477.html">tunah</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p23937"><div class="post-head"><a class="id" href="../t/443.html#p23937">#23937</a> <span class="index">2</span> <span class="date">2004-06-28T05:40:18Z</span> <span class="author"><a href="../u/9370477.html">tunah</a></span></div><div class="post-body">Wow, cool new features, turning down the quality really helps the speed!<br>
+Couple of bugs:<br>
+1) I played through the first episode. Every level it said new online highscore (obviously, since they were just cleared), but it said [new highscore: Episode Level] instead of having the numbers.<b>EDIT</b> Can't reproduce this, only happened on first run.<br>
+ (Also, having your rank would be a nice touch).<br>
+2) Only some of the high scores actually got saved.<br>
+3) The preference of whether you want high or medium quality isn't saved.<br>
+4) (Yeah, this isn't a bug...) It'd be cool if you could hit jump slightly before you landed and it "remembered" within a certain interval... when the framerate drops it becomes very hard to time jumps.<br>
+Sam<br>
+<b>EDIT</b> 5) N uses 70% CPU (Athlon XP 1800+) in boss mode!</div></div>
+<div class="post" id="p23940"><div class="post-head"><a class="id" href="../t/32.html#p23940">#23940</a> <span class="index">14</span> <span class="date">2004-06-28T08:59:44Z</span> <span class="author"><a href="../u/9370477.html">tunah</a></span></div><div class="post-body">Me and some friends played N on a TV with a PSX controller and joy2key, it was great, just needs multiplayer  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+I would imagine the netspeed issue being that the program can't get enough CPU time to upload properly - N really does get a stranglehold on the CPU :-\<br>
+If it runs fine on windows 98 but goes crazy on NT, then isn't this a bug that can be reported to macromedia?</div></div>
+<div class="post" id="p24527"><div class="post-head"><a class="id" href="../t/486.html#p24527">#24527</a> <span class="index">13</span> <span class="date">2004-07-10T12:05:30Z</span> <span class="author"><a href="../u/9370477.html">tunah</a></span></div><div class="post-body">The animation problem seems to trigger at the point when the last sound effect finishes (so we have silence). Apparently this is a problem with the OSS support in the linux flash player. (Doesn't support ALSA in this day and age? ;-)<br>
+Found this info .<br>
+The workaround is to use the esd support instead. First, make sure you've got ESD installed (comes with gnome, doesn't it?). Then run<br>
+"esd &amp;" to start esd in the background. Then start N. <br>
+ESD will automatically quit after a period of inactivity.<br>
+The downside for me is quite a bit of delay for sounds, so I just turn the volume to zero. (If turning the volume to zero disabled sounds completely, then ESD would be unneccesary, that'd be a nice feature to have).<br>
+Hope this helps.</div></div>
+</main>
+</body>
+</html>

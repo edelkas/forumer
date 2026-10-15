@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nd - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/4.html">Metanet Software: Feedback</a> &rsaquo; Nd</nav></header>
+<main>
+<div class="post" id="p9578"><div class="post-head"><a class="id" href="../t/10666.html#p9578">#9578</a> <span class="index">1</span> <span class="date">2006-06-19T17:04:34Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I just had the idea of a distribution for N. Like those for Linux. A distribution does not only contain the program (N) itself, but also useful tools for it. I'm planning a distribution (no name until now, working title is "LODsoft N") with the following programs with N 1.4 and some of my fan programs. The problem is that many programs will have to be overworked to integrate into the distribution.<br>
+<br>
+So why do I write this here? This has many reasons. First of all, I need to know if it is allowed to ship N in a package with other programs. Second, I want to know what you think about this idea. (It's mainly for beginners.) Third, you may post here if you want one of your programs to be added to the distribution.</div></div>
+<div class="post" id="p191668"><div class="post-head"><a class="id" href="../t/10666.html#p191668">#191668</a> <span class="index">2</span> <span class="date">2006-06-19T20:16:07Z</span> <span class="author"><a href="../u/9371018.html">Grimreaper0125</a></span></div><div class="post-body">Why only youe programs? Why not find some more games/programs for N?(I'm not saying this to be insulting, so if it sounds like I am, sorry, I'm no good at conveying ideas)<br>
+<br>
+You could do a "Best of Freeware" package with some of the best ABA Games, Soldat, N, and LODSoft.</div></div>
+<div class="post" id="p191676"><div class="post-head"><a class="id" href="../t/10666.html#p191676">#191676</a> <span class="index">3</span> <span class="date">2006-06-19T20:26:50Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Well, to be perfectly honest, there *aren't* a whole lot of other N programs.</div></div>
+<div class="post" id="p191692"><div class="post-head"><a class="id" href="../t/10666.html#p191692">#191692</a> <span class="index">4</span> <span class="date">2006-06-19T20:48:44Z</span> <span class="author"><a href="../u/9371018.html">Grimreaper0125</a></span></div><div class="post-body">Yes, that's true, but he could include alot of freeware programs such as Soldat Polyworks (a mapmaker for Soldat) and things like the N desktop theme(when it's completed). If it's what I think it is (a package is were it sets up alot of programs at one time, right?) then it could ask exactly what you want to install on your computer.</div></div>
+<div class="post" id="p191869"><div class="post-head"><a class="id" href="../t/10666.html#p191869">#191869</a> <span class="index">5</span> <span class="date">2006-06-20T05:55:32Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">I like LoD's idea. I think it should contain things related only to N, as I believe is already his intention.<br>
+<br>
+Would you mind adding stuff besides programs? LV's teleporter tutorial, the Legacy levels, and perhaps St Atilla's would be reasonable additions, I feel. I'd have to make a text file with the descriptions for StA's, of course.</div></div>
+<div class="post" id="p191891"><div class="post-head"><a class="id" href="../t/10666.html#p191891">#191891</a> <span class="index">6</span> <span class="date">2006-06-20T08:19:44Z</span> <span class="author"><a href="../u/9371126.html">krusch</a></span></div><div class="post-body">Ooh, you'll need to conscript some people to make a new userlevels list, then? <br>
+<br>
+*Nudges*</div></div>
+<div class="post" id="p191909"><div class="post-head"><a class="id" href="../t/10666.html#p191909">#191909</a> <span class="index">7</span> <span class="date">2006-06-20T10:51:21Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Are you saying that when you download N on Harveycartel.org, that you want all of those programs in the package?  That would work if you had the programs that don't work on mac excluded on the readme.txt</div></div>
+<div class="post" id="p191910"><div class="post-head"><a class="id" href="../t/10666.html#p191910">#191910</a> <span class="index">8</span> <span class="date">2006-06-20T11:03:36Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I would like to add only content related to N. A Linux distribution also contains only stuff for Linux, not for Windows.<br>
+<br>
+As Maniac said, the problem is that there are a few good programs for N. If I implement it, I will scan the Fan Progs board for useful additions, e.g. the NLO. The desktop theme is also a good idea. "N-atize your desktop."<br>
+<br>
+Tutorials are a good idea. I have just downloaded Jeffkillian's NUMA document and am looking for the teleporter tutorial. Attila, if you have got some time, could you assemble a text file with all lessons of StA's and post it here? I would really like to see it in my distribution.<br>
+<br>
+For the technique used: First, you will have to unpack N (I could also include it, but it would be very big). Second, you install a base module which manages the installed programs etc. Last, the single programs can be installed. In the best case, they hook up with the base module which also manages the deinstallation. The installer ("starter pack") contains the base module and the single programs. After having installed the base module, it offers a menu to select the programs you would like to install. (I know, it sounds very complex, but the implementation will be quite easy.)</div></div>
+<div class="post" id="p191934"><div class="post-head"><a class="id" href="../t/10666.html#p191934">#191934</a> <span class="index">9</span> <span class="date">2006-06-20T13:38:33Z</span> <span class="author"><a href="../u/9371869.html">CDotLeach</a></span></div><div class="post-body">I like it <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"><br>
+<br>
+I agree it should only have N related stuff in it though, and definitely stuff for beginners.</div></div>
+<div class="post" id="p191942"><div class="post-head"><a class="id" href="../t/10666.html#p191942">#191942</a> <span class="index">10</span> <span class="date">2006-06-20T14:06:56Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p191910">Quote: LoD, June 20, 2006 08:33 pm</a></div> If I implement it, I will scan the Fan Progs board for useful additions, e.g. the NLO.  </blockquote> <br>
+ Yeah!<br>
+<br>
+Okay, my 3 letters of fame are over.<br>
+<br>
+Anyway, I like the idea.</div></div>
+<div class="post" id="p192061"><div class="post-head"><a class="id" href="../t/10666.html#p192061">#192061</a> <span class="index">11</span> <span class="date">2006-06-20T18:27:07Z</span> <span class="author"><a href="../u/9370681.html">Kablizzy</a></span></div><div class="post-body">I like it, but how would you pick what goes in and what doesn't? I mean, if there is stuff that users make in the future (Which there are at least a few things that I know of), then I don't think users will want to constantly be downloading and downloading new versions, eh?</div></div>
+<div class="post" id="p192099"><div class="post-head"><a class="id" href="../t/10666.html#p192099">#192099</a> <span class="index">12</span> <span class="date">2006-06-20T19:58:47Z</span> <span class="author"><a href="../u/9370861.html">spect</a></span></div><div class="post-body">Yes, I like the idea, too.<br>
+I suggest to include some Fan-Material though, like the images and backgrounds. <br>
+Also: Hall of Fame userlevels and Simple Challenges. These just belong into that <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p192180"><div class="post-head"><a class="id" href="../t/10666.html#p192180">#192180</a> <span class="index">13</span> <span class="date">2006-06-20T23:02:47Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">Don't forget NHigh. It's much more accurate than the highscore stats on Metanet's website.</div></div>
+<div class="post" id="p192266"><div class="post-head"><a class="id" href="../t/10666.html#p192266">#192266</a> <span class="index">14</span> <span class="date">2006-06-21T01:18:57Z</span> <span class="author"><a href="../u/9372574.html">wishyouwerehere</a></span></div><div class="post-body">i think you should find out some way to encorporate the other N programs into the N game....that would be cool...but it would probly make the file alot bigger...but i think it's a good suggestion...</div></div>
+<div class="post" id="p192308"><div class="post-head"><a class="id" href="../t/10666.html#p192308">#192308</a> <span class="index">15</span> <span class="date">2006-06-21T02:05:00Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">if you were to do this and some of the stuff was mac compatible (if not any programs then just the tutorials and maybe some N-themed pictures and stuff) i would be willing to make a mac package of it for the mac N players...</div></div>
+<div class="post" id="p192327"><div class="post-head"><a class="id" href="../t/10666.html#p192327">#192327</a> <span class="index">16</span> <span class="date">2006-06-21T02:46:59Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Here you go, LoD. Level pack and descriptions, in one handy zip file.<br>
+<br>
+Oh, and the thread for LV's tutorial is <a href="../t/931.html">here.</a><br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p192061">Quote: Kablizzy, 2006-06-20T18:27:07Z</a></div>I mean, if there is stuff that users make in the future (Which there are at least a few things that I know of), then I don't think users will want to constantly be downloading and downloading new versions, eh?</blockquote><br>
+You could just download them seperately - indeed, the distribution could serve a secondary function as an list of some of the better material out there. I think it would be mostly for people who are getting started, though. <div class="attachment attachment-missing">Attachment (lost): post-4-1151288058.zip</div></div></div>
+<div class="post" id="p194605"><div class="post-head"><a class="id" href="../t/10666.html#p194605">#194605</a> <span class="index">17</span> <span class="date">2006-06-26T02:16:38Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">*Prods thread*<br>
+<br>
+Since StA's was just updated, I've replaced the old .zip. The new one is in the above post.</div></div>
+<div class="post" id="p194755"><div class="post-head"><a class="id" href="../t/10666.html#p194755">#194755</a> <span class="index">18</span> <span class="date">2006-06-26T13:55:17Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p192308">Quote: smartalco, June 21, 2006 03:05 am</a></div> if you were to do this and some of the stuff was mac compatible (if not any programs then just the tutorials and maybe some N-themed pictures and stuff) i would be willing to make a mac package of it for the mac N players... </blockquote>Most likely, it won't be Mac compatible. I made some tests with free .NET frameworks. They all failed.<br>
+<br>
+Sorry but I have no time at the moment to make it Mac compatible. The last days, I have been fighting against the files. It should work now...<br>
+<br>
+I have thought some time and think that I've found a good name: <b>Nd</b> (short for N distribution, pronounce like "end"). What do you think of it?<br>
+<br>
+Also, I have finished the first component, the NdPacker. It creates the packages which can be installed into the Nd system. Here is a screenshot (it's a console program, but you should be able to work with a console program).<br>
+<br>
+Edit: [description]The e and d commands are used to include files (executables and documentation), o defines the standard executable which you can open from Nd's user interface, s defines a startmenu link (here links to ndpacker.exe and name is "LODsoft NdPacker"), i defines name and version of the package (important for updates which will run automatically), p prints the content of the package, c creates the package. (I haven't included compression yet, but I'm thinking about it.) <div class="attachment attachment-missing">Attachment (lost): post-4-1151330117.png</div></div></div>
+<div class="post" id="p194895"><div class="post-head"><a class="id" href="../t/10666.html#p194895">#194895</a> <span class="index">19</span> <span class="date">2006-06-26T18:36:28Z</span> <span class="author"><a href="../u/9372566.html">Faust</a></span></div><div class="post-body">i don't think You need to include all of Your programs... but stuff for beginners will rock... and legacy of course...  <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p196178"><div class="post-head"><a class="id" href="../t/10666.html#p196178">#196178</a> <span class="index">20</span> <span class="date">2006-06-29T04:43:43Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">StA's has been updated again. Here's the new version. Of course, there'll probably be a <i>new</i> new version in two days... <div class="attachment attachment-missing">Attachment (lost): post-4-1151556223.zip</div></div></div>
+<div class="post" id="p196307"><div class="post-head"><a class="id" href="../t/10666.html#p196307">#196307</a> <span class="index">21</span> <span class="date">2006-06-29T15:30:32Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">@lod, i ment i would package together anything that was mac compatable, there a few programs that work on them, like N high, at least one of yours do i think, and it could include the legacy levels, st. atillas, and maybe N poser, i would just have to search through the fan programs thing and see what works... anything in python i think, or flash...</div></div>
+<div class="post" id="p196792"><div class="post-head"><a class="id" href="../t/10666.html#p196792">#196792</a> <span class="index">22</span> <span class="date">2006-06-30T09:44:18Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p196307">Quote: smartalco, June 29, 2006 04:30 pm</a></div>@lod, i ment i would package together anything that was mac compatable, there a few programs that work on them, like N high, at least one of yours do i think, and it could include the legacy levels, st. atillas, and maybe N poser, i would just have to search through the fan programs thing and see what works... anything in python i think, or flash...</blockquote>Can you program?<br>
+<br>
+I have no facilities to produce Mac programs. A Mac implementation of Nd would be really cool. If someone has the facility and knowledge to port Nd to Mac or to completely rewrite it for Mac, I could send him some specifications I have already written.<br>
+<br>
+I have started to produce the first packages for Nd (they are called "NdPackage", extension is ".ndp"). If you want an example, look <a href="http://home.pages.at/lordofdestiny/legacylevels.ndp">here</a> for the NdPackage of the Legacy Levelpack. (Right click on the link and choose "Save target" or similar, then open with an editor.)<br>
+<br>
+As you might see, the NdPackage is uncompressed. Surely, there will also be compressed NdPackage (.ndpc) but I don't know at the moment which compression to use, perhaps LZMA.</div></div>
+<div class="post" id="p197170"><div class="post-head"><a class="id" href="../t/10666.html#p197170">#197170</a> <span class="index">23</span> <span class="date">2006-06-30T23:04:00Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">@LoD: This will help you make your own N desktopTheme, it makes it into a Windowblinds file, so ill give you the link to that to. Maybe you can teach yourself, or find a tutorial on the internet that will help you. Have fun. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+<a href="http://www.stardock.com/products/skinstudio/downloads.asp">SkinStudio</a><br>
+<br>
+Once you have figured out how to use skinstudio and make a pretty cool N theme. Download this.<br>
+<br>
+<a href="http://www.download.com/WindowBlinds/3000-2326_4-10516315.html?tag=lst-0-1">WindowBlinds</a></div></div>
+<div class="post" id="p198434"><div class="post-head"><a class="id" href="../t/10666.html#p198434">#198434</a> <span class="index">24</span> <span class="date">2006-07-03T21:40:31Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">actually what i was thinking of doing isnt nearly as elaborate as what your doing, all im was gonna do is find all the useful fan programs that work on mac, the legacy levels, st. atilla's, some other stuff, then compress all those into a mac package that when you install it will install all the files in all the right places so everything works without having to mess around with it... little to none programming experience needed... although if i hadnt attempted to start programming i wouldnt have found out how to make this...<br>
+<br>
+edit: to clear that up im explaining more... theres a program that comes with the mac developer tools that allows you to put several files/apps into one package and configure where each one of these files should be put when the package is opened, so i could make one, and whenever someone dl'd it from metanet (assuming it would be on there...) and opened it every file in there would immediately go where its supposed to (ie, i could put the teleporter tutorials into a userlevels.txt, then put a .sol in the right spot that had the demos for the levels already included, same with the st. atillas thing, that way all they would have to do to watch the demos is get the correct userlevels.txt into the N folder and go to the user levels in game to watch)<br>
+<br>
+that was a longer explanation then i was intending...</div></div>
+<div class="post" id="p198616"><div class="post-head"><a class="id" href="../t/10666.html#p198616">#198616</a> <span class="index">25</span> <span class="date">2006-07-04T06:35:31Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Okay, so it was slightly more than two days. Still... <div class="attachment attachment-missing">Attachment (lost): post-4-1151994931.zip</div></div></div>
+<div class="post" id="p198852"><div class="post-head"><a class="id" href="../t/10666.html#p198852">#198852</a> <span class="index">26</span> <span class="date">2006-07-04T19:35:29Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p197170">Quote: AV_Ultima, July 01, 2006 12:04 am</a></div>@LoD: This will help you make your own N desktopTheme, it makes it into a Windowblinds file, so ill give you the link to that to. Maybe you can teach yourself, or find a tutorial on the internet that will help you. Have fun. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+<a href="http://www.stardock.com/products/skinstudio/downloads.asp">SkinStudio</a><br>
+<br>
+Once you have figured out how to use skinstudio and make a pretty cool N theme. Download this.<br>
+<br>
+<a href="http://www.download.com/WindowBlinds/3000-2326_4-10516315.html?tag=lst-0-1">WindowBlinds</a></blockquote>Well, I'm not a good designer. Also, I'm working on (= fighting against) my programs at the moment. I just decided to make a GUI for the NdPacker.<br>
+<br>
+<b>Tasks</b> (will be updated)<ul><li>format specification <span style="color:GREEN">(complete)</span></li><li>NdPacker console version <span style="color:GREEN">(complete)</span></li><li>NdPacker windowed version <span style="color:GREEN">(complete)</span></li><li>Nd Control Center <span style="color:GREEN">(complete)</span></li><li>Nd Package Manager <span style="color:GREEN">(complete)</span></li><li>Nd Installer/Uninstaller <span style="color:GREEN">(complete)</span></li><li>NdPackages of my programs <span style="color:GREEN">(complete)</span></li><li>NdPackages for other stuff concerning N <span style="color:GREEN">(fan programs complete)</span></li></ul>I hope that I can get this project finished this month.</div></div>
+<div class="post" id="p198968"><div class="post-head"><a class="id" href="../t/10666.html#p198968">#198968</a> <span class="index">27</span> <span class="date">2006-07-04T23:39:20Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Don't forget Eli's old Kill 88-4 program - that works for Mac too. I think I still have it somewhere.</div></div>
+<div class="post" id="p199019"><div class="post-head"><a class="id" href="../t/10666.html#p199019">#199019</a> <span class="index">28</span> <span class="date">2006-07-05T01:53:05Z</span> <span class="author"><a href="../u/9372574.html">wishyouwerehere</a></span></div><div class="post-body">don't forget to add me <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> .....wtf...anyways...you should just put all the fan programs and every other program into one file...so the people can have everything...</div></div>
+<div class="post" id="p199097"><div class="post-head"><a class="id" href="../t/10666.html#p199097">#199097</a> <span class="index">29</span> <span class="date">2006-07-05T07:50:29Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I had some thoughts about the distribution system again. There will definitely be three versions of Nd (more could come): the basic installer which contains only the Nd system and can hook upon an existing N installation; a small starter pack which also contains N; and a big starter pack which contains the most common fan programs. More programs can be added from NdPackages.<br>
+<br>
+Edit: Quiz removed. Don't use the content of the package, which was available for download here, any more.</div></div>
+<div class="post" id="p199471"><div class="post-head"><a class="id" href="../t/10666.html#p199471">#199471</a> <span class="index">30</span> <span class="date">2006-07-06T04:35:31Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Another update, <i>This</i> time it was two days.<br>
+<br>
+I can't help but think this is annoying for LoD. Mayhap you could just PM me when you actually need it and I'll post the latest version then? <div class="attachment attachment-missing">Attachment (lost): post-4-1152160531.zip</div></div></div>
+<div class="post" id="p199545"><div class="post-head"><a class="id" href="../t/10666.html#p199545">#199545</a> <span class="index">31</span> <span class="date">2006-07-06T12:44:40Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">The NdPacker 1.0 is available at my homepage. It is also the first program on the world available as NdPackage (how surprising...; but as you can see, it can pack itself).<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p199471">Quote: Atilla, July 06, 2006 05:35 am</a></div>I can't help but think this is annoying for LoD. Mayhap you could just PM me when you actually need it and I'll post the latest version then?</blockquote><br>
+You can create the packages on yourself now, Attila. Note: The levels file has to start with the &amp;userdata= thing (it must be a valid userlevels archive) and goes into the archives folder. The description file goes into the doc folder, as the package's standard file. The version number should consist of the release date (here 2006.7.6) as described in the readme.<br>
+<br>
+As I have the first component working, could this be moved to the FP board?<br>
+<br>
+Request to image designers: Could one of you be as kind to make an image of a package? The size must be 48x48, and it should contain the Nd logo (see attachment). I need an icon for NdPackages in the explorer...<br>
+<br>
+Edit: More and more people are requesting stuff for NdPackages and the big starter pack. If you have an idea what to include, look at <a href="http://n.wikia.com/wiki/User:Lord_of_Destiny/Nd">this page of N@Wikia</a> for a list of stuff that has already been suggested. You may add things to this list by clicking on "Edit" on the top of the page. <div class="attachment attachment-missing">Attachment (lost): post-4-1152190314.png</div></div></div>
+<div class="post" id="p199592"><div class="post-head"><a class="id" href="../t/10666.html#p199592">#199592</a> <span class="index">32</span> <span class="date">2006-07-06T16:09:01Z</span> <span class="author"><a href="../u/9371245.html">Borealis</a></span></div><div class="post-body">I think the "Best Of NUMA" should have two sections, playable and non-playable. That way, people won't have to scroll through a whole long list of DDA's in order to reach the puzzle levels, for instance.<br>
+<br>
+I edited the page on NWiki to reflect this thought.<br>
+<br>
+<img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p199636"><div class="post-head"><a class="id" href="../t/10666.html#p199636">#199636</a> <span class="index">33</span> <span class="date">2006-07-06T19:05:13Z</span> <span class="author"><a href="../u/9372574.html">wishyouwerehere</a></span></div><div class="post-body">there should be seperate sections for puzzles, DDA's, etc...so ppl can get the ones they want...</div></div>
+<div class="post" id="p200383"><div class="post-head"><a class="id" href="../t/10666.html#p200383">#200383</a> <span class="index">34</span> <span class="date">2006-07-08T19:19:59Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I'm just seeing that this topic has been pinned. Thank you to the responsible moderator, even if I am not working on it very intensively at the moment. To tell you the reason, I'm preparing for Windows Vista (see the "OS?" thread by me in Tests/Inquiries; I would really, really like to use the .NET FW 3.0).<br>
+<br>
+UPDATE: I have re-released the NdPacker 1.0.1 under a new license. The LODsoft Public License is for my open source programs. The intention of the open source NdPacker is to show a reference implementation for the NdPackage standard. There will be some documentation about it some time. Currently, I'm working on the NdUnpacker component in the Nd Control Center.<br>
+<br>
+I would really like to release it on the 19th of July, but I doubt I can make it until then.<br>
+<br>
+UPDATE: I think this is my first bigger project. (It's much more work than in my previous projects.) As big companies always make nice images and schemes about their big projects, I did so, too. Here is the result. (For the tools: Fireworks made the scheme, Paint made text and arrows, and GIMP made the transparency.) <div class="attachment attachment-missing">Attachment (lost): post-4-1152865943.png</div></div></div>
+<div class="post" id="p202501"><div class="post-head"><a class="id" href="../t/10666.html#p202501">#202501</a> <span class="index">35</span> <span class="date">2006-07-14T08:38:34Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">[offtopic]Sorry for double-posting, it's because of the attachment.[/offtopic]<br>
+<br>
+Also, I made a preview version (Nd 0.1). You find 25% of the aimed functionality in it, namely the Nd Control Center is nearly finished. I will now start working on the Nd Package Manager. Also (what you can't see on the image above because this idea came to me this night), I will include a web update functionality for the Nd core components (if I can get it to work...).<br>
+<br>
+P.S. One tip if Nd 0.1 does not work: RTFM. <div class="attachment attachment-missing">Attachment (lost): post-4-1152866314.zip</div></div></div>
+<div class="post" id="p202728"><div class="post-head"><a class="id" href="../t/10666.html#p202728">#202728</a> <span class="index">36</span> <span class="date">2006-07-14T19:30:24Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Its not working, it says.<br>
+<br>
+main configuration not avalible.<br>
+Error code:NdC_fNC_L1<br>
+use this code to get feed back from LoDSoft<br>
+<br>
+^What i do?<br>
+<br>
+<br>
+Yes i did RTFM.</div></div>
+<div class="post" id="p203321"><div class="post-head"><a class="id" href="../t/10666.html#p203321">#203321</a> <span class="index">37</span> <span class="date">2006-07-16T06:39:01Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Having the same issue. Win XP home, all instructions followed, etc.</div></div>
+<div class="post" id="p203364"><div class="post-head"><a class="id" href="../t/10666.html#p203364">#203364</a> <span class="index">38</span> <span class="date">2006-07-16T11:53:32Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Here is the second preview version, Nd 0.2. It features the Nd Package Manager 0.1 which can be used to install, manage, and remove NdPackages. You can try it for example with the NdPacker, which is available as NdPackage.<br>
+<br>
+The problem NdC_fNC_L1 is because of broken startmenu links. The working directory is "C:\Nd", but should be "C:\Nd\bin". This has been fixed in Nd 0.2. <div class="attachment attachment-missing">Attachment (lost): post-4-1153050812.zip</div></div></div>
+<div class="post" id="p203449"><div class="post-head"><a class="id" href="../t/10666.html#p203449">#203449</a> <span class="index">39</span> <span class="date">2006-07-16T16:41:43Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i made an entire list of fan progs to help you (although your far enough in it probably doesnt matter anymore...) most of the links are the actual download links, to find out about them just search in fan progs...<br>
+<br>
+i just found out i cant upload .rtf files so you will have to dl and unzip... and hopefully have something that can read .rtf's <div class="attachment attachment-missing">Attachment (lost): post-4-1153068103.zip</div></div></div>
+<div class="post" id="p203518"><div class="post-head"><a class="id" href="../t/10666.html#p203518">#203518</a> <span class="index">40</span> <span class="date">2006-07-16T20:15:29Z</span> <span class="author"><a href="../u/9371916.html">elaxion</a></span></div><div class="post-body">Cool Beans.  I saved this one. I always had trouble finding all the different programs on my computer.  This makes it much easier.</div></div>
+<div class="post" id="p203670"><div class="post-head"><a class="id" href="../t/10666.html#p203670">#203670</a> <span class="index">41</span> <span class="date">2006-07-17T11:20:46Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p203449">Quote: smartalco, July 16, 2006 05:41 pm</a></div> i made an entire list of fan progs to help you (although your far enough in it probably doesnt matter anymore...) most of the links are the actual download links, to find out about them just search in fan progs...<br>
+<br>
+i just found out i cant upload .rtf files so you will have to dl and unzip... and hopefully have something that can read .rtf's  </blockquote> <br>
+ Thank you very much. This will be much work, I think...</div></div>
+<div class="post" id="p203860"><div class="post-head"><a class="id" href="../t/10666.html#p203860">#203860</a> <span class="index">42</span> <span class="date">2006-07-17T21:43:53Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Wow, thats pretty cool.<br>
+<br>
+@LoD: Make it so you can add your own archives, i have afew i more things i want to add.</div></div>
+<div class="post" id="p203907"><div class="post-head"><a class="id" href="../t/10666.html#p203907">#203907</a> <span class="index">43</span> <span class="date">2006-07-18T00:38:09Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i made a package of osx N programs, legacy maps, and st.atillas and lv's teleporter tutorial... <br>
+<br>
+@LoD: you mind if i call it Nd osx?<br>
+<br>
+here it is, version .9, any mac users try it out, tell me of any oddities <div class="attachment attachment-missing">Attachment (lost): post-4-1153183089.pkg</div></div></div>
+<div class="post" id="p204001"><div class="post-head"><a class="id" href="../t/10666.html#p204001">#204001</a> <span class="index">44</span> <span class="date">2006-07-18T12:40:40Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p203907">Quote: smartalco, July 18, 2006 01:38 am</a></div> @LoD: you mind if i call it Nd osx?  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  Well, um, the core functionality of Nd is that it manages your programs. "Nd OSX" is just a compilation.<br>
+<br>
+@all: I'm just updating my webpage. NdPackages for nearly all LODsoft applications will be available in a few minutes.</div></div>
+<div class="post" id="p204055"><div class="post-head"><a class="id" href="../t/10666.html#p204055">#204055</a> <span class="index">45</span> <span class="date">2006-07-18T17:09:16Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Im confused on what to download and what not to download. <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:"></div></div>
+<div class="post" id="p204611"><div class="post-head"><a class="id" href="../t/10666.html#p204611">#204611</a> <span class="index">46</span> <span class="date">2006-07-19T20:07:20Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p204055">Quote: AV_Ultima, July 18, 2006 06:09 pm</a></div> Im confused on what to download and what not to download. <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  </blockquote> <br>
+ If you want to try out the package-based Nd system, download Nd 0.2 (in the post I made on July 16, 2006 12:53 pm).<br>
+<br>
+If you want to use one of my applications on Nd, download the corresponding NdPackage from my webpage.<br>
+<br>
+If you want to create your own NdPackage, download the NdPacker from my webpage.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p203860">Quote: AV_Ultima, 2006-07-17T21:43:53Z</a></div>Make it so you can add your own archives, i have afew i more things i want to add.</blockquote><br>
+You can already. It was a main design aspect. Use the NdPacker to create NdPackages from the archives, then install them into the Nd system (using the Nd Package Manager).</div></div>
+<div class="post" id="p204620"><div class="post-head"><a class="id" href="../t/10666.html#p204620">#204620</a> <span class="index">47</span> <span class="date">2006-07-19T20:21:21Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Ok, thanks. Cant do it now though, i will later.</div></div>
+<div class="post" id="p205661"><div class="post-head"><a class="id" href="../t/10666.html#p205661">#205661</a> <span class="index">48</span> <span class="date">2006-07-21T19:10:29Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Here is Nd 0.3, the newest preview release. It contains 90% of the aimed functionality. Only the installer routine is missing.<br>
+<br>
+What is new:<br>
+<br>
+- file type associations (install packages from the Explorer)<br>
+- update installed packages via the web (I have already put up my update server; the system is extensible, so everyone can install his own)<br>
+<br>
+Also, the system has (for the first time) been created from scratch, only using NdPackages. Short: Everything automates and integrates more and more. <div class="attachment attachment-missing">Attachment (lost): post-4-1153509029.zip</div></div></div>
+<div class="post" id="p206254"><div class="post-head"><a class="id" href="../t/10666.html#p206254">#206254</a> <span class="index">49</span> <span class="date">2006-07-23T07:21:43Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Woo, broadband! I finally managed to download the .NET update I needed. Here's St Atilla's in Nd package form.<br>
+<br>
+EDIT: Updated, after LoD's reccomendation. <div class="attachment attachment-missing">Attachment (lost): post-4-1153736604.ndp</div></div></div>
+<div class="post" id="p206288"><div class="post-head"><a class="id" href="../t/10666.html#p206288">#206288</a> <span class="index">50</span> <span class="date">2006-07-23T10:59:49Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Um... the archive shouldn't be linked. If beginners click on the link, they get the map data and don't know what to do. Also, it is not necessary. The archive is available in the NdCC.<br>
+<br>
+However, I like St. Attila's very much and will definitely add it into my Nd starter pack. Currently, I'm working on the setup routine. It will be extensible and will only rely on NdPackages so everyone can build your own setups.<br>
+<br>
+Also, everyone can build his one update server. I will publish documents on how to build own contents for Nd on my homepage after the release of Nd (which will most definitely be next week).</div></div>
+<div class="post" id="p206656"><div class="post-head"><a class="id" href="../t/10666.html#p206656">#206656</a> <span class="index">51</span> <span class="date">2006-07-24T10:15:33Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p206288">Quote: LoD, July 23, 2006 08:59 pm</a></div> Um... the archive shouldn't be linked. If beginners click on the link, they get the map data and don't know what to do. Also, it is not necessary. The archive is available in the NdCC.  </blockquote> <br>
+ Hmm, good point. I was thinking it might be useful for people who wish to play individual levels, but you're right.<br>
+<br>
+*Goes to edit post previous post*</div></div>
+<div class="post" id="p206700"><div class="post-head"><a class="id" href="../t/10666.html#p206700">#206700</a> <span class="index">52</span> <span class="date">2006-07-24T14:39:41Z</span> <span class="author"><a href="../u/9372553.html">AluminumHaste</a></span></div><div class="post-body">You could add my downloader if you wanted. I'm not sure how many people use it, but in it's current state it's a treat to use compared to the NUMA website. No more copying and pasting.</div></div>
+<div class="post" id="p206799"><div class="post-head"><a class="id" href="../t/10666.html#p206799">#206799</a> <span class="index">53</span> <span class="date">2006-07-24T18:34:55Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Attila, it seems like you made the NdPackage with NdPacker 1.0. Unfortunately, it contains a bug so that Nd can't read NdPackages produced by NdP 1.0. I have fixed this issue in v1.0.1. Here is the correct package. I have also included it in my Nd Starter Pack. <div class="attachment attachment-missing">Attachment (lost): post-4-1153766095.ndp</div></div></div>
+<div class="post" id="p206985"><div class="post-head"><a class="id" href="../t/10666.html#p206985">#206985</a> <span class="index">54</span> <span class="date">2006-07-25T07:21:53Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p206799">Quote: LoD, July 25, 2006 04:34 am</a></div> Attila, it seems like you made the NdPackage with NdPacker 1.0. Unfortunately, it contains a bug so that Nd can't read NdPackages produced by NdP 1.0. </blockquote>...<br>
+<br>
+I'm so sorry. All technology seems to hate me at the moment. I've just come from a physics experiment in which a resistor started smoking, three multimeters ran out of batteries and another two needed a fuse changed.</div></div>
+<div class="post" id="p208659"><div class="post-head"><a class="id" href="../t/10666.html#p208659">#208659</a> <span class="index">55</span> <span class="date">2006-07-29T13:40:54Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Update: My FTP server is unreachable, therefore I can't upload the Nd setup files at the moment. Due to this "inconnectivity" I will now definitely change my webhoster.<br>
+<br>
+I think I will take this offer: 100 MB webspace, 500 MB traffic, PHP5 and a MySQL database for 0,16  per month.</div></div>
+<div class="post" id="p208667"><div class="post-head"><a class="id" href="../t/10666.html#p208667">#208667</a> <span class="index">56</span> <span class="date">2006-07-29T14:06:13Z</span> <span class="author"><a href="../u/9370990.html">GamingWolf</a></span></div><div class="post-body">There's a good website like <a href="http://www.wikiupload.com">www.wikiupload.com</a> that let's you upload to 5gb per file for free.<br>
+<br>
+EDITED for bad linkage</div></div>
+<div class="post" id="p209147"><div class="post-head"><a class="id" href="../t/10666.html#p209147">#209147</a> <span class="index">57</span> <span class="date">2006-07-30T15:15:05Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I don't need a file upload page, I need a server to host my webpage. There aren't many good offers for this need which don't cost anything.</div></div>
+<div class="post" id="p212237"><div class="post-head"><a class="id" href="../t/10666.html#p212237">#212237</a> <span class="index">58</span> <span class="date">2006-08-06T17:52:09Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">As you might have already noticed, Nd 1.0 is out. Have fun with it.<br>
+<br>
+EDIT: I hate the "Add reply" button at the top of the page. It makes me double-post.</div></div>
+<div class="post" id="p213482"><div class="post-head"><a class="id" href="../t/10666.html#p213482">#213482</a> <span class="index">59</span> <span class="date">2006-08-09T05:32:11Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Ack! I'm having problems with NdPacker/Nd Package Manager, versions 1.1 and 1.0 respectively. Observe. I type the data, as depicted, and create the package. Everything works. However, when I double click upon the package to install, I get that error message. Have I typed something incorrectly, or is this a glitch? I've tried it with just one file and no link, and I get the same thing.<br>
+<br>
+Also, I just realised you spelt my name incorrectly in your St Atilla's package. I have one t and two l's - contrary to the usuall spelling of, say, "Attila the Hun". --------------------Attachment was deleted</div></div>
+<div class="post" id="p213537"><div class="post-head"><a class="id" href="../t/10666.html#p213537">#213537</a> <span class="index">60</span> <span class="date">2006-08-09T12:03:03Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Sorry for the wrong name. As it is very difficult to update 3 MBs of setups over a 56k connection, I won't be able to alter it until the next bigger release of Nd, v1.1.<br>
+<br>
+Concerning your problem: Packages produced with NdP 1.0 are not compliant to my NdPackage format due to a bug which has been fixed in NdP 1.0.1 and 1.1. (The bug inserted a blank space instead of a new line.) Please download the newest version from my new webpage (it also contains some other improvements).</div></div>
+<div class="post" id="p213545"><div class="post-head"><a class="id" href="../t/10666.html#p213545">#213545</a> <span class="index">61</span> <span class="date">2006-08-09T12:13:12Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">Try using <a href="http://www.addyour.net/">http://www.addyour.net/</a> it's free, 500mb of space, 5 GB of traffic, 5 MySQL databases, Whatever that is.</div></div>
+<div class="post" id="p213846"><div class="post-head"><a class="id" href="../t/10666.html#p213846">#213846</a> <span class="index">62</span> <span class="date">2006-08-10T04:32:59Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/10666.html#p213537">Quote: LoD, August 09, 2006 10:03 pm</a></div> Concerning your problem: Packages produced with NdP 1.0 are not compliant to my NdPackage format due to a bug which has been fixed in NdP 1.0.1 and 1.1. (The bug inserted a blank space instead of a new line.) Please download the newest version from my new webpage (it also contains some other improvements).  </blockquote> <br>
+ Uh, I'm using NdP v 1.1, as I said. I just downloaded the latest version yesterday. If that's the problem, either something's gone wrong with my installation or the file on your website is out of date.<br>
+<br>
+*Downloads again and reinstalls*<br>
+<br>
+I uninstalled the version I had using the package manager, downloaded the uncompressed NdPackage, and installed it, and... it's still doing the exact same thing.<br>
+<br>
+*Downloads plain binary version*<br>
+<br>
+Still does the same thing.<br>
+<br>
+The readme and the file properties both say it's v1.1, so I think you must still have a bug somewhere.</div></div>
+<div class="post" id="p213871"><div class="post-head"><a class="id" href="../t/10666.html#p213871">#213871</a> <span class="index">63</span> <span class="date">2006-08-10T08:16:00Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">*for the first time looking at the image (I did not load the images by default to reduce the download time)*<br>
+<br>
+What? I thought I had repaired this thing. I will have a look at the code later. For now, copy all necessary files into the directory where the NdPacker is located, then type in the file name without directory (for example only "StAtillasDescriptions.txt"). I have created my packages this way and it works.<br>
+<br>
+Tip: Please remove the "..\" before the link target path. It should only be "doc\..." because it's relative to the Nd main path (the directory containing the folders archives, bin, and doc).</div></div>
+<div class="post" id="p213894"><div class="post-head"><a class="id" href="../t/10666.html#p213894">#213894</a> <span class="index">64</span> <span class="date">2006-08-10T09:55:06Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">That doesn't seem to work, either. It won't even pack. It says it can't open the files. (Error code: NdP_bPC_C2) Here's another picture, if you want to have a look.<br>
+<br>
+Maybe it just hates my system. Do you want system specs? --------------------Attachment was deleted</div></div>
+<div class="post" id="p214031"><div class="post-head"><a class="id" href="../t/10666.html#p214031">#214031</a> <span class="index">65</span> <span class="date">2006-08-10T18:23:53Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I have redesigned the UI to be more flexible. Fortunately, this solves your problem, too. (To be honest, I redesigned it to avoid this problem.)<br>
+<br>
+I'm uploading v1.2 at the moment. I hope it does not contain any errors...</div></div>
+<div class="post" id="p214253"><div class="post-head"><a class="id" href="../t/10666.html#p214253">#214253</a> <span class="index">66</span> <span class="date">2006-08-11T03:47:38Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">...<br>
+<br>
+It still hates me. Now I get an unhandled exception error if the files are outside NdP's directory, and the same "cannot open file" error if they're inside it.<br>
+<br>
+<pre class="code">************** Exception Text **************
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NdPacker.frmNdPacker.btnFinishCreate_Click(Object sender, EventArgs e)
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message&amp; m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message&amp; m)
+   at System.Windows.Forms.Button.WndProc(Message&amp; m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</pre><br>
+Perhaps someone else should try this so we can determine whether it's something to do with my system?</div></div>
+<div class="post" id="p214327"><div class="post-head"><a class="id" href="../t/10666.html#p214327">#214327</a> <span class="index">67</span> <span class="date">2006-08-11T13:02:24Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Um... are you working as administrator or not? Perhaps the NdPacker is not allowed to read or write files. Copy the necessary files into the directory of NdPacker and try it again. Or copy the NdPacker (and lzma.exe) into the directory where the files are located.<br>
+<br>
+EDIT: Here is a special NdPacker executable. The package creation runs in a kind of debug mode. If an error occurs, before displaying the error, you will get a number. Please post the number here. Also, please post the paths to NdPacker, LZMA, and the target files. (Note: If copying this file to the normal location of NdPacker, make a backup of the normal executable before. The executable requires the file "lzma.exe" to be located in the same folder.)<br>
+<br>
+UPDATE: I have run the debug NdPacker on myself. My result was 11. I found an error (I wrote "StandardFile" instead of "Startmenuitem") and corrected it. My next result was 18. I found an error with calling LZMA and corrected it. Now, no error or number occured. But I could not find my packages. They were in the folder where my source files were located. I included some code to make it working-directory-independent, and voil!!! It works. v1.2.1 is available at my website or via LODsoft Nd Web Update.<br>
+<br>
+EDIT: It seems like my update server is experiencing problems. My browser and Nd Web Update are not allowed to see the <a href="http://update.lodsoft.de/ndup.ini">manifest</a>. --------------------Attachment was deleted</div></div>
+<div class="post" id="p214635"><div class="post-head"><a class="id" href="../t/10666.html#p214635">#214635</a> <span class="index">68</span> <span class="date">2006-08-12T04:09:39Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">It works! Huzzah!<br>
+<br>
+Thanks, LoD. --------------------Attachment was deleted</div></div>
+<div class="post" id="p214666"><div class="post-head"><a class="id" href="../t/10666.html#p214666">#214666</a> <span class="index">69</span> <span class="date">2006-08-12T10:05:38Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">@all: If you're installing this on the Nd 1.0 Starter Pack, don't forget to remove the installation of St. Atilla's coming with the starter pack. It will not be updated due to typing errors (see above).<br>
+<br>
+@Attila: You should compress the package. --------------------Attachment was deleted</div></div>
+<div class="post" id="p216798"><div class="post-head"><a class="id" href="../t/10666.html#p216798">#216798</a> <span class="index">70</span> <span class="date">2006-08-18T17:37:01Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Would you mind puting every thing into 1 download pack.<br>
+<br>
+All of the TXTs(including atillas) with the most recent program.<br>
+<br>
+Thanks.</div></div>
+<div class="post" id="p216807"><div class="post-head"><a class="id" href="../t/10666.html#p216807">#216807</a> <span class="index">71</span> <span class="date">2006-08-18T18:22:02Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I have 56k at the moment. The connection is too slow to update 3 MBs. Also, there are other projects in the pipeline. I will update when I have DSL (which has been scheduled for the 1st of September).</div></div>
+<div class="post" id="p238703"><div class="post-head"><a class="id" href="../t/10666.html#p238703">#238703</a> <span class="index">72</span> <span class="date">2006-10-09T11:21:11Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">New version of St A's for you. <div class="attachment attachment-missing">Attachment (lost): post-4-1160392871.ndpc</div></div></div>
+<div class="post" id="p246426"><div class="post-head"><a class="id" href="../t/10666.html#p246426">#246426</a> <span class="index">73</span> <span class="date">2006-10-27T14:45:34Z</span> <span class="author"><a href="../u/9372553.html">AluminumHaste</a></span></div><div class="post-body">Instead of us having to go through every post just to find the most recent version, it would be nice that when you have an updated whatever, that you edited your first post, to make things easier for everyone.<br>
+<br>
+BTW cool idea.</div></div>
+<div class="post" id="p246585"><div class="post-head"><a class="id" href="../t/10666.html#p246585">#246585</a> <span class="index">74</span> <span class="date">2006-10-27T21:13:43Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i think LoD moved to a place without internet a while back... in other words we wont be seeing him around...</div></div>
+<div class="post" id="p248965"><div class="post-head"><a class="id" href="../t/10666.html#p248965">#248965</a> <span class="index">75</span> <span class="date">2006-11-02T04:36:43Z</span> <span class="author"><a href="../u/9371916.html">elaxion</a></span></div><div class="post-body">Ah, too bad, his addums were great.</div></div>
+<div class="post" id="p296318"><div class="post-head"><a class="id" href="../t/10666.html#p296318">#296318</a> <span class="index">76</span> <span class="date">2007-02-11T20:36:30Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Well, smartalco was right. I did not have internet till September. Then, I had to furnish my new rooms, and in October were the first lectures.<br>
+<br>
+After having done nothing for my N-related applications and Nd since September, I have decided that my next project (if I can get enough motivation for this project) will be the nlib. Also, there could be a new version of NUMA? Let's collect ideas for a new version.</div></div>
+</main>
+</body>
+</html>

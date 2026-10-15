@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting a laser drone to stay in one place. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Getting a laser drone to stay in one place.</nav></header>
+<main>
+<div class="post" id="p18621"><div class="post-head"><a class="id" href="../t/20893.html#p18621">#18621</a> <span class="index">1</span> <span class="date">2007-12-30T23:01:21Z</span> <span class="author"><a href="../u/9375534.html">sirrus</a></span></div><div class="post-body">Hey everyone, i've tried everything, I just can't get a laser drone to stay in one place.<br>
+I've tried every combination bounce blocks, one way platforms, direction and following instructions for the drone itself.<br>
+<br>
+I've seen it in maps, and I have some killer Ideas, but I just can't get it to work.<br>
+<br>
+thanks.</div></div>
+<div class="post" id="p394866"><div class="post-head"><a class="id" href="../t/20893.html#p394866">#394866</a> <span class="index">2</span> <span class="date">2007-12-31T00:18:50Z</span> <span class="author"><a href="../u/9372955.html">Pheidippides</a></span></div><div class="post-body">This involves either locked doors or, more preferably, NaN'ing the drone. You should read <a href="../t/771.html">LV's Tutorial</a> about it to learn more, but for this specific situation, here's what to do:<br>
+<br>
+1) Immediately after you add the laser drone, go back to the debug menu.<br>
+2) Click inside the level data box, at the very end of the data.<br>
+3) Hit the L key to load the level without clicking out of the level data box.<br>
+<br>
+This creates an error in the code that makes the drone stay put. LV goes into great detail about all sorts of code editing, and his tutorial even explains why this editing does what it does. You should definitely check it out, and good luck with those ideas.</div></div>
+<div class="post" id="p394868"><div class="post-head"><a class="id" href="../t/20893.html#p394868">#394868</a> <span class="index">3</span> <span class="date">2007-12-31T00:23:16Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">This can be done in one of two ways.<br>
+<br>
+1. Put a locked door on every side of the drone. When they are unlocked, it should remain stationary.<br>
+<br>
+2. Edit the level code manually. The easiest way to do this is to put the drone in, then - without adding any other objects - return to the Ned menu and hit a random letter. This will change the part of the code which describes the drone's path algorithm to "NaN" (Not a Number), which makes it stand still. You can also go through your data and change the last number in the drone's code to "NaN" by hand. There's a basic overview <a href="http://n.wikia.com/wiki/Code_editing">here</a>.</div></div>
+<div class="post" id="p394870"><div class="post-head"><a class="id" href="../t/20893.html#p394870">#394870</a> <span class="index">4</span> <span class="date">2007-12-31T00:32:38Z</span> <span class="author"><a href="../u/9370994.html">Ngaged</a></span></div><div class="post-body">There are many ways to accomplish the task.  I would say Pheidippides's method would be better, at least to remember, but you might also want to remember Atilla's first method as well for future map ideas.  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p394875"><div class="post-head"><a class="id" href="../t/20893.html#p394875">#394875</a> <span class="index">5</span> <span class="date">2007-12-31T00:46:38Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">Pheidippides - When I do what you said the laser drone moves. So I must manually change the last number to a NaN</div></div>
+<div class="post" id="p394890"><div class="post-head"><a class="id" href="../t/20893.html#p394890">#394890</a> <span class="index">6</span> <span class="date">2007-12-31T01:47:20Z</span> <span class="author"><a href="../u/9372955.html">Pheidippides</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20893.html#p394875">Quote: bhz, December 30, 2007 07:46 pm</a></div> Pheidippides - When I do what you said the laser drone moves. So I must manually change the last number to a NaN  </blockquote> <br>
+ You didn't do it right then. Did you scroll all the way to the end of the data in the level data box right after you placed the laser drone? And you can't click out of the box before you hit L, or it won't work either. You'll see the L input into the data and as the level loads it will change itself to NaN. It works for me.</div></div>
+<div class="post" id="p394892"><div class="post-head"><a class="id" href="../t/20893.html#p394892">#394892</a> <span class="index">7</span> <span class="date">2007-12-31T02:16:16Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">Ah well. What I did was (insert infinite # of 9's here).99% what you said.<br>
+Guess I'll just have to manually NaN it.</div></div>
+<div class="post" id="p398942"><div class="post-head"><a class="id" href="../t/20893.html#p398942">#398942</a> <span class="index">8</span> <span class="date">2008-01-09T01:54:20Z</span> <span class="author"><a href="../u/9374410.html">player03</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20893.html#p394890">Quote: Pheidippides, December 30, 2007 09:47 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/20893.html#p394875">Quote: bhz, December 30, 2007 07:46 pm</a></div> Pheidippides - When I do what you said the laser drone moves. So I must manually change the last number to a NaN </blockquote>You didn't do it right then. Did you scroll all the way to the end of the data in the level data box right after you placed the laser drone? And you can't click out of the box before you hit L, or it won't work either. You'll see the L input into the data and as the level loads it will change itself to NaN. It works for me.  </blockquote> <br>
+ I personally use that method a lot, though I find that sometimes N deletes the L if it is lowercase.</div></div>
+</main>
+</body>
+</html>

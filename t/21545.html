@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design Critique - Again - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/58.html">Arts</a> &rsaquo; <a href="../f/20.html">Images</a> &rsaquo; Web Design Critique - Again</nav></header>
+<main>
+<div class="post" id="p19245"><div class="post-head"><a class="id" href="../t/21545.html#p19245">#19245</a> <span class="index">1</span> <span class="date">2008-02-20T06:19:39Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><details class="spoiler"><summary>Spoiler: Click to see my newest design</summary><img class="bb-img" src="http://fc05.deviantart.com/fs29/f/2008/050/6/f/Ankaeo___The_Site_Reborn_by_Tyne2010.png" alt="" loading="lazy"></details><br>
+Took me about 4 hours to do. All from scratch, minus the ad banner I swiped from ProjectWonderful's homepage.<br>
+I made a new thread because this is probably the last version of my web interfaces I'll post, since everything else will be long-term development.<br>
+<br>
+We'll be upgrading <a href="http://www.ankaeo.net">The Ankaeo Homepage</a> into this layout soon. No image, minus the header, is more than 15kb. Most are about 8kb, but the affiliate test box is 14.9kb - and that's not content related.<br>
+<br>
+Critique or comments?</div></div>
+<div class="post" id="p410925"><div class="post-head"><a class="id" href="../t/21545.html#p410925">#410925</a> <span class="index">2</span> <span class="date">2008-02-20T17:23:00Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">Pretty damn nice. The only problem I can see is having the user pictures on both sides. I think only one is codable. Unless you select while posting which side to have the userpic on.</div></div>
+<div class="post" id="p410948"><div class="post-head"><a class="id" href="../t/21545.html#p410948">#410948</a> <span class="index">3</span> <span class="date">2008-02-20T20:19:39Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">Sorry, I just don't like it. I mean if you think it suits the brand, then great, but the beige just doesn't do it for me. I prefer the older blueish grey one mate.<br>
+<br>
+Chase, don't be so ignorant!<br>
+<br>
+css: <br>
+<pre class="code">img{float: left}
+img.right{float: right}</pre><br>
+example html/php:<br>
+<pre class="code">...
+&lt;?php $rightimg = 'right'; ?&gt;
+
+&lt;img class="&lt;?php echo $rightimg; ?&gt; src="img.png" alt="user image" /&gt;
+
+&lt;?php if ('alt' == $rightimg) rightimg = '';
+else $rightimg = 'right';
+?&gt;</pre></div></div>
+<div class="post" id="p410970"><div class="post-head"><a class="id" href="../t/21545.html#p410970">#410970</a> <span class="index">4</span> <span class="date">2008-02-20T21:14:35Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">I like it <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+I think that the users on either side might be either confusing or annoying... I just prefer them on one side. Maybe that's from too much forum experience <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+I think the background and everything looks really cool, though.</div></div>
+<div class="post" id="p410994"><div class="post-head"><a class="id" href="../t/21545.html#p410994">#410994</a> <span class="index">5</span> <span class="date">2008-02-20T22:55:56Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410948">Quote: The New Harley, February 20, 2008 12:19 pm</a></div>Sorry, I just don't like it. I mean if you think it suits the brand, then great, but the beige just doesn't do it for me. I prefer the older blueish grey one mate.<br>
+<br>
+Chase, don't be so ignorant!<br>
+<br>
+css: <br>
+<pre class="code">img{float: left}
+img.right{float: right}</pre></blockquote>Colors might be changed in the future. The point we've made with this is that we can do <i>a lot more</i> by adding other page elements, pictures, and sections into this layout. We used beige to demonstrate the versatility of the color. <b><i>It'll launch with Beige</i></b>, and depending on our mood, we'll switch it up.<br>
+<br>
+And the<pre class="code">img{float: left}
+img.right{float: right}</pre>is exactly what we used. Since everything is table-based, image alignments aren't contextual; it'll work no matter what resolution you're viewing at.<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410970">Quote: Weisslenny0, February 20, 2008 01:14 pm</a></div>I like it <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+I think that the users on either side might be either confusing or annoying... I just prefer them on one side. Maybe that's from too much forum experience <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+I think the background and everything looks really cool, though.</blockquote>Thanks, mate. I appreciate it.</div></div>
+<div class="post" id="p411020"><div class="post-head"><a class="id" href="../t/21545.html#p411020">#411020</a> <span class="index">6</span> <span class="date">2008-02-21T00:18:17Z</span> <span class="author"><a href="../u/9375341.html">XiAH</a></span></div><div class="post-body">Why don't you have a style changer and have different colors for it?<br>
+Like, for instance, have a red theme, a blue theme, a beige theme...</div></div>
+<div class="post" id="p411053"><div class="post-head"><a class="id" href="../t/21545.html#p411053">#411053</a> <span class="index">7</span> <span class="date">2008-02-21T01:28:58Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411020">Quote: XiAH, February 20, 2008 04:18 pm</a></div> Why don't you have a style changer and have different colors for it?<br>
+Like, for instance, have a red theme, a blue theme, a beige theme...  </blockquote> <br>
+ That was one of our long-term goals for the site; once we integrate it with our PHP-Database that runs our forums. We might do that, or we might do what Newgrounds.com does; that being, add small, content-relative images or page elements depending on what is brand-new with Ankaeo.<br>
+<br>
+Thanks for the comment.</div></div>
+<div class="post" id="p411068"><div class="post-head"><a class="id" href="../t/21545.html#p411068">#411068</a> <span class="index">8</span> <span class="date">2008-02-21T02:20:29Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410994">Quote: Mosh, February 20, 2008 02:55 pm</a></div> ... Since everything is table-based ...  </blockquote> <br>
+ What you mean by that is, if Harley or I re-code the site in CSS, you'll use it. Right?</div></div>
+<div class="post" id="p411069"><div class="post-head"><a class="id" href="../t/21545.html#p411069">#411069</a> <span class="index">9</span> <span class="date">2008-02-21T02:27:21Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411068">Quote: LittleViking001, February 20, 2008 06:20 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410994">Quote: Mosh, February 20, 2008 02:55 pm</a></div> ... Since everything is table-based ... </blockquote>What you mean by that is, if Harley or I re-code the site in CSS, you'll use it. Right?  </blockquote> <br>
+ No, I'm handling the coding for this. It's all extremely simple HTML and CSS being used. The only tricky part is the PHP updating script we're using for content addition; and that script is being handled by our programmer, James, who is currently studying to become a freelance coding specialist.</div></div>
+<div class="post" id="p411135"><div class="post-head"><a class="id" href="../t/21545.html#p411135">#411135</a> <span class="index">10</span> <span class="date">2008-02-21T05:57:00Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411068">Quote: LittleViking001, February 21, 2008 02:20 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410994">Quote: Mosh, February 20, 2008 02:55 pm</a></div> ... Since everything is table-based ... </blockquote>What you mean by that is, if Harley or I re-code the site in CSS, you'll use it. Right?  </blockquote> <br>
+ MOSH HOW COULD YOU SIN!!!! I am thoroughly disappointed. I'm sure LV is as well that you even mentioned the word table.</div></div>
+<div class="post" id="p411137"><div class="post-head"><a class="id" href="../t/21545.html#p411137">#411137</a> <span class="index">11</span> <span class="date">2008-02-21T06:19:36Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411135">Quote: The New Harley, February 20, 2008 09:57 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411068">Quote: LittleViking001, February 21, 2008 02:20 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p410994">Quote: Mosh, February 20, 2008 02:55 pm</a></div> ... Since everything is table-based ... </blockquote>What you mean by that is, if Harley or I re-code the site in CSS, you'll use it. Right? </blockquote>MOSH HOW COULD YOU SIN!!!! I am thoroughly disappointed. I'm sure LV is as well that you even mentioned the word table.  </blockquote> <br>
+ "Table" referred to the fact that each posting box will have boundaries that the images align themselves to, like around the edge of a table; each with their minimum and maximum float-distance. This means that before the text box stretches X-across, it'll first stretch Y-down; and Y=2X.<br>
+<br>
+ I didn't mean to confuse such with text or data tables. English takes precedent over codespeak any day. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p411149"><div class="post-head"><a class="id" href="../t/21545.html#p411149">#411149</a> <span class="index">12</span> <span class="date">2008-02-21T08:35:46Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">are you sure? firstly you usually know what your talking about. secondly the img.right CSS you said wasn't needed because it was in a table. thirdly, if you knew it wasn't a table, then you should've referred to it as CSS? It's OK if you initially thought of a table, just don't actually put it into practice!</div></div>
+<div class="post" id="p411269"><div class="post-head"><a class="id" href="../t/21545.html#p411269">#411269</a> <span class="index">13</span> <span class="date">2008-02-21T23:02:55Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21545.html#p411149">Quote: The New Harley, February 21, 2008 12:35 am</a></div> are you sure? firstly you usually know what your talking about. secondly the img.right CSS you said wasn't needed because it was in a table. thirdly, if you knew it wasn't a table, then you should've referred to it as CSS? It's OK if you initially thought of a table, just don't actually put it into practice!  </blockquote> <br>
+ It makes one heck of a lot more sense when seeing it from the perspective of having all of it infront of you.<br>
+We're using reference data for the tables. "Table" was used metaphorically, and not in a way as to reference to code. The CSS image tags were used to generate the preview, but in application, it'll be operated differently, since "table" is not a "binding box of text and data".<br>
+<br>
+I'm too much of a writer for my own good.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gravity?? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Gravity??</nav></header>
+<main>
+<div class="post" id="p13331"><div class="post-head"><a class="id" href="../t/15015.html#p13331">#13331</a> <span class="index">1</span> <span class="date">2007-01-05T00:26:43Z</span> <span class="author"><a href="../u/9373736.html">Sephorith</a></span></div><div class="post-body">I need some help with programing perceived "gravity" into flash<br>
+This amazed me in N so I would be very grateful if someone could tell me how.</div></div>
+<div class="post" id="p281338"><div class="post-head"><a class="id" href="../t/15015.html#p281338">#281338</a> <span class="index">2</span> <span class="date">2007-01-05T01:04:48Z</span> <span class="author"><a href="../u/9371169.html">bhauth</a></span></div><div class="post-body">I think it is constant acceleration with gravity disabled for some duration during a jump with a minimum and a maximum time and being equal to shift hold time between those and a maximum velocity for falling.</div></div>
+<div class="post" id="p281341"><div class="post-head"><a class="id" href="../t/15015.html#p281341">#281341</a> <span class="index">3</span> <span class="date">2007-01-05T01:08:48Z</span> <span class="author"><a href="../u/9373736.html">Sephorith</a></span></div><div class="post-body">That helps but I have absolutely no clue how to program something like that.  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p281447"><div class="post-head"><a class="id" href="../t/15015.html#p281447">#281447</a> <span class="index">4</span> <span class="date">2007-01-05T12:05:49Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">One way to do it might be to steadily decrease the vertical speed up until a maximum. [/guess]</div></div>
+<div class="post" id="p281448"><div class="post-head"><a class="id" href="../t/15015.html#p281448">#281448</a> <span class="index">5</span> <span class="date">2007-01-05T12:29:17Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">I would reccomend looking at the tutorials that Mare and Raigan made, I'm not sure if they have what you're after but it's worth a look.<br>
+<br>
+<a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a></div></div>
+<div class="post" id="p281460"><div class="post-head"><a class="id" href="../t/15015.html#p281460">#281460</a> <span class="index">6</span> <span class="date">2007-01-05T13:41:12Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body">You would need to give your object in question a velocity vector, and calculate the sum of all forces applied to the object each frame. Forces to consider would be your jumping and movement, gravity, and friction. Then it is simply a matter of adding these forces to your velocity vector, which in turn is added to your objects position.<br>
+If your calculations are done correctly your object will rise and fall gracefully just like in N.<br>
+<br>
+I don't really know much about this stuff so get the details from someone smarter than I.</div></div>
+<div class="post" id="p281866"><div class="post-head"><a class="id" href="../t/15015.html#p281866">#281866</a> <span class="index">7</span> <span class="date">2007-01-06T06:17:52Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">The way I do gravity in all the mini pointless games I make is to have an xvel and a yvel variable, and a gravity constant defined at the beginning. Each frame, if the up key is not held (or in N's case, if jumping has run out of time), add gravity (because positive is down) from the yvel. This way, you accelerate downwards. Don't forget to add xvel and yvel to your character's position each frame. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p281942"><div class="post-head"><a class="id" href="../t/15015.html#p281942">#281942</a> <span class="index">8</span> <span class="date">2007-01-06T14:24:42Z</span> <span class="author"><a href="../u/9373736.html">Sephorith</a></span></div><div class="post-body">Ok, that makes alot more sense to me than all the other posts, but if you could provide the coding?</div></div>
+<div class="post" id="p282463"><div class="post-head"><a class="id" href="../t/15015.html#p282463">#282463</a> <span class="index">9</span> <span class="date">2007-01-07T15:44:25Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15015.html#p281866">Quote: jtbandes, January 06, 2007 06:17 am</a></div> The way I do gravity in all the mini pointless games I make is to have an xvel and a yvel variable, and a gravity constant defined at the beginning. Each frame, if the up key is not held (or in N's case, if jumping has run out of time), add gravity (because positive is down) from the yvel. This way, you accelerate downwards. Don't forget to add xvel and yvel to your character's position each frame. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">  </blockquote> <br>
+ <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> That was what I said! <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+<b>@Sephorith:</b><br>
+<pre class="code">// Force of gravity.
+var g = 3;
+
+// Force of movement.
+var m = 5;
+
+// Force of jump.
+var j = 20;
+
+// Object properties (position and velocity).
+var px, py = 0, 0;
+var vx, vy = 0, 0;
+
+// This function is called every frame.
+function update() {
+    vy += g;
+
+    if(/* Left is pressed. */) {
+        vx -= m;
+    }
+
+    if(/* Right is pressed. */) {
+        vx += m;
+    }
+
+    if(/* Shift is pressed. */) {
+        // Make sure the object is on the floor.
+        if(py == 500) {
+            vy -= j;  // Jump.
+        }
+    }
+
+    // Update position.
+    px += vx;
+    py += vy;
+
+    // Check for collisions.
+    px = Math.max(px, 0);
+    px = Math.min(px, 500);
+    py = Math.max(py, 0);
+    py = Math.min(py, 500);
+
+    // Bleed movement (causes object to slow down);
+    vx *= 0.95;
+
+    // Draw the object at position (px, py).
+    draw(object, px, py);
+}</pre>This probably isn't exactly what you wanted and the algorithm is crap, but hopefully it will get you started.<br>
+Instead of "bleeding" away the players movement abitrarily, it would be better to implement friction, and I have magic numbers in there for the boundaries which should be variables somewhere really.<br>
+I've also tried to keep it fairly "ActionScripty" so you can just paste most of it in (I made up the draw part, and there is no update() function in ActionScript as far as I know).<br>
+<br>
+<i>BTW, this is 100% <b>untested</b> and not guaranteed to work in the slightest.</i></div></div>
+<div class="post" id="p282493"><div class="post-head"><a class="id" href="../t/15015.html#p282493">#282493</a> <span class="index">10</span> <span class="date">2007-01-07T17:00:53Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">heres a simple equation for just the gravity part (note: in C++ since i dont really know AS, but you should still be able to understand it)<br>
+<br>
+<pre class="code">int gravity = 2;
+int velocity = 0;
+int fall_max = -10;
+int position = 100;
+
+do while (*every frame*) {
+  *check if character will hit ground or other object when falling*
+    velocity = velocity - gravity;
+    if (velocity &lt; fall_max) {
+        velocity = fall_max;
+    }
+  position = position + velocity;
+}</pre></div></div>
+<div class="post" id="p282496"><div class="post-head"><a class="id" href="../t/15015.html#p282496">#282496</a> <span class="index">11</span> <span class="date">2007-01-07T17:08:27Z</span> <span class="author"><a href="../u/9373736.html">Sephorith</a></span></div><div class="post-body">Yes, I think c++ will work as well as AS<br>
+Thanks for the help everyone.</div></div>
+<div class="post" id="p282508"><div class="post-head"><a class="id" href="../t/15015.html#p282508">#282508</a> <span class="index">12</span> <span class="date">2007-01-07T17:42:33Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body">Darn, I forgot to limit the y velocity; I knew I'd forget something :rolleyes:<br>
+<br>
+It should be done with drag anyway; limits are not a very good approximation of the way the world works.</div></div>
+</main>
+</body>
+</html>

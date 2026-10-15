@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source code - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Source code</nav></header>
+<main>
+<div class="post" id="p489"><div class="post-head"><a class="id" href="../t/580.html#p489">#489</a> <span class="index">1</span> <span class="date">2004-07-11T23:12:39Z</span> <span class="author">Guest</span></div><div class="post-body">Does MetaNet have any plans to release the N source code under some kind of delicious software / Open Source licence after a certain period of time? If that's not going to happen any time soon, would you change your minds if someone could raise a suitable financial amount?</div></div>
+<div class="post" id="p24683"><div class="post-head"><a class="id" href="../t/580.html#p24683">#24683</a> <span class="index">2</span> <span class="date">2004-07-12T03:03:27Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">Yes, they are planning on realeasing the code, but they never mentioned when they would... I know that they wanted to clean up the code, and add more comments, ect. before they realease it, so they don't embarres themselves <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">.</div></div>
+<div class="post" id="p24687"><div class="post-head"><a class="id" href="../t/580.html#p24687">#24687</a> <span class="index">3</span> <span class="date">2004-07-12T03:18:29Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p489">Quote: mithrandi, Jul 11 2004, 11:12 PM</a></div> If that's not going to happen any time soon, would you change your minds if someone could raise a suitable financial amount?  </blockquote> <br>
+ hey,<br>
+we're going to release it whenever we "finish" N; there are still a few features we'd like to add before we're done with the project. once that happens we'll release it, we haven't picked a license yet so i'm not sure what exactly it will be.<br>
+<br>
+but, if someone wants to give us money we won't say no <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+having said that, i doubt the source will be all that useful to anyone -- it's a bit messy and much of it isn't "good" (i.e we've found better solutions since we wrote it). plus, all of the really interesting parts are being released along with tutorials; our first tutorial contains all the collision detection source, so you can get a look at it right now.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24698"><div class="post-head"><a class="id" href="../t/580.html#p24698">#24698</a> <span class="index">4</span> <span class="date">2004-07-12T07:32:58Z</span> <span class="author">Guest</span></div><div class="post-body">Version 1.3 is great, I like the boss feature, very helpful.  May I make a suggestion though?  It would be nice if we could set a picture for the boss mode, that way it would really look like legitimate work hehe(would be easy to just take a cap of some IDE and put it in there, boss recognizes work by the colored code <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">).<br>
+<br>
+Anyway, I look forward to the source mainly for adding and modding N, rather than it's usefulness (that will of course be gained by your tutorials!  Which I am glad to hear the first is out).</div></div>
+<div class="post" id="p24702"><div class="post-head"><a class="id" href="../t/580.html#p24702">#24702</a> <span class="index">5</span> <span class="date">2004-07-12T10:16:30Z</span> <span class="author"><a href="../u/9370526.html">mithy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p24687">Quote: Guest, 2004-07-12T03:18:29Z</a></div>having said that, i doubt the source will be all that useful to anyone</blockquote>Well, one of the reasons that I'm interested in the source is that I'd like to port the game across to another language / platform for performance reasons (Flash sucks); I'm not sure how much of the source will be available through the tutorials, but having access to the full source of the actual game would make it easier to replicate the gameplay identically.</div></div>
+<div class="post" id="p24707"><div class="post-head"><a class="id" href="../t/580.html#p24707">#24707</a> <span class="index">6</span> <span class="date">2004-07-12T15:14:51Z</span> <span class="author">Guest</span></div><div class="post-body">Heh I will register soon <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+One thing I forsee being a difficulty when porting to another language is possibly the animation?  I just don't know if it would look right done in a different language.</div></div>
+<div class="post" id="p24715"><div class="post-head"><a class="id" href="../t/580.html#p24715">#24715</a> <span class="index">7</span> <span class="date">2004-07-12T16:24:57Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+about having a boss-mode picture: we actually had the idea of loading a "boss mode screen" dynamically from a .jpg that users could customize, but sadly there wasn't time.. maybe in 1.4 <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+concerning porting, porting N to another language would be a MAJOR burrito. <br>
+<br>
+part of the problem is that much of the game code is flash-specific and would need to be rethought (i.e you couldn't just translate the actionscript into another language). it's not impossible, but it's far from a trivial change-the-language type burrito.<br>
+<br>
+the other huge problem is that all of the graphics/animation uses the built-in animation system (i.e with keyframes and tweening) so you'd have to write your own version of that. we also use this animation system to control many of the sounds, so that would have to be redone in a different way..<br>
+<br>
+<br>
+but, it SHOULD be quite possible to make N look like N on any platform, since vector graphics are exactly what graphics cards are made for. but i suppose the anti-aliasing might be hard to do (except on new cards which support this)<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24717"><div class="post-head"><a class="id" href="../t/580.html#p24717">#24717</a> <span class="index">8</span> <span class="date">2004-07-12T16:40:28Z</span> <span class="author">Guest</span></div><div class="post-body">Pretty much what I thought heh(regarding porting).  However, I think after the keyframe/tweening code could be done it might not be that hard a port.  It would probably just be very tedious.  One system I would love to have it ported to is .  It could handle the rendering I'm sure, but the physics might not be so portable.<br>
+<br>
+<br>
+Anyway, don't put in the .jpg loading if it will push out other better features <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p24736"><div class="post-head"><a class="id" href="../t/580.html#p24736">#24736</a> <span class="index">9</span> <span class="date">2004-07-12T18:38:41Z</span> <span class="author"><a href="../u/9370526.html">mithy</a></span></div><div class="post-body">You wouldn't be able to do a line-by-line conversion, sure, but reproducing the animations shouldn't be all that hard. The sound system could probably be written completely differently without much loss of "familiarity". The most important elements are the physics and gameplay code, which should be straightforward to port. Getting the graphics to look close enough will take a cilantro tweaking, but is also do-able. Anti-aliasing won't pose much of a problem.<br>
+<br>
+In essence, it would probably be more like a remake than a port, I suppose, but identically reproducing the core logic from the actionscript is the key to making it seem like the same game. The additional flexibility gained by cutting loose from the Flash engine should make it possible to optimize for performance quite effectively. Animation primitives (keyframes, tweening, whatever) are for the most part a "solved" problem, so I don't expect that to pose too much of a problem.<br>
+<br>
+If anyone is interested, my intended target language is Python, probably in conjunction with pygame or OpenGL (I have some ideas for a 3D renderer, just for fun...). In the meanwhile, I'll be working on implementing the techniques detailed in the tutorial(s) in Python.</div></div>
+<div class="post" id="p24756"><div class="post-head"><a class="id" href="../t/580.html#p24756">#24756</a> <span class="index">10</span> <span class="date">2004-07-12T19:29:36Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p24736">Quote: mithy, Jul 12 2004, 06:38 PM</a></div> You wouldn't be able to do a line-by-line conversion, sure, but reproducing the animations shouldn't be all that hard. The sound system could probably be written completely differently without much loss of "familiarity". The most important elements are the physics and gameplay code, which should be straightforward to port. Getting the graphics to look close enough will take a cilantro tweaking, but is also do-able. Anti-aliasing won't pose much of a problem.<br>
+<br>
+In essence, it would probably be more like a remake than a port, I suppose, but identically reproducing the core logic from the actionscript is the key to making it seem like the same game. The additional flexibility gained by cutting loose from the Flash engine should make it possible to optimize for performance quite effectively. Animation primitives (keyframes, tweening, whatever) are for the most part a "solved" problem, so I don't expect that to pose too much of a problem.<br>
+<br>
+If anyone is interested, my intended target language is Python, probably in conjunction with pygame or OpenGL (I have some ideas for a 3D renderer, just for fun...). In the meanwhile, I'll be working on implementing the techniques detailed in the tutorial(s) in Python.  </blockquote> <br>
+ Python?  I wonder how well it would run?  Anyway I was thinking more of a C/C++ port just for increased portability (PalmOS possibly).</div></div>
+<div class="post" id="p24773"><div class="post-head"><a class="id" href="../t/580.html#p24773">#24773</a> <span class="index">11</span> <span class="date">2004-07-12T23:48:16Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">Without a huge screen and a really good processor, N would never be able to run on a Palm or PPC or any other PDA without a <i><b>SERIOUS</b></i> loss of quality, playability, and map sizes.</div></div>
+<div class="post" id="p24778"><div class="post-head"><a class="id" href="../t/580.html#p24778">#24778</a> <span class="index">12</span> <span class="date">2004-07-13T01:35:14Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+actually, if all the graphics were redone as sprites, it would definitely run fast enough -- the zodiac has 2D acceleration for sprites (much like the GBA) so the gfx wouldn't be a problem (although they'd be a bit different since they won't be vectors).<br>
+<br>
+the flashplayer executes instructions ~100-1000x slower than native code; so with a ~200Mhz cpu (which is i think what the zodiac has) you'd (theoretically) get performance at least equivalent to a 2Ghz pentium 4; probably not MUCH faster, i'm assuming that since the zodiac's ARM processor will perform 10-100x slower with math and stuff (pentiums support floating-point, but the ARM would have to use fixed-point which requires a bit more work).<br>
+<br>
+we wrote a longer post about this but it's been lost, when i find it i'll post.. i'm hoping mare saved a copy <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+basically, it's technically possible but it would probably be best to tailor the gameplay to the specifics of the platform.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24803"><div class="post-head"><a class="id" href="../t/580.html#p24803">#24803</a> <span class="index">13</span> <span class="date">2004-07-13T16:09:17Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p24778">Quote: Raigan, Jul 13 2004, 01:35 AM</a></div> hey,<br>
+actually, if all the graphics were redone as sprites, it would definitely run fast enough -- the zodiac has 2D acceleration for sprites (much like the GBA) so the gfx wouldn't be a problem (although they'd be a bit different since they won't be vectors).<br>
+<br>
+the flashplayer executes instructions ~100-1000x slower than native code; so with a ~200Mhz cpu (which is i think what the zodiac has) you'd (theoretically) get performance at least equivalent to a 2Ghz pentium 4; probably not MUCH faster, i'm assuming that since the zodiac's ARM processor will perform 10-100x slower with math and stuff (pentiums support floating-point, but the ARM would have to use fixed-point which requires a bit more work).<br>
+<br>
+we wrote a longer post about this but it's been lost, when i find it i'll post.. i'm hoping mare saved a copy <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+basically, it's technically possible but it would probably be best to tailor the gameplay to the specifics of the platform.<br>
+<br>
+raigan  </blockquote> <br>
+ That's why I said it <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  Zodiac has a 200Mhz i.MX1 ARM9 proc, and an Imageon w4200 2d graphics accelerator with 8MB onboard RAM.  It has all the stuff needed to make N look right (anti-aliasing etc.).  The only thing like you said that might be a problem is the math, the i.MX1 doesn't have an FPU of course so if it heavily relies on floating point stuff, it would run kind of slow.</div></div>
+<div class="post" id="p24807"><div class="post-head"><a class="id" href="../t/580.html#p24807">#24807</a> <span class="index">14</span> <span class="date">2004-07-13T17:37:51Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">But still... what about screen size? N would have to be two or three pixels tall to fit in maps from the desktop version. The maps would have to be much smaller...</div></div>
+<div class="post" id="p24809"><div class="post-head"><a class="id" href="../t/580.html#p24809">#24809</a> <span class="index">15</span> <span class="date">2004-07-13T17:55:51Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+i finally found the lost post, it addresses some of these issues.<br>
+basically, while we'd love to see N on every platform, realistically i'm not sure how well it would turn out if it was simply ported to a handheld -- i find it hard enough to move the ninja around at the current size; when the tiles are 1/2 or 1/4 as large it might be impossibe to properly position/time things.<br>
+<br>
+--<br>
+hey, <br>
+i'm not sure if we mentioned this, but coincidentally we were approached by a zodiac development group who wanted to port N; sadly, once we figured out what they'd have to do, they decided to wait on the project, since porting N to the zodiac was basically as much or more work than coding a new original game. <br>
+<br>
+the main problem, programming-wise, is that almost all of the math in N is done using double-precision floating point, whereas the zodiac has an ARM processor which doesn't support floating point, and so a custom fixed-point math library would have to be written. plus, the zodiac really only supports 2D graphics (i.e like the GBA, it can move+rotate+scale sprites very quickly).. there were a lot of cilantro problems like that. <br>
+<br>
+on a higher-level, the scale of N was a major problem: the screen is ~800x600. each tile is something like 20x20 pixels.. let's say around an inch on a monitor.  if you convert this onto the zodiac's much smaller screen, it might still be the same pixel dimensions (20x20), but it's much smaller in real world units -- which would make precision movements a LOT harder. coupled with the fact that there's no anti-aliasing (so that the ninja would move in full-pixel increments) and it might not be playable at all, even if the game was 100% perfectly ported. <br>
+<br>
+<br>
+having said this, we really hope that they or someone else ports N to other platforms, it would be great to be able to play it on our GBA <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+but then again (as we sort of decided with the zodiac people) instead of a straight port, it might actually be better to take the core gameplay and adapt it to fit the platform instead of trying to cram N into a system it doesn't work well on -- i.e on a gameboy, you'd have to have a scrolling screen to fit N levels in.. but being able to see all of the screen at the same time is a core part of N, so... there might be nothing you could do to "fix" this other than redesigning the game around the unique capabilities of the system. you'd probably end up with a better game, even if it's not N. <br>
+---<br>
+raigan<br>
+p.s - the zodiac has hardware-based antialiasing?<br>
+p.p.s - i have _no_ knowledge of fixed-point math beyond the general concept, and/or some old stuff i've read about doom, but i'd say that it would be a better idea to convert all the math in N to fixed-point (the nature of the game is such that i doubt that it would require floating point -- positions and velocities etc. are all within a couple orders of magnitude of each other -- we used floating point simply becuase that's all that flash supports) rather than trying to use FPU-emulation on the zodiac's processor.. i don't know anything about that specific chip, but i recall that using floating point on a playstation was to-be-avoided, since it lacked an FPU and thus has to be emulated in software..</div></div>
+<div class="post" id="p24815"><div class="post-head"><a class="id" href="../t/580.html#p24815">#24815</a> <span class="index">16</span> <span class="date">2004-07-13T18:30:54Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p24809">Quote: Raigan, Jul 13 2004, 05:55 PM</a></div> hey,<br>
+i finally found the lost post, it addresses some of these issues.<br>
+basically, while we'd love to see N on every platform, realistically i'm not sure how well it would turn out if it was simply ported to a handheld -- i find it hard enough to move the ninja around at the current size; when the tiles are 1/2 or 1/4 as large it might be impossibe to properly position/time things.<br>
+<br>
+--<br>
+hey, <br>
+i'm not sure if we mentioned this, but coincidentally we were approached by a zodiac development group who wanted to port N; sadly, once we figured out what they'd have to do, they decided to wait on the project, since porting N to the zodiac was basically as much or more work than coding a new original game. <br>
+<br>
+the main problem, programming-wise, is that almost all of the math in N is done using double-precision floating point, whereas the zodiac has an ARM processor which doesn't support floating point, and so a custom fixed-point math library would have to be written. plus, the zodiac really only supports 2D graphics (i.e like the GBA, it can move+rotate+scale sprites very quickly).. there were a lot of cilantro problems like that. <br>
+<br>
+on a higher-level, the scale of N was a major problem: the screen is ~800x600. each tile is something like 20x20 pixels.. let's say around an inch on a monitor.  if you convert this onto the zodiac's much smaller screen, it might still be the same pixel dimensions (20x20), but it's much smaller in real world units -- which would make precision movements a LOT harder. coupled with the fact that there's no anti-aliasing (so that the ninja would move in full-pixel increments) and it might not be playable at all, even if the game was 100% perfectly ported. <br>
+<br>
+<br>
+having said this, we really hope that they or someone else ports N to other platforms, it would be great to be able to play it on our GBA <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+but then again (as we sort of decided with the zodiac people) instead of a straight port, it might actually be better to take the core gameplay and adapt it to fit the platform instead of trying to cram N into a system it doesn't work well on -- i.e on a gameboy, you'd have to have a scrolling screen to fit N levels in.. but being able to see all of the screen at the same time is a core part of N, so... there might be nothing you could do to "fix" this other than redesigning the game around the unique capabilities of the system. you'd probably end up with a better game, even if it's not N. <br>
+---<br>
+raigan<br>
+p.s - the zodiac has hardware-based antialiasing?<br>
+p.p.s - i have _no_ knowledge of fixed-point math beyond the general concept, and/or some old stuff i've read about doom, but i'd say that it would be a better idea to convert all the math in N to fixed-point (the nature of the game is such that i doubt that it would require floating point -- positions and velocities etc. are all within a couple orders of magnitude of each other -- we used floating point simply becuase that's all that flash supports) rather than trying to use FPU-emulation on the zodiac's processor.. i don't know anything about that specific chip, but i recall that using floating point on a playstation was to-be-avoided, since it lacked an FPU and thus has to be emulated in software..  </blockquote> <br>
+ Ah whoops, just looked at the 3200 specs, I guess it only supports font anti aliasing.  The W4200 only has a few differences, not really sure.  I know it can do screen smoothing, but not sure about actual AA then.<br>
+<br>
+And yeah you would definitely have to have fixed point math for the Zodiac to be able to run N appreciably.  A floating point emulation for the Zodiac would be slow and wouldn't run well most likely.<br>
+<br>
+In regards to the screen size, the Zodiac's resolution is about half that of what N runs at (480x320 vs. 800x600) so I don't know if scrolling would be all that horrible, but it might be pretty bad hehe.  I know you really have to see all of the level to plan out what you will do.  Indeed it might be a better idea to just take the core gameplay from N and make a different game of it, which would undoubtedly be just as cool.  It's definitely beyond me to do this sort of stuff though, my programming experience if fairly limited to console C/C++ type stuff, and I am just getting into sprites and 2D stuff.  I am also not sure the exact premise behind fixed point as opposed to floating point (from the name, I would hazard a guess that it has to do with the amount of decimal places the number can be carried to...?)</div></div>
+<div class="post" id="p24818"><div class="post-head"><a class="id" href="../t/580.html#p24818">#24818</a> <span class="index">17</span> <span class="date">2004-07-13T18:41:21Z</span> <span class="author">Guest</span></div><div class="post-body">Whoops that was me again.<br>
+<br>
+Anyway, I looked up fixed point numbers in regards to programming and basically like I guessed it has to do with the decimal point stayed in a fixed position (04.00 as opposed to  004.0, say).  The processor apparently treats fixed point numbers are integers of the sense that there is one integer for the number before and one for the number after the decimal point.</div></div>
+<div class="post" id="p24858"><div class="post-head"><a class="id" href="../t/580.html#p24858">#24858</a> <span class="index">18</span> <span class="date">2004-07-14T06:12:13Z</span> <span class="author">Guest</span></div><div class="post-body">I made up a small level that is roughly 480x320.  It isn't all that bad.  Is there any way you guys could write up a quick scrolling version of N with a Zodiac resolution(480x320)?  That centers on the ninja of course.  If it is too much trouble, of course no need.  I am just under the suspicion that it might not be that bad to play, because of the way you focus on the ninja anyway.  There are of course levels in which you need to see the whole thing, ones where you use lots of high jumping and falling etc.</div></div>
+<div class="post" id="p24859"><div class="post-head"><a class="id" href="../t/580.html#p24859">#24859</a> <span class="index">19</span> <span class="date">2004-07-14T06:12:48Z</span> <span class="author">Guest</span></div><div class="post-body">Whoops forgot to put the level in my post:<br>
+<br>
+<pre class="code">11111111111000000000000111111111110010000000101111111111111100100101011111111111000000001111111111111110000000110001111111111100000000100011111111111111111000000111111111110010011000001111111111100100010000011111111111001000111110111111111110010001000001111111111100100000000011111111111001111000000111111111110000011110001111111111101100000111011111111111001000000000111111111110010000000001111111111100100000000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111|5^331.314827044162,315.186656642314!0^156,300!0^156,312!0^156,324!0^156,336!0^156,348!0^156,360!0^156,372!0^156,384!0^156,408!0^156,396!0^156,420!0^228,468!0^216,468!0^204,468!0^228,480!0^228,492!0^228,504!0^228,516!0^228,528!0^228,540!0^132,516!0^156,516!0^144,516!9^108,348,1,0,12,18,1,0,0!9^84,564,0,0,10,23,1,-1,0!11^420,324,252,384!3^120,312!6^348,382.285714285714,3,0,0,1!9^108,348,1,0,13,18,1,0,0!4^330,330,1</pre></div></div>
+</main>
+</body>
+</html>

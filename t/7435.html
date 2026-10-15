@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>user levels using xml - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; user levels using xml</nav></header>
+<main>
+<div class="post" id="p6769"><div class="post-head"><a class="id" href="../t/7435.html#p6769">#6769</a> <span class="index">1</span> <span class="date">2006-02-10T06:04:47Z</span> <span class="author"><a href="../u/9371099.html">kdd</a></span></div><div class="post-body">hey, haven't posted in a long time, but i do play the game everyday. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+i use flash, the program in which this game is made, and after figuring out how the user levels are loaded in the game, i thought it could use better things that are in-built in flash, such as xml parsing. so the userlevels.txt file would would be userlevels.xml and would increase the speed of loading user levels in the game itself.<br>
+<br>
+example userlevels.xml<br>
+<br>
+&lt;levels&gt;<br>
+<br>
+&lt;level_1&gt;<br>
+&lt;title&gt;title goes here&lt;/title&gt;<br>
+&lt;author&gt;author name goes here&lt;/author&gt;<br>
+&lt;type&gt;game type goes here&lt;/type&gt;<br>
+&lt;level_data&gt;level data goes here&lt;/level_data&gt;<br>
+&lt;/level_1&gt;<br>
+<br>
+&lt;level_2&gt;<br>
+&lt;title&gt;title goes here&lt;/title&gt;<br>
+&lt;author&gt;author name goes here&lt;/author&gt;<br>
+&lt;type&gt;game type goes here&lt;/type&gt;<br>
+&lt;level_data&gt;level data goes here&lt;/level_data&gt;<br>
+&lt;/level_2&gt;<br>
+<br>
+&lt;/levels&gt;<br>
+<br>
+this is very useful, and flash would be able to parse this very quickly. currently, the version we have uses symbols, and so they need to be parsed, and i believe there would be a lot of code behind it. so if you guys use xml parsing it would be faster. hope this helps, and i really hope you guys understand my point and what i wrote. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p141656"><div class="post-head"><a class="id" href="../t/7435.html#p141656">#141656</a> <span class="index">2</span> <span class="date">2006-02-10T09:15:37Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I think this is a good idea, since XML would make it much easier to see properties on teh userlevels document.</div></div>
+<div class="post" id="p141668"><div class="post-head"><a class="id" href="../t/7435.html#p141668">#141668</a> <span class="index">3</span> <span class="date">2006-02-10T10:08:09Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Very good idea in my opinion, but I would prefer this structure:<br>
+<pre class="code">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE Nuserlevels SYSTEM "C:/Games/N/userlevels.dtd"&gt;
+&lt;userlevels&gt;
+  &lt;level name="something" author="somebody" category="action"&gt;
+    data
+  &lt;/level&gt;
+  &lt;level name="another thing" author="me" category="test level"&gt;
+    data
+  &lt;/level&gt;
+&lt;/userlevels&gt;</pre><br>
+Edit: Here comes the DTD for this one.<br>
+<pre class="code">&lt;!ELEMENT userlevels (level)+&gt;
+&lt;!ELEMENT level (#PCDATA)&gt;
+&lt;!ATTLIST level
+    name CDATA #REQUIRED
+    author CDATA #REQUIRED
+    category CDATA #REQUIRED
+&gt;</pre></div></div>
+<div class="post" id="p141691"><div class="post-head"><a class="id" href="../t/7435.html#p141691">#141691</a> <span class="index">4</span> <span class="date">2006-02-10T12:39:02Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">w00t. FINALLY! A DECENT SUGGESTION!<br>
+Seriously, this is pretty good, only thing is, you forgot the replays...<br>
+But, apart from that, I really like this one. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+TS</div></div>
+<div class="post" id="p141704"><div class="post-head"><a class="id" href="../t/7435.html#p141704">#141704</a> <span class="index">5</span> <span class="date">2006-02-10T14:15:36Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">TS, there aren't no replays stored in userlevels files. These are kept in the n_v14b_userdata.sol, as I know. Also, I think that levels and replays should be kept separately.</div></div>
+<div class="post" id="p141754"><div class="post-head"><a class="id" href="../t/7435.html#p141754">#141754</a> <span class="index">6</span> <span class="date">2006-02-10T16:17:05Z</span> <span class="author"><a href="../u/9371099.html">kdd</a></span></div><div class="post-body">yay, i'm so glad you guys like my idea. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> yeah, i know i forgot some properties of a level, but i was just giving that xml document as an example. i didn't actually open up the .txt file to look what it contained. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+edit: so do you guys think they'll implement this idea in the next version of N?</div></div>
+<div class="post" id="p141989"><div class="post-head"><a class="id" href="../t/7435.html#p141989">#141989</a> <span class="index">7</span> <span class="date">2006-02-11T02:02:06Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">I doubt it, because it's due to be released in a few months and I don't think they'll have time (they do have other stuff to work on, not least of which is TNG). It's a good suggestion, though. Maybe we can do it ourselves when the source code is released.<br>
+<br>
+Something noone has pointed out yet is that "levelname" and "authorname" variables might be a bit more obvious and intuitive for newbies than the current system.</div></div>
+<div class="post" id="p142145"><div class="post-head"><a class="id" href="../t/7435.html#p142145">#142145</a> <span class="index">8</span> <span class="date">2006-02-11T10:47:24Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I've just noticed nobody's pointed out how much work Arachnid will have reprogramming NUMA if this happens.</div></div>
+<div class="post" id="p142176"><div class="post-head"><a class="id" href="../t/7435.html#p142176">#142176</a> <span class="index">9</span> <span class="date">2006-02-11T12:36:52Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I think Arachnid will agree in my opinion that this takes two minutes or below to implement.</div></div>
+<div class="post" id="p142177"><div class="post-head"><a class="id" href="../t/7435.html#p142177">#142177</a> <span class="index">10</span> <span class="date">2006-02-11T12:41:48Z</span> <span class="author"><a href="../u/9371524.html">sTEFANo</a></span></div><div class="post-body">This a great idea<br>
+<br>
+Especially for thase really big and detailed levels that take a while to load, because if you die you have to start loading the level again and it takes a while.</div></div>
+<div class="post" id="p142393"><div class="post-head"><a class="id" href="../t/7435.html#p142393">#142393</a> <span class="index">11</span> <span class="date">2006-02-11T23:17:07Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">anything to speed up load times... actually i would just like something that magically anilates all lag  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

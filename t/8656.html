@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exit activator moved outside level border - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Exit activator moved outside level border</nav></header>
+<main>
+<div class="post" id="p7784"><div class="post-head"><a class="id" href="../t/8656.html#p7784">#7784</a> <span class="index">1</span> <span class="date">2006-04-01T05:17:31Z</span> <span class="author"><a href="../u/9371982.html">SA2Tails</a></span></div><div class="post-body">...but the topic didn't help.  There was no "NaN" in my code, and the thing that opens the exit doors was <b>moved</b> from where I placed it while editing; it was not an object that wasn't supposed to be in the level at all.<br>
+<br>
+Here's what happened:<br>
+<br>
+I have been making my first N level for a while now, and everything worked fine.  But, when I got out of and back into debug mode and loaded the level, the thing that activates the exit doors was gone from its original position and was moved to a spot outside the level border above where it was supposed to be.  I tried putting the activator in another place in the level, thinking the first spot may have been glitched, but I tested the glitch again, and it still happened.<br>
+<br>
+Obvoiusly, you can't clear a level without being able to open the exit, so how do I fix this?<br>
+<br>
+...and yes, the code is attached. <div class="attachment attachment-missing">Attachment (lost): post-11-1143868651.txt</div></div></div>
+<div class="post" id="p160445"><div class="post-head"><a class="id" href="../t/8656.html#p160445">#160445</a> <span class="index">2</span> <span class="date">2006-04-01T06:08:45Z</span> <span class="author"><a href="../u/9371450.html">9400</a></span></div><div class="post-body">It seems perfectly intact to me. The exit looks like it's in a good position.</div></div>
+<div class="post" id="p160461"><div class="post-head"><a class="id" href="../t/8656.html#p160461">#160461</a> <span class="index">3</span> <span class="date">2006-04-01T08:46:45Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">The switch isn't however. Are you sure your copying the entrie code?</div></div>
+<div class="post" id="p160738"><div class="post-head"><a class="id" href="../t/8656.html#p160738">#160738</a> <span class="index">4</span> <span class="date">2006-04-02T02:18:42Z</span> <span class="author"><a href="../u/9371982.html">SA2Tails</a></span></div><div class="post-body">Yes, it's the entire code.  I Ctrl+A'd to make sure.</div></div>
+<div class="post" id="p160905"><div class="post-head"><a class="id" href="../t/8656.html#p160905">#160905</a> <span class="index">5</span> <span class="date">2006-04-02T10:33:32Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Well, chances are the door is the last object in the code and your losing the Y coodinate of the switch.</div></div>
+<div class="post" id="p161223"><div class="post-head"><a class="id" href="../t/8656.html#p161223">#161223</a> <span class="index">6</span> <span class="date">2006-04-03T01:24:51Z</span> <span class="author"><a href="../u/9371982.html">SA2Tails</a></span></div><div class="post-body">Well, I found the problem... I just forgot to click outside the level data box when loading, so I added the L to the code.  It's fine now.  I changed the position of the switch afterward for creative reasons, but otherwise, that data is perfectly fine.<br>
+<br>
+Yes, I know that's in the FAQ... I was planning on testing it sometime... <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"><br>
+<br>
+<b>EDIT:</b> Ugh, the level may work in debug mode, but the switch moved again when I put it in userlevels.txt.  It still works in debug, but apparently, something else is wrong.   I know for a fact that I am copying correctly.</div></div>
+</main>
+</body>
+</html>

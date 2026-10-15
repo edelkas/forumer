@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N randomly Jumps - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; N randomly Jumps</nav></header>
+<main>
+<div class="post" id="p13790"><div class="post-head"><a class="id" href="../t/15573.html#p13790">#13790</a> <span class="index">1</span> <span class="date">2007-01-30T19:44:55Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">I am in the process of making a level for N Game. However when I am playin git it randomly jumps off the <br>
+screen. CAn someon elease help me with this.<br>
+<br>
+The level data is <br>
+<br>
+<a href="http://pastebin.ca/333265">http://pastebin.ca/333265</a><br>
+<br>
+<br>
+<br>
+CAn anyne please help me</div></div>
+<div class="post" id="p291801"><div class="post-head"><a class="id" href="../t/15573.html#p291801">#291801</a> <span class="index">2</span> <span class="date">2007-01-30T19:52:56Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Please submit it as a text file next time. I changes one of the symbols symbols into &amp;&lt;random letters or numbers here&gt;, corrupting the data</div></div>
+<div class="post" id="p291813"><div class="post-head"><a class="id" href="../t/15573.html#p291813">#291813</a> <span class="index">3</span> <span class="date">2007-01-30T20:23:23Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><a href="http://pastebin.ca/333269">http://pastebin.ca/333269</a> Here's your fixed data. You had a NaNed guass turret in there which produces the odd effect of zapping the ninja into oblivion after exactly 137 frames.</div></div>
+<div class="post" id="p291848"><div class="post-head"><a class="id" href="../t/15573.html#p291848">#291848</a> <span class="index">4</span> <span class="date">2007-01-30T21:15:43Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15573.html#p291813">Quote: LittleViking001, January 30, 2007 12:23 pm</a></div> <a href="http://pastebin.ca/333269">http://pastebin.ca/333269</a> Here's your fixed data. You had a NaNed guess turret in there which produces the odd effect of zapping the ninja into oblivion after exactly 137 frames.  </blockquote> <br>
+ Don't you mean 1337? <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+But seriously, where did the 137 come from?</div></div>
+<div class="post" id="p291858"><div class="post-head"><a class="id" href="../t/15573.html#p291858">#291858</a> <span class="index">5</span> <span class="date">2007-01-30T21:29:16Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">He recorded a demo. The NaN`d turret killed him. He looked at the frame count. It was 137.</div></div>
+<div class="post" id="p291890"><div class="post-head"><a class="id" href="../t/15573.html#p291890">#291890</a> <span class="index">6</span> <span class="date">2007-01-30T22:07:41Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">No, I know how he figured out it was 137, but why is it 137?</div></div>
+<div class="post" id="p291894"><div class="post-head"><a class="id" href="../t/15573.html#p291894">#291894</a> <span class="index">7</span> <span class="date">2007-01-30T22:10:49Z</span> <span class="author"><a href="../u/9371497.html">Tamama</a></span></div><div class="post-body">CAUSE thats when the turret fires i think. Where is it, anyway? doesnt it have to be locked on 2 u to do that?</div></div>
+<div class="post" id="p291903"><div class="post-head"><a class="id" href="../t/15573.html#p291903">#291903</a> <span class="index">8</span> <span class="date">2007-01-30T22:21:56Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Not if it's NaN'd.<br>
+<br>
+I believe the turret check to see if there is an active instance of N that collides with an imaginary line between the cordinates (turret.x,turret.y) and the co-ordinates of the point where a collision with a tile first occurs along that line.<br>
+<br>
+When it is NaN'd, it automatically detects a collision with N, because it doesn't recognize point (NaN,NaN)<br>
+So instead of returning an error, the function returns 'true' (or false if it checks for the absense of a collision)<br>
+and N gets pwned.<br>
+<br>
+Why It can go through tiles, I'm not quite sure. It all depends on how Flash handles NaN as a value and NaN as an arguments/return value in a function<br>
+<br>
+<br>
+<br>
+When you watch the turret outside the level, and look at it's lock-on targeting thingy, it appears to be mostly located at position (N's x co-ordinate , NaN) while the turret is at position ( NaN, NaN ) In the case of a drawing location or position placing, NaN acts as if it is 0, which is why it <b>appears</b> to be in the top-left corner. It actually is not there, it is at position (NaN,NaN), not (0,0)</div></div>
+<div class="post" id="p291911"><div class="post-head"><a class="id" href="../t/15573.html#p291911">#291911</a> <span class="index">9</span> <span class="date">2007-01-30T22:27:44Z</span> <span class="author"><a href="../u/9370681.html">Kablizzy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15573.html#p291894">Quote: Tamama, January 30, 2007 10:10 pm</a></div> CAUSE thats when the turret fires i think. Where is it, anyway? doesnt it have to be locked on 2 u to do that? </blockquote>If you look, the turret sits in the upper left, just outside of the play area. Gausses out there bug and "lock on" from anywhere.<br>
+<br>
+Edit: Also, when working properly, it's very cheatable. See attached.<br>
+<br>
+Edit: Also, the jump-pads at the end kill you outright, there's actually no way *except* the cheatable way to do it. <div class="attachment attachment-missing">Attachment (lost): post-11-1170196642.txt</div></div></div>
+<div class="post" id="p291921"><div class="post-head"><a class="id" href="../t/15573.html#p291921">#291921</a> <span class="index">10</span> <span class="date">2007-01-30T22:38:17Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">It's probably just how the line collision checking function calculates stuff. It likely uses trigonometric funtions (for direction), and it calculates NaN as if it was 0, causing lines to go straight (explaining why y co-ordinate of teh crosshairs change, but the y co-ordinate remains 0/NaN.<br>
+<br>
+Instead of actually checking for instances along the line, the functions checks each instance (only 1 instance in this case: N) to see if it is on the line, and the NaN's cause it to say TRUE!!! Then it makes YOU say *GASP* I GOT TEH SHOTZORED!!... oh something like that...  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p292167"><div class="post-head"><a class="id" href="../t/15573.html#p292167">#292167</a> <span class="index">11</span> <span class="date">2007-01-31T15:40:47Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">Thankyou for fixing this. And also what causes this. in NED when I load a level I have made sometime so of the objects have moved why is this??</div></div>
+<div class="post" id="p292218"><div class="post-head"><a class="id" href="../t/15573.html#p292218">#292218</a> <span class="index">12</span> <span class="date">2007-01-31T19:39:15Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Probably, when you saved the level data, some line breaks snuck in. Before loading the level, take out the line breaks.</div></div>
+<div class="post" id="p292423"><div class="post-head"><a class="id" href="../t/15573.html#p292423">#292423</a> <span class="index">13</span> <span class="date">2007-02-01T08:26:25Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">how do I do that</div></div>
+<div class="post" id="p292425"><div class="post-head"><a class="id" href="../t/15573.html#p292425">#292425</a> <span class="index">14</span> <span class="date">2007-02-01T08:42:06Z</span> <span class="author"><a href="../u/9371072.html">Pembie</a></span></div><div class="post-body">Uh, the most common error is not clicking out side of the level box when you press L. Make sure you always click out side of the level code box after pasting the data before pressing L, it can cause some objects in NaN themselevs.</div></div>
+<div class="post" id="p292432"><div class="post-head"><a class="id" href="../t/15573.html#p292432">#292432</a> <span class="index">15</span> <span class="date">2007-02-01T11:13:40Z</span> <span class="author"><a href="../u/9371403.html">Harley</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15573.html#p292425">Quote: Pembie, February 01, 2007 06:42 pm</a></div> Uh, the most common error is not clicking out side of the level box when you press L. Make sure you always click out side of the level code box after pasting the data before pressing L, it can cause some objects in NaN themselevs.  </blockquote> <br>
+ NaNs are like an error code. in your code, take out the NaN, coordin! or something like that then replace the object where it used to be <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+~Harley</div></div>
+<div class="post" id="p292496"><div class="post-head"><a class="id" href="../t/15573.html#p292496">#292496</a> <span class="index">16</span> <span class="date">2007-02-01T18:13:21Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">Can you please tell me how you cheated in this level because I can't get the reay data to work.</div></div>
+<div class="post" id="p292508"><div class="post-head"><a class="id" href="../t/15573.html#p292508">#292508</a> <span class="index">17</span> <span class="date">2007-02-01T18:56:58Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">You can jump across the locked door bridge and skip the rest of the level by doing so.</div></div>
+<div class="post" id="p292754"><div class="post-head"><a class="id" href="../t/15573.html#p292754">#292754</a> <span class="index">18</span> <span class="date">2007-02-02T08:25:54Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">Sorry that it is in bmp but the only image program was paint version 1 or something like that<br>
+<br>
+<img class="bb-img" src="http://freespaces.com/madnessred/img/untitled.bmp" alt="" loading="lazy"><br>
+<br>
+<br>
+because if so then I think I have fixed that <div class="attachment attachment-missing">Attachment (lost): post-11-1170404913.txt</div></div></div>
+<div class="post" id="p292759"><div class="post-head"><a class="id" href="../t/15573.html#p292759">#292759</a> <span class="index">19</span> <span class="date">2007-02-02T08:59:29Z</span> <span class="author"><a href="../u/9371126.html">krusch</a></span></div><div class="post-body">A large portion of the bottom of this map is taken from formica's <a href="https://www.nmaps.net/7411">Triliogy III</a>. Now, I consider that to be okay, but if you submit the map to NUMA, then I suggest you say where you got the bottom part of the map from. Taking a part of someone else's map (if you look to be passing it off as your own work) is frowned upon 'round these parts.  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p293612"><div class="post-head"><a class="id" href="../t/15573.html#p293612">#293612</a> <span class="index">20</span> <span class="date">2007-02-04T12:47:50Z</span> <span class="author"><a href="../u/9373820.html">madnessred</a></span></div><div class="post-body">I was intending to put that when/if I upload it</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khanes basic guide too coding n levels. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Khanes basic guide too coding n levels.</nav></header>
+<main>
+<div class="post" id="p872"><div class="post-head"><a class="id" href="../t/990.html#p872">#872</a> <span class="index">1</span> <span class="date">2004-09-17T23:20:19Z</span> <span class="author">Guest</span></div><div class="post-body">Hello, I am here to make a guide on coding for n levels. You know when you open the debug menu and you see that massive text window that has all the level data? Ever feel Overwhelmed? Well I am going to help you understand that jargon. there are 2 main parts of the level data we shoud look at, the tile data and the object data. its organized like this. But first, why should I bother? Well, theres a number of features in N you cant access, for example, did you know launchpads can have a different amount of power?<br>
+<br>
+<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA                 <br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWRA<br>
+GARRSGD%@&amp;%TWUH4556igssrEJH5JWEHWR|&lt;OBJECT DATA HERE&gt;<br>
+<br>
+The jargon is the tile data, each square in the map has a value in there somewhere, whether its empty or full, curvy or sharp, or even coded in and buggy. then we have a |   <br>
+symbol, this separates the level data and the object data. Finally we have the object data. Too explain this lets make an empty level:<br>
+<br>
+it should look something like this:<br>
+<br>
+0000000000000000000000000<br>
+0000000000000000000000000<br>
+0000000000000000000000000<br>
+000000000000000000000000|<br>
+<br>
+granted, the real things alot larger. Now put a ninja in the lower right corner. Look at the code now:<br>
+<br>
+0000000000000000000000000<br>
+0000000000000000000000000<br>
+0000000000000000000000000<br>
+000000000000000000000000|5^756,564!<br>
+<br>
+see the added text? the 5^ defines what type of object it is, and the next two numbers are variables, all variables are separated by commas. In this, case, these two variables are the coordinates for the ninja, which say where he will be placed. the first two variables are always the x and y coordinates which say where the object is placed. Finally, look at the end, theres an exclamation mark. This means this object data has ended, and anothers should start, so the next &lt;number&gt;^ isnt a part of the last variable of the last object. Other objects can have more variables. <br>
+<br>
+Now, we go onto code errors. If the game finds an obvious error in the level code when loading a level, it fixes it. But this usually only works if their can only be one way the code can go, for example, someone putting an 1(seeker on) in a laser drones spot for seeking(all drones use 6^), while only zap drones can seek. But more often, when there can be more than one value that will work, the game makes a NaN. This means theres a bug in the code and the game skips it, and can cause some rather buggy things too happen, for example, making a drones movement code some number thats not valid, like 10, will make it stand still and its "eyes" will fall too the bottom, like they are being pulled. Also, if you then check its code, it will say it NaN where the movement variable should be. And thats all you need too start too learn n code editing, If I were you I would find vikings n disections as well, they are a very usefull reference.</div></div>
+<div class="post" id="p28157"><div class="post-head"><a class="id" href="../t/990.html#p28157">#28157</a> <span class="index">2</span> <span class="date">2004-09-17T23:43:07Z</span> <span class="author">Guest</span></div><div class="post-body">Great burrito, Khane! Keep up the good work! Always good to have members like you around the office to help out with things like this.<br>
+<br>
+Also, <a href="../t/771.html">Here</a> is LV's launch pad thread, and <a href="../t/931.html">Here</a> is LV's Teleporter Tutorial.</div></div>
+<div class="post" id="p28167"><div class="post-head"><a class="id" href="../t/990.html#p28167">#28167</a> <span class="index">3</span> <span class="date">2004-09-18T00:12:13Z</span> <span class="author"><a href="../u/9370611.html">Khane</a></span></div><div class="post-body">lol I just made this so they wouldnt have an excuse to ban coding in the next contest.</div></div>
+<div class="post" id="p28263"><div class="post-head"><a class="id" href="../t/990.html#p28263">#28263</a> <span class="index">4</span> <span class="date">2004-09-18T04:15:33Z</span> <span class="author"><a href="../u/9370574.html">Rahl</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/990.html#p28157">Quote: Guest, 2004-09-17T23:43:07Z</a></div>LV's launch pad thread</blockquote>Launch pad thread?  That thread is about all the code generated by N, including all the other objects, and even all the tile data.  We even considered putting in the demo code, but decided against it (didn't want to see cheaters)</div></div>
+<div class="post" id="p28297"><div class="post-head"><a class="id" href="../t/990.html#p28297">#28297</a> <span class="index">5</span> <span class="date">2004-09-18T05:32:10Z</span> <span class="author"><a href="../u/9370611.html">Khane</a></span></div><div class="post-body">demo code I would very much like too see....</div></div>
+<div class="post" id="p32187"><div class="post-head"><a class="id" href="../t/990.html#p32187">#32187</a> <span class="index">6</span> <span class="date">2004-10-16T16:02:33Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Forget about it. We don't want cheaters in the NTTS, and releasing the demo code would encourage exactly that.</div></div>
+<div class="post" id="p32196"><div class="post-head"><a class="id" href="../t/990.html#p32196">#32196</a> <span class="index">7</span> <span class="date">2004-10-16T16:37:09Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">also, manually edited code will always be banned as long as I'm hosting...<br>
+<br>
+I don't care if theres a tutorial up for it</div></div>
+<div class="post" id="p32202"><div class="post-head"><a class="id" href="../t/990.html#p32202">#32202</a> <span class="index">8</span> <span class="date">2004-10-16T16:48:17Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">I'll have to agree with Maximo on this one, Khane.<br>
+<br>
+Just because you know how to do something doesn't mean you can. I know how to kill myself, but obviously I'm not going to.</div></div>
+<div class="post" id="p32290"><div class="post-head"><a class="id" href="../t/990.html#p32290">#32290</a> <span class="index">9</span> <span class="date">2004-10-17T01:04:55Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">I know perfectly well <i>how</i> to edit teleporters, but I don't have the <i>skill</i> required for it.</div></div>
+<div class="post" id="p32303"><div class="post-head"><a class="id" href="../t/990.html#p32303">#32303</a> <span class="index">10</span> <span class="date">2004-10-17T01:43:51Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">I agree, just because its there, doesn't mean you have to use it... my oppinion on cursing too...<br>
+<br>
+Plus I think editing code is really bad because it just doesn't feel like the same N when the level is all manualy edited.  plus you can't tell an editied pad from an unedited one, which is really dumb...</div></div>
+<div class="post" id="p32332"><div class="post-head"><a class="id" href="../t/990.html#p32332">#32332</a> <span class="index">11</span> <span class="date">2004-10-17T03:08:26Z</span> <span class="author">Guest</span></div><div class="post-body">With that said, I think there is some good that can be done with teleporters. I'm not a big fan of them, partially because of the manual coding required, but it does open up certain map ideas that wouldn't be feasible otherwise. By the same token, I think that there is something to be said for having un-edited code all around, for such things as Neditor and stuff.</div></div>
+</main>
+</body>
+</html>

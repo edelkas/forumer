@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7-zip - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; 7-zip</nav></header>
+<main>
+<div class="post" id="p2622"><div class="post-head"><a class="id" href="../t/2921.html#p2622">#2622</a> <span class="index">1</span> <span class="date">2005-04-22T14:42:12Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">For those who want to post files but their compressed size is way too big, you might want to try 7-zip.<br>
+<br>
+No, it's not a commercial program. It is open source. It is completely free. No strings attached. Check their website at <a href="http://www.7-zip.org/">http://www.7-zip.org/</a>. It also opens zips and I don't know what else.<br>
+<br>
+BTW, I think this topic should be left here, since it might help file posters.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61789"><div class="post-head"><a class="id" href="../t/2921.html#p61789">#61789</a> <span class="index">2</span> <span class="date">2005-04-24T11:58:22Z</span> <span class="author"><a href="../u/9370729.html">Teedle</a></span></div><div class="post-body">It makes my file LARGER... is this normal?</div></div>
+<div class="post" id="p61899"><div class="post-head"><a class="id" href="../t/2921.html#p61899">#61899</a> <span class="index">3</span> <span class="date">2005-04-24T21:32:28Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">Is it more compressed than RAR?</div></div>
+<div class="post" id="p61904"><div class="post-head"><a class="id" href="../t/2921.html#p61904">#61904</a> <span class="index">4</span> <span class="date">2005-04-24T21:49:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I don't think larger files is normal. Did you make sure the compression level was Ultra? Also make sure that compression method is LZMA. Increasing the dictionary size improves compression but you will need more memory. If your are doing multiple files choose solid. Word size also helps. Check the help of the program, the Add file to archive section. You might want to try moving parameters here and there.<br>
+<br>
+Even if you choose the zip file compression, it is a little better than the other zips (according to their website)<br>
+<br>
+It seems to be a little better than rar. It might help some of you with files too large to be posted here.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61995"><div class="post-head"><a class="id" href="../t/2921.html#p61995">#61995</a> <span class="index">5</span> <span class="date">2005-04-25T12:42:22Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">I use IZArc, it supports a crudload of formats.</div></div>
+<div class="post" id="p62412"><div class="post-head"><a class="id" href="../t/2921.html#p62412">#62412</a> <span class="index">6</span> <span class="date">2005-04-27T22:41:06Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">The best compression algorithm on the market is "bzip2". It's been ported to most platforms and is also free.<br>
+<br>
+This is until someone finally cracks fractal compression... the holy grail which 95% of mathematicians who ever knew about fractals has deemed random, but as Einstien would say: "God doesn't play with dice"... who knows...</div></div>
+<div class="post" id="p62496"><div class="post-head"><a class="id" href="../t/2921.html#p62496">#62496</a> <span class="index">7</span> <span class="date">2005-04-28T05:46:36Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">As for the best compression algorithm, I'm not so sure bzip2 is the best of all. 7-zip supports bzip2 too. Maybe a test is in order. What do you think should be tested?<br>
+<br>
+And as for what Einstein said, remember what Niels Bohr replied to him: "Einstein, don't tell God what to do"<br>
+ <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62639"><div class="post-head"><a class="id" href="../t/2921.html#p62639">#62639</a> <span class="index">8</span> <span class="date">2005-04-28T23:06:26Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body">Put the Bible in .txt format and zip it. That'll be your test.</div></div>
+<div class="post" id="p62654"><div class="post-head"><a class="id" href="../t/2921.html#p62654">#62654</a> <span class="index">9</span> <span class="date">2005-04-28T23:42:48Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">bzip2 is the best compression algorithm.<br>
+<br>
+7-zip supports it becuase it can't beat it... bzip2 does not support anything else.<br>
+<br>
+If you want to test it compress the following (estimates):<br>
+.txt - bzip2 should win<br>
+.bmp - bzip2 should win<br>
+.jpg - close<br>
+.mp3 - 7-zip, possibly, would win, but so could bzip2<br>
+<br>
+Those are predictions, but for a proper test, you need to compress all file types in parallel. And those are common...<br>
+<br>
+bzip2 uses the closest thing to fractal compression there is so I'd love to know the results if anyone has the time...</div></div>
+<div class="post" id="p62717"><div class="post-head"><a class="id" href="../t/2921.html#p62717">#62717</a> <span class="index">10</span> <span class="date">2005-04-29T05:25:25Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So I did a test of 3 compressors:<br>
+<br>
+7-Zip with LZMA compression<br>
+7-Zip with BZip2 compression<br>
+WinRar<br>
+<br>
+Here are the results<br>
+<br>
+<pre class="code">7-Zip 4.14 beta
+Format: 7z
+Compression Level: Ultra
+Compression Method: LZMA
+Dictionary Size: 32MB
+Word Size: 128
+Solid Archive
+
+7-Zip 4.14 beta
+Format: zip
+Compression Level: Ultra
+Compression Method: BZip2
+Dictionary Size: 900KB (only option)
+Word Size: N/A
+Solid Archive N/A
+
+WinRAR 3.30
+Format: rar
+Compression Method: Best
+Dictionary Size: 4096 KB (max)
+Enable Delta Compression
+Solid Archive
+
+
+-- 1 --
+
+10 MP3s
+101 MB (106,784,992 bytes)
+
+LZMA  101 MB (106,943,510 bytes) 100.1484459540 %
+
+BZip2 101 MB (106,498,743 bytes)  99.7319389227 % &lt;- Best
+
+RAR   101 MB (106,554,557 bytes)  99.7842065672 %
+
+
+-- 2 --
+
+10 BMPs
+22.5 MB (23,593,500 bytes)
+
+LZMA  11.7 MB (12,283,352 bytes) 54.3667514993 %
+
+BZip2 11.4 MB (11,973,561 bytes) 52.9956005046 %
+
+RAR   8.57 MB (8,995,211 bytes)  39.8132693031 % &lt;- Best
+
+
+-- 3 --
+
+10 JPGs
+1.90 MB (1,992,961 bytes)
+
+LZMA  1.89 MB (1,991,419 bytes) 99.9226276881 %
+
+BZip2 1.89 MB (1,988,055 bytes) 99.7538336174 %
+
+RAR   1.89 MB (1,983,586 bytes) 99.5295944075 % &lt;- Best
+
+
+-- 4 --
+
+Bible TXT
+4.33 MB (4,545,377 bytes)
+
+LZMA  1.00 MB (1,059,157 bytes) 23.3018515296 %
+
+BZip2  978 KB (1,001,503 bytes) 22.0334418905 %
+
+RAR    832 KB (852,422 bytes)   18.7536039365 % &lt;- Best
+
+
+-- 5 --
+
+77 PDFs
+153 MB (160,668,949 bytes)
+
+LZMA  102 MB (107,671,418 bytes) 67.0144534275 % &lt;- Best
+
+BZip2 126 MB (132,576,861 bytes) 82.5155462989 %
+
+RAR   117 MB (122,815,239 bytes) 76.4399342651 %
+
+
+-- 6 --
+
+N 1.3c Distribution (1 EXE, 1 DOC, 4 TXT)
+1.53 MB (1,605,457 bytes)
+
+LZMA   941 KB (964,510 bytes)   60.0769749673 % &lt;- Best
+
+BZip2 1.02 MB (1,076,824 bytes) 67.0727400360 %
+
+RAR    979 KB (1,002,902 bytes) 62.4683189895 %
+
+
+Of interest:
+n_v13c.exe
+
+Original 1.45 MB (1,521,210 bytes) (1485K)
+
+LZMA  927K (Doesn't show exact byte size)
+
+BZip2 1,053,757
+
+RAR   986,972</pre><br>
+As you can see, WinRAR won 3, 7-Zip LZMA won 2 and BZip2 won 1.<br>
+<br>
+In the one won by BZip2, the difference is quite negligible<br>
+<br>
+I pointed out how the exe file from N was compressed because some in this forum might want to see how the exe was compressed.<br>
+<br>
+Of course, different results will be experienced by different files. But I think this helps to get a rough idea of what to use. In any case, if maximum compression is needed, better to test with all of them to see which is better<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62838"><div class="post-head"><a class="id" href="../t/2921.html#p62838">#62838</a> <span class="index">11</span> <span class="date">2005-04-29T23:34:53Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">Why on earth would anyone compress JPGs or MP3s? They're already compressed formats. The most you're going to achieve is compressing their headers an insignificant amount, at the cost of having to download the zip file and decompress it.<br>
+<br>
+As far as testing compression, google for the "Calgary Corpus". It's the standard corpus of material to test compression algorithms with.</div></div>
+<div class="post" id="p62931"><div class="post-head"><a class="id" href="../t/2921.html#p62931">#62931</a> <span class="index">12</span> <span class="date">2005-04-30T12:24:44Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2921.html#p62838">Quote: Arachnid, Apr 29 2005, 11:34 PM</a></div> Why on earth would anyone compress JPGs or MP3s?  </blockquote> <br>
+ To group many into one file.</div></div>
+<div class="post" id="p62979"><div class="post-head"><a class="id" href="../t/2921.html#p62979">#62979</a> <span class="index">13</span> <span class="date">2005-04-30T18:59:18Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Just because something is compressed doesn't mean it is optimally compressed. Also, further compression may be gained if a solid archive is created.<br>
+<br>
+Now, for which compressor is the best. It seems neither 7-Zip LZMA or BZip2 are the best.<br>
+<br>
+For a very good compression comparison, chech this page<br>
+<a href="http://studwww.ugent.be/~jdebock/last_updates.htm">http://studwww.ugent.be/~jdebock/last_updates.htm</a><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62999"><div class="post-head"><a class="id" href="../t/2921.html#p62999">#62999</a> <span class="index">14</span> <span class="date">2005-04-30T23:00:13Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2921.html#p62838">Quote: Arachnid, 2005-04-29T23:34:53Z</a></div> Why on earth would anyone compress JPGs or MP3s?</blockquote>Exactly! The files are already compressed in a way which certain other compressors handle better than others.<br>
+<br>
+The only test, would be to compress your HDD and compare the results. Our backup server is dead at the mo, so can't do tests but we use bzip2 and our SAs are positive bzip2 is the best compression.<br>
+<br>
+I guess those tests prove that it depends on what you're compressing, but if it's code... as 90% of our files are text (PHP, Java etc) and 10% are bins bzip2 wins hands down.<br>
+<br>
+Never compress mp3s, mpgs and jgps....</div></div>
+<div class="post" id="p63178"><div class="post-head"><a class="id" href="../t/2921.html#p63178">#63178</a> <span class="index">15</span> <span class="date">2005-05-01T19:28:19Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">If what you compress is text files, you might want to try PAsQDa. In the web page I posted, it shows it is the best text compressor. I also saw those claims in other test websites.<br>
+<br>
+Might help you save some backup costs  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63187"><div class="post-head"><a class="id" href="../t/2921.html#p63187">#63187</a> <span class="index">16</span> <span class="date">2005-05-01T20:27:32Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">TMT, I gotta remember not to argue with you <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+We use a 65% text, 25% bin, 10% data model.<br>
+I actually rang up one of the SAs just now to find out about compression ratios and that's his figure. I asked him why we used bzip2, he said to stop ringing on a bank holiday Sunday night  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"><br>
+<br>
+Anyways... We can probably conclude that there are many compression utilities for various purposes. I think bzip2 is the best because that is what we use... though *what* we use is not up to me, but the SAs.<br>
+<br>
+Needless to say, we compress 15 TB a day, and if *they* think it's the best, I guess I'd have to back 'em up <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+[EDIT]<br>
+<br>
+Typo</div></div>
+<div class="post" id="p63203"><div class="post-head"><a class="id" href="../t/2921.html#p63203">#63203</a> <span class="index">17</span> <span class="date">2005-05-01T20:56:57Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2921.html#p63187">Quote: syntax, May 1 2005, 08:27 AM</a></div> Needless to say, we compress 15 TB a day, and if *they* think it's the best, I guess I'd have to back 'em up <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  </blockquote> <br>
+ Woah, thats crazy. It might explain why you use bzip2 though. Perhaps bzip2 compresses files faster than compression utilities like PAsQDa.</div></div>
+<div class="post" id="p63213"><div class="post-head"><a class="id" href="../t/2921.html#p63213">#63213</a> <span class="index">18</span> <span class="date">2005-05-01T21:06:34Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Syntax, no arguing here, just a friendly exchange of ideas  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Besides, the point for this thread was to help those not being able to compress enough their files to post them here. I chose 7-Zip mainly because it is relatively "popular", has a somewhat decent graphic interface and is available for many OS's. Just by looking at that list you can see a lot of compression programs and each one probably with a lot of options. But how many are command line only and not easy to use for the average user? In your case, given that massive amount of data, it sure doesn't matter if it's command line. And if that's the best compressor or the most convenient for your work, that's good. Actually I will probably try it more often along with the others when I need good compression.  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63214"><div class="post-head"><a class="id" href="../t/2921.html#p63214">#63214</a> <span class="index">19</span> <span class="date">2005-05-01T21:07:41Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">Nah... our backups take 7 hours but I don't think speed is an issue as no-one hits our databases overnight - this is on a F15K with 72 400 MHZ processors and 32 GB of RAM.<br>
+<br>
+But hey, the SAs are king when it comes to making hardware decisions so I don't worry about it <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p63216"><div class="post-head"><a class="id" href="../t/2921.html#p63216">#63216</a> <span class="index">20</span> <span class="date">2005-05-01T21:12:56Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">[non-sarcastic]<br>
+<br>
+TMT... Yes... I agree.<br>
+With everything in your last post <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I think we had one of these "conversations" a bit back (pardon the pun), regarding OO vs Procedural.<br>
+<br>
+I'll further agree that 7-zip is highly recommended for those who don't need to compress more than 2TB overnight. Also, I understand that GUIs make for more uptake amongst non-business users. So... Yes... Everyone...<br>
+<br>
+USE 7-zip !!!! It's the best <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+[/non-sarcastic]<br>
+<br>
+I enjoyed that... <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p63263"><div class="post-head"><a class="id" href="../t/2921.html#p63263">#63263</a> <span class="index">21</span> <span class="date">2005-05-01T23:19:14Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2921.html#p62979">Quote: TMT, Apr 30 2005, 06:59 PM</a></div> Just because something is compressed doesn't mean it is optimally compressed. Also, further compression may be gained if a solid archive is created.<br>
+<br>
+Now, for which compressor is the best. It seems neither 7-Zip LZMA or BZip2 are the best.<br>
+<br>
+For a very good compression comparison, chech this page<br>
+<a href="http://studwww.ugent.be/~jdebock/last_updates.htm">http://studwww.ugent.be/~jdebock/last_updates.htm</a><br>
+<br>
+-TMT  </blockquote> <br>
+ Images, sound and video do not compress well with standard lossless algorithms. Images, sound and video already compressed with a good lossy algorithm won't compress at all (barring headers) - it would be an extremely poor lossy compression algorithm if it left any discernable patterns that could be used as a basis for compression.</div></div>
+<div class="post" id="p63279"><div class="post-head"><a class="id" href="../t/2921.html#p63279">#63279</a> <span class="index">22</span> <span class="date">2005-05-02T00:14:03Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">Me.... tries...... to......... not............. react..... to.......... this.........thr...ead......... <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p63284"><div class="post-head"><a class="id" href="../t/2921.html#p63284">#63284</a> <span class="index">23</span> <span class="date">2005-05-02T00:37:09Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I agree with you Arachnid. Lossy compressed data is hard to compress. Mostly you can get a little more from the headers as you mentioned, but also maybe a little more from anything a solid compression might find.<br>
+<br>
+And syntax, shouldn't your tag be [sarcastic] ?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+Seriously though, I'm glad I did that little test. It's good to know how good WinRar can be and that is way more common than 7-zip.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63287"><div class="post-head"><a class="id" href="../t/2921.html#p63287">#63287</a> <span class="index">24</span> <span class="date">2005-05-02T00:43:09Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Did any of the tests try WinAce?</div></div>
+<div class="post" id="p63330"><div class="post-head"><a class="id" href="../t/2921.html#p63330">#63330</a> <span class="index">25</span> <span class="date">2005-05-02T03:46:51Z</span> <span class="author"><a href="../u/9370580.html">syntax</a></span></div><div class="post-body">Interesting you should say that. winAce is pretty good but bzip2 is the best compression algorithm.<br>
+<br>
+Oh oh <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+And no, TMT... I meant that bit. Before the bit where I said I enjoyed it....  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("></div></div>
+<div class="post" id="p84260"><div class="post-head"><a class="id" href="../t/2921.html#p84260">#84260</a> <span class="index">26</span> <span class="date">2005-07-17T18:09:19Z</span> <span class="author">Guest</span></div><div class="post-body">7-ZIP  .<br>
+      .</div></div>
+<div class="post" id="p84310"><div class="post-head"><a class="id" href="../t/2921.html#p84310">#84310</a> <span class="index">27</span> <span class="date">2005-07-17T22:42:55Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2921.html#p84260">Quote: Guest, Jul 17 2005, 01:09 PM</a></div>  7-ZIP  .<br>
+      .  </blockquote> <br>
+ In ENglish?<br>
+Thanks for reviving a topic, GUest. i use zipgenius.</div></div>
+<div class="post" id="p84314"><div class="post-head"><a class="id" href="../t/2921.html#p84314">#84314</a> <span class="index">28</span> <span class="date">2005-07-17T23:44:56Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Ligature. . . Overload. . . witty remarks systems failing. . . MUST BE ABLE TO UNDERSTAND COMMENT TO FLAME IT!  RARGHHHHHHHHHHHHHH!<br>
+*several explosions heard, followed by complete silence.</div></div>
+</main>
+</body>
+</html>

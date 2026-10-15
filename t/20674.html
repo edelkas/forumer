@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vision cone math - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; vision cone math</nav></header>
+<main>
+<div class="post" id="p18413"><div class="post-head"><a class="id" href="../t/20674.html#p18413">#18413</a> <span class="index">1</span> <span class="date">2007-12-15T23:01:48Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">As a few of you may know, I'm in the process of making a game in Flash. I want to implement a vision cone for some enemies, where it shows the range enemies can see, with objects and tiles in the way. I hope this image shows what I'm trying to achieve:<br>
+<br>
+<a href="http://img517.imageshack.us/my.php?image=visionconeni2.png"><img class="bb-img" src="http://img517.imageshack.us/img517/716/visionconeni2.th.png" alt="" loading="lazy"></a><br>
+<br>
+The problem is, I have not come across any similar features in games and I can't seem to find any source to help me in this.<br>
+<br>
+I have tried 2 solutions, both of which are very inefficient:<br>
+<br>
+1) I send out lots of equally angled rays from the enemy, and join the points at which they hit something. This will never be 100% accurate, and as it gets close, it becomes incredibly slow.<br>
+2)I constructed a set of functions that draws the brown area in this image (the area behind each object and tile):<br>
+<a href="http://img155.imageshack.us/my.php?image=visioncone2ae3.png"><img class="bb-img" src="http://img155.imageshack.us/img155/8399/visioncone2ae3.th.png" alt="" loading="lazy"></a><br>
+and then creates a copy of the background, uses the drawn shapes as a mask for the copy of the background and covers up the sections of the vision cone that should not be seen. However, I need to make an additional copy of the background for every enemy, and flash renders very slowly, meaning i can only have about 1 enemy in a room before the lag becomes too much.<br>
+<br>
+Does anyone have any experience or ideas in this area, or can suggest improvements to my 2 solutions?</div></div>
+<div class="post" id="p389783"><div class="post-head"><a class="id" href="../t/20674.html#p389783">#389783</a> <span class="index">2</span> <span class="date">2007-12-15T23:07:35Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">for one thing, there are two parts to this -- representing it visually (drawing the shadowed regions), and representing it logically (being able to test if a point is in shadow).<br>
+<br>
+for the visuals, you can use stencil shadows (as seen in gish); this is the same idea as doom3's shadows, except in 2d. if you google around you should be able to get the idea.<br>
+<br>
+for logic, you don't need to explicitly construct the shape of the shadow/lit region -- you can just cast a ray from the query point/object to the player and see if it hits anything before the player. if so, it's in shadow, if not then it's visible.<br>
+<br>
+at least, this is one way of doing it. our friend jon made a game in java that used this sort of technique.</div></div>
+<div class="post" id="p389787"><div class="post-head"><a class="id" href="../t/20674.html#p389787">#389787</a> <span class="index">3</span> <span class="date">2007-12-15T23:13:12Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20674.html#p389783">Quote: Raigan, December 16, 2007 09:07 am</a></div> for logic, you don't need to explicitly construct the shape of the shadow/lit region -- you can just cast a ray from the query point/object to the player and see if it hits anything before the player. if so, it's in shadow, if not then it's visible.  </blockquote> <br>
+ I'm just about to look into stencil shadows, but as for the logic, what if the center of the player is behind something but the edge of the player can still be seen?<br>
+Although, that is the least of my worries right now, I'm not going to spend a lot of effort on that</div></div>
+<div class="post" id="p389793"><div class="post-head"><a class="id" href="../t/20674.html#p389793">#389793</a> <span class="index">4</span> <span class="date">2007-12-15T23:30:08Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I just took a quick look at stencil shadows, but most of the sites were intended for advanced developers, and in 3D, so I may not fully understand the concept (relying on some stencil buffer?). My interpretation is that they are a method for calculating areas in shadow. right now that's not my issue, I've already done that with tile and object specific functions, by finding 2 appropriate vertices and extending them. What I need is some way to subtract that area from the vision cone graphic, or some devious workaround.</div></div>
+<div class="post" id="p389965"><div class="post-head"><a class="id" href="../t/20674.html#p389965">#389965</a> <span class="index">5</span> <span class="date">2007-12-16T16:52:24Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">sorry -- i failed to notice the part where you mentioned this was in flash!<br>
+<br>
+this makes it more difficult if not impossible; stencil shadows are sort of a cheat since they let you implicitly calculate the shadowed area -- they're a process whereby you end up with the result you want, without having to EVER explicitly figure out the exact shape of the shadowed region. the basic algorithm is: find all the geometry near the lit region (cone shaped in this case), extrude geometry out to infinity in direction away from light, draw extruded geometry into stencil buffer, draw fullscreen shadow masked by stencil buffer (or, alternately draw the lit scene masked by the stencil). gish uses this for box shadows.<br>
+<br>
+the only thing i can think of is to use a portal-rendering type approach, where you start with a single frustum (truncated pyramid in 3d, parallelogram in 2D) and recursively clip it against geometry. this will require you to split your levels into convex chunks, and is almost certainly going to be rather work-intensive. i can't seem to find any good tutorials on google, but there should be lots since this sort of method was used for rendering 3D games..<br>
+<br>
+about determining visibility, that's true; since this is used normally for vision/AI tests and bullets this is usually fine -- in the former case the head of the enemy is typically centered on the object, and in the latter the object has no size. i'm assuming top-view.<br>
+<br>
+<br>
+one alternative you might want to look into is using a grid-based solution, which is very common in most roguelike games (doomRL for instance); this should be fast enough in flash, however it's not exactly the same as what you want, since it will require the levels to be tile-based.<br>
+<br>
+oh wait -- rereading your post, you want to use this for moving enemies! that might not be feasible, typically this sort of thing is used with static level geometry. certainly you could do it outside of flash, in flash it might be asking too much <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p390103"><div class="post-head"><a class="id" href="../t/20674.html#p390103">#390103</a> <span class="index">6</span> <span class="date">2007-12-17T00:24:57Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I wonder if I should just ditch the idea. I think I'm a bit over my head here.<br>
+<br>
+I'm going to use inefficient method (2) from my first post, but I'm going to limit to 1 enemy with 'vision' per room.<br>
+<br>
+Thanks for your help, I asked a similar question elsewhere, and I got nowhere near the response.<br>
+<br>
+EDIT: yes, my game is top view.The player is represented as a circle. For determining visibility, i think I'll just use a brute force approach by using 3 rays: the center of the object, and the 2 tangents. It's possible that it will miss something, but quite rare. Unless you can think of a simple solution?</div></div>
+<div class="post" id="p390274"><div class="post-head"><a class="id" href="../t/20674.html#p390274">#390274</a> <span class="index">7</span> <span class="date">2007-12-17T16:38:53Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i'm afraid i don't have much experience with this stuff, just what i remember talking about with our friend who made something similar -- i think he just used a single ray form the center, BUT his objects were very small.</div></div>
+<div class="post" id="p391061"><div class="post-head"><a class="id" href="../t/20674.html#p391061">#391061</a> <span class="index">8</span> <span class="date">2007-12-19T10:18:09Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">I was playing around with this.  I basically cast 3 rays from the 'eye' to the target covering the whole body.  The demo is here:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/SeperationAxis_LineOfSight.swf">http://home.planet.nl/~borst595/Seperation...LineOfSight.swf</a><a href="http://home.planet.nl/~borst595/SeperationAxis_LineOfSight.swf">http://home.planet.nl/~borst595/Seperation...LineOfSight.swf</a><br>
+<br>
+As the target peeks out from behind a tile its seen.  You could implement the cone by only testing targets that are within a certain segment.  <br>
+<br>
+This demo is all AS3, using the ported tutorials + my own speedups.</div></div>
+<div class="post" id="p391200"><div class="post-head"><a class="id" href="../t/20674.html#p391200">#391200</a> <span class="index">9</span> <span class="date">2007-12-19T22:37:09Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yeah, that's what I was going to do. I guess you already know that if the object is blocked by tiles except for a small gap that doesn't contain the center or tangent, it doesnt work.<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/20674.html#p390103">Quote: me, 2007-12-17T00:24:57Z</a></div>i think I'll just use a brute force approach by using 3 rays: the center of the object, and the 2 tangents. It's possible that it will miss something, but quite rare.</blockquote><br>
+I really like your engine by the way, are you planning on doing anything with it?</div></div>
+<div class="post" id="p391517"><div class="post-head"><a class="id" href="../t/20674.html#p391517">#391517</a> <span class="index">10</span> <span class="date">2007-12-20T15:06:04Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Thanks.  With that engine I got as far as this:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/Exile.html">http://home.planet.nl/~borst595/Exile.html</a><br>
+<br>
+I also developed a tool chain based on the Tiled map editor (in Java).  The collision detection in this engine is based on the tutorials.  I'm now working on replacing that code with a general tiled SAT engine that uses pre-computed cached intervals.  Basically it lets you define any tile on a 3x3 grid + a center point (there are only ever 8 axes in this case) using only 1 bitmask (uint) and one tile class.  <br>
+<br>
+The engine will also support swept circle and rectangle collisions against these tiles.<br>
+<br>
+I'll start a new thread on this.</div></div>
+</main>
+</body>
+</html>

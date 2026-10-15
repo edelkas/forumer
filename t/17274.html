@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matrix Code - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/26.html">Tests &amp; Inquiries</a> &rsaquo; Matrix Code</nav></header>
+<main>
+<div class="post" id="p15161"><div class="post-head"><a class="id" href="../t/17274.html#p15161">#15161</a> <span class="index">1</span> <span class="date">2007-05-09T15:34:14Z</span> <span class="author"><a href="../u/9372159.html">theinvader</a></span></div><div class="post-body">Don't ask me why but I'm trying to learn how to encode messages using matrices. I learnt to encode something with a 2x2 matrix (I could do with larger but it's much harder to find the inverse matrix) but I can't figure out how to decode it and I can't find a guide on the internet. I know you need the inverse matrix but I'm not sure what to do then. I tried reversing what I'd done to encode it and that didn't work, neither did some fiddling find any useful results. Could anyone give me a hand with this?<br>
+<br>
+Here's how to get the inverse matrix of a 2x2 matrix:<br>
+<pre class="code">A = | a  b |
+     | c  d |
+
+A^-1 = (1 / ad-bc) x | d -b |
+                      |-c  a |</pre></div></div>
+<div class="post" id="p319862"><div class="post-head"><a class="id" href="../t/17274.html#p319862">#319862</a> <span class="index">2</span> <span class="date">2007-05-09T22:03:17Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body">You have the inverse of a 2x2 matrix correct, but how the hell do you intend to encrypt a message using that? What would each field correspond with?</div></div>
+<div class="post" id="p319872"><div class="post-head"><a class="id" href="../t/17274.html#p319872">#319872</a> <span class="index">3</span> <span class="date">2007-05-09T22:22:54Z</span> <span class="author"><a href="../u/9371761.html">McP3000</a></span></div><div class="post-body">For a second i was about to come in here and yell at you...but then i found out you werent trying to interpret code from the Matrix movie, but the actual mathematical principle.</div></div>
+<div class="post" id="p319875"><div class="post-head"><a class="id" href="../t/17274.html#p319875">#319875</a> <span class="index">4</span> <span class="date">2007-05-09T22:26:39Z</span> <span class="author"><a href="../u/9373007.html">Django</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17274.html#p319872">Quote: McP3000, May 09, 2007 10:22 pm</a></div> For a second i was about to come in here and yell at you...but then i found out you werent trying to interpret code from the Matrix movie, but the actual mathematical principle.  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> That's what I thought too.<br>
+<br>
+I have some kind of matrix function on my calculator, but I'm always too busy playing block dude to figure it out. <img class="smiley" src="../files/smilies/53.gif" alt=":yawn:" title=":yawn:"></div></div>
+<div class="post" id="p319876"><div class="post-head"><a class="id" href="../t/17274.html#p319876">#319876</a> <span class="index">5</span> <span class="date">2007-05-09T22:28:01Z</span> <span class="author"><a href="../u/9370714.html">stepself</a></span></div><div class="post-body"><a href="http://aix1.uottawa.ca/~jkhoury/cryptography.htm">Google search result for "matrix encryption"</a></div></div>
+<div class="post" id="p320120"><div class="post-head"><a class="id" href="../t/17274.html#p320120">#320120</a> <span class="index">6</span> <span class="date">2007-05-10T20:35:06Z</span> <span class="author"><a href="../u/9372159.html">theinvader</a></span></div><div class="post-body">Hmm, could be useful but it doesn't quite correspond to how I encrypted it. I used <a href="http://www.theproblemsite.com/codes/matrix.asp">this</a> tutorial.</div></div>
+<div class="post" id="p320121"><div class="post-head"><a class="id" href="../t/17274.html#p320121">#320121</a> <span class="index">7</span> <span class="date">2007-05-10T20:41:00Z</span> <span class="author"><a href="../u/9370681.html">Kablizzy</a></span></div><div class="post-body">It's my duty to ask you why.</div></div>
+<div class="post" id="p320279"><div class="post-head"><a class="id" href="../t/17274.html#p320279">#320279</a> <span class="index">8</span> <span class="date">2007-05-11T12:08:37Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Where A is the unencoded input, B is the encoding matrix, and C is the encoded output, and where I am not prepared to try and fit my explanation to whatever tutorial you used, my process would be:<br>
+<br>
+A . B = C [to encode it]<br>
+A = C . Inv(B) [to decode it]</div></div>
+<div class="post" id="p320344"><div class="post-head"><a class="id" href="../t/17274.html#p320344">#320344</a> <span class="index">9</span> <span class="date">2007-05-11T20:01:43Z</span> <span class="author"><a href="../u/9371944.html">Floorhugger</a></span></div><div class="post-body">I'm going to learn this, (beacuse I can), but what do you multiply the numbers by?</div></div>
+<div class="post" id="p321126"><div class="post-head"><a class="id" href="../t/17274.html#p321126">#321126</a> <span class="index">10</span> <span class="date">2007-05-14T16:08:57Z</span> <span class="author"><a href="../u/9372159.html">theinvader</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17274.html#p320121">Quote: Kablizzy, May 10, 2007 08:41 pm</a></div> It's my duty to ask you why.  </blockquote> <br>
+ Like I said, because I was bored and I felt like finding an almost uncrackable way of encoding messages.<br>
+<br>
+Thanks Maestro, it looks like I'm just gonna have to start again then.</div></div>
+</main>
+</body>
+</html>

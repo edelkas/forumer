@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>circle-line intersection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; circle-line intersection</nav></header>
+<main>
+<div class="post" id="p15466"><div class="post-head"><a class="id" href="../t/17590.html#p15466">#15466</a> <span class="index">1</span> <span class="date">2007-06-01T08:47:25Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yes, i do suck. I can't seem to get my head around the math for circle-line intersection, which i need to solve <br>
+the problem described in this thread:<br>
+<br>
+<a href="../t/16803.html">http://metanet.2.forumer.com/index.php?showtopic=16803</a><br>
+<br>
+can anyone help in this regard, explaining how i can write an algorithm to find intersection points?<br>
+<br>
+the information i have is:<br>
+<br>
+the delta-x of the line<br>
+the delta-y of the line<br>
+a point on the line<br>
+the radius of the circle<br>
+the coordinates of the center of the circle<br>
+<br>
+I don't want to calculate the gradient because vertical lines cause a div-by-zero, so i can't use y=mx+b form.</div></div>
+<div class="post" id="p326247"><div class="post-head"><a class="id" href="../t/17590.html#p326247">#326247</a> <span class="index">2</span> <span class="date">2007-06-01T14:47:22Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17590.html#p15466">Quote: mattk210, June 01, 2007 08:47 am</a></div> yes, i do suck. I can't seem to get my head around the math for circle-line intersection, which i need to solve <br>
+the problem described in this thread:<br>
+<br>
+<a href="../t/16803.html">http://metanet.2.forumer.com/index.php?showtopic=16803</a><br>
+<br>
+can anyone help in this regard, explaining how i can write an algorithm to find intersection points?<br>
+<br>
+the information i have is:<br>
+<br>
+the delta-x of the line<br>
+the delta-y of the line<br>
+a point on the line<br>
+the radius of the circle<br>
+the coordinates of the center of the circle<br>
+<br>
+I don't want to calculate the gradient because vertical lines cause a div-by-zero, so i can't use y=mx+b form. </blockquote>Do you have the length of the line, or two endpoints? Or did you mean that dx and dy are the x- and y-components of the line, and not the components of its slope, as I originally read it? Or are you really trying to collide a circle with an infinite line? That's a lot easier than collision detection against a line segment (since for the line segment you have to do infinite-line collision and endpoint collision). In any event, I found that I had to simply special-case the vertical lines into my code; it's annoying and not very pretty, but it does work. <br>
+<br>
+EDIT: the following logic assumes that the line passes through the origin. This really makes a lot of things easier. Fortunately, you can modify things so you don't have to worry about the line's y-intercept. All that matters here is the relative positioning of your objects, after all. Say your line has a y-intercept of b. If you simply subtract b from the line's y-intercept, then the line passes through the origin. However, now the line is no longer in the same place relative to your circle that it was before. So subtract b from the circle's position as well! You've just moved both objects by the same amount, so their relative positions are the same. The only difference is that now the line passes through the origin, making the math much easier. END EDIT.<br>
+<br>
+To collide a circle against an infinite line, all you need to know is a) how far the circle is from the line. Usually you'll also want b) which side of the line the circle is on, but that's more for what to do after you've detected a collision. To get a), you need the closest point on the line to the circle; to get b) you need to know the normal of the line. Fortunately, getting a) is easy - all you have to do is project the circle's center onto the line. You have the line's slope &lt;dx, dy&gt;, which, incidentally, should be normalized (√(dx + dy) == 1) and the circle's center &lt;cx, cy&gt;. If you do a dot product on them, then you'll get the distance that you need to multiply &lt;dx, dy&gt; by to get the point &lt;cx, cy&gt; projected onto the line. In other words, if dx * cx + dy * cy = d, then the point &lt;d * dx, d * dy&gt; is the closest point on the line to the center of the circle. Now that you have that point, you can determine how far it is from the center of the circle by finding the length of the vector from &lt;d * dx, d * dy&gt; to &lt;cx, cy&gt;. That vector is &lt;cx - d * dx, cy - d * dy&gt;. Get its magnitude and compare it to your circle's radius, and if it's less, then you have a collision! <br>
+<br>
+Now, to determine which side of the line the circle hit, you can make use of a nice property of the dot product. If you dot two vectors together that are pointing in the same direction, not off by more than 90, then the result will be positive. If they are perpendicular - that is, exactly 90 opposed - then the result will be zero. If they are opposed, anywhere from 90 on up, then the result will be negative. Now your line has a slope &lt;dx, dy&gt;, which means that it has a normal &lt;-dy, dx&gt;. I'm going to assume that you know which side of the line that's on; typically you want your normal to be facing "outwards". You also have your vector &lt;cx - d * dx, cy - d * dy&gt; from the last exercise. Dot them together! The result will tell you if the circle is "inside" the line or not. Said result is -dy * (cx - d * dx) + dx * (cy - d * dy). If it's greater than zero, then the vector drawn from the line to the circle is pointing in the same direction as the normal of the line, which, if your normal is pointing outwards, means that the circle's center is outside the line. If it's negative, then the circle's center is inside. <br>
+<br>
+If you want to do line segment intersections, then you have to deal with endpoints. This is a bit more annoying, and I don't have time to get into it here. Sorry!</div></div>
+<div class="post" id="p326443"><div class="post-head"><a class="id" href="../t/17590.html#p326443">#326443</a> <span class="index">3</span> <span class="date">2007-06-02T02:24:42Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">it's great to see new members who know what they're talking about, especially when they're better than me <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+yes, it's an infinite line, but the results i wanted were the 2 intersection points of the line to the circle (see crappy diagram). there's the possibility of 2, 1, or 0 intersections, and my brain falls apart.<br>
+<br>
+and the only thng i need are those 2 points of intersection (or lack thereof), i dont need any additional data. <div class="attachment attachment-missing">Attachment (lost): post-14-1180751082.gif</div></div></div>
+<div class="post" id="p326449"><div class="post-head"><a class="id" href="../t/17590.html#p326449">#326449</a> <span class="index">4</span> <span class="date">2007-06-02T02:58:11Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17590.html#p326443">Quote: mattk210, June 02, 2007 02:24 am</a></div> it's great to see new members who know what they're talking about, especially when they're better than me <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+yes, it's an infinite line, but the results i wanted were the 2 intersection points of the line to the circle (see crappy diagram). there's the possibility of 2, 1, or 0 intersections, and my brain falls apart.<br>
+<br>
+and the only thng i need are those 2 points of intersection (or lack thereof), i dont need any additional data. </blockquote>Okay, in the event that the circle is tangent to the line, you already have your point - it's the projection of the circle's center onto the line. In the (much more likely) event that the circle intersects the line at two points, you should probably work from triangles:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/circle1.png" alt="" loading="lazy"><br>
+<br>
+<b>EDIT</b><br>
+Okay, gaze in awe at my diagram, then realize that you don't need to deal with sines, or cosines, or any of that nasty stuff. You have two limbs of the triangle - r and p - c! Use Pythagoras for the win. <br>
+<br>
+d / 2 = ?(r + (p - c)****)<br>
+<br>
+If you feel like reminding yourself of highschool geometry, keep reading. Also, the delta in the diagram (that weird 'd' symbol) has a keyboard equivalent, but evidently the board software doesn't like it, so I had to write it out. Ahh, well. <br>
+<b>END EDIT</b><br>
+<br>
+You know that the two equal limbs have distance r because they go from the center of the circle to the perimeter. What you want to find is d, or more specifically d / 2, because if you add and subtract d / 2 from the point p (which is the circle's center projected onto the line), then you can find the intersection points. Given that you have a triangle where you know the three sides, you can find all three angles involved; however, you only need delta. By drawing a line from the center of the circle to p, you get two right-angle triangles, where for each of them you know two sides (one is r, one is p - c) and one angle (90, for each of them). Using the law of cosines,<br>
+<br>
+cos(delta / 2) = (p - c) / r<br>
+-&gt;<br>
+delta / 2 = acos((p - c) / r)<br>
+<br>
+Now, using the law of sines,<br>
+<br>
+sin(delta / 2) = (d / 2) / r<br>
+-&gt;<br>
+r * sin(delta / 2) = d / 2<br>
+<br>
+And now you have d! If your line has slope &lt;dx, dy&gt; and p is &lt;px, py&gt;, then your points of intersection are simply &lt;px + d * dx / 2, py + d * dy / 2&gt;. <br>
+<br>
+Makes sense?</div></div>
+<div class="post" id="p326498"><div class="post-head"><a class="id" href="../t/17590.html#p326498">#326498</a> <span class="index">5</span> <span class="date">2007-06-02T06:51:26Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">excellent!<br>
+<br>
+you have been a massive help!</div></div>
+<div class="post" id="p465491"><div class="post-head"><a class="id" href="../t/17590.html#p465491">#465491</a> <span class="index">6</span> <span class="date">2008-08-29T22:11:53Z</span> <span class="author"><a href="../u/9376521.html">andreson2304</a></span></div><div class="post-body">Hi,<br>
+This is Andreson.As I like mathematics and statistics very much they are my favorite subjects from my school stage itself.Now I am presently I am maths teacher in a school If your are having any doubts you can contact me through E-mail..<br>
+<br>
+======================================<br>
+<br>
+Andreson2304<br>
+<br>
+for information on Alcohol Addiction....<br>
+<br>
+<a href="http://www.smartloc.net">WideCircles</a></div></div>
+<div class="post" id="p465494"><div class="post-head"><a class="id" href="../t/17590.html#p465494">#465494</a> <span class="index">7</span> <span class="date">2008-08-29T22:19:24Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks for the offer. I will undoubtedly have more problems in the future.</div></div>
+</main>
+</body>
+</html>

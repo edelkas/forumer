@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Highscore Ranking Statistics - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/15.html">High Scores</a> &rsaquo; Highscore Ranking Statistics</nav></header>
+<main>
+<div class="post" id="p688"><div class="post-head"><a class="id" href="../t/799.html#p688">#688</a> <span class="index">1</span> <span class="date">2004-08-14T05:40:51Z</span> <span class="author"><a href="../u/9370488.html">mixipixistix</a></span></div><div class="post-body">Hello, i've seen a few requests from different people for a like ranking system ala 1st place = 20 points,...  20th place = 1 point, and then all of the people who rank sums sorted from first to last... well I wrote a program tonight to do that... the results are here<br>
+<br>
+  <br>
+<br>
+<br>
+also, because I thought it'd be interesting I compiled the sum of the times for the episodes and levels...  they aren't super accurate because only the top 20 scores are available for a level or episode, so if someone doesn't fall in the top 20 they take a large hit, but, interesting all the same, available here...<br>
+<br>
+<br>
+<br>
+<br>
+the program is able to run in 15-20 minutes, though I plan on making it faster... would people be interested in these updating daily?  Or is it something just I'm going to find interesting? =)   also, if there are any other statistics similar to this you'd be interested in, please let me know, I enjoy doing this...<br>
+<br>
+... and lastly, Raigan or Mare, is there like a txt file or csv file the highscores php script pulls from?  Or does it pull from a sql database?  Right now I copied them all using a macro program, just curious if there's an easier way.  =)<br>
+<br>
+wheeeeee....</div></div>
+<div class="post" id="p25847"><div class="post-head"><a class="id" href="../t/799.html#p25847">#25847</a> <span class="index">2</span> <span class="date">2004-08-14T07:33:28Z</span> <span class="author"><a href="../u/9370542.html">[SA]k</a></span></div><div class="post-body">Excellent work. It'd be nice to see stats like this on the high-score board.<br>
+<br>
+Oh, and for some reason, I'm not listed on the episode rankings at all. Do you just not like me? <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p25848"><div class="post-head"><a class="id" href="../t/799.html#p25848">#25848</a> <span class="index">3</span> <span class="date">2004-08-14T07:46:27Z</span> <span class="author"><a href="../u/9370488.html">mixipixistix</a></span></div><div class="post-body">Oops... it seems like the [SA] part of your name killed the line, I fixed the problem, and added you manually to the list this time... shouldn't happen again.<br>
+<br>
+but, on a side note, yes, yes I do hate you, because you have the high score on 34-2, and while i've spent atleast 2 hours today trying to beat it, or atleast get closer to it, i'm still 2 seconds behind.  =)</div></div>
+<div class="post" id="p25849"><div class="post-head"><a class="id" href="../t/799.html#p25849">#25849</a> <span class="index">4</span> <span class="date">2004-08-14T08:20:21Z</span> <span class="author"><a href="../u/9370542.html">[SA]k</a></span></div><div class="post-body">aha, good luck.. hadn't checked that score in a few days, seems like no one else has been able to beat it either. You should divert your efforts to 42-3 instead, I've been waiting for someone to give me a challenge on it <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+And I just watched your 34-2 replay, all you need is to get the finish down and you'll have it.. just work on getting up there and making the final jump over and over, without concerning yourself with the beginning parts, then once you have it down, work on running the entire thing again.</div></div>
+<div class="post" id="p25856"><div class="post-head"><a class="id" href="../t/799.html#p25856">#25856</a> <span class="index">5</span> <span class="date">2004-08-14T17:36:43Z</span> <span class="author">Guest</span></div><div class="post-body">nice work -- maybe we can chat about linking to your page from the online highscores or something like that...anyway send us an email if you're interested.  <br>
+<br>
+the php pulls directly from a mysql db.</div></div>
+<div class="post" id="p25868"><div class="post-head"><a class="id" href="../t/799.html#p25868">#25868</a> <span class="index">6</span> <span class="date">2004-08-15T00:55:47Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Uh, Mixi? (do you mind if I call you that?  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> )<br>
+<br>
+For the episode and level times, would it not be more accurate to average out all the times, and then take the lowest average to be #0? Because they list the <i>highest</i> sum of times. The people who might just have one real good score are on the bottom just because their time sum is the lowest. Do you think you could modify your script to do that?<br>
+<br>
+Thank you for reading my meek cilantro suggestion. Once you're done doing something about it, you can go back to your lavish and fancy palace.</div></div>
+<div class="post" id="p25869"><div class="post-head"><a class="id" href="../t/799.html#p25869">#25869</a> <span class="index">7</span> <span class="date">2004-08-15T02:51:07Z</span> <span class="author"><a href="../u/9370488.html">mixipixistix</a></span></div><div class="post-body">Mixi's fine, its what most people call me =)<br>
+<br>
+Well, I went ahead and created two tables for your suggestion.<br>
+<br>
+Episode Average is here -  <br>
+<br>
+and the Level Average is here - <br>
+<br>
+I made it so that only people with 5 levels/episodes were included in those though, to attempt to filter out people who have only played episode 00 and therefore have a great score, but really aren't yet that great, though of course, these two lists still have some people that have only played levels with lots of gold.<br>
+<br>
+And if anyone cares, the other 4 have all been updated,</div></div>
+<div class="post" id="p25882"><div class="post-head"><a class="id" href="../t/799.html#p25882">#25882</a> <span class="index">8</span> <span class="date">2004-08-15T15:07:34Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Hey, Mixi.<br>
+<br>
+As long as I'm on a suggestion roll, here's an interesting idea:<br>
+<br>
+The tables only show the top 100 scores. However, some people might want to see only the best scores, or some of the more pathetic scores.<br>
+<br>
+For each table, it would be convenient to have a top 50 list, a top 100 list, and a top 200 list. This would serve just about anyone's highscore needs.<br>
+<br>
+Sorry if I'm piling too much work on you.<br>
+<br>
+<span style="color:WHITE">All right, I just wanted to see if I made the top 200, much less the top 100.  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> </span></div></div>
+<div class="post" id="p25946"><div class="post-head"><a class="id" href="../t/799.html#p25946">#25946</a> <span class="index">9</span> <span class="date">2004-08-17T18:34:26Z</span> <span class="author"><a href="../u/9370537.html">aaero</a></span></div><div class="post-body">Heh, this rules! Good work!</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can you help me - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Can you help me</nav></header>
+<main>
+<div class="post" id="p12163"><div class="post-head"><a class="id" href="../t/13668.html#p12163">#12163</a> <span class="index">1</span> <span class="date">2006-11-08T15:46:09Z</span> <span class="author"><a href="../u/9373378.html">M125</a></span></div><div class="post-body">Can you give a link to the downlode of the map editor of N???</div></div>
+<div class="post" id="p251694"><div class="post-head"><a class="id" href="../t/13668.html#p251694">#251694</a> <span class="index">2</span> <span class="date">2006-11-08T16:10:14Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body">Contents of <b>./editor_manual.txt</b> :<br>
+<br>
+N v1.4 / Ned v.1.1<br>
+<br>
+Ned (level editor) manual<br>
+<br>
+<br>
+<br>
+copyright  Metanet Software Inc.  2005<br>
+Raigan Burns / Mare Sheppard <br>
+metanet at harveycartel dot org<br>
+ <br>
+<br>
+<br>
+--------------------------------Table of Contents-------------------------------<br>
+<br>
+1. General Stuff<br>
+2. Getting Started<br>
+3. Tips for Designing Levels<br>
+4. Editing Levels<br>
+5. About Level Data<br>
+6. Playing in Debug Mode<br>
+7. Playing and Recording Demos<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 1  General Stuff<br>
+<br>
+Ned is what we call the level editor for N: N-ed (editor)  hey, we thought it was clever.  Anyway, Ned is built <br>
+right in to the release version of N, so you can get started creating levels without having to run another application.<br>
+<br>
+Unfortunately, the interface is not designed for ease of use.  Due to time constraints, we were not able to get <br>
+it to that point  but it is useable, and we find that once you get the hang of it, designing levels is pretty fun.  It's not as finished as the rest of N, but it's functional, and we apologize for the lack of pleasing aesthetics.<br>
+<br>
+Ned v1.1 brings some exciting changes to the proverbial table.  These are explained in Section 4, Editing Levels.  Check it out!<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 2  Getting Started<br>
+<br>
+Double click the Flash projector to start N.  At the main menu, press the [~] or [|] (vertical bar) key. If you have an international keyboard, try the [] (circle with two dots above it) key.<br>
+<br>
+Pressing [~] / [|] pulls up the debug menu.<br>
+<br>
+<br>
+Note!!  Press the [~] or the [|] key before any looping sounds from the demo start playing, they will loop for what seems like an infinite amount of time.  You can stop looping sounds by entering and exiting boss mode (default key is [tab]).<br>
+<br>
+<br>
+<br>
+In order to understand how to use Ned, youll need to understand debug mode.  First, a bit about what each menu command does.<br>
+<br>
+The debug menu looks like this:<br>
+<br>
+[M] Main menu<br>
+[L] Load level (from textbox)<br>
+[S] Save level (to clipboard)<br>
+[J] Load empty map<br>
+[H] Load full map<br>
+[E] Edit level<br>
+[R] Reset objects<br>
+[T] Reset+edit<br>
+[P] Continue playing level<br>
+<br>
+[1] Begin recording demo<br>
+[2] Stop recording demo<br>
+[Q] Begin demo playback (WARNING: resets objects)<br>
+[W] End demo playback<br>
+[3] Load demo (from textbox)<br>
+[4] Save demo (to clipboard)<br>
+<br>
+<br>
+<br>
+<br>
+[M] Return to main menu <br>
+This will bring you to the games menu, where you can choose to read the story, see the help and start or continue a new game of N.  Make sure you save your level data before going here.<br>
+<br>
+[L] Load level (from textbox)<br>
+This loads level data from the top textbox (pressing [L] brings up the text boxes  the top text box is for level data, and the bottom one is for demo data).<br>
+<br>
+[S] Save level (to clipboard)<br>
+This saves the current level data to the top textbox and to the clipboard.  You can then paste it into a text file by pressing [CTRL] +[V].<br>
+<br>
+[J] Load empty map<br>
+This feature loads a new empty map you can start with.<br>
+<br>
+[H] Load full map<br>
+This feature loads a new map full of solid tiles you can start with.<br>
+<br>
+[E] Edit level<br>
+Press this key to pull up Neds menu and begin creating / editing levels without resetting objects.  <br>
+At the editor menu, pressing [insert] ([help] on an Apple pro keyboard) or [numpad 0] allows you to edit <br>
+objects, and [delete] or [numpad .] allows you to edit ground tiles.  See section 4 for more information.<br>
+       <br>
+       <br>
+[R] Reset objects<br>
+This resets all the objects in the level to their initial states.  This is useful if you die while testing and want to have another go. <br>
+<br>
+[T] Reset+edit<br>
+Press this key to pull up Neds menu and begin creating / editing levels after resetting objects.  <br>
+At the editor menu, pressing [insert] ([help] on an Apple pro keyboard) or [numpad 0] allows you to edit <br>
+objects, and [delete] or [numpad .] allows you to edit ground tiles.  See section 4 for more information.<br>
+ <br>
+[P] Continue playing level<br>
+This command refers to the debug environment, and not to the real game environment. Some of the keys are different than when youre playing N  see Section 6 for more info on debug gameplay.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+[1] Begin recording demo<br>
+Demos of your actions can be recorded while you play.  This handy feature lets you review your strategies, and more importantly, prove to your friends that the level you built is actually beatable.  <br>
+<br>
+IMPORTANT: the level must be in its initial state when you begin recording, or your demo won't play back properly.  Press [R] to reset the level before recording, especially if you've changed the level by playing in debug mode.<br>
+<br>
+[2] Stop recording demo<br>
+Pretty self-explanatory, I like to think.  <br>
+<br>
+[Q] Begin demo playback (WARNING: resets objects)<br>
+This initiates playback of the current demo data.  After youve recorded a demo, you can copy + paste it to a .txt file for future viewings.  Press [Z] to bring up the demo text in the lower textbox.  Press [Q] to start playback, and [P] to actually play the demo.<br>
+<br>
+[W] End demo playback<br>
+For when youre done watching your demo. If you try to play and the ninja is moving on its own, you forgot to stop playing the previous demo.<br>
+<br>
+[3] Load demo from textbox<br>
+After youve recorded a demo, this key loads demo data from the lower textbox into the game.  <br>
+<br>
+[4] Save demo (to clipboard)<br>
+This saves level data from the top textbox to the clipboard.  You can then paste it into a text file by pressing [CTRL] +[V].<br>
+<br>
+See section 7 for more information on recording and playing demos.  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ ----------------------------------------Section 3  Tips for Designing Levels<br>
+<br>
+Level design is pretty fun, once you get the hang of the interface.  Here are a few things to remember, from seasoned level designers <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+First of all, new in 1.1 is the ability to play levels you've created in N game mode.  Levels playable in game <br>
+mode are read from a text file in N's directory called userlevels.txt.  We recommend that you keep work-in-progress levels in a different text file than userlevels.txt -- this way you'll have a backup copy, and you can be sure only finished levels appear in userlevels.txt.<br>
+<br>
+<br>
+<br>
+---Save Often---<br>
+<br>
+Its a good idea to save your level data once when youre halfway done, and again when youre completely finished.  Common sense, right?<br>
+<br>
+<br>
+<br>
+---Necessary Objects---<br>
+<br>
+Each level must contain a ninja and an exit.  The rest is up to you.  <br>
+You can add more than one exit, if youd like.<br>
+<br>
+<br>
+<br>
+---Gold---<br>
+<br>
+Gold adds 2 seconds of time to the total time remaining per level.  So when youre adding gold, remember that <br>
+each level lasts 90 seconds.  Adding too much can make the level a cinch; adding too little can make things <br>
+impossible.  You dont have to add any gold, but used strategically, it can add quite a bit of depth to a level.<br>
+<br>
+Typically, it helps to design levels, test them in debug  mode, and then play through it in User Levels mode.  This will give you an idea of how much gold to add.  About one minutes worth of gold is a lot.  But it doesnt have to be easy to get.<br>
+<br>
+<br>
+<br>
+---Difficulty---<br>
+<br>
+Have an idea of the difficulty of your level, so you can add it to your level description (see Section 4) if you <br>
+like.  When creating levels for N, we generally classify them as Easy, Medium or Hard, but each classification <br>
+has a range from very basic to quite tricky.  You should be able to figure out where your level fits after <br>
+testing it.<br>
+<br>
+Harder levels do not necessarily have more enemies.  <br>
+<br>
+<br>
+<br>
+---Level Type---<br>
+<br>
+In userlevels.txt, levels are qualified by 3 things: title, author and type.  You can assign anything you want <br>
+for 'type', eg. DDA, Survival, easy, medium, hard, crappy, awesome etc.  See section 4 for a recommendation on <br>
+how to keep your levels organized before you add them to userlevels.txt.<br>
+<br>
+<br>
+<br>
+---Level Constraints---<br>
+<br>
+Stationary objects, such as mines and gold, are pretty much inconsequential  you can have lots on-screen without a noticeable drop in framerate.  Generally, 30-50% of the screen should be empty when youre finished designing your level.<br>
+<br>
+Enemies that move are more costly  testing levels should let you know when youve got too many.  Expect a drop in framerate and therefore sluggish response.<br>
+<br>
+There are no constraints on tiles, so any arrangement should work.  Keep in mind, however, that some tile layouts, like steep cracks, might not be fun.  <br>
+<br>
+<br>
+<br>
+---Themes---<br>
+<br>
+In our experience, level design works best when you start with the tiles and have an idea of the objects and enemies youd like to place in your level.  Try choosing a theme  a type of tile, a shape or pattern of tiles, a type of enemy, or a level designed around using a particular move.  This will keep your level focused, and will make it feel less random and thrown together.  Designing easy levels is fun when youre starting out, and is sometimes more difficult than it first seems.  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 4  Editing Levels<br>
+<br>
+<br>
+1. Launch the application.  (the Flash projector file, eg. n_v14pc.exe)<br>
+<br>
+2. Press [~] or [|] when the game starts to access the debug menu.<br>
+<br>
+3. Press [J] to load an empty map, or [H] to load a full one.<br>
+<br>
+4. Press [E] or [T] to access Ned, and to begin editing the level.  The editor menu will pop up with the following options:<br>
+<br>
+[Delete] or [numpad .] <br>
+       Press to begin editing tiles  <br>
+       <br>
+[Insert] or [numpad 0]<br>
+       Press to begin editing objects<br>
+       <br>
+[PGDN] <br>
+       Press to save current level data to textbox<br>
+       <br>
+[PGUP] <br>
+       Press to load level data from textbox<br>
+<br>
+<br>
+<br>
+<br>
+---Adding Tiles---<br>
+<br>
+Press [delete] or [numpad .] from Neds menu to add ground tiles.  <br>
+<br>
+They are organized into 8 types, and 4 directions, or categories, in each type.  Holding [shift] when youre using any type of tile lets you place the compliment of the current tile type.  Complimentary types are joined in the tile menu by a vertical line.  <br>
+<br>
+Ned contains a legend that will show you which key to press in order to place a particular tile.<br>
+<br>
+To place a tile, press the key corresponding to the type of tile youd like to place (ie. [1]-[8]) and position the cursor over the grid cell where you want the tile to appear.  <br>
+<br>
+Then press the key corresponding to the direction, or category, of that type of tile (ie. [Q], [W], [S], [A]).  [E] and [D] place full or empty tiles, respectively, regardless of which type of tile is currently selected.  <br>
+<br>
+When youre finished editing the ground tiles, press [home] to return to the editor menu, where you can save your level data.  Note also that at any time, you can press [insert] or [numpad 0] to begin editing objects.<br>
+<br>
+<br>
+<br>
+<br>
+---Adding Objects---<br>
+<br>
+Press [insert] or [numpad 0] from Neds menu to add objects.  Objects can be items, enemies, doors, the exit and the ninja.  <br>
+<br>
+First press the key that corresponds to the type of object youd like to add  the editor contains a legend, which shows all the objects you can add and the key you need to press to add them.  <br>
+<br>
+To place an object, position the cursor over the cell where youd like the object to appear, and click.  Some objects require that you hold a key while clicking.<br>
+<br>
+Several objects have a number of steps youll need to go through before they can be successfully placed.  It should be fairly straightforward, but at times placed objects or board edges will obscure the cursor text. <br>
+<br>
+Delete objects by holding [backspace] and clicking them.  Delete exits by clicking on exit doors, not the exit trigger.  Doors, however, must be deleted by clicking on the door trigger, not the door.  <br>
+<br>
+Hold [|] (vertical bar) and click to delete objects in reverse order of creation.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---New to v1.1 - Viewable Gridlines---<br>
+<br>
+N is a grid/tile based game, so each level is designed on an invisible grid.  At least, until now.  <br>
+You can now choose to view different grid patterns overlaid on the screen.<br>
+<br>
+There are ten options for the grid.  Pressing [V] hides the grid, and the other 9 keys (B,N,M,F,G,H,J,K,L)<br>
+display different types of grid, containing different offsets and different line spacings.  The <br>
+gridlines should help you line up both tiles and objects, and are especially helpful for levels requiring <br>
+symmetry.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---New to v1.1 - Duplicate and Move mode---<br>
+<br>
+Perhaps the most exciting new change is Duplicate and Move mode, which is much like the copy and paste options available to you in other programs.  <br>
+<br>
+Duplication and Moving only works in Tile Edit mode.  Click and hold to begin dragging a "selection" outline.  <br>
+Release the mouse button when your rectangle surrounds the tiles you wish to move or duplicate: these are the tiles you will copy from.  <br>
+<br>
+A light gray rectangle will now follow the mouse. Move it to the location to which you'd like to move or duplicate; these are the tiles you will copy to.<br>
+<br>
+<br>
+You now have these options:<br>
+<br>
+[C] Press this to copy the tiles outlined by the white rectangle and duplicate them inside the gray rectangle<br>
+[X] Press this to move the tiles from the white rectangle to the gray rectangle<br>
+[Z] Press this to remove all tiles within the gray rectangle<br>
+[A] Press this to fill the gray rectangle with full tiles<br>
+<br>
+Or, you can click and drag to create a new selection rectangle, which will get rid of the old one.<br>
+<br>
+Click to return to normal tile-editing mode.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---New to v1.1 - Hide/Show Triggers---<br>
+<br>
+Showing Triggers allows you to see which triggers work with which doors via a thin line connecting the two.  <br>
+This is handy when you've got a level containing multiple locked doors to keep track of!<br>
+<br>
+Trigger-lines are visible in both modes, but you can only toggle them on or off from Object Edit mode. <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---New to v1.1 - Cursor Snap Modes---<br>
+<br>
+Cursor snap modes have been around since the beginning of Ned, but they've only been documented for v1.1.  The secret's out!  Cursor snap modes are only useable in Object Edit mode.<br>
+<br>
+Snap modes allow you to position objects in different places in each cell:<br>
+ <br>
+[Z] no snapping<br>
+[X] cursor snaps to half the width/height of a cell<br>
+[C] cursor snaps to one quarter (1/4) the width/height of a cell<br>
+<br>
+It's difficult to explain -- try it and see!<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---Saving and Loading Level Data---<br>
+<br>
+After youre finished creating a level, press [home] to return to the edit menu, and then [PGDN] to pull up the level data text boxes, which will then contain your level data. <br>
+<br>
+Click in the top text box and press [CTRL]+[A] (or [Command] + [A] in Mac) to select all the text and [CTRL]+C ([Command] + [C]) to copy it so you can paste it to a text file and save it.  <br>
+<br>
+You can paste level data into the top text box and press [PGUP] to load it into the editor.<br>
+<br>
+<br>
+<br>
+<br>
+We recommend that you document levels like this as you make them:<br>
+    <br>
+from Bills_levels.txt<br>
+<br>
+<br>
+//space battle 2 <br>
+//difficulty  very easy<br>
+//type - action<br>
+00000000000000000000000000000000000000000000000000001101101000000000000001100000000000000000000010000000001100000000000100000000000000000000010000000000000000000000000011000000010000000000000100000000100000000010001000000001000000000100000000000000000000000000000000000111100000000001000000011001100000100001000001100001000001000010000010000010000000000000000100000100000010000000001000001000000000000111010000000000000000000000100000100000000100000001000010000000000100000010001000000000000000000010101000000000000100000111110000000000000011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^333,344.40180371574!0^156,288<br>
+<br>
+-----<br>
+<br>
+//space battle 2 demo<br>
+444:0|0|35782656|73819758|71582788|2236966|0|35791394|0|0|0|0|0|0|0|35791394|201326626|71582788|105137220|107374182|35791398|35791394|139810|0|0|0|0|0|71614464|107374180|107374182|35808870|546|0|0|0|0|0|0|2236928|0|0|0|0|0|71584768|107365444|35791394|35791394|546|0|0|35791360|35791394|0|0|8704|35651584|2|35790848|107374306|36071014|34|0<br>
+<br>
+<br>
+------------------<br>
+<br>
+Bill Pullman<br>
+25 April 2004<br>
+billpullman at whatever dot com<br>
+<br>
+<br>
+<br>
+Level names should be short (say, no more than 50 characters), and as descriptive as you can manage.<br>
+<br>
+<br>
+<br>
+<br>
+---Testing Newly Made Levels---<br>
+<br>
+When youre done saving your level, press [~] or [|] from the editor menu to return to the debug menu, where you can play your new level by pressing [P].  See Section 6 for more info on playing in debug mode.<br>
+<br>
+Its important to test each level, to make sure its beatable.  Recording a demo of you beating the level is also a good idea, because then people will believe you when you claim your level's not impossible.<br>
+<br>
+<br>
+After testing, you can consider your level finished, and try it in User Levels mode, in which you can play it in <br>
+game mode rather than debug mode.  Read the included userlevels.txt file for more information on how to add levels.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 5  About Level Data<br>
+<br>
+As youll see when you start saving levels (or by looking at the example above), each level is saved in the form of numbers and symbols.  <br>
+<br>
+Generally, you can tell level data from demo data by the first few characters.  If you see a : (colon), its a demo.<br>
+<br>
+In the level data, ground tiles are described first.  Youll see a whole bunch of 1s and 0s (and other characters), followed by a [|] (vertical bar).  After the vertical bar, object data is described.   <br>
+In the example on above, look at this code, after the ground tile data:<br>
+<br>
+5^333,344.40180371574<br>
+<br>
+This code describes the ninja, and is ALWAYS found right after the vertical bar, unless you havent added one yet.  <br>
+<br>
+In the example above:<br>
+<br>
+5 represents the objects ID code.  <br>
+^ separates object ID from parameters describing that object.<br>
+333 is the x coordinate of this object.<br>
+344.40180371574 is the y coordinate of this object.<br>
+<br>
+If you look at the example level data above again, youll see ! after the ninja data:<br>
+! divides the code for each object.  So it marks the end of the data for the ninja object in this case.<br>
+<br>
+Each object has a different ID code and a different set of parameters.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 6  Playing in Debug Mode<br>
+<br>
+At the debug menu, you can press [P] to test a level by playing through it.  There are several controls available in debug mode which are added to help debugging and testing.<br>
+<br>
+<br>
+Gameplay commands<br>
+<br>
+[caps lock]  pause / unpause the game<br>
+       -turn caps lock on to begin playing, after pressing [P].<br>
+<br>
+[enter] - toggle between alive and dead<br>
+-if dead, you will respawn alive at the mouse cursors position. This is useful if you die while testing a level, and want to continue playing it without restarting. <br>
+ -if alive, you will be killed by a blow in the same direction as the cursor-to-player direction.<br>
+<br>
+[shift] - while dead, hold shift and move the mouse to shove the rag doll around. <br>
+<br>
+[ctrl]/[command] - while dead, hold ctrl/command and move the mouse to drag the rag doll around. <br>
+<br>
+[spacebar]  while dead, toggles between exploded and non-exploded.<br>
+<br>
+<br>
+Note: When the ninja dies in debug mode, objects will continue to behave as if the ninja was alive.  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+----------------------------------------Section 7  Playing and Recording Demos<br>
+<br>
+<br>
+---Recording a Demo---<br>
+<br>
+<br>
+1. Create or load a level:  Press [L] to bring up the data textboxes, and paste your level into the top textbox.<br>
+<br>
+2. Press [L] to load the level.<br>
+<br>
+3. Press [1] to start recording the demo.<br>
+<br>
+4. Press [P] to start playing the level, so your exploits can be recorded.<br>
+<br>
+5. Make sure caps lock is on!<br>
+<br>
+6. When youre finished playing and want to stop the demo, press [~] to return to the debug menu.<br>
+<br>
+7. Press [2] to stop recording.<br>
+<br>
+8. Press [4] to save your demo data to the clipboard.<br>
+<br>
+9. Paste demo data to a text file.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+---Playing Back a Recorded Demo ---<br>
+<br>
+<br>
+<br>
+Note!!  Always paste demo data into the lower text box!<br>
+<br>
+The top textbox should be filled with level data corresponding to the demo -- the level in which the demo should be played.<br>
+<br>
+<br>
+1. Press [L] to pull up the textboxes.  Paste level data into the upper text box, paste demo data into the lower text box.<br>
+<br>
+2. Press [L] to load your level.<br>
+<br>
+3. Press [3] to load your demo.<br>
+<br>
+4. Press [Q] to initiate playback of the demo.<br>
+<br>
+5. Press [P] to start viewing the demo.<br>
+<br>
+6. Make sure caps lock is on!<br>
+<br>
+<br>
+ <br>
+Ned v1.1				<br>
+Level Editor Readme<br>
+copyright © 2005 Metanet Software Inc.<br>
+Raigan Burns / Mare Sheppard<br>
+<br>
+Dumbfuck.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>teleporter - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; teleporter</nav></header>
+<main>
+<div class="post" id="p7021"><div class="post-head"><a class="id" href="../t/7762.html#p7021">#7021</a> <span class="index">1</span> <span class="date">2006-02-23T23:28:20Z</span> <span class="author"><a href="../u/9371703.html">puremaplesyrup</a></span></div><div class="post-body">i have run into several of these levels created by users with teleporters somehow made of jump pads. i was just wondering how you make them.</div></div>
+<div class="post" id="p147653"><div class="post-head"><a class="id" href="../t/7762.html#p147653">#147653</a> <span class="index">2</span> <span class="date">2006-02-23T23:35:57Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">I want to ask you one thing before I help you:<br>
+<br>
+Are you willing to spend a lot of time making the teleporter work?</div></div>
+<div class="post" id="p147655"><div class="post-head"><a class="id" href="../t/7762.html#p147655">#147655</a> <span class="index">3</span> <span class="date">2006-02-23T23:36:39Z</span> <span class="author"><a href="../u/9371703.html">puremaplesyrup</a></span></div><div class="post-body">yes. a very long time</div></div>
+<div class="post" id="p147660"><div class="post-head"><a class="id" href="../t/7762.html#p147660">#147660</a> <span class="index">4</span> <span class="date">2006-02-23T23:45:43Z</span> <span class="author"><a href="../u/9371703.html">puremaplesyrup</a></span></div><div class="post-body">i know this is an advanced first post, but i am not new to n. i have been a long time reader hear, and am almost completely done with the game.</div></div>
+<div class="post" id="p147662"><div class="post-head"><a class="id" href="../t/7762.html#p147662">#147662</a> <span class="index">5</span> <span class="date">2006-02-23T23:47:09Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Alrighty then. Here's what to do:<br>
+<br>
+1. Make two seperate areas with 1-wide dead-end passageways somewhere in them. Put launchpads in the end of these. Place the pad the ninja will exit out of first, then the one the ninja will hit.<br>
+<br>
+2. Delete all walls in between the two areas.<br>
+<br>
+3. Go to the text box with your level code in it. Go to the end of the code. You should see something like the following:<br>
+<pre class="code">2^xcoordinate,ycoordinate,xacceleration,yacceleration</pre><br>
+The 2^ means it's a launchpad, and the first two variables represent its location. The last two represent x and y acceleration.<br>
+<br>
+4. Positive numbers launch the ninja up and to the right, negative numbers launch the ninja down and to the left. Type in different numbers into the xacceleration and yacceleration fields, then load the level.<br>
+<br>
+5. Go down the narrow corridor, then enter frame-by-frame mode. Hit the launchpad, then note where the first and second frames of the ninja are.<br>
+<br>
+6. Mess with the x and y acceleration until the ninja hits the other launchpad in the second frame.<br>
+<br>
+7. Congrats! You now have a fully functional one-way teleporter.</div></div>
+<div class="post" id="p147667"><div class="post-head"><a class="id" href="../t/7762.html#p147667">#147667</a> <span class="index">6</span> <span class="date">2006-02-23T23:55:28Z</span> <span class="author"><a href="../u/9371703.html">puremaplesyrup</a></span></div><div class="post-body">thanks. i don't think i would have ever figured that one out myself.</div></div>
+<div class="post" id="p147704"><div class="post-head"><a class="id" href="../t/7762.html#p147704">#147704</a> <span class="index">7</span> <span class="date">2006-02-24T01:44:06Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">It was discovered by accident when we messed with the level code. Seriously, try it yourself, there are some cool unintended effects <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p148536"><div class="post-head"><a class="id" href="../t/7762.html#p148536">#148536</a> <span class="index">8</span> <span class="date">2006-02-25T19:20:01Z</span> <span class="author"><a href="../u/9371714.html">Andy</a></span></div><div class="post-body">Thanks, this guide helped a lot.<br>
+i had been looking for the words 'xacceleration' and 'yacceleration' for a while though  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p149669"><div class="post-head"><a class="id" href="../t/7762.html#p149669">#149669</a> <span class="index">9</span> <span class="date">2006-02-28T13:35:13Z</span> <span class="author"><a href="../u/9371719.html">Twerp</a></span></div><div class="post-body">read this <div class="attachment attachment-missing">Attachment (lost): post-11-1141133713.zip</div></div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>.txt stuff - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; .txt stuff</nav></header>
+<main>
+<div class="post" id="p16953"><div class="post-head"><a class="id" href="../t/19135.html#p16953">#16953</a> <span class="index">1</span> <span class="date">2007-08-26T04:59:05Z</span> <span class="author"><a href="../u/9374975.html">clcflash</a></span></div><div class="post-body">How in the world do you extract the data from the txt files in the n game? What kind of coding do you use to read in between # symbols?<br>
+<br>
+I would appreiciate it if anyone would share this knowledge with me, I've scoured the internet until fate has brought me here.... lol. But seriously.. how?  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"></div></div>
+<div class="post" id="p359481"><div class="post-head"><a class="id" href="../t/19135.html#p359481">#359481</a> <span class="index">2</span> <span class="date">2007-08-26T05:05:01Z</span> <span class="author"><a href="../u/9372660.html">victimBF2</a></span></div><div class="post-body">$Map Name#Author Name#Gametype#Map Data#<br>
+<br>
+i hope that helps</div></div>
+<div class="post" id="p359482"><div class="post-head"><a class="id" href="../t/19135.html#p359482">#359482</a> <span class="index">3</span> <span class="date">2007-08-26T05:09:04Z</span> <span class="author"><a href="../u/9374975.html">clcflash</a></span></div><div class="post-body">No no  <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"> I mean how do you get the variables separated from that form in actionscipt  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p359497"><div class="post-head"><a class="id" href="../t/19135.html#p359497">#359497</a> <span class="index">4</span> <span class="date">2007-08-26T05:49:14Z</span> <span class="author"><a href="../u/9372660.html">victimBF2</a></span></div><div class="post-body">oh... ive done something like this before. ok here are the steps. Create a couple of input text fields. One for Name, Author, Yada Yada Yada. Under each of there "Var:" call it something like Titled or Author. After you did all that, create a button. In its action use this line<br>
+<br>
+<pre class="code">on(press){
+     System.setClipboard("$"+Title+"#"+Author+"#"+Type+#Map Data+"#");
+}</pre><br>
+that should copy all of it to your clip board. Where Title is the "Var:" of the input text for the title. And so on and so forth. Since you extract it as a .txt file, after clicking the button, open up a notepad or whatever and press Paste.<br>
+<br>
+If its tough to understand, i can set up a example.</div></div>
+<div class="post" id="p359694"><div class="post-head"><a class="id" href="../t/19135.html#p359694">#359694</a> <span class="index">5</span> <span class="date">2007-08-26T19:28:07Z</span> <span class="author"><a href="../u/9374975.html">clcflash</a></span></div><div class="post-body">That's still not answering my question  <img class="smiley" src="../files/smilies/24.gif" alt="wth" title="wth">. I need to know the reverse of that, how to get the variables from the .txt to variables in flash (still seperated by # marks, not the blah=lalala&amp;this=that stuff, which is where most tutorials go)</div></div>
+<div class="post" id="p359723"><div class="post-head"><a class="id" href="../t/19135.html#p359723">#359723</a> <span class="index">6</span> <span class="date">2007-08-26T21:13:04Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">can't you just use String.split()<br>
+(look it up, its pretty simple)</div></div>
+<div class="post" id="p359831"><div class="post-head"><a class="id" href="../t/19135.html#p359831">#359831</a> <span class="index">7</span> <span class="date">2007-08-27T02:20:55Z</span> <span class="author"><a href="../u/9374975.html">clcflash</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">.....   <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"> <br>
+<br>
+Thanks so much! this be'z exactly what I was looking for!</div></div>
+<div class="post" id="p360086"><div class="post-head"><a class="id" href="../t/19135.html#p360086">#360086</a> <span class="index">8</span> <span class="date">2007-08-27T23:20:06Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Wow, he must be new at the language...<br>
+If you do check back, be sure to look at the Flash API.<br>
+It's helped me a lot, and you can benefit from them as well</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object following a line - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Object following a line</nav></header>
+<main>
+<div class="post" id="p11871"><div class="post-head"><a class="id" href="../t/13335.html#p11871">#11871</a> <span class="index">1</span> <span class="date">2006-10-22T00:34:34Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Hey,<br>
+<br>
+I am working on a little flash game and I have been having some hittest and gravity problems. I want an object to follow a line inside a MC and so far I managed to get velocity and gravity working but it doesn't follow the line with my hittest method... I was wondering if you guys could suggest a more "advanced" way of doing this. I read the tutorials and all but that stuff is a bit confuzzing and theres a ton of code + its tile based. I want mine to follow any line that is drawn inside of the MC.<br>
+<br>
+Thanks,<br>
+-robodude666</div></div>
+<div class="post" id="p244365"><div class="post-head"><a class="id" href="../t/13335.html#p244365">#244365</a> <span class="index">2</span> <span class="date">2006-10-22T11:21:36Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">There are some open Questions: Is it a straight line or does it have some turns? And why do you need gravity if it should follow a line?</div></div>
+<div class="post" id="p244380"><div class="post-head"><a class="id" href="../t/13335.html#p244380">#244380</a> <span class="index">3</span> <span class="date">2006-10-22T13:02:43Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">No, it could be any line. It could be a straight line, there could be caps, heck! They could even be a "loop the loop"! Reason for the gravity was I need the ball to fly when it needs to and drop when it needs to... I started making it under the idea that if the ball was forced to go down and there was a line in its path, if you make a simple hittest to make it stay above the line, then it would follow the line... But apparently that doesnt work!<br>
+<br>
+Thanks in advance,<br>
+-robodude666</div></div>
+<div class="post" id="p244892"><div class="post-head"><a class="id" href="../t/13335.html#p244892">#244892</a> <span class="index">4</span> <span class="date">2006-10-23T08:49:08Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">Ah you want to make something like the line drawing thing in the other games forum.<br>
+<br>
+The trick doing physics like these is quite the same as in n except the fact that some values are fixed because of the tile based System.<br>
+<br>
+Everey segment of the line has a starting point and an end point abd the moving thing also has its own points. What you have to do is to calculate the distance between the line and the object. I have no good painting programm on my PC so I can't make a scheme for you but it's possible, trust me.</div></div>
+<div class="post" id="p245551"><div class="post-head"><a class="id" href="../t/13335.html#p245551">#245551</a> <span class="index">5</span> <span class="date">2006-10-24T22:55:30Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Woops, sorry for late reply! I totally forgot about this topic.<br>
+<br>
+Yup, I am trying to create a game similar to LineFlyer (<a href="http://addictinggames.com/lineflyer">http://addictinggames.com/lineflyer</a>) but with some chances.<br>
+<br>
+Could you describe this in more detail? I am not understanding what you are saying.<br>
+<br>
+Thanks,<br>
+robodude666</div></div>
+<div class="post" id="p245671"><div class="post-head"><a class="id" href="../t/13335.html#p245671">#245671</a> <span class="index">6</span> <span class="date">2006-10-25T08:23:05Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">It's too way much to write it down in a few minutes. So I searched my eavourite Homepage with for Game development thuings and I found <a href="http://www.gamedev.net/reference/articles/article1026.asp">this</a>. <br>
+<br>
+Its only about colliding dynamic circles vs. static polygons but it should work for you too with your gravity and velocity.</div></div>
+<div class="post" id="p258409"><div class="post-head"><a class="id" href="../t/13335.html#p258409">#258409</a> <span class="index">7</span> <span class="date">2006-11-23T04:04:23Z</span> <span class="author"><a href="../u/9373180.html">Pate_Rake</a></span></div><div class="post-body">Line flyer is the coolest drawing game i think<br>
+<br>
+<br>
+edit:sry that didnt help you at all just thopught id say it</div></div>
+<div class="post" id="p258592"><div class="post-head"><a class="id" href="../t/13335.html#p258592">#258592</a> <span class="index">8</span> <span class="date">2006-11-23T19:36:52Z</span> <span class="author"><a href="../u/9373416.html">qszwax57</a></span></div><div class="post-body">line flyer cut the code from linerider without permition. I line linerider because it is the origonal.<br>
+<br>
+just so you guys know</div></div>
+</main>
+</body>
+</html>

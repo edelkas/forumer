@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the power of C++ - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; the power of C++</nav></header>
+<main>
+<div class="post" id="p11987"><div class="post-head"><a class="id" href="../t/13465.html#p11987">#11987</a> <span class="index">1</span> <span class="date">2006-10-29T02:06:20Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">You may have seen my previous topics on C++. I'm currently developing a game. I started in Flash, and I'm attempting to move to C++.<br>
+<br>
+However, C++ is quite difficult, and before i learn it, i have some questions:<br>
+<br>
+1) is it possible to render and work with vectors like in flash? If i wanted the main character to be an oval, could i just draw one dynamically and rotate it, resize it whatever?<br>
+2) can i anti-alias these vectors?<br>
+3) do i do these things (if i can do them at all) in DirectX or OpenGL?<br>
+<br>
+My game is 2D. I know Mare and Raigan's next game is C++ and OpenGL, so is it as clean and antialised as N?<br>
+<br>
+I hope all that was clear...</div></div>
+<div class="post" id="p247422"><div class="post-head"><a class="id" href="../t/13465.html#p247422">#247422</a> <span class="index">2</span> <span class="date">2006-10-29T13:36:03Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">It won't be that simple as in flash. So if you want to type Player.rotate(); you will have to impement rotate() for your self. <br>
+<br>
+But the good news are that FSAA is done by OpenGL and it takes you about 3 lines of code (If you don't want the User to setup what type of FSAA should be used).<br>
+<br>
+If you need some good Tutorials about OpenGL Google for NeHe. It's a good collection of infos about OpenGL.</div></div>
+<div class="post" id="p247666"><div class="post-head"><a class="id" href="../t/13465.html#p247666">#247666</a> <span class="index">3</span> <span class="date">2006-10-29T23:07:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thanks... so can i use a function like lineto() and curveto()? or do i have to make them myself?<br>
+<br>
+so would a game such as n be possible in opengl?</div></div>
+<div class="post" id="p247827"><div class="post-head"><a class="id" href="../t/13465.html#p247827">#247827</a> <span class="index">4</span> <span class="date">2006-10-30T08:51:14Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">TO draw a line you have to select what to draw and the specify the start and the endpoint of the line. So it should look something like this:<br>
+<br>
+<pre class="code">glBegin(GL_LINES);      // Drawing Using Lines
+  glVertex3f( 0.0f, 1.0f, 0.0f);    // Start
+  glVertex3f(-1.0f,-1.0f, 0.0f);    // End
+	glEnd();</pre><br>
+Makes a line with 3d coordiantes. And a n-like Game is definiteley possible.</div></div>
+<div class="post" id="p247883"><div class="post-head"><a class="id" href="../t/13465.html#p247883">#247883</a> <span class="index">5</span> <span class="date">2006-10-30T16:05:04Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">you should look into graphics/game-related libraries, they'll make your life a lot easier (allowing you to simply call DrawEllipse() or whatever). i think the biggest hurdle when moving from flash to c++ is that very little of the functionality of flash is "built-into" c++, you have to find external libraries to add support for graphics, sound, etc.<br>
+<br>
+<a href="http://www.phelios.com/ptk/">PTK</a> and <a href="http://www.talula.demon.co.uk/allegro/">Allegro</a> are two that i know of.</div></div>
+<div class="post" id="p249009"><div class="post-head"><a class="id" href="../t/13465.html#p249009">#249009</a> <span class="index">6</span> <span class="date">2006-11-02T08:26:32Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">what are you using for 'robotology'?<br>
+<br>
+And if i use allegro, do all other computers have to have allegro for me to distribute my game? (i wouldn't assume so, but i just want to make sure)<br>
+<br>
+and with allegro, is it as easy to program as flash? because all this c++ stuff is really confusing (binary trees, pointers etc)</div></div>
+<div class="post" id="p249226"><div class="post-head"><a class="id" href="../t/13465.html#p249226">#249226</a> <span class="index">7</span> <span class="date">2006-11-02T21:55:02Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">^its just a matter of learning it all as far as ease of use, but not all computers that use the program have to have allegro, its just another library like the ones that are normally installed with a compiler</div></div>
+<div class="post" id="p249303"><div class="post-head"><a class="id" href="../t/13465.html#p249303">#249303</a> <span class="index">8</span> <span class="date">2006-11-03T00:44:02Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">we're not using allegro, actually we haven't decided which libraries we're going to use "for good", we're still trying them all. Or you sould use SDL (very popular, but lower-level) and write your own drawEllipse() function.<br>
+<br>
+we might actually end up buying PTK since it's by far the most tested, simple solution, and quite cheap.<br>
+<br>
+<br>
+when using libraries, you either have to include a .dll (i.e link dynamically) or compile allegro into your game (i.e link statically). if you google around (or read the wikis for allegro, SDL or other libs) you'll get more detailed info.<br>
+<br>
+<br>
+personally i think c++ is a terrible language compared to some others -- D, actionscript 3.0, etc.. but that's because i've never used pointers before and i'd rather not have to start. our solution so far is to simply use a garbage-collection library/smart pointers (the boost libs have one) so that we can continue programming in a more flash-centric type of way.<br>
+<br>
+<br>
+as far as vector rendering in openGL, there are several different methods. we're still working on getting things as smooth as possible; aside from using antialiasing directly (i.e via LINE_SMOOTH as detailed in the ogl redbook) you can also use textures, here's a page about that (with source): <a href="http://homepage.mac.com/arekkusu/bugs/invariance/index.html">http://homepage.mac.com/arekkusu/bugs/invariance/index.html</a><br>
+<br>
+And of course FSAA, however we haven't tried that yet, and i suspect it would slow down on older cards.<br>
+<br>
+<br>
+<a href="http://www.scaleform.com">Scaleform</a> have some exciting-looking products, including a c++ library that will openGL-accelerate .swfs! sadly it's $10k. Maybe someday <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p249413"><div class="post-head"><a class="id" href="../t/13465.html#p249413">#249413</a> <span class="index">9</span> <span class="date">2006-11-03T05:06:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">i wish there were some way to program really easily. My problem is that i want to use more calculations without lag, register right-clicks and i also want to change my program icon. actionscript is really easy, but c++ is really hard. I don't really understand anything (i'm only 14 and have learnt everything by web tutorials)<br>
+<br>
+i'm not very far into c++, but is it possible to create a system like flash, where you do stuff by frames and movie clips, and everything is aa'd by default?<br>
+<br>
+Are there any libraries like that?<br>
+<br>
+what sort of system would a commercial game use?<br>
+<br>
+and how can i get animated vector 'movieclips' into c++?<br>
+<br>
+sorry to ask so many questions, but i just have so many problems...</div></div>
+<div class="post" id="p249587"><div class="post-head"><a class="id" href="../t/13465.html#p249587">#249587</a> <span class="index">10</span> <span class="date">2006-11-03T19:12:10Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">as far as we know, there aren't any libraries that provide flash-type features. the scaleform product i linked to does, but it's really expensive.<br>
+<br>
+in order to have all of the movieclip/timeline/etc functionality in c++, you'd really have to write it yourself. so, basically you'd end up programming flash.. which is sort of what we're in the process of doing (luckily we only need a small simple subset of flash's functionality). most games don't use flash-type design tools, but have their own standard set of functionality (such as using Maya/3DSMax to model; there are many free libraries that will handle loading, drawing, and skeletal animation of standard model formats).<br>
+<br>
+i'd recommend sticking with flash, or trying processing. you can give your flash projector a custom icon (one of these days we'll get around to doing that for N), and if you're just learning and you don't need mac and pc compatability, windows-only products like <a href="http://northcode.com/">SWF Studio</a> will let you habdle right-clicks, and even save and load files using flash.<br>
+<br>
+i understand how frustrating it can be, we're having the same problems.. flash provides a lot of really useful stuff for getting things done quickly, and there's really nothing comparable in c++.</div></div>
+<div class="post" id="p249608"><div class="post-head"><a class="id" href="../t/13465.html#p249608">#249608</a> <span class="index">11</span> <span class="date">2006-11-03T20:40:36Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">hmm... maybe you're right. but what exactly is scaleform? do i just give it a swf and it makes it all lag-free, or does it give me the ability to program flash-like in c++?<br>
+<br>
+but $10k...<br>
+<br>
+swf studio is $300... are there any free options? i mean, i've already bought flash, i'd rather not spend more money<br>
+<br>
+i appreciate your help. i realise you have games to make rather than helping me.</div></div>
+<div class="post" id="p249991"><div class="post-head"><a class="id" href="../t/13465.html#p249991">#249991</a> <span class="index">12</span> <span class="date">2006-11-04T17:52:42Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">i don't think there are any free options; you could just start using flash, and then decide later on if it's really worth money to get those other features (mostly right-click and file-system support).</div></div>
+<div class="post" id="p250266"><div class="post-head"><a class="id" href="../t/13465.html#p250266">#250266</a> <span class="index">13</span> <span class="date">2006-11-05T06:02:06Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">is there any free way to just do file i/o or rightclicks in flash? even with hacky dlls?<br>
+<br>
+i'm pretty sure i can change the icon</div></div>
+<div class="post" id="p250781"><div class="post-head"><a class="id" href="../t/13465.html#p250781">#250781</a> <span class="index">14</span> <span class="date">2006-11-06T17:56:10Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">not that i know of, sadly. you could just use shift+click as "right-click" though.. the file thing is much more annoying -- the only thing we could think of was making it text-based/copy-and-paste.. ugh.</div></div>
+<div class="post" id="p251189"><div class="post-head"><a class="id" href="../t/13465.html#p251189">#251189</a> <span class="index">15</span> <span class="date">2006-11-07T17:18:01Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">I have something to say too.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p249303">Quote: Raigan, 2006-11-03T00:44:02Z</a></div>personally i think c++ is a terrible language compared to some others -- D, actionscript 3.0, etc.. but that's because i've never used pointers before and i'd rather not have to start. our solution so far is to simply use a garbage-collection library/smart pointers (the boost libs have one) so that we can continue programming in a more flash-centric type of way.</blockquote><br>
+I wouln't say C++ is a terrible language, it's just terrible to use. C++ is something like an upgrade to C which was originaly developed in the early 70ties. You can really do everything with C++ but you have to know how and it will take a lot more code than any modern language. Today C++ is only used for things that have to have a very good Performance (i.e. games, kernels,...). Only a few People make Desktopapplications with C++.<br>
+<br>
+Also the pointers are a very hard to understand (I mean really know everything about them) but if you understand them they are just great. And a most modern languages have a built in Garbage collector which makes everything much easier.<br>
+<br>
+And I have a question about Flash too. Why did you decide to make N (or another Project if anyone who is not from Metanet Software wants to answer) in Flash? This should be on offense I decided to make my game in Java which is also a strange Language for games.<br>
+<br>
+so long Gott<br>
+<br>
+PS.: I hope you can decode my Grammar.</div></div>
+<div class="post" id="p252057"><div class="post-head"><a class="id" href="../t/13465.html#p252057">#252057</a> <span class="index">16</span> <span class="date">2006-11-09T05:16:39Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">i know that c++ is very difficult, but i hear of other languages such as java or basic.<br>
+<br>
+how easy is it to make games in these? and what sort of power do you get?<br>
+<br>
+and is their syntax similar to flash?<br>
+<br>
+i am leaning towards flash for simplicity, but it lags a lot and i want to be dead sure of my language before i dedicate myself to it...<br>
+<br>
+and it DOES lag. a lot. if anyone has some time, can they please tell me why the hell the attached file lags?<br>
+<br>
+it's fine at first, but after about 20 seconds, it runs at about 2 fps... <div class="attachment attachment-missing">Attachment (lost): post-14-1163049681.fla</div></div></div>
+<div class="post" id="p252068"><div class="post-head"><a class="id" href="../t/13465.html#p252068">#252068</a> <span class="index">17</span> <span class="date">2006-11-09T06:31:22Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p251189">Quote: Gott, November 07, 2006 05:18 pm</a></div> <br>
+I wouln't say C++ is a terrible language, it's just terrible to use...<br>
+  </blockquote> <br>
+ we used flash because we had the most experience with it, and we really, really hated all the languages we had to use in school.. it takes literally 10x longer to do anything.<br>
+<br>
+i don't know if c++ being faster is still true; java+jit is comparable, and blitzmax (which i think compiles from basic to c, then compiles the c code.. but that might be wrong.<br>
+<br>
+anyway, these days a 10x speed penalty is fine if it means a 10x boost in productivity. the only exception is AAA titles because they're all in a big arms race to make the most ultra-photorealistic game. no indie game is ever going to need to squeeze out every last drop of  processing power like that.<br>
+<br>
+and, the thing with pointers is: yes they might be convenient for some things, but almost all of the time a java/actionscript-style reference is just as good.. and won't ever cause incredibly difficult-to-find bugs. anyway, that's why D is great: you have both built into the language, so you're free to choose.</div></div>
+<div class="post" id="p252095"><div class="post-head"><a class="id" href="../t/13465.html#p252095">#252095</a> <span class="index">18</span> <span class="date">2006-11-09T08:30:53Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">yeah, but this isn't a 10x speed penalty. this is a simple rotating circle with like 5 variables and it somehow manages to lag. i can only imagine what would happen with a fully fledged game... just download and try it, its only 100kb...<br>
+<br>
+thanks for all your help</div></div>
+<div class="post" id="p252293"><div class="post-head"><a class="id" href="../t/13465.html#p252293">#252293</a> <span class="index">19</span> <span class="date">2006-11-09T23:05:58Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p252068">Quote: Raigan, November 09, 2006 01:31 am</a></div> i don't know if c++ being faster is still true </blockquote>C++ is <i>loads</i> faster since it has the most direct access to the kernel compared to any other language (thats why basically any game you play from any of the bigger companies is made in C++) and it doesnt compile as you run it as java does</div></div>
+<div class="post" id="p252348"><div class="post-head"><a class="id" href="../t/13465.html#p252348">#252348</a> <span class="index">20</span> <span class="date">2006-11-10T01:03:08Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">well, maybe. but D works that way too. and, using Jet or another similar tool, you can compile java to machine code as well..<br>
+<br>
+anyway, my point is that you'll only ever need that extra speed if you have a large team of programmers.</div></div>
+<div class="post" id="p255495"><div class="post-head"><a class="id" href="../t/13465.html#p255495">#255495</a> <span class="index">21</span> <span class="date">2006-11-16T14:41:44Z</span> <span class="author"><a href="../u/9371246.html">Rapier</a></span></div><div class="post-body">At school we use a simple home made GAME_ENGINE for c++, i will send it to you if you want to help me with verlet.... <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p265298"><div class="post-head"><a class="id" href="../t/13465.html#p265298">#265298</a> <span class="index">22</span> <span class="date">2006-12-06T03:22:57Z</span> <span class="author"><a href="../u/9371966.html">Fol67</a></span></div><div class="post-body">No but I would appreciate a copy for when I start learning C next year. But if you'd rather keep it to yourself I'm cool with that tool, it just makes getting the job done an even sweeter challenge.</div></div>
+<div class="post" id="p269309"><div class="post-head"><a class="id" href="../t/13465.html#p269309">#269309</a> <span class="index">23</span> <span class="date">2006-12-13T07:34:16Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">Why is your little flash game slowing down, you ask?<br>
+<br>
+It seems that you forgot to clear() what was being drawn. So every 50 milliseconds, a filled circle was drawn. Since it's position was static you didn't notice. Basically, every time you drew on top of the circle it took more computing power. I think flash has to compute transparency effects even for opaque objects or something, but in any case, it slowed it down massively. So  you just add to the first line of the render() function: sphoid.clear();<br>
+<br>
+And there you have it: problem solved.</div></div>
+<div class="post" id="p269312"><div class="post-head"><a class="id" href="../t/13465.html#p269312">#269312</a> <span class="index">24</span> <span class="date">2006-12-13T07:43:23Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">thankyou very much. I did some wierd, wierd stuff to avoid the lag...<br>
+could you also answer my other topic about flamethrowers?</div></div>
+<div class="post" id="p271611"><div class="post-head"><a class="id" href="../t/13465.html#p271611">#271611</a> <span class="index">25</span> <span class="date">2006-12-17T00:55:11Z</span> <span class="author"><a href="../u/9373633.html">34x</a></span></div><div class="post-body">c++ is tough. i only got as far as structures in basic coding. but then again im not very old. i used the howstuffworks and a book from the library. good luck!!!</div></div>
+<div class="post" id="p274987"><div class="post-head"><a class="id" href="../t/13465.html#p274987">#274987</a> <span class="index">26</span> <span class="date">2006-12-22T14:33:50Z</span> <span class="author"><a href="../u/9371169.html">bhauth</a></span></div><div class="post-body">OCaml is easier to learn than C++, and faster.</div></div>
+<div class="post" id="p275819"><div class="post-head"><a class="id" href="../t/13465.html#p275819">#275819</a> <span class="index">27</span> <span class="date">2006-12-23T17:48:58Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p274987">Quote: bhauth, December 22, 2006 02:33 pm</a></div> OCaml is easier to learn than C++, and faster.  </blockquote> <br>
+ <br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>OCaml delivers at least 50% of the performance of a decent C compiler</blockquote>Taken from wikipedia <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+And C++ is quite easy when you get into it. The hard parts isn't syntax but how to use the different API's and to come up with algorithms for everything.<br>
+<br>
+Flash and java and all that is mostly very cool, but if you feel like writing something in 3D I really recommend C++ or a microsoft language. I think DirectX works with visual basic and C# as well.</div></div>
+<div class="post" id="p275949"><div class="post-head"><a class="id" href="../t/13465.html#p275949">#275949</a> <span class="index">28</span> <span class="date">2006-12-23T19:39:51Z</span> <span class="author"><a href="../u/9371169.html">bhauth</a></span></div><div class="post-body">That's C not C++ and at least.<br>
+<br>
+And remember this is a lone developer situation not a corporate environment. C++ gets you more jobs and has more classes. But I cannot think of how it is nicer to use than OCaml ever. It is the best language I know of today for performance sensitive things.<br>
+<br>
+<a href="http://www.ocaml-tutorial.org/">http://www.ocaml-tutorial.org/</a> if you're interested</div></div>
+<div class="post" id="p276018"><div class="post-head"><a class="id" href="../t/13465.html#p276018">#276018</a> <span class="index">29</span> <span class="date">2006-12-23T21:04:25Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Every benchmark I've seen shows that C++ is faster than C, and on one benchmark I noticed that OCaml was in. C++ did the program almost 3 times as fast: <a href="http://shootout.alioth.debian.org/gp4/benchmark.php?test=recursive&amp;lang=all">http://shootout.alioth.debian.org/gp4/benc...ursive&amp;lang=all</a><br>
+<br>
+Here is the page that shows that C++ is faster than C: <a href="http://www.osnews.com/story.php/5602/Nine-Language-Performance-Round-up-Benchmarking-Math-and-File-IO/page3/">http://www.osnews.com/story.php/5602/Nine-...-File-IO/page3/</a><br>
+<br>
+Also this page clearly shows that C++ is faster (not that much though): <a href="http://www.ffconsultancy.com/free/ray_tracer/languages.html">http://www.ffconsultancy.com/free/ray_tracer/languages.html</a><br>
+Also notice that the fastest C++ code is generated by Visual Studio, which they are not using in this test.<br>
+<br>
+I don't doubt that OCaml is a nice language, all I say is that C++ is faster <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p277333"><div class="post-head"><a class="id" href="../t/13465.html#p277333">#277333</a> <span class="index">30</span> <span class="date">2006-12-26T12:15:52Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body">Microsoft recently released version 1.0 of their <a href="http://www.microsoft.com/xna">XNA Framework</a>.<br>
+At the moment, only C# is supported directly. But there's nothing stopping you from using it from other .NET languages as well.<br>
+As it uses Managed DirectX, it is very fast.</div></div>
+<div class="post" id="p277953"><div class="post-head"><a class="id" href="../t/13465.html#p277953">#277953</a> <span class="index">31</span> <span class="date">2006-12-28T13:53:59Z</span> <span class="author"><a href="../u/9371169.html">bhauth</a></span></div><div class="post-body">Tell a bunch of developers you use C++ instead of C because it's faster and they'll laugh at you. Only true if your C code sucks or you make heavy use of difficult template techniques.</div></div>
+<div class="post" id="p278007"><div class="post-head"><a class="id" href="../t/13465.html#p278007">#278007</a> <span class="index">32</span> <span class="date">2006-12-28T17:38:54Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p277953">Quote: bhauth, December 28, 2006 01:53 pm</a></div> Tell a bunch of developers you use C++ instead of C because it's faster and they'll laugh at you. Only true if your C code sucks or you make heavy use of difficult template techniques. </blockquote>As the compilers for modern languages improve (which they always are!) the speed of their operation also improves. A lot of the time optimizations performed by these compilers can be faster than low level languages like C.<br>
+<br>
+Of course, by "high level," I don't mean C++ <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p290553"><div class="post-head"><a class="id" href="../t/13465.html#p290553">#290553</a> <span class="index">33</span> <span class="date">2007-01-27T16:39:34Z</span> <span class="author"><a href="../u/9371944.html">Floorhugger</a></span></div><div class="post-body">I have just started to learn C++, and it seems, whenever I try tobuild my program, I get errors.  But I am learning through a tutorial, and using Microsoft visual C++ express edition.<br>
+<br>
+<pre class="code">#include &lt;stdio.h&gt;
+
+int main()
+{
+          int a;
+          int b;
+
+          a = 6;
+          printf("The value of a is %d.\n", a);
+
+          b = a + 3;
+          printf("The value of b is %d.\n", b);
+
+          return 0;
+}</pre></div></div>
+<div class="post" id="p291313"><div class="post-head"><a class="id" href="../t/13465.html#p291313">#291313</a> <span class="index">34</span> <span class="date">2007-01-29T08:37:52Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">What error do you get? I looks quite correct.</div></div>
+<div class="post" id="p291370"><div class="post-head"><a class="id" href="../t/13465.html#p291370">#291370</a> <span class="index">35</span> <span class="date">2007-01-29T17:13:29Z</span> <span class="author"><a href="../u/9371944.html">Floorhugger</a></span></div><div class="post-body"><a href="http://imageshack.us"><img class="bb-img" src="http://img292.imageshack.us/img292/6503/cerrorrq1.png" alt="" loading="lazy"></a><br>
+<br>
+I still get the error.</div></div>
+<div class="post" id="p291480"><div class="post-head"><a class="id" href="../t/13465.html#p291480">#291480</a> <span class="index">36</span> <span class="date">2007-01-29T21:58:35Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p290553">Quote: beastie, January 27, 2007 10:39 am</a></div> using Microsoft visual C++ express edition.  </blockquote> <br>
+ found the problem^<br>
+<br>
+as far as why its not building correctly i have no idea</div></div>
+<div class="post" id="p291686"><div class="post-head"><a class="id" href="../t/13465.html#p291686">#291686</a> <span class="index">37</span> <span class="date">2007-01-30T08:47:34Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">I lokoed up the error and found out that only C++ files can be compiled with the /clr option. What you have to do is using the /TP option to compile.  But as far I have never used MS VC++ express I cant tell you how to do this.<br>
+<br>
+On Linux with gcc it compiles very well.<br>
+<br>
+<pre class="code">The value of a is 6.
+The value of b is 9.</pre></div></div>
+<div class="post" id="p292458"><div class="post-head"><a class="id" href="../t/13465.html#p292458">#292458</a> <span class="index">38</span> <span class="date">2007-02-01T14:57:10Z</span> <span class="author"><a href="../u/9370776.html">~$ib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13465.html#p291370">Quote: beastie, January 29, 2007 05:13 pm</a></div> <a href="http://imageshack.us"><img class="bb-img" src="http://img292.imageshack.us/img292/6503/cerrorrq1.png" alt="" loading="lazy"></a><br>
+<br>
+I still get the error.  </blockquote> <br>
+ That program is not using the CLR. The CLR is the .NET virtual machine.<br>
+When you create a new C++ project, make sure you are creating a standard C++ application and nothing to do with .NET or CLR or Win32. You just want a standard "Console Application" (or similar).</div></div>
+</main>
+</body>
+</html>

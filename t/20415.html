@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML guide - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; <a href="../f/57.html">Information</a> &rsaquo; HTML guide</nav></header>
+<main>
+<div class="post" id="p18162"><div class="post-head"><a class="id" href="../t/20415.html#p18162">#18162</a> <span class="index">1</span> <span class="date">2007-11-27T16:58:37Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body">this is for absolute beginners, never seen an HTML guide in their life. <br>
+<br>
+for this you'll need<br>
+<br>
+1. patience<br>
+2. basic text editor such as notepad, word will <i>not</i> work<br>
+3. a picture editor such as photoshop, if you don't have that download <a href="http://www.gimp.org">Gimp</a><br>
+(this will be for making the background and buttons and such)<br>
+<br>
+ok lets go on in!<br>
+<br>
+first open notepad (start, all programs, accessories, notepad) <br>
+<br>
+oh yes i forgot, HTML stands for Hyper Text Markup Language, they say that in all the books so i thought it was important, i have never said Hyper Text Markup Language in my life though, just say HTML.<br>
+<br>
+to start the code type &lt;HTML&gt; this says it will be a web page then his enter (return) and type &lt;/HTML&gt; the / says that its the end of the web page. next, inside the two tags you just put, write &lt;HEAD&gt;&lt;/HEAD&gt; this doesn't do much yet but the head tags will hold java script and such. inside the 2 HEAD tags put &lt;TITLE&gt;&lt;/TITLE&gt; then write inside them "my cool web page". this is what it says on the top of your browser. so it should look something like this<br>
+<br>
+&lt;HTML&gt;<br>
+  &lt;HEAD&gt;<br>
+    &lt;TITLE&gt;<br>
+    my cool web page<br>
+    &lt;/TITLE&gt;<br>
+  &lt;/HEAD&gt;<br>
+&lt;/HTML&gt;<br>
+you don't have to do the spaces, it just organizes it better. <br>
+<br>
+next, between the &lt;/HEAD&gt; and &lt;/HTML&gt; tags write &lt;BODY&gt; and &lt;/BODY&gt; this is where the actual page goes. inside those 2 tags write "hello world" (this is a thing that all newbies have to write if their programing) <br>
+<br>
+<img class="bb-img" src="http://i237.photobucket.com/albums/ff295/ironmantoo/NewPicture2.jpg" alt="" loading="lazy"><br>
+<br>
+thar ye go<br>
+<br>
+now save the notepad file in a file named "website" name the file "index" (index is how web providers know which page to put up as your homepage) <br>
+<br>
+<img class="bb-img" src="http://i237.photobucket.com/albums/ff295/ironmantoo/NewPicture.jpg" alt="" loading="lazy"><br>
+<br>
+now right click on that file and select "rename" rename it to index.html.<br>
+<br>
+it should now have an internet explorer look to it instead of the notepad icon. open that file. and it should look like this<br>
+<br>
+<img class="bb-img" src="http://i237.photobucket.com/albums/ff295/ironmantoo/NewPicture1.jpg" alt="" loading="lazy"><br>
+<br>
+<br>
+now open that and it *should* look like this<br>
+<br>
+<img class="bb-img" src="http://i237.photobucket.com/albums/ff295/ironmantoo/NewPicture3.jpg" alt="" loading="lazy"><br>
+<br>
+now if your sitting there saying "aw man this is so stinkin' easy" then good, because as long as you remember this stuff you're set<br>
+~~~~~~~~~~<br>
+<br>
+but now lets say you want to add a picture, first save the pic you want to add<br>
+<br>
+how 'bout this one<br>
+<img class="bb-img" src="http://i237.photobucket.com/albums/ff295/ironmantoo/Diet-Smegma.jpg" alt="" loading="lazy"><br>
+<br>
+ok right click 'save as' name it "pic1.jpg". (without the"'s) <b>save it to the same place as your index file</b>. if you don't do that then the page won't know where to find the picture. <br>
+<br>
+now change the name to index.txt again and add this in between the BODY tags, where ever you want it.<br>
+<br>
+&lt;IMG src="pic1.jpg"&gt; thats it!<br>
+<br>
+well not completely<br>
+<br>
+&lt;IMG src="pic1.jpg" width="100" height="100"&gt;<br>
+<br>
+the width and height tags are in pixels, if you want it to scale bring it into gimp (or photoshop) and scale it down and see how many pixels that is. (if there's an easier way tell me)<br>
+<br>
+so say you want it bigger than that, &lt;IMG src="pic1.jpg" width="300" height="250"&gt;<br>
+<br>
+taa daa, not too hard is it?<br>
+~~~~~~~~<br>
+<br>
+now adding links is just like pics, but instead of &lt;IMG src&gt; you put <br>
+&lt;A href="html://numa.notdot.net"&gt; [/CODE]then inside you have to put the text, so put "numa", it will look like this<br>
+<br>
+&lt;A href="html://numa.notdot.net"&gt; numa &lt;/A&gt;<br>
+<br>
+so now you got yourself a link to anywhere you want, oh noez but wait! what about links in your own site?!?!  just do the same thing <i>but</i> &lt;A href="index.html"&gt;back home! &lt;/A&gt;<br>
+<br>
+there easy<br>
+~~~~~~~~~<br>
+<br>
+html is weird in a couple of ways <br>
+<br>
+1. it doesn't make more than one space without a special code (i'll tell you later)<br>
+2. it doesn't make breaks in pages (like when you hit enter (return)) without special code (i'll tell you later)<br>
+3. um well there's another way to do the enter thing, like to make paragraphs (i couldn't come up with how thats weird)<br>
+<br>
+ok so to make more than one space you type &nbsp; so even if you make 1 trillion spaces, it will only make one space unless you write &nbsp; 1 trillion times.<br>
+<br>
+to make the break you write &lt;BR&gt; that makes it do the same thing enter (return) does. to go more than one space down type &lt;BR&gt;&lt;BR&gt;<br>
+<br>
+another way to separate paragraphs without typing &lt;BR&gt; 100 times is to write &lt;P&gt; &lt;/P&gt; thats a paragraph, it will automatically separate anything between those tags and make them paragraphs.<br>
+~~~~~~~<br>
+<br>
+now this is where the photoshop/gimp comes in the background. <br>
+<br>
+now depending on what you want ie. just a plain color background, a tiled background, or one picture. you will use almost the same code<br>
+<br>
+now go up to the &lt;BODY&gt; tag and change it to &lt;BODY bgcolor="blue"&gt;<br>
+<br>
+that changes the background color to, you guessed it, blue!<br>
+<br>
+now do the same thing but instead of typing bgcolor just type bg<br>
+<br>
+&lt;BODY bg="picture.jpg"&gt;that makes it a picture for the background (change picture to whatever you want it to be)<br>
+<br>
+~~~~~~~<br>
+<br>
+<br>
+ugh thats all i want to write today, but if you need any more help either pm me or find a good site for web tutorials<br>
+<br>
+bye</div></div>
+<div class="post" id="p383927"><div class="post-head"><a class="id" href="../t/20415.html#p383927">#383927</a> <span class="index">2</span> <span class="date">2007-11-28T04:16:50Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">c-c-c-caps!??!?!?! DO YOU ENJOY READING CAPITALS? I'M NOT YELLING JUST MAKING A POINT. WHY WOULD WIDTH AND HEIGHT BE LOWERCASE IF IMG IS UPPER CASE? WHY WOULD HREF BE LOWER CASE WHILE A IS UPPER? Nothing personal, just a pet hate.</div></div>
+<div class="post" id="p383985"><div class="post-head"><a class="id" href="../t/20415.html#p383985">#383985</a> <span class="index">3</span> <span class="date">2007-11-28T06:30:21Z</span> <span class="author"><a href="../u/9372845.html">Grassman7z7</a></span></div><div class="post-body">I think you should emphasize a bit more on XHTML. Where everything is case sensitive and the sort. It is the way of the future, you know.<br>
+Just a thought. I just don't want people to learn something that will be obsolete soon (Or at least be a pain to re learn to do a slightly different way).</div></div>
+<div class="post" id="p384024"><div class="post-head"><a class="id" href="../t/20415.html#p384024">#384024</a> <span class="index">4</span> <span class="date">2007-11-28T10:02:29Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">My tutorial on html is based around xhtml.</div></div>
+<div class="post" id="p384058"><div class="post-head"><a class="id" href="../t/20415.html#p384058">#384058</a> <span class="index">5</span> <span class="date">2007-11-28T13:50:53Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body">ok, mr harley (liked old name better) well, everywhere i learnt html it the beginning tag was caps and the sub (?) tags were lowercase...<br>
+<br>
+i might put some javascript up though</div></div>
+<div class="post" id="p384113"><div class="post-head"><a class="id" href="../t/20415.html#p384113">#384113</a> <span class="index">6</span> <span class="date">2007-11-28T20:06:11Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">well semantics say not to these days! It is so tedious troweling through pages of code filled with capitals. It hurts your eyes and damages you sanity. <b>please</b> don't put the js in caps</div></div>
+<div class="post" id="p384394"><div class="post-head"><a class="id" href="../t/20415.html#p384394">#384394</a> <span class="index">7</span> <span class="date">2007-11-29T18:46:46Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body"><b>tutorial #2<br>
+Javascript</b><br>
+<br>
+I enjoy javascript for a couple of reasons, first its easy, second it loads with the text instead of it being another aplication that has to load by itself, plus if you do it right it adds good functionality to your site.<br>
+<br>
+I am now going to brainwash you, if you know java but not javascript and think "hey their going to be exactly like java" I want you to take a book and bash your head many times over saying, "their not the same". well mostly because their not. the only similarities between java and javascript it the J-A-V-A bit. *exhale of relief* now, doesent that feel good?<br>
+<br>
+onward.<br>
+<br>
+if you didn't understand the part where i said "java loads with the text" this is what it means. <br>
+<br>
+JavaScript is 100% text, just like HTML is. Therefore it loads quickly from the server to your computer. JavaScript runs on your computer and does not have to download any additional applications to do it's job. <br>
+<br>
+(i just copied and pasted that bit.)<br>
+<br>
+BEWARE overusing of javascript in a way that does not add functionality to your site will just annoy visitors, don't just use this stuff to be cute, its not!<br>
+<br>
+now lets learn the code.<br>
+<br>
+ &lt;html&gt;<br>
+ &lt;head&gt;<br>
+ &lt;title&gt;My first javascript&lt;/title&gt;<br>
+ &lt;/head&gt;<br>
+ &lt;body&gt;<br>
+ &lt;h1&gt;Our First Script&lt;/h1&gt;<br>
+ &lt;p&gt;Today is<br>
+ &lt;/body&gt;<br>
+ &lt;/html&gt;<br>
+<br>
+(i didn't explain it in the last tutorial but the &lt;h1&gt; tag means its heading sized one)<br>
+<br>
+now your looking at this and you think "hey an unfinished tag!" well that was done on purpous you'll be adding more. now i advise you to not just copy and paste this but to type it yourself, this will forever burn this stuff into your mind.<br>
+<br>
+to start off javascript you first have to tell the browser that your using javascript <br>
+<br>
+so after "today is" write &lt;script Language="JavaScript"&gt;<br>
+<br>
+then write "var today = new date()"<br>
+without the"'s<br>
+<br>
+document.write(today)<br>
+<br>
+this tells the browser to write the date and time<br>
+<br>
+then end it with &lt;/script&gt;<br>
+<br>
+it should look exactly like this<br>
+<br>
+ &lt;html&gt;<br>
+ &lt;head&gt;<br>
+ &lt;title&gt;Our First Script&lt;/title&gt;<br>
+ &lt;/head&gt;<br>
+ &lt;body&gt;<br>
+ &lt;center&gt;<br>
+ &lt;h1&gt;Our First Script&lt;/h1&gt;<br>
+ &lt;/center&gt;<br>
+ &lt;p&gt;Today is<br>
+ &lt;script Language="JavaScript"&gt;<br>
+ var today = new Date()<br>
+ document.write(today)<br>
+ &lt;/script&gt;<br>
+ &lt;/body&gt;<br>
+ &lt;/html&gt;<br>
+<br>
+if it doesent, change it.<br>
+<br>
+if a person doesent have a new enough browser, it wont display javascript. so to not show javascript to old browsers simply write <br>
+<br>
+ &lt;script language="JavaScript"&gt;&lt;!--<br>
+<br>
+   (code)<br>
+<br>
+ //--&gt;&lt;/SCRIPT&gt;<br>
+<br>
+~~~~~~~<br>
+<br>
+ok, i'm coughing up furballs (deathly sick) and this should be enough to get you off your feet.<br>
+<br>
+if not, use google, its really easy!</div></div>
+<div class="post" id="p384400"><div class="post-head"><a class="id" href="../t/20415.html#p384400">#384400</a> <span class="index">8</span> <span class="date">2007-11-29T19:35:41Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Hmm. A bit lacking as far as breadth goes... I might work on Javascript tutorials at some point, but I want to get a CSS one out first and then some on PHP. If you want to make more tutorials, I'd advise teaching things like functions, onclick, and (if you know it) DOM scripting.</div></div>
+<div class="post" id="p384402"><div class="post-head"><a class="id" href="../t/20415.html#p384402">#384402</a> <span class="index">9</span> <span class="date">2007-11-29T19:55:24Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">cool, but I agree with LV.<br>
+<br>
+OH NO YOU DIDNT! HOW DARE...<br>
+<br>
+<pre class="code">&lt;script Language="JavaScript"&gt;
+var today = new Date()
+document.write(today)
+&lt;/SCRIPT&gt;</pre><br>
+can you see what you've done wrong here?</div></div>
+<div class="post" id="p384418"><div class="post-head"><a class="id" href="../t/20415.html#p384418">#384418</a> <span class="index">10</span> <span class="date">2007-11-29T21:40:37Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body">ugh, sorry, force of habit<br>
+<br>
+lv, i actually want to learn php, it sounds cool</div></div>
+</main>
+</body>
+</html>

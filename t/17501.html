@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floorguard inside border crashes N - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Floorguard inside border crashes N</nav></header>
+<main>
+<div class="post" id="p15378"><div class="post-head"><a class="id" href="../t/17501.html#p15378">#15378</a> <span class="index">1</span> <span class="date">2007-05-26T22:36:53Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><a href="https://www.nmaps.net/90475">http://numa.notdot.net/map/90475</a><br>
+<br>
+Note that there is one object: a floorguard placed on the left border.</div></div>
+<div class="post" id="p324579"><div class="post-head"><a class="id" href="../t/17501.html#p324579">#324579</a> <span class="index">2</span> <span class="date">2007-05-27T07:48:23Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">As odd as it sounds, you're right. The Flash Player tilts everytime I try to load it. <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+<br>
+Maybe this has something to do with the floorguards' snapping?</div></div>
+<div class="post" id="p324625"><div class="post-head"><a class="id" href="../t/17501.html#p324625">#324625</a> <span class="index">3</span> <span class="date">2007-05-27T14:37:51Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">I've done that before when making a map - putting floorgaurds inside tiles, which caused N to crash and me to lose my map.</div></div>
+<div class="post" id="p324652"><div class="post-head"><a class="id" href="../t/17501.html#p324652">#324652</a> <span class="index">4</span> <span class="date">2007-05-27T15:58:59Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">So noboby knows exactly why it happens? Also, it doesn't happen with ordinary tiles, just the borders.</div></div>
+<div class="post" id="p324658"><div class="post-head"><a class="id" href="../t/17501.html#p324658">#324658</a> <span class="index">5</span> <span class="date">2007-05-27T16:28:21Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Likely the script that determines if a floorguard can move. Placing it in a tile and outside of the playing area causes an infinite loop, which flash detects and offers to stop executing the script. This however, caused problems with the floorguard variables.</div></div>
+<div class="post" id="p324782"><div class="post-head"><a class="id" href="../t/17501.html#p324782">#324782</a> <span class="index">6</span> <span class="date">2007-05-27T23:46:35Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17501.html#p324658">Quote: exuberance, May 27, 2007 04:28 pm</a></div> Likely the script that determines if a floorguard can move. Placing it in a tile and outside of the playing area causes an infinite loop, which flash detects and offers to stop executing the script. This however, caused problems with the floorguard variables.  </blockquote> <br>
+ x( My brain hurts now.<br>
+Hopefully N 1.5 will fix these infinite loops. I hate those loops; they crash my graphics card often.</div></div>
+<div class="post" id="p339161"><div class="post-head"><a class="id" href="../t/17501.html#p339161">#339161</a> <span class="index">7</span> <span class="date">2007-07-05T20:13:00Z</span> <span class="author"><a href="../u/9374483.html">nninja</a></span></div><div class="post-body">hey! i found that if you have a ninja on the ground then you try to load it (it of course crashes and asks if you want to abort the script) but then this time, after you abort the script, the ninja will constanly play the victory animations and constantly have an explosion sound!!</div></div>
+<div class="post" id="p339199"><div class="post-head"><a class="id" href="../t/17501.html#p339199">#339199</a> <span class="index">8</span> <span class="date">2007-07-05T22:21:23Z</span> <span class="author"><a href="../u/9374653.html">kydo</a></span></div><div class="post-body">Stop resurrecting topics. <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p339692"><div class="post-head"><a class="id" href="../t/17501.html#p339692">#339692</a> <span class="index">9</span> <span class="date">2007-07-07T02:34:34Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">cool bug, hope to be fixed in N1,5 and in robotology.</div></div>
+<div class="post" id="p340027"><div class="post-head"><a class="id" href="../t/17501.html#p340027">#340027</a> <span class="index">10</span> <span class="date">2007-07-07T18:35:42Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17501.html#p339161">Quote: nninja, July 05, 2007 08:13 pm</a></div> hey! i found that if you have a ninja on the ground then you try to load it (it of course crashes and asks if you want to abort the script) but then this time, after you abort the script, the ninja will constanly play the victory animations and constantly have an explosion sound!!  </blockquote> <br>
+ I know. It's a side effect of Macromedia Flash Player crashing.</div></div>
+</main>
+</body>
+</html>

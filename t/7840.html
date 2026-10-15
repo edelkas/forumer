@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>thaught about doors - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; thaught about doors</nav></header>
+<main>
+<div class="post" id="p7055"><div class="post-head"><a class="id" href="../t/7840.html#p7055">#7055</a> <span class="index">1</span> <span class="date">2006-02-25T14:08:12Z</span> <span class="author"><a href="../u/9371438.html">Freik</a></span></div><div class="post-body">i was thinking.... what if N had diferent exit doors ... like timed to open doors.. for survival maps.. (or others) and gold toll doors that only open after a certain number of gold is picked up .. following this idea is a little gold counter in the corner.. like not very big just enough to see how much gold you have.. just a thaught post your opinion</div></div>
+<div class="post" id="p148397"><div class="post-head"><a class="id" href="../t/7840.html#p148397">#148397</a> <span class="index">2</span> <span class="date">2006-02-25T14:30:42Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body">It is a good idea.  I think N could benefit from more timed actions.  Currently there are ways of forcing timing (eg drones, thwump walls) but timed doors where you press a button then have X seconds to reach the exit would be good.  This would mean that even if you fail to reach the exit, you can go back and try again.<br>
+<br>
+Also, as you suggested, doors that open only <i>after</i> a certain amount of time.  So you could have survival maps as part of the game.<br>
+<br>
+The gold counter doors are a good idea too.  Currently, there is not that much of a need to get gold.  If you had to get at least Y pieces of gold to open the exit then this would force people to get more gold.  Also you could distribute gold in different places so people would have  a choice of which challenges to overcome.  For example, one difficult area may contain lots of gold while there are multiple easier areas each with less gold.  You could kind of achieve this by having doors, and people have to press Y buttons before they can reach the exit but this is messy.<br>
+<br>
+In conclusion, all of these would make interesting additions as they add to gameplay/level design.</div></div>
+<div class="post" id="p148400"><div class="post-head"><a class="id" href="../t/7840.html#p148400">#148400</a> <span class="index">3</span> <span class="date">2006-02-25T14:36:15Z</span> <span class="author"><a href="../u/9370994.html">Ngaged</a></span></div><div class="post-body">Meh...<br>
+<br>
+I'm not really into this timed stuff.  And the gold doors.  If someone just wanted to take a speed run through a level, it wouldn't be as fun for them because they'd HAVE to waiit for a door to open and they'd HAVE to collect gold.<br>
+<br>
+I just don't think N really needs it...</div></div>
+<div class="post" id="p148401"><div class="post-head"><a class="id" href="../t/7840.html#p148401">#148401</a> <span class="index">4</span> <span class="date">2006-02-25T14:38:30Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yeah... this wouldn't actually be as hard to implement as, say, diagonal doors, because of the way N is coded. If you'd like to learn more about doors, read <a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html#section2">Tutorial B Section 2</a>.<br>
+<br>
+Anyway, you'd just have to do something like this (pseudocode):<br>
+<br>
+<pre class="code">IF ninja.location = timerswitch.location THEN
+ openappropriatedoor();
+ doorstimed = doorstimed + 1
+ doortimer[doorstimed] = 1
+END IF
+...
+FOR I = 1 TO (doortimer array size)
+ IF doortimer[I] = 1 THEN
+ timer[I] = 1
+NEXT I
+...
+FOR J = 1 TO (doortimer array size)
+ IF timer[I] = 1 THEN
+ START TIMER (timerlength as defined by user)
+ WHEN TIMER IS DONE shutappropriatedoor();
+NEXT J</pre><br>
+Wow. That's a lot of pseudocode. But it wouldn't be *that* difficult, I should think.</div></div>
+<div class="post" id="p148462"><div class="post-head"><a class="id" href="../t/7840.html#p148462">#148462</a> <span class="index">5</span> <span class="date">2006-02-25T16:37:02Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">Actauly I think it would be a fine suggestion...</div></div>
+<div class="post" id="p148476"><div class="post-head"><a class="id" href="../t/7840.html#p148476">#148476</a> <span class="index">6</span> <span class="date">2006-02-25T16:57:16Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7840.html#p148400">Quote: Ngaged, Feb 25 2006, 02:36 PM</a></div> If someone just wanted to take a speed run through a level, it wouldn't be as fun for them because they'd HAVE to waiit for a door to open and they'd HAVE to collect gold.  </blockquote> <br>
+ First off, I don't think you necessarily need to have every door with both a timer and a gold counter.  Secondly, the timer could be the other way round, so the door stays open for only a few seconds.  This way, speed runners can still go as fast as they like/are able to.  Thirdly, collecting gold quickly is still speed running.  Fourthly, having doors that don't open until a certain amount of time has elapsed would be like the current survival maps which noone speed runs anyway.  Finally, N is not all about speed running; the vast majority of players do not play for high scores.</div></div>
+<div class="post" id="p148484"><div class="post-head"><a class="id" href="../t/7840.html#p148484">#148484</a> <span class="index">7</span> <span class="date">2006-02-25T17:14:41Z</span> <span class="author"><a href="../u/9371400.html">AV_Ultima</a></span></div><div class="post-body">Thats the best idea ive heard in awhile! That would be awsome, now thats creative. <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p148499"><div class="post-head"><a class="id" href="../t/7840.html#p148499">#148499</a> <span class="index">8</span> <span class="date">2006-02-25T17:55:54Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">These are good ideas. hough if they were in a game level I can imagine a noob going "How do I open this gold-delayed door?"</div></div>
+<div class="post" id="p148581"><div class="post-head"><a class="id" href="../t/7840.html#p148581">#148581</a> <span class="index">9</span> <span class="date">2006-02-25T21:55:15Z</span> <span class="author"><a href="../u/9371438.html">Freik</a></span></div><div class="post-body">wow i honestly didnt expect people to like the ideas.. but good luck actually getting them into the next N i wanna hear mare and raigens thaughts...</div></div>
+<div class="post" id="p148584"><div class="post-head"><a class="id" href="../t/7840.html#p148584">#148584</a> <span class="index">10</span> <span class="date">2006-02-25T22:02:52Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7840.html#p148401">Quote: Maniac, Feb 25 2006, 02:38 PM</a></div> Yeah... this wouldn't actually be as hard to implement as, say, diagonal doors, because of the way N is coded. If you'd like to learn more about doors, read .<br>
+<br>
+Anyway, you'd just have to do something like this (pseudocode):<br>
+<br>
+<pre class="code">IF ninja.location = timerswitch.location THEN
+ openappropriatedoor();
+ doorstimed = doorstimed + 1
+ doortimer[doorstimed] = 1
+END IF
+...
+FOR I = 1 TO (doortimer array size)
+ IF doortimer[I] = 1 THEN
+ timer[I] = 1
+NEXT I
+...
+FOR J = 1 TO (doortimer array size)
+ IF timer[I] = 1 THEN
+ START TIMER (timerlength as defined by user)
+ WHEN TIMER IS DONE shutappropriatedoor();
+NEXT J</pre><br>
+Wow. That's a lot of pseudocode. But it wouldn't be *that* difficult, I should think. </blockquote>I really don't understand your pseudo-code.  Surely "doortimer array size" is just "doorstimed"?<br>
+<br>
+Also what is the point of that first FOR loop?  Isn't it completely redundant?  <br>
+<br>
+Also, your second FOR loop implies that you would wait until 1 door's timer runs out before starting the timer of the next door.  This is madness.<br>
+<br>
+Finally are arrays in Flash indexed from 1 or from 0?<br>
+<br>
+You're not some kind of Visual Basic programmer are you?</div></div>
+<div class="post" id="p148925"><div class="post-head"><a class="id" href="../t/7840.html#p148925">#148925</a> <span class="index">11</span> <span class="date">2006-02-26T19:55:26Z</span> <span class="author"><a href="../u/9371438.html">Freik</a></span></div><div class="post-body">and that mens <i>what</i> in english</div></div>
+<div class="post" id="p148955"><div class="post-head"><a class="id" href="../t/7840.html#p148955">#148955</a> <span class="index">12</span> <span class="date">2006-02-26T21:38:12Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">what, the code? or his explination of the code (sorta explination), you have to have coded some to understand it, all i have done is some in C++, but its enough to understand it... i will explain the first section to you since im bored (plus i dont get some of the rest)<br>
+<br>
+if the location of the ninja is equal to the location of the timer switch (same spot) then it opens a door, adds 1 to variable doorstimed, not actually sure what doorstimed[doorstimed] = 1 means, and END IF ends the part of code performed if the ninja is in the same spot of the timer switch<br>
+<br>
+and what is the for loop for?</div></div>
+<div class="post" id="p148957"><div class="post-head"><a class="id" href="../t/7840.html#p148957">#148957</a> <span class="index">13</span> <span class="date">2006-02-26T21:42:57Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body">I don't think you can really help smartalco.  It seems that you have no understanding of what I am talking about.  How can you have "done some C++" without coming across arrays?  I also think you can't read properly.  If you read my post you would see specific questions pertaining to the pseudo-code.  Plus you can't spell "explanation".<br>
+<br>
+I have "coded some" and that is exactly why I can safely point out the aforementioned problems.  I was trying to be subtle by saying that I was confused.  That is now ruined.</div></div>
+<div class="post" id="p149022"><div class="post-head"><a class="id" href="../t/7840.html#p149022">#149022</a> <span class="index">14</span> <span class="date">2006-02-26T23:21:33Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">I was just posting an example. If you want to fight me over programming rights, we can do that in another thread.</div></div>
+<div class="post" id="p149028"><div class="post-head"><a class="id" href="../t/7840.html#p149028">#149028</a> <span class="index">15</span> <span class="date">2006-02-26T23:24:06Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body">Well, you said, "it's easy to implement" then messed up the (pseudo) implementation completely.  So perhaps it is not that easy?</div></div>
+<div class="post" id="p149029"><div class="post-head"><a class="id" href="../t/7840.html#p149029">#149029</a> <span class="index">16</span> <span class="date">2006-02-26T23:25:09Z</span> <span class="author"><a href="../u/9371524.html">sTEFANo</a></span></div><div class="post-body">Yes this is a great idea! <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p149039"><div class="post-head"><a class="id" href="../t/7840.html#p149039">#149039</a> <span class="index">17</span> <span class="date">2006-02-26T23:56:41Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7840.html#p148584">Quote: teh dude, 2006-02-25T22:02:52Z</a></div>You're not some kind of Visual Basic programmer are you? </blockquote>*wince*<br>
+<br>
+He's obviously not anyway. VB pseudocode would be<br>
+<br>
+<pre class="code">For x = 0 to door.count
+If N.location = doorswitch(x).location then doorcounter(x) = doorcounter(x)-1
+If doorcounter(x) = 0 then timeddoor(x).open = true: call dooranim(x)
+Next x</pre>For normal doors, set doorcount = 1. For multiple doors on one timer, set all the doorcounts to the same and stack the switches in the same place.<br>
+<br>
+Much simpler.<br>
+<br>
+edit: wait... I have the suspicion I just gave pseudocode for totally the wrong thing. Oh well.</div></div>
+<div class="post" id="p149041"><div class="post-head"><a class="id" href="../t/7840.html#p149041">#149041</a> <span class="index">18</span> <span class="date">2006-02-26T23:58:07Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Beh. I'm not particularly great with organizing my thoughts into efficient code the first time around. Especially since I'm not actually coding anything.</div></div>
+</main>
+</body>
+</html>

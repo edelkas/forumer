@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level editor - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Level editor</nav></header>
+<main>
+<div class="post" id="p18149"><div class="post-head"><a class="id" href="../t/20402.html#p18149">#18149</a> <span class="index">1</span> <span class="date">2007-11-26T11:15:47Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">Im having trouble making my game. If i could make a level editor just like ned, it would be so much easier. Is this possible and if so how can it be done?</div></div>
+<div class="post" id="p383440"><div class="post-head"><a class="id" href="../t/20402.html#p383440">#383440</a> <span class="index">2</span> <span class="date">2007-11-26T20:09:44Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hi,<br>
+A level editor is just a tool for creating or manipulating data. Ultimately, your game needs some data that describes a level. In N this is a 2D array of tile shapes (stored as a 1D array) and a list of object definitions. <br>
+<br>
+First, make your game -- at some point, you'll have to figure out what sort of data the game needs. Once you know this, you can make an editor to help you create and modify this data. Depending on the type of game, you might just need some sliders or text fields; it might be more useful to display the data in a different form, such as how it will appear in the game rather than as text.<br>
+<br>
+Um.. i'm afraid I can't help much more than that. The editor can be as complex or simple as you like -- for instance, if you use text as your data format, you can just use notepad to edit levels. <br>
+<br>
+Definitely get the basics of the game working before you spend time on the editor.</div></div>
+<div class="post" id="p383462"><div class="post-head"><a class="id" href="../t/20402.html#p383462">#383462</a> <span class="index">3</span> <span class="date">2007-11-26T21:10:45Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">Thanks raigan;<br>
+the only reason i wanted to create a level editor was for other peoples enjoyment. Maybe your right, i'l focus on a level editor in a later version...<br>
+But right now back to making sprites! <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p383539"><div class="post-head"><a class="id" href="../t/20402.html#p383539">#383539</a> <span class="index">4</span> <span class="date">2007-11-27T00:36:11Z</span> <span class="author"><a href="../u/9375193.html">Ninja80p</a></span></div><div class="post-body">There are at least 2 other level editors I know of in fan programs, if you want to look into that sonic fan.<br>
+<br>
+oh and what are the sprites for?, just wondering lol</div></div>
+<div class="post" id="p383702"><div class="post-head"><a class="id" href="../t/20402.html#p383702">#383702</a> <span class="index">5</span> <span class="date">2007-11-27T11:03:05Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">Sprites are just images of a player or item in action.<br>
+For instance you could have a running sprite or a jumping sprite.</div></div>
+<div class="post" id="p383760"><div class="post-head"><a class="id" href="../t/20402.html#p383760">#383760</a> <span class="index">6</span> <span class="date">2007-11-27T19:41:13Z</span> <span class="author"><a href="../u/9375193.html">Ninja80p</a></span></div><div class="post-body">I know what they are, just wondering what you were doing... making a game?</div></div>
+<div class="post" id="p383874"><div class="post-head"><a class="id" href="../t/20402.html#p383874">#383874</a> <span class="index">7</span> <span class="date">2007-11-28T02:18:39Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">I definitely think more games should have level editors! All i meant was that, until you have the game actually running, you won't know what sorts of data you need to create/manipulate, so it will be harder to write the editor. <br>
+<br>
+Then again, we're not super-experienced so you might want to google around and see what other people are doing <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p384013"><div class="post-head"><a class="id" href="../t/20402.html#p384013">#384013</a> <span class="index">8</span> <span class="date">2007-11-28T08:40:29Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">I agree, level editors make a game good. Also, what kind of game are you making?</div></div>
+<div class="post" id="p384042"><div class="post-head"><a class="id" href="../t/20402.html#p384042">#384042</a> <span class="index">9</span> <span class="date">2007-11-28T12:00:12Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">A platformer. Many of my sprites are ready.<br>
+Oh and how do you make a tile based world? I know this is sort of like a level editor but i just dont get it. Its something to do with text i know that, because in ned's text 0 represents no ground (no hit test) and 1 represents ground (hit test). <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> <br>
+Am i right or am i wrong?</div></div>
+<div class="post" id="p384085"><div class="post-head"><a class="id" href="../t/20402.html#p384085">#384085</a> <span class="index">10</span> <span class="date">2007-11-28T17:14:59Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">This is sort of what I was getting at with the "game first" comment -- you need to figure out how the game will actually work before you really need to worry about preparing data for it to work with.<br>
+<br>
+If you download the source code from our tutorials you can see how our system works: <a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a><br>
+<br>
+However there are other ways to do it; basically you have a grid of tiles. The tiles can be represented explicitly as actual objects with properties (position, shape, etc) or implicitly as a single number which describes the tile type (this number would then be used to look up information about the shape/etc for that tile; the position in the grid would indicate the tile's position). <br>
+<br>
+tonypa has a great set of tutorials you should definitely read through: <a href="http://www.tonypa.pri.ee/tbw/start.html">http://www.tonypa.pri.ee/tbw/start.html</a><br>
+<br>
+here's another tutorial, it shows a non-grid-based way to do things: <a href="http://www.strille.net/tutorials/part1_scrolling.php">http://www.strille.net/tutorials/part1_scrolling.php</a></div></div>
+<div class="post" id="p384129"><div class="post-head"><a class="id" href="../t/20402.html#p384129">#384129</a> <span class="index">11</span> <span class="date">2007-11-28T21:07:01Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">Thanks for the links raigan. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+Sorry im allways rushing into things i better slow down...</div></div>
+<div class="post" id="p384550"><div class="post-head"><a class="id" href="../t/20402.html#p384550">#384550</a> <span class="index">12</span> <span class="date">2007-11-30T03:47:02Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">np, there is a lot to learn!</div></div>
+<div class="post" id="p384620"><div class="post-head"><a class="id" href="../t/20402.html#p384620">#384620</a> <span class="index">13</span> <span class="date">2007-11-30T08:03:02Z</span> <span class="author"><a href="../u/9375176.html">Sonic-Fan101</a></span></div><div class="post-body">Your right, it took me about two weeks to learn the physics (gravity, friction, velocity etc)<br>
+But its all part of the fun in making games <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+</main>
+</body>
+</html>

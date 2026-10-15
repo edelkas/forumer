@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C++ - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; C++</nav></header>
+<main>
+<div class="post" id="p19179"><div class="post-head"><a class="id" href="../t/21476.html#p19179">#19179</a> <span class="index">1</span> <span class="date">2008-02-14T22:41:18Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">I can make console programs with C++, but I have absolutely no idea how to make a window on my own, or make that window do anything, or make graphics. I've read everywhere, (books and internet) but no where do they tell you how to start. I use VC++ 2008 Express from Microsoft, which doesn't support resource editing (I don't even know what that means), and it has a prebuilt project that creates a window which does nothing, but will minimize, maximize, resize, and turn off when you hit the X. Where do I start? How do I draw a rectangle, add a text-box, how do you make graphics? How do you do anything at all?</div></div>
+<div class="post" id="p409521"><div class="post-head"><a class="id" href="../t/21476.html#p409521">#409521</a> <span class="index">2</span> <span class="date">2008-02-15T01:30:40Z</span> <span class="author"><a href="../u/9371578.html">Ravenclaw</a></span></div><div class="post-body">I would buy a book on C++. I did, but I can't do anything because I can't get /any/ c++ compiler to work.</div></div>
+<div class="post" id="p409558"><div class="post-head"><a class="id" href="../t/21476.html#p409558">#409558</a> <span class="index">3</span> <span class="date">2008-02-15T02:31:53Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21476.html#p409521">Quote: Ravenclaw, February 15, 2008 01:30 am</a></div> I would buy a book on C++. I did, but I can't do anything because I can't get /any/ c++ compiler to work.  </blockquote> <br>
+ I can reach out and touch 3 C++ books I've already read from where I'm sitting = \</div></div>
+<div class="post" id="p409570"><div class="post-head"><a class="id" href="../t/21476.html#p409570">#409570</a> <span class="index">4</span> <span class="date">2008-02-15T02:48:28Z</span> <span class="author"><a href="../u/9374287.html">Mirico</a></span></div><div class="post-body">Programing windows based programs in C++ can be challenging at first - You'll probably have to just accept that some code works without fully understanding how. Thankfully thats mostly in the initialization of it. Something you should work on understanding is the message loop though.<br>
+<br>
+<pre class="code">while(GetMessage(&amp;Msg, NULL, 0, 0) &gt; 0)
+    {
+        TranslateMessage(&amp;Msg);
+        DispatchMessage(&amp;Msg);
+    }</pre><br>
+Something like that is a simple message loop. Essentially takes in messages for your window, translates them, and dispatches them (IE it sends it to your WndProc function to handle the message.)<br>
+<br>
+<pre class="code">LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    switch(msg) {
+        case WM_CLOSE:
+            DestroyWindow(hwnd);
+        break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+        break;
+        default:
+            return DefWindowProc(hwnd, msg, wParam, lParam);
+    }
+    return 0;
+}</pre><br>
+Thats a very basic WndProc. Takes in a handle to your window, the message dispatched to it, and then 2 parameters (Some messages send more info than just the message). WM_CLOSE is a message sent when the X is clicked or alt+f4. It destroys your window (Handling alot of the clean up for you). DefWindowProc(hwnd, msg, wParam, lParam); just handles all messages your WndProc doesn't. You can do things like add the case WM_LBUTTONDOWN, which would be Left Mouse Button being pressed down.<br>
+<br>
+<pre class="code">case WM_LBUTTONDOWN:
+  MessageBox(hwnd, "You pressed the left mouse button!", "WOW!", MB_OK);
+break;</pre><br>
+That code would just make it so a message box popped up when you left clicked.<br>
+<br>
+WM_PAINT is the message you'd want to handle for drawing a rectangle (Its more complicated than that. You have to create a brush and stuff, but not too bad)<br>
+<br>
+Creating a text box is actually creating a window in your window (Text-Boxes, buttons etc are all actually windows)<br>
+<pre class="code">#define IDC_EDIT 101   //Up top with the rest of your defines/includes
+
+//in your WndProc function
+          case WM_CREATE:
+           HWND hEdit;
+
+           hEdit = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", "This is a text box",
+                           WS_CHILD | WS_VISIBLE | ES_AUTOVSCROLL | ES_MULTILINE, 10,10,50,15, hwnd,
+                           (HMENU)IDC_EDIT, GetModuleHandle(NULL), NULL);
+           if(hEdit == NULL)
+                  MessageBox(hwnd, "Could not create edit box.", "Error", MB_OK | MB_ICONERROR);
+          break;</pre>WM_CREATE is a message send when your window is created. This code will create an Extended Window (Extended just means it has a few more features than a normal). hEdit is just a handle to your text box window (CreateWindowEx returns the handle after creating).<br>
+- WS_EX_CLIENTEDGE is just part of the appearance - the extended window style. There's a few other things you can add with or (|). <br>
+- "EDIT" means its an edit box (a text box). <br>
+- The text is what text it start with in it. <br>
+-The next few arguments are just window styles, meaning its visible, can handle multiple lines, and when a multiple line occurs it'll auto-scroll vertically (You'll want WS_CHILD | WS_VISIBLE with most of your windows). <br>
+-The next 4 numbers are your starting X Y pos and your width and height. <br>
+-Then the handle to the parent window (IE the window the edit box is being created in, hwnd, an argument of the WndProc function, is the handle to your main window). <br>
+-(HMENU)IDC_EDIT is just used to identify your edit box globally via integer (You define IDC_EDIT as 101 at the top. 101 can be any number really, but must be unique. This way you can use IDC_EDIT to refer to this edit box). <br>
+-GetModuleHandle(NULL) is just a handle to the instance of the module to be associated with the window... Which is a little harder to explain, but you'll usually just want to keep it as GetModuleHandle(NULL).<br>
+-The last parameter is if you want to send a parameter to your edit box on creation (In most simple cases you won't and can just be NULL).<br>
+<br>
+It then checks to make sure the window was created successfully.<br>
+<br>
+My explanation probably wasn't so great but hopefully it helped a little. Try  <a href="http://www.winprog.org/tutorial/">http://www.winprog.org/tutorial/</a>  , probably a little more understandable <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p409942"><div class="post-head"><a class="id" href="../t/21476.html#p409942">#409942</a> <span class="index">5</span> <span class="date">2008-02-16T13:49:44Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Continuing what Mirico said, to program graphics in C++, you'll have to either use OpenGL or DirectX... which are just as senseless as the rest of the visual programming.<br>
+You should look into gamedev.net, it has a lot of useful (and interesting) stuff, including OpenGL tutorials.</div></div>
+<div class="post" id="p410011"><div class="post-head"><a class="id" href="../t/21476.html#p410011">#410011</a> <span class="index">6</span> <span class="date">2008-02-16T22:10:18Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">The tuts there don't tell you where to put the damn code in a precompiled window.</div></div>
+<div class="post" id="p410022"><div class="post-head"><a class="id" href="../t/21476.html#p410022">#410022</a> <span class="index">7</span> <span class="date">2008-02-16T22:56:13Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">download the Redbook (google it), its the openGL manual, i'm pretty sure it includes how to make windows and use openGL to make graphics</div></div>
+<div class="post" id="p410089"><div class="post-head"><a class="id" href="../t/21476.html#p410089">#410089</a> <span class="index">8</span> <span class="date">2008-02-17T03:01:26Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">If you want to focus on the game instead of all of the crazy windows stuff,  use SDL or use OpenGL/DirectX frameworks.<br>
+<br>
+One possible suggestion:<br>
+<br>
+<a href="http://www-personal.umich.edu/~bazald//zenilib/">http://www-personal.umich.edu/~bazald//zenilib/</a></div></div>
+<div class="post" id="p412241"><div class="post-head"><a class="id" href="../t/21476.html#p412241">#412241</a> <span class="index">9</span> <span class="date">2008-02-26T03:52:14Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">Well, I want to focus on making a game, but I don't want a program getting between me and the machine. I'm willing and ready to put all the time and effort at my disposal into this, and I don't want to go halfway. I want to code myself.</div></div>
+<div class="post" id="p412251"><div class="post-head"><a class="id" href="../t/21476.html#p412251">#412251</a> <span class="index">10</span> <span class="date">2008-02-26T05:42:05Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I've been looking at options for making a game myself, and you'll get nowhere programming a game from scratch in C++. even commercial games use frameworks like opengl and directx, and even then, it can be a pain to set up. If you've never made a game before, you need to start with a basic game, and an environment like Torque or Flash or even gamemaker is very good for that. Torque especially, since it's based on C++ which you apparently know something about.</div></div>
+<div class="post" id="p412252"><div class="post-head"><a class="id" href="../t/21476.html#p412252">#412252</a> <span class="index">11</span> <span class="date">2008-02-26T06:03:30Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">I went through a huge (and rather outdated book) that taught me how to make a ball bounce in gamemaker. Somehow I decided that it wasn't for me. Right now I'm trying my level best to figure out pointers and structures and pointers to structures and whatnot with basic, console C++. My current project is a text-based adventure game with multiple endings (I really need help with the story/coding, so if anyone is interested send me a PM). I tried to use OpenGL a while back but I lacked the basic knowledge of C++ syntax I needed to understand what I was doing.<br>
+<br>
+Edit: I'll check out torque tomorrow, need to get some sleep tonight. I've made a lot of progress since I posted this thread, so most of the things I said in the OP can be discarded.</div></div>
+<div class="post" id="p412293"><div class="post-head"><a class="id" href="../t/21476.html#p412293">#412293</a> <span class="index">12</span> <span class="date">2008-02-26T12:10:49Z</span> <span class="author"><a href="../u/9373831.html">smort</a></span></div><div class="post-body">ICS3MI.sgrondin.ca<br>
+<br>
+this is a site with the C++ course I'm taking on it. You won't be able to do the test, but if you want those I'm sure I could ask my teacher. Same thing for contest-level questions.</div></div>
+<div class="post" id="p412294"><div class="post-head"><a class="id" href="../t/21476.html#p412294">#412294</a> <span class="index">13</span> <span class="date">2008-02-26T12:25:51Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">I would recommend <a href="http://xna.com">XNA</a> if you are just starting with game/graphics programming.<br>
+<br>
+You will almost certainly find C#/XNA more intuitive than C++/OpenGL.</div></div>
+<div class="post" id="p412352"><div class="post-head"><a class="id" href="../t/21476.html#p412352">#412352</a> <span class="index">14</span> <span class="date">2008-02-26T21:32:05Z</span> <span class="author"><a href="../u/9375193.html">Ninja80p</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21476.html#p412294">Quote: trib4lmaniac, February 26, 2008 12:25 pm</a></div> I would recommend <a href="http://xna.com">XNA</a> if you are just starting with game/graphics programming.<br>
+<br>
+You will almost certainly find C#/XNA more intuitive than C++/OpenGL.  </blockquote> <br>
+ I second that! <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p412592"><div class="post-head"><a class="id" href="../t/21476.html#p412592">#412592</a> <span class="index">15</span> <span class="date">2008-02-28T00:20:45Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">i don't! (don't leave us os x users out in the cold <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> )<br>
+<br>
+you want the <a href="http://www.opengl.org/documentation/red_book/">Redbook</a>!<br>
+<br>
+and holy s**t, its trib4l!</div></div>
+<div class="post" id="p412652"><div class="post-head"><a class="id" href="../t/21476.html#p412652">#412652</a> <span class="index">16</span> <span class="date">2008-02-28T05:54:03Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">All sites favorited, I will get to them in the morning. I've heard the redbook mentioned many times, so I'm definately going to buy it. Thank you all for the advice.</div></div>
+<div class="post" id="p412784"><div class="post-head"><a class="id" href="../t/21476.html#p412784">#412784</a> <span class="index">17</span> <span class="date">2008-02-29T00:14:02Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21476.html#p412652">Quote: Arona Daal, February 27, 2008 11:54 pm</a></div> I've heard the redbook mentioned many times, so I'm definately going to buy it.  </blockquote> <br>
+ its free <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> (right now, it seems the openGL site only has it in html form right now, if you google it im sure you could find a .pdf to download)<br>
+<br>
+i suppose you could buy it if you want to though...</div></div>
+<div class="post" id="p412857"><div class="post-head"><a class="id" href="../t/21476.html#p412857">#412857</a> <span class="index">18</span> <span class="date">2008-02-29T05:16:56Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">I'd rather have the book itself, reading books off the computer is hard on the eyes.</div></div>
+</main>
+</body>
+</html>

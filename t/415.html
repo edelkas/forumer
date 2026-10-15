@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doors - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Doors</nav></header>
+<main>
+<div class="post" id="p348"><div class="post-head"><a class="id" href="../t/415.html#p348">#348</a> <span class="index">1</span> <span class="date">2004-06-23T22:47:32Z</span> <span class="author"><a href="../u/9370473.html">James</a></span></div><div class="post-body">The code for doors is really confusing. The NED help manual explained the first two digits, but after that...<br>
+<br>
+Here is the code for a trap door.<br>
+<br>
+9^36,36,0,[1],1,1,[0],-1,0!<br>
+<br>
+It is a door facing the left in the top-left corner (it's right alongside the wall), with the  trigger to the left (everything is left, not right). The 9 stands for "door" I think, but not just trap doors; it means "doors" in general. The ^ separates the object from its attributes. 36,36 I guess, is the position of the switch. After that I figured out that the 1 and 0 in brackets (the brackets I just put there; they shouln't be there for the actual level code) stands for "trap door." The other numbers I think determine the position of the door, but I don't know. If somebody could tell me what the heck each of the numbers mean, I'd be glad.<br>
+<br>
+Here's a code for a locked door, in the same place:<br>
+<br>
+9^36,36,0,[0],1,1,[1],-1,0!<br>
+<br>
+The numbers in brackets tell that this is a "locked door."<br>
+<br>
+Any of you computer geeks could figure this out, I figure you could make an executable version of N.</div></div>
+<div class="post" id="p23849"><div class="post-head"><a class="id" href="../t/415.html#p23849">#23849</a> <span class="index">2</span> <span class="date">2004-06-23T22:50:45Z</span> <span class="author"><a href="../u/9370473.html">James</a></span></div><div class="post-body">Oh yeah, I messed up.<br>
+<br>
+The switch to the door is to the right, not left. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p23851"><div class="post-head"><a class="id" href="../t/415.html#p23851">#23851</a> <span class="index">3</span> <span class="date">2004-06-23T23:07:06Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/415.html#p348">Quote: James, 2004-06-23T22:47:32Z</a></div>Any of you computer geeks could figure this out, I figure you could make an executable version of N. </blockquote><br>
+yeah, that's all you'd need to know.<br>
+ <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p27459"><div class="post-head"><a class="id" href="../t/415.html#p27459">#27459</a> <span class="index">4</span> <span class="date">2004-09-11T15:52:27Z</span> <span class="author"><a href="../u/9370608.html">Chris_Hipser</a></span></div><div class="post-body">Hi james</div></div>
+<div class="post" id="p27751"><div class="post-head"><a class="id" href="../t/415.html#p27751">#27751</a> <span class="index">5</span> <span class="date">2004-09-15T03:13:54Z</span> <span class="author">Guest</span></div><div class="post-body">9^24,36,0,0,1,[1],0,-1,0 is a normal door, in the upper left hand corner.<br>
+9^60,60,0,0,1,[2],1,-1,0 is a locked door, in the upper left hand corner, directly below the normal door.<br>
+9^60,84,0,1,1,[3],0,-1,0 is a trap door, in the upper left hand corner, directly below the locked door.<br>
+<br>
+So, it seems that the only thing that determines what type of door it is, is the fourth number after the coordinates, which I've bracketed above. <br>
+<br>
+Consider the following:<br>
+<br>
+9^24,36,0,[0],1,1,0,-1,0<br>
+9^60,60,0,[0],1,2,1,-1,0<br>
+9^60,84,0,[1],1,3,0,-1,0<br>
+These are the three as above, and the following three are trap doors in the same square as the above one.<br>
+9^60,84,1,[1],1,3,0,0,-1 This is a trap door facing up, with the trigger in the same position as the others. The only non-coordinate numbers that changed are the first, the sixth and the last, which leads me to believe that the last two numbers are the door's facing.<br>
+9^60,84,0,[1],1,3,0,0,0 This is a Trap Door facing to the right, same trigger position, Same square, but now the first, sixth, and last numbers have all set to zero. What's strange about this, is that the second number changes depending solely upon the door's facing.<br>
+9^60,84,1,[1],1,3,0,0,0 And finally, This is a Trap Door facing downward, and instead of the last two numbers changing, the first changes, which leads me to believe that the second, sixth, and last numbers determine the door's facing.<br>
+<br>
+So, A 0, -1, 0 would be a left facing door<br>
+      a 1, 0, -1 is an upward facing door,<br>
+      a 0, 0, 0 is a right facing door,<br>
+and a 1, 0, 0 is a downward facing door.<br>
+<br>
+With this in mind, only the fifth number is really unaccounted for, and it may have something to do with the trigger. Also, the numbers in the "facing" rows may also have embedded meanings depending on where the trigger lies. More on this later when I get some more info.</div></div>
+<div class="post" id="p29654"><div class="post-head"><a class="id" href="../t/415.html#p29654">#29654</a> <span class="index">6</span> <span class="date">2004-09-28T23:27:28Z</span> <span class="author"><a href="../u/9370623.html">xm-287</a></span></div><div class="post-body">Kablizzy, i absolutely must thank you for this information. i have been trying to figure all this out and didn't even get anything much. your explnation helps a ton.<br>
+<br>
+now i can actually do something good. i'm making some new maps and it'll be very challanging.<br>
+<br>
+end transmission: xm-287</div></div>
+<div class="post" id="p29666"><div class="post-head"><a class="id" href="../t/415.html#p29666">#29666</a> <span class="index">7</span> <span class="date">2004-09-29T00:52:08Z</span> <span class="author">Guest</span></div><div class="post-body">Oh, wow, I had totally forgotten about my door work. I haven't codef*cked with doors in far too long. I gotta get back on it and see what else they have in store for us. Maybe there's a way to do double-triggers and switch-triggers and stuff like that.</div></div>
+<div class="post" id="p29678"><div class="post-head"><a class="id" href="../t/415.html#p29678">#29678</a> <span class="index">8</span> <span class="date">2004-09-29T01:59:53Z</span> <span class="author"><a href="../u/9370623.html">xm-287</a></span></div><div class="post-body">sorry but another question.<br>
+<br>
+is there a easier way to place doors with their switches? like with a key instead of typing in the coordinates?<br>
+<br>
+end transmission: xm-287</div></div>
+<div class="post" id="p29690"><div class="post-head"><a class="id" href="../t/415.html#p29690">#29690</a> <span class="index">9</span> <span class="date">2004-09-29T02:35:02Z</span> <span class="author">Guest</span></div><div class="post-body">Oh, absolutely. When you go into debug mode (~ at the main scren), press E to edit the map manually (not editing code). Once there, you can hit either delete or insert to place tiles or objects, respectively. To place doors, enter the Insert menu and then hit i, o, or p to place the kind of door that you want to place.</div></div>
+<div class="post" id="p29819"><div class="post-head"><a class="id" href="../t/415.html#p29819">#29819</a> <span class="index">10</span> <span class="date">2004-09-30T00:35:54Z</span> <span class="author"><a href="../u/9370623.html">xm-287</a></span></div><div class="post-body">oh sorry but that i know. i was wondering about placing the switchs for the doors. because like with the main door with the blue switch i have to type in 11^37,563,45,563! so i can get the door and a switch in the map. i couldn't press j and place the main door. and the other doors don't have a switch to come along with it, so i guess i'll have to type in the coordnates for the switch?<br>
+<br>
+perhaps to make the ned more user friendly maybe a door switch can be implemented. like place a door but after that the switch is immediately placeable. maybe i'll post this in the topic for new version changes or something like that, if it's not already posted.<br>
+<br>
+end transmission: xm-287</div></div>
+<div class="post" id="p29875"><div class="post-head"><a class="id" href="../t/415.html#p29875">#29875</a> <span class="index">11</span> <span class="date">2004-09-30T04:11:44Z</span> <span class="author">Guest</span></div><div class="post-body">As far as the whole door/switch thing, Read <a href="../t/1110.html">this</a> thread and download the attached file, and read up. That's the best way to do Ned, and I think that this will help A lot in the future of your Nediting.</div></div>
+<div class="post" id="p30375"><div class="post-head"><a class="id" href="../t/415.html#p30375">#30375</a> <span class="index">12</span> <span class="date">2004-10-03T20:38:28Z</span> <span class="author"><a href="../u/9370623.html">xm-287</a></span></div><div class="post-body">thanks i'll get reading. <br>
+<br>
+made some more maps but i made em as survival ones. don't need to fuss with doors there, haha.</div></div>
+</main>
+</body>
+</html>

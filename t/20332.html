@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level Data messed up - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Level Data messed up</nav></header>
+<main>
+<div class="post" id="p18083"><div class="post-head"><a class="id" href="../t/20332.html#p18083">#18083</a> <span class="index">1</span> <span class="date">2007-11-22T20:22:19Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">The rocket at the top of the map keeps shooting into the terrain, making noise and slowing down the shooting of all the other rockets. It won't let me delete it, can anyone help me? <div class="attachment attachment-missing">Attachment (lost): post-11-1195762939.txt</div></div></div>
+<div class="post" id="p381927"><div class="post-head"><a class="id" href="../t/20332.html#p381927">#381927</a> <span class="index">2</span> <span class="date">2007-11-22T20:41:26Z</span> <span class="author"><a href="../u/9374730.html">gloomp</a></span></div><div class="post-body">You forgot to click outside the level data box before pressing 'L.' See the pinned topic on NaNs for more info.</div></div>
+<div class="post" id="p381929"><div class="post-head"><a class="id" href="../t/20332.html#p381929">#381929</a> <span class="index">3</span> <span class="date">2007-11-22T20:43:34Z</span> <span class="author"><a href="../u/9375258.html">TheWigginator</a></span></div><div class="post-body">You have a NaN. If you load the level data you will see that there is the word NaN at the end. This stands for Not a Number. It probably apopeared because you pressed L to load the level or R to reset it while your cursor was in the text box still. To stop that happening make sure you click out of the text box before you press L or R. To delete the rocket turret you must delete the bit of code that is for the rocket turret. It is right at the end:  444!10^300,NaN<br>
+If you delete that the turret should disappear.<br>
+<br>
+I hope that helps...</div></div>
+<div class="post" id="p381940"><div class="post-head"><a class="id" href="../t/20332.html#p381940">#381940</a> <span class="index">4</span> <span class="date">2007-11-22T20:58:32Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">thanks for the help. I read the topic on NaNs but I failed to see the connection between them and my level.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding A plane normal - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Finding A plane normal</nav></header>
+<main>
+<div class="post" id="p6263"><div class="post-head"><a class="id" href="../t/6865.html#p6263">#6263</a> <span class="index">1</span> <span class="date">2006-01-17T09:46:31Z</span> <span class="author">JJ_Birdie <span class="guest">(guest)</span></span></div><div class="post-body">Hey guys im creating a physics engine of my own in flash, which is very similar to N's, in fact, most of my ideas have come from N. Ive read through the N tutorials, and began work, i have two circles colliding which is great, but im trying to include circle-plane collision detection, and it requires that a plane normal needs to be calculated, but the N tutorial simply states that its:<br>
+<br>
+Given a vector a, the right hand normal of a is simply: <br>
+<br>
+rn.x = -a.y;<br>
+rn.y = a.x; <br>
+<br>
+and the left hand normal is: <br>
+<br>
+ln.x = a.y;<br>
+ln.y = -a.x; <br>
+<br>
+but im guessing that wouldnt work, because the coords would be in the negative regions with flash's coordinate system...or is it only the direction that counts, not the position or magnitude....somebody shed some light on this...PLEASE lol</div></div>
+<div class="post" id="p133185"><div class="post-head"><a class="id" href="../t/6865.html#p133185">#133185</a> <span class="index">2</span> <span class="date">2006-01-17T16:33:56Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">the tutorial's correct -- if you don't have any, i _strongly_ recommend getting a pad of graph paper, since drawing these things can be really useful.<br>
+<br>
+i didn't really understand/believe the normal "formula" myself, but try it: using graph paper (so that you can easily count integer coordinates), draw any vector, like (3,-4). now, draw a line of the same length that starts in the same place, but is perpendicular to the first line: the end of the second line will be (4,3) or (-4,-3).<br>
+<br>
+i'd also recommend downloading the example source code that's included in the tutorials and reading through it, you can see normals being used.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p133191"><div class="post-head"><a class="id" href="../t/6865.html#p133191">#133191</a> <span class="index">3</span> <span class="date">2006-01-17T17:28:09Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">LOL.<br>
+Dude, you really should try to find out the answers yourself before asking. It helps you, and it doesn't bother us. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Anyways, Raigan is right, the tutorial is correct. And, actually, I didn't believe the formula either when I first saw it. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+(yes, I know, this post was totally useless...)<br>
+<br>
+TS</div></div>
+<div class="post" id="p133195"><div class="post-head"><a class="id" href="../t/6865.html#p133195">#133195</a> <span class="index">4</span> <span class="date">2006-01-17T17:46:55Z</span> <span class="author"><a href="../u/9371126.html">krusch</a></span></div><div class="post-body">Heh, I can't think of Toshosoft as anything but a stoned-looking kid with a lightsaber now.<br>
+Thanks to that avatar.<br>
+<br>
+*realises he has posted in the Developers' Tutorials subforum*<br>
+<br>
+*backs away*<br>
+<span style="color:WHITE">*Hopes he doesn't get in trouble*</span></div></div>
+<div class="post" id="p133216"><div class="post-head"><a class="id" href="../t/6865.html#p133216">#133216</a> <span class="index">5</span> <span class="date">2006-01-17T18:20:56Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">thanks ill get the source now and check it out, its nice to see i wasnt the only non believer..heh</div></div>
+</main>
+</body>
+</html>

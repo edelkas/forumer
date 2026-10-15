@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In-game userlevel collection selection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; In-game userlevel collection selection</nav></header>
+<main>
+<div class="post" id="p10014"><div class="post-head"><a class="id" href="../t/11188.html#p10014">#10014</a> <span class="index">1</span> <span class="date">2006-07-12T18:27:30Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">I think this would actually be a good one for N v1.5. In userlevels, you could access a menu that looked at all the text files in the same folder as the game, and showed all the ones that were in userlevels format. Then you could have separate files for collections of userlevels, like I know a <i>lot</i> of people do, and select which collection to use <b>in the game</b> instead of renaming your files each time. Also, you could put a new line of code in each userlevels file that specified a name for the collection that you would see in the menu, just for asthetics. What do you all think?</div></div>
+<div class="post" id="p202001"><div class="post-head"><a class="id" href="../t/11188.html#p202001">#202001</a> <span class="index">2</span> <span class="date">2006-07-13T02:11:45Z</span> <span class="author">Guest</span></div><div class="post-body">Im not quite sure I completely understand, but I think it might be cool.  But also really hard to implement.  But what do I know?</div></div>
+<div class="post" id="p202041"><div class="post-head"><a class="id" href="../t/11188.html#p202041">#202041</a> <span class="index">3</span> <span class="date">2006-07-13T04:41:09Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Well, my thought is that it would actually be easy to implement. But first, here's some clarification:<br>
+<br>
+Let's say you have three userlevels files: one for the ones that come with the game, one for your favorites, and one for the Legacy levels. Now, each time you wanted to switch between these, you have to rename them. With my idea, going to the userlevels menu option in the game would give you a list with those three files in it: Original userlevels, Favorites, Legacy. From there, you'd click on one of the collections to load those levels, where you would see a screen like the one that is currently implemented in the userlevels.<br>
+<br>
+I'd think that, since the game can already parse the userlevels.txt, it would be easy to do. The game would just look at any .txt files in its directory, and see which ones were userlevels collections (which ones have the "&amp;userdata=" line). It would then grab the name of each collection out of a user-specified line (maybe, for instance, instead of "&amp;userdata=," "&amp;usercollection=Legacy&amp;userdata="), and you'd see an easy-to-understand list of your collections.</div></div>
+<div class="post" id="p202045"><div class="post-head"><a class="id" href="../t/11188.html#p202045">#202045</a> <span class="index">4</span> <span class="date">2006-07-13T04:49:32Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><a href="../t/10194.html">Linky.</a><br>
+<br>
+Obviously, I support this idea.</div></div>
+<div class="post" id="p202050"><div class="post-head"><a class="id" href="../t/11188.html#p202050">#202050</a> <span class="index">5</span> <span class="date">2006-07-13T04:53:45Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/11188.html#p202045">Quote: Atilla, July 12, 2006 09:49 pm</a></div> <a href="../t/10194.html">Linky.</a><br>
+<br>
+Obviously, I support this idea.  </blockquote> <br>
+ Oopsie, hadn't seen that. Anyway, they're slightly different. In yours, there is a manually created file; in mine, the game finds each userlevels file. I guess there's more possibility of error in mine, but...</div></div>
+<div class="post" id="p202432"><div class="post-head"><a class="id" href="../t/11188.html#p202432">#202432</a> <span class="index">6</span> <span class="date">2006-07-14T02:45:25Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">They both have advantages and disadvantages. My way prevents N having to examine every text file in the folder. Because the file names are being read from one source, and the name of every file you're going to read will be explicitly stated, the code will probably be easier to read and maintain. However, it's somewhat incovenient for the user since they are required to edit mysterious text files. Yours prevents this, making it easier to use. But it is also less efficient, and punctuation in some text files could cause errors. This would either have to be coded around, or all .txt documentation would need to be placed in a seperate folder.</div></div>
+</main>
+</body>
+</html>

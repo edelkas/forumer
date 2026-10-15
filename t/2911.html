@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trigo? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Trigo?</nav></header>
+<main>
+<div class="post" id="p2614"><div class="post-head"><a class="id" href="../t/2911.html#p2614">#2614</a> <span class="index">1</span> <span class="date">2005-04-21T13:45:32Z</span> <span class="author">Guest</span></div><div class="post-body">i understand why you use vectors so much, but i have a question<br>
+did u ever use trigo to make N  <img class="smiley" src="../files/smilies/35.gif" alt=":?:" title=":?:"></div></div>
+<div class="post" id="p61168"><div class="post-head"><a class="id" href="../t/2911.html#p61168">#61168</a> <span class="index">2</span> <span class="date">2005-04-21T17:03:08Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">Trigo?<br>
+I assume you mean trigonometry.<br>
+<br>
+It's almost impossible to make something like this without using a HUGE amount of trigonometry - all the mechanics of the physics, and calculating the angles and the vectors will  all (I think) have used lots of the stuff.</div></div>
+<div class="post" id="p61247"><div class="post-head"><a class="id" href="../t/2911.html#p61247">#61247</a> <span class="index">3</span> <span class="date">2005-04-22T00:40:34Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+there is absolutely _no_ trig anywhere in N; if you read our tutorials <a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a> you'll see that you can use vector algebra/geometry instead of trig -- it's faster, it's much more intuitive, and it works a lot better imho.<br>
+<br>
+it's all about unit-length vectors.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p61308"><div class="post-head"><a class="id" href="../t/2911.html#p61308">#61308</a> <span class="index">4</span> <span class="date">2005-04-22T08:31:14Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">... And that shuts me up. <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"></div></div>
+<div class="post" id="p61361"><div class="post-head"><a class="id" href="../t/2911.html#p61361">#61361</a> <span class="index">5</span> <span class="date">2005-04-22T14:50:43Z</span> <span class="author">Guest</span></div><div class="post-body">yes, i read the part where u drew a big X on Trigo, and the V for vectors  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+i just couldnt believe that trigo was un-used at all<br>
+<br>
+that quite amazing in my opinion... <br>
+ive made a simple circle collision a few days ago (influenced by N and N tutorials <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">), and though i used lots vectors, i also had to use trigonomatry..<br>
+<br>
+so if you say that you didnt use any trigo, ok, ill try to do that <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p61468"><div class="post-head"><a class="id" href="../t/2911.html#p61468">#61468</a> <span class="index">6</span> <span class="date">2005-04-23T01:09:04Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+i'm pretty sure that if i knew more about math i could tell you that it's "moot" anyway, the basic ideas are the same regardless of whether you use trig or vectors to represent directions, etc...<br>
+<br>
+having said that, vectors really do seem easiler to work with.<br>
+<br>
+raigan<br>
+p.s - Grimil, could you post code? here's orughly what our code does for circle-circle (i think.. ) ..notice the lack of trig <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+(given circles A and B, each with position .x,.y and radius .r)<br>
+<br>
+var dx = B.x - A.x;//dx,dy is the vector from A to B<br>
+var dy = B.y - A.y;<br>
+<br>
+var dist = Math.sqrt(dx*dx + dy*dy);//dist is the length of the vector from A to B<br>
+<br>
+var diff = (A.r + B.r) - dist;<br>
+<br>
+if(0 &lt; diff)<br>
+{<br>
+  //if we're in here, we know the two circles are colliding because the distance between them is less than the sum of their radii<br>
+  <br>
+  var nx = dx/dist;//nx,ny is a unit-length vector that points from A to B<br>
+  var ny = dy/dist;//is describes the direction of the collision (surface)<br>
+<br>
+  var px = nx*diff;//px,py is a vector that points from A to B and which<br>
+  var py = ny*diff;//is the same length as the amount of overlap between the circles<br>
+<br>
+  //so, at this point, px,py will move B out of A, if we add px to B.x and py to B.y<br>
+  //or, we can add -px and -py to A to move it out of B.. etc..<br>
+<br>
+}</div></div>
+<div class="post" id="p61687"><div class="post-head"><a class="id" href="../t/2911.html#p61687">#61687</a> <span class="index">7</span> <span class="date">2005-04-23T23:16:52Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Not to be picky, but this part<br>
+<br>
+var px = nx*diff;//px,py is a unit-length vector that points from A to B and which<br>
+var py = ny*diff;//is the same length as the amount of overlap between the circles<br>
+<br>
+says in the comments that px,py us a unit-length vector. Didn't you change the unit length property by multiplying by diff? (unless diff has a value of 1). I just want to know if the comment in the code is right or maybe I am missing something.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61781"><div class="post-head"><a class="id" href="../t/2911.html#p61781">#61781</a> <span class="index">8</span> <span class="date">2005-04-24T09:17:21Z</span> <span class="author"><a href="../u/9370427.html">Knu</a></span></div><div class="post-body">I think you can't say that there is no trig in this code, because in<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/2911.html#p61468">Quote: Guest, 2005-04-23T01:09:04Z</a></div> var nx = dx/dist;//nx,ny is a unit-length vector that points from A to B<br>
+var ny = dy/dist;//is describes the direction of the collision (surface)</blockquote><br>
+ny and nx are equal to sin(alpha) and cos(alpha), where alpha is the angle between vector (dx,0) and vector (dx,dy). So it's just the matter of how you name it - vector<br>
+Also, what does "unit-length" mean? Because both nx/ny and px/py are unit-length, this  confuses me..  <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"></div></div>
+<div class="post" id="p61848"><div class="post-head"><a class="id" href="../t/2911.html#p61848">#61848</a> <span class="index">9</span> <span class="date">2005-04-24T17:25:18Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2911.html#p61687">Quote: TMT, Apr 23 2005, 11:16 PM</a></div> Not to be picky, but this part<br>
+<br>
+var px = nx*diff;//px,py is a unit-length vector that points from A to B and which<br>
+var py = ny*diff;//is the same length as the amount of overlap between the circles<br>
+<br>
+says in the comments that px,py us a unit-length vector. Didn't you change the unit length property by multiplying by diff? (unless diff has a value of 1). I just want to know if the comment in the code is right or maybe I am missing something.<br>
+<br>
+-TMT  </blockquote> <br>
+ thanks tmt, that was a mistake -- px,py isn't unit length, its length is equal to the abs value of "diff" <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+<br>
+also, i _can_ say that there's no trig involved, <i>because</i> there's no sin() or cos() or any of that stuff. as i said earlier, the ideas are the same (using unit vectors to represent directions), however there are two ways of doing this. so.. well, if you're going to argue that this method is trig-based, then you'll have to accept that a trig-based method is also vector-based. again.. if i knew more math, i'm sure i could explain why the two approaches are just different sides of the same coin.<br>
+<br>
+the only difference would be how nx,ny gets calculated. if i wanted to use trig, i'd do something like:<br>
+<br>
+var rad = atan2(dy,dx);//rad is the angle parallel to dx,dy<br>
+var nx = cos(rad);//nx,ny is a unit-length vector that points from A to B<br>
+var ny = sin(rad);//it describes the direction of the collision (surface)<br>
+<br>
+but why go to all that trouble (going from the land of vectors, to the land of angles, and then back to vector-land) when a simple division works just as well, and lets us ignore angles entirely?<br>
+<br>
+raigan</div></div>
+<div class="post" id="p61872"><div class="post-head"><a class="id" href="../t/2911.html#p61872">#61872</a> <span class="index">10</span> <span class="date">2005-04-24T19:31:42Z</span> <span class="author">Guest</span></div><div class="post-body">Alright, I understand your points. I just think that trigonometry and vectors (basically, like everything in maths) are _the same_. Your approach is to store two cathets of a triangle, while a different one is to store a hypotenuse and an angle. I'm not going to argue, as I agree with you <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+I did once use the 2nd method (with angle) when doing sort of a _physical model_ of circles bouncing around in VisualBasic. And now I realise, that your way is much less complicated. Anyway, you got me interested, i'm going to read the tutorials more thoroughly now.<br>
+<br>
+P.S. Sorry for my English as I can't always explain my thoughts well, and sometimes people misunderstand me.  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p61873"><div class="post-head"><a class="id" href="../t/2911.html#p61873">#61873</a> <span class="index">11</span> <span class="date">2005-04-24T19:33:44Z</span> <span class="author"><a href="../u/9370427.html">Knu</a></span></div><div class="post-body">d'oh. That was me forgetting to log in. <br>
+<br>
+And the site (tutorials) seems to be down <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p62028"><div class="post-head"><a class="id" href="../t/2911.html#p62028">#62028</a> <span class="index">12</span> <span class="date">2005-04-25T16:23:59Z</span> <span class="author"><a href="../u/9370836.html">Grimil</a></span></div><div class="post-body">thanks for the vectors help <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+and here's my code, i hope its understanable <br>
+<br>
+<br>
+doe for the Collided object (circle that doesnt move):<br>
+<br>
+<pre class="code">onClipEvent (load) {
+	Fac = 0.5;
+}
+onClipEvent (enterFrame) {
+	disx = _root.player._x-this._x;
+	disy = _root.player._y-this._y;
+	dis = Math.sqrt(disy*disy+disx*disx);
+	SumRadius = 80*_xscale/100;
+	direction = -Math.atan(disx/disy)*180/Math.PI;
+	if (disy&gt;0) {
+  direction = -180+direction;
+	}
+	directionX = -SumRadius*Math.sin(direction*Math.PI/180)/2+disx;
+	directionY = SumRadius*Math.cos(direction*Math.PI/180)/2+disy;
+	_root.player.Speed = Math.sqrt(_root.player.xspeed*_root.player.xspeed+_root.player.yspeed*_root.player.yspeed);
+	//----------Collision--------------------
+	if (SumRadius&gt;dis) {
+  _root.player._x -= 2*directionX-disx;
+  _root.player._y -= 2*directionY-disy;
+  //---
+  _root.player.xspeed = -_root.player.Speed*Math.sin(direction*Math.PI/180)*Fac;
+  _root.player.yspeed = _root.player.Speed*Math.cos(direction*Math.PI/180)*Fac;
+	}
+	
+}</pre><br>
+well... it looks like the vector code is much shorter and easier to understand <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+and maybe i just did too much stuff i didnt have to do <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+</main>
+</body>
+</html>

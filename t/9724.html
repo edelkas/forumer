@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>help please - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; help please</nav></header>
+<main>
+<div class="post" id="p8739"><div class="post-head"><a class="id" href="../t/9724.html#p8739">#8739</a> <span class="index">1</span> <span class="date">2006-05-16T11:36:00Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">can any bodyhelp me<br>
+the actionscript is not working<br>
+if (_y+_height/2 == 455) {<br>
+	trace("Collision");<br>
+}<br>
+if i use 600 instead of 455 it is working but not working of anyother values other than 600;<br>
+please help me<br>
+<img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p176631"><div class="post-head"><a class="id" href="../t/9724.html#p176631">#176631</a> <span class="index">2</span> <span class="date">2006-05-16T13:46:37Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Not knowing anything about your specific problem - maybe you should elaborate on that, by the way - I'll just ask whether you intended to divide <i>after</i> adding _y and _height, in which case you will need another set of brackets.</div></div>
+<div class="post" id="p176690"><div class="post-head"><a class="id" href="../t/9724.html#p176690">#176690</a> <span class="index">3</span> <span class="date">2006-05-16T17:34:37Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">What are _Y and height?</div></div>
+<div class="post" id="p176768"><div class="post-head"><a class="id" href="../t/9724.html#p176768">#176768</a> <span class="index">4</span> <span class="date">2006-05-16T20:32:09Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">You shouldn't use == for collision detection. That will only detect if they hit each other exactly on their edges. If an object moves 2 pixels in one frame, for example, the collision won't be detected. Try &gt;= or &lt;=.</div></div>
+</main>
+</body>
+</html>

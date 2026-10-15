@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undead Ninja - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/3.html">Bug/Glitch Reports</a> &rsaquo; Undead Ninja</nav></header>
+<main>
+<div class="post" id="p2742"><div class="post-head"><a class="id" href="../t/3048.html#p2742">#2742</a> <span class="index">1</span> <span class="date">2005-05-05T00:04:38Z</span> <span class="author">Guest</span></div><div class="post-body">On several occasions, I have been hit by a missile at the exact instance that I hit a spring.  This, for some reason, resulted in a ninja that could move around, jump off walls and such, but had no collision with sprites of any kind (springs, gold, bounce blocks, etc.).  It is a difficult bug to duplicate, but I have seen it multiple times.<br>
+<br>
+I'm using N v.1.3 for Linux, but a friend of mine has recently experienced this bug under WinXP</div></div>
+<div class="post" id="p63765"><div class="post-head"><a class="id" href="../t/3048.html#p63765">#63765</a> <span class="index">2</span> <span class="date">2005-05-05T00:17:42Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+thanks -- this is a well-known bug. i'm afraid it's also unfixable, since fixing it would result in the collision logic being changed, which might break quite a few highscores.<br>
+<br>
+thanks for the report though.<br>
+raigan</div></div>
+<div class="post" id="p63782"><div class="post-head"><a class="id" href="../t/3048.html#p63782">#63782</a> <span class="index">3</span> <span class="date">2005-05-05T01:28:27Z</span> <span class="author"><a href="../u/9370788.html">Eldrial</a></span></div><div class="post-body">yeah.  don't worry about it.  it won't cause much harm, for it's pretty rare that that will occur, for me anyways.<br>
+<br>
+speaking of this, i've noticed that on 1.4, DDA's have been rendered not to be able to be finished because of this bug, but i recall that before the 1.4 update, it was fine.  eg, Breathing Room: Close Quarters.</div></div>
+<div class="post" id="p63801"><div class="post-head"><a class="id" href="../t/3048.html#p63801">#63801</a> <span class="index">4</span> <span class="date">2005-05-05T02:45:33Z</span> <span class="author">Guest</span></div><div class="post-body">actually the some-DDAs-don't-work problem isn't related to the simultaneous-collision-non-death thing.. <br>
+<br>
+the problem with DDAs is that in debug mode, when you die, enemies react differently (i.e they continue shooting at you/etc.) than in "real" mode, where they stop shooting.<br>
+<br>
+the reason for this is that it's very useful, when testing levels, to be able to re-spawn the ninja without having to reset the level.. so we just let the debug-mode enemies continue carrying on as if you were alive. whereas in the real game, once you die, they "idle"...<br>
+<br>
+we actually were very confused for a couple hours when we first saw this problem, until we finally figured out what was going on. sadly, there's really no way to fix this, other than for users to run DDAs in debug mode.<br>
+<br>
+sorry!<br>
+<br>
+raigan</div></div>
+</main>
+</body>
+</html>

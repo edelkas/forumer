@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>"Mute" function (not just volume slider to 0) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; "Mute" function (not just volume slider to 0)</nav></header>
+<main>
+<div class="post" id="p17857"><div class="post-head"><a class="id" href="../t/20096.html#p17857">#17857</a> <span class="index">1</span> <span class="date">2007-11-10T04:23:05Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">There should be a way to actually mute the sounds in the game and stop it from processing it altogether. Sliding the bar to 0 just doesn't play it, but still processes the noises. This would greatly help people experiencing the trademark Vista lag in N.</div></div>
+<div class="post" id="p379282"><div class="post-head"><a class="id" href="../t/20096.html#p379282">#379282</a> <span class="index">2</span> <span class="date">2007-11-14T02:43:46Z</span> <span class="author"><a href="../u/9372713.html">Romaniac</a></span></div><div class="post-body">I like it. really useful when making a DDA, and all the noises keep repeating, can just turn them off</div></div>
+<div class="post" id="p379297"><div class="post-head"><a class="id" href="../t/20096.html#p379297">#379297</a> <span class="index">3</span> <span class="date">2007-11-14T03:23:45Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Yes, there should be. I'm fairly sure it's been suggested before, and I think it was problematic because it would require rewriting a great deal of code... I'm not sure about that, however.</div></div>
+<div class="post" id="p379740"><div class="post-head"><a class="id" href="../t/20096.html#p379740">#379740</a> <span class="index">4</span> <span class="date">2007-11-15T21:18:26Z</span> <span class="author"><a href="../u/9375011.html">Commander</a></span></div><div class="post-body">yeah i always set it to 0 and if you listin closely you can still hear fuzz stop and start when he jumps and lands</div></div>
+<div class="post" id="p379750"><div class="post-head"><a class="id" href="../t/20096.html#p379750">#379750</a> <span class="index">5</span> <span class="date">2007-11-15T22:38:58Z</span> <span class="author"><a href="../u/9375303.html">notkitt</a></span></div><div class="post-body">it would be better if it was a button and not on the configure menu, because if u have the sound on and u want to listen to music or someone is talking to u, its easier to just press a button and the sound is off</div></div>
+<div class="post" id="p380056"><div class="post-head"><a class="id" href="../t/20096.html#p380056">#380056</a> <span class="index">6</span> <span class="date">2007-11-17T04:35:33Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20096.html#p379297">Quote: Atilla, November 13, 2007 08:23 pm</a></div>Yes, there should be. I'm fairly sure it's been suggested before, and I think it was problematic because it would require rewriting a great deal of code... I'm not sure about that, however.</blockquote>Why would that be so hard? Instead of something like this:<br>
+<pre class="code">on /event/ {
+  play sound %volume
+}</pre>Write something like this:<br>
+<pre class="code">on /event/ {
+  if( %soundToggle == 1 ) {
+    play sound %volume
+  }
+}</pre></div></div>
+<div class="post" id="p380116"><div class="post-head"><a class="id" href="../t/20096.html#p380116">#380116</a> <span class="index">7</span> <span class="date">2007-11-17T08:49:29Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20096.html#p379297">Quote: Atilla, November 14, 2007 01:23 pm</a></div> Yes, there should be. I'm fairly sure it's been suggested before, and I think it was problematic because it would require rewriting a great deal of code... I'm not sure about that, however.  </blockquote> <br>
+ I don't think it'd be too hard, actually. Just say that "volume = 0" or whatever. It should be rather similar to the slider, really.<br>
+<br>
+And yes, I think this is a great idea.</div></div>
+<div class="post" id="p380119"><div class="post-head"><a class="id" href="../t/20096.html#p380119">#380119</a> <span class="index">8</span> <span class="date">2007-11-17T08:53:37Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">Mmmm, something like this could be very useful, especially for Vista users.</div></div>
+<div class="post" id="p380320"><div class="post-head"><a class="id" href="../t/20096.html#p380320">#380320</a> <span class="index">9</span> <span class="date">2007-11-17T22:24:17Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20096.html#p380116">Quote: Weisslenny0, November 17, 2007 01:49 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/20096.html#p379297">Quote: Atilla, November 14, 2007 01:23 pm</a></div> Yes, there should be. I'm fairly sure it's been suggested before, and I think it was problematic because it would require rewriting a great deal of code... I'm not sure about that, however. </blockquote>I don't think it'd be too hard, actually. Just say that "volume = 0" or whatever. It should be rather similar to the slider, really.<br>
+<br>
+And yes, I think this is a great idea.  </blockquote> <br>
+ Then it still processes the sound, though, because you're still accessing the sound somehow, although its output is blank. That's what this would change.</div></div>
+<div class="post" id="p380356"><div class="post-head"><a class="id" href="../t/20096.html#p380356">#380356</a> <span class="index">10</span> <span class="date">2007-11-18T00:28:17Z</span> <span class="author"><a href="../u/9375205.html">Pepi</a></span></div><div class="post-body">I think this is an awesome idea. Like, a button on the interface of N to remove the sound.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tangent to a point - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; tangent to a point</nav></header>
+<main>
+<div class="post" id="p21665"><div class="post-head"><a class="id" href="../t/24201.html#p21665">#21665</a> <span class="index">1</span> <span class="date">2008-10-05T07:01:25Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I have a circle, it's coordinates and its nonzero radius, and an external point. I want to find the two points where the two tangents to the circle from this point will touch the circle. (This is for calculating points in a vision polygon, of what can be seen around objects from the player)<br>
+<br>
+I actually had a solution but it used quite a lot of trig (using the radius and distance from the point as an arm and hyp of a right triangle respectively). This will be recursed several times per frame in my game so I need it to be reasonably efficient. It seemed like it should be quite simple but I can't think of the math.<br>
+<br>
+Any ideas?<br>
+<br>
+PS. I also posted this in the new forum, i wasn't sure which one would elicit more responses (I hope that's ok)</div></div>
+<div class="post" id="p474931"><div class="post-head"><a class="id" href="../t/24201.html#p474931">#474931</a> <span class="index">2</span> <span class="date">2008-10-07T19:52:43Z</span> <span class="author"><a href="../u/9375457.html">999_Springs</a></span></div><div class="post-body">Suppose that your circle has centre (a,b) and radius r, and your external point has coordinates (c,d). Now the distance from the external point to the centre is sqrt((a-c)+(b-d)) and you can see this as the hypotenuse of a right-angled triangle whose vertices are the external point, the centre and either place where the tangent touches the circle.<br>
+Let the distance from the external point to the place where the tangent touches the circle be s.<br>
+By Pythagoras (a-c)+(b-d)=r+s<br>
+so: s=(a-c)+(b-d)-r.<br>
+The points where the tangent meets the circle must therefore be a distance s=sqrt((a-c)+(b-d)-r) from (c,d), so they must lie on the circle with centre (c,d) and radius sqrt((a-c)+(b-d)-r), which has equation<br>
+(x-c)+(y-d)=s=(a-c)+(b-d)-r.<br>
+But your original circle has equation (x-a)+(y-b)=r.<br>
+If you subtract that from the previous equation you get (2a-2c)x+(2b-2d)y+c+d-a-b=(a-c)+(b-d)-2r which is a linear equation. If you solve it simultaneously with one of the circle equations, the two solutions that you get for (x,y) are the coordinates of the two points.</div></div>
+<div class="post" id="p474943"><div class="post-head"><a class="id" href="../t/24201.html#p474943">#474943</a> <span class="index">3</span> <span class="date">2008-10-08T01:20:44Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">That seems like an efficient way to solve it. Unfortunately I don't know how to solve that kind of problem. I can simplify it to<br>
+<br>
+<pre class="code">(2b-2d)y(2a-2c)sqrt(r-(y-b)) = some random stuff made up of known variables</pre><br>
+but I don't know how to solve this. Can you help?</div></div>
+<div class="post" id="p474959"><div class="post-head"><a class="id" href="../t/24201.html#p474959">#474959</a> <span class="index">4</span> <span class="date">2008-10-08T20:33:45Z</span> <span class="author"><a href="../u/9375457.html">999_Springs</a></span></div><div class="post-body">The normal way to solve a pair of simultaneous equations like this is to isolate a variable using the linear equation:<br>
+(2a-2c)x+(2b-2d)y+c+d-a-b=(a-c)+(b-d)-2r <br>
+=&gt; (2a-2c)x+(2b-2d)y=a-2ac+c+b-2bd+d-2r-c-d+a+b<br>
+=&gt; (2a-2c)x+(2b-2d)y=2a+2b-2ac-2bd-2r<br>
+=&gt; (a-c)x+(b-d)y=a+b-ac-bd-r<br>
+=&gt; (b-d)y=a+b-ac-bd-r-(a-c)x<br>
+=&gt; y=(a+b-ac-bd-r)/(b-d) - (c-a)x/(b-d)<br>
+=&gt; y=(a+b-ac-bd-r)/(b-d) + (a-c)x/(b-d)<br>
+and substitute into (x-a)+(y-b)=r and you should get a quadratic equation to solve using, say, the quadratic equation formula. If you do that, what you will get will look really ghastly, but it will be much less ghastly once you have put in the values for your known variables.</div></div>
+<div class="post" id="p474965"><div class="post-head"><a class="id" href="../t/24201.html#p474965">#474965</a> <span class="index">5</span> <span class="date">2008-10-08T22:42:00Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">ah. thank you. I don't have time to check it now but I can understand that. I'll post if I have any issues!</div></div>
+<div class="post" id="p475173"><div class="post-head"><a class="id" href="../t/24201.html#p475173">#475173</a> <span class="index">6</span> <span class="date">2008-10-14T13:49:37Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body"><pre class="code">px = point.x - circle.x
+py = point.y - circle.y
+
+if absolute(px) == r and absolute(py) == r:
+	T1 = (px,0)
+	T2 = (0,py)
+
+else if absolute(px) == r:
+	T1 = (px,0)
+	L2 = px*px + py*py
+	px2 = px*px
+	T2 = (-px2*px/L2,px2*py/L2)
+
+else if absolute(py) == r:
+	T1 = (0,py)
+	L2 = px*px + py*py
+	py2 = py*py
+	T2 = (py2*px/L2,-py2*py/L2)
+
+else:
+	px2 = px*px
+	py2 = py*py
+	r2 = r*r
+	D = sqrt(px2*py2 - py2 + r2)
+	mb = px2 - r2
+	pxpyonmb = px*py/mb
+	Donmb = D/mb
+	m1 = pxpyonmb + Donmb
+	m2 = pxpyonmb - Donmb
+	temp1 = r/sqrt(1 + m1*m1)
+	temp2 = r/sqrt(1 + m2*m2)
+	T1 = (m1*temp1,-temp1)
+	T2 = (-m2*temp2,temp2)
+
+T1.x += circle.ox
+T1.y += circle.oy
+T2.x += circle.ox
+T2.x += circle.oy</pre>Note that this is pseudocode. Note also that I haven't tested this beyond deriving the maths for it, and the maths has one major downside: minus signs become ambiguous. In other words, you may have to add test cases to find out whether they work (preferably with a graphical display) and fiddle around with special cases and changing signs accordingly.<br>
+<br>
+Cases you should check to see if you need to change signs for:<br>
+px*py &gt; 0<br>
+px*py == 0<br>
+px*py &lt; 0<br>
+mb &gt; 0<br>
+mb &lt; 0</div></div>
+<div class="post" id="p475201"><div class="post-head"><a class="id" href="../t/24201.html#p475201">#475201</a> <span class="index">7</span> <span class="date">2008-10-15T03:09:55Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">wow, I'm being swamped with solutions! Thanks guys, they all work great. Decoy's may be more appropriate because I have a further step to isolate a single tangent and the sign-ambiguity may allow me to circumvent that.</div></div>
+<div class="post" id="p475206"><div class="post-head"><a class="id" href="../t/24201.html#p475206">#475206</a> <span class="index">8</span> <span class="date">2008-10-15T08:43:52Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">I redid the maths and came up with a vastly more elegant and computationally-simple solution.<br>
+<br>
+<pre class="code">px = point.x - circle.x
+py = point.y - circle.y
+
+if px == 0 and py == 0:
+//No solution is possible. Alternatively, any point on the circle is a solution. Take your pick.
+return null
+
+r2 = r*r
+px2py2 = px*px + py*py
+D = r*sqrt(px2py2 - r2)
+pxr2 = px*r2
+pyr2 = py*r2
+T1 = (pxr2,pyr2)
+T2 = (pxr2,pyr2)
+pxD = px*D
+pyD = py*D
+T1.x += pyD //may need to edit
+T1.y -= pxD //these lines to
+T2.x -= pyD //get correct signs
+T2.y += pxD //for the right result
+T1.x /= px2py2
+T1.y /= px2py2
+T2.x /= px2py2
+T2.y /= px2py2
+
+T1.x += circle.x
+T1.y += circle.y
+T2.x += circle.x
+T2.y += circle.y </pre><br>
+As you can see, this version is much faster (only 1 square root), and only has one special case (where px2py2 would be 0). There might still be the ambiguity, but I don't think so. Also note that this is the absolute minimum of computation possible. You simply cannot get a more efficient method than this (unless you are a programming deity of some sort).</div></div>
+<div class="post" id="p475224"><div class="post-head"><a class="id" href="../t/24201.html#p475224">#475224</a> <span class="index">9</span> <span class="date">2008-10-16T04:09:26Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">It would probably be worth delaying the "if px == 0 and py == 0: return null" until after you get r2 and px2py2, as it's only solvable when px2py2&gt;r2 (well, technically there's the trivial solution when px2py2==r2).<br>
+Depending on the language (and compiler, if applicable) used, there are probably some peephole optimizations to be done too (e.g. saving a couple assignments when computing pxr2, pyr2, T1, and T2, or moving some things around to keep stuff in registers), but otherwise it looks pretty close to optimal.<br>
+<br>
+[edit]I've attached a simple demo app.  And yes, the signs were correct.[/edit] <div class="attachment attachment-missing">Attachment (lost): post-14-1224130569.zip</div></div></div>
+<div class="post" id="p475227"><div class="post-head"><a class="id" href="../t/24201.html#p475227">#475227</a> <span class="index">10</span> <span class="date">2008-10-16T06:11:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">great! Thanks! That's plenty optimized enough even without taaveti's advice (my original solution had at least 5 trig operations)</div></div>
+</main>
+</body>
+</html>

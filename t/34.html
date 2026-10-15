@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>undeletable objects outside level border - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; undeletable objects outside level border</nav></header>
+<main>
+<div class="post" id="p26"><div class="post-head"><a class="id" href="../t/34.html#p26">#26</a> <span class="index">1</span> <span class="date">2004-04-06T13:22:45Z</span> <span class="author">Mare <span class="guest">(guest)</span></span></div><div class="post-body">hey everyone,<br>
+<br>
+I looked at Blitz, one of <b>Keron</b>'s levels, where he had reported a mine at the very top and left of the level.<br>
+The mine could not be deleted using Ned.<br>
+<br>
+<br>
+Note that the mine is <u>outside</u> the level border.  <br>
+<br>
+<br>
+I've deleted all the objects in <b>Keron</b>'s level.  Take a look at this (I'll attach the file as well):<br>
+<br>
+<br>
+00010000000000100000000000100000000001000000000001000004000010111400000010000010000100001000000100000100001000010000001000001003000000100000010000010011&lt;000010000001000001001110001100000010111010000100011000000100000100001000210000001000001000010000100000010000010000100001000000100000100B1100001000000100000000&gt;110000100000010000010000100001000000100000100011000010000001000001000110P001000000100000100011OP00100000010000010000100001000000100000100011000010000001000001000110000100000010000010000100001000000100000100031000010000001000001002110000100000010000010000100001000000100000100001000010000005000001000050000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001000|12^300,NaN<br>
+<br>
+<br>
+<br>
+<br>
+At the end of the code, you will see a "NaN" -- 'not a number'.  This means that somewhere along the line, a parameter got screwed up.<br>
+<br>
+In this case, it's the y-coordinate of the mine.  <br>
+<br>
+<br>
+<br>
+Now.  As a temporary fix, whenever you notice an undeletable object placed where this mine was, you can look at the code and get rid of it.  To delete this mine, I'd erase:<br>
+<br>
+12^300,NaN<br>
+<br>
+<br>
+Note that if there were two objects in the level, you'd see something like this:<br>
+12^300,NaN!12^300,214<br>
+<br>
+That '!' separates objects.  So in this case you'd have to delete:<br>
+<br>
+12^300,Nan!<br>
+<br>
+Cause after you delete the corrupted mine, there wouldn't be anything to separate, right?<br>
+No need for the exclamation mark.<br>
+<br>
+<br>
+We'll look into this error.<br>
+<br>
+Can anyone tell me exactly when their level gained a corrupted object?  when did you first notice a mine (etc) up there?<br>
+<br>
+Are there any user-made levels which are fine?</div></div>
+<div class="post" id="p22012"><div class="post-head"><a class="id" href="../t/34.html#p22012">#22012</a> <span class="index">2</span> <span class="date">2004-04-06T13:25:47Z</span> <span class="author">Mare <span class="guest">(guest)</span></span></div><div class="post-body">whoops...<br>
+<br>
+here's that file. <div class="attachment attachment-missing">Attachment (lost): post-11-1081257947.txt</div></div></div>
+<div class="post" id="p22013"><div class="post-head"><a class="id" href="../t/34.html#p22013">#22013</a> <span class="index">3</span> <span class="date">2004-04-06T14:29:54Z</span> <span class="author">Mare <span class="guest">(guest)</span></span></div><div class="post-body">hey,<br>
+<br>
+<br>
+after more testing, we noticed that when a parameter is deleted or replaced by a space, newline character, letter or other character and saved, the next time the level is loaded and saved, that character is replaced by NaN (which makes sense).<br>
+<br>
+so in this example code:<br>
+12^300,316!12^300,346<br>
+<br>
+let's say somehow I screw up the first mine:<br>
+12^300,!12^300,346<br>
+<br>
+if I reload this data into Ned, the first mine will be placed outside the level border, and the number I deleted will be replaced with NaN:<br>
+12^300,NaN!12^300,346<br>
+<br>
+<br>
+so the only question remaining is:<br>
+how does a parameter get screwed up?<br>
+<br>
+<br>
+<br>
+<br>
+check out the attached text file for my tests. <div class="attachment attachment-missing">Attachment (lost): post-11-1081261794.txt</div></div></div>
+<div class="post" id="p22023"><div class="post-head"><a class="id" href="../t/34.html#p22023">#22023</a> <span class="index">4</span> <span class="date">2004-04-06T16:56:18Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">I'll start making another map very soon, and I'll tell you when I see an object placed by someone other than me ASAP, but it may not be exact, of course. Thanks for the mine fix! <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+Funny how they only appear in the top of the map <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p24180"><div class="post-head"><a class="id" href="../t/34.html#p24180">#24180</a> <span class="index">5</span> <span class="date">2004-07-01T07:08:11Z</span> <span class="author"><a href="../u/9370491.html">Fire71</a></span></div><div class="post-body">hey! just now i made a map, and it had an undeletable ninja outside the border. (thought you might want to know <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> )</div></div>
+<div class="post" id="p24345"><div class="post-head"><a class="id" href="../t/34.html#p24345">#24345</a> <span class="index">6</span> <span class="date">2004-07-06T23:11:02Z</span> <span class="author"><a href="../u/9370515.html">Nexus</a></span></div><div class="post-body">Hey,<br>
+<br>
+I just made this lvl to show you the problem. I get this problem often.<br>
+<br>
+One lvl is without the problem. And the other is. <div class="attachment attachment-missing">Attachment (lost): post-11-1089155462.txt</div></div></div>
+<div class="post" id="p24367"><div class="post-head"><a class="id" href="../t/34.html#p24367">#24367</a> <span class="index">7</span> <span class="date">2004-07-07T14:29:35Z</span> <span class="author">Mare <span class="guest">(guest)</span></span></div><div class="post-body">well yeah, like this thread describes, you've got NaNs in your level code.  <br>
+<br>
+You'll have to manually remove the offending NaNs to fix your level code.  In the second part (much harder), when you load the code with the existing NaN, N <b>removes </b>the NaN, which leaves an object missing a parameter:<br>
+<br>
+original level code:<br>
+<br>
+396,252,3,1,0,NaN<br>
+<br>
+<br>
+after loading entire level into N, pausing and recopying the level data from the debug menu:<br>
+<br>
+396,252,3,1,0,<br>
+<br>
+<br>
+that'll cause bugs for sure.<br>
+<br>
+I didn't check to see if there were already objects missing parameters, but if you've loaded code with a NaN in it and re-saved your level, then there are others.</div></div>
+<div class="post" id="p24388"><div class="post-head"><a class="id" href="../t/34.html#p24388">#24388</a> <span class="index">8</span> <span class="date">2004-07-07T17:08:38Z</span> <span class="author"><a href="../u/9370515.html">Nexus</a></span></div><div class="post-body">Thanks for your help.<br>
+<br>
+After deleting the NAN! Values a few times, I got it so that there are no more items stuck at the top when in play. It seems to be good now. Except for the fact that one of the drone guys just sits there. But that works out though because thats where I want him to be. The other NANs that will load dont seem to effect the game.<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-11-1089220118.txt</div></div></div>
+<div class="post" id="p24419"><div class="post-head"><a class="id" href="../t/34.html#p24419">#24419</a> <span class="index">9</span> <span class="date">2004-07-07T22:19:20Z</span> <span class="author"><a href="../u/9370495.html">Chaz</a></span></div><div class="post-body">will there be a vershion were the NaN isn't there / isn't coppyable?</div></div>
+<div class="post" id="p24423"><div class="post-head"><a class="id" href="../t/34.html#p24423">#24423</a> <span class="index">10</span> <span class="date">2004-07-08T00:41:43Z</span> <span class="author">Mare <span class="guest">(guest)</span></span></div><div class="post-body">yes, when we have a third party projector which allows fully automatic save/load of levels, this won't be a problem at all.<br>
+<br>
+woohoo!</div></div>
+<div class="post" id="p36325"><div class="post-head"><a class="id" href="../t/34.html#p36325">#36325</a> <span class="index">11</span> <span class="date">2004-11-13T15:40:58Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">I used to get NaN's when making levels - the first one i posted has some in 'cos i didn't really understand stuff then. Most NaN's i made were by pressing L to load a level i had just pasted into the textbox, not realising that the cursor was still in the textbox. This typed an "L" into the level data textbox, which became a NaN. All i now hav to do is click outside of the textbox before pressing L. Hope this helps!!</div></div>
+<div class="post" id="p45002"><div class="post-head"><a class="id" href="../t/34.html#p45002">#45002</a> <span class="index">12</span> <span class="date">2005-01-09T03:12:15Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Stuff like this always happens to me: there are always gauss turrets outside of the borders, and at random times I just stop moving as a glitch. THis is very helpful, and now I can delete objects.</div></div>
+<div class="post" id="p45014"><div class="post-head"><a class="id" href="../t/34.html#p45014">#45014</a> <span class="index">13</span> <span class="date">2005-01-09T03:37:20Z</span> <span class="author"><a href="../u/9370574.html">Rahl</a></span></div><div class="post-body">Wow.  Is this the month of the necromacers or something?<br>
+<br>
+Anywho, most likely what's hapenning(with the NaNs) is when you press 'L' to load your level, you are still in the textbox where you add the level code.  just click somewhere outside that box before you press 'L' and that should fix it.<br>
+<br>
+Can you maybe describe what is happening when you stop moving?</div></div>
+<div class="post" id="p45344"><div class="post-head"><a class="id" href="../t/34.html#p45344">#45344</a> <span class="index">14</span> <span class="date">2005-01-10T14:48:15Z</span> <span class="author"><a href="../u/9370624.html">HeartView</a></span></div><div class="post-body">If the text boxes that contain the level code and demo could be made read only then I bet that would make a lot of the NaN issues go away.  Accidentally typing in that box when you meant to hit P to play (or any other key) can cause problems with the map code.  Is this possible?</div></div>
+<div class="post" id="p45364"><div class="post-head"><a class="id" href="../t/34.html#p45364">#45364</a> <span class="index">15</span> <span class="date">2005-01-10T21:09:08Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">If you did that, HV, then you couldn't make custom launchpads.  And removing NaNs would be even harder.</div></div>
+<div class="post" id="p45445"><div class="post-head"><a class="id" href="../t/34.html#p45445">#45445</a> <span class="index">16</span> <span class="date">2005-01-11T02:27:16Z</span> <span class="author"><a href="../u/9370574.html">Rahl</a></span></div><div class="post-body">More to the point, you wouldn't be able to play custom maps at all without a lot of hassle.  Editing the text in there is what you're doing when you paste it in.</div></div>
+<div class="post" id="p73836"><div class="post-head"><a class="id" href="../t/34.html#p73836">#73836</a> <span class="index">17</span> <span class="date">2005-06-11T04:21:56Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Yep I just got my first one. And it was a turret stuck up there. No matter where you are in the map, when it fires, you die....  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"><br>
+ <div class="attachment attachment-missing">Attachment (lost): post-11-1118463716.jpg</div></div></div>
+<div class="post" id="p73873"><div class="post-head"><a class="id" href="../t/34.html#p73873">#73873</a> <span class="index">18</span> <span class="date">2005-06-11T09:34:07Z</span> <span class="author"><a href="../u/9370854.html">mascote_ponto</a></span></div><div class="post-body">Want another example?<br>
+<br>
+In <a href="https://www.nmaps.net/7889">HartView's Cliffs</a>.<br>
+<br>
+See gold piece in the top of the screen? <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"> <br>
+<br>
+How haven't you noticed? It qualified for NTTS. <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"></div></div>
+<div class="post" id="p73886"><div class="post-head"><a class="id" href="../t/34.html#p73886">#73886</a> <span class="index">19</span> <span class="date">2005-06-11T11:17:17Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/34.html#p73873">Quote: mascote_ponto, Jun 11 2005, 09:34 AM</a></div> How haven't you noticed? It qualified for NTTS. <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  </blockquote> <br>
+ I'm sure we all noticed, it just doesn't affect the way the game is played so it's ok.</div></div>
+<div class="post" id="p73975"><div class="post-head"><a class="id" href="../t/34.html#p73975">#73975</a> <span class="index">20</span> <span class="date">2005-06-11T15:34:00Z</span> <span class="author"><a href="../u/9370846.html">johnny_faneca</a></span></div><div class="post-body">i told that to him before but he gives so much damn importance to those little mistakes</div></div>
+<div class="post" id="p82542"><div class="post-head"><a class="id" href="../t/34.html#p82542">#82542</a> <span class="index">21</span> <span class="date">2005-07-10T11:42:21Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">I could make this happen on purpose!<br>
+<br>
+I could make N's outside, I could put ANYTHING outside the border, or I could hide it under the border, like with my level, BOING!<br>
+<br>
+I put modified launch pads JUST beneath the ground, so they hit you up, but you don't see them.<br>
+<br>
+I modified them to -1.5, just enough to not kill you! <div class="attachment attachment-missing">Attachment (lost): post-11-1120995741.txt</div></div></div>
+<div class="post" id="p82564"><div class="post-head"><a class="id" href="../t/34.html#p82564">#82564</a> <span class="index">22</span> <span class="date">2005-07-10T15:03:51Z</span> <span class="author"><a href="../u/9370933.html">Razorstar</a></span></div><div class="post-body">Yeah it's not that hard.....</div></div>
+<div class="post" id="p92974"><div class="post-head"><a class="id" href="../t/34.html#p92974">#92974</a> <span class="index">23</span> <span class="date">2005-08-21T18:14:08Z</span> <span class="author">jinx90 <span class="guest">(guest)</span></span></div><div class="post-body">umm i have no idea how to make maps...could u guys plz help me</div></div>
+<div class="post" id="p92976"><div class="post-head"><a class="id" href="../t/34.html#p92976">#92976</a> <span class="index">24</span> <span class="date">2005-08-21T19:12:53Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hey, you could have looked at the last post date before posting <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> .<br>
+You ressurected a 2 and a half month old/dead topic.</div></div>
+<div class="post" id="p93103"><div class="post-head"><a class="id" href="../t/34.html#p93103">#93103</a> <span class="index">25</span> <span class="date">2005-08-22T03:38:19Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Actually, it was only about a month old.<br>
+<br>
+I'm tempted to lock this. I can't see how any more productive conversation could come from it.</div></div>
+<div class="post" id="p93112"><div class="post-head"><a class="id" href="../t/34.html#p93112">#93112</a> <span class="index">26</span> <span class="date">2005-08-22T03:53:39Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">You're right. It's pinned, and most of us know what NaN's are. Investigation (finally) closed.<br>
+<br>
+*lock*</div></div>
+</main>
+</body>
+</html>

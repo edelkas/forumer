@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NED RELOADED: v0.5.3- Supports Tile Rotation Now!! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; NED RELOADED: v0.5.3- Supports Tile Rotation Now!!</nav></header>
+<main>
+<div class="post" id="p12181"><div class="post-head"><a class="id" href="../t/13688.html#p12181">#12181</a> <span class="index">1</span> <span class="date">2006-11-09T20:59:31Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><b>Version 0.5.3</b><br>
+Now Supports Tile Rotation and Mirroring!!<br>
+<b>Note: If you downloaded version 0.5.2 yesterday, download 0.5.3 because it fixes a few annoying glitches such as not redrawing tiles upon loading a map</b><br>
+<br>
+<b><u><i>Known Glitches</i></u></b> (click on text bellow to view glitches of that type)<br>
+<br>
+<span style="color:RED"><details class="spoiler"><summary>Spoiler: Critical Errors- 1</summary><span style="color:BLACK">Game crashes when screensaver turns on: I will fix this in the next version</span></details></span><span style="color:ORANGE"><details class="spoiler"><summary>Spoiler: Non-Critical Errors-0</summary><span style="color:BLACK"></span></details></span><span style="color:BLUE"><details class="spoiler"><summary>Spoiler: Minor Bugs- 0</summary><span style="color:BLACK"></span></details></span><span style="color:GREEN"><details class="spoiler"><summary>Spoiler: Unconfirmed- 0</summary><span style="color:BLACK"></span></details></span><br>
+<br>
+<span style="color:BLACK"><br>
+The version you are using is on the first line of the help file (press F1)- if the help file does not exist or does not have a line saying the first version, then you have an old version<br>
+<br>
+I'm starting to make an N Level Editor/Creator, that does what Ned can do, plus a little more such as:<br>
+<br>
+Color Coding:</span><br>
+<span style="color:RED">Red: Coming Later</span><br>
+<span style="color:GREEN">Green: Been there, done that (in latest version)</span><br>
+<br>
+<span style="color:GREEN">-Allowing the user to easily change the power of launch pads without manual editing</span><br>
+<span style="color:GREEN">-Adding the "ghost drone" (drone eye that doesn't hurt you)</span><br>
+<span style="color:RED">-create objects and tiles in groups [very useful for making N art]</span><br>
+<span style="color:GREEN">-Allow springs to be placed at angles</span><br>
+<span style="color:RED">-Ability to assign an object to left-click and another to right-click and middle-click</span><br>
+<span style="color:GREEN">Ability to use full-snap (instead of just 1/2, 1/4, and pixel)</span><br>
+<span style="color:RED">-Ability to rotate objects (90 degrees), and mirror horizontally and vertically: excellent for symmetrical maps</span><br>
+<span style="color:GREEN">-Add "No Movement" (NaN) to the drone path patterns<br>
+-Adding a "low-memory standby mode" that "pauses" the editor while you can test the level in N. This means that it uses almost no memory untill you unpause it.</span><br>
+<span style="color:GREEN">-Adding a "quick-save" option that allows you quickly save a level with the press of a button (and saying "yes" to the prompt) and load it just the same</span><br>
+<span style="color:GREEN">-Adding the ability to move/copy a region of tiles (HOO-RAY!!)<br>
+-clear all objects tool<br>
+-clear objects outside room (in case you use the move tool and they go right out of the level)<br>
+-invert tile selection tool<br>
+-rotate tile selection tool<br>
+-mirror tile selection tool</span><br>
+<span style="color:RED">-decompiling (converting N map data in to Ned Reloaded map data)</span><br>
+<br>
+<u><b><span style="color:BLUE">What's Coming in the Next Version of NR? (version 0.54) </span></b></u><ul><li><span style="color:BLACK">&bull; Fix Crash Due To Screensaver Turning On&bull; Adding Doors Into Objects&bull; Add Fill/Clear Tiles Option&bull; Change more objects to original Ned key&bull; Add lines going from door to switch</span></li></ul>[/color]<span style="color:BLACK"><br>
+<br>
+I'm posting this because I want suggestions on what would make this even better!!  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+OK, heres a bit more information on how creating multiple objects at a time will work. <b>Creating multiple instances at once is not supported in the current version.</b> First, you will specify the region type (line, filled square, ellipse outline, ellipse fill). Then you choose what object to place. Then you choose how much space there is in-between the objects (1/4 snap, 1/2 snap, full snap, custom- Objects are not snapped if the region shape is elliptical) and then you use your mouse to place the objects.<br>
+<br>
+Here's how I'm, going to release these:<br>
+<br>
+v0.00 the pre-release: a preview of what is to come<br>
+v0.10 original release: has some of the things mentioned above; simple interface; does not support tiles<br>
+<b>v0.50 extended pre-release: same as original release except tiles added</b><br>
+v1.00 first real release- has all options said above<br>
+<br>
+~~~~~VERSION HISTORY~~~~~<ul><li>version 0.00- The original Ned Reloaded; didn't do much.</li><li>version 0.10- Added a lot of stuff that I don't care to type here <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></li><li>version 0.11- Fixed glitch that would generate an error when copying drones, one-ways, thwumps,and launchpads</li><li>version 0.12- Fixed a glitch that would cause drones and floorguards to become un-aligned when being moved or copied, which would result in a corrupted level code</li><li>version 0.50- Added the ability to make the exit door, fixed a problem with removing objects, and added support for tiles (w00t!!)</li><li>version 0.51- Added loading bar for saving and compiling maps (which is kind of ironic, because it makes it take twice as long to load/save); removed the white X snapping indicator... thing... when placing tiles</li><li>version 0.52- fixed lag issues, added tile mirroring, rotation, and moving/copying, fixed a glitch with loading, added a full save/load system</li><li>version 0.53- fixed a couple annoying glitches and a mis-prompt</li></ul><b>ALL CONTROLS ARE LISTED IN THE PROGRAM. PRESS F1</b><br>
+<br>
+Everything else is stated... I think...<br>
+And I will say this again: YOU CANNOT PLACE LOCKED DOORS, TRAP DOORS, OR NORMAL DOORS YET[/b]<br>
+</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> <span style="color:BLUE"><u><a href="http://www.box.net/shared/ghbirpfqvo">Download N-ed Reloaded v0.5.3</a></u></span> <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> <span style="color:BLACK"><br>
+If you cannot download from that page, download here:<br>
+<a href="http://www.box.net/shared/44tbier4bb">http://www.box.net/shared/44tbier4bb</a><br>
+<b>There is no readme file. The help 'file' with all the controls listed is <i>in the game</i>; press F1 to see them.</b><br>
+<br>
+Here's a loader I designed in Flash: (Credit to Harvester for the name) <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></span> <div class="attachment attachment-missing">Attachment (lost): post-33-1163297363.png</div></div></div>
+<div class="post" id="p252217"><div class="post-head"><a class="id" href="../t/13688.html#p252217">#252217</a> <span class="index">2</span> <span class="date">2006-11-09T21:16:10Z</span> <span class="author"><a href="../u/9372014.html">Limer</a></span></div><div class="post-body">can you also make it so you can copy objects and groups of objects like you can with tiles, or is that what you meant up there^?</div></div>
+<div class="post" id="p252223"><div class="post-head"><a class="id" href="../t/13688.html#p252223">#252223</a> <span class="index">3</span> <span class="date">2006-11-09T21:25:02Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p12181">Quote: exuberance, November 09, 2006 08:59 pm</a></div> -Adding the "ghost drone" (drone eye that doesn't hurt you)  </blockquote> <br>
+ What would it do then?</div></div>
+<div class="post" id="p252228"><div class="post-head"><a class="id" href="../t/13688.html#p252228">#252228</a> <span class="index">4</span> <span class="date">2006-11-09T21:31:42Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">It allows you to create a 4th type of drone that serves no purpose except to make an awesome visual effect.</div></div>
+<div class="post" id="p252233"><div class="post-head"><a class="id" href="../t/13688.html#p252233">#252233</a> <span class="index">5</span> <span class="date">2006-11-09T21:40:00Z</span> <span class="author"><a href="../u/9372096.html">SHDOO</a></span></div><div class="post-body">Does the Ghost drone work when you put it in to N?</div></div>
+<div class="post" id="p252241"><div class="post-head"><a class="id" href="../t/13688.html#p252241">#252241</a> <span class="index">6</span> <span class="date">2006-11-09T21:51:24Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Yes, it does. However, if you use Ned to edit the level, it kills the ghost drones for some reason.<br>
+<br>
+If you want to see a level with ghost drones, search for "Graveyard of Shadows" or "The Eye of a Needle" under my name, and you'll find a level with ghost drones in it.</div></div>
+<div class="post" id="p252264"><div class="post-head"><a class="id" href="../t/13688.html#p252264">#252264</a> <span class="index">7</span> <span class="date">2006-11-09T22:22:19Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">Great idea <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">. If you could do what Limer said, it'd be sweet!</div></div>
+<div class="post" id="p252269"><div class="post-head"><a class="id" href="../t/13688.html#p252269">#252269</a> <span class="index">8</span> <span class="date">2006-11-09T22:30:36Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">yeah, I'll make it so you can copy a region of objects to another place, or just move them. I'll probably include that in the first release, but maybe not.</div></div>
+<div class="post" id="p252271"><div class="post-head"><a class="id" href="../t/13688.html#p252271">#252271</a> <span class="index">9</span> <span class="date">2006-11-09T22:31:00Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body">*claps* And then we can direct n00bs to your program instead. <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p252279"><div class="post-head"><a class="id" href="../t/13688.html#p252279">#252279</a> <span class="index">10</span> <span class="date">2006-11-09T22:45:14Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">And I LOVE programming. I can program very quickly. Expect the first not-so-great version very soon, and the better fairly-awesome version soon after, followed shortly by the one described in this thread and more!! <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"><br>
+<br>
+I'll really start to work on this on the weekend. I can say that the 1st version will PROBABLY be out by Monday. *clap* *clap* *clap*</div></div>
+<div class="post" id="p252296"><div class="post-head"><a class="id" href="../t/13688.html#p252296">#252296</a> <span class="index">11</span> <span class="date">2006-11-09T23:11:40Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">2 questions out a curiosity<br>
+<br>
+1. what language are you using?<br>
+2. when are you going to make a mac compatible version (if not immediately) and notice i didnt just say "are you" i said "when are you" <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p252299"><div class="post-head"><a class="id" href="../t/13688.html#p252299">#252299</a> <span class="index">12</span> <span class="date">2006-11-09T23:17:12Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Sorry, but the answer to question 2 is never. That's because I'm using GML (Game Maker scripting Language) which can only export windows-compatible files. That's actually pretty much the only reason I use Windows and not Linux.<br>
+<br>
+Edit: I MAY (very unlikely) make a version of this in Java too, which IS compatible with Macs. (i think)</div></div>
+<div class="post" id="p252389"><div class="post-head"><a class="id" href="../t/13688.html#p252389">#252389</a> <span class="index">13</span> <span class="date">2006-11-10T02:45:04Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">meh. getting tired. do not feel like programming when tired *sigh* must play... play... my other games... forget it- I'M PLAYING N!!  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> lol<br>
+N=good<br>
+<br>
+My next program will be a huge game with awesome randomly-generated explosions, RPG level-up system, ragdoll physics (like N), and... uh... I'll wing it!! Game Maker is awsome.</div></div>
+<div class="post" id="p252400"><div class="post-head"><a class="id" href="../t/13688.html#p252400">#252400</a> <span class="index">14</span> <span class="date">2006-11-10T03:17:52Z</span> <span class="author"><a href="../u/9371512.html">Greengooguy49</a></span></div><div class="post-body">Sounds like you have put a lot of work into this... I can't wait for this to come out it will make map making a whole lot easier!</div></div>
+<div class="post" id="p252479"><div class="post-head"><a class="id" href="../t/13688.html#p252479">#252479</a> <span class="index">15</span> <span class="date">2006-11-10T07:31:57Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p252299">Quote: exuberance, 2006-11-09T23:17:12Z</a></div>That's because I'm using GML (Game Maker scripting Language) which can only export windows-compatible files. That's actually pretty much the only reason I use Windows and not Linux.</blockquote>Script-kiddie.</div></div>
+<div class="post" id="p252540"><div class="post-head"><a class="id" href="../t/13688.html#p252540">#252540</a> <span class="index">16</span> <span class="date">2006-11-10T13:33:25Z</span> <span class="author"><a href="../u/9372544.html">Shark</a></span></div><div class="post-body">Sounds interesting. Though the only useful things on here would be the rotate 90 and 180, auto-super launchpads, and mass item placing.</div></div>
+<div class="post" id="p252541"><div class="post-head"><a class="id" href="../t/13688.html#p252541">#252541</a> <span class="index">17</span> <span class="date">2006-11-10T13:39:57Z</span> <span class="author"><a href="../u/9371065.html">Wannas1693</a></span></div><div class="post-body">Personally, I don't think that the black drone eyes are very useful, although the NaN coding for drone paths would be helpful.<br>
+Could you possibly implement false tiles? They may be as unpredictable and unreliable as drone eyes, but they are a great help in custom drone paths, etc.</div></div>
+<div class="post" id="p252612"><div class="post-head"><a class="id" href="../t/13688.html#p252612">#252612</a> <span class="index">18</span> <span class="date">2006-11-10T19:24:40Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I've gone into a bit more detail about some of the options this editor will have. I still need to think of a creative name. Super-Ned is a bit... not super...  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:"></div></div>
+<div class="post" id="p252633"><div class="post-head"><a class="id" href="../t/13688.html#p252633">#252633</a> <span class="index">19</span> <span class="date">2006-11-10T20:09:30Z</span> <span class="author"><a href="../u/9372892.html">Harvster</a></span></div><div class="post-body">How about NED - Reloaded!</div></div>
+<div class="post" id="p252634"><div class="post-head"><a class="id" href="../t/13688.html#p252634">#252634</a> <span class="index">20</span> <span class="date">2006-11-10T20:11:58Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I like it. I'll probably think of a better one, though.<br>
+And by better, I mean more... interesting... lol<br>
+More.... peculiar...<br>
+<br>
+<br>
+By the way, nice sig  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"><br>
+This is the level code for you sig picture: 11001100000000000000000110011000000000000000001100110000000000000000011001100000000000000000110011000000000000000000000010000000000000000000000100000000000000000000001000000000000000000000010000000000000000000000100000000000000000000001000000000000000000000010000000000000000000000100000000000000000000001000000000000000000000010000000000000000000000100000000000000000111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^108,108!11^36,108,60,108!9^144,108,0,0,6,4,0,-1,0!9^144,84,0,0,6,3,0,-1,0!12^156,36!12^180,132!12^204,36!8^180,36,1!8^204,132,3!8^156,132,3!3^228,132!3^300,132!3^228,36!3^300,36!6^252,108,5,1,0,2!6^252,84,5,1,0,2!6^300,108,5,0,1,2!6^300,84,5,0,1,2!2^396,132,-0.707106781186547,-0.707106781186547!10^396,36!12^372,108!0^384,120!0^372,120!0^360,120!0^360,108!0^360,96!0^372,96!0^372,108!0^384,108!0^384,96<br>
+I'm trying to get the gold now lol</div></div>
+<div class="post" id="p252653"><div class="post-head"><a class="id" href="../t/13688.html#p252653">#252653</a> <span class="index">21</span> <span class="date">2006-11-10T20:47:11Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Good luck getting this to take off. There have been alternative Ned projects in the past, and they all failed because it's so important to be able to playtest while you make a level. If you can manage to make a level editor so good that it makes up for not being able to playtest, then you're amazing. Personally, I would find out what the N Art makers need and add that.</div></div>
+<div class="post" id="p252793"><div class="post-head"><a class="id" href="../t/13688.html#p252793">#252793</a> <span class="index">22</span> <span class="date">2006-11-11T00:40:47Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p252279">Quote: exuberance, November 09, 2006 10:45 pm</a></div> I can say that the 1st version will PROBABLY be out by Monday. *clap* *clap* *clap*  </blockquote> <br>
+ There.</div></div>
+<div class="post" id="p252795"><div class="post-head"><a class="id" href="../t/13688.html#p252795">#252795</a> <span class="index">23</span> <span class="date">2006-11-11T00:43:00Z</span> <span class="author"><a href="../u/9372056.html">Britannia</a></span></div><div class="post-body">Thanks i_forget... didn't note that   <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p252862"><div class="post-head"><a class="id" href="../t/13688.html#p252862">#252862</a> <span class="index">24</span> <span class="date">2006-11-11T03:31:29Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p252653">Quote: LittleViking, 2006-11-10T20:47:11Z</a></div>Good luck getting this to take off. There have been alternative Ned projects in the past, and they all failed because it's so important to be able to playtest while you make a level. If you can manage to make a level editor so good that it makes up for not being able to playtest, then you're amazing. Personally, I would find out what the N Art makers need and add that.</blockquote><br>
+It will have an option to set it to low-memory standby mode, so you can run N and playtest your level without causing lag. <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"></div></div>
+<div class="post" id="p252870"><div class="post-head"><a class="id" href="../t/13688.html#p252870">#252870</a> <span class="index">25</span> <span class="date">2006-11-11T03:39:23Z</span> <span class="author"><a href="../u/9372228.html">Mr_Mongoose</a></span></div><div class="post-body"><b>-A VERY IMPORTANT REQUEST*-</b><br>
+*In my opinion, at least. I'm sure lots of mappers will approve of this<br>
+<br>
+Make an ability to have default Ned controls, so that it is easy to convert from Ned to this program. Trust me, this will make the program a whole lot more cope-able.</div></div>
+<div class="post" id="p252871"><div class="post-head"><a class="id" href="../t/13688.html#p252871">#252871</a> <span class="index">26</span> <span class="date">2006-11-11T03:41:42Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I will probably keep the controls basically the same, with a few minor changes that allow you to have different objects assigned to different mouse buttons.</div></div>
+<div class="post" id="p252884"><div class="post-head"><a class="id" href="../t/13688.html#p252884">#252884</a> <span class="index">27</span> <span class="date">2006-11-11T04:31:45Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">How 'bout this for a name:<br>
+<br>
+Neditor plus plus remake version 1.8 pro extended release special edition MX reloaded 2: Expansion Pack 8 <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"><br>
+<br>
+Or N++RV1.8PERSEMXR for short<br>
+ <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> <br>
+<br>
+I'm normal  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"><br>
+<br>
+EDIT:<br>
+<br>
+BTW, sorry about the double post. I didn't notice that until now.<br>
+Actually, I MIGHT go with the name "Ned Reloaded" (suggested by Harvester) and then make the loading picture: N with a shotgun...... I like it!!  <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p253093"><div class="post-head"><a class="id" href="../t/13688.html#p253093">#253093</a> <span class="index">28</span> <span class="date">2006-11-11T17:46:59Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body">could you make an object that is an n that si invisible and a seperate one that's  <br>
+invinsible?  And object goups like the two teleporter sender and reciever from   pac-N? <br>
+<br>
+I am a n00b... with the source code to that falling bush ragdoll (in flash)<br>
+<br>
+<a href="http://www.flashkit.com/downloads/movies/zip/11589/georgew.zip">http://www.flashkit.com/downloads/movies/z...589/georgew.zip</a>   <br>
+ if the link above dosen't work  <br>
+<a href="http://www.flashkit.com/downloads/movies/zip/11589/georgew.zip">Source here</a> <br>
+This might help your ragdoll physics for your next project. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p253096"><div class="post-head"><a class="id" href="../t/13688.html#p253096">#253096</a> <span class="index">29</span> <span class="date">2006-11-11T17:53:50Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">There are no invisible N or teleporter objects in N. Teleporters are just high-powered springs that shoot you so fast, the your displacement each frame is so great that the collision checks return false (no collision), therefore you go through the walls. As for invisible N, that's just a glitch.</div></div>
+<div class="post" id="p253103"><div class="post-head"><a class="id" href="../t/13688.html#p253103">#253103</a> <span class="index">30</span> <span class="date">2006-11-11T18:37:09Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">This sounds pretty darn cool. Lookin' forward to it.</div></div>
+<div class="post" id="p253142"><div class="post-head"><a class="id" href="../t/13688.html#p253142">#253142</a> <span class="index">31</span> <span class="date">2006-11-11T20:38:38Z</span> <span class="author"><a href="../u/9372290.html">Homestar Runner</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p253096">Quote: exuberance, November 11, 2006 12:53 pm</a></div> There are no invisible N or teleporter objects in N. Teleporters are just high-powered springs that shoot you so fast, the your displacement each frame is so great that the collision checks return false (no collision), therefore you go through the walls. As for invisible N, that's just a glitch.  </blockquote> <br>
+ Wow. Just...... Wow...... I will definetely play N again if this is made. <br>
+Request: Could you make it to where you can upload pictures and make them into Nart?</div></div>
+<div class="post" id="p253550"><div class="post-head"><a class="id" href="../t/13688.html#p253550">#253550</a> <span class="index">32</span> <span class="date">2006-11-12T17:36:11Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p253096">Quote: exuberance, November 11, 2006 05:53 pm</a></div> As for invisible N, that's just a glitch.</blockquote>Actually if you change the first number of this  <br>
+<br>
+5^324,456 <br>
+<br>
+to a 4 (or any No. 6-11)<br>
+<br>
+4^324,456 <br>
+<br>
+You will get an invisible N.  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  <br>
+<br>
+But sadly invincible N is just a Glitch <br>
+<br>
+But a very cool one that has been simulated in the maps  <br>
+Pac-N and the map Bugs,bugs,and yup more bugs.</div></div>
+<div class="post" id="p253552"><div class="post-head"><a class="id" href="../t/13688.html#p253552">#253552</a> <span class="index">33</span> <span class="date">2006-11-12T17:38:34Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">actually the 4 means floorguard. 6 is drones...</div></div>
+<div class="post" id="p253554"><div class="post-head"><a class="id" href="../t/13688.html#p253554">#253554</a> <span class="index">34</span> <span class="date">2006-11-12T17:41:39Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body">Well it worked when i tried it. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> <br>
+<br>
+In normal ned. <br>
+<br>
+I also heard rumors that you change the first number to 17 instead of 4. <br>
+<br>
+But then when i tried it in ned it deleted itself and i was to lazy to try it in the user levels menu. <br>
+<br>
+But even if they are glitches, could make object groups that  did the glitches like the invicible glitch for bugs bugs, and yup more bugs with the springs and the floor guard? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+<br>
+Edit: it kinda works  <br>
+<br>
+Edit2: Never mind i just see spurt of blood in some random place and sais i lost.</div></div>
+<div class="post" id="p253558"><div class="post-head"><a class="id" href="../t/13688.html#p253558">#253558</a> <span class="index">35</span> <span class="date">2006-11-12T17:53:51Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I think that's just because N isn't in the level. There's a glitch where if you spawn N in a level that doesn't have a code for N, he's invisible.</div></div>
+<div class="post" id="p253565"><div class="post-head"><a class="id" href="../t/13688.html#p253565">#253565</a> <span class="index">36</span> <span class="date">2006-11-12T18:03:07Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body">Ok you Win. <img class="smiley" src="../files/smilies/51.gif" alt=":sorry:" title=":sorry:"></div></div>
+<div class="post" id="p253767"><div class="post-head"><a class="id" href="../t/13688.html#p253767">#253767</a> <span class="index">37</span> <span class="date">2006-11-13T00:47:01Z</span> <span class="author"><a href="../u/9371761.html">McP3000</a></span></div><div class="post-body">Three Things:<br>
+<br>
+1. Awesome Avatar<br>
+2. If this goes through well you will be the most accomplished member under 50 posts<br>
+3. If this goes through well and you dont get a custom title, we are going to have a militaristic coup.</div></div>
+<div class="post" id="p253775"><div class="post-head"><a class="id" href="../t/13688.html#p253775">#253775</a> <span class="index">38</span> <span class="date">2006-11-13T01:03:09Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p253767">Quote: McP3000, 2006-11-13T00:47:01Z</a></div> Three Things:<br>
+<br>
+1. Awesome Avatar<br>
+2. If this goes through well you will be the most accomplished member under 50 posts<br>
+3. If this goes through well and you dont get a custom title, we are going to have a militaristic coup.</blockquote><br>
+Awesome.  <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"><br>
+<br>
+Oh, yeah. This probably won't be out until.... after Monday. Probably Wednesday or something.</div></div>
+<div class="post" id="p253795"><div class="post-head"><a class="id" href="../t/13688.html#p253795">#253795</a> <span class="index">39</span> <span class="date">2006-11-13T01:36:29Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">I've got to see this.</div></div>
+<div class="post" id="p253816"><div class="post-head"><a class="id" href="../t/13688.html#p253816">#253816</a> <span class="index">40</span> <span class="date">2006-11-13T02:19:37Z</span> <span class="author"><a href="../u/9371744.html">Zres</a></span></div><div class="post-body">Yay! This will be awesome. I'm looking foward to it a lot. <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p253819"><div class="post-head"><a class="id" href="../t/13688.html#p253819">#253819</a> <span class="index">41</span> <span class="date">2006-11-13T02:22:12Z</span> <span class="author"><a href="../u/9373007.html">Django</a></span></div><div class="post-body">This sounds great!  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"> I wish I could do stuff like that.</div></div>
+<div class="post" id="p253839"><div class="post-head"><a class="id" href="../t/13688.html#p253839">#253839</a> <span class="index">42</span> <span class="date">2006-11-13T02:43:40Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">OK, I'm making good progress. Version 0.10 should be done by Tuesday or Wednesday.<br>
+<br>
+Just so you know, the original release won't have a great UI. But future releases will look much better and have more graphics than simple menus.</div></div>
+<div class="post" id="p253911"><div class="post-head"><a class="id" href="../t/13688.html#p253911">#253911</a> <span class="index">43</span> <span class="date">2006-11-13T07:44:12Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">Don't worry about that. You seen Ned on V1.2? Twas awful. Had blobs to symbolise everything.</div></div>
+<div class="post" id="p253984"><div class="post-head"><a class="id" href="../t/13688.html#p253984">#253984</a> <span class="index">44</span> <span class="date">2006-11-13T14:10:17Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Yeah, I know. Here's N v1.1 or something:<br>
+<a href="http://addictinggames.com/ngame.html">http://addictinggames.com/ngame.html</a></div></div>
+<div class="post" id="p254003"><div class="post-head"><a class="id" href="../t/13688.html#p254003">#254003</a> <span class="index">45</span> <span class="date">2006-11-13T16:43:29Z</span> <span class="author"><a href="../u/9373204.html">Impulse</a></span></div><div class="post-body">I need a java version so I can use it on my crap computer. And make it downloadable. Like, have a .class placed in a folder and use a .html file to display the applet.<br>
+<br>
+Also, could you show us the code to change to make super launch pads?</div></div>
+<div class="post" id="p254078"><div class="post-head"><a class="id" href="../t/13688.html#p254078">#254078</a> <span class="index">46</span> <span class="date">2006-11-13T19:20:58Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">To change the power of launch pads- change the last 2 numbers of the spring code: This is the spring code: 2^(x co-ordinate),(y co-ordinate),(x-power),(y-power)!</div></div>
+<div class="post" id="p254083"><div class="post-head"><a class="id" href="../t/13688.html#p254083">#254083</a> <span class="index">47</span> <span class="date">2006-11-13T19:28:52Z</span> <span class="author"><a href="../u/9373204.html">Impulse</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p254078">Quote: exuberance, November 13, 2006 07:20 pm</a></div> To change the power of launch pads- change the last 2 numbers of the spring code: This is the spring code: 2^(x co-ordinate),(y co-ordinate),(x-power),(y-power)!  </blockquote> <br>
+ Sweet! I'll make levels using this knowledge. Do you know how to change gold in a level to make it so it gives you 1000 seconds?</div></div>
+<div class="post" id="p254180"><div class="post-head"><a class="id" href="../t/13688.html#p254180">#254180</a> <span class="index">48</span> <span class="date">2006-11-13T21:08:50Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">You can't do that.<br>
+The code for gold is just 0^(x co-ordinate),(y co-ordinate)!<br>
+<br>
+And in case it interests you, the x increases as it goes right, and the y increases as it goes down (yes, down- as opposed to up  <img class="smiley" src="../files/smilies/31.gif" alt="B)" title="B)">) There is a reason for that, but I don't feel like explaining it now.</div></div>
+<div class="post" id="p254184"><div class="post-head"><a class="id" href="../t/13688.html#p254184">#254184</a> <span class="index">49</span> <span class="date">2006-11-13T21:15:04Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p253984">Quote: exuberance, November 13, 2006 06:10 am</a></div>Yeah, I know. Here's N v1.1 or something:<br>
+<a href="http://addictinggames.com/ngame.html">http://addictinggames.com/ngame.html</a></blockquote>1.2, actually.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p254003">Quote: GodOfTheRedMoon, November 13, 2006 08:43 am</a></div>I need a java version so I can use it on my crap computer. And make it downloadable. Like, have a .class placed in a folder and use a .html file to display the applet.</blockquote>The game would run better in an exe anyway. Why would you want Java, unless you're on a Mac?<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p254083">Quote: GodOfTheRedMoon, November 13, 2006 11:28 am</a></div>Do you know how to change gold in a level to make it so it gives you 1000 seconds?</blockquote>That's impossible.</div></div>
+<div class="post" id="p254317"><div class="post-head"><a class="id" href="../t/13688.html#p254317">#254317</a> <span class="index">50</span> <span class="date">2006-11-14T00:33:18Z</span> <span class="author"><a href="../u/9371718.html">Twistkill</a></span></div><div class="post-body">While you're online, exuberance, can you please remove that comic from your sig? Or maybe just post the link? Because it makes your whole signature take up almost the entire screen for me. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> (I'm running 1024x768 resolution)<br>
+<br>
+EDIT: Oh, it disappeared while I was typing. Hmm.<br>
+<br>
+Good luck with this project. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p254318"><div class="post-head"><a class="id" href="../t/13688.html#p254318">#254318</a> <span class="index">51</span> <span class="date">2006-11-14T00:34:32Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Well, now the comic is gone. And I started a thread with N comics I'm making. I made 3 of them so far. Don't worry, I'm still working on Ned Reloaded!!</div></div>
+<div class="post" id="p254431"><div class="post-head"><a class="id" href="../t/13688.html#p254431">#254431</a> <span class="index">52</span> <span class="date">2006-11-14T03:44:57Z</span> <span class="author"><a href="../u/9371702.html">capt_weasle</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p254184">Quote: LittleViking001, November 13, 2006 02:15 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p254083">Quote: GodOfTheRedMoon, November 13, 2006 11:28 am</a></div>Do you know how to change gold in a level to make it so it gives you 1000 seconds?</blockquote>That's impossible.  </blockquote> <br>
+ Unless you put 500 pieces of gold in the same place, but that would be horribly laggy.</div></div>
+<div class="post" id="p254481"><div class="post-head"><a class="id" href="../t/13688.html#p254481">#254481</a> <span class="index">53</span> <span class="date">2006-11-14T05:44:39Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body">Invisible.   <br>
+It works in user levels and NED. <br>
+<a href="https://www.nmaps.net/65287">Original Link</a>  <br>
+<br>
+I tested it. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p254513"><div class="post-head"><a class="id" href="../t/13688.html#p254513">#254513</a> <span class="index">54</span> <span class="date">2006-11-14T07:54:12Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">When you get around to tiles, make sure you include '~' and ' ' tiles...<br>
+(Dodgy 5 tile &amp; non existant tile...)</div></div>
+<div class="post" id="p254557"><div class="post-head"><a class="id" href="../t/13688.html#p254557">#254557</a> <span class="index">55</span> <span class="date">2006-11-14T11:59:54Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">Hope it goes well, sounds good!</div></div>
+<div class="post" id="p254922"><div class="post-head"><a class="id" href="../t/13688.html#p254922">#254922</a> <span class="index">56</span> <span class="date">2006-11-15T05:29:50Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body">If you need help just check this thread for manual code editing. <br>
+<br>
+<a href="../t/771.html">Manual Nediting</a></div></div>
+<div class="post" id="p255028"><div class="post-head"><a class="id" href="../t/13688.html#p255028">#255028</a> <span class="index">57</span> <span class="date">2006-11-15T16:52:01Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">How about making editable springs (power: 1-70)? It's difficult to modify the code. <div class="attachment attachment-missing">Attachment (lost): post-33-1163609521.jpg</div></div></div>
+<div class="post" id="p255055"><div class="post-head"><a class="id" href="../t/13688.html#p255055">#255055</a> <span class="index">58</span> <span class="date">2006-11-15T17:35:13Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">^^Don't post images unless they are really necessary and relevant to the topic...</div></div>
+<div class="post" id="p255131"><div class="post-head"><a class="id" href="../t/13688.html#p255131">#255131</a> <span class="index">59</span> <span class="date">2006-11-15T21:04:37Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p255028">Quote: apg, November 15, 2006 08:52 am</a></div> How about making editable springs (power: 1-70)? It's difficult to modify the code.  </blockquote> <br>
+ He mentioned that in the first post and several other times throughout the thread.</div></div>
+<div class="post" id="p255149"><div class="post-head"><a class="id" href="../t/13688.html#p255149">#255149</a> <span class="index">60</span> <span class="date">2006-11-15T21:34:13Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I was just about to say that.<br>
+<br>
+Oh, and... uh... yeah... it's kind of not going to be done until this weekend.<br>
+<br>
+But this deadline will be correct... I hope... for everyone's sake <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"></div></div>
+<div class="post" id="p255151"><div class="post-head"><a class="id" href="../t/13688.html#p255151">#255151</a> <span class="index">61</span> <span class="date">2006-11-15T21:36:43Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p255055">Quote: Chase, 2006-11-15T17:35:13Z</a></div>^^Don't post images unless they are really necessary and relevant to the topic...</blockquote> I think that's his sig. Or is that possible?<br>
+<br>
+EDIT:nvm he doesn't have a sig</div></div>
+<div class="post" id="p255340"><div class="post-head"><a class="id" href="../t/13688.html#p255340">#255340</a> <span class="index">62</span> <span class="date">2006-11-16T03:19:52Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">*post edited to mask my stupidity*</div></div>
+<div class="post" id="p255342"><div class="post-head"><a class="id" href="../t/13688.html#p255342">#255342</a> <span class="index">63</span> <span class="date">2006-11-16T03:21:37Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p255149">Quote: exuberance, November 15, 2006 01:34 pm</a></div> I was just about to say that.<br>
+<br>
+Oh, and... uh... yeah... it's kind of not going to be done until this weekend.<br>
+<br>
+But this deadline will be correct... I hope... for everyone's sake <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD">  </blockquote> <br>
+ /me points up TWO FREAKING POSTS</div></div>
+<div class="post" id="p255672"><div class="post-head"><a class="id" href="../t/13688.html#p255672">#255672</a> <span class="index">64</span> <span class="date">2006-11-16T23:11:04Z</span> <span class="author"><a href="../u/9371578.html">Ravenclaw</a></span></div><div class="post-body">You can make a "Ghost Drone" with the original Ned, you just have to know how to edit the code. I've done it before, but I forgot how I did. I just played around with the code for a laser drone.</div></div>
+<div class="post" id="p255677"><div class="post-head"><a class="id" href="../t/13688.html#p255677">#255677</a> <span class="index">65</span> <span class="date">2006-11-16T23:14:02Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I've done it before. Twice.</div></div>
+<div class="post" id="p255969"><div class="post-head"><a class="id" href="../t/13688.html#p255969">#255969</a> <span class="index">66</span> <span class="date">2006-11-17T14:09:34Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p255672">Quote: RAVENCLAW99, November 17, 2006 01:11 am</a></div> You can make a "Ghost Drone" with the original Ned, you just have to know how to edit the code. I've done it before, but I forgot how I did. I just played around with the code for a laser drone.  </blockquote> <br>
+ Infact you can do a ghost drone from any drone. It's a bit funny, because it's only one number - I think it's one of the two last ones - that determines what kind of drone it'll be. Just edit that one to something above 7 and you'll have you ghost.</div></div>
+<div class="post" id="p256109"><div class="post-head"><a class="id" href="../t/13688.html#p256109">#256109</a> <span class="index">67</span> <span class="date">2006-11-17T20:34:56Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">actually, you can change it to anything other than 0,1, or 2<br>
+I use NaN</div></div>
+<div class="post" id="p256557"><div class="post-head"><a class="id" href="../t/13688.html#p256557">#256557</a> <span class="index">68</span> <span class="date">2006-11-18T18:11:20Z</span> <span class="author"><a href="../u/9373404.html">staples</a></span></div><div class="post-body">please tell me! is it ready yet???</div></div>
+<div class="post" id="p256558"><div class="post-head"><a class="id" href="../t/13688.html#p256558">#256558</a> <span class="index">69</span> <span class="date">2006-11-18T18:13:16Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">not yet  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:"> <br>
+<br>
+But it will be soon  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p256561"><div class="post-head"><a class="id" href="../t/13688.html#p256561">#256561</a> <span class="index">70</span> <span class="date">2006-11-18T18:24:12Z</span> <span class="author"><a href="../u/9373404.html">staples</a></span></div><div class="post-body">good i hope by the end of this week it is</div></div>
+<div class="post" id="p256670"><div class="post-head"><a class="id" href="../t/13688.html#p256670">#256670</a> <span class="index">71</span> <span class="date">2006-11-18T23:40:46Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p256561">Quote: staples, November 18, 2006 06:24 pm</a></div> good i hope by the end of this week it is  </blockquote> <br>
+ Heloo? It's Sunday!<br>
+<br>
+But yeh, you're behind. *Mushes exuberance*</div></div>
+<div class="post" id="p256674"><div class="post-head"><a class="id" href="../t/13688.html#p256674">#256674</a> <span class="index">72</span> <span class="date">2006-11-18T23:50:33Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  I know. I keep getting sidetracked.... especially with my N comics.</div></div>
+<div class="post" id="p256684"><div class="post-head"><a class="id" href="../t/13688.html#p256684">#256684</a> <span class="index">73</span> <span class="date">2006-11-19T00:41:37Z</span> <span class="author"><a href="../u/9373413.html">mini_mumodo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p256558">Quote: exuberance, November 18, 2006 06:13 pm</a></div> not yet  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:"> <br>
+<br>
+But it will be soon  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  </blockquote> <br>
+ can you post the unfinished version of it?</div></div>
+<div class="post" id="p256687"><div class="post-head"><a class="id" href="../t/13688.html#p256687">#256687</a> <span class="index">74</span> <span class="date">2006-11-19T00:57:18Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">First you say it'll be done by Monday or Tuesday, and it just get longer by the day. Pleas hurry up, I've been waiting for it.</div></div>
+<div class="post" id="p256697"><div class="post-head"><a class="id" href="../t/13688.html#p256697">#256697</a> <span class="index">75</span> <span class="date">2006-11-19T01:29:20Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">If I'm not done version 0.10 by Monday night, I'll post the unfinished version.</div></div>
+<div class="post" id="p256715"><div class="post-head"><a class="id" href="../t/13688.html#p256715">#256715</a> <span class="index">76</span> <span class="date">2006-11-19T02:07:43Z</span> <span class="author"><a href="../u/9373413.html">mini_mumodo</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> Whose time ...cause if i am right monday to you is late sunday to me... <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana">  but still it sounds pretty good <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> and btw how much gold is by my name <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p256770"><div class="post-head"><a class="id" href="../t/13688.html#p256770">#256770</a> <span class="index">77</span> <span class="date">2006-11-19T04:19:38Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">don't hassle him, the longer he takes on it the better it'll be.<br>
+<br>
+@Mini_mumodo,  <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> what do you mean <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> by gold next to your name <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> do you mean post count? <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> you have only eight posts as of now. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> so you have none. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> btw, you don't need to use <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> every other word. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p256828"><div class="post-head"><a class="id" href="../t/13688.html#p256828">#256828</a> <span class="index">78</span> <span class="date">2006-11-19T07:48:16Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">Very promising. <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p256859"><div class="post-head"><a class="id" href="../t/13688.html#p256859">#256859</a> <span class="index">79</span> <span class="date">2006-11-19T10:24:20Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p256697">Quote: exuberance at, November 19 @  2006 01:29 am</a></div>If I'm not done version 0.10 by Monday night, I'll post the unfinished version.</blockquote><br>
+Yippee, I can't wait! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p256870"><div class="post-head"><a class="id" href="../t/13688.html#p256870">#256870</a> <span class="index">80</span> <span class="date">2006-11-19T11:25:23Z</span> <span class="author"><a href="../u/9373404.html">staples</a></span></div><div class="post-body">great!!! Ill get ready!!</div></div>
+<div class="post" id="p256915"><div class="post-head"><a class="id" href="../t/13688.html#p256915">#256915</a> <span class="index">81</span> <span class="date">2006-11-19T15:12:25Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">The very first release ( 0.10- not even version 1.0 yet) will have very few new options, and will be very annoying<br>
+<br>
+Version 0.50 (still not version 1) will be pretty much the same, but with tiles- and will come out VERY shortly after version 0.10<br>
+<br>
+I might release a version 0.80 after, but I'll probably end up skipping that<br>
+<br>
+Then, the long-awaited (well, not really) version 1.0- It can do everything that normal Ned can do!! AND it can do all or most of what is mentioned in my first post. HOO-RAY!!<br>
+<br>
+Version 1.1 will fix bugs, if there are any.<br>
+<br>
+Oh, yeah, and the first release is coming out and the END of Monday (like 10:00ish???), so don't send me 328729357923759 posts saying "Is it done yet?"!!<br>
+<br>
+OK, I have nothing left to say.<br>
+<br>
+Bye<br>
+<br>
+Bye<br>
+<br>
+Bye<br>
+<br>
+Bye<br>
+<br>
+Bye again<br>
+<br>
+Bye<br>
+<br>
+*&lt;insert your name here&gt; smacks Exuberance across the back of his head*<br>
+<br>
+I'm done now.</div></div>
+<div class="post" id="p257133"><div class="post-head"><a class="id" href="../t/13688.html#p257133">#257133</a> <span class="index">82</span> <span class="date">2006-11-19T23:01:14Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">In the first post, it says <span style="color:BLUE">Yellow: Programed but not in latest release</span>. Shouldn't that be blue?</div></div>
+<div class="post" id="p257157"><div class="post-head"><a class="id" href="../t/13688.html#p257157">#257157</a> <span class="index">83</span> <span class="date">2006-11-19T23:20:55Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">yes, it should, but I don't feel like updating now <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p257421"><div class="post-head"><a class="id" href="../t/13688.html#p257421">#257421</a> <span class="index">84</span> <span class="date">2006-11-20T19:05:01Z</span> <span class="author"><a href="../u/9373413.html">mini_mumodo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p256770">Quote: Topolord, November 19, 2006 04:19 am</a></div> don't hassle him, the longer he takes on it the better it'll be.<br>
+<br>
+@Mini_mumodo,  <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> what do you mean <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> by gold next to your name <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> do you mean post count? <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> you have only eight posts as of now. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> so you have none. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> btw, you don't need to use <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> every other word. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana">  </blockquote> <br>
+ like under your name you have 5 gold pieces... <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p257440"><div class="post-head"><a class="id" href="../t/13688.html#p257440">#257440</a> <span class="index">85</span> <span class="date">2006-11-20T19:33:57Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">OFF TOPIC!!<br>
+<br>
+Yes, the gold is related to your post count.</div></div>
+<div class="post" id="p257581"><div class="post-head"><a class="id" href="../t/13688.html#p257581">#257581</a> <span class="index">86</span> <span class="date">2006-11-21T00:09:40Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Hmmmm.... I need a website to upload this too, because I doubt it will be less than half a megabyte.</div></div>
+<div class="post" id="p257586"><div class="post-head"><a class="id" href="../t/13688.html#p257586">#257586</a> <span class="index">87</span> <span class="date">2006-11-21T00:20:16Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p257581">Quote: exuberance, November 20, 2006 04:09 pm</a></div> Hmmmm.... I need a website to upload this too, because I doubt it will be less than half a megabyte.  </blockquote> <br>
+ <a href="http://www.ihud.com/new/">http://www.ihud.com/new/</a></div></div>
+<div class="post" id="p257614"><div class="post-head"><a class="id" href="../t/13688.html#p257614">#257614</a> <span class="index">88</span> <span class="date">2006-11-21T01:37:32Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><b><i><u>VERSION 0.00 IS DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</u></i></b></div></div>
+<div class="post" id="p257623"><div class="post-head"><a class="id" href="../t/13688.html#p257623">#257623</a> <span class="index">89</span> <span class="date">2006-11-21T02:03:25Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">How do you play them, I know you have to put it into Ned on N, but where's the code?<br>
+EDIT: My stupidity amazes me, too. Sorry.<br>
+EDIT AGAIN: Oh my god!!! In the original ned, the launchpads look different!!! Like more or less slanted!!</div></div>
+<div class="post" id="p257624"><div class="post-head"><a class="id" href="../t/13688.html#p257624">#257624</a> <span class="index">90</span> <span class="date">2006-11-21T02:07:07Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">When you press F2, and say 'yes' to the prompt, it copies the level data to the clipboard.</div></div>
+<div class="post" id="p257629"><div class="post-head"><a class="id" href="../t/13688.html#p257629">#257629</a> <span class="index">91</span> <span class="date">2006-11-21T02:11:57Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">I'll report a few bugs, I will edit this as I find them:<br>
+1. The chainguns eye when you are placing him is a circle, which should be a rectangle.</div></div>
+<div class="post" id="p257630"><div class="post-head"><a class="id" href="../t/13688.html#p257630">#257630</a> <span class="index">92</span> <span class="date">2006-11-21T02:14:10Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">yeah, I know about the first one. It's just an alpha pre-release demo version thing... lol</div></div>
+<div class="post" id="p257632"><div class="post-head"><a class="id" href="../t/13688.html#p257632">#257632</a> <span class="index">93</span> <span class="date">2006-11-21T02:23:23Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body">Wait... version 0.00? wouldn't that mean that you have released nothing?</div></div>
+<div class="post" id="p257639"><div class="post-head"><a class="id" href="../t/13688.html#p257639">#257639</a> <span class="index">94</span> <span class="date">2006-11-21T02:32:28Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">If you have a highscore of 0th in N, you still have a highscore  <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p257641"><div class="post-head"><a class="id" href="../t/13688.html#p257641">#257641</a> <span class="index">95</span> <span class="date">2006-11-21T02:34:27Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><b>MAKE A VERSION THAT WORKS WITH MAC</b><br>
+<br>
+*cough*<br>
+<br>
+Um.. yeah. Please. This sounds great, but I CAN'T TELL!  <img class="smiley" src="../files/smilies/27.gif" alt=":spasm:" title=":spasm:"> <br>
+<br>
+...please?  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p257643"><div class="post-head"><a class="id" href="../t/13688.html#p257643">#257643</a> <span class="index">96</span> <span class="date">2006-11-21T02:39:41Z</span> <span class="author"><a href="../u/9371541.html">catspride</a></span></div><div class="post-body">Yea.. umm.. I don't know how to exit it unless I get the task manager up. Also, how do I add tiles?? If I can.</div></div>
+<div class="post" id="p257646"><div class="post-head"><a class="id" href="../t/13688.html#p257646">#257646</a> <span class="index">97</span> <span class="date">2006-11-21T02:44:19Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p257643">Quote: xdude_rox, November 20, 2006 09:39 pm</a></div> Yea.. umm.. I don't know how to exit it unless I get the task manager up. Also, how do I add tiles?? If I can. </blockquote><blockquote class="quote"><div class="quote-head">Quote: my first post</div><b>Q- Quit</b></blockquote><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p12181">Quote: my first post again, 2006-11-09T20:59:31Z</a></div>v0.10 original release: has some of the things mentioned above; simple interface; <b>does not support tiles</b></blockquote></div></div>
+<div class="post" id="p257692"><div class="post-head"><a class="id" href="../t/13688.html#p257692">#257692</a> <span class="index">98</span> <span class="date">2006-11-21T05:31:56Z</span> <span class="author"><a href="../u/9371065.html">Wannas1693</a></span></div><div class="post-body">Why have you changed the hotkeys for the bounceblock, launchpad and oneway? Is it because the program doesn't support characters which aren't alpha-numeric?<br>
+<br>
+Also, how does the "set to right/middle button" function work? Can you load level data?<br>
+<br>
+The dark blue zap drones are cool, but the ghost eyes don't show up when I place them. Is this intentional?<br>
+<br>
+Otherwise, it's lots of fun--especially the launchpads. <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"><br>
+<br>
+I tried to post a screenshot, but knowing me it won't work...  <div class="attachment attachment-missing">Attachment (lost): post-33-1164087116.png</div></div></div>
+<div class="post" id="p257697"><div class="post-head"><a class="id" href="../t/13688.html#p257697">#257697</a> <span class="index">99</span> <span class="date">2006-11-21T05:43:59Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">Works for me...</div></div>
+<div class="post" id="p257711"><div class="post-head"><a class="id" href="../t/13688.html#p257711">#257711</a> <span class="index">100</span> <span class="date">2006-11-21T06:32:14Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body">I'd put in a help section if I were you.</div></div>
+<div class="post" id="p257725"><div class="post-head"><a class="id" href="../t/13688.html#p257725">#257725</a> <span class="index">101</span> <span class="date">2006-11-21T08:59:56Z</span> <span class="author"><a href="../u/9373404.html">staples</a></span></div><div class="post-body">wow! BEAST!!!! its well beter than Ned!</div></div>
+<div class="post" id="p257726"><div class="post-head"><a class="id" href="../t/13688.html#p257726">#257726</a> <span class="index">102</span> <span class="date">2006-11-21T09:19:16Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Nice, what version is tile support comeing in?, also a clipboard to paste old levels into it to edit would be nice and will you be adding fake tiles,  fake one way platforms&amp; NaN thwumps?<br>
+Also if it possible a fill gradient tool for shading for n-art.<br>
+<br>
+edit: Wow just relised it does not have the one problem that the origanal ned had that i hated, it does not slow down if you delete/place mulyple objects in one go.</div></div>
+<div class="post" id="p257759"><div class="post-head"><a class="id" href="../t/13688.html#p257759">#257759</a> <span class="index">103</span> <span class="date">2006-11-21T16:02:26Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body">lol this editor has MADE my day.<br>
+Honestly, it has <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p257799"><div class="post-head"><a class="id" href="../t/13688.html#p257799">#257799</a> <span class="index">104</span> <span class="date">2006-11-21T18:25:19Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">Yeh, Ned vets will be slightly peeved at change of buttons for items.</div></div>
+<div class="post" id="p257824"><div class="post-head"><a class="id" href="../t/13688.html#p257824">#257824</a> <span class="index">105</span> <span class="date">2006-11-21T19:21:39Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Game Maker supports other characters as conditions in actions, but not as events. (Did I loose you already?) This means that I CAN make them use the default keys, but it's much simpler to change them.<br>
+<br>
+Keep in mind, this is just a simple preview of what the completed version will be like; I will likely change the keystrokes back after a few versions.<br>
+<br>
+Also, the ghost drone eyes SHOULD show up.<br>
+<br>
+And, in later versions, you will place drones like you normally do in Ned instead of defining different attributes when you select them.<br>
+<br>
+Oh yeah, doors coming soon. I just need to figure out the door codes because the code is different than other objects.</div></div>
+<div class="post" id="p258086"><div class="post-head"><a class="id" href="../t/13688.html#p258086">#258086</a> <span class="index">106</span> <span class="date">2006-11-22T05:06:26Z</span> <span class="author"><a href="../u/9372744.html">digital_k</a></span></div><div class="post-body">WOW, you made it in gm, sick, when you are done and completed the whole NED RELODED, could you put in the GM source as a download?</div></div>
+<div class="post" id="p258236"><div class="post-head"><a class="id" href="../t/13688.html#p258236">#258236</a> <span class="index">107</span> <span class="date">2006-11-22T19:57:26Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Maybe I will.<br>
+GM sounds like a simple easy-to-use program that isn't a real programming language, but it's not like that at all. Game Maker is a really good scripting language that can do almost anything. And it is a real programming language, it just also has a non-code addition to it for people who want to make simple games without knowing code.</div></div>
+<div class="post" id="p258447"><div class="post-head"><a class="id" href="../t/13688.html#p258447">#258447</a> <span class="index">108</span> <span class="date">2006-11-23T08:53:52Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">I have a coupple more ideas to add to my last post (which seems to have been overlooked)<br>
+1) drag and drop placed items (if posible)<br>
+2) a help menu that pops out of the side if you press F1 that shows all the key bindings.<br>
+3) is it possible to make swiches invisible but still work?<br>
+4) a "delete last placed item" button.<br>
+5) if object and tile coppying was implemented make it so that you can only copy the one whose item place mode you are in (e.g. if you are in tile placing mode you can only copy tiles)<br>
+6) if the the drones show the movement path with a red line will it do exactly as the drone would (e.g. follow walls turn corners ect.. (not for homings))<br>
+7) an option to toggle the laser and gause drones "line of sight" (usefull for NaN's)<br>
+8) same as 7 but for turrets.<br>
+9) an "invert" button that inverts the tiles in the selected area.<br>
+10) an "erase all objects/tiles in the selected area" option.</div></div>
+<div class="post" id="p258569"><div class="post-head"><a class="id" href="../t/13688.html#p258569">#258569</a> <span class="index">109</span> <span class="date">2006-11-23T18:58:16Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">answering the post above ^<br>
+<br>
+1. I already said you will be able to do that in my first post  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+2. All keys are either explained here or right in your face, but w/e- I'll make one<br>
+3. I highly doubt it: this is an automatic editor, It can't make things that don't exists in N<br>
+4. The original N has that, therefore this one will in later versions<br>
+5. I thought that was implied... (that's a yes)<br>
+6. Paths are infinite, quasi-random would be annoying, and you can just trace it yourself<br>
+7. That would look ugly, and you can tell usually tell anyways.<br>
+8. Wait- what? There IS no gauss drone. There is a gauss turret  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+9. Sure, I'll do that... I guess...<br>
+10. That is included in the region move/copy thingy. (now the move/copy/delete thingy)</div></div>
+<div class="post" id="p258660"><div class="post-head"><a class="id" href="../t/13688.html#p258660">#258660</a> <span class="index">110</span> <span class="date">2006-11-23T21:40:15Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">Sounds like in the end we will be using it more then the original Ned. Hope it turns out like I see it in my head.</div></div>
+<div class="post" id="p258668"><div class="post-head"><a class="id" href="../t/13688.html#p258668">#258668</a> <span class="index">111</span> <span class="date">2006-11-23T22:12:08Z</span> <span class="author"><a href="../u/9372290.html">Homestar Runner</a></span></div><div class="post-body">It says it compiled my level to the clipboard but I can't find it. <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"></div></div>
+<div class="post" id="p258683"><div class="post-head"><a class="id" href="../t/13688.html#p258683">#258683</a> <span class="index">112</span> <span class="date">2006-11-23T23:01:31Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Just hit Ctrl+V and there it is. The clipboard is the thing that holds text that you copy or cut.</div></div>
+<div class="post" id="p258777"><div class="post-head"><a class="id" href="../t/13688.html#p258777">#258777</a> <span class="index">113</span> <span class="date">2006-11-24T05:19:42Z</span> <span class="author"><a href="../u/9372744.html">digital_k</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p258236">Quote: exuberance, November 23, 2006 05:27 am</a></div> GM sounds like a simple easy-to-use program that isn't a real programming language, but it's not like that at all. Game Maker is a really good scripting language that can do almost anything. And it is a real programming language, it just also has a non-code addition to it for people who want to make simple games without knowing code.  </blockquote> <br>
+ ....um i know <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> ..... I'm a game programmer with GM..<br>
+haven't you seen my sig. it says in big words NEED HELP WITH GAME MAKER, ASK HERE, isnt that a dead givaway that i know about GML <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p259001"><div class="post-head"><a class="id" href="../t/13688.html#p259001">#259001</a> <span class="index">114</span> <span class="date">2006-11-24T19:42:21Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">not necessarily. You could use the built-in flowchart thingy instead of coding, you just can't do that much (relative to what you can do with the code anyways)</div></div>
+<div class="post" id="p260218"><div class="post-head"><a class="id" href="../t/13688.html#p260218">#260218</a> <span class="index">115</span> <span class="date">2006-11-27T02:44:03Z</span> <span class="author"><a href="../u/9371761.html">McP3000</a></span></div><div class="post-body">1. Dont forget snaps.<br>
+2. Maybe you could create some new grids? Or just remove some of the more annoying and useless ones<br>
+3. Line of sight would be cool, but i doubt you can do it<br>
+4. Maybe make a toolbar at the top (File, edit, help...etc) or something along those lines<br>
+5. Make the programn not turn the rest of the screen black. Either make it like the real game (grey) or an invisible one where you see your current desktop screens.</div></div>
+<div class="post" id="p260321"><div class="post-head"><a class="id" href="../t/13688.html#p260321">#260321</a> <span class="index">116</span> <span class="date">2006-11-27T05:58:27Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">Well, the most necessary upgrade would be adding tiles, I like to think.<br>
+<br>
+Edit: Yes!!! 100th post!  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p260694"><div class="post-head"><a class="id" href="../t/13688.html#p260694">#260694</a> <span class="index">117</span> <span class="date">2006-11-27T22:26:37Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p260218">Quote: McP3000, November 26, 2006 09:44 pm</a></div> 5. Make the programn not turn the rest of the screen black. Either make it like the real game (grey) or an invisible one where you see your current desktop screens.  </blockquote> <br>
+ What are you talking about? Either you somehow corrupted the file, or your computer needs to be redone, or both.</div></div>
+<div class="post" id="p260728"><div class="post-head"><a class="id" href="../t/13688.html#p260728">#260728</a> <span class="index">118</span> <span class="date">2006-11-27T23:29:18Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">Yeah, McP, that's only you, it works fine for me.</div></div>
+<div class="post" id="p260823"><div class="post-head"><a class="id" href="../t/13688.html#p260823">#260823</a> <span class="index">119</span> <span class="date">2006-11-28T03:21:33Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I'm going to start work on the next version tomorrow. I'll probably do about 30 mins on it each day, so the next version should be out in a few days.</div></div>
+<div class="post" id="p261008"><div class="post-head"><a class="id" href="../t/13688.html#p261008">#261008</a> <span class="index">120</span> <span class="date">2006-11-28T14:39:41Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p260823">Quote: Exüberance, 2006-11-28T03:21:33Z</a></div>...the next version should be out in a few days. </blockquote> <br>
+I just can't wait for it!</div></div>
+<div class="post" id="p261638"><div class="post-head"><a class="id" href="../t/13688.html#p261638">#261638</a> <span class="index">121</span> <span class="date">2006-11-29T19:12:30Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body">i think think its a great idea  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> cant wait for the next version good luck your need it</div></div>
+<div class="post" id="p261833"><div class="post-head"><a class="id" href="../t/13688.html#p261833">#261833</a> <span class="index">122</span> <span class="date">2006-11-30T01:16:55Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p260218">Quote: McP3000, November 26, 2006 09:44 pm</a></div> 1. Dont forget snaps.  </blockquote> <br>
+ It already has snaps. Press Z, X, and C. Same as NED.</div></div>
+<div class="post" id="p262848"><div class="post-head"><a class="id" href="../t/13688.html#p262848">#262848</a> <span class="index">123</span> <span class="date">2006-12-01T23:26:53Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">I think that for launchpad angles you should just use "pi radians" as your unit, and you should start with a launchpad parallel to the ground. Just a thought...</div></div>
+<div class="post" id="p262882"><div class="post-head"><a class="id" href="../t/13688.html#p262882">#262882</a> <span class="index">124</span> <span class="date">2006-12-01T23:58:54Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Not everyone here knows about radians. (Lots of young kids.) I think degrees is best.<br>
+<br>
+And of course, it should start parallel to the ground facing right.</div></div>
+<div class="post" id="p262902"><div class="post-head"><a class="id" href="../t/13688.html#p262902">#262902</a> <span class="index">125</span> <span class="date">2006-12-02T00:16:22Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body">Yes, that's what I meant, I just had to leave before I could get my whole idea out. <br>
+<br>
+And I suppose it's true that not everyone knows about radians, but they're just so much easier to use...</div></div>
+<div class="post" id="p262982"><div class="post-head"><a class="id" href="../t/13688.html#p262982">#262982</a> <span class="index">126</span> <span class="date">2006-12-02T03:29:12Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">My math teacher hated degrees. Stupid Babylonians <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> (the ones that made degrees)'<br>
+<br>
+Well, I ended up not working on Ned Reloaded at all this week, but I'll make up the time by doing 2 hours over the weekend.</div></div>
+<div class="post" id="p263111"><div class="post-head"><a class="id" href="../t/13688.html#p263111">#263111</a> <span class="index">127</span> <span class="date">2006-12-02T09:26:36Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body">Woo Hoo!<br>
+I can't wait! It's gonna be soooooo great!<br>
+ <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p263908"><div class="post-head"><a class="id" href="../t/13688.html#p263908">#263908</a> <span class="index">128</span> <span class="date">2006-12-03T20:10:31Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Oh, and the radians thing is just a joke- I'm not actually going to use radians.  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+Heehee, it would be funny if people used radians more, like a snowboarder doing a 1080: "w00t!! I did a 6-pi" lol</div></div>
+<div class="post" id="p264029"><div class="post-head"><a class="id" href="../t/13688.html#p264029">#264029</a> <span class="index">129</span> <span class="date">2006-12-03T23:59:13Z</span> <span class="author"><a href="../u/9372839.html">DemonzLunchBreak</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p263908">Quote: exuberance, December 03, 2006 01:10 pm</a></div> Oh, and the radians thing is just a joke- I'm not actually going to use radians.  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+Heehee, it would be funny if people used radians more, like a snowboarder doing a 1080: "w00t!! I did a 6-pi" lol  </blockquote> <br>
+ Don't say that. I love radians...</div></div>
+<div class="post" id="p264450"><div class="post-head"><a class="id" href="../t/13688.html#p264450">#264450</a> <span class="index">130</span> <span class="date">2006-12-04T19:22:15Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I'm not saying I don't like them. Radians are awsome. I'm just saying it would be funny if we used radians more.<br>
+<br>
+By the way, i've added the ability to move groups of objects in NED RELOADED (but I haven't updated the download yet because there's still a few things to do) and it WORKS!!</div></div>
+<div class="post" id="p264534"><div class="post-head"><a class="id" href="../t/13688.html#p264534">#264534</a> <span class="index">131</span> <span class="date">2006-12-04T21:48:09Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">w00t!! I just finished the autosave/autoload option as well as some other junk.<br>
+I guess it would have been 1000000 times faster to just use the built in Game Maker save tool, but oh well. <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"> <br>
+<br>
+Now just to add a mass copying tool, and version 0.10 WILL BE DONE!!!!!!!!!!!!!!!!!!!!! <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  (Smiley overkill)</div></div>
+<div class="post" id="p264546"><div class="post-head"><a class="id" href="../t/13688.html#p264546">#264546</a> <span class="index">132</span> <span class="date">2006-12-04T22:05:28Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">YEAH!! VERSION 0.10 COMPLETE!!<br>
+<br>
+EDIT: Now it's been uploaded, and you can download it now!!<br>
+<img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <br>
+(SUPER SMILEY OVERKILL!!!!!!!!)</div></div>
+<div class="post" id="p264557"><div class="post-head"><a class="id" href="../t/13688.html#p264557">#264557</a> <span class="index">133</span> <span class="date">2006-12-04T22:16:59Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">Gettin better every time, man. Good job.</div></div>
+<div class="post" id="p264600"><div class="post-head"><a class="id" href="../t/13688.html#p264600">#264600</a> <span class="index">134</span> <span class="date">2006-12-04T23:30:57Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body">You know what should be in the next release? The ability to exit by means other that the Task Manager. <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"></div></div>
+<div class="post" id="p264604"><div class="post-head"><a class="id" href="../t/13688.html#p264604">#264604</a> <span class="index">135</span> <span class="date">2006-12-04T23:34:49Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">*sigh*<br>
+read the first post please. That's generally why I put it there: so you can read it.<br>
+<br>
+Press Q to quit</div></div>
+<div class="post" id="p264628"><div class="post-head"><a class="id" href="../t/13688.html#p264628">#264628</a> <span class="index">136</span> <span class="date">2006-12-05T00:34:37Z</span> <span class="author"><a href="../u/9373558.html">IncredibleIke</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"> 'tis amazing!! much better then the original ned  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p264659"><div class="post-head"><a class="id" href="../t/13688.html#p264659">#264659</a> <span class="index">137</span> <span class="date">2006-12-05T01:21:57Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p264604">Quote: exuberance, December 04, 2006 03:34 pm</a></div> *sigh*<br>
+read the first post please. That's generally why I put it there: so you can read it.<br>
+<br>
+Press Q to quit  </blockquote> <br>
+ Oops, I forgot about that button.</div></div>
+<div class="post" id="p264664"><div class="post-head"><a class="id" href="../t/13688.html#p264664">#264664</a> <span class="index">138</span> <span class="date">2006-12-05T01:28:14Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> Well you're name <b>is</b> i_forget<br>
+<br>
+reminds me of "where's the 'any' key?"</div></div>
+<div class="post" id="p264729"><div class="post-head"><a class="id" href="../t/13688.html#p264729">#264729</a> <span class="index">139</span> <span class="date">2006-12-05T03:19:20Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">Wow, this is looking better and better.<br>
+It's great to have people with the initiative to try something cool like this.<br>
+<br>
+and another thing, what does this mean?<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-33-1165289285.jpg</div></div></div>
+<div class="post" id="p264779"><div class="post-head"><a class="id" href="../t/13688.html#p264779">#264779</a> <span class="index">140</span> <span class="date">2006-12-05T05:29:32Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">Great job... again! Extra applause for the group object moving. <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p264814"><div class="post-head"><a class="id" href="../t/13688.html#p264814">#264814</a> <span class="index">141</span> <span class="date">2006-12-05T07:32:22Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body">Well done, congrats! <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p264865"><div class="post-head"><a class="id" href="../t/13688.html#p264865">#264865</a> <span class="index">142</span> <span class="date">2006-12-05T13:34:08Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body">sounds good ill download it when i get  home <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> good work</div></div>
+<div class="post" id="p264965"><div class="post-head"><a class="id" href="../t/13688.html#p264965">#264965</a> <span class="index">143</span> <span class="date">2006-12-05T19:13:53Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">Tis very good work indeed...<br>
+<br>
+*Waits for tiles*</div></div>
+<div class="post" id="p264967"><div class="post-head"><a class="id" href="../t/13688.html#p264967">#264967</a> <span class="index">144</span> <span class="date">2006-12-05T19:24:28Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p264729">Quote: Topolord, December 04, 2006 10:19 pm</a></div> Wow, this is looking better and better.<br>
+It's great to have people with the initiative to try something cool like this.<br>
+<br>
+and another thing, what does this mean? <br>
+(attached image)</blockquote>I'll try and fix that.<br>
+I messed up the object copying thing: i forgot to declare the variables that modify objects when you copy them, so it generated an error.</div></div>
+<div class="post" id="p264977"><div class="post-head"><a class="id" href="../t/13688.html#p264977">#264977</a> <span class="index">145</span> <span class="date">2006-12-05T20:06:00Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body">You've released another one already?<br>
+Well done, I think this should be pinned too!</div></div>
+<div class="post" id="p265002"><div class="post-head"><a class="id" href="../t/13688.html#p265002">#265002</a> <span class="index">146</span> <span class="date">2006-12-05T20:55:48Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">The other release is just fixing the glitch mentioned a few posts up.<br>
+<br>
+*exuberance gasps*<br>
+<br>
+I JUST REALIZED SOMETHING!!<br>
+You can use the move/copy tool to make a drone or floorguard move to a position that it would normally not be able to snap to (between tiles), and this will mess up the code!! *exuberance gasps again*<br>
+<br>
+I'll fix that!!<br>
+EDIT: has been fixed</div></div>
+<div class="post" id="p265460"><div class="post-head"><a class="id" href="../t/13688.html#p265460">#265460</a> <span class="index">147</span> <span class="date">2006-12-06T06:51:55Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"> You've clearly worked with this project. Thanks for those updates. By the way, will Ned Reloaded contain a debug mode for level testing in the final version?</div></div>
+<div class="post" id="p265516"><div class="post-head"><a class="id" href="../t/13688.html#p265516">#265516</a> <span class="index">148</span> <span class="date">2006-12-06T15:13:30Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">No, but you can compile it, then go into standby and test it in the original Ned (in N), and it won't lag because It's in standby.  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:">  Just be sure to close N when your done with it.<br>
+<br>
+...<br>
+<br>
+bleh... I'm not feeling well today. I may not work on this for a few days.</div></div>
+<div class="post" id="p265558"><div class="post-head"><a class="id" href="../t/13688.html#p265558">#265558</a> <span class="index">149</span> <span class="date">2006-12-06T18:09:08Z</span> <span class="author"><a href="../u/9372917.html">29403</a></span></div><div class="post-body">Soz about that <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> - but this is amazing - well done, this is extremely successful Neditor!<br>
+Hope you get better.<br>
+<br>
+<br>
+Off-topic :<blockquote class="quote"><div class="quote-head">Quote: apg's sig</div>See all my unlocked flavours (click on the ninja)!</blockquote> We want the people without the flavours to find out themselves, but well done!</div></div>
+<div class="post" id="p265977"><div class="post-head"><a class="id" href="../t/13688.html#p265977">#265977</a> <span class="index">150</span> <span class="date">2006-12-07T10:12:04Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Ok I have found a problem with it, If you place say a square of gold (4*4) and then place a bounce block in the middle, then try to delete the bounce block...Poof the bounce block dissapears along with all the gold that was underneath it!!<br>
+<br>
+and there is yet another problem, if you place an item so it is outside the map, then use the "clear all objects outside the bounderies" tool then walla!! they are gone...right? WRONG!!<br>
+they are still there, they are just invisible, load the level in Ned and go to edit mode and they will still show as being there.<br>
+<br>
+add to that the fact that there is <i>still</i> no way to load a level from the clipboard....</div></div>
+<div class="post" id="p266205"><div class="post-head"><a class="id" href="../t/13688.html#p266205">#266205</a> <span class="index">151</span> <span class="date">2006-12-07T22:29:26Z</span> <span class="author"><a href="../u/9373410.html">silent_night</a></span></div><div class="post-body">This is great but is there a place to put other data from another map, because im making a map and i want to move a large group of objects and i dont want to place them again. <img class="smiley" src="../files/smilies/36.gif" alt=";-(" title=";-("></div></div>
+<div class="post" id="p266236"><div class="post-head"><a class="id" href="../t/13688.html#p266236">#266236</a> <span class="index">152</span> <span class="date">2006-12-07T23:17:08Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">You can do this with normal Ned too: take the object code (not the tile part) and add it onto the end of the other map  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p266303"><div class="post-head"><a class="id" href="../t/13688.html#p266303">#266303</a> <span class="index">153</span> <span class="date">2006-12-08T02:15:47Z</span> <span class="author"><a href="../u/9373410.html">silent_night</a></span></div><div class="post-body">Not to another map. To the same map. Just in a different place. I mean to put map data in this and move items around.  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"></div></div>
+<div class="post" id="p266311"><div class="post-head"><a class="id" href="../t/13688.html#p266311">#266311</a> <span class="index">154</span> <span class="date">2006-12-08T02:34:31Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body">In other words, load maps.</div></div>
+<div class="post" id="p266457"><div class="post-head"><a class="id" href="../t/13688.html#p266457">#266457</a> <span class="index">155</span> <span class="date">2006-12-08T10:25:16Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> cant wait till all this is finished</div></div>
+<div class="post" id="p266514"><div class="post-head"><a class="id" href="../t/13688.html#p266514">#266514</a> <span class="index">156</span> <span class="date">2006-12-08T15:40:30Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Oh, to load maps... Well, you can do a quick-save and quick-load in Ned Reloaded, but when you quick-save- it saves a series of GML codes that create all the objects. You cannot load compiled code... yet... ever... OK maybe sometime... I don't know....</div></div>
+<div class="post" id="p267075"><div class="post-head"><a class="id" href="../t/13688.html#p267075">#267075</a> <span class="index">157</span> <span class="date">2006-12-09T16:22:20Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">Very nice program there exuberance, well done!<br>
+<br>
+How can you access the level code after saving it? Does it automatically make a .txt with the file in?</div></div>
+<div class="post" id="p267104"><div class="post-head"><a class="id" href="../t/13688.html#p267104">#267104</a> <span class="index">158</span> <span class="date">2006-12-09T17:08:05Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p267075">Quote: Chase, 2006-12-09T16:22:20Z</a></div>How can you access the level code after saving it?</blockquote> <br>
+It will be saved to the clipboard.</div></div>
+<div class="post" id="p267117"><div class="post-head"><a class="id" href="../t/13688.html#p267117">#267117</a> <span class="index">159</span> <span class="date">2006-12-09T17:23:01Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p267104">Quote: apg, December 09, 2006 12:08 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p267075">Quote: Chase, 2006-12-09T16:22:20Z</a></div>How can you access the level code after saving it?</blockquote>It will be saved to the clipboard. </blockquote>Saving, and compiling are 2 different things.<br>
+<br>
+[auto-]Saving saves a txt file (that will be overwritting next auto-save) that contains a bunch of codes [ie: instance_create(2,24,72);] into a text file, that Ned Reloaded can use.<br>
+<br>
+<br>
+Compiling (press F2) actually compiles the map into a map code (ie: 5^24,72!) to the clipboard, so you can paste it into N or NUMA or w/e.</div></div>
+<div class="post" id="p267334"><div class="post-head"><a class="id" href="../t/13688.html#p267334">#267334</a> <span class="index">160</span> <span class="date">2006-12-10T00:23:04Z</span> <span class="author"><a href="../u/9373459.html">Street_Wolf</a></span></div><div class="post-body">Hmmmm, I cant get it to download. =/<br>
+<br>
+I clicked the link, but nothing happens when I click the download button or the Ned Reloaded.exe thing.</div></div>
+<div class="post" id="p267349"><div class="post-head"><a class="id" href="../t/13688.html#p267349">#267349</a> <span class="index">161</span> <span class="date">2006-12-10T01:30:53Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">It should work. Try using Firefox.</div></div>
+<div class="post" id="p267481"><div class="post-head"><a class="id" href="../t/13688.html#p267481">#267481</a> <span class="index">162</span> <span class="date">2006-12-10T09:52:24Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">Thanks for that info!</div></div>
+<div class="post" id="p267668"><div class="post-head"><a class="id" href="../t/13688.html#p267668">#267668</a> <span class="index">163</span> <span class="date">2006-12-10T16:35:31Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p267334">Quote: Street_Wolf, 2006-12-10T00:23:04Z</a></div> Hmmmm, I cant get it to download. =/<br>
+<br>
+I clicked the link, but nothing happens when I click the download button or the Ned Reloaded.exe thing.</blockquote>right click and then click on "save target as"<br>
+That should do the trick.</div></div>
+<div class="post" id="p268916"><div class="post-head"><a class="id" href="../t/13688.html#p268916">#268916</a> <span class="index">164</span> <span class="date">2006-12-12T19:27:54Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p265977">Quote: majikthise_110, December 07, 2006 05:12 am</a></div> and there is yet another problem, if you place an item so it is outside the map, then use the "clear all objects outside the bounderies" tool then walla!! they are gone...right? WRONG!!<br>
+they are still there, they are just invisible, load the level in Ned and go to edit mode and they will still show as being there.  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+It should work.<br>
+<br>
+The objects will not be deleted unless they are completely outside the level. (outside of the wall) If you place an object inside the wall surrounding the level, it is still in the level and will not be deleted.</div></div>
+<div class="post" id="p268957"><div class="post-head"><a class="id" href="../t/13688.html#p268957">#268957</a> <span class="index">165</span> <span class="date">2006-12-12T20:52:19Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">I meant outside the wall, sorry should have been more specific.</div></div>
+<div class="post" id="p268972"><div class="post-head"><a class="id" href="../t/13688.html#p268972">#268972</a> <span class="index">166</span> <span class="date">2006-12-12T21:13:27Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared">  really? That... shouldn't happen.  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"> <br>
+I'll check the code, but it should be working. Make sure you have the newest version.<br>
+<br>
+EDIT: GASP!!<br>
+You're, right. It doesn't work!!<br>
+<br>
+EDIT 2: I tried it again, and it worked.  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  Now I'm REALLY confused<br>
+<br>
+EDIT 3: That would be because I forgot to hit F11 after the first try  <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"> <br>
+(F11 clears all objects outside the room)<br>
+<br>
+You probably just forgot to hit F11 or you compiled before you did.</div></div>
+<div class="post" id="p269539"><div class="post-head"><a class="id" href="../t/13688.html#p269539">#269539</a> <span class="index">167</span> <span class="date">2006-12-13T21:16:40Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Ermm, when I want to delete an object I hold backspace and click. This seems to take the cursor position of where the cursor actually is, not where the cursor has snapped to. Is this supposed to happen? I would prefer it the other way. Also, it deletes the objects near my cursor not just the one underneath it.</div></div>
+<div class="post" id="p269561"><div class="post-head"><a class="id" href="../t/13688.html#p269561">#269561</a> <span class="index">168</span> <span class="date">2006-12-13T22:09:13Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I know about that. It fill be fixed in the next version.</div></div>
+<div class="post" id="p284893"><div class="post-head"><a class="id" href="../t/13688.html#p284893">#284893</a> <span class="index">169</span> <span class="date">2007-01-12T21:17:29Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Wow. I forgot about this somehow. I should finish this <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"><br>
+<br>
+I'm starting work on it again once I finish a school programming project.<br>
+<br>
+Sorry about the huge delay</div></div>
+<div class="post" id="p284996"><div class="post-head"><a class="id" href="../t/13688.html#p284996">#284996</a> <span class="index">170</span> <span class="date">2007-01-13T00:53:53Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">lol<br>
+Yeah, I tend to get distracted on old projects as well...<br>
+Can't blame ya <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p285463"><div class="post-head"><a class="id" href="../t/13688.html#p285463">#285463</a> <span class="index">171</span> <span class="date">2007-01-14T07:05:14Z</span> <span class="author"><a href="../u/9373204.html">Impulse</a></span></div><div class="post-body">Offtopic - &lt;B&gt;lol&lt;/B&gt;I wonder if the bbcode for HTML works...<br>
+<br>
+Ontopic - Turned out better than I thought it would, good job.</div></div>
+<div class="post" id="p285620"><div class="post-head"><a class="id" href="../t/13688.html#p285620">#285620</a> <span class="index">172</span> <span class="date">2007-01-14T19:13:43Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p285463">Quote: GodOfTheRedMoon, January 14, 2007 02:05 am</a></div> Offtopic - &lt;B&gt;lol&lt;/B&gt;I wonder if the bbcode for HTML works...  </blockquote> <br>
+ HTML only works for mods and admins</div></div>
+<div class="post" id="p285667"><div class="post-head"><a class="id" href="../t/13688.html#p285667">#285667</a> <span class="index">173</span> <span class="date">2007-01-14T20:16:04Z</span> <span class="author"><a href="../u/9373093.html">Drunk on Java</a></span></div><div class="post-body">I think the link is broken<br>
+<br>
+EDIT: Nevermind</div></div>
+<div class="post" id="p286660"><div class="post-head"><a class="id" href="../t/13688.html#p286660">#286660</a> <span class="index">174</span> <span class="date">2007-01-17T02:21:38Z</span> <span class="author"><a href="../u/9373736.html">Sephorith</a></span></div><div class="post-body">Hmm, Nothing happens when I click the link <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+Im even using firefox... <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"></div></div>
+<div class="post" id="p286694"><div class="post-head"><a class="id" href="../t/13688.html#p286694">#286694</a> <span class="index">175</span> <span class="date">2007-01-17T04:06:42Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">It works for me...<br>
+<br>
+<br>
+Try this link:<br>
+<span style="color:RED">Old link removed. See the first post for the newest version</span></div></div>
+<div class="post" id="p286983"><div class="post-head"><a class="id" href="../t/13688.html#p286983">#286983</a> <span class="index">176</span> <span class="date">2007-01-18T00:01:27Z</span> <span class="author"><a href="../u/9373402.html">Fallen</a></span></div><div class="post-body">how come the door buttons don't work?</div></div>
+<div class="post" id="p287002"><div class="post-head"><a class="id" href="../t/13688.html#p287002">#287002</a> <span class="index">177</span> <span class="date">2007-01-18T01:01:31Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">read the first post<br>
+<br>
+I'll start working on it again next Wednesday or so...</div></div>
+<div class="post" id="p287378"><div class="post-head"><a class="id" href="../t/13688.html#p287378">#287378</a> <span class="index">178</span> <span class="date">2007-01-19T03:10:30Z</span> <span class="author"><a href="../u/9373746.html">shmi117</a></span></div><div class="post-body">I can't find the block submitter on Ned?<br>
+<br>
+Where is it</div></div>
+<div class="post" id="p287379"><div class="post-head"><a class="id" href="../t/13688.html#p287379">#287379</a> <span class="index">179</span> <span class="date">2007-01-19T03:11:35Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body">Block submitter?<br>
+<br>
+Do you mean tiles?</div></div>
+<div class="post" id="p287385"><div class="post-head"><a class="id" href="../t/13688.html#p287385">#287385</a> <span class="index">180</span> <span class="date">2007-01-19T03:21:19Z</span> <span class="author"><a href="../u/9373746.html">shmi117</a></span></div><div class="post-body">Yeah the tiles<br>
+<br>
+How do you acces the tile inserter</div></div>
+<div class="post" id="p287388"><div class="post-head"><a class="id" href="../t/13688.html#p287388">#287388</a> <span class="index">181</span> <span class="date">2007-01-19T03:27:42Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">And again I say<br>
+READ THE FIRST POST<br>
+<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p12181">Quote: part of first post, 2006-11-09T20:59:31Z</a></div>original release: has some of the things mentioned above; simple interface; does not support tiles</blockquote><br>
+QFE</div></div>
+<div class="post" id="p287607"><div class="post-head"><a class="id" href="../t/13688.html#p287607">#287607</a> <span class="index">182</span> <span class="date">2007-01-19T23:00:01Z</span> <span class="author"><a href="../u/9373093.html">Drunk on Java</a></span></div><div class="post-body">Gm6 and scripting is for girly men. He doesnt even know the definition of programming. He just scripting and dragging dropping. I mean seriously, C++ and Open GL is the way to make a program.<br>
+<br>
+There is so many glitches in this. I have 20 bucks this will never reach its full potential. Take it from a man who know what the hell what is what, use Ned, regualar Ned. Not some phony sissy man gm6 scripting compilation 'program'. <br>
+<br>
+<span style="color:RED">This is Drunk On Java Saying, This Sucks.</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:YELLOW">Don't download this shit.</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"></div></div>
+<div class="post" id="p287616"><div class="post-head"><a class="id" href="../t/13688.html#p287616">#287616</a> <span class="index">183</span> <span class="date">2007-01-19T23:18:22Z</span> <span class="author"><a href="../u/9373657.html">ladeda</a></span></div><div class="post-body">Hey, the guy did a pretty good job, considering that it was gm6.<br>
+<br>
+Enjoy your stay.<br>
+<br>
+EDIT: off topic, but: 321 maps? Hm! Where? First place wha?</div></div>
+<div class="post" id="p287684"><div class="post-head"><a class="id" href="../t/13688.html#p287684">#287684</a> <span class="index">184</span> <span class="date">2007-01-20T02:29:03Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p287607">Quote: Drunk on Java, January 19, 2007 06:00 pm</a></div> Gm6 and scripting is for girly men. He doesnt even know the definition of programming. He just scripting and dragging dropping. I mean seriously, C++ and Open GL is the way to make a program.<br>
+<br>
+There is so many glitches in this. I have 20 bucks this will never reach its full potential. Take it from a man who know what the hell what is what, use Ned, regualar Ned. Not some phony sissy man gm6 scripting compilation 'program'. <br>
+<br>
+<span style="color:RED">This is Drunk On Java Saying, This Sucks.</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:YELLOW">Don't download this shit.</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">  </blockquote> <br>
+ Actually there is absolutely no drag-and-drop.<br>
+GML is a programming language that is far more advanced than many and you still have to program. You can't just "tell it what to do"<br>
+<br>
+And don't bet anything, because it will excede it's full potential.<br>
+<br>
+Oh, yeah. And actually use GML before you say it's bad.<br>
+<br>
+<br>
+Of course, you're <b>fully</b> entitled to your opinion, not matter how mislead it is, but I bet no one else will listen to it, because you're the only one saying that and there's no evidence you actually tried it.<br>
+<br>
+Please tell of any glitches there are that I have not mentioned so I can fix them. I'll be sure to fix it next version.</div></div>
+<div class="post" id="p287695"><div class="post-head"><a class="id" href="../t/13688.html#p287695">#287695</a> <span class="index">185</span> <span class="date">2007-01-20T03:14:15Z</span> <span class="author"><a href="../u/9373190.html">Element</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p287607">Quote: Drunk on Java, January 19, 2007 05:00 pm</a></div> Gm6 and scripting is for girly men. He doesnt even know the definition of programming. He just scripting and dragging dropping. I mean seriously, C++ and Open GL is the way to make a program.<br>
+<br>
+There is so many glitches in this. I have 20 bucks this will never reach its full potential. Take it from a man who know what the hell what is what, use Ned, regualar Ned. Not some phony sissy man gm6 scripting compilation 'program'. <br>
+<br>
+<span style="color:RED">This is Drunk On Java Saying, This Sucks.</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:YELLOW">Don't download this shit.</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">  </blockquote> <br>
+ Earn respect, remake this, except better, and don't be an ass and maybe I'll believe you.</div></div>
+<div class="post" id="p287732"><div class="post-head"><a class="id" href="../t/13688.html#p287732">#287732</a> <span class="index">186</span> <span class="date">2007-01-20T05:43:26Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Oh, by the way, 4 days (and counting) until I resume work on Ned Reloaded. I have to do an advanced version (with particles and such- the particles were my idea) of tetris in a few days for my Computers class.<br>
+<br>
+I'm obsessed with particle systems <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> They make games look awesome.</div></div>
+<div class="post" id="p288883"><div class="post-head"><a class="id" href="../t/13688.html#p288883">#288883</a> <span class="index">187</span> <span class="date">2007-01-22T22:06:34Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p287607">Quote: Drunk on Java, January 19, 2007 11:00 pm</a></div> Gm6 and scripting is for girly men. He doesnt even know the definition of programming. He just scripting and dragging dropping. I mean seriously, C++ and Open GL is the way to make a program.<br>
+<br>
+There is so many glitches in this. I have 20 bucks this will never reach its full potential. Take it from a man who know what the hell what is what, use Ned, regualar Ned. Not some phony sissy man gm6 scripting compilation 'program'. <br>
+<br>
+<span style="color:RED">This is Drunk On Java Saying, This Sucks.</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:YELLOW">Don't download this shit.</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">  </blockquote> <br>
+ How rude!<br>
+<br>
+Respect the guy all his hard work is put in that and plus i like it.</div></div>
+<div class="post" id="p288898"><div class="post-head"><a class="id" href="../t/13688.html#p288898">#288898</a> <span class="index">188</span> <span class="date">2007-01-22T22:21:22Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Yup, I'm just waiting for it to be finished...</div></div>
+<div class="post" id="p289625"><div class="post-head"><a class="id" href="../t/13688.html#p289625">#289625</a> <span class="index">189</span> <span class="date">2007-01-24T21:43:18Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">&lt;insert LoZ "you got an item" sound effect here&gt;<br>
+<br>
+Work on Ned Reloaded has officially resumed. And if I work on that at the same speed I did my final Programming Project (I did Tetris... with explosions <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> [no seriously- it had explosions]... in just under 3 days... well the programming part anyways) it will get done pretty quick  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  Of course I HAD to do the final project... but everyone else really wants me to finish this... well <b>almost</b> everyone anywaysnot Drunk on Java...</div></div>
+<div class="post" id="p292233"><div class="post-head"><a class="id" href="../t/13688.html#p292233">#292233</a> <span class="index">190</span> <span class="date">2007-01-31T20:48:27Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Nice one <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"> <br>
+Hope it works out better than we are expecting.</div></div>
+<div class="post" id="p292247"><div class="post-head"><a class="id" href="../t/13688.html#p292247">#292247</a> <span class="index">191</span> <span class="date">2007-01-31T21:28:45Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">The next version should be out by the end of the week <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"> <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"></div></div>
+<div class="post" id="p292255"><div class="post-head"><a class="id" href="../t/13688.html#p292255">#292255</a> <span class="index">192</span> <span class="date">2007-01-31T21:57:23Z</span> <span class="author"><a href="../u/9373410.html">silent_night</a></span></div><div class="post-body">w00t!!11!1<br>
+<br>
+Come on week, end! <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p293482"><div class="post-head"><a class="id" href="../t/13688.html#p293482">#293482</a> <span class="index">193</span> <span class="date">2007-02-04T04:19:24Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">W00T!! VERSION 0.50 IS DONE!! IT NOW SUPPORTS TILES!!!!<br>
+<br>
+A few things to note:<br>
+<br>
+Q no longer quits the game. Press F12 to quit. (You cannot quit in stand-by mode, return to normal mode first)<br>
+<br>
+Yes, I know the Snap image thing still shows up when you're laying tiles, I'll remove that in the next version.<br>
+<br>
+If you notice any glitches, please tell me- even if you're not sure if it's a glitch because it probably is.<br>
+<br>
+*gasp* 666th post <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p293648"><div class="post-head"><a class="id" href="../t/13688.html#p293648">#293648</a> <span class="index">194</span> <span class="date">2007-02-04T16:03:11Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Just a couple of things....not sure if any of them are already known or actually mentioned on the first page but...<br>
+1) It is always above 33fps<br>
+2)Gridlines don't work<br>
+3) the one way platforms are ever so slightly out of alignment.<br>
+4) quick saving with large quantities of items on the screen froze it causing me to have to restart my computer.<br>
+5) the process of placing the large quantity of objects bumped it up to 1000fps before settling around 300fps.</div></div>
+<div class="post" id="p293679"><div class="post-head"><a class="id" href="../t/13688.html#p293679">#293679</a> <span class="index">195</span> <span class="date">2007-02-04T17:34:43Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p293648">Quote: majikthise_110, February 04, 2007 11:03 am</a></div> Just a couple of things....not sure if any of them are already known or actually mentioned on the first page but...<br>
+1) It is always above 33fps<br>
+2)Gridlines don't work<br>
+3) the one way platforms are ever so slightly out of alignment.<br>
+4) quick saving with large quantities of items on the screen froze it causing me to have to restart my computer.<br>
+5) the process of placing the large quantity of objects bumped it up to 1000fps before settling around 300fps.  </blockquote> <br>
+ 1) That's because you have a slow computer<br>
+2) I never added gridlines yet<br>
+3) I know...<br>
+4) No it didn't. You have a very slow computer, and you have to wait for it to save the data<br>
+5) ms/f, not fps; it's supposed to say that because it's going slower.</div></div>
+<div class="post" id="p293690"><div class="post-head"><a class="id" href="../t/13688.html#p293690">#293690</a> <span class="index">196</span> <span class="date">2007-02-04T17:54:27Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">If a 2.18 Ghz processor and 512Mb of ram and a 256Mb graphics card is classed as a "slow" computer then I dread to think what your using... <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p293703"><div class="post-head"><a class="id" href="../t/13688.html#p293703">#293703</a> <span class="index">197</span> <span class="date">2007-02-04T18:24:39Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I'm using a 2.0 GHz processor, and it runs fine. Are you using Norton Antivirus? It slows everything down.<br>
+<br>
+I also tried using it on a friend's computer that runs N slower than my 1.3 GHz laptop does (It's actually a fast computer, it just has tons of junk slowing it down), and it was running at 33ms/f <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> There's something seriously wrong with your computer. You either installed waaaaay to many programs on it, you have spyware/viruses, or both.<br>
+<br>
+EDIT: Oh. And to make you happy about the game "freezing", I'll include a loading bar in the next version.  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+The number at the bottom-left is the milliseconds per frame. You want that to be low. FPS you want to be high.<br>
+<br>
+The milliseconds per frame is 1000 times the recipricol of the fps, so it's an inverse relation.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p294165"><div class="post-head"><a class="id" href="../t/13688.html#p294165">#294165</a> <span class="index">198</span> <span class="date">2007-02-05T22:58:01Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body">ZOMG! <br>
+<br>
+Im Downloading this now, nice job!</div></div>
+<div class="post" id="p294651"><div class="post-head"><a class="id" href="../t/13688.html#p294651">#294651</a> <span class="index">199</span> <span class="date">2007-02-07T04:10:38Z</span> <span class="author"><a href="../u/9373720.html">Oleary15</a></span></div><div class="post-body">Sweet dude Im downloading now thx  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"></div></div>
+<div class="post" id="p294752"><div class="post-head"><a class="id" href="../t/13688.html#p294752">#294752</a> <span class="index">200</span> <span class="date">2007-02-07T17:46:07Z</span> <span class="author"><a href="../u/9372866.html">Erc1ist</a></span></div><div class="post-body">I agree with exuberance. I think this game will reach its full potential and it would be worth it, so dont tell him it's gonna suck before it's finished, because he will just think its gonna suck and not finish it<br>
+<br>
+Keep up the good work Exuberance <img class="smiley" src="../files/smilies/27.gif" alt=":spasm:" title=":spasm:"></div></div>
+<div class="post" id="p294897"><div class="post-head"><a class="id" href="../t/13688.html#p294897">#294897</a> <span class="index">201</span> <span class="date">2007-02-08T00:40:08Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">Would be nicer with gridlines... <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p294902"><div class="post-head"><a class="id" href="../t/13688.html#p294902">#294902</a> <span class="index">202</span> <span class="date">2007-02-08T00:47:39Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p294897">Quote: usaswim, February 07, 2007 07:40 pm</a></div> Would be nicer with gridlines... <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> </blockquote><div class="align-center"><b>!</b></div><div class="align-center"><img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div><i><b>That's</b></i> what I was forgetting... That'll be in next ver</div></div>
+<div class="post" id="p295127"><div class="post-head"><a class="id" href="../t/13688.html#p295127">#295127</a> <span class="index">203</span> <span class="date">2007-02-08T20:41:52Z</span> <span class="author"><a href="../u/9372532.html">ninja12345</a></span></div><div class="post-body">duuuude... how are you meant to play-test it?</div></div>
+<div class="post" id="p295161"><div class="post-head"><a class="id" href="../t/13688.html#p295161">#295161</a> <span class="index">204</span> <span class="date">2007-02-08T22:27:45Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p265516">Quote: exuberance, December 06, 2006 10:13 am</a></div> No, but you can compile it, then go into standby and test it in the original Ned (in N), and it won't lag because It's in standby.  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:">  Just be sure to close N when your done with it.<br>
+<br>
+...<br>
+<br>
+bleh... I'm not feeling well today. I may not work on this for a few days.  </blockquote> <br>
+ (Press F4 to enter standby mode)</div></div>
+<div class="post" id="p296165"><div class="post-head"><a class="id" href="../t/13688.html#p296165">#296165</a> <span class="index">205</span> <span class="date">2007-02-11T09:33:34Z</span> <span class="author"><a href="../u/9373571.html">jbaker</a></span></div><div class="post-body">here's something a little off the traditional N.<br>
+how about weapons, and if thats out of the question, what about a...um...thing, were missles, turrets, lasers and anything else that tries to kill you possible to kill other things, like if you can guide a missle in to a drone, it blows up?</div></div>
+<div class="post" id="p296210"><div class="post-head"><a class="id" href="../t/13688.html#p296210">#296210</a> <span class="index">206</span> <span class="date">2007-02-11T14:32:19Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p296165">Quote: jbaker, February 11, 2007 11:33 am</a></div> here's something a little off the traditional N.<br>
+how about weapons, and if thats out of the question, what about a...um...thing, were missles, turrets, lasers and anything else that tries to kill you possible to kill other things, like if you can guide a missle in to a drone, it blows up?  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+<br>
+This is a remake of N's editor, Ned, not of the game itself. N mods are coming after the source code is released.</div></div>
+<div class="post" id="p296237"><div class="post-head"><a class="id" href="../t/13688.html#p296237">#296237</a> <span class="index">207</span> <span class="date">2007-02-11T16:18:38Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p296210">Quote: apg, February 11, 2007 09:32 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p296165">Quote: jbaker, February 11, 2007 11:33 am</a></div> here's something a little off the traditional N.<br>
+how about weapons, and if thats out of the question, what about a...um...thing, were missles, turrets, lasers and anything else that tries to kill you possible to kill other things, like if you can guide a missle in to a drone, it blows up? </blockquote><img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+<br>
+This is a remake of N's editor, Ned, not of the game itself. N mods are coming after the source code is released.  </blockquote> <br>
+ QFE<br>
+<br>
+This is remaking the level editor, not the game itself.</div></div>
+<div class="post" id="p297181"><div class="post-head"><a class="id" href="../t/13688.html#p297181">#297181</a> <span class="index">208</span> <span class="date">2007-02-14T09:44:38Z</span> <span class="author"><a href="../u/9373534.html">geti</a></span></div><div class="post-body">wtf....<br>
+<br>
+anyway, good job, downloading (had old version... <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|"> )</div></div>
+<div class="post" id="p297202"><div class="post-head"><a class="id" href="../t/13688.html#p297202">#297202</a> <span class="index">209</span> <span class="date">2007-02-14T11:02:48Z</span> <span class="author"><a href="../u/9371854.html">faemir</a></span></div><div class="post-body">if you made a java version, then i could use it on linux as well <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p297325"><div class="post-head"><a class="id" href="../t/13688.html#p297325">#297325</a> <span class="index">210</span> <span class="date">2007-02-14T21:05:36Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">There is a program that converts GM to Java, but past versions have been incredible bad and support barely anything, so I didn't even bother trying it. I might download just to check, but I really really really doubt it will work.</div></div>
+<div class="post" id="p297439"><div class="post-head"><a class="id" href="../t/13688.html#p297439">#297439</a> <span class="index">211</span> <span class="date">2007-02-15T01:29:17Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">oooo<br>
+that would be a fun project to code <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+i just need to find some free time...<br>
+which would be about...uh...half a year? <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p298328"><div class="post-head"><a class="id" href="../t/13688.html#p298328">#298328</a> <span class="index">212</span> <span class="date">2007-02-17T20:54:06Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">I'd hate to break it to you, but this cannot be pinned. I don't see how this is different from ned, in game. Usually, we pin the things that are not already part of the game itself. It's a nice program, but it will never be pinned.</div></div>
+<div class="post" id="p298342"><div class="post-head"><a class="id" href="../t/13688.html#p298342">#298342</a> <span class="index">213</span> <span class="date">2007-02-17T21:48:58Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">The whole point of this is to improve and expand the original Ned and make a better stand-alone version. It's not really close to being done (I procrastinated on this waaay too much), so it's not going to be better. Just wait until version 1.0, then it will start to improve a lot.</div></div>
+<div class="post" id="p298350"><div class="post-head"><a class="id" href="../t/13688.html#p298350">#298350</a> <span class="index">214</span> <span class="date">2007-02-17T22:12:58Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">We'll see, it may be pin worthy if, *IF*, you can provide options that expand beyond ned, and make the interface better.<br>
+<br>
+Like Esc = Close, cause q is just stupid.<br>
+A Goddamn Readme!!!! So we know how to use this thing instead of referring to this post.<br>
+And Maybe a side panel of options<br>
+<br>
+----| Compile map<br>
+----| Background Color<br>
+----| Another option<br>
+----| Another option<br>
+----| Another option<br>
+----| Another option<br>
+----| "   "<br>
+----| "   "<br>
+----| Close<br>
+<br>
+Would you like some help with this because I have very extravegant ideas that could serioulsy make this awesome.<br>
+<br>
+BTW: Exuberance, this is for you. I was bored and your sig is too big. <br>
+<img class="bb-img" src="http://img217.imageshack.us/img217/4554/userbar341529qc9.gif" alt="" loading="lazy"><br>
+<br>
+And spoil your caption stuff. :-P</div></div>
+<div class="post" id="p298368"><div class="post-head"><a class="id" href="../t/13688.html#p298368">#298368</a> <span class="index">215</span> <span class="date">2007-02-17T22:51:50Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p298350">Quote: NvRMrE, February 17, 2007 05:12 pm</a></div> We'll see, it may be pin worthy if, *IF*, you can provide options that expand beyond ned, and make the interface better.<br>
+<br>
+Like Esc = Close, cause q is just stupid.<br>
+A Goddamn Readme!!!! So we know how to use this thing instead of referring to this post.<br>
+And Maybe a side panel of options<br>
+<br>
+----| Compile map<br>
+----| Background Color<br>
+----| Another option<br>
+----| Another option<br>
+----| Another option<br>
+----| Another option<br>
+----| "   "<br>
+----| "   "<br>
+----| Close<br>
+<br>
+Would you like some help with this because I have very extravegant ideas that could serioulsy make this awesome.<br>
+<br>
+BTW: Exuberance, this is for you. I was bored and your sig is too big. <br>
+<img class="bb-img" src="http://img217.imageshack.us/img217/4554/userbar341529qc9.gif" alt="" loading="lazy"><br>
+<br>
+And spoil your caption stuff. :-P </blockquote>1. Download the newest version- Q <b>isn't</b> quit. F12 is. Q is for placing tiles.<br>
+2. The "readme" is embedded in the program- hit F1<br>
+3. I'll probably do that in later versions<br>
+4. If you have any reasonable* ideas, please post them here. I would love to hear them... see them... w/e<br>
+<br>
+*reasonable meaning <b>not</b> stuff like 'playtesting', impossible objects (for obvious reasons), etc.<br>
+<br>
+EDIT: Oh, and thanks for the userbar, but I'm going to make my own in Flash.</div></div>
+<div class="post" id="p298377"><div class="post-head"><a class="id" href="../t/13688.html#p298377">#298377</a> <span class="index">216</span> <span class="date">2007-02-17T23:08:48Z</span> <span class="author"><a href="../u/9371854.html">faemir</a></span></div><div class="post-body">cool, it's nice to be stand-alone instead of inside N, 'cause N is a bit of a resources hog <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p303308"><div class="post-head"><a class="id" href="../t/13688.html#p303308">#303308</a> <span class="index">217</span> <span class="date">2007-03-07T21:15:24Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I`m starting work on it again on the March Break<br>
+<br>
+FYI, objects load in the order they were created. They do not load linearly, even when copied or moved.<br>
+<br>
+Should I make it load in a set pattern so that people can`t use it to make N art easier?</div></div>
+<div class="post" id="p304812"><div class="post-head"><a class="id" href="../t/13688.html#p304812">#304812</a> <span class="index">218</span> <span class="date">2007-03-13T00:12:49Z</span> <span class="author"><a href="../u/9374101.html">chicob13</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p287607">Quote: Drunk on Java, January 19, 2007 11:00 pm</a></div> Gm6 and scripting is for girly men. He doesnt even know the definition of programming. He just scripting and dragging dropping. I mean seriously, C++ and Open GL is the way to make a program.<br>
+<br>
+There is so many glitches in this. I have 20 bucks this will never reach its full potential. Take it from a man who know what the hell what is what, use Ned, regualar Ned. Not some phony sissy man gm6 scripting compilation 'program'. <br>
+<br>
+<span style="color:RED">This is Drunk On Java Saying, This Sucks.</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:YELLOW">Don't download this shit.</span><br>
+<br>
+ <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">  </blockquote> <br>
+ <span style="color:GRAY">hey you know what i dont see you doing any programing so shut and go cut your self in the corner</span></div></div>
+<div class="post" id="p305034"><div class="post-head"><a class="id" href="../t/13688.html#p305034">#305034</a> <span class="index">219</span> <span class="date">2007-03-13T22:59:12Z</span> <span class="author"><a href="../u/9374101.html">chicob13</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p303308">Quote: exuberance, March 07, 2007 09:15 pm</a></div> I`m starting work on it again on the March Break<br>
+<br>
+FYI, objects load in the order they were created. They do not load linearly, even when copied or moved.<br>
+<br>
+Should I make it load in a set pattern so that people can`t use it to make N art easier?  </blockquote> <br>
+ how about  a decison like top to bottom or in order that they were made</div></div>
+<div class="post" id="p334763"><div class="post-head"><a class="id" href="../t/13688.html#p334763">#334763</a> <span class="index">220</span> <span class="date">2007-06-23T04:19:29Z</span> <span class="author"><a href="../u/9374569.html">cman4</a></span></div><div class="post-body">You are my hero.<br>
+<br>
+I'd have made something like this myself, but I don't completely understand N's map-code system, and I'd be too lazy anyway.</div></div>
+<div class="post" id="p334771"><div class="post-head"><a class="id" href="../t/13688.html#p334771">#334771</a> <span class="index">221</span> <span class="date">2007-06-23T04:29:09Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">o_0<br>
+<br>
+woah... I had almost forgotten about this  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> <br>
+I guess I should... like... finish this some time... or something... yeah...</div></div>
+<div class="post" id="p341860"><div class="post-head"><a class="id" href="../t/13688.html#p341860">#341860</a> <span class="index">222</span> <span class="date">2007-07-11T21:26:44Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">yes, you should try to get at least up to v1.</div></div>
+<div class="post" id="p354639"><div class="post-head"><a class="id" href="../t/13688.html#p354639">#354639</a> <span class="index">223</span> <span class="date">2007-08-12T22:58:57Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Update coming soon. Adding tile rotation will only take a few minutes. It's actually simpler than it first seems. What I'm trying to do now is greatly reduce the lag that people are reporting. It's obviously due to having to draw the tiles every frame, so I'm trying to find a way to not update the drawing of the tiles, yet still updating the cursor and the box that follows it. I can't just not draw them unless there's a change because then they will disappear. I think I've found a way to do it using surfaces, but I'm not sure yet. I've never used surfaces before.<br>
+<br>
+EDIT 1: Yes, the system will probably work. I just to to code it and test it now.<br>
+EDIT 2: IT WORKS!! *Exuberance is exuberant*<br>
+EDIT 3: Adding the tile rotating thing tomorrow (don't worry, I'll actually do it tomorrow)<br>
+<b>EDIT 4: Tile selection complete. Move/Copy function complete.</b><br>
+<br>
+<span style="color:GREEN">Current Status: Back Programming Again</span></div></div>
+<div class="post" id="p354705"><div class="post-head"><a class="id" href="../t/13688.html#p354705">#354705</a> <span class="index">224</span> <span class="date">2007-08-13T03:14:58Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Well, here's hopin'!<br>
+*Raises glass of orange*<br>
+And, yeah, rotation, mirror, invert, etc... aren't hard at all. I'm surprised that you didn't implement them earlier. Would've set this apart from other editors months ago.</div></div>
+<div class="post" id="p354992"><div class="post-head"><a class="id" href="../t/13688.html#p354992">#354992</a> <span class="index">225</span> <span class="date">2007-08-13T22:18:24Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">OH T3H NOES: A "GLITCH"<br>
+<br>
+Since surfaces are stored in video memory, the screensaver causes it to crash.  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("><br>
+<br>
+EDIT: Since the screensaver replaces the used video memory, the memory used by the surface should also be gone, allowing me to check to see if the surface exists, and re-create it if it doesn't, which <b>should</b> fix the issue. Now testing...<br>
+<br>
+EDIT: Waahh!! It failzorzed. Maybe because the screensaver turned on after the check to see if the memory was there, but before it was actually drawn. *sigh* Well, don't leave it be if you have a screensaver!!<br>
+<br>
+EDIT: \/\/ LOL @ ZeroTruths</div></div>
+<div class="post" id="p355006"><div class="post-head"><a class="id" href="../t/13688.html#p355006">#355006</a> <span class="index">226</span> <span class="date">2007-08-13T23:19:30Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Programs don't have glitches, or bugs for that matter.<br>
+They simply have undocumented features.</div></div>
+<div class="post" id="p355034"><div class="post-head"><a class="id" href="../t/13688.html#p355034">#355034</a> <span class="index">227</span> <span class="date">2007-08-14T00:31:59Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">OK. It appears I lied about having it done today. I had to stop working earlier than I expected. What annoys me is how close I was to having it done. Oh well. I also forgot that I would have to give each tile information as to what tile it changes into when rotated and mirrored- that slowed me down a bit a lot.... and it's very boring, which doesn't help.<br>
+<br>
+EDIT: That wasn't too bad. Most of the tiles followed the same rotation patterns, so I only had to order the different versions of each tile.<br>
+<br>
+<b>It is done!! Now Uploading...<br>
+<span style="color:GREEN">Upload Complete</span></b></div></div>
+<div class="post" id="p355391"><div class="post-head"><a class="id" href="../t/13688.html#p355391">#355391</a> <span class="index">228</span> <span class="date">2007-08-14T20:13:40Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> Exuberance... seriously... when will you quit being such an uberance?</div></div>
+<div class="post" id="p355413"><div class="post-head"><a class="id" href="../t/13688.html#p355413">#355413</a> <span class="index">229</span> <span class="date">2007-08-14T21:03:34Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p355391">Quote: Gforce20, August 14, 2007 03:13 pm</a></div> <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> Exuberance... seriously... when will you quit being such an uberance?  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> Thanks.... I think.</div></div>
+<div class="post" id="p355437"><div class="post-head"><a class="id" href="../t/13688.html#p355437">#355437</a> <span class="index">230</span> <span class="date">2007-08-14T21:46:36Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body">Why isn't there a line from to exit to the remote? <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:"></div></div>
+<div class="post" id="p355677"><div class="post-head"><a class="id" href="../t/13688.html#p355677">#355677</a> <span class="index">231</span> <span class="date">2007-08-15T15:29:33Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p355437">Quote: cajsq, August 14, 2007 04:46 pm</a></div> Why isn't there a line from to exit to the remote? <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  </blockquote> <br>
+ Because I forgot to put it in. Thanks for reminding me. I'll put that in the next version.<br>
+<br>
+By the way, if your screensaver turns on, when you get teh error message, hold ~ and keep pressing ignore until the save/load prompt pops up. Save the level, click abort, then load the map.</div></div>
+<div class="post" id="p357196"><div class="post-head"><a class="id" href="../t/13688.html#p357196">#357196</a> <span class="index">232</span> <span class="date">2007-08-19T20:10:25Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">Until now, I had no idea how to edit tiles. FINALLY, I can edit tiles.</div></div>
+<div class="post" id="p357550"><div class="post-head"><a class="id" href="../t/13688.html#p357550">#357550</a> <span class="index">233</span> <span class="date">2007-08-20T17:56:08Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Wow. This got a lot more attention when it sucked. Now that it can do useful stuff, I got no comments  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> <br>
+Maybe everyone's busy using it  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p359975"><div class="post-head"><a class="id" href="../t/13688.html#p359975">#359975</a> <span class="index">234</span> <span class="date">2007-08-27T14:41:00Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body">Why is there a ! at the end,<br>
+I got a error and a NaN(Not a Number) in my code.</div></div>
+<div class="post" id="p359976"><div class="post-head"><a class="id" href="../t/13688.html#p359976">#359976</a> <span class="index">235</span> <span class="date">2007-08-27T14:46:05Z</span> <span class="author"><a href="../u/9374136.html">cajsq</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p357550">Quote: Exberance, August 20, 2007 05:56 pm</a></div> Wow. This got a lot more attention when it sucked. Now that it can do useful stuff, I got no comments  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> <br>
+Maybe everyone's busy using it  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> </blockquote><details class="spoiler"><summary>Spoiler: I think your Ned Reloaded is the most useful for me.</summary>Except for N and ... well, N Poser.</details></div></div>
+<div class="post" id="p360104"><div class="post-head"><a class="id" href="../t/13688.html#p360104">#360104</a> <span class="index">236</span> <span class="date">2007-08-27T23:54:37Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Sorry if I sound insensitive, but I was expecting something... different...<br>
+I thought that there would be some sort of different interface than just mimicking that of NEDs. I think if you want your editor to stand out, then you should try to make the whole map making experience more easier and straightforward.<br>
+Although I still am impressed with the fact that this was all done in GameMaker</div></div>
+<div class="post" id="p360625"><div class="post-head"><a class="id" href="../t/13688.html#p360625">#360625</a> <span class="index">237</span> <span class="date">2007-08-29T16:46:40Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">It's very good. I just don't mapmake so much.</div></div>
+<div class="post" id="p362283"><div class="post-head"><a class="id" href="../t/13688.html#p362283">#362283</a> <span class="index">238</span> <span class="date">2007-09-04T23:30:54Z</span> <span class="author"><a href="../u/9375001.html">J_Spade</a></span></div><div class="post-body">Got a version for a mac user?</div></div>
+<div class="post" id="p362751"><div class="post-head"><a class="id" href="../t/13688.html#p362751">#362751</a> <span class="index">239</span> <span class="date">2007-09-06T20:50:00Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">If you use 10.4 or later, try with darwine. It might work. I'm not sure.</div></div>
+<div class="post" id="p362860"><div class="post-head"><a class="id" href="../t/13688.html#p362860">#362860</a> <span class="index">240</span> <span class="date">2007-09-07T03:27:47Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p359975">Quote: cajsq, 2007-08-27T14:41:00Z</a></div> Why is there a ! at the end, </blockquote>To prevent the map data from being NaN'd if you accidentally have the cursor in the level data box when you press L.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p362283">Quote: J_Spade, 2007-09-04T23:30:54Z</a></div>Got a version for a mac user?</blockquote>Nope, sorry.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p359975">Quote: cajsq, 2007-08-27T14:41:00Z</a></div>I got a error and a NaN(Not a Number) in my code.</blockquote><img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> What was the error message?</div></div>
+<div class="post" id="p374795"><div class="post-head"><a class="id" href="../t/13688.html#p374795">#374795</a> <span class="index">241</span> <span class="date">2007-10-27T11:19:16Z</span> <span class="author"><a href="../u/9375245.html">hamz10</a></span></div><div class="post-body">cool</div></div>
+<div class="post" id="p377199"><div class="post-head"><a class="id" href="../t/13688.html#p377199">#377199</a> <span class="index">242</span> <span class="date">2007-11-05T23:34:13Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Just so you know, this is pretty much dead now.<br>
+<br>
+<b>If anyone wants the code for tile rotation, just PM me</b></div></div>
+<div class="post" id="p377381"><div class="post-head"><a class="id" href="../t/13688.html#p377381">#377381</a> <span class="index">243</span> <span class="date">2007-11-06T22:28:36Z</span> <span class="author"><a href="../u/9372885.html">beginner2</a></span></div><div class="post-body">You're not fixing it? I actually thought this would go to version 1. Oh well.</div></div>
+<div class="post" id="p377409"><div class="post-head"><a class="id" href="../t/13688.html#p377409">#377409</a> <span class="index">244</span> <span class="date">2007-11-07T00:30:49Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p377381">Quote: beginner2, November 06, 2007 06:28 pm</a></div> You're not fixing it? I actually thought this would go to version 1. Oh well.  </blockquote> <br>
+ Yeah, I'll probably fix the glitches sometime soon, but there won't be anything new added.</div></div>
+<div class="post" id="p379671"><div class="post-head"><a class="id" href="../t/13688.html#p379671">#379671</a> <span class="index">245</span> <span class="date">2007-11-15T11:57:24Z</span> <span class="author"><a href="../u/9375304.html">Scrybe</a></span></div><div class="post-body">sorry to seem rude (laggy computer, I can't check through all of the pages <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> ) but is there a newer Ned Reloaded other than Ned Reloaded v 0.5.3</div></div>
+<div class="post" id="p379697"><div class="post-head"><a class="id" href="../t/13688.html#p379697">#379697</a> <span class="index">246</span> <span class="date">2007-11-15T16:05:55Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">Nope. First post has newest version.</div></div>
+<div class="post" id="p381056"><div class="post-head"><a class="id" href="../t/13688.html#p381056">#381056</a> <span class="index">247</span> <span class="date">2007-11-20T02:03:57Z</span> <span class="author"><a href="../u/9375341.html">XiAH</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/13688.html#p252299">Quote: Exberance, November 09, 2006 11:17 pm</a></div> Sorry, but the answer to question 2 is never. That's because I'm using GML (Game Maker scripting Language) which can only export windows-compatible files. That's actually pretty much the only reason I use Windows and not Linux.<br>
+<br>
+Edit: I MAY (very unlikely) make a version of this in Java too, which IS compatible with Macs. (i think)  </blockquote> <br>
+ Java is cross system and works on everything BUT game consoles. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Also, i thought i saw a windows 2 mac file converter somewhere...<br>
+ cept it runs sh*tty</div></div>
+<div class="post" id="p395073"><div class="post-head"><a class="id" href="../t/13688.html#p395073">#395073</a> <span class="index">248</span> <span class="date">2007-12-31T19:14:20Z</span> <span class="author"><a href="../u/9375555.html">kingdrani</a></span></div><div class="post-body">how do i change my resulotion? lol i cant run anything with gamemaker without changing it:(<br>
+Edit: i got 2 computers at my mom i got a computer that i think things will work on but here it looks like it not anyways just installed N here to i got 2 colours at my mom so hope i get them fast here too:D</div></div>
+<div class="post" id="p399323"><div class="post-head"><a class="id" href="../t/13688.html#p399323">#399323</a> <span class="index">249</span> <span class="date">2008-01-10T03:31:53Z</span> <span class="author"><a href="../u/9374453.html">heatwave</a></span></div><div class="post-body">errm,<br>
+[noobish question]where does ned reloaded download to, exactly?[/noobish question]<br>
+I tried downloading it, but couldn't find it anywhere on my computer. I searched for "ned reloaded.exe" in all files and folders (including hidden folders), with no success.<br>
+I even searched ".exe", and after combing though all the files begining with n, I just gave up.<br>
+Help please!   <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p417735"><div class="post-head"><a class="id" href="../t/13688.html#p417735">#417735</a> <span class="index">250</span> <span class="date">2008-03-17T05:30:36Z</span> <span class="author"><a href="../u/9375939.html">NCrafter</a></span></div><div class="post-body">Small question... When I try to make a jump pad it make a black eye thing instead.<br>
+This is very dissapointing. Please help.</div></div>
+<div class="post" id="p418049"><div class="post-head"><a class="id" href="../t/13688.html#p418049">#418049</a> <span class="index">251</span> <span class="date">2008-03-17T23:59:50Z</span> <span class="author"><a href="../u/9375220.html">_destiny^-</a></span></div><div class="post-body">I cant edit tiles...</div></div>
+</main>
+</body>
+</html>

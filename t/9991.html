@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiny thought - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Tiny thought</nav></header>
+<main>
+<div class="post" id="p8980"><div class="post-head"><a class="id" href="../t/9991.html#p8980">#8980</a> <span class="index">1</span> <span class="date">2006-05-24T23:16:44Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">When the game loads a level in the main menu background after the ninja has died, the screen should have abstract loading patterns for the next map instead of performing a horizontal sweep all the time.<br>
+<br>
+(Hang on, just so I'm not called a moron... <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"><br>
+<br>
+*loads N and alternates between "help" and "main menu" a few times*<br>
+<br>
+Okay.)<br>
+<br>
+Alternate loading ideas could be:<ul><li>so that every other block loads first like a checker pattern and the rest follows;</li><li>so that every other row/column loads first, and the rest follow;</li><li>so that the screen loads horizontally (leftwards), or vertically both ways (maybe even diagonally if the engine allows it);</li><li>so that the outer two rows and two columns load and keep continuing towards the center until the screen reaches the middle as the last area to load;</li><li>so that the center loads as the first area and the rest of the level data loads outwards (opposite of above);</li><li>etc.</li></ul>Again, just a thought. I'm not gonna die if v1.5 doesn't incorporate this feature. <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"><br>
+<br>
+...<br>
+<br>
+*dies in advance*</div></div>
+<div class="post" id="p180031"><div class="post-head"><a class="id" href="../t/9991.html#p180031">#180031</a> <span class="index">2</span> <span class="date">2006-05-24T23:31:12Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">The only problem with that is that the map data is that it is designed specifically for row by row: the first character of the data is in tile (0,0), the second is (0,1) and so forth, until it reaches the 27th (i think) character, which becomes (1,0). That being said, this is a good idea, but I think that it's not worth implementing.<br>
+<br>
+Besides, I kinda like the horizontal sweep. It gives a uniqueness to N (other than Star Wars, but we'll ignore that for now). Most games start levels by either fading in or just appearing.<br>
+<br>
+(I put the points as (row,col), where going right increases "row" and going down increases "col")</div></div>
+<div class="post" id="p180035"><div class="post-head"><a class="id" href="../t/9991.html#p180035">#180035</a> <span class="index">3</span> <span class="date">2006-05-24T23:40:46Z</span> <span class="author"><a href="../u/9371337.html">Furious_Gopher</a></span></div><div class="post-body">With that out of the way, is there any way to implement the "retry using spacebar" feature into custom maps when you die? (Like in Single Player)</div></div>
+<div class="post" id="p180054"><div class="post-head"><a class="id" href="../t/9991.html#p180054">#180054</a> <span class="index">4</span> <span class="date">2006-05-25T00:22:18Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">"Out of the way?" Don't throw this out the window just like that! <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"><br>
+<br>
+<i>thecalcgenius</i>, you misunderstand. I am not talking about Ned level data, userlevels, or the story mode, where map information is processed according to how the author mapped it.<br>
+<br>
+I am talking about the main menu and the main menu alone. If you notice, the data appears to be preloaded and the level loads instantaneously as soon as the horizontal sweep passes. I'm just talking about revealing the next level in a different fashion.</div></div>
+<div class="post" id="p180062"><div class="post-head"><a class="id" href="../t/9991.html#p180062">#180062</a> <span class="index">5</span> <span class="date">2006-05-25T00:31:34Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">FG: What was that all about?<br>
+<br>
+KC: Wait...are you talking about when the tiles load, or the objects? Maps always load tiles left to right, no matter the order in which they were put.<br>
+<br>
+Besides, the horizontal sweep just replaces the tiles from the finished map to the next map.<br>
+<br>
+/me is confused...</div></div>
+<div class="post" id="p180063"><div class="post-head"><a class="id" href="../t/9991.html#p180063">#180063</a> <span class="index">6</span> <span class="date">2006-05-25T00:31:36Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">No, the background is also a standard demo being played. That's why, if you're watching a demo of your own from userlevels, you can quit the replay, go to the main level, and your demo will still be playing in the background.</div></div>
+<div class="post" id="p180069"><div class="post-head"><a class="id" href="../t/9991.html#p180069">#180069</a> <span class="index">7</span> <span class="date">2006-05-25T00:44:36Z</span> <span class="author"><a href="../u/9371025.html">Aju</a></span></div><div class="post-body">I like the idea, even if it is minor. I can't say I would be disspointed if it wasn't implemented though... <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"></div></div>
+<div class="post" id="p180136"><div class="post-head"><a class="id" href="../t/9991.html#p180136">#180136</a> <span class="index">8</span> <span class="date">2006-05-25T02:34:17Z</span> <span class="author"><a href="../u/9371916.html">elaxion</a></span></div><div class="post-body">basing my reply on calc's info it seems almost impossible, it would be cool, and i did notice this, but it seems like it would take major programming and tons of time which m &amp; r dont have</div></div>
+<div class="post" id="p180155"><div class="post-head"><a class="id" href="../t/9991.html#p180155">#180155</a> <span class="index">9</span> <span class="date">2006-05-25T03:12:00Z</span> <span class="author"><a href="../u/9371987.html">scythe33</a></span></div><div class="post-body"><span style="color:#6A220B">It'd probably take about ~15 lines of code in Java or C++. I don't know about Flash, but it can't be that much worse.<br>
+in fact, I like it!</span></div></div>
+<div class="post" id="p180229"><div class="post-head"><a class="id" href="../t/9991.html#p180229">#180229</a> <span class="index">10</span> <span class="date">2006-05-25T09:53:33Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body">I figure you could programm it so that it'd load the level backwards, and that would be cool too. It's very minor, and I don't really care about it, but if it's like scytche sais, then it's good.</div></div>
+<div class="post" id="p180240"><div class="post-head"><a class="id" href="../t/9991.html#p180240">#180240</a> <span class="index">11</span> <span class="date">2006-05-25T10:24:17Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">You should just be able to load the level with a mask over it, then remove the mask in a way of your choosing, shouldn't you? It would avoid messing around with the loading sequence and shouldn't take much extra programming.</div></div>
+<div class="post" id="p180305"><div class="post-head"><a class="id" href="../t/9991.html#p180305">#180305</a> <span class="index">12</span> <span class="date">2006-05-25T18:55:27Z</span> <span class="author"><a href="../u/9370854.html">mascote_ponto</a></span></div><div class="post-body">I think it is unnecessary, and it wouldn't be worth it for Mare and Raigan to waste their time on. <br>
+<br>
+I prefer it the way it is, but it is just my opinion...</div></div>
+<div class="post" id="p180370"><div class="post-head"><a class="id" href="../t/9991.html#p180370">#180370</a> <span class="index">13</span> <span class="date">2006-05-25T21:34:27Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I really dunno, actually. The levels loading the same way every time doesn't bother me. All I can say is, thecalcgenius, you are wrong, that wouldn't be a pain to implement. It just needs a few more checks to do this kind of stuff.<br>
+<br>
+Meh... I don't really care.<br>
+<br>
+TS</div></div>
+<div class="post" id="p180432"><div class="post-head"><a class="id" href="../t/9991.html#p180432">#180432</a> <span class="index">14</span> <span class="date">2006-05-26T00:10:34Z</span> <span class="author"><a href="../u/9371916.html">elaxion</a></span></div><div class="post-body">ok, well since his data was wrong, i will say its definately not necessary, but i would like to see levels load like checkerboards and twirls, its not that great.........but whatever</div></div>
+<div class="post" id="p180495"><div class="post-head"><a class="id" href="../t/9991.html#p180495">#180495</a> <span class="index">15</span> <span class="date">2006-05-26T02:28:13Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">TS: Yeah, after looking at it, I realized it really doesn't need a bunch of code. In fact, here's some possible ways to do some of Keron's suggestions. It's written in Java, but whatever. <div class="attachment attachment-missing">Attachment (lost): post-8-1148610493.txt</div></div></div>
+<div class="post" id="p180502"><div class="post-head"><a class="id" href="../t/9991.html#p180502">#180502</a> <span class="index">16</span> <span class="date">2006-05-26T02:46:19Z</span> <span class="author"><a href="../u/9372234.html">Rebar</a></span></div><div class="post-body">I think that it should be included in Nv1.5 as a just a little peice to make it new.</div></div>
+<div class="post" id="p180586"><div class="post-head"><a class="id" href="../t/9991.html#p180586">#180586</a> <span class="index">17</span> <span class="date">2006-05-26T11:42:55Z</span> <span class="author"><a href="../u/9371620.html">Mysterypea</a></span></div><div class="post-body">A little colour woudn't hurt woudn't it?<br>
+Good idea keron meister <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p180629"><div class="post-head"><a class="id" href="../t/9991.html#p180629">#180629</a> <span class="index">18</span> <span class="date">2006-05-26T15:54:54Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I Like it. Although, It might be more interesting if it loaded the objects 1st.</div></div>
+<div class="post" id="p183317"><div class="post-head"><a class="id" href="../t/9991.html#p183317">#183317</a> <span class="index">19</span> <span class="date">2006-06-02T00:33:31Z</span> <span class="author"><a href="../u/9372500.html">TorturedAzn</a></span></div><div class="post-body">unnecessary lag</div></div>
+<div class="post" id="p183329"><div class="post-head"><a class="id" href="../t/9991.html#p183329">#183329</a> <span class="index">20</span> <span class="date">2006-06-02T01:03:09Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/9991.html#p183317">Quote: TorturedAzn, June 02, 2006 10:33 am</a></div> unnecessary lag  </blockquote> <br>
+ You can still use the menu while the level is loading, you know. It wouldn't interfere with the interface at all. It would just look slightly different. Kind of pointless, but it wouldn't do any harm.</div></div>
+<div class="post" id="p183703"><div class="post-head"><a class="id" href="../t/9991.html#p183703">#183703</a> <span class="index">21</span> <span class="date">2006-06-02T20:42:49Z</span> <span class="author"><a href="../u/9372500.html">TorturedAzn</a></span></div><div class="post-body">Actually, it will still make it slower no matter what, and the file would become bigger, theres no need to make it any more complicated</div></div>
+<div class="post" id="p183812"><div class="post-head"><a class="id" href="../t/9991.html#p183812">#183812</a> <span class="index">22</span> <span class="date">2006-06-03T00:11:29Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">You could say the same thing for flavors. People don't need an incentive; satisfaction of beating the game is enough.<br>
+<br>
+Flavors even encourage spam and .SOL-sharing; even worse!</div></div>
+<div class="post" id="p183936"><div class="post-head"><a class="id" href="../t/9991.html#p183936">#183936</a> <span class="index">23</span> <span class="date">2006-06-03T09:10:53Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/9991.html#p183812">Quote: Keron Cyst, June 03, 2006 01:11 am</a></div> You could say the same thing for flavors. People don't need an incentive; satisfaction of beating the game is enough.  </blockquote> <br>
+ That's probably just because you haven't beaten it yet. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+I could say the same about the first secret; It's not necessary and raises ms/f. But it's fun, and it makes you want to complete the game. About .SOL sharing, you will only need to open the forum rules thread, so that's kind of a useles argument.</div></div>
+<div class="post" id="p184043"><div class="post-head"><a class="id" href="../t/9991.html#p184043">#184043</a> <span class="index">24</span> <span class="date">2006-06-03T15:34:00Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/9991.html#p183936">Quote: jeca, June 03, 2006 03:10 am</a></div> I could say the same about the first secret; It's not necessary and raises ms/f. But it's fun, and it makes you want to complete the game.  </blockquote> <br>
+ Heh. I pumped (the first secret) up to its max setting and played the first ten columns. It was crazy fun and crazy hard.</div></div>
+<div class="post" id="p184047"><div class="post-head"><a class="id" href="../t/9991.html#p184047">#184047</a> <span class="index">25</span> <span class="date">2006-06-03T15:39:26Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body">I only beat the two first episodes that way.<br>
+I wonder what the next secret will be.</div></div>
+<div class="post" id="p185553"><div class="post-head"><a class="id" href="../t/9991.html#p185553">#185553</a> <span class="index">26</span> <span class="date">2006-06-06T21:12:32Z</span> <span class="author"><a href="../u/9372497.html">Digital--Ice</a></span></div><div class="post-body">I very much like this idea as it could add some depth to the levels, maybe a different merge for each level set?</div></div>
+</main>
+</body>
+</html>

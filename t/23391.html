@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I found a bug in Nreality - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; I found a bug in Nreality</nav></header>
+<main>
+<div class="post" id="p21002"><div class="post-head"><a class="id" href="../t/23391.html#p21002">#21002</a> <span class="index">1</span> <span class="date">2008-08-03T00:25:23Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Increasing guards' size can have adverse effects on their placement; when one attempts to load the code, it changes the guard's location on the Y axis to compensate for the size (so that the bottom of the guard will still touch the bottom). When going into the editor, it reverts changes, but keeps the coordinates intact, which leads to newly located guards, moved upwards. Adding the code again and loading will again compensate, moving the guard even further up. Furthermore, attempting to move the guard manually in the editor, while helping, still does not completely eradicate the changes; when exiting out of the editor, the guards will be moved back up, though to a lesser amount.<br>
+<br>
+As for the new types of guards, Unreality didn't change the compensating for them, so they still go upwards regardless of orientation, meaning it's impossible to use bigger guards that are orientated differently unless you either manually code-edit their location on the y-axis or predict where they will arrive after the code-compensation. Inconvenient at best.<br>
+<br>
+I don't resize guards much: I was merely documenting the use for the wiki when I discovered this...but a bug is a bug, and it would be nice if it were fixed.</div></div>
+<div class="post" id="p457703"><div class="post-head"><a class="id" href="../t/23391.html#p457703">#457703</a> <span class="index">2</span> <span class="date">2008-08-03T01:46:22Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Sorry Ned is quite incompatible with NReality mods, I will need quite a lot of time fixing all the Ned problem. <br>
+<br>
+If the time I need to spend on fixing the guard size in Ned , is equal to the time I can implement three new useful drones, then I will consider it is not worth to fix this problem as it will be more valuable for me to add three new useful drones.<br>
+<br>
+If you really need to add a sized guard, I will suggest you to add the code at the latest moment <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p457716"><div class="post-head"><a class="id" href="../t/23391.html#p457716">#457716</a> <span class="index">3</span> <span class="date">2008-08-03T02:07:07Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">I would agree. I'm just sayin'.<br>
+<br>
+It's always nice to know your bugs!</div></div>
+<div class="post" id="p457723"><div class="post-head"><a class="id" href="../t/23391.html#p457723">#457723</a> <span class="index">4</span> <span class="date">2008-08-03T02:42:59Z</span> <span class="author"><a href="../u/9374810.html">incluye</a></span></div><div class="post-body">Yeah; do it this way.<br>
+Once you place your basic objects, paste it all into a .txt file. Then make your changes (e.g. mods) there. Paste it back into N and play it. If you add new objects, paste their code on to the end of the code in the .txt file.</div></div>
+</main>
+</body>
+</html>

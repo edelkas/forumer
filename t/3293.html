@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision Points - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Collision Points</nav></header>
+<main>
+<div class="post" id="p2969"><div class="post-head"><a class="id" href="../t/3293.html#p2969">#2969</a> <span class="index">1</span> <span class="date">2005-05-23T12:11:48Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">Hi.<br>
+<br>
+The root of my problem is that I have to rotate a "solid" that collide with the world but the SAT method can't of course give me a solution (without furter develpment) so after reading the Jacobsen paper I tried to build a square by constraining 4 particles as described but when the square hit a triangle for example, while constraints aren't violed, actually the square is intersecting the triangle. Now, if I want to use the Jacobsen equations (to give to the particles a new x and a new y), I have to found the penetration point and the penetration depth (that in the article are assumed to be already found) and here is my problem: Is it possible to use the SAT method anyway (and how) or should I follow another way?<br>
+Thanks. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+ziofu</div></div>
+<div class="post" id="p69003"><div class="post-head"><a class="id" href="../t/3293.html#p69003">#69003</a> <span class="index">2</span> <span class="date">2005-05-23T21:11:54Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Well... technically, it should be possible to use the SAT. You just have to calculate the normal vectors of the square and triangle. How? Well if you have a triangle for example, the normal of each of the triangle's edges would be either the right-hand or left-hand normal of that edge, depending on the orientation of the triangle. If the orientation is CW, then you should use left-hand normals, and if it's CCW - right-hand normals. If you have problems determining the orientation, just ask.<br>
+<br>
+Hope I've helped.<br>
+<br>
+TS</div></div>
+<div class="post" id="p69120"><div class="post-head"><a class="id" href="../t/3293.html#p69120">#69120</a> <span class="index">3</span> <span class="date">2005-05-24T12:16:23Z</span> <span class="author"><a href="../u/9370883.html">ziofu</a></span></div><div class="post-body">Thank you. I can't understand why I have to calculate the orientation of the shapes (and I even don't know how to do it). When I think to SAT, I think to project the edges onto a parallel axis and then check if they projections collide.<br>
+Are we talking about the same thing? I see that is much complicated as expected. <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"><br>
+Thanks in any case.</div></div>
+<div class="post" id="p69161"><div class="post-head"><a class="id" href="../t/3293.html#p69161">#69161</a> <span class="index">4</span> <span class="date">2005-05-24T18:03:20Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Hi,<br>
+<br>
+After I used a pencil and a piece of paper for 10 minutes, I discovered that you actually don't need the orientation <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"> . That means that you just pick one of the two(left or right hand) normals and calculate the projection length of the edges onto it. There might be a way to skip some of the edges (maybe using voronoi regions), but this will have to do for now... <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+And don't worry, it's not so complicated. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+<br>
+TS</div></div>
+</main>
+</body>
+</html>

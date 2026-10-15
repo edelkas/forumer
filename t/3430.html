@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEW ENEMY! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; NEW ENEMY!</nav></header>
+<main>
+<div class="post" id="p3098"><div class="post-head"><a class="id" href="../t/3430.html#p3098">#3098</a> <span class="index">1</span> <span class="date">2005-05-30T15:43:19Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Alright. I think I've discovered a new enemy. Accidentally. Basically, I was trying out Sendy's new level when I accidentally spliced it together with one of the menu levels. As a consequence, at first I thought Sendy was having a bit of a laugh... it was blatantly impossible.<br>
+<br>
+Then I realised what I'd done.<br>
+<br>
+THEN I saw something in the third row down. A black dot. On it's own. Moving like a drone - probably, possibly a drone's eye. How mysterious...<br>
+<br>
+Anyway, the level code is in the .txt file. When I try to edit the level the dot dissapears... I'd really like to find out which bit of the code the dot is, then I could put it on a level easily and see which drone it's like, if it is like one, what it does and what it could be used for. Anyway, as I found it, I'm calling it the Sweep. After me. Vain, aren't I? Anyway, I'd love it if anyone could find out the code that generated it...<br>
+<br>
+ <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"> <br>
+<br>
+I'm excited. Maybe it has SUPERPOWERS. Although I can't find out until I know what code it is, so I can see how it reacts to N.<br>
+<br>
+Horray! <div class="attachment attachment-missing">Attachment (lost): post-11-1117467799.txt</div></div></div>
+<div class="post" id="p70798"><div class="post-head"><a class="id" href="../t/3430.html#p70798">#70798</a> <span class="index">2</span> <span class="date">2005-05-30T15:44:41Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">And an arrow to point it out... <div class="attachment attachment-missing">Attachment (lost): post-11-1117467881.gif</div></div></div>
+<div class="post" id="p70800"><div class="post-head"><a class="id" href="../t/3430.html#p70800">#70800</a> <span class="index">3</span> <span class="date">2005-05-30T15:50:01Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">Looks like the drone eye bug to me.</div></div>
+<div class="post" id="p70801"><div class="post-head"><a class="id" href="../t/3430.html#p70801">#70801</a> <span class="index">4</span> <span class="date">2005-05-30T15:50:18Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">This is a known bug.<br>
+<br>
+Just make an empty level and add the following code:<br>
+<br>
+<pre class="code">6^276,324,2,0,NaN,0</pre><br>
+The 6^ designates that this is a drone. The first two numbers are the coordinates. I forget what the next two are.<br>
+<br>
+The second-to-last number says whether it's a chaingun, laser, or zap drone. Putting a NaN(Not a Number) in there causes your eye to appear.<br>
+<br>
+<b>EDIT:</b><br>
+<br>
+Darn, too late. At least I have the explanation.<br>
+<br>
+By the way, the drone won't actually do anything other than move around. Moving N into it has no effect.</div></div>
+<div class="post" id="p70803"><div class="post-head"><a class="id" href="../t/3430.html#p70803">#70803</a> <span class="index">5</span> <span class="date">2005-05-30T15:53:27Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Maybe you could do some nice animated N Art with it though...</div></div>
+<div class="post" id="p70805"><div class="post-head"><a class="id" href="../t/3430.html#p70805">#70805</a> <span class="index">6</span> <span class="date">2005-05-30T15:54:35Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Maaaaaybe. But not me. I stink with Photoshop.</div></div>
+<div class="post" id="p71028"><div class="post-head"><a class="id" href="../t/3430.html#p71028">#71028</a> <span class="index">7</span> <span class="date">2005-05-30T22:35:19Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Maniac, I think he meant in debug mode.</div></div>
+<div class="post" id="p71049"><div class="post-head"><a class="id" href="../t/3430.html#p71049">#71049</a> <span class="index">8</span> <span class="date">2005-05-30T22:57:41Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">lol that was kinda funny.  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p72213"><div class="post-head"><a class="id" href="../t/3430.html#p72213">#72213</a> <span class="index">9</span> <span class="date">2005-06-04T13:53:04Z</span> <span class="author"><a href="../u/9370652.html">firestorm</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3430.html#p70801">Quote: Maniac, May 30 2005, 03:50 PM</a></div> This is a known bug.<br>
+<br>
+Just make an empty level and add the following code:<br>
+<br>
+<pre class="code">6^276,324,2,0,NaN,0</pre><br>
+The 6^ designates that this is a drone. The first two numbers are the coordinates. I forget what the next two are.<br>
+<br>
+The second-to-last number says whether it's a chaingun, laser, or zap drone. Putting a NaN(Not a Number) in there causes your eye to appear.<br>
+<br>
+<b>EDIT:</b><br>
+<br>
+Darn, too late. At least I have the explanation.<br>
+<br>
+By the way, the drone won't actually do anything other than move around. Moving N into it has no effect.  </blockquote> <br>
+ 2 of the numbers are movement type and start direction, but that still leaves 1 number.<br>
+<br>
+I think the last number is to do with movement as if you make that a NaN, the drone stops moving. I think it's probably movement type.<br>
+I think it's start direction, chase or not chase (for zap drones), type, movement type.<br>
+<br>
+And I'm also pretty sure someone has already said something somewhere about what these are anyway.</div></div>
+<div class="post" id="p72247"><div class="post-head"><a class="id" href="../t/3430.html#p72247">#72247</a> <span class="index">10</span> <span class="date">2005-06-04T15:41:17Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">The missing number indicates the algorithm. Whether it goes around the object it's near, or turns to the right when it hits something.</div></div>
+<div class="post" id="p72307"><div class="post-head"><a class="id" href="../t/3430.html#p72307">#72307</a> <span class="index">11</span> <span class="date">2005-06-04T18:45:36Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/3430.html#p72213">Quote: firestorm, Jun 4 2005, 05:53 AM</a></div> ...<br>
+And I'm also pretty sure someone has already said something somewhere about what these are anyway.  </blockquote> <br>
+ <a href="../t/771.html">http://metanet.2.forumer.com/index.php?showtopic=771</a><br>
+<blockquote class="quote"><div class="quote-head">Quote</div>6^[x],[y],[pathfinding algo: 0=surfacefollow CW, 1=surfacefollow CCW, 2=dumb CW, 3=dumb CCW, 4=alt., 5=quasi-random],[chase algo(zap only):1=on],[drone type:0=zap, 1=laser, 2=chaingun, else=Eyeball Drone],[heading/90 (0=facing right, 1=down, etc.)]</blockquote></div></div>
+<div class="post" id="p72520"><div class="post-head"><a class="id" href="../t/3430.html#p72520">#72520</a> <span class="index">12</span> <span class="date">2005-06-05T14:28:41Z</span> <span class="author"><a href="../u/9370652.html">firestorm</a></span></div><div class="post-body">So I got the algorithm and start direction the wrong way round. I was close, though</div></div>
+</main>
+</body>
+</html>

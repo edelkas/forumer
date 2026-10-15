@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>flamethrowers - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; flamethrowers</nav></header>
+<main>
+<div class="post" id="p12816"><div class="post-head"><a class="id" href="../t/14440.html#p12816">#12816</a> <span class="index">1</span> <span class="date">2006-12-13T05:03:54Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">some of you might have seen Sphoid before (<a href="http://www.freewebs.com/mattk210/sph.swf">http://www.freewebs.com/mattk210/sph.swf</a>)...<br>
+how the HELL can i do collision detection for that flamethrower?<br>
+i cant really test collision for each circle...</div></div>
+<div class="post" id="p269316"><div class="post-head"><a class="id" href="../t/14440.html#p269316">#269316</a> <span class="index">2</span> <span class="date">2006-12-13T07:52:59Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">You could try approximating it with a triangle based on the 'oldest' particle (i.e. the one closest to fading out entirely) for each stream, but it's probably easier to do a rectangle based on the 'oldest' and 'youngest'.<br>
+<br>
+Find the two parallel lines that are tangential to the two circles, and extend them such that connecting the end points of either line results in another tangential interval.<br>
+<br>
+Or, more simply:<br>
+       ___________<br>
+ (    )|OOOOOOO|<br>
+young^       old^<br>
+<br>
+It won't be perfect, but it will be good enough, and fairly fast to boot.<br>
+<br>
+EDIT: Apparently the forum removes superfluous spaces after posting. You can click the quote button above my post and look at my diagram there if you can't see it properly.</div></div>
+<div class="post" id="p269362"><div class="post-head"><a class="id" href="../t/14440.html#p269362">#269362</a> <span class="index">3</span> <span class="date">2006-12-13T09:41:26Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">hmmm... i'll give it a try. thanks.<br>
+<br>
+EDIT: No good, it only works when i'm not moving... when i move, the flamethrower curves and does crazy stuff and collision no longer works.</div></div>
+</main>
+</body>
+</html>

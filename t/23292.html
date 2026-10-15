@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloud Chamber (SpecialTrigger+ChaseAI) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; Cloud Chamber (SpecialTrigger+ChaseAI)</nav></header>
+<main>
+<div class="post" id="p20908"><div class="post-head"><a class="id" href="../t/23292.html#p20908">#20908</a> <span class="index">1</span> <span class="date">2008-07-28T15:02:04Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Cloud Chamber (SpecialTrigger+ChaseAI) <br>
+<a href="http://nmaps.net/132939">http://nmaps.net/132939</a><br>
+<br>
+Restart NReality (a mod of N, download @ n.infunity.com) to retrieve this new update of Special Trigger and chasing Pathing AI<br>
+<br>
+To add "Special Trigger" to a door switch, append<br>
+^startTriggers(separated by "."),stopTriggers(separated by "."),startSpecialTriggers(separated by "."),stopSpecialTriggers(separated by ".") to the door object<br>
+<br>
+To make the object special triggerable, append<br>
+^^waitForTrigger,startTriggers(separated by "."),stopTriggers(separated by "."),startSpecialTriggers(separated by "."),stopSpecialTriggers(separated by ".")<br>
+<br>
+zap drone -&gt; specialOn -&gt; seeker drone<br>
+seeker drone -&gt; specialOff -&gt; zap drone<br>
+<br>
+rotating laser drone:<br>
+specialOn-&gt; keep rotating<br>
+specialOff-&gt;stop rotating<br>
+<br>
+Chasing Pathing (Path ID 9) : append the following to the drones/objects<br>
+^^^,9,direction,speed<br>
+The drone/object will chase the ninja at all time<br>
+<br>
+Such as the rocky drone in this game:<br>
+!6^84,84,2,0,121,0^****,6^,9,0,1!</div></div>
+<div class="post" id="p455554"><div class="post-head"><a class="id" href="../t/23292.html#p455554">#455554</a> <span class="index">2</span> <span class="date">2008-07-28T18:14:13Z</span> <span class="author"><a href="../u/9375959.html">Eiturlyf</a></span></div><div class="post-body">I love you.</div></div>
+<div class="post" id="p455664"><div class="post-head"><a class="id" href="../t/23292.html#p455664">#455664</a> <span class="index">3</span> <span class="date">2008-07-29T01:37:46Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23292.html#p455554">Quote: Eiturlyf, July 28, 2008 06:14 pm</a></div>I love you.</blockquote><span style="color:AZURE">.</span></div></div>
+</main>
+</body>
+</html>

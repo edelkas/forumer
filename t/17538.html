@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAT and acute angles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; SAT and acute angles</nav></header>
+<main>
+<div class="post" id="p15414"><div class="post-head"><a class="id" href="../t/17538.html#p15414">#15414</a> <span class="index">1</span> <span class="date">2007-05-29T01:38:41Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Like many people here, I'm sure, I'm posting because I've run into a small difficulty with SAT, and the N tutorials were basically my sole source of information on how they work. Thank you very much, O creators of N, for making not just a great gamee, but an excellent set of tutorials. I'm working on my own game engine, in C++, which is largely complete; however, I've discovered one annoying bug that I haven't yet figured out how to deal with. It is my hope that once I've finished my game, I'll be able to release the engine as open-source, and thereby provide a working implementation of SAT for arbitrary convex polygons. However, first I have to deal with this situation:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/polygon3.png" alt="" loading="lazy"><br>
+<br>
+Here I have a polygon A (the player) moving up a slope B by continually trying to move sideways (at v_a) and then getting pushed back along the slope's normal. This works fine. However, when the player reaches the top of the slope and moves sideways into it, suddenly he has two small overlap regions - one onto the vector &lt;0, -1&gt; and one onto the vector &lt;.707, .707&gt;. The one I <i>want</i> to use is the latter one, but depending on where precisely the player happens to be, sometimes he gets the former. And when that happens, suddenly he thinks that he has to get pushed <i>into the terrain</i> to get out of collision, and that's just all bad. <br>
+<br>
+Now, according to the SAT tutorial, and specifically, according to <a href="http://www.harveycartel.org/metanet/tutorials/tutorialA.html#section4">this bit</a>, this kind of situation is largely due to fast-moving or small objects, and is utterly intractible. My objects are slow, and large (moving at about 5% of their total size in a given frame), but I still see similar behaviour. I must admit that I don't see any way to eliminate the problem; sweeping the polygons along their velocity vectors doesn't improve things any, and multisampling just reduces the chances; it can never eliminate them. About the only fix I can think of is to eliminate any terrain with slope greater than or equal to 45. Well, either that, or use SAT solely to determine if a collision existed or not, and then to write my own algorithm to determine which edge was hit first. And I really, really don't want to do that, because I've <i>tried</i> that before, and after three months of hacking it still didn't work properly. Granted, in that case I didn't have the constraint of convex-only polygons, and I was trying to sweep them along their velocity vectors, but still. I'd like to get to the content creation part of this game sometime during this year, y'see. <br>
+<br>
+The only other idea I've had is to keep track of <i>all</i> projection overlaps (not just the smallest one) and if, at the end, the two smallest are vaguely close in magnitude, pick the one that pushes the polygon away from the center of the other poly the most. There's a lot of fuzz in that "solution", though; it's inelegant and I'm concerned that it would introduce unreliable behaviour. Does it sound like it would work? Does anyone have any advice for how I can deal with this situation? <br>
+<br>
+Thanks for any feedback you can provide.</div></div>
+<div class="post" id="p325199"><div class="post-head"><a class="id" href="../t/17538.html#p325199">#325199</a> <span class="index">2</span> <span class="date">2007-05-29T02:51:48Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">I think there may be a bug in your code -- it's true that using the tutorial method the projection direction may "jump" from one face to another, but it should never push the object down into the tile -- the object should be pushed _up_ by m.<br>
+<br>
+The overlap/penetration on a given axis doesn't have a sign/direction, so for a given overlap there are two potential directions to project: +n or -n, where n is the axis vector. There are several ways to choose which direction to push, one being to project the objcenter-&gt;objcenter vector onto n and see which way that points.<br>
+<br>
+Another option is to rearrange your axis tests so that the direction info isn't lost; the only reason you have an ambiguous +n/-n case is that you're calculating the unsigned overlap along the n axis -- instead you could calculate the _signed_ overlap along +n and -n seperately. This will result in more axis tests (i.e objects with parallel faces can't "share" axis tests) but may help simplify things for you. <br>
+<br>
+raigan</div></div>
+<div class="post" id="p325207"><div class="post-head"><a class="id" href="../t/17538.html#p325207">#325207</a> <span class="index">3</span> <span class="date">2007-05-29T03:14:40Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17538.html#p325199">Quote: Raigan, May 29, 2007 02:51 am</a></div> I think there may be a bug in your code -- it's true that using the tutorial method the projection direction may "jump" from one face to another, but it should never push the object down into the tile -- the object should be pushed _up_ by m.<br>
+<br>
+The overlap/penetration on a given axis doesn't have a sign/direction, so for a given overlap there are two potential directions to project: +n or -n, where n is the axis vector. There are several ways to choose which direction to push, one being to project the objcenter-&gt;objcenter vector onto n and see which way that points.<br>
+<br>
+Another option is to rearrange your axis tests so that the direction info isn't lost; the only reason you have an ambiguous +n/-n case is that you're calculating the unsigned overlap along the n axis -- instead you could calculate the _signed_ overlap along +n and -n seperately. This will result in more axis tests (i.e objects with parallel faces can't "share" axis tests) but may help simplify things for you. <br>
+<br>
+raigan  </blockquote> <br>
+ Thanks very much! I should've thought to check the normal before returning; stupid mistake. I just added this to the end of my doSAT function:<pre class="code">    //Minor fix time - if the normal we have calculated would push the polygon
+    //*towards* the other polygon, as can happen in certain cases with acute
+    //angles, then flip the normal.
+    if (result.normal.dot(alt-&gt;getCenter() - center) &lt; 0)
+    {
+        result.normal = result.normal * -1;
+    } </pre>and now the bug is gone. <br>
+<br>
+I could probably fix this more elegantly (i.e. when the normal is first calculated instead of when I'm returning results), but dot products and if statements are both cheap, so I'm not too worried. Correctness is paramount right now.</div></div>
+<div class="post" id="p325381"><div class="post-head"><a class="id" href="../t/17538.html#p325381">#325381</a> <span class="index">4</span> <span class="date">2007-05-29T16:51:25Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">Great -- whenever you have something to show, we'd love to see it!<br>
+<br>
+raigan</div></div>
+<div class="post" id="p325684"><div class="post-head"><a class="id" href="../t/17538.html#p325684">#325684</a> <span class="index">5</span> <span class="date">2007-05-30T14:39:09Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17538.html#p325381">Quote: Raigan, May 29, 2007 04:51 pm</a></div> Great -- whenever you have something to show, we'd love to see it!<br>
+<br>
+raigan  </blockquote> <br>
+ Will do! It's going to be a while, since I'd like to be able to release the completed game with the engine, and there's a lot of content yet to be created. But I think I've solved the last of the really hard problems now, so I just have to keep truckin' along.</div></div>
+<div class="post" id="p326111"><div class="post-head"><a class="id" href="../t/17538.html#p326111">#326111</a> <span class="index">6</span> <span class="date">2007-05-31T22:42:16Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Whoa man.<br>
+Nice.<br>
+And since Raigan already solved your problem (because I didn't see this topic sooner), all I can say is, awesome job, keep at it.<br>
+SAT <img class="smiley" src="../files/smilies/21.gif" alt="&lt;3" title="&lt;3"><br>
+<br>
+TS</div></div>
+<div class="post" id="p326382"><div class="post-head"><a class="id" href="../t/17538.html#p326382">#326382</a> <span class="index">7</span> <span class="date">2007-06-01T23:21:48Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Hah. I spoke too soon. Here's my current situation:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/polygon4.png" alt="" loading="lazy"><br>
+<br>
+Here we have polygon C moving up and to the right into the ceiling. When C performs collision detection, first it detects the collision with B, and pushes itself to the left until it no longer overlaps B's left edge. Then it does detection against A and gets pushed down. Individually, each polygon is behaving as desired; however, the net effect is that it is impossible to "fly" along the underside of polygons, because A's horizontal velocity is always cancelled by B. If I were to do the collision detection in the reverse order, then first A would push C down, and then C would no longer intersect with B, so B would be unable to cancel C's horizontal velocity. This is good! However, then I can't have C flying up and to the <i>left</i> or the same problem occurs in the other direction. <br>
+<br>
+About the only thing I can think of here is for C to keep track of every "terrain" polygon it runs into (every sprite belongs to a group that I can use for large-scale classification of interactions), and if it hits more than one, try different orderings of reactions until it finds a "minimal" set (i.e. the minimum number of backtracks needed to avoid collision with all terrain polygons). This is rather nasty logic though, and requires re-performing collision detection. <br>
+<br>
+For reference, the system I'm working with here consists of a C++ game engine and Lua-based scripting for game logic. The C++ side handles asset management, display, and collision detection, while the Lua side handles pretty much everything else. I'm trying to keep the C++ side fully generic, so I'm reluctant to try to work in some kind of "smart" ordering of polygon pairings for collision detection, disregarding the problem that such an idea would have to handle a myriad set of edge cases and would in general be very ugly.<br>
+<br>
+Any ideas?<br>
+<br>
+Edit: I should point out that my game engine is not inherently tile-based. I'm going for a tile-based <i>look</i>, but the engine itself uses a quadtree to store the locations of all objects, and thus I can't take advantage of tile-based logic for purposes of collision detection. Additionally, the two terrain squares in the diagram are actually touching; I separated them for clarity's sake.</div></div>
+<div class="post" id="p326445"><div class="post-head"><a class="id" href="../t/17538.html#p326445">#326445</a> <span class="index">8</span> <span class="date">2007-06-02T02:30:36Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">that's very similar to my problem: colliding with 2 shapes at once is a major headache.<br>
+<br>
+my partial workaround for scenarios such as that was to store special data at loadtime for surfaces that are made of multiple shapes, and use that instead.<br>
+<br>
+The much larger problem with me was to resolve collisions when descending into a "valley" between 2 shapes.<br>
+<br>
+EDIT: oh damn, in posting this i un-bumped my other topic, i still need help there...</div></div>
+<div class="post" id="p327428"><div class="post-head"><a class="id" href="../t/17538.html#p327428">#327428</a> <span class="index">9</span> <span class="date">2007-06-04T20:25:26Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Well, the solution I postulated in my previous post worked. In short:<br>
+<br>
+1) update() is called on all objects/sprites, during which time they perform whatever physics modifications they need.<br>
+<br>
+2) The engine checks all sprites for collisions with each other. <br>
+<br>
+3) When a collision occurs, sprite A notes down all details of the collision (surface normal, backout distance along normal, backout distance along velocity, name of other object).<br>
+<br>
+4) After all collision detection has been done, update2() is called on all objects. Sprite A calls its processCollisions() function, which:<br>
+<br>
+4a) checks every collision that occurred, to see if any one backout attempt clears A of collision with all other collided objects. If so, it uses that backout; if not, then<br>
+<br>
+4b) it performs the first backout, then gets collision data for the second object, performs that backout, and iterates until it has done backouts for all objects.<br>
+<br>
+Fortunately, in most cases the player is unlikely to be colliding with more than two terrain tiles at a time; three if they're backed into a right-angle corner. Still, the addition of an entire second update cycle, not to mention all the extra collision checks, rankles. 4a requires performing N * (N - 1) collision checks, and 4b requires an additional N such checks. I'm just glad that SAT is good at short-circuiting when possible. <br>
+<br>
+Mind you, at the moment my costliest code is the part that blanks the screen each frame. I'll eventually remove that (since I'll be drawing every pixel every frame anyway, blanking won't be needed), but drawing will remain expensive compared to everything else.</div></div>
+</main>
+</body>
+</html>

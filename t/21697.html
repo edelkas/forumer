@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Point of collision - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Getting Point of collision</nav></header>
+<main>
+<div class="post" id="p19392"><div class="post-head"><a class="id" href="../t/21697.html#p19392">#19392</a> <span class="index">1</span> <span class="date">2008-03-04T15:20:33Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Hey, as you probably already know, I'm working on an N-style platformer. Anyway, I've implemented collision detection and response using SAT, as written in the tutorials. Now I'm trying to move on to angular movement of the colliding bodies. To do this, I need to find the point (or points) of collision between colliding player's OBB and the tile. I've thought of, perhaps, checking for intersection of the OBB and each of the tile's line segments. Is this practical? I've got a feeling there's  better or more correct way. <br>
+<br>
+P.S - I've already got the direction and size of the penetration vector, perhaps that could help.<br>
+<br>
+With Thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p413814"><div class="post-head"><a class="id" href="../t/21697.html#p413814">#413814</a> <span class="index">2</span> <span class="date">2008-03-04T16:33:26Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">well, this is where it gets complicated <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+for one thing, there won't always just be the one contact point -- if an edge of the box is parallel to an edge of the tile, there will be two contact points (or, more correctly, a contact lineseg.. but this is approximated as two points, on on each end of the seg).<br>
+<br>
+your idea of intersection can be simplified a bit using information you know from the axis tests; if you keep track of the edge+object that "generates" each axis, then at the end (when you have a single axis and penetration amount) you'll also have an edge on one of the objects -- you know that the contact point lies somewhere on this edge.<br>
+<br>
+you then need to find the feature on the other shape which is "furthest" along the -ve axis.. this is hard to explain, basically if the penetration axis is from the box (and points outward from one of the box's edges) then you want to find the point (or edge) on the tile which is furthest "towards" the box.<br>
+<br>
+this "furthest in a direction" idea is usually called "support mapping".. if it's a point, you can find the point on the other object's edge closest to it, and then you have the contact point on both shapes. if it's an edge, you need to clip the two edges together.. it's messy.<br>
+<br>
+to be honest we've never bothered to implement this -- for one thing, if you don't need real boxes but just want some box-like objects, two circular particles connected by a stick can be very convincing <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+<br>
+also, this can get a bit tricky with circular shapes! <br>
+<br>
+mostly, once you move from particles to full rigid bodies, SAT in 2D becomes less simple and attractive. for special cases like box-box it can still be great (see box2d for some source), but to handle a broader range of cases without lots of complicated code, you might be better off looking at other algorithms such as GJK or XenoCollide.</div></div>
+<div class="post" id="p413821"><div class="post-head"><a class="id" href="../t/21697.html#p413821">#413821</a> <span class="index">3</span> <span class="date">2008-03-04T16:54:47Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot. This is exactly what I thought I'd have to do (though I was hoping I was missing something <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">). I've already figured this out on paper, so I hope I can make it work. I'll keep you posted, though  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .<br>
+<br>
+Thanks a lot again for all your help,<br>
+laginimaineb.</div></div>
+<div class="post" id="p415924"><div class="post-head"><a class="id" href="../t/21697.html#p415924">#415924</a> <span class="index">4</span> <span class="date">2008-03-11T19:44:04Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">So... I've thought about using a rigid OBB with SAT and tiles, and I've ran into a little problem. I've finished writing the methods to deal with finding the closest point on the OBB to the correcting tile, or the contact lineseg. However, I've just thought of something - since the tile only "knows" about itself, it will return a contact lineseg which is only within it's borders. Therefore, whilst torque should not be applied, I'm fooled into believing the body is on the edge of the tile, and so the body starts rotating. Here's an image to try and make the situation clearer: <br>
+<img class="bb-img" src="http://img222.imageshack.us/img222/1356/postimageps9.jpg" alt="" loading="lazy"><br>
+<br>
+Anyway, I've thought of moving to small connected circular particles, however, the above problem remains. One of the circles will be checked first, moved (together with the other one) out of the tile, and rotated - even if it shouldn't. I've thought of merging the tiles but then I'd have lost the biggest advantage of tiles - simplicity.<br>
+<br>
+Any ideas?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+Lots of thanks,<br>
+laginimaineb.</div></div>
+<div class="post" id="p415961"><div class="post-head"><a class="id" href="../t/21697.html#p415961">#415961</a> <span class="index">5</span> <span class="date">2008-03-11T21:16:25Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">this is one of the problems with tiles -- they don't explicitly describe the shape of the world, so you end up with edges where there should just be a single smooth surface.<br>
+<br>
+i don't know if there's a perfect solution, you could try adding some checks, but too much work in that direction and you're better off just merging tiles together (so, just one edge instead of two in your case), which can be tricky to get working..</div></div>
+<div class="post" id="p416177"><div class="post-head"><a class="id" href="../t/21697.html#p416177">#416177</a> <span class="index">6</span> <span class="date">2008-03-12T03:23:41Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">You could delay the acceleration until the end.  Start with an acceleration vector of 0, then update it instead of moving your object.  Once you've finished checking everything, apply your acceleration vector to your object.</div></div>
+<div class="post" id="p416235"><div class="post-head"><a class="id" href="../t/21697.html#p416235">#416235</a> <span class="index">7</span> <span class="date">2008-03-12T09:59:32Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot for your responses. taaveti, I'm not quite sure I understand what you mean. Did you mean I should perform multiple tests and only after testing against the whole body should I move it? If so, that an option (as suggested by Raigan) which is possible. I was, however, thinking of merging the tiles as this seems like a very safe way (not much room for error). Anyway, I'll keep you guys posted.<br>
+<br>
+P.S - I've thought of only keeping the merged tiles as individual shapes in a list, and have each shape "know" over which tiles it spans. That way, I can have a simple binary search through all tiles listed within the shape, know if the current tile I'm checking against is contained within a certain shape, and if so, start the SAT collision magic. Does this seem reasonable? I'm curious as to how you got it to work in N. Any clues? <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Lots of thanks (again),<br>
+laginimaineb.</div></div>
+<div class="post" id="p416269"><div class="post-head"><a class="id" href="../t/21697.html#p416269">#416269</a> <span class="index">8</span> <span class="date">2008-03-12T14:18:27Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">if you look at the source in our tutorials, you can see exactly how we did it -- it's the same code that's used in N.<br>
+<br>
+however, it may not help you so much, since we were using a simpler shape (circle) which may have helped to avoid these problems. <br>
+<br>
+definitely the "solid edge" flags were added to avoid the problem of bumping into seams between tiles; this only fixed the problem for horizontal and vertical surfaces though, it wasn't a proper solution -- hence there's still that annoying "running up slopes" glitch.</div></div>
+<div class="post" id="p416420"><div class="post-head"><a class="id" href="../t/21697.html#p416420">#416420</a> <span class="index">9</span> <span class="date">2008-03-13T02:54:11Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">Ah, so you're only checking the closest (in some heuristic measure) tile for collisions?  I thought your problem was that you were finding a collision with the first tile, moving the object away, and then not finding the collision with the second tile because the object isn't there anymore.  If you were testing against all tiles in some neighborhood around your object, then delaying the movement until after all the testing would make sense, but it doesn't change anything if you're only testing against one tile.<br>
+<br>
+My thoughts on merging tiles into shapes, which may or may not be relevant: you don't necessarily have to know all the tiles in a given shape, just which tiles are next to the current one along the relevant surface.  This could be accomplished by adding a "neighbor" pointer to each vertex, which would essentially mean "this other object also has this vertex."  Then, if your contact line segment includes that vertex, you also test the neighbor (and, if necessary, extend the contact segment).  Just remember to do something to prevent mutual recursion (e.g. Tile A says "this vertex is also part of Tile B," so you check Tile B; Tile B says "this vertex is also part of Tile A", so you check Tile A...).</div></div>
+<div class="post" id="p417131"><div class="post-head"><a class="id" href="../t/21697.html#p417131">#417131</a> <span class="index">10</span> <span class="date">2008-03-15T16:08:11Z</span> <span class="author"><a href="../u/9375928.html">Zzzzrrr</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21697.html#p413814">Quote: Raigan, 2008-03-04T16:33:26Z</a></div>to handle a broader range of cases without lots of complicated code, you might be better off looking at other algorithms such as GJK or XenoCollide.</blockquote><br>
+If you're interested in exploring GJK/EPA and/or the XenoCollide Minkowski Portal Refinement (MPR) collision detection algorithms in 2D, I've created a few open-source demonstration applets.<br>
+<br>
+<a href="http://code.google.com/p/mpr2d/">MPR2D</a><br>
+<a href="http://code.google.com/p/gjkd/">GJK</a><br>
+<br>
+I've incorporated MPR2D into my game physics engine, Blaze.  Here's a link to the demo and project page:<br>
+<a href="http://svn.dsource.org/projects/blaze/downloads/Blaze-Demos.zip">Blaze Demo</a><br>
+<a href="http://www.dsource.org/projects/blaze">Blaze Home</a><br>
+<br>
+Hopefully other people may find this material helpful. So far, these have been very fun projects to work on! Comments,feedback,complaints are appreciated!<br>
+<br>
+~Mason</div></div>
+<div class="post" id="p417451"><div class="post-head"><a class="id" href="../t/21697.html#p417451">#417451</a> <span class="index">11</span> <span class="date">2008-03-16T15:09:04Z</span> <span class="author"><a href="../u/9374566.html">laginimaineb</a></span></div><div class="post-body">Thanks a lot for all of your interest. I'm still reading about and thinking about what I'm going to do, though it seems as though I'll go for merging tiles. By the way, zzzzrrr, this is really amazing - I've just ran into your library a few days ago, and I thought it was awesome. Keep up the great work.<br>
+<br>
+With thanks,<br>
+laginimaineb.</div></div>
+</main>
+</body>
+</html>

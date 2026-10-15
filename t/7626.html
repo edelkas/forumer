@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inconveniences - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Inconveniences</nav></header>
+<main>
+<div class="post" id="p6942"><div class="post-head"><a class="id" href="../t/7626.html#p6942">#6942</a> <span class="index">1</span> <span class="date">2006-02-19T03:53:25Z</span> <span class="author"><a href="../u/9371679.html">thegnome54</a></span></div><div class="post-body">Sorry if this is in the wrong section, I'm fairly new here so feel free to move it as you see fit.<br>
+<br>
+I'm horribly addicted to N game's awesomeness, but I've noticed a few tiny inconveniencies that it should be possible to fix (I know there are probably a lot of "Make N be able to fly and have machine guns!" suggestions around, so I'll try to stay realistic)<br>
+<br>
+1. It would be less annoying if the frame-by-frame mode wasn't controlled by caps lock. Often, I try out user maps and then come to the site to comment, only to find that I'm typing in all caps. A less important button would be nice.<br>
+<br>
+2. I noticed that sometimes if N lands on a surface at a shallow angle, he "skids" and the jump button doesn't work. This can get really frustrating, especially when you're trying to jump from circle to circle quickly. It would be nice if the jump button still worked even if N is "skidding". (not sure how feasible that is though)<br>
+<br>
+3. In NED, when you are playing a user level and beat it, N just sort of twitches and the message "level complete" shows over and over again. I'm guessing the program gets stuck in a loop or something, so that should be pretty easy to fix.<br>
+<br>
+4. You probably get these a lot, so I'll combine the three. First, NED should definitely have time implemented, so that you can try out your levels more realistically without having to go through the trouble of editing the userlevels.txt file. Second, it would be cool if in NED you could just press "space" instead of having to reset the objects and then pressing play each time you die. Lastly, it would be a lot easier to create levels if you could hide the legend somehow. For example, I memorized that 3 is a mine, 0 is gold, 9 is ninja, o is a door, etc. so for me it would be more convenient to be able to see what I'm doing on the whole screen than to have a legend handy.<br>
+<br>
+5. I don't know if this is already possible, but it would be cool if you could edit any level from the actual game. My friend once challenged me to make a certain level be a DDA, but I couldn't manage to edit it.<br>
+<br>
+6. I'm not sure if this is just my computer or not, but in NED, if I hold down backspace for an extended period of time and delete several objects, the cursor lags behind terribly. This immediately stops if I let go of the backspace button. <br>
+<br>
+That's it for the (relatively) easy-to-fix inconveniences... Now for a few random suggestions that will probably never work!<br>
+<br>
+It would be REALLY cool if there was a type of switch that could change a tile to another type of tile! For example, you could make a trap by making all the floor tiles go blank and then shutting them again with another switch once N falls through, or you could provide an escape out of a trench by making a little platform appear out of a blank tile. This would probably be hard to implement in NED, but I think it would be worth it.<br>
+<br>
+Also, it would be awesome if tiles could be made to move. I know, this might require reprogramming the entire physics engine, but it's just a random idea. You could make elevator tiles, platforms that bring you across pits or through minefields it would be impossible to jump through... *drool*<br>
+<br>
+Finally, I'd like to congratulate Mare and Raigan for their totally awesome work!!! I'm a total noob programmer (I make games like hangman, pearls before swine, and a comic version of pokemon on my ti83+) but I still love programming, and it's great to see how far you can go without being part of a huge corporation (Metanet isn't that big is it? I don't really know...).  Your game has provided hundreds (probably thousands) of people with hours of fun, and that's something special. My study period has never been the same! Keep up the good work guys!!!</div></div>
+<div class="post" id="p145532"><div class="post-head"><a class="id" href="../t/7626.html#p145532">#145532</a> <span class="index">2</span> <span class="date">2006-02-19T04:00:24Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Actually, I think this would be better in Complaints. However, I'm happy that you at least addressed your concern towards that bit.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7626.html#p6942">Quote: thegnome54, 2006-02-19T03:53:25Z</a></div>1. It would be less annoying if the frame-by-frame mode wasn't controlled by caps lock. Often, I try out user maps and then come to the site to comment, only to find that I'm typing in all caps. A less important button would be nice.</blockquote><br>
+We get that a lot. Basically, it probably won't end up getting changed because M&amp;R are busy doing other things, and it's not really that big of a deal anyway.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7626.html#p6942">Quote: thegnome54, 2006-02-19T03:53:25Z</a></div>2. I noticed that sometimes if N lands on a surface at a shallow angle, he "skids" and the jump button doesn't work. This can get really frustrating, especially when you're trying to jump from circle to circle quickly. It would be nice if the jump button still worked even if N is "skidding". (not sure how feasible that is though)</blockquote><br>
+How about you try to jump when you're trying to get your balance? A good way to avoid this is to jump as soon as you hit the ground, before you start skidding.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7626.html#p6942">Quote: thegnome54, 2006-02-19T03:53:25Z</a></div>3. In NED, when you are playing a user level and beat it, N just sort of twitches and the message "level complete" shows over and over again. I'm guessing the program gets stuck in a loop or something, so that should be pretty easy to fix.</blockquote><br>
+Actually, it's just because the bit of code that says "bring up the level completed dialog box" wasn't included in debug mode, so the ninja collides with the exit, tries to do a victory dance, but the next frame comes and he collides with the exit again, tries to do a different victory dance, and so on like that. So it's not technically a loop, but he does twitch.<br>
+<br>
+I'll let a few other people reply to the other ones. I'm glad you put some thought into your ideas, as, if you'll look around, the majority of people don't, sadly for us.</div></div>
+<div class="post" id="p145559"><div class="post-head"><a class="id" href="../t/7626.html#p145559">#145559</a> <span class="index">3</span> <span class="date">2006-02-19T04:29:30Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">The victory dance thing is cool because you can go into fbf and see all the different poses.</div></div>
+<div class="post" id="p145589"><div class="post-head"><a class="id" href="../t/7626.html#p145589">#145589</a> <span class="index">4</span> <span class="date">2006-02-19T05:10:01Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">#2 is a "pet peeve" of mine, however it can't really be fixed, it's a product of the collision/simulation code.. stupid tiles!<br>
+<br>
+anyway, thanks for the well-thought-out feedback -- we're really going to try to improve things as much as we can. however, right now 1.5 seems like an eternity away since we first have to get this new game done <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p145595"><div class="post-head"><a class="id" href="../t/7626.html#p145595">#145595</a> <span class="index">5</span> <span class="date">2006-02-19T05:29:43Z</span> <span class="author"><a href="../u/9371679.html">thegnome54</a></span></div><div class="post-body">I'm sure the wait will be worth it, but for now, don't worry, 1.4 is still the best game on the net in my opinion! Long live N!  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p145820"><div class="post-head"><a class="id" href="../t/7626.html#p145820">#145820</a> <span class="index">6</span> <span class="date">2006-02-19T16:25:07Z</span> <span class="author"><a href="../u/9371154.html">Giacomo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7626.html#p6942">Quote: thegnome54, Feb 18 2006, 11:53 PM</a></div> It would be REALLY cool if there was a type of switch that could change a tile to another type of tile!  </blockquote> <br>
+ Now that sounds like a pretty good idea. But there's also locked doors and trap doors. So I don't think M&amp;R would put this into Ned. But this sounds like something I would do to the border  <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"> .</div></div>
+<div class="post" id="p146054"><div class="post-head"><a class="id" href="../t/7626.html#p146054">#146054</a> <span class="index">7</span> <span class="date">2006-02-20T04:27:40Z</span> <span class="author"><a href="../u/9371060.html">Jiggerjaw</a></span></div><div class="post-body">I think the majority of these ideas are trivial...don't get mad at me, that's just my opinion.</div></div>
+</main>
+</body>
+</html>

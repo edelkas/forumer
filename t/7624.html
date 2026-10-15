@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a game i'm making - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; a game i'm making</nav></header>
+<main>
+<div class="post" id="p6941"><div class="post-head"><a class="id" href="../t/7624.html#p6941">#6941</a> <span class="index">1</span> <span class="date">2006-02-19T03:26:24Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">i'm making a game as part of a project for school and i'd like to share a preview demo<br>
+<br>
+hxxp://<a href="http://www.cs.mcgill.ca/~rtaran1/ecse495.jnlp">www.cs.mcgill.ca/~rtaran1/ecse495.jnlp</a> (link is dead)<br>
+<br>
+the whole thing is done in java, the game is supposed to be a multiplayer 2d side scolling shooter (think "Soldat" or counter-strike in 2D)<br>
+<br>
+controls are:<br>
+<br>
+WASD + mouse<br>
+&lt;shift&gt; zooms you in<br>
+<br>
+this demo is a singleplayer demo, the network code is coming along nicely. i would really like to hear any suggestions you guys might have.<br>
+<br>
+the game is roughly inspired N, more specifically: color scheme and the collision code was ripped our of the tutorials provided<br>
+<br>
+this might require java 1.5, and i know there is a bug linked to shooting, it will crash the game from time to time.<br>
+<br>
+<b>** update **</b><br>
+<br>
+so, i've been working on this thing for a while now and i thought i'd show you some new stuff.<br>
+<br>
+<a href="http://www.cs.mcgill.ca/~rtaran1/ecse495.jar">http://www.cs.mcgill.ca/~rtaran1/ecse495.jar</a><br>
+<br>
+here is the new demo, you really need java 1.5 now, I can't get around it anymore<br>
+<br>
+get your java updates here<br>
+<a href="http://java.sun.com/j2se/1.5.0/download.jsp">http://java.sun.com/j2se/1.5.0/download.jsp</a><br>
+you need to download the <b>JRE</b> not the JDK. I got rid of the file that was auto updating your java version since it was a pain in the ass to make one, will bring it back if i get requests<br>
+<br>
+to try it out in windows you just need to double click the file and it should launch<br>
+<br>
+under linux well.. you should know how to do this, hint: <pre class="code">java -jar ecse495.jar</pre><br>
+mac i dunno.. but i guess a double click on the file should do the trick<br>
+<br>
+still no AI or network, but it is advancing (steadily)</div></div>
+<div class="post" id="p145676"><div class="post-head"><a class="id" href="../t/7624.html#p145676">#145676</a> <span class="index">2</span> <span class="date">2006-02-19T11:12:39Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Hmm... my JRE updates itself now. However, you said that you used N's color schemes. Please note that the style of N, including content and appearance, is  Metanet Software, and they won't allow you to use it.<br>
+<br>
+I read about a program which should be a 3D clone of N and M&amp;R permitted to continue the development of this program. (But I can't find it at the moment. It's somewhere in this forum.) So you should be very careful about the outer appearance of your game.<br>
+<br>
+...<br>
+<br>
+Ah. Now I can play it. It really looks like N. You will have to change the colors. Asides from that, the gameplay works very well. And you bring in your own ideas (it looks like one can shot with the left mouse button, and I don't get the use of the Shift button yet, please explain that). The next step would be to include some graphics, esp. a texture for the red ball. (What an object should it be, it behaves like a person with a jet-pack or something like this.)<br>
+<br>
+All in all, this has potential. Keep the work up!  <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"></div></div>
+<div class="post" id="p145787"><div class="post-head"><a class="id" href="../t/7624.html#p145787">#145787</a> <span class="index">3</span> <span class="date">2006-02-19T15:13:50Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">yeah, i'm well aware of the color scheme thing. final game should have some differences. i was thinking about a parallax scrolling background and translucent tiles. it all depends on how fast i can get the java stuff to draw.<br>
+<br>
+&lt;shift&gt; is like a zoom feature. the camera is usually centered on the ball thingy, when you hold &lt;shift&gt; down, it will start drawing a line (aiming line whatever) and your camera will get re-centered further along, effectivly zooming you in. when you release &lt;shift&gt; the camera snaps back to the ball.</div></div>
+<div class="post" id="p145789"><div class="post-head"><a class="id" href="../t/7624.html#p145789">#145789</a> <span class="index">4</span> <span class="date">2006-02-19T15:18:02Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Great program. I tried filling the ball and bevelling it, I got this.  <div class="attachment attachment-missing">Attachment (lost): post-33-1140362282.png</div></div></div>
+<div class="post" id="p145793"><div class="post-head"><a class="id" href="../t/7624.html#p145793">#145793</a> <span class="index">5</span> <span class="date">2006-02-19T15:21:30Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p145787">Quote: rtaranu, Feb 19 2006, 03:13 PM</a></div> it all depends on how fast i can get the java stuff to draw.  </blockquote> <br>
+ Which API are you using for Java drawing?</div></div>
+<div class="post" id="p145808"><div class="post-head"><a class="id" href="../t/7624.html#p145808">#145808</a> <span class="index">6</span> <span class="date">2006-02-19T16:02:17Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p145793">Quote: Teh Dude, Feb 19 2006, 03:21 PM</a></div>Which API are you using for Java drawing?</blockquote>standard java 2d awt. double buffering using a Canvas as my primary drawing surface. i can get quite a bit of performance (60+ frames all the time) as long as i don't try anything fancy.<br>
+<br>
+anything fancy means anti-aliasing (it makes my machine crawl) or translucent images <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+<br>
+best i can probably do is a parallax background and changing the tile colors. i might make the tile colors dependent on the map or something, they don't have to always be the same.<br>
+<br>
+for the "ball"  texture.. i'm still debating this whole thing. originally i wanted to rip some sprites out of a snes game or something (it's a school project, there probably won't be a release of that version), but i'm having trouble getting sufficient sprites.<br>
+<br>
+as a gameplay mechanic i was thinking halo (health + auto-recharging shield) and so i was thinking of thicker lines to represent the strength of your shield and such. but i might as well put a smileys to represent the health (something like  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"> )</div></div>
+<div class="post" id="p145814"><div class="post-head"><a class="id" href="../t/7624.html#p145814">#145814</a> <span class="index">7</span> <span class="date">2006-02-19T16:15:33Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body">You can sometimes get a performance boost with Java if you run the JVM in server mode:<br>
+java -server YOURAPP<br>
+<br>
+However, to be certain you should test with both -client and -server.</div></div>
+<div class="post" id="p146186"><div class="post-head"><a class="id" href="../t/7624.html#p146186">#146186</a> <span class="index">8</span> <span class="date">2006-02-20T16:25:34Z</span> <span class="author"><a href="../u/9370805.html">Adam77</a></span></div><div class="post-body">LOD ~ Copyright and Trademark Law allows for an educational exception. In addition, it should be noted that the lack of the ability to police the various "hacked/ripped" versions of N on the web might render the program unprotectable at this point.<br>
+<br>
+So in other words rtaranu, use what you will to make the grade, but remember to give credit where credit is due. If the project developes into a marketable item then at that point you will have to make the necessary changes. However, you should not rely on this remark as a definative solution.</div></div>
+<div class="post" id="p146731"><div class="post-head"><a class="id" href="../t/7624.html#p146731">#146731</a> <span class="index">9</span> <span class="date">2006-02-21T20:49:17Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">@Adam77: "Fair use" (allowing educational use of copyright-protected stuff) only applies in English-speaking countries. I don't know from where rtaranu comes, but most probably he will not be able to distribute N's color scheme because of "fair use". Also, "fair use" allows educational use. Wikipedia (for instance) is educational. A game made for others to play with _isn't_.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p146186">Quote: Adam77, 2006-02-20T16:25:34Z</a></div>In addition, it should be noted that the lack of the ability to police the various "hacked/ripped" versions of N on the web might render the program unprotectable at this point.</blockquote>No. The distribution of illegal versions of N on the web in the current kind can't simply be stopped because it is nearly impossible to find the persons responsible for this distributions. In contrast, rtaranu even wrote his name in the program. It would be easy for M&amp;R to find him and take legal measures against him if he would distribute software using N's unique style. And in this case, I think that M&amp;R are damn right.<br>
+<br>
+(This is not against you, rtaranu. I'm sure that M&amp;R won't say anything against a technical demo or s.th. like that which uses these two colors, unless it's software which is released and advertised.)</div></div>
+<div class="post" id="p146735"><div class="post-head"><a class="id" href="../t/7624.html#p146735">#146735</a> <span class="index">10</span> <span class="date">2006-02-21T21:04:11Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">Ummm.  You can't copyright colors.  That's silly.<br>
+<br>
+You can copyright information (like code), text, stories, images, icons, complex symbols, etc.  Copyrights restrict the copying of an <i>expression</i> of an idea; not the idea itself.<br>
+<br>
+You cannot copyright names or phrases (only expressed concepts).  You can copyright names as used in combination with certain ideas.  You cannot copyright images (only the use of images).  You cannot copyright color schemes!  You can trademark them as a component of a mark or symbol.  You can patent the specific production or formation of an image or game component.<br>
+<br>
+Fair use doesn't even apply to this situation.  "Copying" a color scheme legally isn't copying.  It's just using the same colors as someone else.  It doesn't infrige on anyone's copyrights.</div></div>
+<div class="post" id="p146785"><div class="post-head"><a class="id" href="../t/7624.html#p146785">#146785</a> <span class="index">11</span> <span class="date">2006-02-21T22:46:24Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">kinda off topic from what your argueing about but<br>
+1. what version of java do you need to run this ( he said might require 1.5, any conformation on this?)<br>
+2. has anyone tested it on a mac yet ( i didnt figure it would matter since it is java... but i get an error, maybe i dont  have an updated version, i havent checked what i have yet <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">)</div></div>
+<div class="post" id="p146825"><div class="post-head"><a class="id" href="../t/7624.html#p146825">#146825</a> <span class="index">12</span> <span class="date">2006-02-21T23:46:22Z</span> <span class="author"><a href="../u/9371347.html">Teh Dude</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p146785">Quote: smartalco, Feb 21 2006, 10:46 PM</a></div> 2. has anyone tested it on a mac yet ( i didnt figure it would matter since it is java... but i get an error, maybe i dont  have an updated version, i havent checked what i have yet <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">)  </blockquote> <br>
+ Tell us what the error is or try Googling it.  That way you might find out what the problem is.</div></div>
+<div class="post" id="p146911"><div class="post-head"><a class="id" href="../t/7624.html#p146911">#146911</a> <span class="index">13</span> <span class="date">2006-02-22T03:28:19Z</span> <span class="author"><a href="../u/9371032.html">Templex</a></span></div><div class="post-body">If colors were copyrighted then my signature would be illegal.</div></div>
+<div class="post" id="p146954"><div class="post-head"><a class="id" href="../t/7624.html#p146954">#146954</a> <span class="index">14</span> <span class="date">2006-02-22T05:14:39Z</span> <span class="author"><a href="../u/9370805.html">Adam77</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p146735">Quote: blue_tetris, 2006-02-21T21:04:11Z</a></div>You cannot copyright names or phrases (only expressed concepts). You can copyright names as used in combination with certain ideas. You cannot copyright images (only the use of images). You cannot copyright color schemes! You can trademark them as a component of a mark or symbol. You can patent the specific production or formation of an image or game component.</blockquote><br>
+You are correct insofar as you cannot obtain a trademark on the color orange for instance. However, you may obtain protection under trademark if the color obtains a "secondary meaning" which the applicant must prove. This is accomplished when "in the minds of the public, the primary significance of the mark is to identify the source of the product rather than the product itself." <i>Inwood Laboratories v. Ives Laboratories, </i>456 U.S. 844, 851, n11 (1982) <br>
+<br>
+This would mean that in the minds of the public the color scheme would have to identify Metanet software and not the game N. Of course this is difficult to prove because "the primary significance" to the public must indicate source. This is a formidable hurdle and one that is not easily overcome. Some factors include; extent of sales and advertising leading to buyer association, length of use, exclusivity of use, customer surveys, customer testimony, the size of the company, the number of sales, and the number of customers. <br>
+<br>
+At this point, I would agree with you. I do not believe Metanet would succeed in this are for protection. However, Product Design might be applicable. Like a color, product design may be protectable if it acquires a "secondary meaning". The obstacles are the same as set forth above.  This could be considered the products "Trade Dress". I believe it has been agreed that the simplicity of N is one of the major attributes which makes the game great. This would heavily weigh in favor of protectable content. <br>
+<br>
+All of this being said, It is unclear if Metanet has an interest in protecting the color scheme of the product or if the original intention was to protect the Symbol or Mark of Metanet. <br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p6941">Quote: rtaranu, 2006-02-19T03:26:24Z</a></div>the collision code was ripped our of the tutorials provided</blockquote>This is protectable, but probably falls under the Fair Use exception. In addition, If the color scheme would be found to be protectable content, then it would be subject to the defense of "Fair Use" as well which I will explore below.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p146731">Quote: LoD, 2006-02-21T20:49:17Z</a></div> Also, "fair use" allows educational use. Wikipedia (for instance) is educational. A game made for others to play with _isn't_.</blockquote><br>
+Educational factors are one of the best examples of fair use. The first step is to consider whether the use at issue falls into one of the specified FAVORED USES: "criticism, comment, news, reporting, teaching, scholarship, or research" If it does, then fair use is more likely. However, the above mentioned factors must be taken into accord with the following. The purpose and character of the use, including whether such use is of commercial nature or if it is for nonprofit educational purposes. (I believe this school project would fall into this category and weighs in favor of fair use) The nature of the copyrighted work. (a simple color scheme and tutorial code provided by Metanet to use in educating yourself on collision detecting) The amount or substantiality of the portion used in relation to the copyrighted work as a whole; (I believe this would fall short of a substantial amount of copyrighted work as viewed in relation to the whole program of N) and the effect of the use upon the potential market or value of the copyrighted work. (N is free and Metanet will not lose or gain anything by the use stated in the first post of this thread). In addition, if the latter project takes on a transformative use, meaning that the potential infringer added "independent creative material" to the work, then it is more than likely Fair Use.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p146731">Quote: LoD, 2006-02-21T20:49:17Z</a></div>Fair use" (allowing educational use of copyright-protected stuff) only applies in English-speaking countries</blockquote><br>
+International Treaties would offer some protection. Just remember, does it really matter if this student wants to use part of it for class credit? He even sets forth that it is based on N and uses some code. He is not trying to pass this off as his own work product as some of the other sites have appeared to do. With all of this talk of protection and infringement we might lose site of what is to be the true meaning of Fair Use or infringment for that matter. This is a perfect example of what the Fair Use statute is supposed to protect. Furthermore, even if this students location is of a non English speaking country who is not part of the globalized effort to have broad protection of original works of authorship, I would submit that the actions would not compile to the point of infringement. Protection is needed from true infringers and not from classic examples of this kind of Fair Use/Not meeting the criteria for infringment. I for one applaud this student for being industrious. He hase been forthcoming and honest about a class project and I wouldn't want to scare him away from a project that he/she is obviously interested with talk of copyrighted works.<br>
+<br>
+Please do not take any offense</div></div>
+<div class="post" id="p148445"><div class="post-head"><a class="id" href="../t/7624.html#p148445">#148445</a> <span class="index">15</span> <span class="date">2006-02-25T16:00:35Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Well explained, but we'll have to wait what M&amp;R say.</div></div>
+<div class="post" id="p148478"><div class="post-head"><a class="id" href="../t/7624.html#p148478">#148478</a> <span class="index">16</span> <span class="date">2006-02-25T16:57:57Z</span> <span class="author"><a href="../u/9371137.html">Blazeraid</a></span></div><div class="post-body">Nice game. *goes on being ignorant to the international treaties that are being discussed*</div></div>
+<div class="post" id="p148534"><div class="post-head"><a class="id" href="../t/7624.html#p148534">#148534</a> <span class="index">17</span> <span class="date">2006-02-25T19:18:08Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">Nice game, indeed. I like the exaggerated bouncing on ricochets.</div></div>
+<div class="post" id="p148902"><div class="post-head"><a class="id" href="../t/7624.html#p148902">#148902</a> <span class="index">18</span> <span class="date">2006-02-26T18:40:47Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">ok to get this whole color copyright issue sorted out (i'm a canadian citizen btw, and mcgill is a canadian university):<br>
+<br>
+- i'll change the colors.<br>
+- you can't copyright colors, but you can copyright color schemes, like if i'm using these colors just to attract people from the n-fan base, then i see that as IP stealing.<br>
+- i used those colors because they were pleasent to the eye and there is something called Color.GRAY and Color.LIGHT_GRAY in java. any other color combiantion like Color.RED and Color.ORANGE or Color.BLUE and Color.CYAN were hurting my eyes. if any one has a suggestion for new colors, i'd love to hear about it, you can just post a (small) picture made in paintbrush if you'd like.<br>
+<br>
+- the collision detection source code was provided int the tutorials, they haven't invented anything new, and as such they can't hold patents over any of that stuff. 2d collision detection techniques can be found in many books and tutorials, and unless they came up with some new and totaly mind blowing technique (i don't think it's the case), you can't hold patents on it. that beeing said, i am more than happy to credit their (truly amazing) tutorials.<br>
+<br>
+other stuff<br>
+- the whole thing is coded to use java 1.4 features, but i think that by using the java 1.5 compiler, i'm breaking compatibility. i'll try and fix that for the next 'release'.<br>
+- there's a few mac machines at school, i'll try and see what's going on (next week after my midterms)<br>
+- the bullet bouncy effect wasn't working out how i liked it and i basicly removed it, you get sparks flying off the walls instead (i like sparks)<br>
+- clicking will now shoot continuously (like a machine gun)<br>
+- bullets arn't affected by gravity anymore, but you get accuracy instead (bullet might fly off with a bit of an angle offset)<br>
+<br>
+some of those features don't seem very impressive since my last post, but it's because coding stuff when you arn't dealing with a locked frame rate, and network traffic can be troublesome.<br>
+<br>
+thank you for the coments and interest, i'll try and keep you posted as soon as i get a multiplayer version working. i'd love to get some ppl to help me test over the wild internet (as opposed to my school lan).</div></div>
+<div class="post" id="p148924"><div class="post-head"><a class="id" href="../t/7624.html#p148924">#148924</a> <span class="index">19</span> <span class="date">2006-02-26T19:55:08Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Another question: You provided a file which updates the JRE, then download the game. That is a very good idea. If you provided the game itself, it would have terminated at my system which was running a 1.4 JRE.<br>
+<br>
+But I also have an offline system. Could you also offer a link to the JAR for people with off-line computers?</div></div>
+<div class="post" id="p148959"><div class="post-head"><a class="id" href="../t/7624.html#p148959">#148959</a> <span class="index">20</span> <span class="date">2006-02-26T21:45:19Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">idk what was the prob with the mac thing, my school comp wouldnt run it but my home one does, (i still dont know if either has 1.5) it was prob some incredibly stupid block put on by the higher ups at my school, anyway after so long of messing around in it it just kinda randomly quits... idk why, and dont change the color scheme, the grays work well for it, i dont think anyone is going to seriously object to them</div></div>
+<div class="post" id="p149089"><div class="post-head"><a class="id" href="../t/7624.html#p149089">#149089</a> <span class="index">21</span> <span class="date">2006-02-27T01:35:11Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">I'm a mac user, and that is FREAKIN' AWESOME!!!<br>
+<br>
+You've gotta keep going with that!</div></div>
+<div class="post" id="p149930"><div class="post-head"><a class="id" href="../t/7624.html#p149930">#149930</a> <span class="index">22</span> <span class="date">2006-02-28T23:44:43Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">Wow. For using Java, that is quite well done. I've been trying to use threads to mimic movement, but the movement is always so choppy, even when I employ double buffering.</div></div>
+<div class="post" id="p150087"><div class="post-head"><a class="id" href="../t/7624.html#p150087">#150087</a> <span class="index">23</span> <span class="date">2006-03-01T02:53:23Z</span> <span class="author"><a href="../u/9371018.html">Grimreaper0125</a></span></div><div class="post-body">Bravo Adam 77, you know your law! (dad's a lawer, got him to check what you said, do you study law?)<br>
+<br>
+Also, nice game, needs major improvments (turret animation for bullets to make sense, textures, little more color) but I'll definetley what for you to complete this little project, plz tell us when your done <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p150091"><div class="post-head"><a class="id" href="../t/7624.html#p150091">#150091</a> <span class="index">24</span> <span class="date">2006-03-01T02:59:29Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">definitely an awesome concept, me need more!!! (like actual levels and enemies and stuff)</div></div>
+<div class="post" id="p150243"><div class="post-head"><a class="id" href="../t/7624.html#p150243">#150243</a> <span class="index">25</span> <span class="date">2006-03-01T13:57:18Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body">as i've said previously, this is mostly a multiplayer game, so "bots" will come much later, they are not part of my initial project requirments. i will try to continue the project after this semester finishes, and bots are one of the features i really would like to add.<br>
+<br>
+the current big "developpment push" is to have two or more players shooting each other. i'm getting some annoying results due to network latency and such, and i'm gonna have to do more research on the issue.<br>
+<br>
+as for the results i got using java, yeah i know, i'm pretty impressed myself that it runs fairly smooth <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">, also, stay away from evil threads. reaaaally stay away from them unless you can't find any other solution.</div></div>
+<div class="post" id="p150277"><div class="post-head"><a class="id" href="../t/7624.html#p150277">#150277</a> <span class="index">26</span> <span class="date">2006-03-01T16:24:47Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">BRAIN BLAST!<br>
+<br>
+You could make this an N Bot battle!<br>
+<br>
+Like a renegade chaingun vs the rest of them!<br>
+<br>
+If you could get MR's permission, that'd rock~!</div></div>
+<div class="post" id="p151034"><div class="post-head"><a class="id" href="../t/7624.html#p151034">#151034</a> <span class="index">27</span> <span class="date">2006-03-03T05:11:40Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p150243">Quote: rtaranu, March 01, 2006 07:57 am</a></div> also, stay away from evil threads. reaaaally stay away from them unless you can't find any other solution.  </blockquote> <br>
+ If you don't use threads, what are you using then?  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p151055"><div class="post-head"><a class="id" href="../t/7624.html#p151055">#151055</a> <span class="index">28</span> <span class="date">2006-03-03T07:31:17Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">To come back to the mac Problem. afaik mac provides his own Java runtime which is in the version 1.4.x now. But you can download a beta (don't know why it's a beta, think they want to optimize it for their system) of the 1.5 Version from the mac Homepage.<br>
+<br>
+The game is really cool. I am also a Java programmer and made some little game apps with AWT so I know that it's not that easy sometimes but it can be a lot of fun.<br>
+<br>
+Keep up the good work!</div></div>
+<div class="post" id="p151057"><div class="post-head"><a class="id" href="../t/7624.html#p151057">#151057</a> <span class="index">29</span> <span class="date">2006-03-03T07:55:16Z</span> <span class="author"><a href="../u/9370732.html">great_sea</a></span></div><div class="post-body">Wow. I'm just repeating what has been already said, but that is a really great game, even in such an early stage of development. Definitely continue working on it. I <i>personally</i> didn't feel that the color scheme was too similar to that of N's, and I agree that the light and dark grays are easy on one's eyes. So, yeah, really cool stuff.</div></div>
+<div class="post" id="p151117"><div class="post-head"><a class="id" href="../t/7624.html#p151117">#151117</a> <span class="index">30</span> <span class="date">2006-03-03T14:03:33Z</span> <span class="author"><a href="../u/9371680.html">rtaranu</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p151034">Quote: thecalcgenius, March 03, 2006 05:11 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p150243">Quote: rtaranu, March 01, 2006 07:57 am</a></div> also, stay away from evil threads. reaaaally stay away from them unless you can't find any other solution. </blockquote>If you don't use threads, what are you using then?  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  </blockquote> <br>
+ The short answer is that i use a single thread that loops with a frequency of 60fps. The game loop consists of 3 steps: update user input (figure out of the user is pressing left, right, where he's aiming and such), update game state (compute the player, bullet and spark positions, do any collision detection stuff) and render the current game state.<br>
+<br>
+The long answer is read this book if you're interested in java game development (or game dev in general). It's an O'Reiley book, but the author provides links to a draft version of the book (very readable).<br>
+<a href="http://fivedots.coe.psu.ac.th/~ad/jg/">Killer Game Programming in Java</a></div></div>
+<div class="post" id="p151507"><div class="post-head"><a class="id" href="../t/7624.html#p151507">#151507</a> <span class="index">31</span> <span class="date">2006-03-04T13:45:08Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">I just played the new version (ecse495.jar). The JRE wrote this error on the console:<br>
+<br>
+<pre class="code">Could not load image from: images\biggrin.gif
+javax.imageio.IIOException: Can't read input file!</pre><br>
+Could you distribute this gif image or pack it into your jar?<br>
+<br>
+Apart from that, the game is developping very well. The shooting has been improved, as I see (cool explosion effects).</div></div>
+<div class="post" id="p152392"><div class="post-head"><a class="id" href="../t/7624.html#p152392">#152392</a> <span class="index">32</span> <span class="date">2006-03-06T21:50:30Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7624.html#p151117">Quote: rtaranu, March 03, 2006 08:03 am</a></div> The short answer is that i use a single thread that loops with a frequency of 60fps. The game loop consists of 3 steps: update user input (figure out of the user is pressing left, right, where he's aiming and such), update game state (compute the player, bullet and spark positions, do any collision detection stuff) and render the current game state.  </blockquote> <br>
+ That's interesting. I had never thought of doing it that way, but it's so much easier. Anyways, keep this project going, and I'll be checking in periodically.<br>
+<br>
+And thanks for the link. That will really help me.</div></div>
+<div class="post" id="p152394"><div class="post-head"><a class="id" href="../t/7624.html#p152394">#152394</a> <span class="index">33</span> <span class="date">2006-03-06T21:55:19Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">Uh... It no longer is compatible with my Mac.</div></div>
+<div class="post" id="p152405"><div class="post-head"><a class="id" href="../t/7624.html#p152405">#152405</a> <span class="index">34</span> <span class="date">2006-03-06T22:25:56Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">^mine neither <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">, even before for whatever reason i had to minimize it then bring it back out of the dock for it to show anything</div></div>
+<div class="post" id="p152500"><div class="post-head"><a class="id" href="../t/7624.html#p152500">#152500</a> <span class="index">35</span> <span class="date">2006-03-07T03:26:26Z</span> <span class="author"><a href="../u/9371018.html">Grimreaper0125</a></span></div><div class="post-body">I noticed a "glitch". if you hit the slanted tiles at the begging of the slope with 0 velocity, you stay were you are. If I'm guessing correctly, you're supposed to slide off. If that's the case, I just wanted you to know. Keep up the good work by the way, really like how the game is coming along.</div></div>
+<div class="post" id="p154373"><div class="post-head"><a class="id" href="../t/7624.html#p154373">#154373</a> <span class="index">36</span> <span class="date">2006-03-13T17:46:25Z</span> <span class="author"><a href="../u/9371810.html">alij</a></span></div><div class="post-body">ive downloaded it but what do i do with it to play it</div></div>
+</main>
+</body>
+</html>

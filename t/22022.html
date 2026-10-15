@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>loading damn objects - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; loading damn objects</nav></header>
+<main>
+<div class="post" id="p19703"><div class="post-head"><a class="id" href="../t/22022.html#p19703">#19703</a> <span class="index">1</span> <span class="date">2008-03-27T04:38:22Z</span> <span class="author"><a href="../u/9374750.html">//Zander</a></span></div><div class="post-body">ok, I am maiking a N-art editor, it's a bit like Ned... but easier to make N-art in...<br>
+but i am having two problems:<br>
+<br>
+-getting the damn text to split and go from strings to numbers... and then placing the objects<br>
+-getting the program to 'calculate' the level data all at once, in one frame.<br>
+<br>
+i am using actionscript 2...<br>
+<br>
+could someone, anyone help???<br>
+maybe post some code?</div></div>
+<div class="post" id="p422199"><div class="post-head"><a class="id" href="../t/22022.html#p422199">#422199</a> <span class="index">2</span> <span class="date">2008-03-27T04:54:37Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I don't know anything about N level data but:<br>
+<br>
+in order to split a string at a delimiter use String.split()<br>
+<br>
+for example,<br>
+str="a:b:c:";<br>
+tArray=str.split(":");<br>
+<br>
+tArray now contains elements a, b and c<br>
+<br>
+use Number(string) to convert a string to a number<br>
+<br>
+I don't know what you mean by "calculating" level data</div></div>
+<div class="post" id="p422227"><div class="post-head"><a class="id" href="../t/22022.html#p422227">#422227</a> <span class="index">3</span> <span class="date">2008-03-27T06:12:54Z</span> <span class="author"><a href="../u/9374750.html">//Zander</a></span></div><div class="post-body">i learnt that once, thank you, but forgot the exact term,<br>
+but that turns up as a string, i need a way of turning strings to numerals<br>
+ie the string "1" to the number 1</div></div>
+<div class="post" id="p422639"><div class="post-head"><a class="id" href="../t/22022.html#p422639">#422639</a> <span class="index">4</span> <span class="date">2008-03-28T04:21:52Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">as I said:<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/22022.html#p422199">Quote: mattk210, 2008-03-27T04:54:37Z</a></div>use Number(string) to convert a string to a number</blockquote></div></div>
+<div class="post" id="p422666"><div class="post-head"><a class="id" href="../t/22022.html#p422666">#422666</a> <span class="index">5</span> <span class="date">2008-03-28T06:58:45Z</span> <span class="author"><a href="../u/9374750.html">//Zander</a></span></div><div class="post-body">uhh, oops.<br>
+i didnt see that part  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+</main>
+</body>
+</html>

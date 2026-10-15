@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAT in 3d - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; SAT in 3d</nav></header>
+<main>
+<div class="post" id="p15526"><div class="post-head"><a class="id" href="../t/17652.html#p15526">#15526</a> <span class="index">1</span> <span class="date">2007-06-04T17:17:46Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I'm attempting to to use SAT for colliding a few types of objects in 3d, and having trouble deciding what axies I should test, and how to project the widths along those axies of the shapes.  <br>
+<br>
+I am going to try and make 3d versions of some N shapes like in this picture:<br>
+<br>
+* EDIT *: I fixed the cuved images to be what they should (see later posts)<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/shapes.gif" alt="" loading="lazy"><br>
+<br>
+The upper left (ramp) is the simplest one I am tring to do, I am leaving the rest for later.  Basically my ramp is defined by the box that encloses it (the box can be of any dimention), then it will also have an axis aligned orientation and the normal of the slope the cut out creates.  (this means I could orient it anyway I want in 90 degree steps)<br>
+<br>
+The two main shapes I was tring to collide with this ramp was an axis aligned box and sphere.  I was hoping I could just test some axies, then project out of the smallest overlap, using a simliar device that was used with projecting the circle out of square, the VR's and then finding a good axis for testing against a point.  I'm not sure how I would find an axis for if the circle is closest to a line.  <br>
+<br>
+Also what are some good ways to store VR and iterate though VR's?  And accociate them with the feature that is closet to them?<br>
+<br>
+Any help would be apreciated.<br>
+<br>
+ALSO:  I plan on throwing axis aligned cylinders and axis aligned ellipsiods into this, it seems like the cylinder wouldnt be too hard because you would just test the height axis normally, and test the other two like the circle.  I think my main confusion comes from conceptualizing how to tell how many axies are going to be need to be tested to make sure you know they don't collide.</div></div>
+<div class="post" id="p327423"><div class="post-head"><a class="id" href="../t/17652.html#p327423">#327423</a> <span class="index">2</span> <span class="date">2007-06-04T20:15:43Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">It seems to me that you'll need to use planes instead of axes when you do your projections. This will in turn give you a set of convex polygons that you can run 2D SAT on (whew!). I don't have any proof for this, mind; it's just a gut feeling. It's possible that SAT can't be extended to 3D at all. However, if it does work, at least projecting 3D objects onto 2D ones is fairly simple - rotate them so that the separating plane is axis-aligned, and then drop the relevant coordinate for each vertex.<br>
+<br>
+Edit: Gah, didn't mean to quote you.</div></div>
+<div class="post" id="p327432"><div class="post-head"><a class="id" href="../t/17652.html#p327432">#327432</a> <span class="index">3</span> <span class="date">2007-06-04T20:33:08Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I think I see where I am going wrong, I'm first going have to project to a plane, then a line, as you were saying.  So I guess I need to figure out what kind of shapes get projected to the plane, otherwise I will have to determine how many seperating axies I will need dynamically for the shape that was projected to the plane.   I bet there's a way for my simple axis aligned shapes to use a similar method as the box/circle method in the tutorial.</div></div>
+<div class="post" id="p327719"><div class="post-head"><a class="id" href="../t/17652.html#p327719">#327719</a> <span class="index">4</span> <span class="date">2007-06-05T18:51:15Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Nah, SAT works fine in 3D. It's just that you have to make a set of three 2D checks. I suggest you start with the simplest type: Just a full tile (in this case, a cube), then build off of that. I also suggest you make that piece code as flexible as possible, as it'll act as the base of the other parts.<br>
+<br>
+<i>EDIT</i>: As a side note, some of these shapes aren't as easy to code as you make them look. More specifically, I mean the curved ones. I'm too busy to explain right now, but doing them is more complex then just adding up two checks. If you do it like this, shapes 5, 6, 8 and 9 will have an "edge" going from the top-left-back to the bottom-right-front vertexes. Look at your 45 degree 3D tiles and you should be able to see what I mean.</div></div>
+<div class="post" id="p327743"><div class="post-head"><a class="id" href="../t/17652.html#p327743">#327743</a> <span class="index">5</span> <span class="date">2007-06-05T20:24:19Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">The cube was really easy, I wrote a function that takes two vectors, and returns a value that represets the projection out of each other (in this case the two vectors are half widths of the cubes) then call it for each of the 3 dimentions, and pick the smallest one.  <br>
+<br>
+I'm having trouble with the cube to sphere test, and I'm not sure exactly how I'm going to do ramp/cube, and ramp/sphere.  For the cube/sphere, I know there will be a few cases.  One is if the sphere is in the cube, directy above or below, left or right, behind or in front (sphere closest to a plane).  Then there are 12 cases that look alot like the box/circle (when the sphere is closet to a line), and the rest of the 8 cases (circle closest to point) I'm not so sure about.  I'm guessing that I test the 3 axies, then test one more that is parellel to the vector that is created from the corner the sphere is closest to, and the center of the sphere.<br>
+<br>
+For ramp/cube, I'm guessin that its the 3 world axies, then one more that is the normal to the plane that is slanted.<br>
+<br>
+I made the center of the ramp to be the center of mass, and defined vectors that represent the projections onto the different planes (two vectors, one that reperesents the distance to the edge of the ramp to the positive x direction, and one to the negative x direction, then depending on the position and orientation of the ramp, I determine which to test) I also store the two vectors that reprent the distance to the slanted plane from the center, and the distance to the opposite corner (this vector is the projection onto the slanted plane normal.<br>
+<br>
+I guess I'm sorta stuck at that...<br>
+<br>
+Also I'm tring to think how I can generalize the functions so a cylinder alinged to the x axis would use the same code as the one to the y axis.  That would get complicated for a ramp aligned to any axis coliding with a cylinder to any axis.<br>
+<br>
+EDIT:  I am accually aware of the curved problem, although the one that is basically 1/4 of a sphere and the one that is 1/4 sphere cut out I thought would be similar to box to sphere, and more doable.  The other two turn into much more complex surfaces.</div></div>
+<div class="post" id="p327985"><div class="post-head"><a class="id" href="../t/17652.html#p327985">#327985</a> <span class="index">6</span> <span class="date">2007-06-06T11:33:05Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Actually, you haven't included the sphere cut-out shapes in your graphic. The one you show here are a lot more complex, as you already confirmed.<br>
+<br>
+Anyways, moving along to your problems.<br>
+<br>
+The first thing you must understand is that you can "subtract" dimensions when doing these checks, in order to simplify them.<br>
+A sphere-plane check is a one-dimensional check (i.e 3D minus 2D) - you need a single distance value, a sphere-edge check is a two-dimensional check (3D minus 1D) - you need two distance values, and a sphere-point check is a three-dimensional check (3D minus 0D) - you need three distance values. Accordingly, a sphere-plane check is equivalent to a edge-point check, a sphere-edge check is equivalent to a plane-point check, and so on.<br>
+<br>
+The box-cube check is pretty obvious, IMO, and you seem to have noticed that too... Now for the sphere-cube check. Skipping the sphere-plane and sphere-edge checks (which are pretty straight-forward and equivalents are already explained in the Metanet tutorials), we go right to the vertex VR case.<br>
+First of all, you need to know which the vertex closest to the sphere is... which is pretty simple, really. You take the delta between both centers (the sphere and the cube), and that'll result in three values. Then you take the sign of each component (represented with either +1 or -1) and multiply it by the cube's half-side. After that, you use the 3D Pythagoras theorem (d = x + y + z) to check the distance between the resulting point and the sphere's center. If you can wrap your mind around three dimensions (which I assume you can as you've undertaken such a challenge in the first place) things should go smoothly from there.<br>
+<br>
+For the curved-ramp-box and curved-ramp-sphere, things are a bit more messy. Explaining <b>exactly</b> how to calculate the vectors would be a bit too time-consuming, but I <b>could</b> tell you the VRs you need to check. You have two full sides in the ramp (which makes 2 plane regions, 7 edge regions and 6 point regions) two 1/4 circle cut-outs (which are still easy to deal with, they're point-circle distance checks), two VRs for the curved edges (which are point-sphere distance checks), and the cylinder cut out - edge-sphere (which can be simplified to point-circle).<br>
+IMO, if you've managed to get the cube-sphere checks, the hardest part here are the curved edges.<br>
+The curved-ramp-box checks are easier - You don't have to worry about the curved edges as much. The hardest part here is the box-cylinder check (equivalent to a rectangle-circle check, which is already explained in the Metanet tutorials), so you should have <i>relatively</i> little problems with it.<br>
+<br>
+That was, of course, the case for the curved ramps. The 45 degree ramps are a lot similar to those:<br>
+Again, two full sides (2 plane VRs, 7 edge VRs, 6 point VRs), two triangles (2 plane VRs), the edges on each side of the ramp (2 edge VRs) and the ramp itself (another plane VR)<br>
+<br>
+The biggest problems come when you do the ramp-edge checks. The idea with them is like this: you have to check if the sphere is hitting an edge. That's a two-dimensional projection - one sphere-plane check for the ramp plane and one sphere-plane check for the plane with the triangle.<br>
+<br>
+I think that wraps it up.<br>
+<br>
+If you run into problems, I suggest you use pen and paper to clear things up. If that doesn't help, tell me and I'll try my best to make some diagrams for you.<br>
+<br>
+Hope that helped,<br>
+<br>
+TS</div></div>
+<div class="post" id="p328041"><div class="post-head"><a class="id" href="../t/17652.html#p328041">#328041</a> <span class="index">7</span> <span class="date">2007-06-06T16:22:12Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17652.html#p327985">Quote: shoftee, 2007-06-06T11:33:05Z</a></div>Actually, you haven't included the sphere cut-out shapes in your graphic. The one you show here are a lot more complex, as you already confirmed.</blockquote><br>
+5 &amp; 9 are supposed to be the 1/4 circle cut outs, the curve tool in MSPaint doesn't let me do perfect quarter circles.  Assume all of those curves are perfect x+y=r curves.  Even with that assumption though 6 &amp; 8 are pretty complicated.<br>
+<br>
+Anyway, all that is helpful, the ones I am focusing on are sphere/box, sphere/ramp (no. 1) and box/ramp no. 1 again)  <br>
+<br>
+For testing a sphere to an edge, I figured all I need to do is make sure its in the VR that has all points closest to an edge, then find the point along that edge that is closest to the sphere, then find the distance from that point.  I guess that is two values I determined, but I'm not sure how thats like a point/plane check, maybe I just need to pencil it out more.  <br>
+<br>
+With testing the VRs, I only need to find the distance to determine which one its in?  Closest being plane checks, farther being edge, and farthest being vertex?   Do you think there would be any need to store VR's in some way for any of these shapes, or should I just manually iterate though each one, and just perform that many tests?  <br>
+<br>
+Also the no. 1 ramp doesn't nessisarily have to be 45 degree, if I make the height twice the width, it would calculate the plane normal for me.  I don't think that is a big problem, the checks would essentially be the same.<br>
+<br>
+Thanks again for the help.</div></div>
+<div class="post" id="p332014"><div class="post-head"><a class="id" href="../t/17652.html#p332014">#332014</a> <span class="index">8</span> <span class="date">2007-06-17T03:34:47Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I realized that the shapes here accually aren't accually sphere cut outs, 5 &amp; 8 need cuved tops, and 6 &amp; 9 need curved bottoms.  Oh well.  I'm sticking to these simpler all convex shapes that accually make more sense than the ones above:<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/simple.gif" alt="" loading="lazy"><br>
+<br>
+I want to do these three shapes, plus a box, ellipsoid, and cylinder.  With the non-curved ones I only need to test the axies of the side normals.  I have decided with the curved shapes, to just test every plane, point &amp; line, and fix it later.  All the VRs would do is let me throw out many of the tests.<br>
+<br>
+So the place I believe I am stuck at is accually projecting a 3d object to a single axis.  Take the ramp for example, how would I project that to an abritrary axis, when it can be scaled and alined to any axis?</div></div>
+<div class="post" id="p333543"><div class="post-head"><a class="id" href="../t/17652.html#p333543">#333543</a> <span class="index">9</span> <span class="date">2007-06-20T16:53:51Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Probably your best bet is to take the projection plane, rotate it so that it's paralell to the x-z plane (or whatever), and then apply the same rotations to the vertices of the ramp. Then you can simply drop the y component of each vertex's position to project it onto the plane. From there, it should be straightforward to project the shape onto a line.</div></div>
+<div class="post" id="p334214"><div class="post-head"><a class="id" href="../t/17652.html#p334214">#334214</a> <span class="index">10</span> <span class="date">2007-06-22T00:13:48Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I figured out the projection to a single axis, its accually alot easier that it seems.  There is no need to project to planes first.  I simply need to project each point to the axis, and take the smallest and largest values, and I then have the single axis interval.  With an ellipsoid, all I need to do is project the center point, then find the raduis along the projection axis, and have the interval be plus and minus the radius from the center.  The cylinder was trickier, but it turns out to be similar to the ellipsoid, I simply project the center of the circle at the top, and add the plus and minus points of that point, and do the same with the bottom.  Then its simply the interval between the smallest and largest one dimentional point.  This way I can simply apply a rotation matrix to the points to get the axis alligned orientations I need.<br>
+<br>
+Next step is to determine the finite number of axies that need to be tested with any orientation.  The circle and cylinder will be somewhat tricky, they are the only ones that have infinite normals, forcing me to test every point and line.  Thats where VRs will be helpful once I figure out how to iterate though them all, and accociate the point/line/plane they are closest to.<br>
+<br>
+* EDIT *: I fixed the cuved images to be what they should, even though I don't plan on using the curved tiles anymore:<br>
+<br>
+<img class="bb-img" src="http://eatjason.googlepages.com/shapes.gif" alt="" loading="lazy"></div></div>
+<div class="post" id="p341000"><div class="post-head"><a class="id" href="../t/17652.html#p341000">#341000</a> <span class="index">11</span> <span class="date">2007-07-09T19:18:57Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I got my algorithm working perfectly for every shape except the cylinder (I'm gonna leave that for later) which means ramps and ellipsoids can be of any scale, any axis aligned rotation, and still collide perfectly.  For ellipoids I just scale the box/ramp to the space that makes the ellipsoid a sphere, and use my sphere/ramp collision algorithm.<br>
+<br>
+Right now, I check every normal to each ramp's plane, which are the axies that need to be tested if the sphere is closest to a plane, I check every axis that is created from finding the point on a line the sphere, then I check every axis created from each point to the sphere.  This is sort of like the tutorial that shows all 4 points being tested.  I need to find a way to decide which VR the sphere is in, and associate the plane, line, or point to it.  Am a really just going to calculate the distance from each plane, line and point to the sphere and take the shortest?  This seems like alot of square roots need to be found, almost as bad as doing what I am doing now with testing every axis.  <br>
+<br>
+The tutorial just says for the circle/square intersection, we already know which VR the circle is in from the x &amp; y axis tests.  I think that could be done with the box, but not the ramps.</div></div>
+<div class="post" id="p341237"><div class="post-head"><a class="id" href="../t/17652.html#p341237">#341237</a> <span class="index">12</span> <span class="date">2007-07-10T05:07:15Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">If you're trying to find the shortest/longest vector, note that you can just use length-squared instead of length (avoiding the square root), so that you only need to do the √ on the shortest/longest vector. but personally i wouldn't worry about using √s all over the place until everything's working -- these days you're likely to run into cache-related speed problems before your bottleneck becomes expensive instructions.<br>
+<br>
+For determining VR containment, note that each region is bounded by planes -- and those same planes share normals with some of the axes you'll be testing. For instance, on a cube, each face's external VR is bounded by the planes containing the 4 adjacent cube faces -- so if your point isn't behind all 4 of those planes, it can't be in the face's VR region. This is the same idea behind the 2d case you mentioned -- if you know (from an axis test) that a point is in front of a given plane, you can use this knowledge to eliminate any region behind the plane. I'm not sure exactly how you'd do that in a simple way though..</div></div>
+<div class="post" id="p395062"><div class="post-head"><a class="id" href="../t/17652.html#p395062">#395062</a> <span class="index">13</span> <span class="date">2007-12-31T18:40:27Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Here's the final product of this attempt at SAT in 3d.  Still has a few issues, but I lost the source code.  I salvaged the collision source at least, but I wanted to switch away from Ogre anyway.  Since I have been working with actionscript more these days, I won't have the need for 3d collision, maybe I will try again if I get an opportunity to work on a 3d game again.  This engine, with a few tweaks, could be used to create platforming 3d games like Mega Man Legends, or any of the old school Playstation games that used a 3d grid of blocks.  A major improvement this engine would need is a good 3d tile culling algorithm, it goes awfully slow for as few blocks make up the level in the demo.<br>
+<br>
+<br>
+<a href="http://eatjason.googlepages.com/3dmonkey.html">http://eatjason.googlepages.com/3dmonkey.html</a></div></div>
+<div class="post" id="p395779"><div class="post-head"><a class="id" href="../t/17652.html#p395779">#395779</a> <span class="index">14</span> <span class="date">2008-01-02T15:19:43Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">Thanks, sorry to hear about the loss.</div></div>
+</main>
+</body>
+</html>

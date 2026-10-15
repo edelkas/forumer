@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by mithy - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370526.html">mithy</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p24702"><div class="post-head"><a class="id" href="../t/580.html#p24702">#24702</a> <span class="index">5</span> <span class="date">2004-07-12T10:16:30Z</span> <span class="author"><a href="../u/9370526.html">mithy</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/580.html#p24687">Quote: Guest, 2004-07-12T03:18:29Z</a></div>having said that, i doubt the source will be all that useful to anyone</blockquote>Well, one of the reasons that I'm interested in the source is that I'd like to port the game across to another language / platform for performance reasons (Flash sucks); I'm not sure how much of the source will be available through the tutorials, but having access to the full source of the actual game would make it easier to replicate the gameplay identically.</div></div>
+<div class="post" id="p24736"><div class="post-head"><a class="id" href="../t/580.html#p24736">#24736</a> <span class="index">9</span> <span class="date">2004-07-12T18:38:41Z</span> <span class="author"><a href="../u/9370526.html">mithy</a></span></div><div class="post-body">You wouldn't be able to do a line-by-line conversion, sure, but reproducing the animations shouldn't be all that hard. The sound system could probably be written completely differently without much loss of "familiarity". The most important elements are the physics and gameplay code, which should be straightforward to port. Getting the graphics to look close enough will take a cilantro tweaking, but is also do-able. Anti-aliasing won't pose much of a problem.<br>
+<br>
+In essence, it would probably be more like a remake than a port, I suppose, but identically reproducing the core logic from the actionscript is the key to making it seem like the same game. The additional flexibility gained by cutting loose from the Flash engine should make it possible to optimize for performance quite effectively. Animation primitives (keyframes, tweening, whatever) are for the most part a "solved" problem, so I don't expect that to pose too much of a problem.<br>
+<br>
+If anyone is interested, my intended target language is Python, probably in conjunction with pygame or OpenGL (I have some ideas for a 3D renderer, just for fun...). In the meanwhile, I'll be working on implementing the techniques detailed in the tutorial(s) in Python.</div></div>
+<div class="post" id="p25012"><div class="post-head"><a class="id" href="../t/613.html#p25012">#25012</a> <span class="index">2</span> <span class="date">2004-07-16T09:58:10Z</span> <span class="author"><a href="../u/9370526.html">mithy</a></span></div><div class="post-body">Yes, you can. On the high scores screen, take a look at the box on the left of the window, with the caption "kill count".</div></div>
+</main>
+</body>
+</html>

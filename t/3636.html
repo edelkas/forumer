@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N level files - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; N level files</nav></header>
+<main>
+<div class="post" id="p3295"><div class="post-head"><a class="id" href="../t/3636.html#p3295">#3295</a> <span class="index">1</span> <span class="date">2005-06-13T16:00:15Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">The bigger part of my N levels suffers from problems in saving my level data with Microsoft Notepad, e.g. a door trigger or gold appears at the very top of the map (over the ceiling).<br>
+<br>
+If N provided functions to save level data to and load level data from a file (*.nlev or sth. like that), such problems were no problems anymore.</div></div>
+<div class="post" id="p74471"><div class="post-head"><a class="id" href="../t/3636.html#p74471">#74471</a> <span class="index">2</span> <span class="date">2005-06-13T17:49:06Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Ummmm, "opening" a map is possible, but it would require special file formatting. An example of this is the "&amp;userdata=" line in the user levels file. "Saving" a map is definitely impossible with the current capabilities of the flash player. You just can't do it. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+Of course, if you would still like to be able to "open" a map, that would be possible only if M&amp;R implement that in N. Nevermind, they probably won't even do it. They're busy on their next game and they have to finish it till September or so. So until they do that, we'll have to wait.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+Aaand for you "gold or door trigger" problem, sorry, cant help ya. I don't have much expirience with Ned.  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> <br>
+<br>
+TS</div></div>
+<div class="post" id="p74499"><div class="post-head"><a class="id" href="../t/3636.html#p74499">#74499</a> <span class="index">3</span> <span class="date">2005-06-13T20:07:05Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Click OUTSIDE the data box before hitting "l", or for that matter any other keys.  Just paste in the data, click outside, and load it, and like magic you'll no longer have problems.  I'm assuming the problem is nly from the loading end--if you somehow saved it with a NaN in it, you're going to have to manually search the level data box for it and delete the whole string of code between the nearest !s before and after it to delete the object.  And next time, search.</div></div>
+<div class="post" id="p75450"><div class="post-head"><a class="id" href="../t/3636.html#p75450">#75450</a> <span class="index">4</span> <span class="date">2005-06-16T18:51:44Z</span> <span class="author"><a href="../u/9370927.html">LoD</a></span></div><div class="post-body">Thanks, Brickman. <img class="bb-img" src="../files/images/1418.gif" alt="" loading="lazy"><br>
+I also found a solution on myself: The solution for a problem moves the problem, so at the end, when the map is finished, I place another piece of gold. When loading the map, it won't be accessible as "out of range" but all other things will work fine.<br>
+<br>
+Of course, your solution is much better, as no extra gold irregulates the map and irritates the user.</div></div>
+<div class="post" id="p75468"><div class="post-head"><a class="id" href="../t/3636.html#p75468">#75468</a> <span class="index">5</span> <span class="date">2005-06-16T20:21:17Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Mine also works better because yours stops working once you NaN a gauss turret. . .</div></div>
+<div class="post" id="p84509"><div class="post-head"><a class="id" href="../t/3636.html#p84509">#84509</a> <span class="index">6</span> <span class="date">2005-07-19T01:16:30Z</span> <span class="author"><a href="../u/9370801.html">Game Geek</a></span></div><div class="post-body">I thought that you could have a file reader built into N for the text boxes and have it so that you could save it into a file directly or save it into userlevels.txt and could compress all the files into the exe file so that all you had to do is select the files with in N for things like help ect. I also have made a file editor and thought of 2 formats .nul for seprate saveing levels and nll for the user levels. I also thought that there could be extra text boxes in debug mode to say the name, maker and rating to directly put it into the userlevels.<br>
+nul=N user level.<br>
+nll=N level library. <div class="attachment attachment-missing">Attachment (lost): post-8-1121735790.zip</div></div></div>
+</main>
+</body>
+</html>

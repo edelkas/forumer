@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pb with collision detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Pb with collision detection</nav></header>
+<main>
+<div class="post" id="p3826"><div class="post-head"><a class="id" href="../t/4199.html#p3826">#3826</a> <span class="index">1</span> <span class="date">2005-07-25T20:46:08Z</span> <span class="author">Guest</span></div><div class="post-body">The collision test between 2 shapes works if i use <br>
+<pre class="code">	boxB.dx = 1;
+	boxB.dy = 0;
+
+	boxA.dx = 1;
+	boxA.dy = 0;</pre>but this just works for 2 shapes whithout rotation<br>
+<br>
+I tried to apply a rotation to 1 shapes and to use<br>
+<pre class="code">	lenB = Math.sqrt( boxB.xw * boxB.xw + boxB.yw * boxB.yw ); // longueur
+	boxB.dx = boxB.xw / lenB; // v. unit x
+	boxB.dy = boxB.yw / lenB; // v. unit Y
+
+	lenA = Math.sqrt( boxA.xw * boxA.xw + boxA.yw * boxA.yw ); // longueur
+	boxA.dx = boxA.xw / lenA; // v. unit x
+	boxA.dy = boxA.yw / lenA; // v. unit y</pre>and the collision detection dosen't work, could you tell me why? <br>
+<br>
+what is the method if I want to test collision between 2 shapes to which I've applied a rotation ?<br>
+<br>
+That's my code:<br>
+<pre class="code">	boxA.px = boxA._x;
+	boxA.py = boxA._y;
+	boxA.xw = boxA._width / 2;
+	boxA.yw = boxA._height / 2;
+
+	lenA = Math.sqrt( boxA.xw * boxA.xw + boxA.yw * boxA.yw ); // longueur
+	boxA.dx = boxA.xw / lenA; // v. unit x
+	boxA.dy = boxA.yw / lenA; // v. unit y
+	//trace(boxA.dx +" : "+ boxA.dy+ " -&gt; " + Math.sqrt( boxA.dx * boxA.dx + boxA.dy * boxA.dy ));
+
+// ---------------------------------------------------------
+
+	boxB.px = boxB._x;
+	boxB.py = boxB._y;
+	boxB.xw = boxB._width / 2;
+	boxB.yw = boxB._height / 2;
+
+	lenB = Math.sqrt( boxB.xw * boxB.xw + boxB.yw * boxB.yw ); // longueur
+	boxB.dx = boxB.xw / lenB; // v. unit x
+	boxB.dy = boxB.yw / lenB; // v. unit Y
+	//trace(boxB.dx +" : "+ boxB.dy+ " -&gt; " + Math.sqrt( boxB.dx * boxB.dx + boxB.dy * boxB.dy ));
+
+// ---------------------------------------------------------
+
+	function ProjectBox(box, ax, ay) {
+  ix = box.xw * box.dx;
+  iy = box.xw * box.dy;
+  jx = box.yw * -box.dy;
+  jy = box.yw * box.dx;
+  dpi = ix * ax + iy * ay;
+  dpj = jx * ax + jy * ay;
+  bsize = Math.abs(dpi) + Math.abs(dpj); // projection sur l'axe
+  return bsize;
+	}
+
+// ---------------------------------------------------------
+
+	deltax = boxA.px - boxB.px;  // vecteur entre les
+	deltay = boxA.py - boxB.py;  // 2 centres
+
+// ---------------------------------------------------------
+
+
+	axis_x = boxA.dx;  // vecteurs unitaires 
+	axis_y = boxA.dy;  // de la BoxA
+	asize = boxA.xw;   // rayon de la BoxA
+	bsize = ProjectBox(boxB, axis_x, axis_y); // rayon de la BoxB
+	dsize = Math.abs(deltax * axis_x + deltay * axis_y); 
+	penAx = (asize + bsize) - dsize;
+
+	if (penAx &gt; 0) {
+
+  axis_x = boxB.dx;
+  axis_y = boxB.dy;
+  asize = ProjectBox(boxA, axis_x, axis_y);
+  bsize = boxB.xw;
+  dsize = Math.abs(deltax * axis_x + deltay * axis_y);
+  penBx = (asize + bsize) - dsize;
+	
+  if (penBx &gt; 0) {
+  	axis_x = -boxA.dy;
+  	axis_y = boxA.dx;
+  	asize = boxA.yw; 
+  	bsize = ProjectBox(boxB, axis_x, axis_y);
+  	dsize = Math.abs(deltax * axis_x + deltay * axis_y); 
+  	penAy = (asize + bsize) - dsize; 
+  	
+  	if (penAy &gt; 0) {
+    axis_x = -boxB.dy;
+    axis_y = boxB.dx;
+    asize = ProjectBox(boxA, axis_x, axis_y);
+    bsize = boxB.yw;
+    dsize = Math.abs(deltax * axis_x + deltay * axis_y);
+    penBy = (asize + bsize) - dsize; 
+    
+      	if (penBy &gt; 0) {
+        	trace("COLLISION");
+      	}else{
+    	trace("-4");
+    	}
+  	}else{
+    trace("-3");
+  	}
+  } else {
+  	trace("-2");
+  }
+	} else {
+  trace("-1");
+	}</pre></div></div>
+<div class="post" id="p86088"><div class="post-head"><a class="id" href="../t/4199.html#p86088">#86088</a> <span class="index">2</span> <span class="date">2005-07-25T22:12:28Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OK, I see your problem.<br>
+Let's examine a piece of your code, shall we?<br>
+<br>
+boxA.px = boxA._x;<br>
+boxA.py = boxA._y;<br>
+boxA.xw = boxA._width / 2;<br>
+boxA.yw = boxA._height / 2;<br>
+<br>
+lenA = Math.sqrt( boxA.<b>xw</b> * boxA.<b>xw</b> + boxA.<b>yw</b> * boxA.<b>yw</b> ); // longueur<br>
+boxA.dx = boxA.<b>xw</b> / lenA; // v. unit x<br>
+boxA.dy = boxA.<b>yw</b> / lenA; // v. unit y<br>
+<br>
+Tell me, why are you using your box half-width and half-height to determine your box rotation?<br>
+Let's leave boxA's rotation to 0 and mess around with boxB's rotation.<br>
+If you want to make a 45 degree rotation, what do you need?<br>
+Your dx and dy will have to be equal to 1, and you will have to normalize the (dx, dy) vector. The vector length is Math.sqrt(1*1+1*1), which is equal to Math.sqrt(2). But you already have a precalculated Math.SQRT2 constant, so you don't have to compute that. After calculating the vector length, you have to divide each of the vector's components by the length, and you get your facing vector<br>
+boxB.dx = 1 / Math.SQRT2;<br>
+boxB.dy = 1 / Math.SQRT2;<br>
+<br>
+SO, to fix it, you just have to replace the box initialization lines with these:<br>
+boxA.xw = boxA._width / 2;<br>
+boxA.yw = boxA._height / 2;<br>
+boxA.dx = 1;<br>
+boxA.dy = 0;<br>
+boxB.xw = boxB._width / 2;<br>
+boxB.yw = boxB._height / 2;<br>
+boxB.dx = 1 / Math.SQRT2;<br>
+boxB.dy = 1 / Math.SQRT2;<br>
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;<br>
+<br>
+In these lines, I use a little trigonometry (the Math.atan2() function call) so you can see how the box looks rotated.<br>
+<br>
+Later, if you want, you can make things a bit more dynamic, like I did in the attached files.<br>
+Have fun!<br>
+<br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1122332082.zip</div></div></div>
+<div class="post" id="p86090"><div class="post-head"><a class="id" href="../t/4199.html#p86090">#86090</a> <span class="index">3</span> <span class="date">2005-07-25T22:32:59Z</span> <span class="author">Guest</span></div><div class="post-body">Ok thanks a lot Toshosoft.<br>
+<br>
+I can't open the .fla files from this forum like yours.<br>
+<br>
+Is it because I've Flah Mx ant not 2004, or is it because your .fla files aren't compatible with my french version of flash?</div></div>
+<div class="post" id="p86101"><div class="post-head"><a class="id" href="../t/4199.html#p86101">#86101</a> <span class="index">4</span> <span class="date">2005-07-25T22:51:25Z</span> <span class="author">Guest</span></div><div class="post-body">There is now another problem, a collision is detected when the box aren't overlapping.  I am not familiar with vectors do you have an idea from where the problem comes from?<br>
+<br>
+th'at's the code<br>
+<br>
+<pre class="code">function collisionTest(){
+
+boxA.px = boxA._x;
+boxA.py = boxA._y;
+boxA.xw = boxA._width / 2;
+boxA.yw = boxA._height / 2;
+boxA.dx = 1;
+boxA.dy = 0;
+
+boxB.px = boxB._x;
+boxB.py = boxB._y;
+boxB.xw = boxB._width / 2;
+boxB.yw = boxB._height / 2;
+boxB.dx = 1 / Math.SQRT2;
+boxB.dy = 1 / Math.SQRT2;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+	
+	
+// ---------------------------------------------------------
+
+	function ProjectBox(box, ax, ay) {
+  ix = box.xw * box.dx;
+  iy = box.xw * box.dy;
+  jx = box.yw * -box.dy;
+  jy = box.yw * box.dx;
+  dpi = ix * ax + iy * ay;
+  dpj = jx * ax + jy * ay;
+  bsize = Math.abs(dpi) + Math.abs(dpj); // projection sur l'axe
+  return bsize;
+	}
+
+// ---------------------------------------------------------
+
+	deltax = boxA.px - boxB.px;  // vecteur entre les
+	deltay = boxA.py - boxB.py;  // 2 centres
+
+// ---------------------------------------------------------
+
+
+	axis_x = boxA.dx;  // vecteurs unitaires 
+	axis_y = boxA.dy;  // de la BoxA
+	asize = boxA.xw;   // rayon de la BoxA
+	bsize = ProjectBox(boxB, axis_x, axis_y); // rayon de la BoxB
+	dsize = Math.abs(deltax * axis_x + deltay * axis_y); 
+	penAx = (asize + bsize) - dsize;
+
+	if (penAx &gt; 0) {
+
+  axis_x = boxB.dx;
+  axis_y = boxB.dy;
+  asize = ProjectBox(boxA, axis_x, axis_y);
+  bsize = boxB.xw;
+  dsize = Math.abs(deltax * axis_x + deltay * axis_y);
+  penBx = (asize + bsize) - dsize;
+	
+  if (penBx &gt; 0) {
+  	axis_x = -boxA.dy;
+  	axis_y = boxA.dx;
+  	asize = boxA.yw; 
+  	bsize = ProjectBox(boxB, axis_x, axis_y);
+  	dsize = Math.abs(deltax * axis_x + deltay * axis_y); 
+  	penAy = (asize + bsize) - dsize; 
+  	
+  	if (penAy &gt; 0) {
+    axis_x = -boxB.dy;
+    axis_y = boxB.dx;
+    asize = ProjectBox(boxA, axis_x, axis_y);
+    bsize = boxB.yw;
+    dsize = Math.abs(deltax * axis_x + deltay * axis_y);
+    penBy = (asize + bsize) - dsize; 
+    
+      	if (penBy &gt; 0) {
+        	trace("COLLISION");
+      	}else{
+    	trace("-4");
+    	}
+  	}else{
+    trace("-3");
+  	}
+  } else {
+  	trace("-2");
+  }
+	} else {
+  trace("-1");
+	}
+}
+
+ setInterval (collisionTest, 200); </pre></div></div>
+<div class="post" id="p86102"><div class="post-head"><a class="id" href="../t/4199.html#p86102">#86102</a> <span class="index">5</span> <span class="date">2005-07-25T22:52:25Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">It's definitely because you have Flash MX... I'll fix 'em right away... <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"><br>
+Oh, and don't mention it, I like helping people who have programming problems.<br>
+<br>
+TS</div></div>
+<div class="post" id="p86109"><div class="post-head"><a class="id" href="../t/4199.html#p86109">#86109</a> <span class="index">6</span> <span class="date">2005-07-25T23:05:51Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">(Yes, I know I'm double posting)<br>
+<br>
+OK... let's have a look...<br>
+Whoa! This is very wrong!<br>
+I found your mistake, btw.<br>
+NEVER, AND I MEAN NEVER, declare a function in another function!!!<br>
+Also, you seem to have just put the whole thing into one big function!<br>
+The problem is that you even put the initialization in the function!<br>
+<br>
+Fixed code:<br>
+<br>
+<pre class="code">boxA.px = boxA._x;
+boxA.py = boxA._y;
+boxA.xw = boxA._width / 2;
+boxA.yw = boxA._height / 2;
+boxA.dx = 1;
+boxA.dy = 0;
+boxB.px = boxB._x;
+boxB.py = boxB._y;
+boxB.xw = boxB._width / 2;
+boxB.yw = boxB._height / 2;
+boxB.dx = 1 / Math.SQRT2;
+boxB.dy = 1 / Math.SQRT2;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+// ---------------------------------------------------------
+function ProjectBox (box, ax, ay) {
+	ix = box.xw * box.dx;
+	iy = box.xw * box.dy;
+	jx = box.yw * -box.dy;
+	jy = box.yw * box.dx;
+	dpi = ix * ax + iy * ay;
+	dpj = jx * ax + jy * ay;
+	bsize = Math.abs (dpi) + Math.abs (dpj); // projection sur l'axe
+	return bsize;
+}
+function collisionTest () {
+	boxA.px = boxA._x;
+	boxA.py = boxA._y;
+	boxB.px = boxB._x;
+	boxB.py = boxB._y;
+	// ---------------------------------------------------------
+	deltax = boxA.px - boxB.px; // vecteur entre les
+	deltay = boxA.py - boxB.py; // 2 centres
+	// ---------------------------------------------------------
+	axis_x = boxA.dx; // vecteurs unitaires 
+	axis_y = boxA.dy; // de la BoxA
+	asize = boxA.xw; // rayon de la BoxA
+	bsize = ProjectBox (boxB, axis_x, axis_y); // rayon de la BoxB
+	dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+	penAx = (asize + bsize) - dsize;
+	if (penAx &gt; 0) {
+ axis_x = boxB.dx;
+ axis_y = boxB.dy;
+ asize = ProjectBox (boxA, axis_x, axis_y);
+ bsize = boxB.xw;
+ dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+ penBx = (asize + bsize) - dsize;
+ if (penBx &gt; 0) {
+ 	axis_x = -boxA.dy;
+ 	axis_y = boxA.dx;
+ 	asize = boxA.yw;
+ 	bsize = ProjectBox (boxB, axis_x, axis_y);
+ 	dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+ 	penAy = (asize + bsize) - dsize;
+ 	if (penAy &gt; 0) {
+  axis_x = -boxB.dy;
+  axis_y = boxB.dx;
+  asize = ProjectBox (boxA, axis_x, axis_y);
+  bsize = boxB.yw;
+  dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+  penBy = (asize + bsize) - dsize;
+  if (penBy &gt; 0) {
+  	trace ("COLLISION");
+  } else {
+  	trace ("-4");
+  }
+ 	} else {
+  trace ("-3");
+ 	}
+ } else {
+ 	trace ("-2");
+ }
+	} else {
+ trace ("-1");
+	}
+}
+setInterval (collisionTest, 200);</pre><br>
+That, or the attached file.<br>
+<br>
+TS <div class="attachment attachment-missing">Attachment (lost): post-14-1122334353.zip</div></div></div>
+<div class="post" id="p86112"><div class="post-head"><a class="id" href="../t/4199.html#p86112">#86112</a> <span class="index">7</span> <span class="date">2005-07-25T23:24:15Z</span> <span class="author">Guest</span></div><div class="post-body">Sure   <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"> <br>
+<br>
+It works now thank you.<br>
+<br>
+I am redirected to a blank page when i try to download your .fla file, i don't know why. My browser tries to open it instead of downloading it (Firefox &amp; IE).<br>
+<br>
+But i will try to find the source code of you MX 2004 .fla file thanks to the notepad.</div></div>
+<div class="post" id="p86113"><div class="post-head"><a class="id" href="../t/4199.html#p86113">#86113</a> <span class="index">8</span> <span class="date">2005-07-25T23:31:28Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Whoops, sorry 'bout that. I know about that _little_ problem but I forgot about it this time <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">.<br>
+Fixed...</div></div>
+<div class="post" id="p98428"><div class="post-head"><a class="id" href="../t/4199.html#p98428">#98428</a> <span class="index">9</span> <span class="date">2005-09-07T15:22:45Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">Try this: erase <br>
+<br>
+<pre class="code">...
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+...</pre>The collision occurs also if they don't overlap!</div></div>
+<div class="post" id="p98448"><div class="post-head"><a class="id" href="../t/4199.html#p98448">#98448</a> <span class="index">10</span> <span class="date">2005-09-07T17:02:45Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">I'd like to know how to treat an arbitrary rotation. I mean in this case I know that the angle's value is 45:<br>
+<pre class="code">boxB.dx = 1 / Math.SQRT2;
+boxB.dy = 1 / Math.SQRT2;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;</pre>For exampleI've in the stage a drawed triangle with _rotation = 0. How to check the possible collision?<br>
+<pre class="code">boxB.dx = ?
+boxB.dy = ?</pre></div></div>
+<div class="post" id="p98542"><div class="post-head"><a class="id" href="../t/4199.html#p98542">#98542</a> <span class="index">11</span> <span class="date">2005-09-07T23:32:42Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4199.html#p86088">Quote: "Myself", 2005-07-25T22:12:28Z</a></div>In these lines, I use a little trigonometry (the Math.atan2() function call) so you can see how the box looks rotated.</blockquote>The thing is that the collision code you see a little up this page only works for 45 degrees rotation. If you want dynamic code, see the file I attached in the post there. That should answer your question.<br>
+<br>
+If you still have problems with it after looking at the code, just ask. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+TS</div></div>
+<div class="post" id="p98628"><div class="post-head"><a class="id" href="../t/4199.html#p98628">#98628</a> <span class="index">12</span> <span class="date">2005-09-08T09:20:23Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">What you've coded work only if a square <span style="color:GREEN">A</span> put its <span style="color:RED">dx</span> and <span style="color:RED">dy</span> (and rotates in accordance with<br>
+dx and dy with atan2) acording to the deltax and deltay of a square <span style="color:GREEN">B</span>.<br>
+<pre class="code">boxA.xw = boxA._width / 2;
+boxA.yw = boxA._height / 2;
+boxA.dx = 1;
+boxA.dy = 0;
+boxB.xw = boxB._width / 2;
+boxB.yw = boxB._height / 2;
+boxB.dx = 1;
+boxB.dy = 0;
+//-&gt;boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+function ProjectBox (box, ax, ay) {
+	ix = box.xw * box.dx;
+	iy = box.xw * box.dy;
+	jx = box.yw * -box.dy;
+	jy = box.yw * box.dx;
+	dpi = ix * ax + iy * ay;
+	dpj = jx * ax + jy * ay;
+	return Math.abs (dpi) + Math.abs (dpj);
+}
+this.onEnterFrame = function () {
+	txtMessage.text = "";
+	boxA.px = boxA._x;
+	boxA.py = boxA._y;
+	boxB.px = boxB._x;
+	boxB.py = boxB._y;
+	deltax = boxA.px - boxB.px;
+	deltay = boxA.py - boxB.py;
+	len = Math.sqrt (deltax * deltax + deltay * deltay);
+	boxB.dx = deltax / len;
+	boxB.dy = deltay / len;
+	//-&gt;boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+	axis_x = boxB.dx;
+	axis_y = boxB.dy;
+	asize = ProjectBox (boxA, axis_x, axis_y);
+	bsize = boxB.xw;
+	dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+	penAx = (asize + bsize) - dsize;
+	if (penAx &gt; 0) {
+  // boxes overlap along axis;  check next axis
+  txtMessage.text = "1st x check passed... checking 1st y";
+  axis_x = boxB.dy;
+  axis_y = -boxB.dx;
+  asize = ProjectBox (boxA, axis_x, axis_y);
+  bsize = boxB.yw;
+  dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+  penAy = (asize + bsize) - dsize;
+  if (penAy &gt; 0) {
+  	// boxes overlap along axis;  check next axis
+  	txtMessage.text += '\n1st y check passed...checking 2nd x';
+  	axis_x = boxA.dx;
+  	axis_y = boxA.dy;
+  	asize = boxA.xw;
+  	bsize = ProjectBox (boxB, axis_x, axis_y);
+  	dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+  	penBx = (asize + bsize) - dsize;
+  	if (penBx &gt; 0) {
+    // boxes overlap along axis;  check next axis
+    txtMessage.text += '\n2nd x check passed... checking 2nd y';
+    axis_x = boxA.dy;
+    axis_y = -boxA.dx;
+    asize = boxA.yw;
+    bsize = ProjectBox (boxB, axis_x, axis_y);
+    dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+    penBy = (asize + bsize) - dsize;
+    if (penBy &gt; 0) {
+    	// boxes overlap along axis;  check next axis
+    	txtMessage.text += '\n2nd y check passed...collision detected';
+    }
+  	}
+  }
+	}
+};</pre><br>
+I'd like to know how to check collision between 2 arbitrary<br>
+ shape (for example a triangular shape and a square, but they should be anything) and iif it possible without using rotation.</div></div>
+<div class="post" id="p100655"><div class="post-head"><a class="id" href="../t/4199.html#p100655">#100655</a> <span class="index">13</span> <span class="date">2005-09-15T00:18:29Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">HI!<br>
+Help me, I don't understand how to deal with projction between two different objects from squares. With the tutorial I understand what graphically happen, but I don't understand how to implement it. In this thread I saw an example with rotation, but I'd like to study an example with for example a sloping static (not 45 degree) line and a square.</div></div>
+<div class="post" id="p100682"><div class="post-head"><a class="id" href="../t/4199.html#p100682">#100682</a> <span class="index">14</span> <span class="date">2005-09-15T02:42:26Z</span> <span class="author">Guest</span></div><div class="post-body">have you checked the source code? it might help explain things.<br>
+<br>
+also, these slides might help as well: <a href="http://www.harveycartel.org/metanet/tutorials/fitc05.zip">http://www.harveycartel.org/metanet/tutorials/fitc05.zip</a></div></div>
+<div class="post" id="p100742"><div class="post-head"><a class="id" href="../t/4199.html#p100742">#100742</a> <span class="index">15</span> <span class="date">2005-09-15T11:34:23Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">I checked it, but it seems to explain the theory and I need a pratical example. For example it quote the separating axis theorem, but it don't show how to implement it. I look to all examples but I still don't understand how to assign the right value to dx and dy.</div></div>
+<div class="post" id="p100766"><div class="post-head"><a class="id" href="../t/4199.html#p100766">#100766</a> <span class="index">16</span> <span class="date">2005-09-15T15:16:56Z</span> <span class="author">Guest</span></div><div class="post-body">the slides show source code for an entire test of two oriented boxes; this is code that works, it's not just theory.<br>
+<br>
+about dx,dy, i'm not sure what you mean -- dx,dy is just the vector between the midpoint of each object.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p100849"><div class="post-head"><a class="id" href="../t/4199.html#p100849">#100849</a> <span class="index">17</span> <span class="date">2005-09-15T22:21:36Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">Ok, for example in the slides there is a section called  "Box vs. Box: 4 axes to test". I understand what I've to test, but I don't understand how. I understand if I put dx = 1 and dy =0 I'll test the projection in the axis (direction) x, but if you look the slides you'll see "sloping axis" and I don't know how to "get" these axes. I know how to test just the x and y axis .In this thread I studied how to test 45 (more less) stuff and something with this code:<br>
+<pre class="code">...
+len = Math.sqrt (deltax * deltax + deltay * deltay);
+boxB.dx = deltax / len;
+boxB.dy = deltay / len;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+...</pre>But I don't understand the meaning. I don't want to rotate BoxB to check collision!</div></div>
+<div class="post" id="p101016"><div class="post-head"><a class="id" href="../t/4199.html#p101016">#101016</a> <span class="index">18</span> <span class="date">2005-09-16T18:49:12Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Edit: Sorry, I pressed the Add Reply button by accident... typing reply now <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Since it's about MY code, I guess I should answer it, and I will.<br>
+<pre class="code">...
+len = Math.sqrt (deltax * deltax + deltay * deltay);
+boxB.dx = deltax / len;
+boxB.dy = deltay / len;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;
+...</pre><br>
+We have the facing vector (deltax, deltay) .<br>
+For the code to work properly, you have to normalize the facing vector. To normalize a vector means to make it 1 unit long. And this is exactly what the first 3 lines do.<br>
+If you want 45 degrees rotation, your facing vector has to be (1, 1). (I think <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> )<br>
+So, if you want to normalize ANY vector, you have to calculate it's length, and then divide each vector component (x and y) by the length.<br>
+So for the vector (1, 1), you have a length of about 1.41 or something of the sort. Then you divide <i>deltax</i> and <i>deltay</i> by <i>len</i> and you get the normalized vector (dx, dy).<br>
+The fourth line just rotates the box so you see it rotated. If you remove the last line, both boxes will have 0 degrees rotation, but boxA will still collide with a box that's with 45 degrees rotation.<br>
+<br>
+And the last part of the last line converts the radians returned by atan2 to degrees.<br>
+<br>
+1 radian = 180 / PI degrees.<br>
+So to convert to degrees, we just multiply the radians by 180 / Math.PI .<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/4199.html#p100655">Quote: LITlle, 2005-09-15T00:18:29Z</a></div>... In this thread I saw an example with rotation, but I'd like to study an example with for example a sloping static (not 45 degree) line and a square.</blockquote>If you want a line, just make the half-width/half-height of one of the squares 0. It's as simple as that.<br>
+<br>
+TS</div></div>
+<div class="post" id="p101117"><div class="post-head"><a class="id" href="../t/4199.html#p101117">#101117</a> <span class="index">19</span> <span class="date">2005-09-17T02:35:20Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">First step  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+The facing vector define the x-axis and the y-axis of an object.<br>
+I have boxB that is rotated about 35 and boxA that is 0 rotated. I want to test 4 axes. For projecting the boxB into the axis defined by the boxA no problem:<br>
+a)x-axis dx=1 dy=0<br>
+<img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02">y-axis dx=0 dy=1 <br>
+PROBLEM:<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/4199.html#p101016">Quote: shoftee, 2005-09-16T18:49:12Z</a></div>We have the facing vector (deltax, deltay) .</blockquote>If I want to project the boxA into the axis defined by the boxB, I don't understand how the follow code could define the axis defined by the boxB:<br>
+<pre class="code">...
+len = Math.sqrt (deltax * deltax + deltay * deltay);
+boxB.dx = deltax / len;
+boxB.dy = deltay / len;
+...</pre>Maybe applyng rotation with atan2 they rappresent the axis defined by the boxB..I'd like to know a method that give me the axis perpendicular at the edges of my boxB.</div></div>
+<div class="post" id="p101231"><div class="post-head"><a class="id" href="../t/4199.html#p101231">#101231</a> <span class="index">20</span> <span class="date">2005-09-17T17:50:59Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I knew you would ask this! <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+By now, I told you how to get a rotation from a facing vector. Now I'll tell you how to get a facing vector from rotation.<br>
+You have to use sin and cos. <br>
+<br>
+deltax = Math.cos(x * Math.PI / 180);<br>
+deltay = Math.sin(x * Math.PI / 180);<br>
+<br>
+, where x is your rotation in degrees.<br>
+The vector (deltax, deltay) should now be unit-length, so you woudn't need any of the length calculations. Which makes the boxB initialization lines:<br>
+<br>
+<pre class="code">x = 35;
+deltax = Math.cos(x * Math.PI / 180);
+deltay = Math.sin(x * Math.PI / 180);
+boxB.dx = deltax;
+boxB.dy = deltay;
+boxB._rotation = Math.atan2 (boxB.dy, boxB.dx) * 180 / Math.PI;</pre><br>
+*tests code*<br>
+Ah, it works <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> .<br>
+Hope that helps.<br>
+<br>
+TS</div></div>
+<div class="post" id="p101492"><div class="post-head"><a class="id" href="../t/4199.html#p101492">#101492</a> <span class="index">21</span> <span class="date">2005-09-18T01:43:48Z</span> <span class="author"><a href="../u/9371095.html">LITlle</a></span></div><div class="post-body">ok!Now works!See you soon and thank you!I will study next week-end circles and strange convex shape! I've to go to university at Pisa, it begins <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+</main>
+</body>
+</html>

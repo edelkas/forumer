@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision Detection help please. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Collision Detection help please.</nav></header>
+<main>
+<div class="post" id="p16251"><div class="post-head"><a class="id" href="../t/18411.html#p16251">#16251</a> <span class="index">1</span> <span class="date">2007-07-15T16:31:22Z</span> <span class="author"><a href="../u/9372639.html">Crushproof</a></span></div><div class="post-body">I'm making a game that runs on the premise that if the enemy touches you, you die. Now the problems I'm having is that my collision code doesn't seem to work. The enemy touches you, you go on about your merry business.<br>
+<br>
+Here's the code I'm using:<br>
+<pre class="code">onClipEvent (enterFrame) {
+if (this.hitTest(-1.3+_root.sphere._x, -56.0+_root.sphere._y, true) ||
+this.hitTest(-1.3+_root.sphere._x, 54.0+_root.sphere._y, true) ||
+this.hitTest(-55.3+_root.sphere._x, -2.0+_root.sphere._y, true) ||
+this.hitTest(54.8+_root.sphere._x, -1.0+_root.sphere._y, true) ||
+this.hitTest(-44.3+_root.sphere._x, -37.0+_root.sphere._y, true) ||
+this.hitTest(42.8+_root.sphere._x, -38.0+_root.sphere._y, true) ||
+this.hitTest(-45.3+_root.sphere._x, 28.0+_root.sphere._y, true) ||
+this.hitTest(42.8+_root.sphere._x, 30.0+_root.sphere._y, true)) {
+gotoAndStop("GameOver");
+}</pre><br>
+Sphere is the name of the enemy, and GameOver is Frame 5 of a scene named Title, where my "you died" screen is. Does it (or should it) make a difference that the game over screen and the game screen are in different scenes?<br>
+<br>
+I've also tried replacing ("Gameover") with ("Title", 5), but to no avail.<br>
+I'm running on Flash MX, so you know.<br>
+Thanks for any assistance you can offer.</div></div>
+<div class="post" id="p343408"><div class="post-head"><a class="id" href="../t/18411.html#p343408">#343408</a> <span class="index">2</span> <span class="date">2007-07-15T17:43:31Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Ok, first of all, HitTest is an expensive method to call, so as soon as possible, try to get into the habit of not using it.<br>
+Secondly, if you want to know if your condition is ever true, use trace. Much more reliable, although I see no problem with going to another frame.<br>
+Now for the collision. First of all, where is this code located? Is it in the time line? player controlled object? I'm not quite sure why adding values to compare to (to the X and Y coordinates) to only one object. Can you confirm that _root.sphere actually exist? (trace(_root.sphere) should do it) If it doesn't, then you should try to obviously fix that first.<br>
+As of right now, I can't quite tell if your only comparing one object or many. Seeing the source would help.</div></div>
+<div class="post" id="p343474"><div class="post-head"><a class="id" href="../t/18411.html#p343474">#343474</a> <span class="index">3</span> <span class="date">2007-07-15T22:28:00Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I don't know what you're trying to do with that mass of hitTests, it looks like you're trying to test for lots of individual points on the shape. Avoid that, it's slow and buggy.<br>
+<br>
+In order to test the distance between 2 points use<br>
+<br>
+dist.x=p0.x-p1.x<br>
+dist.y=p0.y-p1.y<br>
+dist.len2=dist.x*dist.x+dist.y*dist.y<br>
+(the distance squared; its cheaper than using roots)<br>
+<br>
+so if your character has a radius of roughly 10 (even if its not circular) and your enemy has a radius of 5, if dist.len2 is less than 15*15 (125), then you're close enough together to touch. For most cases this is close enough even if it's not exact. And your hitTest method isn't exact anyway.<br>
+<br>
+And what ZeroTruths said is good, use trace() to test whether the shapes are colliding, rather than relying on the events its supposed to cause which could be influenced by something else</div></div>
+</main>
+</body>
+</html>

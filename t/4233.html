@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projection vector? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Projection vector?</nav></header>
+<main>
+<div class="post" id="p3856"><div class="post-head"><a class="id" href="../t/4233.html#p3856">#3856</a> <span class="index">1</span> <span class="date">2005-07-28T20:33:48Z</span> <span class="author"><a href="../u/9370807.html">Giedrius</a></span></div><div class="post-body">Why is the smallest collision vector the projection vector? There are cases when this statement is wrong. Like if 2 axis-aligned boxes collide with each other with high speed, then one collision vector could be higher than the other, and the higher one should be the projection vector.<br>
+<br>
+To make it more clear, I could attach an image, but it seems that I cannot upload bmp files.</div></div>
+<div class="post" id="p86957"><div class="post-head"><a class="id" href="../t/4233.html#p86957">#86957</a> <span class="index">2</span> <span class="date">2005-07-29T21:59:24Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">OK. In the tutorials it is said about this little problem. The only thing you can do is to multisample. There are a few other crappy methods, but multisampling is the easiest to implement.</div></div>
+<div class="post" id="p87021"><div class="post-head"><a class="id" href="../t/4233.html#p87021">#87021</a> <span class="index">3</span> <span class="date">2005-07-30T02:34:45Z</span> <span class="author">Guest</span></div><div class="post-body">there's really no way to answer the "why" question, there's no principle which points to doing things the way we've shown in the tutorial. certainly there are some problem cases where the projection vector isn't the one that looks/behaves the best.<br>
+<br>
+the problem is that it's probably impossible to come up with consistant rules about what the "best" projection vector is. really, two objects in reality _never_ overlap, so there is no obvious "right" way to deal with this case in a computer simulation.<br>
+<br>
+our approach is to say arbitrarily: when two objects overlap, the "best" way to fix it is to move the objects by the smallest amount possible so that they no longer overlap. this movement vector is sometimes called the minimum translation distance/vector (MTD), or the projection vector.<br>
+<br>
+but you're right -- there's no reason why using the smallest projection vector is the right way to do it. in fact, as you pointed out, there are cases where using the smallest vector is NOT what you want. but coming up with rules about when to use what vector is hard..<br>
+<br>
+projecting things out of each other using the MTD has no basis is physical reality, and often other approaches work just as well.<br>
+<br>
+um... yeah. i'm tired!<br>
+<br>
+raigan</div></div>
+</main>
+</body>
+</html>

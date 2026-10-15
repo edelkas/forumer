@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Bobo - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370925.html">Bobo</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p73228"><div class="post-head"><a class="id" href="../t/3540.html#p73228">#73228</a> <span class="index">3</span> <span class="date">2005-06-08T15:01:38Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Thanks Toshosoft for examing the code.  I actually figured it out after getting some rest and having a clear mind.<br>
+<br>
+As far as this line<br>
+<pre class="code">boxA.dx = boxA.xw - boxA.px;</pre><br>
+I actually left that by accident while tesing the code and accidentally copied and pasted it on my post.<br>
+<br>
+Thanks for going through the trouble and posting an FLA file.<br>
+<br>
+<br>
+I just started learning the concept of Vectors a few days ago and since you might have a better understanding of the tutorial than I do, can the <b>ProjectBox()</b> function be used to test for triangles?<br>
+<br>
+I have an mc that 100 x 100 and the hypotenus is from top left to bottom right.  The hypotenus is facing the 45 degree angle.<br>
+<br>
+My calculated facing vector for the triangle mc( <b>boxB</b> ) is this:<br>
+<pre class="code">var ax = boxB._width / 2;
+var ay = boxB._height / 2;
+var len = Math.sqrt( Math.pow( ax, 2 ) + Math.pow( ay, 2 ) );
+ax /= len;
+ay /= len;
+
+boxB.dx = ax;
+boxB.dy = ay;</pre><br>
+Assuming that my facing vector for my triangle mc is correct I now test it with my dynamic/moving box.<br>
+<br>
+I'm trying to project boxA to boxB.  boxB is that triangle mc that doesn't move and boxA is my dynamic/moving box;<br>
+<br>
+<pre class="code">...
+// After the horizontal and vertical testing
+// boxA.dx = 1;
+// boxA.dy = 0;
+axis_x = boxB.dx;
+axis_y = boxB.dy;
+
+asize = ProjectBox (boxA, axis_x, axis_y); // ????????
+bsize = ProjectBox (boxB, axis_x, axis_y);
+dsize = Math.abs (deltax * axis_x + deltay * axis_y);
+penAx = (asize + bsize) - dsize;</pre><br>
+Is my whole approach to the collision wrong?<br>
+<br>
+Thanks,<br>
+Bobo</div></div>
+<div class="post" id="p73233"><div class="post-head"><a class="id" href="../t/3545.html#p73233">#73233</a> <span class="index">7</span> <span class="date">2005-06-08T15:09:50Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">You can place that code on the very top line of your code if you like.<br>
+<br>
+Just make sure to rename <b>mcBox</b> to whatever name you used for your movie clip.<br>
+<br>
+And just to note, I'm using the MX 2004 version of flash, so I'm not sure if the code will work to prior versions.</div></div>
+<div class="post" id="p73254"><div class="post-head"><a class="id" href="../t/3540.html#p73254">#73254</a> <span class="index">4</span> <span class="date">2005-06-08T16:31:30Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">This the code I was using for the triangle test.  I would appreciate it if someone can point out how to fix it.<br>
+<pre class="code">boxA.xw = boxA._width / 2;
+boxA.yw = boxA._height / 2;
+boxA.dx = 1;
+boxA.dy = 0;
+boxB.xw = boxB._width / 2;
+boxB.yw = boxB._height / 2;
+boxB.dx = 1;
+boxB.dy = 0;
+
+function ProjectBox( box, ax, ay )
+{
+  ix = box.xw * box.dx;
+  iy = box.xw * box.dy;
+  
+  jx = box.yw * -box.dy;
+  jy = box.yw * box.dx;
+  
+  dpi = ix * ax + iy * ay;
+  dpj = jx * ax + jy * ay;
+  
+  return Math.abs( dpi ) + Math.abs( dpj );
+}
+
+this.onEnterFrame = function()
+{
+  txtMessage.text = '';
+  boxA.px = boxA._x;
+  boxA.py = boxA._y;
+  boxB.px = boxB._x;
+  boxB.py = boxB._y;
+  
+  deltax = boxA.px - boxB.px;
+  deltay = boxA.py - boxB.py;
+  
+  axis_x = boxB.dx;
+  axis_y = boxB.dy;
+  asize = boxA.xw;
+  bsize = ProjectBox( boxB, axis_x, axis_y );
+  dsize = Math.abs( deltax * axis_x + deltay * axis_y );
+  penAx = ( asize + bsize ) - dsize;
+  if( penAx &gt; 0 )
+  {
+  	// boxes overlap along axis;  check next axis
+  	txtMessage.text = 'Horizontal check passed...checking Vertical';
+  	axis_x = boxB.dy;
+  	axis_y = -boxB.dx;
+  	asize = boxA.yw;
+  	bsize = ProjectBox( boxB, axis_x, axis_y );
+  	dsize = Math.abs( deltax * axis_x + deltay * axis_y );
+  	penBx = ( asize + bsize ) - dsize;
+  	if( penBx &gt; 0 )
+  	{
+    txtMessage.text += '\nVertical check passed...checking triangle';
+    
+    //----------------------------------------------------------------
+    // Triangle code ** Doesn't work **
+    //----------------------------------------------------------------
+    ax = boxB.xw;
+    ay = boxB.yw;
+    len = Math.sqrt( Math.pow( ax, 2 ) + Math.pow( ay, 2 ) );
+    ax /= len;
+    ay /= len;
+    
+    axis_x = ax;
+    axis_y = ay;
+    asize = ProjectBox( boxA, axis_x, axis_y );
+    bsize = ProjectBox( boxB, axis_x, axis_y );
+    dsize = Math.abs( deltax * axis_x + deltay * axis_y );
+    penTx = ( asize + bsize ) - dsize;
+    if( penTx &gt; 0 )
+    {
+    	txtMessage.text += '\nTriangle check passed...collision detected.';
+    }
+    //----------------------------------------------------------------
+  	}
+  }
+}</pre><br>
+Thanks,<br>
+Bobo <div class="attachment attachment-missing">Attachment (lost): post-14-1118248290.fla</div></div></div>
+<div class="post" id="p76354"><div class="post-head"><a class="id" href="../t/3540.html#p76354">#76354</a> <span class="index">7</span> <span class="date">2005-06-19T06:27:42Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Thanks for the reply and the file<br>
+<br>
+Regards,<br>
+Bobo</div></div>
+<div class="post" id="p3378"><div class="post-head"><a class="id" href="../t/3727.html#p3378">#3378</a> <span class="index">1</span> <span class="date">2005-06-19T06:32:05Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hello all,<br>
+<br>
+What would be the vector equivalent equation of the sine function?<br>
+<br>
+I have an interval that always calculate the sine.  I guess the question is, would it be more efficient to just stick with sine function rather than create more lines of code to get the equivalent value of the sine?<br>
+<br>
+Regards,<br>
+Bobo</div></div>
+<div class="post" id="p79035"><div class="post-head"><a class="id" href="../t/3727.html#p79035">#79035</a> <span class="index">6</span> <span class="date">2005-06-27T21:31:54Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hello all,<br>
+<br>
+Well I'm basically modifying Macromedia's Tween class because I believe that it contained a lot of things that were completely unnecessary.<br>
+<br>
+I have successfully created my own version of it, but I wanted to optimize it a little bit more.  For those that don't know which class I'm talking about it is located here:<br>
+<br>
+mx.effects.Tween.as<br>
+<br>
+Within that class there is a public method at the very bottom that allows you to set the easing.  By default it's set to sine.<br>
+<pre class="code">	// defaults to sin
+function easingEquation(t,b,c,d)
+{
+      return c/2 * ( Math.sin( Math.PI * (t/d-0.5) ) + 1 ) + b;
+}</pre>That method is called under an interval and expires within a specific time set by the user or at 3000 milliseconds by default.<br>
+<br>
+This is a what the arguments stand for:<br>
+t = current time<br>
+b = starting value<br>
+c = ending value minus starting value<br>
+d = duration.<br>
+<br>
+I've already replaced <b>Math.PI</b> with my own pre-calculated value, but I really want to replace the sine function if possible.<br>
+<br>
+I guess I'm curious to see if that can be optimized.  It seems possible since sine accepts an angle as an argument, but then again it might just be extra codings.  That code does look nice and easy to read; returned value contained in one line, but in this situation, I can opt for more lines if it can be optimized.<br>
+<br>
+According to my $55.00 gaming book which I have stowed away until I stumbled into this site,<br>
+<blockquote class="quote"><div class="quote-head">Quote: From my expensive $55.00 Flash gaming book</div>Because trigonometry is costly in terms of CPU usage, simplifying the math with vectors can not only make the code easier to write, but it can speed it up as well.  When we do need to use trigonometry, we can still use vectors.</blockquote>That's really my motivation in replacing trig with vectors.  Or at least try to replace most of the trig where appropriate.</div></div>
+<div class="post" id="p80092"><div class="post-head"><a class="id" href="../t/3727.html#p80092">#80092</a> <span class="index">8</span> <span class="date">2005-06-30T21:16:40Z</span> <span class="author"><a href="../u/9370925.html">Bobo</a></span></div><div class="post-body">Hehe, I wish the reason was because I was lazy in typing in the "Math" part.  It was actually because Macromedia doesn't seem to calculate PI past this value<br>
+<br>
+3.14159265358979<br>
+<br>
+So I figured it was pointless calling a function just to get that value.<br>
+<br>
+<br>
+I do agree that one or two sine function is okay, unfortunately my prior code sample is called from a 10 millisecond interval with updateAfterEvent() called everytime.  With a duration of 3000 millisecond and with an interval rate of 10 millisecond, refreshing the stage everytime that calls a function that contains a sine function, I do believe that this is costly in terms of CPU usage.<br>
+<br>
+Regards,<br>
+Someone named Bobo</div></div>
+</main>
+</body>
+</html>

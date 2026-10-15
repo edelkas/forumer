@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hiding mice. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Hiding mice.</nav></header>
+<main>
+<div class="post" id="p14589"><div class="post-head"><a class="id" href="../t/16563.html#p14589">#14589</a> <span class="index">1</span> <span class="date">2007-03-26T17:04:26Z</span> <span class="author"><a href="../u/9373235.html">uNcoNditioNal</a></span></div><div class="post-body"><b>Here's a minor but, in my opinion, useful suggestion.</b><br>
+<br>
+I personally find it really annoying when my mouse cursor covers part of a map when I'm highscoring, or just playing N for that matter. It might sound lazy on my part not moving the mouse, but it happens so much when I flick between windows that I thought there might be a painless solution. I know absolutely nothing about programming but I'm sure there's a way to "hide" the mouse when it's stationary over the N window. I just wondered if it's a problem for anyone else and how easy it would be to implement.</div></div>
+<div class="post" id="p307888"><div class="post-head"><a class="id" href="../t/16563.html#p307888">#307888</a> <span class="index">2</span> <span class="date">2007-03-26T17:32:28Z</span> <span class="author"><a href="../u/9372014.html">Limer</a></span></div><div class="post-body">im all for it.</div></div>
+<div class="post" id="p307927"><div class="post-head"><a class="id" href="../t/16563.html#p307927">#307927</a> <span class="index">3</span> <span class="date">2007-03-26T20:53:04Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p14589">Quote: uNcoNditioNal, March 26, 2007 09:04 am</a></div>I know absolutely nothing about programming but I'm sure there's a way to "hide" the mouse when it's stationary over the N window. I just wondered if it's a problem for anyone else and how easy it would be to implement.</blockquote><pre class="code">Mouse.hide();</pre><br>
+Or, if you want it to only be after a few seconds:<br>
+<br>
+(each frame)<pre class="code">mousecounter++;
+if (mousecounter &gt;= 40) {
+  Mouse.hide();
+}</pre><br>
+(on mouse move)<pre class="code">Mouse.show();
+mousecounter = 0;</pre><br>
+<b>Edit:</b> By the way, good idea. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p307928"><div class="post-head"><a class="id" href="../t/16563.html#p307928">#307928</a> <span class="index">4</span> <span class="date">2007-03-26T20:55:36Z</span> <span class="author"><a href="../u/9371955.html">lord_day</a></span></div><div class="post-body">I prefer being able to see the mouse for mutliple reasons.<br>
+<br>
+And so if this was implemented, I think it shoud have an option in the Configure menu for 'on' or 'off'.</div></div>
+<div class="post" id="p307937"><div class="post-head"><a class="id" href="../t/16563.html#p307937">#307937</a> <span class="index">5</span> <span class="date">2007-03-26T21:19:09Z</span> <span class="author"><a href="../u/9373235.html">uNcoNditioNal</a></span></div><div class="post-body">Yeah, that would be very helpful. And it seems it would be very easy to implement?</div></div>
+<div class="post" id="p307945"><div class="post-head"><a class="id" href="../t/16563.html#p307945">#307945</a> <span class="index">6</span> <span class="date">2007-03-26T21:38:15Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">It would be very easy.</div></div>
+<div class="post" id="p307994"><div class="post-head"><a class="id" href="../t/16563.html#p307994">#307994</a> <span class="index">7</span> <span class="date">2007-03-27T00:51:08Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">This seems like a very good idea. I'm for it.</div></div>
+<div class="post" id="p308006"><div class="post-head"><a class="id" href="../t/16563.html#p308006">#308006</a> <span class="index">8</span> <span class="date">2007-03-27T01:20:49Z</span> <span class="author"><a href="../u/9373400.html">Blackeagle13</a></span></div><div class="post-body">I don't know flash, but I do know some other programming and this is an easy feature to do</div></div>
+<div class="post" id="p308064"><div class="post-head"><a class="id" href="../t/16563.html#p308064">#308064</a> <span class="index">9</span> <span class="date">2007-03-27T06:46:47Z</span> <span class="author"><a href="../u/9371156.html">The LearNer</a></span></div><div class="post-body">That'd probably be the simplest thing they'd ever implement!<br>
+<br>
+I guess I'm in too but only if there's a configure switch to turn it on and off...</div></div>
+<div class="post" id="p308071"><div class="post-head"><a class="id" href="../t/16563.html#p308071">#308071</a> <span class="index">10</span> <span class="date">2007-03-27T07:17:39Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Seems reasonable. Except in menus and Ned, of course.</div></div>
+<div class="post" id="p308096"><div class="post-head"><a class="id" href="../t/16563.html#p308096">#308096</a> <span class="index">11</span> <span class="date">2007-03-27T11:49:57Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">...<br>
+For Pete's sake... don't you people search before suggesting?<br>
+It's awesome and all, my point is that even <i>I</i> have suggested this before. And, looking at my post count, that says a lot.<br>
+<br>
+TS</div></div>
+<div class="post" id="p308550"><div class="post-head"><a class="id" href="../t/16563.html#p308550">#308550</a> <span class="index">12</span> <span class="date">2007-03-29T13:49:35Z</span> <span class="author"><a href="../u/9373235.html">uNcoNditioNal</a></span></div><div class="post-body">I did search, albeit briefly. Sorry TS!</div></div>
+<div class="post" id="p308572"><div class="post-head"><a class="id" href="../t/16563.html#p308572">#308572</a> <span class="index">13</span> <span class="date">2007-03-29T18:48:09Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p307927">Quote: jtbandes, March 26, 2007 03:53 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p14589">Quote: uNcoNditioNal, March 26, 2007 09:04 am</a></div>I know absolutely nothing about programming but I'm sure there's a way to "hide" the mouse when it's stationary over the N window. I just wondered if it's a problem for anyone else and how easy it would be to implement.</blockquote><pre class="code">Mouse.hide();</pre>  </blockquote> <br>
+  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol">  That was funny.<br>
+<br>
+What you could do is just move the mouse out of the way  <img class="smiley" src="../files/smilies/29.gif" alt="ashamed" title="ashamed"> <br>
+meh, either way.</div></div>
+<div class="post" id="p308573"><div class="post-head"><a class="id" href="../t/16563.html#p308573">#308573</a> <span class="index">14</span> <span class="date">2007-03-29T18:49:38Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">How aboot instant disappear on actual game (it's not needed) but maybe some form of crosshair in NED? Even if it was just four small lines, maybe even the current level building one, maybe turned 45 degrees, thinned out and the black dot removed from the centre. I know it sounds corny, but when I'm practising in NED, it's pretty annoying, especially when you move it accidentally into a tricky spot. That way you could still see where it is, but also see through it.</div></div>
+<div class="post" id="p308754"><div class="post-head"><a class="id" href="../t/16563.html#p308754">#308754</a> <span class="index">15</span> <span class="date">2007-03-30T05:02:30Z</span> <span class="author"><a href="../u/9373409.html">pajammin</a></span></div><div class="post-body">It's not like I hold any highscores, but it certainly gets in the way when I'm playing the game.  I'm all for this.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p308573">Quote: Ad, 2007-03-29T18:49:38Z</a></div>How aboot instant disappear on actual game (it's not needed) but maybe some form of crosshair in NED? Even if it was just four small lines, maybe even the current level building one, maybe turned 45 degrees, thinned out and the black dot removed from the centre. I know it sounds corny, but when I'm practising in NED, it's pretty annoying, especially when you move it accidentally into a tricky spot. That way you could still see where it is, but also see through it.</blockquote>It would still piss me off.  I know that it would still get in the way for me.  But that's just me... the retard...</div></div>
+<div class="post" id="p308932"><div class="post-head"><a class="id" href="../t/16563.html#p308932">#308932</a> <span class="index">16</span> <span class="date">2007-03-30T22:17:21Z</span> <span class="author"><a href="../u/9374079.html">Skyline</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p308573">Quote: Ad, March 29, 2007 01:49 pm</a></div> How aboot  </blockquote> <br>
+ Did you make a typo or is that how they spell it in England?<br>
+<br>
+Just curious.<br>
+<br>
+Anyways, I think this would be a pretty good idea. It does get annoying when your mouse is covering a section of the map, which could affect a lot. They should definitely have it in the configure menu, though.</div></div>
+<div class="post" id="p309130"><div class="post-head"><a class="id" href="../t/16563.html#p309130">#309130</a> <span class="index">17</span> <span class="date">2007-03-31T11:28:54Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">They spell it about. I was just being silly.</div></div>
+<div class="post" id="p309652"><div class="post-head"><a class="id" href="../t/16563.html#p309652">#309652</a> <span class="index">18</span> <span class="date">2007-04-02T19:10:12Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body">I vote for the implimentation of this because I, too, am too lazy to move the mouse.</div></div>
+<div class="post" id="p309657"><div class="post-head"><a class="id" href="../t/16563.html#p309657">#309657</a> <span class="index">19</span> <span class="date">2007-04-02T19:19:27Z</span> <span class="author"><a href="../u/9371245.html">Borealis</a></span></div><div class="post-body"><img class="bb-img" src="http://img115.imageshack.us/img115/2200/lazymouselr1.png" alt="" loading="lazy"></div></div>
+<div class="post" id="p309661"><div class="post-head"><a class="id" href="../t/16563.html#p309661">#309661</a> <span class="index">20</span> <span class="date">2007-04-02T19:33:18Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16563.html#p309657">Quote: Borealis, April 02, 2007 07:19 pm</a></div> <img class="bb-img" src="http://img115.imageshack.us/img115/2200/lazymouselr1.png" alt="" loading="lazy">  </blockquote> <br>
+ <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD">!<br>
+...So? If I were truly lazy enough to scare a mouse, I wouldn't have the problem of the mouse being there. <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p309672"><div class="post-head"><a class="id" href="../t/16563.html#p309672">#309672</a> <span class="index">21</span> <span class="date">2007-04-02T20:06:26Z</span> <span class="author"><a href="../u/9373235.html">uNcoNditioNal</a></span></div><div class="post-body">Hehe.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Major Problems with NED - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Major Problems with NED</nav></header>
+<main>
+<div class="post" id="p19764"><div class="post-head"><a class="id" href="../t/22085.html#p19764">#19764</a> <span class="index">1</span> <span class="date">2008-04-01T02:53:40Z</span> <span class="author"><a href="../u/9375985.html">MistaX8</a></span></div><div class="post-body">I've been using it a few times already and haven't had a problem, now suddenly, it's acting really strange. I start making a level and at some point add a door. I test the level and when I hit the door, it flickers over and over again before my character is killed, and when I exit the test mode, it has "level completed" in the corner a hundred or so times (how ever many times my guy flickered in the doorway is my guess).<br>
+<br>
+So, I went to test it by pasting the code into userlevels.txt and then fired up the level. All I got was a really messed up view. I see elements of my level, but then, elements of random pre-existing levels in the game, and my guy just seems to walk through all the tiles. I don't know why this is happening. I tried re-creating the level from scratch to see if there was something wrong with that code but it still does it. Anyone know what the problem could be? It's not like I've dowloaded the game again or anything, it's the exact same version I've used to make my other levels.<br>
+<br>
+EDIT: Also, if I copy and repaste the data, it moves the location of my Ninja. I made sure I didn't accidentally leave an "L" in the textbox and everything. I don't know why it is suddenly doing this, all the custom levels I already made still work, though, I haven't tried pasting their code back into the editor to see what happens yet. It just seems like the editor is spitting out erroneous code all of a sudden. It doesn't make any sense that that would happen though.</div></div>
+<div class="post" id="p424122"><div class="post-head"><a class="id" href="../t/22085.html#p424122">#424122</a> <span class="index">2</span> <span class="date">2008-04-01T03:10:22Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">The flickering ninja in Ned is normal, the repeated "level completed" is normal. Reset your level before copying the data to keep the ninja from changing position. As for the userlevels thing, I'm guessing you didn't use the userlevels format and N couldn't load the data correctly. ( $Level name#Author#Category#00000100MAPDATA...# )</div></div>
+<div class="post" id="p424124"><div class="post-head"><a class="id" href="../t/22085.html#p424124">#424124</a> <span class="index">3</span> <span class="date">2008-04-01T03:18:12Z</span> <span class="author"><a href="../u/9375985.html">MistaX8</a></span></div><div class="post-body">Nope, I've used the same userlevels data that I've used with every other level I've made. I've reset the level every time before I copied or pasted anything. I've done the same thing every time I've made a level and haven't had problems until now.<br>
+<br>
+Even if the flickering ninja in the doorway is normal, the messed up levels are not, and I've made sure that I've done everything correctly, everything that I've done the last 5 times I made a level.<br>
+<br>
+Edit: just tried it again, this time, everything was fine, except it moved the door switch off the map where it is unreachable. I'm thinking I should try deleting the program and re-downloading it.<br>
+<br>
+Edit: Fixed it. Don't know how, but I fixed it. I just deleted every user level I've added and re-added them all. Now everything seems to be working fine, at least I hope.</div></div>
+</main>
+</body>
+</html>

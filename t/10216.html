@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiple Collisions - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Multiple Collisions</nav></header>
+<main>
+<div class="post" id="p9182"><div class="post-head"><a class="id" href="../t/10216.html#p9182">#9182</a> <span class="index">1</span> <span class="date">2006-06-01T20:19:12Z</span> <span class="author"><a href="../u/9370926.html">comet56us</a></span></div><div class="post-body">I've been working on a game (in Java, since I've never used ActionScript) using some of the collision detection explored in the N tutorials (specifically, the first tutorial, since I'm not using a grid-based system). It's all been working great, but I'm not sure how to deal with an object that simultaneously collides with two other objects. <br>
+<br>
+For example, I'm trying to add in boxes, which the player can push around by running into them. They work a lot of the time, but since the boxes react to collisions with both the player and the environment (i.e. platforms, right now), situations where it touches both don't work. <br>
+<br>
+Say a box is standing still on a platform. Right now, if the player lands on top of it, the box will project away from the player, moving it down into the wall. It will then project out of the wall and back into the player. Since gravity continues to act on the player, the box goes further into the player until it is projected to either side. This is actually looks decent, but I would rather be able to test for this situation and have the player stand on top of the box in that case (i.e. the player is projected away from the box, rather than the box being projected away from the player).<br>
+<br>
+I think this situation is similar to one in N, when a non-deadly side of a thwump is pushing the ninja. Multiple collisions can occur if the thwump pushes the ninja into a wall, and causes the ninja to die. How was that situation tested for in N?<br>
+<br>
+I am also thinking about implementing moving platforms, which would pose similar problems. The player will still be projected out of the moving platforms, just as with any other platform. However, I am not sure how to deal with a situation where the player is stuck in between two platforms. Like with the box, the player will project out of one platform into the other, then project out of that other platform into the first one.<br>
+<br>
+Sorry about the long post, but I would really appreciate any help on this topic.</div></div>
+<div class="post" id="p183207"><div class="post-head"><a class="id" href="../t/10216.html#p183207">#183207</a> <span class="index">2</span> <span class="date">2006-06-01T21:52:01Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">I <i>think</i> that you need to have a 'round' of working out all the seperate forces acting on the character/boxes, then sum them into a single force (easy enough if you're working forces in terms of x/y vectors). Then make that summed force act on the character/boxes/other.<br>
+<br>
+I'm no expert though.</div></div>
+<div class="post" id="p187112"><div class="post-head"><a class="id" href="../t/10216.html#p187112">#187112</a> <span class="index">3</span> <span class="date">2006-06-10T06:16:41Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">I'm having a similar problem where I have large groups of moving AABB sprites colliding.  It basically works just fine, but about 1 in 10 cycles through the collision routine results in a sprite embedded in another.<br>
+<br>
+I cribbed my collision and resolution routines from the Tutorial source code and converted them to Python.<br>
+<br>
+This is my main collision loop:<br>
+<br>
+<pre class="code">for i in range(0, 4):  # The world is split up into four overlapping quads to reduce tests
+    allColls =  world.collQuad[i].sprites() # all sprites in quad
+    tmplist = [(x.moving, x) for x in allColls] # Generates a list of
+    tmplist.sort()                                         # sprites sorted by whether
+    tmplist.reverse()                                       # they moved this tick
+    allColls = [x for (key, x) in tmplist]                 # True first
+    index = 0
+    for s in allColls:
+        if s.moving == False:                    # The first time it hits a non-moving 
+                                                          # it should exit, as the remainder of tests are meaningless
+            break
+        index += 1
+        for other in allColls[index:]:           # The [index:] is a slice, which means that for all sprite objects, it will only test sprite objects later in the list than s
+            if cast.collideAABBVsTile(s,other):
+                 s.touch(other)  # Some special code for other
+                 other.touch(s)  # non-physics collision interaction</pre><br>
+I figure the collision and projection is either being resolved in the wrong order, and/or is getting called multiple times on the same sprites.</div></div>
+<div class="post" id="p187303"><div class="post-head"><a class="id" href="../t/10216.html#p187303">#187303</a> <span class="index">4</span> <span class="date">2006-06-10T17:52:40Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">this is a hard problem to solve, since you really want to find the global solution to many-things-colliding-at-once, but realistically you can only solve them pairwise.<br>
+<br>
+in N we never really fixed this problem, however for the new game we're trying to handle it. i'd recommend running several iterations of collision -- things will be slower, but that's really the only way to move towards the global solution using only pairwise operations.<br>
+<br>
+another trick which might help is to build a "contact graph" each frame, which describes how close to the ground/unmoveable world each object is. if you google "shock propagation" you'll find some papers. BUT: this is quite complicated, probably more than necessary. <br>
+<br>
+we've found that a simpler solution (a dumbed-down version of the real solution) is to reorder collision:<br>
+-collide all objects vs. the world (i.e vs any objects that can't be moved/have infinite mass); for each collision, keep track of the collision normal (i.e the direction you pushed the object out of collision)<br>
+-collide all objects vs. each other as usual, BUT: if either of the objects collided with the world, don't let it move at all in the world-collision-normal direction -- it should behave as if it's infinitely massive if pushed in that direction (i.e into the world). so, the other object should move instead.<br>
+<br>
+of course, since this is sort of a hacky solution, there are still problems sometimes, for instance when two objects touch the world but push each other into the world.. still, it helps a lot.. it should certainly help the standing-on-boxes case.<br>
+<br>
+<br>
+finally, i'm not sure that our projection method is the best way to respond to collisions; we may actually end up rewriting all of our physics code in the new game with stuff based on erin catto's awesomely simple impulse-based method. you can use the same collision detection code as in our tutorials, you just need to change the response: <a href="http://www.gphysics.com/?page_id=16">http://www.gphysics.com/?page_id=16</a></div></div>
+<div class="post" id="p188106"><div class="post-head"><a class="id" href="../t/10216.html#p188106">#188106</a> <span class="index">5</span> <span class="date">2006-06-11T23:53:00Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body">Hmm, that demo is quite lovely, but it's not actually the kind of collision and response I need.  I'm doing rather simple AABB sprite and tile interaction, where the moving sprites are people and the non-moving sprites are stuff like walls, rocks, turrets, etc. that are totally solid.<br>
+<br>
+What I've just tried is a message system, where the enemy sprite objects don't project from each other (they're relatively soft bodies, after all), but instead pass a message based on their relative position when they collide (sprite1: "Hey, you're crowding me to the left!", sprite2 "Yeah, well, you're crowding me to the right!"), so in their next update, they look at their messages and use that to make a decision about their next position.<br>
+<br>
+Still tuning it, but this seems like a cheap way to keep the speed, keep the moving on solid collision response, and cheat the moving on moving collision interaction.<br>
+<br>
+In a nutshell:<br>
+<pre class="code">def touch(self, other):
+    # Crowding avoidance
+    	
+    if ['person',True] in other.quality_set:
+        if other.coll_rect.centerx &gt; self.coll_rect.centerx:
+            self.messages.append("CROWD_RIGHT")
+        elif other.coll_rect.centerx &lt; self.coll_rect.centerx:
+            self.messages.append("CROWD_LEFT")
+        else:
+            pass
+        if other.coll_rect.centery &gt; self.coll_rect.centery:
+            self.messages.append("CROWD_DOWN")
+        elif other.coll_rect.centery &lt; self.coll_rect.centery:
+            self.messages.append("CROWD_UP")
+        else:
+            pass
+
+def think(self):
+    if self.target == None:
+        self.target = world.ego
+    target = self.target.coll_rect
+    coll = self.coll_rect
+    if target.centerx &gt; coll.centerx+self.speed:
+        if "CROWD_RIGHT" in self.messages:
+            if self.x_direction == right:
+                 self.stopRight()
+        else:
+            if self.x_direction != right:
+                self.startRight()
+    else:
+            if "CROWD_LEFT" in self.messages:
+                if self.x_direction == left:
+                     self.stopLeft()
+            else:
+                if self.x_direction != left:
+                     self.startLeft()    
+    if target.centery &lt; coll.centery-self.speed:
+           if "CROWD_UP" in self.messages:
+               if self.y_direction == up:
+                    self.stopUp()
+           else:
+               if self.y_direction != up:
+                    self.startUp()
+    else:
+           if "CROWD_DOWN" in self.messages:
+                if self.y_direction == down:
+                    self.stopDown()
+           else:
+                if self.y_direction != down:
+                    self.startDown()
+    self.messages = []</pre></div></div>
+</main>
+</body>
+</html>

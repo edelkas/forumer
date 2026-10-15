@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is there any way... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Is there any way...</nav></header>
+<main>
+<div class="post" id="p15041"><div class="post-head"><a class="id" href="../t/17147.html#p15041">#15041</a> <span class="index">1</span> <span class="date">2007-04-30T09:04:40Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Starts off as unlocked, you flip one switch and it becomes locked, you flip another and it becomes unlocked?<br>
+<br>
+As in, sort of a separate "undo" switch for trap doors?<br>
+<br>
+It doesn't have to look like it's unlocked, I just need the functionality...so is it possible? If so, how? I've been fiddling with door stacking and the only thing I can get is Locked &gt; Unlocked &gt; locked, but you can do that anyways by having a locked door unlock and triggering a separate trap door later...<br>
+<br>
+If I can't, I'm going to have to get really, really clever to work around it somehow...</div></div>
+<div class="post" id="p317013"><div class="post-head"><a class="id" href="../t/17147.html#p317013">#317013</a> <span class="index">2</span> <span class="date">2007-04-30T11:50:55Z</span> <span class="author"><a href="../u/9373418.html">apg</a></span></div><div class="post-body">Why would you want to use the same door over and over again? <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"><br>
+<br>
+I don't see this very conventional in maps, but here's one solution: <div class="attachment attachment-missing">Attachment (lost): post-10-1177933855.txt</div></div></div>
+<div class="post" id="p317014"><div class="post-head"><a class="id" href="../t/17147.html#p317014">#317014</a> <span class="index">3</span> <span class="date">2007-04-30T12:10:24Z</span> <span class="author"><a href="../u/9371955.html">lord_day</a></span></div><div class="post-body">Maybe this isn't the kind of mechanics you are looking for, but it certainly gives:<br>
+<br>
+unlocked &gt; locked &gt; unlocked<br>
+<br>
+But it uses drones  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  <div class="attachment attachment-missing">Attachment (lost): post-10-1177935024.txt</div></div></div>
+<div class="post" id="p317091"><div class="post-head"><a class="id" href="../t/17147.html#p317091">#317091</a> <span class="index">4</span> <span class="date">2007-04-30T20:15:48Z</span> <span class="author"><a href="../u/9374385.html">jaybro</a></span></div><div class="post-body">i BELIEVE you have a bug in the level. The middle locked door you can go through.</div></div>
+<div class="post" id="p317092"><div class="post-head"><a class="id" href="../t/17147.html#p317092">#317092</a> <span class="index">5</span> <span class="date">2007-04-30T20:16:29Z</span> <span class="author"><a href="../u/9373409.html">pajammin</a></span></div><div class="post-body">Your mom's a kitchen sink.</div></div>
+<div class="post" id="p317201"><div class="post-head"><a class="id" href="../t/17147.html#p317201">#317201</a> <span class="index">6</span> <span class="date">2007-05-01T00:33:45Z</span> <span class="author"><a href="../u/9374296.html">Mr__X</a></span></div><div class="post-body">IGNORE THIS POST, LOOK AT THE ONE BELOW<br>
+<br>
+It's actually pretty easy to do, they're called ghost doors. If you put a trap door and a locked door down on the same place, then activate the trap door and then the locked door, you can go through the trap door. Look at the code in debug mode.</div></div>
+<div class="post" id="p317203"><div class="post-head"><a class="id" href="../t/17147.html#p317203">#317203</a> <span class="index">7</span> <span class="date">2007-05-01T00:37:10Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17147.html#p317201">Quote: Mr__X, 30, 2007 05:33 pm</a></div> It's actually pretty easy to do, they're called ghost doors. If you put a trap door and a locked door down on the same place, then activate the trap door and then the locked door, you can go through the trap door. Look at the code in debug mode.  </blockquote> <br>
+ But he wants it to be unlocked, then locked, then unlocked again. Ghost doors can only do locked, then unlocked. In fact... Isn't that the same as just a locked door? Why do ghost doors exist?</div></div>
+<div class="post" id="p317261"><div class="post-head"><a class="id" href="../t/17147.html#p317261">#317261</a> <span class="index">8</span> <span class="date">2007-05-01T02:21:52Z</span> <span class="author"><a href="../u/9374296.html">Mr__X</a></span></div><div class="post-body">Oh, yeah, huh. (Edits post.)<br>
+<br>
+Here's one that DOES work, but it uses a 2x2 area and oneways, if that's fine. And it only works once.<br>
+Here's the code, yes I've tried to attach the file, but it doesn't like it.<br>
+<br>
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111011111111111111111111110111111111111111111111101111111111111111111111011111111111111111111100111111111111111111111001111111111111111111111011111111111111111111110111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111|5^300,276!7^396,276,0!7^420,276,3!7^420,252,1!9^492,276,1,0,17,11,1,0,-1</div></div>
+<div class="post" id="p317270"><div class="post-head"><a class="id" href="../t/17147.html#p317270">#317270</a> <span class="index">9</span> <span class="date">2007-05-01T02:42:48Z</span> <span class="author"><a href="../u/9370712.html">nevermore</a></span></div><div class="post-body">Ur? Once again, that's just Unlocked -&gt; Locked.</div></div>
+<div class="post" id="p317274"><div class="post-head"><a class="id" href="../t/17147.html#p317274">#317274</a> <span class="index">10</span> <span class="date">2007-05-01T02:49:50Z</span> <span class="author"><a href="../u/9374296.html">Mr__X</a></span></div><div class="post-body">You can jump through the top oneway from the right side.</div></div>
+<div class="post" id="p317285"><div class="post-head"><a class="id" href="../t/17147.html#p317285">#317285</a> <span class="index">11</span> <span class="date">2007-05-01T03:25:50Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body">Mr___X and apg, I don't understand your solutions.<br>
+<br>
+Lord_day, that's a very good idea, and I would use it, but unfortunately I have limited space. I need 28 of those locks. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+If you all want to know why I need this functionality, it's because I'm making a Hangman game. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+I need the player to select the letter spaces by touching a double layered switch, one for providing a trap door platform, and one for a trap door blocking the exit. When a player gets a letter right, they go to their corresponding platform and flip the switch, which removes one of the trap doors. If they get it wrong, they go to the "wrong" section, which adds a body feature and puts up a trap door in the "wrong" area (the last body part seals the area off and the attack drones are released).<br>
+<br>
+Therein lies the problem, though; undoing the trap door on the flip of a switch...</div></div>
+</main>
+</body>
+</html>

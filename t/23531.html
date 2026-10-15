@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MotherLode Guarded (Chase AI 2) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; MotherLode Guarded (Chase AI 2)</nav></header>
+<main>
+<div class="post" id="p21134"><div class="post-head"><a class="id" href="../t/23531.html#p21134">#21134</a> <span class="index">1</span> <span class="date">2008-08-17T14:28:17Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">MotherLode Guarded (Chase AI 2) <br>
+<a href="http://nmaps.net/135355">http://nmaps.net/135355</a><br>
+<br>
+Restart NReality (a mod of N, download @ n.infunity.com) to retrieve this new update of Chasing Pathing AI 2<br>
+<br>
+Chasing Pathing 10 (Path ID 10) : append the following to the drones/objects<br>
+^^^,10,direction,speed,chaseWhenSighted<br>
+<br>
+The drone/object will first set its goal position as ninja current position, then once the object reached that goal position, it will reset its goal position again.<br>
+<br>
+Such as the zap drone in this map:<br>
+6^588,492,10,0,0,1^^^,10,0,1<br>
+<br>
+chaseWhenSighted: default undefined. Set it to 1 when you want it to chase the ninja only when the it 'sees' the ninja, such as the alarm drone in this map<br>
+6^300,84,0,0,132,0^,,,,,,,1^^,10,0,4,1<br>
+<br>
+I personally think that this chase AI combined with alarm drone, makes the ninja act like more an assassin</div></div>
+<div class="post" id="p461424"><div class="post-head"><a class="id" href="../t/23531.html#p461424">#461424</a> <span class="index">2</span> <span class="date">2008-08-17T18:45:08Z</span> <span class="author"><a href="../u/9375959.html">Eiturlyf</a></span></div><div class="post-body">YOU ARE THE PERFECT DRUG</div></div>
+<div class="post" id="p461553"><div class="post-head"><a class="id" href="../t/23531.html#p461553">#461553</a> <span class="index">3</span> <span class="date">2008-08-17T23:58:43Z</span> <span class="author"><a href="../u/9375434.html">Be_Happy_:)</a></span></div><div class="post-body">It took me I while to understand exactly how this drone function, but once I figured it out it proved to be quite interesting. Great Job <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:">.</div></div>
+<div class="post" id="p461695"><div class="post-head"><a class="id" href="../t/23531.html#p461695">#461695</a> <span class="index">4</span> <span class="date">2008-08-18T11:43:45Z</span> <span class="author"><a href="../u/9376196.html">Maser</a></span></div><div class="post-body">This is awesome <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> that alarm drone works so good at a map like this, with much space and possible ways to go.<br>
+<br>
+<br>
+EDIT: Just thought of something, this feels a little stiff, could you add the chasewhensighted function to Chase AI 1 also? That would feel much smoother.<br>
+<br>
+EDIT2: Or, you could add some changepath function, works like this: if the drone is moving, and it sees you again, it change path to the position where the ninja is located. The drone could to this like once every second (could be changed in some way)</div></div>
+<div class="post" id="p461725"><div class="post-head"><a class="id" href="../t/23531.html#p461725">#461725</a> <span class="index">5</span> <span class="date">2008-08-18T14:11:26Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">&gt;could you add the chasewhensighted function to Chase AI 1 also? That would feel much smoother.<br>
+<br>
+I tried but the drone/object constantly stucked inside tiles and become useless, so I decided not to implement it<br>
+<br>
+&gt;if the drone is moving, and it sees you again, it change path to the position where the ninja is located.<br>
+<br>
+Thanks for your idea, in fact I was thinking about that. Implemented <a href="http://nmaps.net/135477">http://nmaps.net/135477</a></div></div>
+<div class="post" id="p461727"><div class="post-head"><a class="id" href="../t/23531.html#p461727">#461727</a> <span class="index">6</span> <span class="date">2008-08-18T14:11:50Z</span> <span class="author"><a href="../u/9371659.html">Unreality</a></span></div><div class="post-body">Hive Jinks Sealed (Chase AI 2 Update) <br>
+<a href="http://nmaps.net/135477">http://nmaps.net/135477</a><br>
+<br>
+Remake of metanet lvl 82-1 Hive Jinks by newt<br>
+<br>
+Restart NReality (a mod of N, download @ n.infunity.com) to retrieve this new update of Chasing Pathing AI 2 Update<br>
+<br>
+Chasing Path ID 10 : append the following to the drones/objects<br>
+^^^,10,direction,speed,chaseWhenSighted,chaseKeepUpdate<br>
+<br>
+For Chasing Path ID 10 please refer to this <a href="http://nmaps.net/135355">http://nmaps.net/135355</a><br>
+<br>
+chaseKeepUpdate: default undefined, you can set to 1 if you want the drone/object keep updating the path when it sees the ninja</div></div>
+<div class="post" id="p461776"><div class="post-head"><a class="id" href="../t/23531.html#p461776">#461776</a> <span class="index">7</span> <span class="date">2008-08-18T18:08:23Z</span> <span class="author"><a href="../u/9375959.html">Eiturlyf</a></span></div><div class="post-body">I love you.</div></div>
+<div class="post" id="p461917"><div class="post-head"><a class="id" href="../t/23531.html#p461917">#461917</a> <span class="index">8</span> <span class="date">2008-08-19T03:54:19Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">Nice.</div></div>
+</main>
+</body>
+</html>

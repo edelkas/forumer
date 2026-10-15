@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iMap returns - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/33.html">Fan Programs</a> &rsaquo; iMap returns</nav></header>
+<main>
+<div class="post" id="p13099"><div class="post-head"><a class="id" href="../t/14752.html#p13099">#13099</a> <span class="index">1</span> <span class="date">2006-12-23T12:52:29Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Hey guys,<br>
+<br>
+These past few days I have started work on my map editor again, trying to build on the feedabck from last time I posted it.<br>
+<br>
+I have added several features since then, and also completely re-written the interface in a non-idiotic way.<br>
+<br>
+Current release version is 0.0.0.1 (development is approaching 0.0.0.2), I have implemented as many features as I thought were necessary for a release, and have greyed out the buttons which don't do anything yet.<br>
+<br>
+Please read the readme for the controls, as I made my own control system. Many of you will probably dislike this because it is different from Ned, but please give it a chance. I prefer this style.<br>
+<br>
+So please try this out and give feedback, I am particularly looking for crashes/bugs you may find.<br>
+<br>
+Note: You <b>do</b> need the Microsoft developer dll, this build is only for people who have this. If you have not got Visual Studio, you will need to have used the installer located lower down in this post.<br>
+<br>
+Note2: This is not compatible with Mac OS  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  I made this in VB6, and there is just no way to port it that I know of. This is nothing personal, honest!<br>
+<br>
+Installer: This installer is mainly for the VB6 runtimes, but also contains my program. Please only download/install this once, and for any updates I post just replace the .exe created by this installer.<br>
+<br>
+<a href="http://homepage.ntlworld.com/lazylump/Files/iMap/Full%20package.zip">Installer</a><br>
+<br>
+Current bugs/issues:<br>
+<br>
+<span style="color:RED">Flip horizontally misses out middle column if the selected area is an odd number of columns.</span> <span style="color:GREEN">Fixed in v0.0.0.2</span><br>
+<span style="color:RED">When tabbing from a map with objects to one without, the objects were added onto the second map's data.</span> <span style="color:GREEN">Fixed in v0.0.0.2</span><br>
+<span style="color:BLUE">GUI is clipped in lower resolution monitors (ie, 1024x768).</span><br>
+<span style="color:BLUE">User-levels window not closing with main window ending program.</span><span style="color:GREEN"> Fixed in v0.0.0.2</span><br>
+<br>
+<span style="color:RED">Major bug</span><br>
+<span style="color:BLUE">Not-so-major bug</span><br>
+<span style="color:GRAY">Minor bug</span><br>
+<span style="color:GREEN">Fixed</span> <div class="attachment attachment-missing">Attachment (lost): post-33-1166878349.zip</div></div></div>
+<div class="post" id="p275702"><div class="post-head"><a class="id" href="../t/14752.html#p275702">#275702</a> <span class="index">2</span> <span class="date">2006-12-23T13:35:44Z</span> <span class="author"><a href="../u/9373666.html">Ganter</a></span></div><div class="post-body">It's a pity it doesn't work on Apple's PCs, the name being iMap and all.</div></div>
+<div class="post" id="p275751"><div class="post-head"><a class="id" href="../t/14752.html#p275751">#275751</a> <span class="index">3</span> <span class="date">2006-12-23T16:05:11Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Yeah, I suppose I shouldn't have copied the naming scheme from Apple should I. I was hoping to make this in Java so it could be cross-platform, probably still will when I have learnt it properly.<br>
+<br>
+Apologies again for the name, I couldn't think of anything better at the time.</div></div>
+<div class="post" id="p275752"><div class="post-head"><a class="id" href="../t/14752.html#p275752">#275752</a> <span class="index">4</span> <span class="date">2006-12-23T16:06:17Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">This comes up... <div class="attachment attachment-missing">Attachment (lost): post-33-1166889977.jpg</div></div></div>
+<div class="post" id="p275755"><div class="post-head"><a class="id" href="../t/14752.html#p275755">#275755</a> <span class="index">5</span> <span class="date">2006-12-23T16:11:52Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Maybe I haven't compiled it correctly then, do you have the VB6 runtime installed?<br>
+<br>
+Whatever the problem is, I will package it fully with all the dlls so everyone can laugh at it in a few minutes.</div></div>
+<div class="post" id="p275756"><div class="post-head"><a class="id" href="../t/14752.html#p275756">#275756</a> <span class="index">6</span> <span class="date">2006-12-23T16:13:11Z</span> <span class="author"><a href="../u/9372955.html">Pheidippides</a></span></div><div class="post-body">This is really cool. One question: Can this place objects? Or just make tilesets?</div></div>
+<div class="post" id="p275758"><div class="post-head"><a class="id" href="../t/14752.html#p275758">#275758</a> <span class="index">7</span> <span class="date">2006-12-23T16:14:43Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Sadly just do tilesets so far. I want to do objects too, but it is a lot harder than tiles.<br>
+<br>
+So yes, just tilesets.<br>
+<br>
+It worked for you though?</div></div>
+<div class="post" id="p275761"><div class="post-head"><a class="id" href="../t/14752.html#p275761">#275761</a> <span class="index">8</span> <span class="date">2006-12-23T16:18:57Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/14752.html#p275755">Quote: Lazylump, 2006-12-23T16:11:52Z</a></div>do you have the VB6 runtime installed?</blockquote>hu?<br>
+I need vb installed to run it?</div></div>
+<div class="post" id="p275763"><div class="post-head"><a class="id" href="../t/14752.html#p275763">#275763</a> <span class="index">9</span> <span class="date">2006-12-23T16:19:41Z</span> <span class="author"><a href="../u/9372814.html">i_forget</a></span></div><div class="post-body">If he's asking you, then most likely, yes.</div></div>
+<div class="post" id="p275765"><div class="post-head"><a class="id" href="../t/14752.html#p275765">#275765</a> <span class="index">10</span> <span class="date">2006-12-23T16:20:23Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote: Me</div>Note: You do need the Microsoft developer dll, this build is only for fellow programmers who have this. When I have worked out all the bugs I will make an installer for other people.</blockquote><br>
+Yes, this is just the exe for people who have developed VB6 applications using Microsofts Visual Studio. Wait a few moments for a more general version including dlls...</div></div>
+<div class="post" id="p275768"><div class="post-head"><a class="id" href="../t/14752.html#p275768">#275768</a> <span class="index">11</span> <span class="date">2006-12-23T16:26:41Z</span> <span class="author"><a href="../u/9372955.html">Pheidippides</a></span></div><div class="post-body">Yes, it worked for me. Very stylish, like tabbed browsing for N. That's pretty cool. It would be awesome if it was as functional as Ned, with object and gameplay capabilities, but just being able to do this stuff with tiles is cool by itself. Really nice work. I can't wait for any improvements to the program.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p275769"><div class="post-head"><a class="id" href="../t/14752.html#p275769">#275769</a> <span class="index">12</span> <span class="date">2006-12-23T16:35:49Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Ok, I have made a general installer for people to use.<br>
+See first post for details.</div></div>
+<div class="post" id="p275776"><div class="post-head"><a class="id" href="../t/14752.html#p275776">#275776</a> <span class="index">13</span> <span class="date">2006-12-23T16:46:22Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Fix the link....and im guessing it should not look like this. <div class="attachment attachment-missing">Attachment (lost): post-33-1166892382.jpg</div></div></div>
+<div class="post" id="p275780"><div class="post-head"><a class="id" href="../t/14752.html#p275780">#275780</a> <span class="index">14</span> <span class="date">2006-12-23T16:51:59Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">I had a few goes at making the link, maybe you were unlucky and clicked a broken one (It works for me).<br>
+<br>
+Was that map there when you opened the program, was the tileset supposed to look like that?<br>
+<br>
+Or are you referring to the Major huge GUI... Yeah, I do believe the window is permanently at 1280x1024 for these first builds. Bear in mind this is just for testing and to get a feel for the program, I had completely forgotten people use lower resolutions still.<br>
+<br>
+I made the map view the same size as the original game, was this a good choice, or should it be made smaller on smaller screen sizes?</div></div>
+<div class="post" id="p275787"><div class="post-head"><a class="id" href="../t/14752.html#p275787">#275787</a> <span class="index">15</span> <span class="date">2006-12-23T16:56:46Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Mine only goes up to 1024*768<br>
+and the link is fixed now.<br>
+I mean there is only one type of each tile and the right hand side has been cut off.<br>
+<br>
+edit: never mind, I am a readme noob.</div></div>
+<div class="post" id="p275789"><div class="post-head"><a class="id" href="../t/14752.html#p275789">#275789</a> <span class="index">16</span> <span class="date">2006-12-23T17:02:23Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Yes, the problem is that the side and bottom of the window have been clipped. It will take some work to code a resolution changer, I am afraid that it won't appear until quite a while later.<br>
+Tell you what, I will make a second GUI for lower resolution monitors and post the new .exe.</div></div>
+<div class="post" id="p275791"><div class="post-head"><a class="id" href="../t/14752.html#p275791">#275791</a> <span class="index">17</span> <span class="date">2006-12-23T17:05:31Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">ok, That hold-shift thing will be very useful if you get objects in.<br>
+and I like the way you can open an entire level pack and chose which one you want to edit.</div></div>
+<div class="post" id="p276213"><div class="post-head"><a class="id" href="../t/14752.html#p276213">#276213</a> <span class="index">18</span> <span class="date">2006-12-24T01:49:58Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">The title... I got my hopes up there. Please change the name if it's not a Mac program.</div></div>
+<div class="post" id="p276234"><div class="post-head"><a class="id" href="../t/14752.html#p276234">#276234</a> <span class="index">19</span> <span class="date">2006-12-24T02:26:01Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">You fooled me too. I'd suggest changing the name as well.</div></div>
+<div class="post" id="p276404"><div class="post-head"><a class="id" href="../t/14752.html#p276404">#276404</a> <span class="index">20</span> <span class="date">2006-12-24T09:31:07Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Yeah, I suppose it is quite an ironic name. As I said earlier, I do intend to make this available for macs eventually but realistically that will take a while.<br>
+<br>
+Can anyone suggest a new name for the program then?</div></div>
+<div class="post" id="p276406"><div class="post-head"><a class="id" href="../t/14752.html#p276406">#276406</a> <span class="index">21</span> <span class="date">2006-12-24T09:41:00Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Mapteck3000<br>
+NED<i>lite</i><br>
+Winmap<br>
+<br>
+What?, you did ask!!  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p276444"><div class="post-head"><a class="id" href="../t/14752.html#p276444">#276444</a> <span class="index">22</span> <span class="date">2006-12-24T12:10:20Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">Winmap, I LIKE Winmap.<br>
+<br>
+Ok, from now on versions will be titled Winmap. (With your permission...).</div></div>
+<div class="post" id="p276450"><div class="post-head"><a class="id" href="../t/14752.html#p276450">#276450</a> <span class="index">23</span> <span class="date">2006-12-24T12:27:03Z</span> <span class="author"><a href="../u/9373137.html">majikthise_110</a></span></div><div class="post-body">Of course you can use it, would not have posted it otherwise  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p276782"><div class="post-head"><a class="id" href="../t/14752.html#p276782">#276782</a> <span class="index">24</span> <span class="date">2006-12-24T21:17:26Z</span> <span class="author"><a href="../u/9372956.html">mXr</a></span></div><div class="post-body">hmm....<br>
+<br>
+pretty good</div></div>
+<div class="post" id="p292288"><div class="post-head"><a class="id" href="../t/14752.html#p292288">#292288</a> <span class="index">25</span> <span class="date">2007-01-31T23:26:39Z</span> <span class="author"><a href="../u/9373648.html">Demonized</a></span></div><div class="post-body">it's iMap yet it doesn't work for Macintosh...*no comment*</div></div>
+<div class="post" id="p292428"><div class="post-head"><a class="id" href="../t/14752.html#p292428">#292428</a> <span class="index">26</span> <span class="date">2007-02-01T10:01:20Z</span> <span class="author"><a href="../u/9370989.html">Lazylump</a></span></div><div class="post-body">I've already had seveal complaints about the name, so it is being re-christened as 'Winmap' for now.<br>
+<br>
+Good news is, I have started learning Java from the online tutorials and I hope to release a platform-independent version once I have worked out all the stuff about widgets...</div></div>
+<div class="post" id="p315525"><div class="post-head"><a class="id" href="../t/14752.html#p315525">#315525</a> <span class="index">27</span> <span class="date">2007-04-24T17:43:10Z</span> <span class="author"><a href="../u/9374358.html">jacob11701</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> the link that says installer takes me to a page that says page cannot be found<br>
+<br>
+click the link below to see my screen when error occured.<br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-33-1177436590.doc</div></div></div>
+<div class="post" id="p324311"><div class="post-head"><a class="id" href="../t/14752.html#p324311">#324311</a> <span class="index">28</span> <span class="date">2007-05-26T04:44:42Z</span> <span class="author"><a href="../u/9374078.html">fractalchaoz</a></span></div><div class="post-body">Hey mate<br>
+<br>
+I can help with the VB programming, but I have VB.NET so it might not work.<br>
+If you want I'll have a look at your program and see if I can do anything for it.<br>
+I've been working with VB for a while now so I might have a good chance of actually getting something done right. However, if you <i>are</i> actually going to do it in Java, I'm not that great.<br>
+<br>
+PM me if you need help or anything.<br>
+<br>
+Later 'mego,<br>
+<br>
+<span style="color:CRIMSON">Crimson</span></div></div>
+<div class="post" id="p324476"><div class="post-head"><a class="id" href="../t/14752.html#p324476">#324476</a> <span class="index">29</span> <span class="date">2007-05-26T22:56:18Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">If you need any help in Java, feel free to PM me.<br>
+I've known Java for a while, and am sure i could help if you asked.<br>
+Good luck, and nice program</div></div>
+<div class="post" id="p326265"><div class="post-head"><a class="id" href="../t/14752.html#p326265">#326265</a> <span class="index">30</span> <span class="date">2007-06-01T16:19:04Z</span> <span class="author"><a href="../u/9374124.html">coolguy5678</a></span></div><div class="post-body">I could modify another editor I made (UCSPSPE) into an N editor. That's in Java, so it'll be cross platform. Its pretty well designed so it should be an easy modification.<br>
+<br>
+I don't really see the problem with Ned though - its not so intuitive, but once you get used to it its fine,</div></div>
+</main>
+</body>
+</html>

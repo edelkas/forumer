@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How do I make drones stationary in Ned? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; How do I make drones stationary in Ned?</nav></header>
+<main>
+<div class="post" id="p5381"><div class="post-head"><a class="id" href="../t/5894.html#p5381">#5381</a> <span class="index">1</span> <span class="date">2005-11-25T16:34:11Z</span> <span class="author"><a href="../u/9371315.html">BulletTheory</a></span></div><div class="post-body">Topic ^^^<br>
+Thanks</div></div>
+<div class="post" id="p117904"><div class="post-head"><a class="id" href="../t/5894.html#p117904">#117904</a> <span class="index">2</span> <span class="date">2005-11-25T16:39:54Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Place a drone as the last object in ned. Then go to debug mode, place your cursor ehind your code and press L.</div></div>
+<div class="post" id="p117996"><div class="post-head"><a class="id" href="../t/5894.html#p117996">#117996</a> <span class="index">3</span> <span class="date">2005-11-25T20:04:37Z</span> <span class="author"><a href="../u/9371315.html">BulletTheory</a></span></div><div class="post-body">Cheers.  Is there a way to do this with multiple drones?</div></div>
+<div class="post" id="p117997"><div class="post-head"><a class="id" href="../t/5894.html#p117997">#117997</a> <span class="index">4</span> <span class="date">2005-11-25T20:06:47Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">Well, if you can find where your drone is in the map code, then you just have to NaN the last variable.<br>
+<br>
+Alternatively, if you surround the tile each drone is in with locked doors, when the doors are opened the drone won't move.</div></div>
+<div class="post" id="p117998"><div class="post-head"><a class="id" href="../t/5894.html#p117998">#117998</a> <span class="index">5</span> <span class="date">2005-11-25T20:09:41Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Yeah, but it doesn't look so nice. I like NaNing the drones more.</div></div>
+<div class="post" id="p117999"><div class="post-head"><a class="id" href="../t/5894.html#p117999">#117999</a> <span class="index">6</span> <span class="date">2005-11-25T20:15:37Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">So do I, but some people might not understand how to fiddle with the code without breaking stuff.</div></div>
+<div class="post" id="p118004"><div class="post-head"><a class="id" href="../t/5894.html#p118004">#118004</a> <span class="index">7</span> <span class="date">2005-11-25T20:42:40Z</span> <span class="author"><a href="../u/9371315.html">BulletTheory</a></span></div><div class="post-body">Do you know what a piece of coding for the a drone would typically look like?</div></div>
+<div class="post" id="p118005"><div class="post-head"><a class="id" href="../t/5894.html#p118005">#118005</a> <span class="index">8</span> <span class="date">2005-11-25T20:46:58Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">The code starts with 6^</div></div>
+<div class="post" id="p118007"><div class="post-head"><a class="id" href="../t/5894.html#p118007">#118007</a> <span class="index">9</span> <span class="date">2005-11-25T21:09:03Z</span> <span class="author"><a href="../u/9371315.html">BulletTheory</a></span></div><div class="post-body">Thanks.  Does this apply to all types of drones?</div></div>
+<div class="post" id="p118009"><div class="post-head"><a class="id" href="../t/5894.html#p118009">#118009</a> <span class="index">10</span> <span class="date">2005-11-25T21:13:23Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Yes. There are some variable bits in the data that define the movement, type and direction of the drone.</div></div>
+<div class="post" id="p118011"><div class="post-head"><a class="id" href="../t/5894.html#p118011">#118011</a> <span class="index">11</span> <span class="date">2005-11-25T21:20:38Z</span> <span class="author"><a href="../u/9371129.html">Levinous</a></span></div><div class="post-body">What Sweep said. But I put loads of drones at the top and I had locked doors around each one and it went glitchy... <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> Map coming soon on NUMA!</div></div>
+<div class="post" id="p118013"><div class="post-head"><a class="id" href="../t/5894.html#p118013">#118013</a> <span class="index">12</span> <span class="date">2005-11-25T21:23:03Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">No, kirby, don't make maps with loads of drones. This is what most people (including me) call bad. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+</main>
+</body>
+</html>

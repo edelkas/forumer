@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by cooldudeitrules - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9375975.html">cooldudeitrules</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p420889"><div class="post-head"><a class="id" href="../t/771.html#p420889">#420889</a> <span class="index">190</span> <span class="date">2008-03-24T05:14:23Z</span> <span class="author"><a href="../u/9375975.html">cooldudeitrules</a></span></div><div class="post-body"><a href="http://n.wikia.com/wiki/Code_editing">http://n.wikia.com/wiki/Code_editing</a><br>
+<br>
+This part of n.wikia has some tricks put down in it. ie. what each component of a code does and what changing it does.</div></div>
+<div class="post" id="p421352"><div class="post-head"><a class="id" href="../t/771.html#p421352">#421352</a> <span class="index">191</span> <span class="date">2008-03-25T03:57:04Z</span> <span class="author"><a href="../u/9375975.html">cooldudeitrules</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/771.html#p25919">Quote: Rahl, August 17, 2004 02:16 am</a></div> Yet another odd feature as a result of code that the game doesn't really know what to do with:  if, in the level tile data, you change one of the chars into any lowercase letter, then what you will get is a tile that looks like the ones that are solid on the left but not the right, but it will act really odd... The ninja seems to collide with in one one pixel in the middle that makes him do crazy stuff like die or jump three times as far as normal the instant he touches it, one pixel in each corner, and one pixel in the middle of each side.  Enemies seem to treat it as if it were the tile that it appears to be, but the missiles seem to treat it the same way the ninja does.  The ragdoll that the ninja becomes when he dies ignores these tiles completely.  I have attached two files to help explain this: the first lets you jump around and mess with them, and the second has your ragdoll flying through them.<br>
+<br>
+EDIT: It was brought to my attension that both levels are the same... Sorry about that, but just kill yourself and you will se that the ragdoll goes right through the tiles.  </blockquote> <br>
+<blockquote class="quote"><div class="quote-head">Quote</div></blockquote>Wierd :? !</div></div>
+<div class="post" id="p421403"><div class="post-head"><a class="id" href="../t/771.html#p421403">#421403</a> <span class="index">192</span> <span class="date">2008-03-25T07:22:55Z</span> <span class="author"><a href="../u/9375975.html">cooldudeitrules</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/771.html#p26478">Quote: LittleViking001, August 31, 2004 06:53 am</a></div> Jump Pad Teleporters<br>
+<br>
+Ok, I finally looked into the idea of using jump pads as makeshift teleporters.  And it turns out, that with some trial-and-error, <b>any</b> type of teleporter you want to make is relatively easy to do.  See the attached level for some examples.<br>
+<br>
+The first frame after the ninja leaves a jump pad, he doesn't interact with other objects (gold, mines, other jump pads, drones, etc.).  You should place a braking jump pad where the ninja is on the second frame after the launch.  Or more likely, place the braking pad where you want him to go, then adjust the numbers of the first one.<br>
+<br>
+The ninja will still die if he gets imbedded in a tile, even on the first frame after launch.  The giant puff of smoke occurs when the ninja's feet touch ground;  I have one example of this in the included level.<br>
+<br>
+EDIT:<br>
+Turn off caps lock when you're about to hit a launch pad and watch it frame by frame to get a better idea of how the "teleporting" works.  </blockquote> <br>
+<blockquote class="quote"><div class="quote-head">Quote</div></blockquote> When I tried the teleporter on the far right hand side in the middle, there was this wierd thing like a large puff of smoke or somthing and it all happens in the first frame after the guy hits the "teleporter". Whats up with that?</div></div>
+<div class="post" id="p421415"><div class="post-head"><a class="id" href="../t/771.html#p421415">#421415</a> <span class="index">193</span> <span class="date">2008-03-25T08:13:59Z</span> <span class="author"><a href="../u/9375975.html">cooldudeitrules</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/771.html#p26480">Quote: LittleViking001, August 31, 2004 07:06 am</a></div> Just as a bit of a guide for making teleporters, here are number values that, in one frame, will:<br>
+<br>
+Launch the player half of the level's distance<br>
+Up: -6.67<br>
+Right/Left: 68.5<br>
+Down: 50  </blockquote> <br>
+ <blockquote class="quote"><div class="quote-head">Quote</div></blockquote> When I tried that, the launch pad I put in the middle to stop him didn't affect him. So after some experermenting I changed 6.67 to 4.5. this time the launch pad stoped him, but it took him two frames to get there.  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+</main>
+</body>
+</html>

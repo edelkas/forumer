@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilemap rendering? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Tilemap rendering?</nav></header>
+<main>
+<div class="post" id="p6273"><div class="post-head"><a class="id" href="../t/6878.html#p6273">#6273</a> <span class="index">1</span> <span class="date">2006-01-18T00:31:49Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">Hello,<br>
+<br>
+I just heard about N game (adding to addictinggames.com last friday) and I played it. Got addicted as hell and I wanted to know how it works. I downloaded the tuts from the site and I have this question.<br>
+<br>
+In tut B I noticed this<br>
+<br>
+<pre class="code">MAPSTR = "A6E00002000?E000000NA0070C0N00;10B0N00:10&gt;0&gt;L0060000F000@0GH0003";</pre><br>
+I am guessing thats the var with the string that holds the info for the tiles used on the map. My question is how/where the hell is everything being parsed/rendered?! I looked through the whole file like 5 times and couldn't find it.<br>
+<br>
+Thanks for you help,<br>
+-robodude666<br>
+<br>
+P.S. N is the best game EVER! I am planning on making something like it <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Thanks for the inspiration!</div></div>
+<div class="post" id="p133484"><div class="post-head"><a class="id" href="../t/6878.html#p133484">#133484</a> <span class="index">2</span> <span class="date">2006-01-18T21:23:17Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">LOL<br>
+The thing you're looking for is in the "incremental loading" layer in the file... or at least that's what I think you're looking for <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+Hope that helps.<br>
+<br>
+TS</div></div>
+<div class="post" id="p133558"><div class="post-head"><a class="id" href="../t/6878.html#p133558">#133558</a> <span class="index">3</span> <span class="date">2006-01-19T00:53:25Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133484">Quote: Toshosoft, Jan 18 2006, 09:23 PM</a></div> LOL<br>
+The thing you're looking for is in the "incremental loading" layer in the file... or at least that's what I think you're looking for <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> .<br>
+Hope that helps.<br>
+<br>
+TS  </blockquote> <br>
+ You are simply godly <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> Mind telling me where I can find SetTileState? Also, If you wouldn't mind. Could you create an FLA with just the tilemap rendering code in one frame? I would be ever so thankful!</div></div>
+<div class="post" id="p133589"><div class="post-head"><a class="id" href="../t/6878.html#p133589">#133589</a> <span class="index">4</span> <span class="date">2006-01-19T02:06:23Z</span> <span class="author"><a href="../u/9371267.html">Ultima</a></span></div><div class="post-body">You seem to have downloaded a ripped-off version of N, it is called N not N game.</div></div>
+<div class="post" id="p133592"><div class="post-head"><a class="id" href="../t/6878.html#p133592">#133592</a> <span class="index">5</span> <span class="date">2006-01-19T02:08:54Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133589">Quote: ultima888, Jan 19 2006, 02:06 AM</a></div> You seem to have downloaded a ripped-off version of N, it is called N not N game. </blockquote>so you could refer to it as the <b>'N' <i>game</i></b>[/i]?  <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p133602"><div class="post-head"><a class="id" href="../t/6878.html#p133602">#133602</a> <span class="index">6</span> <span class="date">2006-01-19T02:36:03Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133589">Quote: ultima888, Jan 19 2006, 02:06 AM</a></div> You seem to have downloaded a ripped-off version of N, it is called N not N game.  </blockquote> <br>
+ Sorry, didn't know that. If you go to <a href="http://addictinggames.com/">http://addictinggames.com/</a> before the 20th (they update every friday) you will see<br>
+N-Game<br>
+Jump and bounce off walls to avoid evil homicidal robots.<br>
+<br>
+They have it titled as N-Game.. Thats what I thought it was called.. I am very sorry! But this still doesn't help me with the tilemap rendering process!</div></div>
+<div class="post" id="p133604"><div class="post-head"><a class="id" href="../t/6878.html#p133604">#133604</a> <span class="index">7</span> <span class="date">2006-01-19T02:43:08Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">lol theres no need to apologise so much lol. some people just get a little overheated about its 'proper' name. welcome to the boards too. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"></div></div>
+<div class="post" id="p133619"><div class="post-head"><a class="id" href="../t/6878.html#p133619">#133619</a> <span class="index">8</span> <span class="date">2006-01-19T05:12:01Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/6878.html#p133604">Quote: wedgie123, Jan 19 2006, 02:43 AM</a></div> lol theres no need to apologise so much lol. some people just get a little overheated about its 'proper' name. welcome to the boards too. <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  </blockquote> <br>
+ Thank you <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> But im still totally lost about where/how the tilemap is rendered!</div></div>
+<div class="post" id="p133698"><div class="post-head"><a class="id" href="../t/6878.html#p133698">#133698</a> <span class="index">9</span> <span class="date">2006-01-19T14:51:48Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hi,<br>
+it's a bit confusing/poorly organized, but if you follow the long chain of function calls you should end up in the tilemapcell "class" (i think it's in one of the layers closer to the top); each instance of tilemapcall has a movieclip which holds all the tile graphics, a different tile on each frame. it just sets the frame to show the correct tile.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p133840"><div class="post-head"><a class="id" href="../t/6878.html#p133840">#133840</a> <span class="index">10</span> <span class="date">2006-01-19T23:46:53Z</span> <span class="author"><a href="../u/9371515.html">robodude666</a></span></div><div class="post-body">I understand that, but in the incremental loading layer there is this code<br>
+<br>
+<pre class="code">tiles.SetTileState(this.CUR_COL, this.CUR_ROW, this.mapStr.charCodeAt(this.CUR_CHAR));</pre><br>
+I can't find SetTileState(); anywhere! I looked at all the tilemap layers and couldn't find it... Also, I have this question. What the hell is the need for all these layers and functions?! You can simply put everything into one *.as file, or put everything into like a few layers. Also, some of these functions have like 1 line of code.... Makes it a total pain to look for something.<br>
+<br>
+[edit]<br>
+<br>
+Nevermind! I found SetTileState()!!!! It was in the get/set tile state layer.. never looked there  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">   <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;">  <img class="smiley" src="../files/smilies/28.gif" alt=":whis:" title=":whis:"></div></div>
+</main>
+</body>
+</html>

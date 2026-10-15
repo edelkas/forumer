@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I need help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; I need help</nav></header>
+<main>
+<div class="post" id="p15007"><div class="post-head"><a class="id" href="../t/17112.html#p15007">#15007</a> <span class="index">1</span> <span class="date">2007-04-28T04:48:09Z</span> <span class="author"><a href="../u/9374345.html">The_Muffin_Man</a></span></div><div class="post-body">When i copy and paste map data, it moves the door switch to the top of the room in the wall. Has this happened to anyone else or is it just me? <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p316407"><div class="post-head"><a class="id" href="../t/17112.html#p316407">#316407</a> <span class="index">2</span> <span class="date">2007-04-28T06:38:31Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body">This is a common bug. The most likely cause are NaN's (glitches) in the level code. To fix, just go through the level code and replace all instances of 'NaN' with a number, eg. 276. Then, just delete all the items that appear in new spots, and replace them where they should go.<br>
+<br>
+That's a complicated description, hopefully you'll be able to understand.</div></div>
+<div class="post" id="p316491"><div class="post-head"><a class="id" href="../t/17112.html#p316491">#316491</a> <span class="index">3</span> <span class="date">2007-04-28T16:55:08Z</span> <span class="author"><a href="../u/9374345.html">The_Muffin_Man</a></span></div><div class="post-body">But When I edit the NaN with a number and then load it from the textbox, it puts the NaN back and deletes the number.</div></div>
+<div class="post" id="p316503"><div class="post-head"><a class="id" href="../t/17112.html#p316503">#316503</a> <span class="index">4</span> <span class="date">2007-04-28T17:59:07Z</span> <span class="author"><a href="../u/9373982.html">Loller</a></span></div><div class="post-body">CLICK OUTSIDE THE TEXTBOX<br>
+before u press L.<br>
+when u press, it adds a L to the end of the level data and reads the last number of the data as a nan (the last item u added in)<br>
+so click outside teh textbox so tht it wont add an l<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p316522"><div class="post-head"><a class="id" href="../t/17112.html#p316522">#316522</a> <span class="index">5</span> <span class="date">2007-04-28T19:27:27Z</span> <span class="author"><a href="../u/9374345.html">The_Muffin_Man</a></span></div><div class="post-body"><span style="color:SIENNA">sry...</span> <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p316524"><div class="post-head"><a class="id" href="../t/17112.html#p316524">#316524</a> <span class="index">6</span> <span class="date">2007-04-28T19:32:51Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">In his defence, he didn't know NaN's were the problem, so why would he search for that?</div></div>
+<div class="post" id="p316551"><div class="post-head"><a class="id" href="../t/17112.html#p316551">#316551</a> <span class="index">7</span> <span class="date">2007-04-28T21:25:14Z</span> <span class="author"><a href="../u/9374345.html">The_Muffin_Man</a></span></div><div class="post-body">Ty</div></div>
+<div class="post" id="p316585"><div class="post-head"><a class="id" href="../t/17112.html#p316585">#316585</a> <span class="index">8</span> <span class="date">2007-04-29T00:00:09Z</span> <span class="author"><a href="../u/9372848.html">Clifty</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17112.html#p316503">Quote: Loller, 29, 2007 03:59 am</a></div> CLICK OUTSIDE THE TEXTBOX<br>
+before u press L.<br>
+when u press, it adds a L to the end of the level data and reads the last number of the data as a nan (the last item u added in)<br>
+so click outside teh textbox so tht it wont add an l<br>
+<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">  </blockquote> <br>
+ Oops, forgot to add that.  <img class="smiley" src="../files/smilies/24.gif" alt="wth" title="wth"></div></div>
+</main>
+</body>
+</html>

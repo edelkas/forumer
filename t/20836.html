@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precalculated SAT in a tiled environment - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Precalculated SAT in a tiled environment</nav></header>
+<main>
+<div class="post" id="p18568"><div class="post-head"><a class="id" href="../t/20836.html#p18568">#18568</a> <span class="index">1</span> <span class="date">2007-12-26T13:16:26Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">This picks up from another thread...<br>
+<br>
+So,  I've been working on a general Flash/AS3 game (dynamics) engine for a while.  I originally used a ported version of the N tutorials found on this site for collision detection.  As great and *fast* (and they are fast) as they are there are a number of issues:<br>
+<br>
+1) Each tile has a complex custom implementation (this give it the speed).<br>
+2) Creating new tile type is complex.<br>
+3) There is lots of code.<br>
+4) Its not possible to introduce continuous collision detection using this code base (as far as I'm aware)<br>
+5) There really is lots of code...<br>
+<br>
+I started to play around with different tile description systems and realize a few things:<br>
+1) on a 3x3 grid (plus a center point) - there are actually lots (&gt;100 I think) of convex tiles.<br>
+2) of all these tiles, there are only ever 8 separating axes (horizontal,vertical,45 left and right, 23 left and right and 67 left and right)<br>
+<br>
+The engine I'm building only allows bodies to be built out of rectangles (2 axes with angualr velocity) and circles (3 axes).  This allowed me to write something that actually pre-calculates all intervals for the tiles and bodies at startup.  The at run time, the engine is feed the body position, orientation and speed - the collision detection is then just a few look ups in an array.  There is no object create/deletion going on.<br>
+<br>
+The tile definition system is based on a bitmask.  If a tile grid is defined as:<br>
+<br>
+001--128--064<br>
+.|........|........|<br>
+.|........|........|<br>
+002--256--032<br>
+.|........|........|<br>
+.|........|........|<br>
+004--008--016<br>
+<br>
+Then a full, square tile has the ID 85 (1+4+16+64 or 1010101).<br>
+A 45 degree half tile, slope normal 1,-1 has the ID 21 (1+4+16).<br>
+<br>
+My tile reference array is built as simply as:<br>
+<br>
+			tileArray.push( new Tile(hw,  85));<br>
+			tileArray.push( new Tile(hw,  21));<br>
+			tileArray.push( new Tile(hw,  69));<br>
+			<br>
+and there are less than 200 lines of code for the tile.<br>
+<br>
+The axes are calculated as the tile mask is parsed, so no need for a separate axes mask.<br>
+<br>
+There is a very early demo here of some of the most interesting tiles:<br>
+<br>
+<a href="http://home.planet.nl/~borst595/CachedSAT.swf">http://home.planet.nl/~borst595/CachedSAT.swf</a><br>
+<br>
+Mouse + left click to move rectangle.  Scroll wheel to rotate the rectangle.  <br>
+<br>
+I'll release the source as soon as possiable.  If anybody is interested before that then PM me here and I'll email it you.</div></div>
+<div class="post" id="p393706"><div class="post-head"><a class="id" href="../t/20836.html#p393706">#393706</a> <span class="index">2</span> <span class="date">2007-12-27T01:11:33Z</span> <span class="author"><a href="../u/9372299.html">&gt;stardeash</a></span></div><div class="post-body">This sounds like it will actually go somewhere like N. I'll PM you later if i get the time to.</div></div>
+<div class="post" id="p393716"><div class="post-head"><a class="id" href="../t/20836.html#p393716">#393716</a> <span class="index">3</span> <span class="date">2007-12-27T02:21:51Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">that's amazing! You're the person who ported the N system to AS3, right? It's definitely a good idea to standardize each tile, but the curved tiles will of course need to still be special cases. Standardisation will also help implementation of new features, such as <a href="../t/17901.html">this</a> and support of larger-than-tile objects (which i manually added to the N engine).<br>
+<br>
+Also, something like this would be fast, right? comparable to N's engine?<br>
+I'm definitely interested in the source. PM sent. I might even use some of the elements of this in my own game.</div></div>
+<div class="post" id="p393812"><div class="post-head"><a class="id" href="../t/20836.html#p393812">#393812</a> <span class="index">4</span> <span class="date">2007-12-27T16:09:39Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p393716">Quote: mattk210, 2007-12-27T02:21:51Z</a></div>Also, something like this would be fast, right? comparable to N's engine?</blockquote><br>
+Yes and No.  The thing with N's tile collision detection is that:<br>
+<br>
+a) it only supports AABB's and circles<br>
+b) the collision code doesn't need to loop through vertices.  The average case only ever seems to need 10 or so actual lines of code to calculate collisions.<br>
+<br>
+The code for this example looks like a 'normal' SAT implementation except for the precalcualted part but it still needs to (worse case) loop over 9 verticies for each collision test.  The real speed up should be the swept collision tests.  In my old engine I had very small objects moving fast, I used to multisample the objects which lead to up to 10 tests per frame.<br>
+<br>
+As for curved tiles, I'm not sure what to do about them at the moment.  I'd dont think I need them, but if they are not to difficult to implement I'll have a go.</div></div>
+<div class="post" id="p393860"><div class="post-head"><a class="id" href="../t/20836.html#p393860">#393860</a> <span class="index">5</span> <span class="date">2007-12-27T19:49:48Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">Cool! Those tile shapes are pretty awesome.</div></div>
+<div class="post" id="p394000"><div class="post-head"><a class="id" href="../t/20836.html#p394000">#394000</a> <span class="index">6</span> <span class="date">2007-12-28T02:28:17Z</span> <span class="author"><a href="../u/9372299.html">&gt;stardeash</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p393860">Quote: Raigan, December 27, 2007 07:49 pm</a></div> Cool! Those tile shapes are pretty awesome.  </blockquote> <br>
+ No offense but that almost looks like an automated post.</div></div>
+<div class="post" id="p394033"><div class="post-head"><a class="id" href="../t/20836.html#p394033">#394033</a> <span class="index">7</span> <span class="date">2007-12-28T05:21:45Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p394000">Quote: &gt;stardeash, December 27, 2007 06:28 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p393860">Quote: Raigan, December 27, 2007 07:49 pm</a></div> Cool! Those tile shapes are pretty awesome. </blockquote>No offense but that almost looks like an automated post.  </blockquote> <br>
+ You look like an automated post.<br>
+<br>
+Less code, more features. I like it.</div></div>
+<div class="post" id="p394182"><div class="post-head"><a class="id" href="../t/20836.html#p394182">#394182</a> <span class="index">8</span> <span class="date">2007-12-28T19:12:53Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">I guess I couldn't think of what else to say -- it might be interesting to know how the SAT tests are done? Our new method just uses linesegments rather than tiles so it's slightly more general, however it's almost certainly much slower..</div></div>
+<div class="post" id="p394226"><div class="post-head"><a class="id" href="../t/20836.html#p394226">#394226</a> <span class="index">9</span> <span class="date">2007-12-28T22:10:59Z</span> <span class="author"><a href="../u/9372299.html">&gt;stardeash</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p394182">Quote: Raigan, December 28, 2007 07:12 pm</a></div> I guess I couldn't think of what else to say -- it might be interesting to know how the SAT tests are done? Our new method just uses linesegments rather than tiles so it's slightly more general, however it's almost certainly much slower..  </blockquote> <br>
+ If it's going to be better than the slowness is worth it isn't it ?</div></div>
+<div class="post" id="p394245"><div class="post-head"><a class="id" href="../t/20836.html#p394245">#394245</a> <span class="index">10</span> <span class="date">2007-12-28T22:55:53Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p394182">Quote: Raigan, December 28, 2007 11:12 am</a></div> I guess I couldn't think of what else to say -- it might be interesting to know how the SAT tests are done? Our new method just uses linesegments rather than tiles so it's slightly more general, however it's almost certainly much slower..  </blockquote> <br>
+ Every time I look at this thread, I keep thinking about the SAT Test for colleges and such. <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"><br>
+The coordination based testing for the lines seems quite simple, compared to other methods I've seen. Nice stuff.</div></div>
+<div class="post" id="p394248"><div class="post-head"><a class="id" href="../t/20836.html#p394248">#394248</a> <span class="index">11</span> <span class="date">2007-12-28T22:58:57Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Wow, this is really quite impressive.<br>
+I'd love to take a look at the code.<br>
+Excellent job, rje, simply excellent!</div></div>
+<div class="post" id="p394899"><div class="post-head"><a class="id" href="../t/20836.html#p394899">#394899</a> <span class="index">12</span> <span class="date">2007-12-31T02:55:28Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p18568">Quote: rje, 2007-12-26T13:16:26Z</a></div>The engine I'm building only allows bodies to be built out of rectangles (2 axes with angualr velocity) and circles (3 axes). </blockquote><br>
+Does this mean it supports Oriented Bounding Boxes?  You could rotate a rectangle on the fly and still have the axies pre-calculated?<br>
+<br>
+Also, how are you dealing with issues brought up in this thread: <br>
+<br>
+<a href="../t/18099.html">http://metanet.2.forumer.com/index.php?showtopic=18099</a><br>
+(Weighted System for Multiple Tile Collisions)<br>
+<br>
+I came up with a non-penetration constraint that is the same no matter what order you iterate though the other objects.  All it does is find the largest positive and largest negative projector on both axies.  Then if there is both a positive and negative projection on either axis, it simply puts the object back where it started.    It only moves one object at a time, so I guess that is affected by order, but for each object, moving it out of all objects it touches is always the same.<br>
+<br>
+Demo:<br>
+<br>
+<a href="http://eatjason.googlepages.com/collide.html">http://eatjason.googlepages.com/collide.html</a><br>
+<br>
+<br>
+*EDIT:  Didn't realize the mouse wheel rotated the box..... didn't realize flash recognized mouse wheel movements.....  is the box cached somehow?  Or are the axies for the box calculated any time its rotated?</div></div>
+<div class="post" id="p403490"><div class="post-head"><a class="id" href="../t/20836.html#p403490">#403490</a> <span class="index">13</span> <span class="date">2008-01-23T23:00:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I almost have my own implementation of this going, but I can't seem to figure out to cache axies that are created from circle centers to points, or axies created by the rotated box normals.  I suppose you are getting a speed increase from by not having to calculate the 8 axies that you can have in memory for a tile, and just project the few points of the tile for the axies that are more dynamic.  I am also attempting to do a ray cast by sweeping a box with no dimentions (a point), and calculating the axis that overlaps last as the surface hit.   Is the source code avaliable for this yet?  Does it have ray casting code?</div></div>
+<div class="post" id="p403668"><div class="post-head"><a class="id" href="../t/20836.html#p403668">#403668</a> <span class="index">14</span> <span class="date">2008-01-24T05:07:48Z</span> <span class="author"><a href="../u/9375584.html">squibbles</a></span></div><div class="post-body">This is really impressive, well done.</div></div>
+<div class="post" id="p403701"><div class="post-head"><a class="id" href="../t/20836.html#p403701">#403701</a> <span class="index">15</span> <span class="date">2008-01-24T08:52:53Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Sorry for the late reply.<br>
+<br>
+It does support OOB.  Once the OOB is calculate ONCE pre rotation it is cached and used on all collisions for that frame.  For example we might be checking on a 9x9 grid around the OOB.  The intervals are only calculate once for each project, cached and reused from that frame (beacuse there are only ever 8 tile axes).<br>
+<br>
+There is no ray casting at the moment - hopefully have that some point soon - its very important.<br>
+<br>
+I'll post the source in this thread.<br>
+<br>
+The multiple collisions can be a problem sometimes.  Mainly on flat, vertical surfaces.  I tried a number of things, I think the most success full is just to just the adjacent tiles, and if its also flat the only project in one direction.  I know its very limited.<br>
+<br>
+I've been working on some Rigid Body stuff - I used the C Chipmunk library as a basis and used the interesting parts (SI solver etc) in my own engine.  This doesn't have tiles support or raycasting.  In fact it has nothing apart from an extremely fast rigid body engine, but its a good start.<br>
+<br>
+Demo: <a href="http://home.planet.nl/~borst595/pEngine.html">http://home.planet.nl/~borst595/pEngine.html</a></div></div>
+<div class="post" id="p403750"><div class="post-head"><a class="id" href="../t/20836.html#p403750">#403750</a> <span class="index">16</span> <span class="date">2008-01-24T15:28:38Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I see, so the obb's calculate and cache the axis created by the obb for each tile type touched once per frame.  That makes sense.  Same goes for the circles I assume?  <br>
+<br>
+As for ray casting, one approach could be in Eberly, David. Intersection of Convex Objects: The Method of Separating Axes.  6 Separating of Moving Convex Objects.<br>
+<br>
+Then use AABB's that are simply points by not having a width or height.  Then you can just iterate though all the axis, and find the last one that intersects.  The metanet tutorial suggests this at one point.<br>
+<br>
+I have no idea how fast that would be, right now I am using ray vs. segment, and storing each segment in the tile object (I only really use the tiles that have one extra segment besides the edges).<br>
+<br>
+And for the problem of multiple tiles, try this:<br>
+<br>
+Calculate and store the average length of every object touching the object that needs to be constrained by walls.  Then sort that list by average, highest average at top.  This will solve the problems illistrated by A and B in the Weighted System thread.  If you also have multi sampling, your character won't fall too far down the  tile to be moved to the right or left if inbetween two tiles (assuming you let gravity constantly pull your character down though the floor)</div></div>
+<div class="post" id="p404808"><div class="post-head"><a class="id" href="../t/20836.html#p404808">#404808</a> <span class="index">17</span> <span class="date">2008-01-27T23:21:47Z</span> <span class="author"><a href="../u/9371278.html">ska</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p394245">Quote: Mosh, December 29, 2007 09:55 am</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/20836.html#p394182">Quote: Raigan, December 28, 2007 11:12 am</a></div> I guess I couldn't think of what else to say -- it might be interesting to know how the SAT tests are done? Our new method just uses linesegments rather than tiles so it's slightly more general, however it's almost certainly much slower.. </blockquote>Every time I look at this thread, I keep thinking about the SAT Test for colleges and such. <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD"><br>
+The coordination based testing for the lines seems quite simple, compared to other methods I've seen. Nice stuff.  </blockquote> <br>
+ that's what I thought this was about!</div></div>
+</main>
+</body>
+</html>

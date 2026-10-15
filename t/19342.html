@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Tile - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; New Tile</nav></header>
+<main>
+<div class="post" id="p17154"><div class="post-head"><a class="id" href="../t/19342.html#p17154">#17154</a> <span class="index">1</span> <span class="date">2007-09-09T19:55:01Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Hi,<br>
+<br>
+I'm trying to implement the following tile:<br>
+<br>
+***<br>
+****<br>
+*****<br>
+*****<br>
+*****<br>
+<br>
+It like the 45 degree one, only the corner is cut out.  I have the ray intersect working but for the life me cant get the AABB intersect working.<br>
+<br>
+My slope is the same as the 45:<br>
+<br>
+slope     = sign.div(Math.√2);<br>
+<br>
+and my collision code is:<br>
+<br>
+var orig:Vector2D = new Vector2D( <br>
+    (obj.pos.x - (sign.x*obj.halfWidth.x)) - (tilePos.x + (sign.x*halfWidth.x)) ,<br>
+    (obj.pos.y - (sign.y*obj.halfWidth.y)) - (tilePos.y + (sign.y*halfWidth.y)) );<br>
+<br>
+    var dp:Number = orig.dot(slope);<br>
+    if(dp &lt; 0){<br>
+        var temp_slope:Vector2D = slope.clone();<br>
+	temp_slope.multEquals(-1*dp);<br>
+				<br>
+	var lenN:Number = temp_slope.magnitude();<br>
+	var lenP:Number = p.magnitude();<br>
+				<br>
+	if(lenP &lt; lenN) {<br>
+	    obj.ReportCollisionVsWorld(p,p.div(lenP));<br>
+	    trace("hit0");<br>
+	    return COL_AXIS;<br>
+	} else {<br>
+	    obj.ReportCollisionVsWorld( temp_slope, slope );<br>
+	    trace("hit1");<br>
+	    return COL_OTHER;<br>
+	}<br>
+<br>
+Which is a combination of the 67B and 22B.  Sorry for the code paste.... Any ideas? Anybody tried implementing other tiles?</div></div>
+<div class="post" id="p363712"><div class="post-head"><a class="id" href="../t/19342.html#p363712">#363712</a> <span class="index">2</span> <span class="date">2007-09-09T20:47:55Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">it's been a long time, but one error we made a lot was that the reference point on the tile _must_ lie on the line that contains the edge you're testing against. <br>
+<br>
+for your tile, you could use a reference point that's at the top-center or right-center of the tile (i.e tile center + _one_ of the halfwidth vectors of the tile.. horizontal or vertical, but NOT both). that will give you a point that's one end of your little 45deg edge.<br>
+<br>
+it looks like you're using a point that's in top-right corner of the tile, which would be wrong since that point doesn't lie on the 45deg edge. that's only a guess though!</div></div>
+<div class="post" id="p363892"><div class="post-head"><a class="id" href="../t/19342.html#p363892">#363892</a> <span class="index">3</span> <span class="date">2007-09-10T07:19:46Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I've tried making that tile, there's a thread somewhere in Fan Programs... I think I messed it up a bit, though, I'm not really sure. Seemed to be working fine, though...<br>
+<br>
+*searches*<br>
+<br>
+Ah, here it be. <a href="../t/4708.html">Modifying tutorial code...</a></div></div>
+<div class="post" id="p363904"><div class="post-head"><a class="id" href="../t/19342.html#p363904">#363904</a> <span class="index">4</span> <span class="date">2007-09-10T09:54:13Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19342.html#p363712">Quote: Raigan, September 09, 2007 08:47 pm</a></div> it looks like you're using a point that's in top-right corner of the tile, which would be wrong since that point doesn't lie on the 45deg edge. that's only a guess though!  </blockquote> <br>
+ Spot on.  The modified point:<br>
+<br>
+var orig:Vector2D = <br>
+new Vector2D( (obj.pos.x - (sign.x*obj.halfWidth.x)) - (tilePos.x - (sign.x*halfWidth.x)) ,<br>
+		      (obj.pos.y - (sign.y*obj.halfWidth.y)) - (tilePos.y + (sign.y*halfWidth.y*2)) );<br>
+<br>
+works.  I was multiplying both instead of one as you said.</div></div>
+<div class="post" id="p363925"><div class="post-head"><a class="id" href="../t/19342.html#p363925">#363925</a> <span class="index">5</span> <span class="date">2007-09-10T14:23:13Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">that happened a lot when we were writing the original tile code <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p364655"><div class="post-head"><a class="id" href="../t/19342.html#p364655">#364655</a> <span class="index">6</span> <span class="date">2007-09-13T14:10:28Z</span> <span class="author"><a href="../u/9372159.html">theinvader</a></span></div><div class="post-body">Hang on, since when can people toy with the source code? Or is this a fan program?</div></div>
+<div class="post" id="p364657"><div class="post-head"><a class="id" href="../t/19342.html#p364657">#364657</a> <span class="index">7</span> <span class="date">2007-09-13T14:15:53Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">Its a conversion to Actionscript 3 of the collision code &amp; tiles</div></div>
+</main>
+</body>
+</html>

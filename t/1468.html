@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ninja Sprites?? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Ninja Sprites??</nav></header>
+<main>
+<div class="post" id="p1314"><div class="post-head"><a class="id" href="../t/1468.html#p1314">#1314</a> <span class="index">1</span> <span class="date">2004-11-10T09:23:23Z</span> <span class="author"><a href="../u/9370503.html">fordge</a></span></div><div class="post-body">Just wondering how many sprites were used for describing the Ninjas movements??<br>
+<br>
+Ofcourse ragdoll effects were used when killing off the Ninja..but arent all the rest sprites??<br>
+<br>
+and also how many??<br>
+<br>
+The movements are soooooo fluid like..<br>
+<br>
+for eg..<br>
+i noted in some screenshots i tried to take that; depending upon speed, the jump sprite too seems to be a bit more different each time<br>
+<br>
+is it the same sprite n my imagination??<br>
+or isit the same sprite  a bit rotated???<br>
+or ru folks using character physics a lot other than during the death scenes as well??<br>
+<br>
+fordge</div></div>
+<div class="post" id="p35852"><div class="post-head"><a class="id" href="../t/1468.html#p35852">#35852</a> <span class="index">2</span> <span class="date">2004-11-10T16:26:09Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">There's not sprites.<br>
+<br>
+It's all tweened, isn't it Mare?</div></div>
+<div class="post" id="p35898"><div class="post-head"><a class="id" href="../t/1468.html#p35898">#35898</a> <span class="index">3</span> <span class="date">2004-11-10T22:17:16Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+well, if you consider each frame of an animation to be a sprite, then there are several hundred such "sprites". but, we animated it at something like 10fps and then tweened to make it smooth.. i think. it was a while ago <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+about the jumping thing, the animation is changed based on the ninja's current vertical velocity; we found that using a nonlinear relationship made it look better, BUT this means that at the start/end of the jump anim there are too many frames, while at the apex there aren't enough -- you can sometimes see the ninja jerk from one frame to another non-smoothly. alas. it's kind of hard to explain as it makes very little sense even when looking at the code -- we just kept sort of adding terms into a long equation which takes the y velocity as input and outputs a frame of animation.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p35926"><div class="post-head"><a class="id" href="../t/1468.html#p35926">#35926</a> <span class="index">4</span> <span class="date">2004-11-11T00:58:04Z</span> <span class="author"><a href="../u/9370503.html">fordge</a></span></div><div class="post-body">thankx raigan for explaining that to me...<br>
+I think it makes a lot of sense than using hundred of character sprites which would end up making the games size really bulky only for those extra graphical resources...<br>
+sorry I posted the same query on the general section as well<br>
+<br>
+extract from the reply in the General section<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>t's hard to explain -- there are no sprites as used in other 2D games, but if you consider each segment of each limb of the ninja's body to be a sprite (which is moved and rotated), then yes, we're using sprites. you could theoretically draw the ninja on an snes or other sprite-based system by using several sprites.<br>
+<br>
+really all we're doing is animating a character by splitting them into various segments and animating the position+rotation of each segment -- this happens in many other games, for instance oni, q3a, and most other older 3D games.<br>
+<br>
+these days 3D games use the same idea, but instead of having each segment be an unconnected chunk, they sort of blend the segments together at the joints. in oni the joints are sort of obvious and they hid this by using knee/ elbow/shoulder/etc. pads to cover them <br>
+<br>
+raigan</blockquote>but also I was thinking...<br>
+doing the ninja movements using position, rotation, behaviour of segment etc is a bit computation intensive [for the computer]...it seems to be fine when we have just one ninja...<br>
+<br>
+but incase of say a hypothetic death match N game <br>
+where we have say a max of 10 ninjas in a single level<br>
+doing all this computation for each of the 10 ninjas 10fps would end up using a lot CPU power right????<br>
+<br>
+anyway love what uve done...now studying the character physics link provided by u folks</div></div>
+</main>
+</body>
+</html>

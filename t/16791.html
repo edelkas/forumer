@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash object/class creation issues - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Flash object/class creation issues</nav></header>
+<main>
+<div class="post" id="p14721"><div class="post-head"><a class="id" href="../t/16791.html#p14721">#14721</a> <span class="index">1</span> <span class="date">2007-04-05T01:02:09Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><pre class="code">function SpockyMenu(id, opts) {
+    _root.attachMovie("menu", id, 0);
+    this.mc = eval("_root."+id);
+    this.options = new Array();
+    for (var i = 0; i &lt; opts.length; i++) {
+        this.mc.attachMovie("menuitem", "item"+i, i, {_x:70, _y:32*i});
+        eval("this.mc.item"+i).displaylabel.text = opts[i];
+        options[i] = eval("this.mc.item"+i);
+    }
+    this.mc.attachMovie("spocky", "spocky", i+1);
+    this.spocky = mc.spocky;
+    this.spockypos = {_x:0, _y:0};
+    this.spockytimer = setInterval(_root.move, 10, this.spocky, this.spockypos, 10);
+    this.curropt = 0;
+    this.keylistener = new Object();
+    this.keylistener.onKeyDown = function() {
+        if (Key.getCode() == Key.DOWN) {
+            if (this.curropt &lt; this.options.length - 1) {
+                this.spockypos._y = this.options[this.curropt + 1]._y;
+                this.curropt++;
+            } else {
+                this.spockypos._y = this.options[0]._y;
+                this.curropt = 0;
+            }
+        } else if (Key.getCode() == Key.UP) {
+            if (this.curropt &gt; 0) {
+                this.spockypos._y = this.options[this.curropt - 1]._y;
+                this.curropt--;
+            } else {
+                this.spockypos._y = this.options[this.options.length - 1]._y;
+                this.curropt = this.options.length - 1;
+            }
+        }
+    };
+    Key.addListener(this.keylistener);
+}</pre><br>
+And, of course, <pre class="code">var testmenu = new SpockyMenu("test", ["test1","test2","test3"]);</pre>to make a menu.<br>
+<br>
+Problem is, the onKeyDown function of the key listener isn't able to access this.curropt and the other "this" variables. I've tried using this, _parent, super... nothing works. What does work is to take off every instance of "this." in the code, but I don't want to do that, because that makes everything public. Anybody know how to fix it?</div></div>
+<div class="post" id="p310159"><div class="post-head"><a class="id" href="../t/16791.html#p310159">#310159</a> <span class="index">2</span> <span class="date">2007-04-05T03:32:07Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">assuming that this.whatever is pointing to the atribute 'whatever' of object 'this', then you could replace 'this.whatever' with the exact path to that object, ie '_root.mc_name.mc_name2.whatever'<br>
+<br>
+(i actually have used this way for everything i have done recently because i forgot about the this.whatever thing, of course i could be wrong about what its pointing to and this wasnt helpful at all)</div></div>
+<div class="post" id="p310180"><div class="post-head"><a class="id" href="../t/16791.html#p310180">#310180</a> <span class="index">3</span> <span class="date">2007-04-05T04:52:06Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">No, that doesn't quite work... it gives glitchy results. The "this" (should) refer to the current object. Since it's in the constructor for a SpockyMenu, it's referring to the newly created menu.</div></div>
+<div class="post" id="p310188"><div class="post-head"><a class="id" href="../t/16791.html#p310188">#310188</a> <span class="index">4</span> <span class="date">2007-04-05T07:51:34Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">according to actionscript documentation, _parent should work...<br>
+but it doesn't.<br>
+<br>
+a workaround is to use<br>
+<br>
+var curropt=0<br>
+<br>
+instead of this.curropt=0<br>
+<br>
+you can access it as curropt from within the onKeyDown listener, but it's not global so you cant access it outside that.<br>
+<br>
+which is what you want i think...</div></div>
+<div class="post" id="p310229"><div class="post-head"><a class="id" href="../t/16791.html#p310229">#310229</a> <span class="index">5</span> <span class="date">2007-04-05T15:34:34Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">If I use var, will I be able to access it when I create the object? For example,<br>
+<br>
+var testmenu = new SpockyMenu("test", ["test1","test2","test3"]);<br>
+<br>
+Will I be able to change testmenu.curropt? I'll try it out later.</div></div>
+<div class="post" id="p310290"><div class="post-head"><a class="id" href="../t/16791.html#p310290">#310290</a> <span class="index">6</span> <span class="date">2007-04-05T22:35:58Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">good point. i don't think so. The only thing i can think of is to make this. curropt=curropt whenever it changes, from within the class.<br>
+<br>
+although thats a really inefficient method...</div></div>
+<div class="post" id="p310320"><div class="post-head"><a class="id" href="../t/16791.html#p310320">#310320</a> <span class="index">7</span> <span class="date">2007-04-06T01:35:07Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">First of all, the code you posted isn't an object. It's a function. Quite a difference here. Objects  are classes that have functions/methods in them, and functions/methods are used for repeating pieces of code without having to manually repeat it.<br>
+<pre class="code">var testmenu = new SpockyMenu("test", ["test1","test2","test3"]);</pre>Here, your basically assinging a copy of the function to the variable testmenu. Here, test menu isn't an object, it's a function (I think).<br>
+<br>
+HOWEVER, assuming that it's just a function already in an Object (which on a second pass, it looks like it might just be), then ...<br>
+...aw carp, I list my train of thought...<br>
+can you post the entire object code with the header? (class myObject extends Object...)</div></div>
+<div class="post" id="p310324"><div class="post-head"><a class="id" href="../t/16791.html#p310324">#310324</a> <span class="index">8</span> <span class="date">2007-04-06T01:56:21Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/16791.html#p310320">Quote: ZeroTruths, April 05, 2007 05:35 pm</a></div> can you post the entire object code with the header? (class myObject extends Object...)  </blockquote> <br>
+ No, what I posted was it. SpockyMenu() is a function.. that creates an object, I believe... and the object has a child "keylistener," which has a function onKeyDown()... <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> M&amp;R, you've probably done some OOP in Flash, I assume... any thoughts?</div></div>
+<div class="post" id="p310334"><div class="post-head"><a class="id" href="../t/16791.html#p310334">#310334</a> <span class="index">9</span> <span class="date">2007-04-06T03:31:47Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">a function IS an object<br>
+<br>
+well, it's a type of object...<br>
+<br>
+while it isn't really a class, and it's not the intended use, it should work just fine.<br>
+<br>
+as for your problem, _parent should work.<br>
+<br>
+this piece of code is taken from the flash documentation:<br>
+<br>
+this.square_mc.circle_mc.onRelease = function() {<br>
+ this._parent._alpha -= 5;<br>
+};<br>
+<br>
+so yeah...</div></div>
+<div class="post" id="p310339"><div class="post-head"><a class="id" href="../t/16791.html#p310339">#310339</a> <span class="index">10</span> <span class="date">2007-04-06T04:27:24Z</span> <span class="author"><a href="../u/9371198.html">jtbandes</a></span></div><div class="post-body">Problem solved by irc.freenode.net #osflash.<br>
+<br>
+<pre class="code">this.keylistener.parent = this;
+this.keylistener.onKeyDown = function() {
+  if (Key.getCode() == Key.DOWN) {
+    if (this.parent.curropt &lt; this.parent.options.length - 1) {
+      this.parent.spockypos._y = this.parent.options[this.parent.curropt + 1]._y;
+      this.parent.curropt++;
+
+...</pre></div></div>
+</main>
+</body>
+</html>

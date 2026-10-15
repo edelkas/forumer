@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C++ compiler help - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; C++ compiler help</nav></header>
+<main>
+<div class="post" id="p19443"><div class="post-head"><a class="id" href="../t/21751.html#p19443">#19443</a> <span class="index">1</span> <span class="date">2008-03-09T12:16:27Z</span> <span class="author"><a href="../u/9375883.html">Zap Drone</a></span></div><div class="post-body">right so ive had c++ for months and "TRIED" to program a simple area and perimeter code and ive debbugged it and it still says there are compiler errors but ive asked many people how to solve this and they say there is nothing wrong with my script so i am asking all people with adequete knoledge to give me a guide written by you to help me make a simple game or program.<br>
+<br>
+<br>
+*edit: heres the code*<br>
+<br>
+<br>
+//the first program<br>
+#include &lt;iostream.h&gt;<br>
+<br>
+void main()<br>
+{<br>
+	int length, width;<br>
+	int perimeter, area;          // declarations<br>
+	cout &lt;&lt; "Length = ";          // prompt user<br>
+	cin &gt;&gt; length;                // enter length<br>
+	cout &gt;&gt; "Width = "            // prompt user<br>
+	cin &gt;&gt; width;                 // input width<br>
+	perimeter = 2*(length*width); // compute perimeter<br>
+	area = length*width;          // compute area<br>
+	cout &lt;&lt;endl<br>
+		&lt;&lt; "Perimeter is" &lt;&lt; perimeter<br>
+	cout &lt;&lt; endl<br>
+	&lt;&lt; "Area is " &lt;&lt; area<br>
+	&lt;&lt; endl;<br>
+} //end of main program</div></div>
+<div class="post" id="p415223"><div class="post-head"><a class="id" href="../t/21751.html#p415223">#415223</a> <span class="index">2</span> <span class="date">2008-03-09T12:21:53Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">You're missing a number of semicolons. And I think you need to say 'std::cout'/'std::cin' (or use a keyword whose name I forget to make std apply automatically). And I don't think you append the ".h" in C++.</div></div>
+<div class="post" id="p415338"><div class="post-head"><a class="id" href="../t/21751.html#p415338">#415338</a> <span class="index">3</span> <span class="date">2008-03-09T18:43:05Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">The line maestro was looking for is "using namespace std;".  Also, there's a "cout &gt;&gt;" which should be "cout &lt;&lt;" on the 5th line of main (which also needs a semicolon), and the 10th line of main needs a semicolon too.<br>
+In terms of style, you'll probably want some indentation to make scope clearer, and to make it it clear what's going on in the cout statements which cross multiple lines.  Of course, it might be perfectly indented and that just got eaten by the forum.  In that case, try putting it int a [ code ] tag.<br>
+<br>
+[edit]P.S. Not related to coding per se, but the "Perimeter is" output should probably have a space at the end (and it should probably be calculated based on length+width, rather than length*width).[/edit]</div></div>
+<div class="post" id="p423675"><div class="post-head"><a class="id" href="../t/21751.html#p423675">#423675</a> <span class="index">4</span> <span class="date">2008-03-30T20:40:51Z</span> <span class="author"><a href="../u/9375331.html">Arona Daal</a></span></div><div class="post-body">In the output strings, you could use the escape sequence "\n" to denote and endl, instead of typing it out. The code looks a lot less cluttered that way.</div></div>
+</main>
+</body>
+</html>

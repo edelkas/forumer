@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision problem (So close...) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Collision problem (So close...)</nav></header>
+<main>
+<div class="post" id="p14274"><div class="post-head"><a class="id" href="../t/16159.html#p14274">#14274</a> <span class="index">1</span> <span class="date">2007-03-02T17:53:10Z</span> <span class="author"><a href="../u/9373954.html">Nich</a></span></div><div class="post-body">I'm developing a collision detection and response function for a physics based game based on Metanet's tutorials. So far, the function detects collisions perfectly, and *sometimes* responds correctly.<br>
+<br>
+The problem I'm having is that I am able to find the projection magnitude, but the vector is sometimes the reverse of what it should be. Instead of the two shapes being moved apart, they are attracted, causing another collision to be detected with a greater magnitude. This repeats until the shaped separate, in the opposite direction intended, at high speeds. I believe the problem is that I'm only using the right hand normal as my projection vector, rather then deciding which to use.<br>
+<br>
+My question is this: Is there a simple way to determine which projection vector to project on so that the shapes will always separate and never attract? If not, is there an easy way to detect whether they will attract, so that I can reverse the vector?<br>
+<br>
+I'm attaching my swf. Note that collisions with the bottom triangle are functional. This would not be the case if the other two objects were to approach from the bottom. <br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-14-1172857990.zip</div></div></div>
+<div class="post" id="p302401"><div class="post-head"><a class="id" href="../t/16159.html#p302401">#302401</a> <span class="index">2</span> <span class="date">2007-03-04T02:13:14Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">I would help if we could see the source code  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"></div></div>
+<div class="post" id="p304430"><div class="post-head"><a class="id" href="../t/16159.html#p304430">#304430</a> <span class="index">3</span> <span class="date">2007-03-11T16:42:39Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">do you know the axis/line that contains the projection direction? that's what it sounds like: in this case, you just need to determine which direction to move along the line (i.e +ve or -ve).<br>
+<br>
+you could look at the dotproduct of the A-to-B vector and the projection vector you're using, and negate the projection vector depending on if the sign of the dotproduct is +ve or -ve.</div></div>
+<div class="post" id="p308948"><div class="post-head"><a class="id" href="../t/16159.html#p308948">#308948</a> <span class="index">4</span> <span class="date">2007-03-30T23:05:20Z</span> <span class="author"><a href="../u/9374214.html">mtthwhys</a></span></div><div class="post-body">Hello Nich,<br>
+<br>
+I had a problem just like this really recently... in my case it turns out that I had inadvertently reversed the "voronoi region" indices... oH = 1 instead of -1... in the part of my code that was looking for collisions from a diagonal cell.  As such, the object would appear to enter the tile's space inappropriately, and then suddenly pop to the edge/vertex.  <br>
+<br>
+There was some other thing too, but I can't remember now how I solved it, besides tracing out the collisions... in the N tutorials they've got it set up to trace something like:<br>
+<br>
+trace("\tBAD collide() tile(" + t.pos.x + ", " + t.pos.y + ") ._type = " + t.type + " ._ctype = " + t.ctype);<br>
+<br>
+Something LIKE that in the CollideCircleVsTile/CollideAABBVsTile objects.  It helped a lot to follow that, although, I've gotten pretty far away from the tutorials by this point.<br>
+<br>
+Good luck,<br>
+//Matt</div></div>
+</main>
+</body>
+</html>

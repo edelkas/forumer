@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>General Nreality PlayerMod thread - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; General Nreality PlayerMod thread</nav></header>
+<main>
+<div class="post" id="p19786"><div class="post-head"><a class="id" href="../t/22108.html#p19786">#19786</a> <span class="index">1</span> <span class="date">2008-04-03T02:22:23Z</span> <span class="author"><a href="../u/9374186.html">The Kitchen Sink</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/22034.html#p422986">Quote: Unreality, 2008-03-29T04:44:29Z</a></div>Since ppl are bombing my pm box, let me release the info:<br>
+<br>
+[0] means zap drones, [1] means lasers and [2] means chaingun<br>
+<br>
+r for radius<br>
+<br>
+to have several effects put together (I haven't tested it tho):<br>
+<br>
+0,r,20;1,r,5;2,r,100<br>
+<br>
+Other drone attributes, which I haven't tested (I have only tested r radius):<br>
+<br>
+speed for speed<br>
+fireDelayTimer (default 0)<br>
+prefireDelay (default 0)<br>
+postfireDelay (default 0)<br>
+laserPrefireDelay (default 30)<br>
+laserPostfireDelay (default 40)<br>
+laserRate (default 80)<br>
+laserLen (default 7)<br>
+chaingunPrefireDelay  (default 35)<br>
+chaingunPostfireDelay  (default 60)<br>
+chaingunMaxNum  (default 8)<br>
+chaingunRate  (default 6)<br>
+chaingunSpread  (default 3.000000E-001)<br>
+<br>
+<br>
+so the code can be like<br>
+<br>
+0,speed,100;1,laserPrefireDelay,1;1,laserLen,30<br>
+<br>
+<br>
+I haven't really tested them tho.... gotta go out now <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Currently there's no way to edit other objects yet, as I haven't added the code yet.<br>
+and I do not know whether it is possible to edit other objects yet, as I haven't spent the time to 'investigate'</blockquote><blockquote class="quote"><div class="quote-head"><a href="../t/22072.html#p19751">Quote: Unreality, 2008-03-30T14:34:28Z</a></div>NReality Map data structure:<br>
+<br>
+$MAPNAME#AUTHOR#TYPE#leveldata|objectdata|bgImage|fgImage|NRealityMapType|droneMod|playerMod#<br>
+<br>
+<br>
+Here are the attribute list, which I haven't tested all of them, please help me to test them one by one and report the result biggrin.gif :<br>
+<br>
+r<br>
+maxspeedAir , default = r * 5.000000E-001;<br>
+maxspeedGround, default = r * 5.000000E-001;<br>
+groundAccel, default = 1.500000E-001;<br>
+airAccel, default = 1.000000E-001;<br>
+normGrav, default = 1.500000E-001; I suggest you to set g equal to the same value too. e.g. normGrav,1;g,1<br>
+jumpGrav, default = 2.500000E-002;<br>
+normDrag, default = 9.900000E-001; I suggest you to set d equal to the same value too. e.g. normDrag,2;d,2<br>
+winDrag, default = 8.000000E-001;<br>
+wallFriction, default = 1.300000E-001;<br>
+skidFriction, default = 9.200000E-001;<br>
+standFriction, default = 8.000000E-001;<br>
+g, default = normGrav;<br>
+d, default = normDrag;<br>
+jumpAmt, default = 1;<br>
+jump_y_bias, default = 2;<br>
+max_jump_time, default = 30;<br>
+terminal_vel, default = r * 9.000000E-001;</blockquote><br>
+A few good tinkering maps have been made already, with more to come. Only time will tell.<br>
+<br>
+I made one personally, click the link in my sig for easy access if you want to see it...</div></div>
+</main>
+</body>
+</html>

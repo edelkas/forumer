@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N Level code - Doors with buttons - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; N Level code - Doors with buttons</nav></header>
+<main>
+<div class="post" id="p15510"><div class="post-head"><a class="id" href="../t/17636.html#p15510">#15510</a> <span class="index">1</span> <span class="date">2007-06-03T16:05:22Z</span> <span class="author"><a href="../u/9374557.html">potatis_invalido</a></span></div><div class="post-body">I and some of my friends have started a homepage where we will publish all our N maps (people will continue to visit NUMA (<img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">) , the site is in swedish).<br>
+We woul'd like to have pictures of our maps automatically generated from the map code.<br>
+I've tryed to fix that myself, but there is a part of the map code that I don't understand. The door part.<br>
+Let's have a look at the code for an exit door:<br>
+11^240,96,288,132<br>
+The first number, 11, is the object number, in this case an exit.<br>
+The second number is the x pos of the door, and the third number is the y pos.<br>
+The fourth number is the x pos of the button that opens the door, and the fifth number is the y pos.<br>
+Now, let's have a look at the code for a locked door:<br>
+9^276,180,0,0,9,4,1,0,0<br>
+The first number is the object number (9=locked door).<br>
+I think that the second is the x pos of the door, and the third is the y pos.<br>
+I think that the fourth is what kind of locked door it is ( |, | , _ or "").<br>
+But what's the x and y cords for the button????<br>
+Please, teach me to speak N Door Code <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">!<br>
+Or, give me the code that's used at NUMA to generate screenies.<br>
+<br>
+Thx.<br>
+<br>
+<br>
+Oskar</div></div>
+<div class="post" id="p327037"><div class="post-head"><a class="id" href="../t/17636.html#p327037">#327037</a> <span class="index">2</span> <span class="date">2007-06-03T19:04:55Z</span> <span class="author"><a href="../u/9372660.html">victimBF2</a></span></div><div class="post-body">9^x,y,alignment,trap,x2,y2,locked,x3,y3 <br>
+<br>
+X,Y is for the switch if applicable. <br>
+Alignment: 1 - bottom, otherwise - right. <br>
+Trap: This door is a trapdoor. 0 - false, otherwise - true. Will be overrridden by locked. <br>
+x2, y2: the position of the door IN THE GRID (0,24 is bottom left). <br>
+Locked: This is a locked door. 0 - False, 1 - True. If it conflicts with trap, it will default to a locked door. <br>
+x3, y3: the position of the door inside the grid square (0,0 for right and down facing doors, -1,0 for left facing, and 0,-1 for up facing.) <br>
+<br>
+<br>
+straight from the <a href="http://n.wikia.com/wiki/Code_editing#Door">wiki</a>. Hope that helps.</div></div>
+<div class="post" id="p327295"><div class="post-head"><a class="id" href="../t/17636.html#p327295">#327295</a> <span class="index">3</span> <span class="date">2007-06-04T09:30:23Z</span> <span class="author"><a href="../u/9374557.html">potatis_invalido</a></span></div><div class="post-body">THX A LOT!<br>
+I think I can get it to work now.</div></div>
+<div class="post" id="p360777"><div class="post-head"><a class="id" href="../t/17636.html#p360777">#360777</a> <span class="index">4</span> <span class="date">2007-08-30T01:40:48Z</span> <span class="author"><a href="../u/9374700.html">Sithmaster</a></span></div><div class="post-body">nowI understand this YYYYYYYYYYYEEEEEEEEEEEEEEAAAAAAAAAAAHHHHHHHHHHHHHH <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:">  <img class="smiley" src="../files/smilies/14.gif" alt=":wow:" title=":wow:"></div></div>
+<div class="post" id="p360984"><div class="post-head"><a class="id" href="../t/17636.html#p360984">#360984</a> <span class="index">5</span> <span class="date">2007-08-30T21:11:29Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">^ Now was that post really nessecary?^<br>
+<br>
+Any other N level Code help that you need, you can find here, it has everything on it<br>
+<a href="../t/19165.html">http://metanet.2.forumer.com/index.php?showtopic=19165</a><br>
+<br>
+and by the way, can you post your verion of NUMA here, i'd love to see it!  (even though I dont undstand Swedish), maybe a Swedisht o English function would be nice)</div></div>
+</main>
+</body>
+</html>

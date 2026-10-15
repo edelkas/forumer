@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Second DDA - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; My Second DDA</nav></header>
+<main>
+<div class="post" id="p1075"><div class="post-head"><a class="id" href="../t/1211.html#p1075">#1075</a> <span class="index">1</span> <span class="date">2004-10-10T06:10:09Z</span> <span class="author"><a href="../u/9370566.html">Killisk</a></span></div><div class="post-body">I made a new thread for this since I know you all love that : )<br>
+<br>
+J/k, I like this one. I still like my first one better, but here it is:<br>
+<br>
+<br>
+<br>
+The first one:</div></div>
+<div class="post" id="p31513"><div class="post-head"><a class="id" href="../t/1211.html#p31513">#31513</a> <span class="index">2</span> <span class="date">2004-10-10T16:30:49Z</span> <span class="author"><a href="../u/9370566.html">Killisk</a></span></div><div class="post-body">Opinions? Good DDA? Bad DDA? I'm a raving lunatic? Anything?</div></div>
+<div class="post" id="p31515"><div class="post-head"><a class="id" href="../t/1211.html#p31515">#31515</a> <span class="index">3</span> <span class="date">2004-10-10T16:42:52Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Awesome.</div></div>
+<div class="post" id="p31531"><div class="post-head"><a class="id" href="../t/1211.html#p31531">#31531</a> <span class="index">4</span> <span class="date">2004-10-10T17:09:05Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">I would say that they're all pure genious! How long did it take you to make them? They're pretty intricate.</div></div>
+<div class="post" id="p31612"><div class="post-head"><a class="id" href="../t/1211.html#p31612">#31612</a> <span class="index">5</span> <span class="date">2004-10-11T00:40:50Z</span> <span class="author">Guest</span></div><div class="post-body">Man, that's some crazy work. I really like Gears 2, there was one part, on the left side, where the thwump should have killed N, but it didn't, I guess that's part of the lucidium thing, yeah?</div></div>
+<div class="post" id="p31616"><div class="post-head"><a class="id" href="../t/1211.html#p31616">#31616</a> <span class="index">6</span> <span class="date">2004-10-11T00:52:13Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yes, that's the effect. You're squeezed by a thwump into another thwump or a wall, and instead of dying, you're sent flying.<br>
+<br>
+The reason that happens is because of N's collision detection script. Yes, I read the tutorial on that.<br>
+<br>
+I'm going to use the level attached at the bottom for my example.<br>
+<br>
+Go ride the first thwump up to the ceiling. N collides with the thwump as he lands on it, so the script repells him away. Result: N is standing on the thwump.<br>
+<br>
+As the thwump moves upwards, N repeatedly collides with it, so the script keeps him moving up, thus N rides the thwump. Once N reaches the ceiling, however, here's the problem: The script needs to move N out of the way of the thwump, but it can't move up because of the ceiling. Thus N will die on the first example, because N can't move left or right either.<br>
+<br>
+With the third example, the script finds it can move you up and to the left after all, so that happens, with no violent launching whatsoever.<br>
+<br>
+Next, after you reset, ride the second thwump. Move into the center of the thwump. You'll die at the top again. Next, move to the right or left side of the thwump. This time, instead of killing you, the optimistic script finds it can launch you to the right to avoid killing you, and thus you are not killed.<br>
+<br>
+Go to the final example, and drop on the bounceblock. The thwumps will move outwards, then as they move in, they squeeze against you. Even though there's a one-way above you, another bug renders it "weaker" than the bounceblock or thwumps. Thus the thwumps launch you through the one-way up.<br>
+<br>
+That should clear up some ambiguity!  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <div class="attachment attachment-missing">Attachment (lost): post-10-1097455933.txt</div></div></div>
+<div class="post" id="p31618"><div class="post-head"><a class="id" href="../t/1211.html#p31618">#31618</a> <span class="index">7</span> <span class="date">2004-10-11T01:04:27Z</span> <span class="author">Guest</span></div><div class="post-body">That's nifty, I never got the whole lucidium effect thing until now. But I like it. I think it can be useful in a lot of situations, I've seen it happen a lot in DDA maps, but I've never known that's what everyone was referring to until now. Cool stuff, I like it a lot.</div></div>
+</main>
+</body>
+</html>

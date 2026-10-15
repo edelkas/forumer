@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiple Collisions - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Multiple Collisions</nav></header>
+<main>
+<div class="post" id="p2283"><div class="post-head"><a class="id" href="../t/2558.html#p2283">#2283</a> <span class="index">1</span> <span class="date">2005-03-23T20:20:20Z</span> <span class="author">Guest</span></div><div class="post-body">What happens when an object collides with multiple objects?  Such as the ninja tring to get though a space too small (tiles on eather side)  How do you make sure that the ninja isn't moved out of one object and right into another?  If its done later, how can you know that he won't be moved right back into the object he was in before?  And lastly how do you know which object to move?  Do you move both objects half of the projection vector?</div></div>
+<div class="post" id="p55585"><div class="post-head"><a class="id" href="../t/2558.html#p55585">#55585</a> <span class="index">2</span> <span class="date">2005-03-23T21:44:55Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+this is a really hard problem to solve "right". we just project the ninja out of things one at a time, which _usually_ ends up converging on the best solution. it does create a sort of "squishy"/soft feel, try dropping the ninja into an acute pit and you'll see what i mean.<br>
+<br>
+if you look at the source code for our second tutorial, you can find out how this really works; as far as i can remember we just find all the tiles touching the ninja and push the ninja out of each one individually: <a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html#section5">http://www.harveycartel.org/metanet/tutori...B.html#section5</a><br>
+<br>
+thanks,<br>
+raigan</div></div>
+</main>
+</body>
+</html>

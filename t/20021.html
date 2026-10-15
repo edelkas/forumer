@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Making levels with code! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Making levels with code!</nav></header>
+<main>
+<div class="post" id="p17785"><div class="post-head"><a class="id" href="../t/20021.html#p17785">#17785</a> <span class="index">1</span> <span class="date">2007-11-03T16:18:53Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">Sorry if already exists, I am so tired I did not search the forums. Anyways, here is everything you need to know in order to make N userlevels without the editor, typing directly into the userlevels.txt file. Please note, that one step means two 1/2 snap movements of the cursor or one movement of the little gray box surrounding the white X. Tile code and Object code must be divided by a vertical divider "|" (without the quotes). Please also note, that this is intended for people who have used the editor before, have read the instructions, and no what I am referring to. For anyone who doesn't know, the X and Y coordinates refers to the number of Pixels. Please let me know if there is anything I forgot, or if you are just confused.<br>
+<br>
+units:<br>
+        1 step = 24 pixels<br>
+        1/2 step = 12 pixels<br>
+        1/4 step = 6 pixels<br>
+<br>
+corners (the center of each corner square:<br>
+        upper left = 36, 36<br>
+        upper right = 756, 36<br>
+        lower left = 36, 564<br>
+        lower right = 756, 564<br>
+                (x coordinate, y coordinate)<br>
+<br>
+vector1/vector2:<br>
+        0/0 = right<br>
+        -1/0 = left<br>
+        0/1 = down<br>
+        0/-1= up<br>
+<br>
+non-vectored directions<br>
+        0 = right<br>
+        1 = down<br>
+        2 = left<br>
+        3 = up<br>
+<br>
+object coding:<br>
+        0 = gold<br>
+                id^x,y<br>
+        1 = bounce block<br>
+                id^x,y<br>
+        2 = launch pad<br>
+                id^x,y,vector1,vector2<br>
+        3 = gauss turret<br>
+                id^x,y<br>
+        4 = floor guard<br>
+                id^x,y,1<br>
+        5 = ninja (must be placed first)<br>
+                id^x,y<br>
+        6 = zap drone/homing drone<br>
+                id^x,y,movement style,type1,type2,non-vectored direction<br>
+                        movement styles:<br>
+                                0 = surface follow CW<br>
+                                1 = surface follow CCW<br>
+                                2 = dumb CW<br>
+                                3 = dumb CCW<br>
+                                4 = alternating surface follow (CW/CCW)<br>
+                                5 = quasi-random<br>
+                        type1/type2<br>
+                                0/0 = zap drone<br>
+                                1/0 = homing zap drone<br>
+                                0/1 = laser drone<br>
+                                0/2 = chaingun drone<br>
+        7 = oneway platform<br>
+                id^x,y,non-vectored direction<br>
+        8 = thwump<br>
+                id^x,y,non-vectored direction<br>
+        9 = door:<br>
+                id^trigger x (normal door x), trigger y (normal door y),orient,type1,col,row,type2,vector1,vector2<br>
+                        type1/type2<br>
+                                0/0 = normal<br>
+                                0/1 = locked<br>
+                                1/0 = trap<br>
+                        orient<br>
+                                0 = horizontal (enter from left or right)<br>
+                                1 = vertical (enter from top or bottom)<br>
+                        vector1/vector2<br>
+                                -1/0 = left<br>
+                                0/-1 = up<br>
+                                0/0 = right<br>
+                                0/0 = down<br>
+        10 = homing launcher<br>
+                id^x,y<br>
+        11 = exit<br>
+                id^x,y,trigger x,trigger y<br>
+        12 = mine<br>
+                id^x,y<br>
+<br>
+<br>
+<br>
+tile coding (713 tiles per stage)<br>
+<br>
+0 = empty square<br>
+1 = full square<br>
+2 = triangular half (w)<br>
+3 = triangular half (q)<br>
+4 = triangular half (a)<br>
+5 = triangular half (s)<br>
+6 = concave curve (w)<br>
+7 = concave curve (q)<br>
+8 = concave curve (a)<br>
+9 = concave curve (s)<br>
+B = shallow triangle [part 1] (w)<br>
+C = shallow triangle [part 1] (q)<br>
+D = shallow triangle [part 1] (a)<br>
+E = shallow triangle [part 1] (s)<br>
+F = steep triangle [part 1] (w)<br>
+G = steep triangle [part 1] (q)<br>
+H = steep triangle [part 1] (a)<br>
+I = steep triangle [part 1] (s)<br>
+J = steep triangle [part 2] (w)<br>
+K = steep triangle [part 2] (q)<br>
+L = steep triangle [part 2] (a)<br>
+M = steep triangle [part 2] (s)<br>
+P = half square (w)<br>
+Q = half square (q)<br>
+N =  half square (a)<br>
+O = half square (s)<br>
+&gt; = shallow triangle [part 2] (w)<br>
+? = shallow triangle [part 2] (q)<br>
+@ = shallow triangle [part 2] (a)<br>
+A = shallow triangle [part 2] (s)<br>
+: = convex curve (w)<br>
+; = convex curve (q)<br>
+&lt; = convex curve (a)<br>
+= = convex curve (s)<br>
+<br>
+<br>
+<br>
+I figured this out without any help, and without decompiling the game. I deciphered the code by repetitive testing (this object has this code... let's see what happens if I put it here instead?), and double-checked everything. I would like to thank my father, who did point out how inefficient some of the code is.<br>
+<br>
+I have not beaten N, and I suck at most video games, but please see my new line of levels, styled after the Olympics.<br>
+<br>
+I added a download of the above data, for anyone who's interested...<br>
+<br>
+<br>
+--------------------------------------------------<br>
+Reading about myself on the forums:<br>
+ <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono">  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01">  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes">  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"> <div class="attachment attachment-missing">Attachment (lost): post-14-1194107181.doc</div></div></div>
+<div class="post" id="p376622"><div class="post-head"><a class="id" href="../t/20021.html#p376622">#376622</a> <span class="index">2</span> <span class="date">2007-11-03T18:09:16Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">Ive seen things similar to this, but never so clear or in depth! nice job!</div></div>
+<div class="post" id="p376627"><div class="post-head"><a class="id" href="../t/20021.html#p376627">#376627</a> <span class="index">3</span> <span class="date">2007-11-03T18:18:39Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">as far as the first 90% of your post goes, other people have done similar things, but not as well documented or laid out<br>
+<br>
+for your last comment though...<br>
+1. how do you know the code is inefficient if you haven't decompiled it?<br>
+2. I'm pretty sure it was originally written in AS 1, M&amp;R have said they are going to rewrite it in AS 3 for v1.5, which will in theory give major speed boosts</div></div>
+<div class="post" id="p376706"><div class="post-head"><a class="id" href="../t/20021.html#p376706">#376706</a> <span class="index">4</span> <span class="date">2007-11-03T22:04:26Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">I believe that if you want to make your own mod for N, in order to be able to distribute it (on the net or in real life), you need to get permission from Mare and Raigan, the creators of N.<br>
+<br>
+EDIT: wow, for a first post that was great. I can tell that you are going to be a great part of this community. As long as the quality stays like this.</div></div>
+<div class="post" id="p376733"><div class="post-head"><a class="id" href="../t/20021.html#p376733">#376733</a> <span class="index">5</span> <span class="date">2007-11-03T23:38:14Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20021.html#p376627">Quote: smartalco, November 04, 2007 04:18 am</a></div> as far as the first 90% of your post goes, other people have done similar things, but not as well documented or laid out<br>
+<br>
+for your last comment though...<br>
+1. how do you know the code is inefficient if you haven't decompiled it?<br>
+2. I'm pretty sure it was originally written in AS 1, M&amp;R have said they are going to rewrite it in AS 3 for v1.5, which will in theory give major speed boosts  </blockquote> <br>
+ I'm pretty sure he/she was referring to the way map data is represented, not the code behind it.<br>
+<br>
+Isn't this topic in the wrong room?</div></div>
+<div class="post" id="p376847"><div class="post-head"><a class="id" href="../t/20021.html#p376847">#376847</a> <span class="index">6</span> <span class="date">2007-11-04T09:32:20Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20021.html#p376627">Quote: smartalco, November 04, 2007 04:18 am</a></div> as far as the first 90% of your post goes, other people have done similar things, but not as well documented or laid out  </blockquote> <br>
+ <a href="http://n.wikia.com/wiki/Code_editing">The code editing page on the wiki is fairly good.</a> Although the tileset section could do with better descriptions.<br>
+<br>
+Also, Developer's Tutorials is more for people learning to program their own games, rather than make levels.</div></div>
+<div class="post" id="p377129"><div class="post-head"><a class="id" href="../t/20021.html#p377129">#377129</a> <span class="index">7</span> <span class="date">2007-11-05T14:56:15Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">Thank you for the comments!<br>
+<br>
+To start with, some of the code seems redundant, such as when the 'normal door' uses an ID for orientation (horizontal or vertical), <i>and</i> an ID for vector. Wouldn't you just be able to use "1/0" for right and "0/1" for down? I am going very soon to decompile the game, as I am wondering why it takes so long to parse and load the Userlevels. From my estimation, it takes one second to load one-hundred K (kilo-bytes), which is much slower than it should be (one-tenth of a second). In terms of the way the map data was presented though, I can see why they did it that way. It definitely seems easiest to parse and edit that way.<br>
+<br>
+I am glad someone did this before, and I am also glad that you (whoever feels this way) prefer mine. I tried my best to make it simple and comprehensive.<br>
+<br>
+I think that I will wait and see what N v1.5 looks like before I attempt to recode a personal version. (It is a lot of work).<br>
+<br>
+Please, if someone could tell me how, or could just move this post for me, I would like to put it in the proper category (I will also need someone to tell me where that is).<br>
+<br>
+Lastly,<br>
+He/She?<br>
+<br>
+He... I think...<br>
+ <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"></div></div>
+<div class="post" id="p377130"><div class="post-head"><a class="id" href="../t/20021.html#p377130">#377130</a> <span class="index">8</span> <span class="date">2007-11-05T15:08:37Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">I have (slightly) edited my original post. I have changed some things that are/were wrong at the time of post.<br>
+<br>
+<br>
+Not that anyone really cares...</div></div>
+<div class="post" id="p377132"><div class="post-head"><a class="id" href="../t/20021.html#p377132">#377132</a> <span class="index">9</span> <span class="date">2007-11-05T15:42:40Z</span> <span class="author"><a href="../u/9375231.html">lookatthis</a></span></div><div class="post-body">my brother once made a ninja 10 times the regular size but doesn't remember how</div></div>
+<div class="post" id="p387251"><div class="post-head"><a class="id" href="../t/20021.html#p387251">#387251</a> <span class="index">10</span> <span class="date">2007-12-08T00:29:17Z</span> <span class="author"><a href="../u/9374940.html">Tapp</a></span></div><div class="post-body">All you do to make a giant ninja, is put 5^ instead of the object code. Also, with the launch pad, there is a method to calculate the exact speed. If you multiply it by ten, you get how many pixels it shoots you at per frame (mouse click).</div></div>
+<div class="post" id="p437619"><div class="post-head"><a class="id" href="../t/20021.html#p437619">#437619</a> <span class="index">11</span> <span class="date">2008-05-20T00:43:09Z</span> <span class="author"><a href="../u/9376148.html">keatoNinja</a></span></div><div class="post-body">that is awesome..<br>
+lol...<br>
+didnt know how that code stuff worked...<br>
+but now heres a good question...<br>
+how do you make your own demo data...hmmm...<br>
+ <img class="smiley" src="../files/smilies/15.gif" alt="banana" title="banana"></div></div>
+<div class="post" id="p437620"><div class="post-head"><a class="id" href="../t/20021.html#p437620">#437620</a> <span class="index">12</span> <span class="date">2008-05-20T00:51:46Z</span> <span class="author"><a href="../u/9374814.html">The New Harley</a></span></div><div class="post-body">Thanks...<br>
+For putting...<br>
+Each thing you had to say....<br>
+On...<br>
+A different....<br>
+Line. It's a pain to read.<br>
+<br>
+Wow, pretty in depth, you must have a lot of time on your hands!</div></div>
+<div class="post" id="p437628"><div class="post-head"><a class="id" href="../t/20021.html#p437628">#437628</a> <span class="index">13</span> <span class="date">2008-05-20T01:04:34Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/20021.html#p387251">Quote: Tapp, December 07, 2007 04:29 pm</a></div> Also, with the launch pad, there is a method to calculate the exact speed. If you multiply it by ten, you get how many pixels it shoots you at per frame (mouse click).  </blockquote> <br>
+ Not true. In fact, the velocity given by a launch pad's vector values is different based on the direction it's headed in. Up-facing pads launch you much faster than side- and down-facing ones.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slight problem with zap drones causes big problem! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Slight problem with zap drones causes big problem!</nav></header>
+<main>
+<div class="post" id="p4509"><div class="post-head"><a class="id" href="../t/4951.html#p4509">#4509</a> <span class="index">1</span> <span class="date">2005-09-24T11:25:42Z</span> <span class="author">Guest</span></div><div class="post-body">I think there is a slight error in the way some of my maps work. Whenever I <br>
+want a number of Zap Drones to move synchronized across paths of the same <br>
+length, one or more of them moves at a different pace. In the sample map I <br>
+provided, I was hoping that the 9 zap drones would move around the 9 squares <br>
+at the same rate, but when I test the map, the 3 Drones on the right move <br>
+slightly slower than the other 6, as well as the top 3. Does anyone have any ideas on how to fix this?<br>
+<br>
+$Test#Notae#Ex#00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111110111110111110000001111101111101111100000011111011111011111000000111110111110111110000001111101111101111100000000000000000000000000000111110111110111110000001111101111101111100000011111011111011111000000111110111110111110000001111101111101111100000000000000000000000000000111110111110111110000001111101111101111100000011111011111011111000000111110111110111110000001111101111101111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^396,564!6^252,84,0,0,0,0!6^396,84,0,0,0,0!6^540,84,0,0,0,0!6^252,228,0,0,0,0!6^396,228,0,0,0,0!6^540,228,0,0,0,0!6^252,372,0,0,0,0!6^396,372,0,0,0,0!6^540,372,0,0,0,0!0^396,300</div></div>
+<div class="post" id="p103191"><div class="post-head"><a class="id" href="../t/4951.html#p103191">#103191</a> <span class="index">2</span> <span class="date">2005-09-24T12:08:54Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Please attach maps in .txt files to this board, as the Internet will butcher your map code with its dreaded WordWrap.</div></div>
+<div class="post" id="p103199"><div class="post-head"><a class="id" href="../t/4951.html#p103199">#103199</a> <span class="index">3</span> <span class="date">2005-09-24T12:27:29Z</span> <span class="author">Guest</span></div><div class="post-body">how?</div></div>
+<div class="post" id="p103200"><div class="post-head"><a class="id" href="../t/4951.html#p103200">#103200</a> <span class="index">4</span> <span class="date">2005-09-24T12:28:50Z</span> <span class="author"><a href="../u/9370798.html">glenno14</a></span></div><div class="post-body">Register.</div></div>
+<div class="post" id="p103208"><div class="post-head"><a class="id" href="../t/4951.html#p103208">#103208</a> <span class="index">5</span> <span class="date">2005-09-24T13:17:59Z</span> <span class="author"><a href="../u/9370512.html">Eeyore</a></span></div><div class="post-body">That is pretty strange. <div class="attachment attachment-missing">Attachment (lost): post-11-1127567905.txt</div></div></div>
+<div class="post" id="p103211"><div class="post-head"><a class="id" href="../t/4951.html#p103211">#103211</a> <span class="index">6</span> <span class="date">2005-09-24T13:26:49Z</span> <span class="author"><a href="../u/9370791.html">jflash</a></span></div><div class="post-body">Yeah, that is really strange.</div></div>
+<div class="post" id="p103212"><div class="post-head"><a class="id" href="../t/4951.html#p103212">#103212</a> <span class="index">7</span> <span class="date">2005-09-24T13:30:55Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">I've known this for a while.  I had some maps a while back in a series called "Motive Resources".  Basically, the objective was to make laps around in a circle while outrunning drones.  Well, after a while the drones become misaligned.<br>
+<br>
+I've also noticed that if you put two drones on opposite sides in a symmetrical level, their paths (which should remain symmetrical) become unsychronized.  It has something to do with the placement of these objects within the map data.<br>
+<br>
+I think there is a system of "priority" or something based on an object's proximity to the front of the map data and that this priority determines the order in which actions are resolved between two frames.<br>
+<br>
+I'm no programmer, but this may be a valid explanation.</div></div>
+<div class="post" id="p103231"><div class="post-head"><a class="id" href="../t/4951.html#p103231">#103231</a> <span class="index">8</span> <span class="date">2005-09-24T14:00:55Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">I've known this for a long time.  One time I had this really interesting puzzle-is section that I wanted to stick into a big level, but by the time you got there the drones were scattered and this puzzle revolved around synchronized drones.  So I had to stick something really crappy into the area I had allotted for that puzzle and stick the puzzle in its own map.</div></div>
+<div class="post" id="p103234"><div class="post-head"><a class="id" href="../t/4951.html#p103234">#103234</a> <span class="index">9</span> <span class="date">2005-09-24T14:08:16Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">In several of my "cog" maps such as Odom Eters, the zap drone gears get broken after a while.</div></div>
+<div class="post" id="p103250"><div class="post-head"><a class="id" href="../t/4951.html#p103250">#103250</a> <span class="index">10</span> <span class="date">2005-09-24T14:41:36Z</span> <span class="author">Guest</span></div><div class="post-body">so is there any way to fix it?</div></div>
+<div class="post" id="p103251"><div class="post-head"><a class="id" href="../t/4951.html#p103251">#103251</a> <span class="index">11</span> <span class="date">2005-09-24T14:51:36Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body">Apparently not.</div></div>
+<div class="post" id="p103261"><div class="post-head"><a class="id" href="../t/4951.html#p103261">#103261</a> <span class="index">12</span> <span class="date">2005-09-24T15:34:47Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">I know about the problem, and I can't really say why it exists <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"><br>
+But what blue_tetris said sounds logical.<br>
+Anyways, I don't think there's a way to fix it.</div></div>
+<div class="post" id="p103296"><div class="post-head"><a class="id" href="../t/4951.html#p103296">#103296</a> <span class="index">13</span> <span class="date">2005-09-24T17:25:57Z</span> <span class="author">Guest</span></div><div class="post-body">this is something we just noticed a couple weeks ago.<br>
+<br>
+the funny thing is we have _no_ idea why this would happen; all objects are updating every frame. it's true that they're updated in a certain order, however since they don't interact in any way this shouldn't make any difference.<br>
+<br>
+it's really, really confusing.<br>
+<br>
+raigan</div></div>
+<div class="post" id="p103355"><div class="post-head"><a class="id" href="../t/4951.html#p103355">#103355</a> <span class="index">14</span> <span class="date">2005-09-24T21:20:22Z</span> <span class="author"><a href="../u/9370919.html">Trogdor007</a></span></div><div class="post-body">does it have to do with placing objects before drones?</div></div>
+<div class="post" id="p103367"><div class="post-head"><a class="id" href="../t/4951.html#p103367">#103367</a> <span class="index">15</span> <span class="date">2005-09-24T22:10:52Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Could this be because it takes longer for a drone to turn 90 degrees in a square than for a drone to move from one square to another one?</div></div>
+<div class="post" id="p103370"><div class="post-head"><a class="id" href="../t/4951.html#p103370">#103370</a> <span class="index">16</span> <span class="date">2005-09-24T22:18:22Z</span> <span class="author"><a href="../u/9370891.html">Mark</a></span></div><div class="post-body">possibly, one isn't getting faster than the other, just one starts slightly before the other. Like 2 rockets placed on a map, one always fires slightly before the next, probably due to it's position in the code, like b_t said. If this happened with normal drones as well, one would begin slightly in front of another.</div></div>
+<div class="post" id="p103437"><div class="post-head"><a class="id" href="../t/4951.html#p103437">#103437</a> <span class="index">17</span> <span class="date">2005-09-25T02:58:28Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4951.html#p103367">Quote: Maniac, Sep 24 2005, 06:10 PM</a></div> Could this be because it takes longer for a drone to turn 90 degrees in a square than for a drone to move from one square to another one?  </blockquote> <br>
+ Nope, because even if their path is exactly the same in that way it won't work.  Put two drones next to each other in a big circle, following the same path, and wait a minute.  Either they're far apart or overlapping by now, but their path is the same.<br>
+<br>
+And its not as simple as what Mark just said, because while I'm sure the order in the code is strongly linked to this, if it were just that they would always still be the same distance apart, one just being a single frame farther than the other indefinitely.</div></div>
+<div class="post" id="p103507"><div class="post-head"><a class="id" href="../t/4951.html#p103507">#103507</a> <span class="index">18</span> <span class="date">2005-09-25T10:45:14Z</span> <span class="author">Guest</span></div><div class="post-body">Yeah, because in my experience, it may take a few minutes and then the drones will be way off.</div></div>
+<div class="post" id="p103508"><div class="post-head"><a class="id" href="../t/4951.html#p103508">#103508</a> <span class="index">19</span> <span class="date">2005-09-25T10:47:13Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4951.html#p103367">Quote: Maniac, Sep 24 2005, 10:10 PM</a></div>Could this be because it takes longer for a drone to turn 90 degrees in a square than for a drone to move from one square to another one?</blockquote>But if all the drones are turning 90 degrees, they should still be syncronized</div></div>
+</main>
+</body>
+</html>

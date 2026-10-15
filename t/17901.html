@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>colliding with multiple tiles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; colliding with multiple tiles</nav></header>
+<main>
+<div class="post" id="p15758"><div class="post-head"><a class="id" href="../t/17901.html#p15758">#15758</a> <span class="index">1</span> <span class="date">2007-06-18T07:19:30Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I started something in<br>
+<a href="../t/16803.html">http://metanet.2.forumer.com/index.php?showtopic=16803</a><br>
+but I didn't want to triple post, so i'm posting my updates here.<br>
+<br>
+Basically, my problem is that in N's system, when colliding with 2 tiles at once, the projection vectors are only accurate to 1 of the tiles. This is fine for a platformer, but in my game there's a lot of accurate movements required, and no gravity, so the problem is easily noticeable.<br>
+<br>
+Raigan descibed an "inflated tileset" system whereby all the tiles are inflated by the circle's radius, and these inflated tiles are collided with a point.<br>
+<br>
+I decided to go with a combination of that and the existing method. When 2 collisions are found in the same frame, a special function is called which inflates the 2 offending sides and intersects them to find the real point of projection, as shown:<br>
+<br>
+<img class="bb-img" src="http://img296.imageshack.us/img296/32/d1ii9.png" alt="" loading="lazy"><br>
+(the blue cross)<br>
+<br>
+BUT, when I try to do the same with vertices and arcs, it keeps finding vertices to collide with that it shouldn't, and various other wierd stuff happens.<br>
+<br>
+it sometimes works:<br>
+<br>
+<img class="bb-img" src="http://img294.imageshack.us/img294/6707/d2gg1.png" alt="" loading="lazy"><br>
+<br>
+but often the circle has travelled so far into the valley that it tries to collide with the first method, which results in it being projected far out of the valley.<br>
+<br>
+also, in cases like this<br>
+<br>
+<img class="bb-img" src="http://img296.imageshack.us/img296/3695/d2kb1.png" alt="" loading="lazy"><br>
+<br>
+it tries to collide with the vertex of the dark grey tile, leading to an incorrect projection vector: my engine can't handle more than 2 tiles.<br>
+<br>
+I have no idea where to go from here. I wish I could finish the technical side of my game and work on the creative side, i've been fixing bus for months now...<br>
+<br>
+EDIT: wow, that's a long post</div></div>
+<div class="post" id="p332602"><div class="post-head"><a class="id" href="../t/17901.html#p332602">#332602</a> <span class="index">2</span> <span class="date">2007-06-18T15:59:40Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">hey,<br>
+It's funny, everyone seems to act like good collision detection is simple, but in our experience it's much harder to do than physics!<br>
+<br>
+For your last problem: I suggest moving away from tile-based collision and using geometry (lists of edges). You can still use tiles in the editor, but when you load the level you convert them into the corresponding surface edges -- so that in this case the dark grey tile wouldn't contribute any edges at all. Correctly generating the edges can be a bit tricky, but in the long run it pays off. <br>
+<br>
+For your first problem: we also came across this. The basic problem is that (as usual) your code isn't looking at the "big picture", it's finding a local solution which is no good. You can actually detect when this is happening, see the attached picture -- in the lower case, the intersection point lies _outside_ of the edges that generated it. However, once you've detected this it's hard to say how to fix it -- you could use this as a hint to look at vertex-edge intersection instead of edge-edge perhaps.<br>
+<br>
+<br>
+Finally, our experience is that you're never going to get a system that is perfect -- you'll always be able to dream up a case which breaks it, and that can be frustrating. But, a better solution is to realize when you're doing this, and attack the problem from a different direction: try to figure out a way to prevent that case from ever happening.. such as clamping the max speed of objects, running collision detection several times per frame (so that things don't move very far in a single step), etc. For instance, in Robotology we were having problems getting very thin/acute corners to behave well; after about a week, we simply said: screw it, we just won't allow very thin/acute corners. Problem solved <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+We actually gave up on these analytical methods and used a different approach: we spawn a "proxy" circle at the circle's position, then iteratively push the proxy out of collision with all nearby edges, one-by-one. Then, the penetration vector is the vector from the circle's position to the proxy's position. This isn't an exact solution, and can fail, but it's simple.<br>
+<br>
+Good luck!<br>
+<br>
+raigan <div class="attachment attachment-missing">Attachment (lost): post-14-1182182405.jpg</div></div></div>
+<div class="post" id="p332680"><div class="post-head"><a class="id" href="../t/17901.html#p332680">#332680</a> <span class="index">3</span> <span class="date">2007-06-18T20:42:55Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">Word wrap won't hurt this example of poor multiple surface detection. (Edit: Yes it will! <img class="smiley" src="../files/smilies/19.gif" alt="xD" title="xD">)<br>
+<pre class="code">0000000000000000000001E0000000000000000000001A0000000000000000000001000000000000000000000010000000000000000000000100000000000000000000001000000000000000000000010000000000000000000000100000000000000000000001000000000000000000000011000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^228,564
+
+55:17895697|17895697|17895697|17895697|17895697|17895697|17895697|13701393</pre> <div class="attachment attachment-missing">Attachment (lost): post-14-1182199458.txt</div></div></div>
+<div class="post" id="p332949"><div class="post-head"><a class="id" href="../t/17901.html#p332949">#332949</a> <span class="index">4</span> <span class="date">2007-06-19T07:29:09Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">I returned to a demo using my old system, and realised that the small problems in the original system are nothing compared to the many problems trying to fix it has created. I think it'd be better to simply try to avoid these problems as you said, and treat the severe ones with special cases.<br>
+<br>
+*sigh* well, there goes 2 months of hard work.<br>
+<br>
+thanks for your help<br>
+<br>
+EDIT: what do you mean by that proxy circle thing? do you mean keep it the same (as the tutorials) but add up all the individual projection vectors? because I'm not adding bounce/friction impulses, i'm not interested in that.</div></div>
+<div class="post" id="p333022"><div class="post-head"><a class="id" href="../t/17901.html#p333022">#333022</a> <span class="index">5</span> <span class="date">2007-06-19T14:58:01Z</span> <span class="author"><a href="../u/9372529.html">ZeroTruths</a></span></div><div class="post-body">Idk if this will help you, but I found it in my bookmarks and seemed helpful to me...<br>
+<a href="http://www.gamedev.net/reference/articles/article1026.asp">Link</a><br>
+<br>
+Does require knowing some C(?), though the examples are good enough for me to understand.</div></div>
+<div class="post" id="p333130"><div class="post-head"><a class="id" href="../t/17901.html#p333130">#333130</a> <span class="index">6</span> <span class="date">2007-06-19T20:02:16Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17901.html#p332949">Quote: mattk210, June 19, 2007 07:29 am</a></div> EDIT: what do you mean by that proxy circle thing? do you mean keep it the same (as the tutorials) but add up all the individual projection vectors? because I'm not adding bounce/friction impulses, i'm not interested in that.  </blockquote> <br>
+ The proxy collision is basically the same as the "iterate multiple times" collision, except that instead of moving your actual object with each collision, you move the ghost/proxy object. then, when the proxy is outside of the world/isn't colliding, you can use the object-&gt;proxy vector as a single penetration vector.<br>
+<br>
+it's not any better than moving the object several times, it's just that sometimes you only want a single penetration vector, and this is a way of "combining" several penetration vectors together. <br>
+<br>
+raigan<br>
+p.s - don't feel too bad, we've also spent months only to hit a dead end; while your inflated method might not work for you, the ideas you learned while working on it will probably come in handy in the future.</div></div>
+</main>
+</body>
+</html>

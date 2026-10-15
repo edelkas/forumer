@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rotation? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; rotation?</nav></header>
+<main>
+<div class="post" id="p393"><div class="post-head"><a class="id" href="../t/472.html#p393">#393</a> <span class="index">1</span> <span class="date">2004-06-29T23:27:51Z</span> <span class="author">Guest</span></div><div class="post-body">hey guys great first tutorial very informative, i especially like the cilantro interactive examples, very nice touch.  I was just wondering if there is any way to add rotation easily to the methods described in your tutorial, any push in the right direction of implementing rotation would be appreciated...thanks in advance</div></div>
+<div class="post" id="p24099"><div class="post-head"><a class="id" href="../t/472.html#p24099">#24099</a> <span class="index">2</span> <span class="date">2004-06-30T02:19:03Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+it depends what you mean: do you want to be able to used shapes which are rotated to collide against, or do you want to simulate 2D "rigid bodies" (i.e shapes which not only change position based on physical rules, but also rotation).<br>
+<br>
+the first is easy; how it's implemented depends on how you're rotating the object. if you use a matrix, then all you need to do is take the non-rotated axes you'd test for the object, and rotate them by the rotation matrix to get the new axes you should test.<br>
+<br>
+(are you doing this in flash? if so, i'd suggest finding a simpler method, for instance rotated boxes are very fast to collide, if you store one of the box axes as a unit vector -- the axes to test are then that axis, and the axis perpendicular to it).<br>
+<br>
+the second is hardER, but still possible in flash; i'd recommend implementing everything in the jakobsen paper we link to -- you'll end up being able to simulate the movement of rigid bodies in 2D. (see my horribly stale personal webpage for an example of this, it's linked from the metanet site's [about] page).<br>
+<br>
+then, you need to have collision routines which not only return a projection vector, but also a point on each of the colliding shapes, the "contact point" (the points which will be touching when you project them apart). i suspect this is what you're asking about, and it's possible, but also MUCH harder and probably impossible to do fast enough for a game in flash.<br>
+<br>
+however, again, if you limit the possibilities (for instance, by using basic shapes like rotated boxes instead of arbitrary shapes) it can work. if we have time we're going to add stuff about 2D rigid-body simulation (i.e finding the contact point) to the last tutorial, we've got 2 or 3 "demos" if it working, but they all have problems.<br>
+<br>
+thanks,<br>
+raigan</div></div>
+<div class="post" id="p24114"><div class="post-head"><a class="id" href="../t/472.html#p24114">#24114</a> <span class="index">3</span> <span class="date">2004-06-30T14:16:01Z</span> <span class="author">Guest</span></div><div class="post-body">Hello and thanks thats actually pretty helpful, i wasnt planning on implementing this in flash but rather in C++ trying to create a sort of generic physics library if i can pull it off  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> .  I took a closer look at the papers you linked to and at least one of them talks about rotation, so with that and your tips i have a pretty good starting point.  Thanks for your help</div></div>
+<div class="post" id="p25852"><div class="post-head"><a class="id" href="../t/472.html#p25852">#25852</a> <span class="index">4</span> <span class="date">2004-08-14T12:27:59Z</span> <span class="author">Guest</span></div><div class="post-body">Hi,<br>
+but if rigid body simulation is too slow for flash, how do you implemented the ninja? Because his bouncing, rotating bones look like rbs in my eyes and i have exactly the problem of finding penetration depth and points</div></div>
+<div class="post" id="p25853"><div class="post-head"><a class="id" href="../t/472.html#p25853">#25853</a> <span class="index">5</span> <span class="date">2004-08-14T12:34:20Z</span> <span class="author">Guest</span></div><div class="post-body">addendum:<br>
+<br>
+ive implemented a rigid body simulation using the paper by jakobsen but he skiped the topic of calculating pentetration points and this is the point where im stucked <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p46426"><div class="post-head"><a class="id" href="../t/472.html#p46426">#46426</a> <span class="index">6</span> <span class="date">2005-01-17T13:48:45Z</span> <span class="author">Guest</span></div><div class="post-body">i can rotate in paint</div></div>
+<div class="post" id="p46470"><div class="post-head"><a class="id" href="../t/472.html#p46470">#46470</a> <span class="index">7</span> <span class="date">2005-01-17T14:39:53Z</span> <span class="author"><a href="../u/9370539.html">Azmilion</a></span></div><div class="post-body">where talking about FLASH MX here(a animation and actionscript program)<br>
+NOT PAINT</div></div>
+<div class="post" id="p46480"><div class="post-head"><a class="id" href="../t/472.html#p46480">#46480</a> <span class="index">8</span> <span class="date">2005-01-17T14:48:51Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">This guy really needs to be banned. And killed. We need to recruit the CIA so we can find his location, then send an angry mob of his own kind his way.</div></div>
+<div class="post" id="p46499"><div class="post-head"><a class="id" href="../t/472.html#p46499">#46499</a> <span class="index">9</span> <span class="date">2005-01-17T15:08:04Z</span> <span class="author"><a href="../u/9370490.html">JeR(K)</a></span></div><div class="post-body">Wow.. The whole forum rises up against a common foe. <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"></div></div>
+<div class="post" id="p46566"><div class="post-head"><a class="id" href="../t/472.html#p46566">#46566</a> <span class="index">10</span> <span class="date">2005-01-17T18:00:17Z</span> <span class="author"><a href="../u/9370694.html">bombermaster2</a></span></div><div class="post-body">I'm starting to think this guy enjoys doing this.</div></div>
+<div class="post" id="p46568"><div class="post-head"><a class="id" href="../t/472.html#p46568">#46568</a> <span class="index">11</span> <span class="date">2005-01-17T18:04:36Z</span> <span class="author"><a href="../u/9370670.html">trib4lmaniac</a></span></div><div class="post-body">It's not so much what he's posting, just which threads <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"></div></div>
+<div class="post" id="p46623"><div class="post-head"><a class="id" href="../t/472.html#p46623">#46623</a> <span class="index">12</span> <span class="date">2005-01-17T23:52:17Z</span> <span class="author"><a href="../u/9370663.html">gabby drummer</a></span></div><div class="post-body">Of course he enjoys doing it, hes just another moron with nothing better to do but sit around on a computer and annoy people, just ignore him and pretend he doesn't exist and eventually get sick of it and go aggravate some other forum</div></div>
+<div class="post" id="p46624"><div class="post-head"><a class="id" href="../t/472.html#p46624">#46624</a> <span class="index">13</span> <span class="date">2005-01-17T23:57:07Z</span> <span class="author"><a href="../u/9370451.html">tktktk</a></span></div><div class="post-body">Doesn't matter now, he's banned anyway. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+</main>
+</body>
+</html>

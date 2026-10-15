@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Need help with fake tiles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; Need help with fake tiles</nav></header>
+<main>
+<div class="post" id="p8382"><div class="post-head"><a class="id" href="../t/9327.html#p8382">#8382</a> <span class="index">1</span> <span class="date">2006-04-30T21:31:27Z</span> <span class="author"><a href="../u/9372192.html">DJLO</a></span></div><div class="post-body">Im trying to make an area look like a drone factory heres my idea:<br>
+<br>
+<br>
+<br>
+<img class="bb-img" src="http://img176.imageshack.us/img176/9571/asdfadsf9re.png" alt="" loading="lazy"><br>
+<br>
+the non seeking robots are supposed to look like there going through the wall and becomming seeking robots. How would i make it so that those tiles were fake?</div></div>
+<div class="post" id="p170074"><div class="post-head"><a class="id" href="../t/9327.html#p170074">#170074</a> <span class="index">2</span> <span class="date">2006-04-30T21:47:27Z</span> <span class="author"><a href="../u/9371620.html">Mysterypea</a></span></div><div class="post-body">You will need to NaN it. But i don't remember how(oh and don't forget to put doors in each corner of the colour arrow to make it work)</div></div>
+<div class="post" id="p170418"><div class="post-head"><a class="id" href="../t/9327.html#p170418">#170418</a> <span class="index">3</span> <span class="date">2006-05-01T10:04:33Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">No, neither do I, unfortunately. I've seen it done before. Mysterypower has the right idea.</div></div>
+<div class="post" id="p170422"><div class="post-head"><a class="id" href="../t/9327.html#p170422">#170422</a> <span class="index">4</span> <span class="date">2006-05-01T10:20:03Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">I think yuo need to find which numbers correspond to those tiles and set them to NaN.</div></div>
+<div class="post" id="p170548"><div class="post-head"><a class="id" href="../t/9327.html#p170548">#170548</a> <span class="index">5</span> <span class="date">2006-05-01T18:32:26Z</span> <span class="author"><a href="../u/9371682.html">Chase</a></span></div><div class="post-body">or put a / in place of the number<br>
+<br>
+<br>
+but when submitted to numa, the nans will be diagonal tiles <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono"></div></div>
+<div class="post" id="p171852"><div class="post-head"><a class="id" href="../t/9327.html#p171852">#171852</a> <span class="index">6</span> <span class="date">2006-05-04T12:25:51Z</span> <span class="author"><a href="../u/9371628.html">-x-</a></span></div><div class="post-body">Something like this?<br>
+<br>
+<pre class="code">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111110000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001111111111111100000000000000000000000000000000111111111111110000000001000000000000100000000010000000000001000000000100000000000010000000001000000000000100000000010000000000001000000000100000000000010000000001111111111111100000000000000000000000000000000000000000000000000000000000000000000000|9^324,360,1,0,13,15,0,0,-1!9^444,360,1,0,18,15,0,0,-1!9^540,360,1,0,22,15,0,0,-1!9^660,360,1,0,27,15,0,0,-1!6^444,252,5,0,0,1!6^660,252,5,0,0,1!6^324,372,5,1,0,0!6^540,372,5,1,0,0!1^444,372!1^420,372!1^396,372!1^372,372!1^348,372!1^324,372!1^324,396!1^324,420!1^324,444!1^324,468!1^324,492!1^348,492!1^372,492!1^396,492!1^420,492!1^444,492!1^432,492!1^408,492!1^384,492!1^360,492!1^336,492!1^324,480!1^324,456!1^324,432!1^324,408!1^324,384!1^336,372!1^360,372!1^384,372!1^408,372!1^432,372!1^324,348!1^348,348!1^372,348!1^396,348!1^420,348!1^444,348!1^432,348!1^408,348!1^384,348!1^360,348!1^336,348!1^324,324!1^324,300!1^324,276!1^324,252!1^324,228!1^348,228!1^372,228!1^396,228!1^420,228!1^444,228!1^432,228!1^408,228!1^384,228!1^360,228!1^336,228!1^324,240!1^324,264!1^324,288!1^324,312!1^324,336!1^324,360!1^336,360!1^348,360!1^360,360!1^372,360!1^384,360!1^396,360!1^408,360!1^420,360!1^432,360!1^444,360!1^456,348!1^456,360!1^456,372!1^312,348!1^312,360!1^312,372!1^336,486!1^354,486!1^372,486!1^390,486!1^408,486!1^426,
+486!1^444,486</pre></div></div>
+<div class="post" id="p172062"><div class="post-head"><a class="id" href="../t/9327.html#p172062">#172062</a> <span class="index">7</span> <span class="date">2006-05-04T23:35:18Z</span> <span class="author"><a href="../u/9372192.html">DJLO</a></span></div><div class="post-body">hmm, no that didnt work, but part of it did, and it gave me a great idea! thanks!</div></div>
+<div class="post" id="p172188"><div class="post-head"><a class="id" href="../t/9327.html#p172188">#172188</a> <span class="index">8</span> <span class="date">2006-05-05T03:50:09Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">Drones don't go through fake tiles, unfortunately. See my level for an example of how it would have been. First, load a full map [H], then load my data. <div class="attachment attachment-missing">Attachment (lost): post-10-1146801009.txt</div></div></div>
+<div class="post" id="p172382"><div class="post-head"><a class="id" href="../t/9327.html#p172382">#172382</a> <span class="index">9</span> <span class="date">2006-05-05T20:14:49Z</span> <span class="author"><a href="../u/9372192.html">DJLO</a></span></div><div class="post-body">I Think ill just use bounce blocks then, thanks guys! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay">  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p172389"><div class="post-head"><a class="id" href="../t/9327.html#p172389">#172389</a> <span class="index">10</span> <span class="date">2006-05-05T20:37:06Z</span> <span class="author"><a href="../u/9371681.html">Yuiop78737</a></span></div><div class="post-body">I done it!<br>
+<br>
+<br>
+EDIT: Since posting the map here gets it messed up, I've submitted it to NUMA.<br>
+<br>
+See it here: <a href="https://www.nmaps.net/41275">Drone Factory</a></div></div>
+<div class="post" id="p172834"><div class="post-head"><a class="id" href="../t/9327.html#p172834">#172834</a> <span class="index">11</span> <span class="date">2006-05-06T18:10:53Z</span> <span class="author"><a href="../u/9372192.html">DJLO</a></span></div><div class="post-body">awesome dude! see my comment. 5/5<br>
+<br>
+thx</div></div>
+</main>
+</body>
+</html>

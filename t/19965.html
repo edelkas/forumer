@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Possible alternate rating system. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/36.html">NUMA Discussion</a> &rsaquo; Possible alternate rating system.</nav></header>
+<main>
+<div class="post" id="p17754"><div class="post-head"><a class="id" href="../t/19965.html#p17754">#17754</a> <span class="index">1</span> <span class="date">2007-11-01T03:48:08Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Just thought of this today. It's a blend of those thumbs up/down systems (Is that Dave I hear cheering?) and the favourites system which was tried a while ago. I'm just throwin' it out there to see what people think. I'm not sure whether I'd support it at this stage - I need some more time to think of potential problems - but the concept seems to have some merit.<br>
+<br>
+<b>Rating system:</b><br>
+<br>
+There would be three ratings, "Good", "Average", and "Poor". Users would also be able to favourite maps just like they can now.<br>
+<br>
+Now, ratings would be calculated as follows:<br>
+<br>
+1. The map must have at least 5 votes.<br>
+2. We calculate (Average + Good) - Poor. If this number is less than 0, the map is deemed "Poor".<br>
+3. We calculate Good - (Average + Poor). If this number is less than 0, the map is "Average". Otherwise, the map gets a "good" rating.<br>
+<br>
+Obviously, a lot of maps will be "Good" under this system. Will there be a way to sort them? Indeed there shall. We shall use the ratio of favourites to "Good" votes. If lots of people think a map is "Good", but nobody wants to favourite it, then it's a fair bet to say that it's enjoyable but not outstanding. If one or two people particularly like it and decide to favourite it, it probably has a little more merit. If just about everyone who likes it at all favourites, they're calling it "Good" because they all think it's brilliant. We can use a similar system for the remaining levels.<br>
+<br>
+The top-rated would then be sorted as follows:<br>
+1. "Good" maps by ratio of favourites to Good votes.<br>
+2. "Average" maps by ratio of Good votes to (Average + Poor) votes.<br>
+3. "Average" maps which are equal under step 2 sorted by ratio of Average to Poor votes.<br>
+4. "Poor" maps by ratio of (Good + Average) votes to Poor votes.<br>
+<br>
+<b>Advantages of this system:</b><br>
+1. Every vote still plays a part.<br>
+2. You can't make a map's position swing wildly with a single bad vote. It's only possible to push a map into a lower category if it's already borderline. Furthermore, the lack of extreme voting options makes it more difficult to make ratings change drastically even within a category.<br>
+3. There is some mechanism from sorting good maps from great maps.<br>
+4. Although the way maps are sorted is a bit complicated, the ratings themselves are pretty intuitive.<br>
+5. The limited number of ratings (3 + favourites, rather than 11) would make it easy to just display the actual vote tally, if people wanted to see it.<br>
+<br>
+<b>Example:</b><br>
+<br>
+Map X has 3G and 2A votes, and has been favourited by one person. This map has a "Good" rating and an F/G ratio of 1/3 (0.333). Map Y, which has been around longer, has 6F, 19G, 10A, and 5P. This map has a "Good" rating and an F/G ratio of 6/19 (0.316). Map X will be higher on the top-rated.<br>
+<br>
+Now, say that someone gives Map X a "Poor" vote. How will this effect things? Not at all. Map X still has the same F/G ratio, and it still qualifies for a "Good" rating, so if that was a sniping attempt it was completely ineffective.<br>
+<br>
+But wait! What if the "Poor" vote is geniune? Shouldn't every vote count? Well, in a way it does. You see, that vote made Map X borderline. The number of Good votes and (Average + Poor) votes is now exactly even. Another Average or Poor vote will tip it into the "Average" class. More good votes will give it a bit of insulation. This prevents a lone idiot messing things up - a map can't pushed into a lower rating unless the majority is on your side. Nor can it be promoted into a higher rating against the majority.<br>
+<br>
+So, Map X now has 1F, 3G, 2A and 1P. Someone thinks it's good but not amazing and gives it a "Good" vote. This causes the F/G ratio to drop to 0.25 and Map Y is now more highly rated. Eh? Giving it a good rating makes it move <i>down</i>? It seems odd at first, but if you think about it it makes sense. What's with the one person who favourited it? Clearly, not many people agree with them - just as not many people agreed with the one person who gave the map a "Poor" rating. Perhaps the mysterious favouriter just likes this kind of map far more than most people, or maybe they're friends with the author, or perhaps they were just in a good mood that day. For whatever reason, if lots of people are giving the map "Good" but not favouriting it, it means they think the map is good but not great. It's rather like giving a map a 4 when it has an average of 4.5 - it's still a good rating, just not as high as it was.<br>
+<br>
+But what if people come along and favourite the map, vindicating the first guy to do so? That works too.  Say two people now give the map a "Good" vote and favourite it. This gives us 3F, 5G, 2A, 1P. The map is now up to a .6 F/G ratio. The rating has improved as more people favourite it, just as you would expect.<br>
+<br>
+<b>Potential problems:</b><br>
+<br>
+1. It's possible to get wacky categorisation in some circumstances. For example, a map with 3 good votes and 3 poor votes would be considered "Good". However, that's not likely to be a huge problem, since that sort of thing is unlikely to occur unless there's a war between snipers and multi-accounters. Not to mention that a single Average vote will fix that problem. I think you'll get anomalies like that in any rating system; the problem with the current one is that they occur in a way which gives the dishonest minority too much influence. At least with this system, they can be eliminated by a couple of normal votes, without that equally-dishonest anti-sniping garbage.<br>
+<br>
+Another anomaly is that favouriting a map without giving it a Good rating can boost its standing more than it should, so long as the map is in the Good category. However, this can only happen a limited number of times before it falls into the Average category. It could also be addressed by only allowing users to favourite a map they have stated is "Good".<br>
+<br>
+2. You can still cause ratings within a category to wobble a bit. Again, I think this is inevitable to some extent, and that it would be less under this system than the current system.<br>
+<br>
+3. This system is a bit more complicated than the current one. Fortunately, the voting portion is pretty straightfoward, so it shouldn't confuse people unless they want to know just how the maps are sorted.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Thoughts? Problems? Issues?</div></div>
+<div class="post" id="p375926"><div class="post-head"><a class="id" href="../t/19965.html#p375926">#375926</a> <span class="index">2</span> <span class="date">2007-11-01T03:54:01Z</span> <span class="author"><a href="../u/9371570.html">rocket_thumped</a></span></div><div class="post-body">This would be a much better system than what we have now. Great job.</div></div>
+<div class="post" id="p375937"><div class="post-head"><a class="id" href="../t/19965.html#p375937">#375937</a> <span class="index">3</span> <span class="date">2007-11-01T04:39:57Z</span> <span class="author"><a href="../u/9374574.html">Myrrhman</a></span></div><div class="post-body">Not bad.<br>
+<br>
+The only dilemna I guess I can think of prolonging to unfavorite a map, for the really clever snipers.<br>
+<br>
+Also, what would the visible ratings be? Just the three stated, the three stated with favorites ratio? What exactly?</div></div>
+<div class="post" id="p375944"><div class="post-head"><a class="id" href="../t/19965.html#p375944">#375944</a> <span class="index">4</span> <span class="date">2007-11-01T04:57:42Z</span> <span class="author"><a href="../u/9371421.html">Turtle</a></span></div><div class="post-body">Then there is more chance of spam being higher rated, right?<br>
+<br>
+I think?<br>
+<br>
+With only three options...</div></div>
+<div class="post" id="p375965"><div class="post-head"><a class="id" href="../t/19965.html#p375965">#375965</a> <span class="index">5</span> <span class="date">2007-11-01T07:53:03Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375937">Quote: Myrrhman, November 01, 2007 02:39 pm</a></div> Also, what would the visible ratings be? Just the three stated, the three stated with favorites ratio? What exactly?  </blockquote> <br>
+ That needs to be discussed. I would expect either just the three stated or one of the three stated with a tally of the votes for each option (possibly including favourites).<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375937">Quote: Myrrhman, 2007-11-01T04:39:57Z</a></div>The only dilemna I guess I can think of prolonging to unfavorite a map, for the really clever snipers.</blockquote><br>
+Hmm? I'm not sure what you mean. Could you elaborate?<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375944">Quote: Turtle, 2007-11-01T04:57:42Z</a></div>Then there is more chance of spam being higher rated, right?<br>
+<br>
+I think?<br>
+<br>
+With only three options...</blockquote><br>
+By "spam" you mean maps which didn't take a lot of effort to make and aren't terribly good, I assume?<br>
+<br>
+Anyway, assuming that's what you mean...<br>
+<br>
+I'd expect most if not all of the spammish maps to fall into the "Average" category. It's true that if people were too lenient with ratings, low-quality maps could be deemed "Good". However, that's true of the current system, too. The little descriptions next to the ratings were added a few months back because people were starting to think of 4 as the average rating.<br>
+<br>
+In my opinion, 11 options is too many - people tend to migrate to a smaller scale, or stick to a few increments (4.5, 4, 3.5, 2 for excellent, good, average and bad maps is one you commonly see, for example). If we keep the current rating system, I think we'd be better off with only integer ratings. I'm not sure that many people would agree, though - they're too used to the way things are.</div></div>
+<div class="post" id="p375970"><div class="post-head"><a class="id" href="../t/19965.html#p375970">#375970</a> <span class="index">6</span> <span class="date">2007-11-01T08:26:08Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body">I like the idea <img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"><br>
+<br>
+How about extending the idea to five options - Very Poor, Poor, Average, Good, Very Good. It might work a little better that way.</div></div>
+<div class="post" id="p375972"><div class="post-head"><a class="id" href="../t/19965.html#p375972">#375972</a> <span class="index">7</span> <span class="date">2007-11-01T08:54:34Z</span> <span class="author"><a href="../u/9372228.html">Mr_Mongoose</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375970">Quote: George, November 01, 2007 06:26 pm</a></div> Very Poor, Poor, Average, Good, Very Good. It might work a little better that way.  </blockquote> <br>
+ That seems a little redundant, George, as the current rating system is just like that.</div></div>
+<div class="post" id="p375984"><div class="post-head"><a class="id" href="../t/19965.html#p375984">#375984</a> <span class="index">8</span> <span class="date">2007-11-01T10:30:45Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Here's a shiny example of what the ratings might look like.<br>
+<br>
+Yes, the bright colours would clash horribly with the rest of NUMA. I couldn't resist making it look like XP's silly, primary-colour buttons. Ignore that and just look at the layout. <div class="attachment attachment-missing">Attachment (lost): post-36-1193913045.png</div></div></div>
+<div class="post" id="p375986"><div class="post-head"><a class="id" href="../t/19965.html#p375986">#375986</a> <span class="index">9</span> <span class="date">2007-11-01T10:39:22Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">That looks fine. I would like to see how this system works out. But, to be pesimistic, i'm sure that snipers will be able to find a way around this.</div></div>
+<div class="post" id="p375987"><div class="post-head"><a class="id" href="../t/19965.html#p375987">#375987</a> <span class="index">10</span> <span class="date">2007-11-01T10:42:17Z</span> <span class="author"><a href="../u/9373018.html">George</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375972">Quote: Mr_Mongoose, November 01, 2007 07:54 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375970">Quote: George, November 01, 2007 06:26 pm</a></div> Very Poor, Poor, Average, Good, Very Good. It might work a little better that way. </blockquote>That seems a little redundant, George, as the current rating system is just like that.  </blockquote> <br>
+ Well, I'm thinking that 5 options is better than 3 or 11. With 3, there's too little variance. With 11, there's too much. I don't know; I just seem to prefer it that way.</div></div>
+<div class="post" id="p375990"><div class="post-head"><a class="id" href="../t/19965.html#p375990">#375990</a> <span class="index">11</span> <span class="date">2007-11-01T10:51:08Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">I'm not sure. It's easier to display the votes with three options, if you want to that. Also, the sorting could get a bit fiddly with five options, and I think it would make anomalous situations much more likely because the votes would be more spread out. One other thing we could try would be altering the sorting mechanism to have three voting options, but four or five classifications, though I'm not sure how well that would work.</div></div>
+<div class="post" id="p375991"><div class="post-head"><a class="id" href="../t/19965.html#p375991">#375991</a> <span class="index">12</span> <span class="date">2007-11-01T10:53:26Z</span> <span class="author"><a href="../u/9374133.html">thedupli</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"> <br>
+Great idea!<br>
+<img class="smiley" src="../files/smilies/33.gif" alt=":up:" title=":up:"><br>
+<br>
+It would also be good to make a limit for submitting maps. Let's say 2 maps per week...maybe 3.<br>
+That would be efficient measure against spammers. There would be less maps with description "this is just a test" or "i'm using numa just for storage". People would also think twice before submitting a "5 minute maps". I don't know what do you think, but i believe it would increase quality of the maps on numa.</div></div>
+<div class="post" id="p375994"><div class="post-head"><a class="id" href="../t/19965.html#p375994">#375994</a> <span class="index">13</span> <span class="date">2007-11-01T11:06:23Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">A limit on the number of maps submitted per day or per week has been suggested several times before. The result is generally that some people like the idea, but most think it's more trouble than it's worth.<br>
+<br>
+Also, two maps a week is far too few. I'm hardly the most prolific mapmaker in the world, but even I can make several maps a week over an extended period if things go well.</div></div>
+<div class="post" id="p376084"><div class="post-head"><a class="id" href="../t/19965.html#p376084">#376084</a> <span class="index">14</span> <span class="date">2007-11-01T21:13:06Z</span> <span class="author"><a href="../u/9371277.html">under_pressure</a></span></div><div class="post-body">Excellent system, but I sort of enjoy being able to - erm - "numerically assign", per se, how good I think a map is, seeing as ratings 3-5 on NUMA are all good - it's nice to <b>distinctively</b> specify just HOW good I thought a map was. I understand that the "favorites" aspect of the system attempts to make up for this, but personally, sometimes there's just something great about a map that makes it favorite worthy that doesn't necessarily correspond with a given rating. Just a potential flaw, but nice work otherwise.</div></div>
+<div class="post" id="p376186"><div class="post-head"><a class="id" href="../t/19965.html#p376186">#376186</a> <span class="index">15</span> <span class="date">2007-11-02T03:13:59Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">It's a nice system, and it would definitely be more effective against snipers, but I agree with haxor.  It limits your options for voting, which is good, of course, becuase it simplifies the system, and makes it more resilient against snipers, but then again, it also takes away the ability to precisely calculate the score you think the map is worth.  on the other hand, just rambling a little here, I generally just use a poor, average, good, excellent system anyways, so i guess it wouldn't really change my rating all that much, except i'd give more poors and favorites.  so yeah, I guess this would work quite well.</div></div>
+<div class="post" id="p376309"><div class="post-head"><a class="id" href="../t/19965.html#p376309">#376309</a> <span class="index">16</span> <span class="date">2007-11-02T18:41:46Z</span> <span class="author"><a href="../u/9373673.html">mam</a></span></div><div class="post-body">Great idea! I'm hoping this gets implemented.</div></div>
+<div class="post" id="p376311"><div class="post-head"><a class="id" href="../t/19965.html#p376311">#376311</a> <span class="index">17</span> <span class="date">2007-11-02T18:48:40Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">This sounds like it has the potential to be amazing.  I like how well thought out it is.  I'm sure there are still lots of kinks that will arise as people find loopholes, but those can be worked out.<br>
+<br>
+I'd love to see a beta version of this be given a trial run so people can actually use it before they decide if they like it and want it permantely implemented.<br>
+<br>
+I give this idea a 'good' and a favorite!</div></div>
+<div class="post" id="p376313"><div class="post-head"><a class="id" href="../t/19965.html#p376313">#376313</a> <span class="index">18</span> <span class="date">2007-11-02T19:14:39Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">I must admit, I like this much more than the standardised one that currently being used.</div></div>
+<div class="post" id="p376345"><div class="post-head"><a class="id" href="../t/19965.html#p376345">#376345</a> <span class="index">19</span> <span class="date">2007-11-02T21:46:03Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">/agrees with above three posts.<br>
+This idea would be great against snipers, and as epigone said, just fix the loopholes as they are found.</div></div>
+<div class="post" id="p376347"><div class="post-head"><a class="id" href="../t/19965.html#p376347">#376347</a> <span class="index">20</span> <span class="date">2007-11-02T21:48:49Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">I dislike this.  It seems unnecessarily complicated.<br>
+<br>
+Float and sink, a blue_tetris idea, was much better.</div></div>
+<div class="post" id="p376350"><div class="post-head"><a class="id" href="../t/19965.html#p376350">#376350</a> <span class="index">21</span> <span class="date">2007-11-02T22:02:10Z</span> <span class="author"><a href="../u/9374418.html">southpaw</a></span></div><div class="post-body">I only have a single problem and that is this:<br>
+<br>
+How often do people really favorite maps? I've played maps that have 15+ ratings with an average of 4.5 and didn't favorite even though I may have thought the map itself was brilliant.<br>
+<br>
+I still think we should start with the "Number of Favorites" part before we try a brand new voting system because seeing how many people have favorited your map is a lot easier than remaking an entire voting system.</div></div>
+<div class="post" id="p376351"><div class="post-head"><a class="id" href="../t/19965.html#p376351">#376351</a> <span class="index">22</span> <span class="date">2007-11-02T22:08:26Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">i favourite a lot of maps.</div></div>
+<div class="post" id="p376365"><div class="post-head"><a class="id" href="../t/19965.html#p376365">#376365</a> <span class="index">23</span> <span class="date">2007-11-02T23:01:43Z</span> <span class="author"><a href="../u/9371955.html">lord_day</a></span></div><div class="post-body">I sometimes add maps to my favourites that I haven't given as high ratings as other maps.  'My favourites' is just  a personal storage bin of maps I like, I wouldn't wanted it used as a means to rate maps.</div></div>
+<div class="post" id="p376367"><div class="post-head"><a class="id" href="../t/19965.html#p376367">#376367</a> <span class="index">24</span> <span class="date">2007-11-02T23:06:10Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p376350">Quote: southpaw, November 02, 2007 10:02 pm</a></div> I only have a single problem and that is this:<br>
+<br>
+How often do people really favorite maps? I've played maps that have 15+ ratings with an average of 4.5 and didn't favorite even though I may have thought the map itself was brilliant.<br>
+<br>
+I still think we should start with the "Number of Favorites" part before we try a brand new voting system because seeing how many people have favorited your map is a lot easier than remaking an entire voting system.  </blockquote> <br>
+ This, and lord_day's post, are examples of the disadvantages of the system. Some people might only favorite the best of the best maps (encouraging elitism) while some (like me) may just use the favorites area as somewhere to put anything of reference (I put almost any decent tileset I find there, for example).</div></div>
+<div class="post" id="p376388"><div class="post-head"><a class="id" href="../t/19965.html#p376388">#376388</a> <span class="index">25</span> <span class="date">2007-11-03T00:23:34Z</span> <span class="author"><a href="../u/9370780.html">wilderness</a></span></div><div class="post-body">Exactly. the favorite system failed because there was nowhere near as much activity as the voting system. Favorite and 4/5 is a long way apart, and the majority of maps we rate we find average (I may be generalizing here, but it's a definite factor). A lot of authors would lose out with this system.<br>
+<br>
+Well, perhaps at first. I'd imagine it would become a lot more efficient with time but can we be that patient? I'm not sure. Lotsof whining when it comes to creative things.<br>
+<br>
+Saying that, this is a brilliantly simple system; well put, Atilla. I'd be all for testing.</div></div>
+<div class="post" id="p376416"><div class="post-head"><a class="id" href="../t/19965.html#p376416">#376416</a> <span class="index">26</span> <span class="date">2007-11-03T02:03:06Z</span> <span class="author"><a href="../u/9372517.html">epigone</a></span></div><div class="post-body">With regards to lord day's comment,  I think that most people are like you:  we don't necessarily favorite the best maps, only ones we want to be able to play over and reference again.<br>
+<br>
+Perhaps with this proposed solution, there could be a 'storage bin' where you can put maps you want stored away for future reference for whatever reason, and this 'storage bin' wouldn't affect rating.<br>
+Favoriting a map could be something entirely different.  Think of it as adding a little star to a map, a little 'wow that was incredible.'  This doesn't necessarily have to be another storage area, but it could.</div></div>
+<div class="post" id="p376545"><div class="post-head"><a class="id" href="../t/19965.html#p376545">#376545</a> <span class="index">27</span> <span class="date">2007-11-03T09:25:36Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Yeah, I think the bit with the favourites would be the biggest hitch. A separate storage area would be a possibility.</div></div>
+<div class="post" id="p376572"><div class="post-head"><a class="id" href="../t/19965.html#p376572">#376572</a> <span class="index">28</span> <span class="date">2007-11-03T12:48:27Z</span> <span class="author"><a href="../u/9375258.html">TheWigginator</a></span></div><div class="post-body">I know I'm only a noob (at the moment) but I was just wondering...<br>
+What will you do with the ratings of all the existing maps?</div></div>
+<div class="post" id="p376574"><div class="post-head"><a class="id" href="../t/19965.html#p376574">#376574</a> <span class="index">29</span> <span class="date">2007-11-03T13:00:06Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">Hah, I was thinking out pointing that out too. If the system was to be implemented, all maps currently in the archive would (for the sake of ratings) be rendered obsolete.</div></div>
+<div class="post" id="p376598"><div class="post-head"><a class="id" href="../t/19965.html#p376598">#376598</a> <span class="index">30</span> <span class="date">2007-11-03T15:21:22Z</span> <span class="author"><a href="../u/9372815.html">Mechtradevil</a></span></div><div class="post-body">I LOVE this idea, it must be implemented, somebody pin this!</div></div>
+<div class="post" id="p376613"><div class="post-head"><a class="id" href="../t/19965.html#p376613">#376613</a> <span class="index">31</span> <span class="date">2007-11-03T16:55:20Z</span> <span class="author"><a href="../u/9375205.html">Pepi</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p375970">Quote: George, November 01, 2007 08:26 am</a></div> How about extending the idea to five options - Very Poor, Poor, Average, Good, Very Good. It might work a little better that way.  </blockquote> <br>
+ totally agree. this system sounds great!</div></div>
+<div class="post" id="p376700"><div class="post-head"><a class="id" href="../t/19965.html#p376700">#376700</a> <span class="index">32</span> <span class="date">2007-11-03T21:57:51Z</span> <span class="author"><a href="../u/9375053.html">Condog</a></span></div><div class="post-body">Wouldn't that make is almost exactly the same as the system we have now, therefore the problems would remain?</div></div>
+<div class="post" id="p376843"><div class="post-head"><a class="id" href="../t/19965.html#p376843">#376843</a> <span class="index">33</span> <span class="date">2007-11-04T09:04:48Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19965.html#p376572">Quote: TheWigginator, November 03, 2007 10:48 pm</a></div> I know I'm only a noob (at the moment) but I was just wondering...<br>
+What will you do with the ratings of all the existing maps? </blockquote>The most obvious option would be to ditch all the current ratings, but I imagine people would find that rather upsetting. The other option would be to convert the ratings somehow - 1-1.5 = Poor, 2-3 = Average, 3.5-5 = Good, perhaps?</div></div>
+</main>
+</body>
+</html>

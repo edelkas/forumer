@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help!! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; Help!!</nav></header>
+<main>
+<div class="post" id="p8642"><div class="post-head"><a class="id" href="../t/9615.html#p8642">#8642</a> <span class="index">1</span> <span class="date">2006-05-12T09:05:02Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">HI<br>
+Please any body Help me the code is not Working<br>
+my movie is when car_mc hits glow_mc the function Tween should be caried out<br>
+but The following Code is not Working can anybody correct  this<br>
+onClipEvent (load) {<br>
+	function Tween() {<br>
+		easeType = mx.transitions.easing.Bounce.easeOut;<br>
+		var begin = 20;<br>
+		var end = 380;<br>
+		var time = .5;<br>
+		var mc = car_mc;<br>
+		carTween = new mx.transitions.Tween(mc, "_x", easeType, begin, end, time, true);<br>
+	}<br>
+}<br>
+onClipEvent (enterFrame) {<br>
+	if (this.hitTest(_root.glow_mc)) {<br>
+		Tween();<br>
+		trace("Collision");<br>
+	}<br>
+}</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyberzone ][ - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/6.html">Messageboard Games</a> &rsaquo; <a href="../f/24.html">Forum RPGs</a> &rsaquo; Cyberzone ][</nav></header>
+<main>
+<div class="post" id="p20997"><div class="post-head"><a class="id" href="../t/23386.html#p20997">#20997</a> <span class="index">1</span> <span class="date">2008-08-02T14:17:53Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">This thread is for the rules to an IRC game of Cyberzone ][, the sequel to the classic Cyberzone game, created by Dave and coded by Calcy.<br>
+<br>
+<br>
+<br>
+<b><span style="color:RED">Cyberzone ][</span></b><br>
+You are a <b>hacker</b>.  Your mission is to destroy all other hackers on the mainframe, by reporting them to SysOps.  Each hacker takes one turn, in order, until all hackers have taken a turn.<br>
+<br>
+<b>The Grid</b><br>
+At the start of the game, a grid is generated.  The players will know the dimensions of the grid.  There will be a number of rows (A, B, C...) and a number of columns (1, 2, 3...).  Each specific column-row combination is called a space.  The entire grid constitutes the mainframe.<br>
+<br>
+Each space on the mainframe can possess one quality.  Spaces start out as "free", meaning that avatars can occupy them safely.  Any quality applied to a space "trumps" the previous quality, that is to say, the old quality is removed and the new one is in effect.<br>
+<br>
+The following are qualities for spaces.  Any program which reveals information announces these as the types of spaces.<br>
+free: This space has no special effects.<br>
+trapX: This is a trap space.  A player entering this space takes X damage.<br>
+slip: This is a slip space.  A player entering this space is relocated to a random space.<br>
+miner: This is a data miner.  A player entering this space is automatically reported to the player who created the miner, or publically (if the effect states it).<br>
+<br>
+<b>Mask</b><br>
+This is how hidden your identity is from the SysOps of the mainframe.  When this becomes zero, you are reported to SysOps and lose the game.  Any damage you take reduces your mask.  You start out with 10 mask.  At the start of each turn, your current amount of mask is revealed publically.<br>
+<br>
+You lose 1 mask each time you end your turn in the same space that you started your turn in, as the SysOp tracks down your position.  So, in order to stay safe, you must keep moving.<br>
+<br>
+<b>Your Turn</b><br>
+At the start of your turn, you receive a "ping notice" privately, revealing your location on the grid.<br>
+<br>
+Then, you gain two programs.  You can have no more than six programs.  You may run as many programs as you want during your turn.  Any program that is not used during your turn is stored on your avatar and can be used on a later turn.  Programs go away after you use them.  Programs that you want to get rid of can be dumped during your turn.<br>
+<br>
+When you're done using programs on your turn (or when you are out of programs), you must pass your turn.<br>
+<br>
+<br>
+<br>
+<b><span style="color:GREEN">Programs</span></b><br>
+These are the programs.  Each turn, you randomly generate two.  They are divided up into their different types.<br>
+<br>
+The desciption for each program also gives its frequency, as a proportion of 1000.<br>
+<br>
+The description also includes whether you must specify extra information for the effect and, if so, whether that information is submitted privately or publically.  This part of the program description follows a $.<br>
+<br>
+The description of the program's effects follow.<br>
+<br>
+<b><span style="color:TEAL">Information</span></b><br>
+These programs provide you information about the mainframe.<br>
+<br>
+<b>Scan</b><br>
+freq200<br>
+$space, private<br>
+You discover the names of players and the types of spaces in the same column as the space, but not their certain locations.  You also discovery the names of players and the types of spaces in the same row as the space, but not their certain locations.<br>
+<br>
+<b>Spotlight</b><br>
+freq25<br>
+$player, public<br>
+You reveal the space that player occupies, publically.<br>
+<br>
+<b>Query</b><br>
+freq25<br>
+$player, private<br>
+You discover the space that player occupies.<br>
+<br>
+<b>dir.</b><br>
+freq15<br>
+$column/row, public<br>
+You discover the specific locations of all types of spaces and players in that sector.<br>
+<br>
+<b>Torchbearer</b><br>
+freq5<br>
+$"column"/"row", public<br>
+You discover the names of players and the types of spaces in each row or column (whichever was specified), but not their certain locations.<br>
+<br>
+<b><span style="color:OLIVE">Movement</span></b><br>
+These programs move your avatar along the mainframe.  After an individual move, you are affected by the space that you move into (if it has such a feature).  If a program moves you into a space occupied by another player, that player takes 2 damage and moved to a random space on the mainframe; the player isn't affected by any space features.  If the relocated player enters another player's space after the random move, the second player is shunted away as well!  This continues until the final player has reached a non-occupied space.<br>
+<br>
+<b>Go</b><br>
+freq250<br>
+$column/row, private<br>
+You move from your current column or row to the one specified.  (If you provide a column, your row remains the same.  If you provide a row, your column remains the same.)<br>
+<br>
+<b>white_knight</b><br>
+freq50<br>
+$space, private<br>
+You move to that space.<br>
+<br>
+<b>Backdoor</b><br>
+freq10<br>
+You are moved to a random space.  The space that you leave becomes trap3.<br>
+<br>
+<b>flying_carpet</b><br>
+freq5<br>
+$space, private<br>
+You move to that space.  You are unaffected by the feature of that space after the movement.<br>
+<br>
+<b>earthLAST</b><br>
+freq2<br>
+$space, private<br>
+You move to that space.  The space that you leave becomes trap7.<br>
+<br>
+<b><span style="color:ROYALBLUE">Status</span></b><br>
+These programs provide you with a special effect that lasts until the start of your next turn.<br>
+<br>
+<b>Cloak</b><br>
+freq20<br>
+You are not revealed using any scans or queries.  Miner spaces do not report you.<br>
+<br>
+<b>ICE</b><br>
+freq15<br>
+You take two less damage from all effects.  Any player moving into your space takes two damage.<br>
+<br>
+<b>Silver_Cord</b><br>
+freq10<br>
+Portal and slip spaces do not affect you.<br>
+<br>
+<b>KuRiBo(shoo)</b><br>
+freq5<br>
+Any time you enter the same space as another player and would shunt them from that space, that player takes 6 damage instead of 2 damage.<br>
+<br>
+<b>i.like.the.nightlife</b><br>
+freq2<br>
+You gain 6 mask, but max off at 10.<br>
+<br>
+<b><span style="color:GOLDENROD">Traps</span></b><br>
+These programs trap the board with spaces that deal damage each time they are entered.<br>
+<br>
+<b>Trojan</b><br>
+freq100<br>
+$column/row, private<br>
+If you name a column, this affects the space in the same row as you in the named column.  If you name a row, this affects the space in the same column as you in the named row.  The space becomes trap2.<br>
+<br>
+<b>monday_morning_massacre</b><br>
+freq20<br>
+$space, private<br>
+The space becomes trap4.<br>
+<br>
+<b>godhammer</b><br>
+freq20<br>
+$column/row, private<br>
+All spaces in the sector become trap1.<br>
+<br>
+<b>sectorkill</b><br>
+freq10<br>
+$column/row, public<br>
+All spaces in the sector become trap3.<br>
+<br>
+<b>tangerine.exe</b><br>
+freq2<br>
+All spaces become trap5.<br>
+<br>
+<b><span style="color:DEEPPINK">Morphs</span></b><br>
+These programs affect spaces without leaving damaging traps.<br>
+<br>
+<b>redirect_com</b><br>
+freq20<br>
+$space, public<br>
+The space becomes slip.<br>
+<br>
+<b>get_loc()</b><br>
+freq15<br>
+$space, private<br>
+The space becomes miner.<br>
+<br>
+<b>deepsweep</b><br>
+freq10<br>
+$column/row, public<br>
+All spaces in the sector become free.<br>
+<br>
+<b>sysrift</b><br>
+freq5<br>
+$column/row, public<br>
+All spaces in the sector become slip.<br>
+<br>
+<b>Hard_Reboot</b><br>
+freq2<br>
+All spaces become free.<br>
+<br>
+<b><span style="color:RED">Magic Bullets</span></b><br>
+These programs attack other players directly.<br>
+<br>
+<b>magic_bullet</b><br>
+freq100<br>
+$"column"/"row", public<br>
+Any player in the same sector as you takes 3 damage.<br>
+<br>
+<b>jade_lightning</b><br>
+freq35<br>
+$space, public<br>
+A player in the named space takes 5 damage.<br>
+<br>
+<b>strangelove</b><br>
+freq15<br>
+$space, public<br>
+Any players in the same row or column as the named space take 5 damage.  You move to the named space.<br>
+<br>
+<b>warfree2023</b><br>
+freq5<br>
+$column/row, public<br>
+Any players in the named sector take 7 damage.<br>
+<br>
+<b>mr_rogers.exe</b><br>
+freq2<br>
+$player, public<br>
+The player takes 7 damage.  After using this program, your space is revealed publically.</div></div>
+<div class="post" id="p457593"><div class="post-head"><a class="id" href="../t/23386.html#p457593">#457593</a> <span class="index">2</span> <span class="date">2008-08-02T14:30:26Z</span> <span class="author"><a href="../u/9375042.html">DDRave</a></span></div><div class="post-body">are these rules going to be in a help section on the actual channel?</div></div>
+<div class="post" id="p457648"><div class="post-head"><a class="id" href="../t/23386.html#p457648">#457648</a> <span class="index">3</span> <span class="date">2008-08-02T19:03:55Z</span> <span class="author"><a href="../u/9371383.html">Calcy</a></span></div><div class="post-body">Most likely not. However, the channel will always have a link to this thread in its topic. The bot does not fare well with sending tens of lines at once to channels or PMs.<br>
+<br>
+Also, Dave, some things that you could add/change:<ul><li>To use a program, a player will type "!exec program_name" or "!exec program_name arguments" if that program requires any. (command name can be changed)</li><li>To get rid of a program, a player will type "!delete program_name". This assumes that no two programs with the same name will be different (i.e. a scan program that gets "enhanced" by another program, if that makes sense). (command name can be changed)</li></ul>I'll update this post with other things that I think of.</div></div>
+<div class="post" id="p457664"><div class="post-head"><a class="id" href="../t/23386.html#p457664">#457664</a> <span class="index">4</span> <span class="date">2008-08-02T22:34:35Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23386.html#p457648">Quote: Calcy, August 02, 2008 02:03 pm</a></div> Also, Dave, some things that you could add/change:<ul><li>To use a program, a player will type "!exec program_name" or "!exec program_name arguments" if that program requires any. (command name can be changed)</li><li>To get rid of a program, a player will type "!delete program_name". This assumes that no two programs with the same name will be different (i.e. a scan program that gets "enhanced" by another program, if that makes sense). (command name can be changed)</li></ul> </blockquote>I hadn't added everything yet, but I figured that you'd type something like:<br>
+<br>
+"run program_name", to run the program.  Arguments are sometimes supplied publically and sometimes privately, so I figure it might be good to prompt in the channel for either.  Also, perhaps to give a brief description of the effect that follows.  I'll update all of the programs, sometime, to include all of the flavor text that comes up when you use that program.<br>
+<br>
+"dump program_name", to dump.  No two programs of the same name will be distinguishable, so it doesn't matter which one gets run or dumped, really.<br>
+<br>
+<br>
+<br>
+Maybe !run and !dump, if it's needed, but I like the feel without the !.  Also, I can discuss the way that the frequencies work more accurately, for coding purposes.</div></div>
+</main>
+</body>
+</html>

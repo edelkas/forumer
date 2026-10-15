@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Non-self-NaNing drones - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Non-self-NaNing drones</nav></header>
+<main>
+<div class="post" id="p15835"><div class="post-head"><a class="id" href="../t/17981.html#p15835">#15835</a> <span class="index">1</span> <span class="date">2007-06-22T15:00:23Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">You know how if you capture a drone in a 1x1 square so it can't move, it gets NaN'd? I think in N1.5, this should be fixed, so that drone will respond if a door is opened, instead of just sitting there. Of course, it would still become NaN'd in classic mode (otherwise some NUMA maps wouldn't work).</div></div>
+<div class="post" id="p334484"><div class="post-head"><a class="id" href="../t/17981.html#p334484">#334484</a> <span class="index">2</span> <span class="date">2007-06-22T15:54:20Z</span> <span class="author"><a href="../u/9373238.html">kkstrong0</a></span></div><div class="post-body">yes yes yes yes yes!</div></div>
+<div class="post" id="p334535"><div class="post-head"><a class="id" href="../t/17981.html#p334535">#334535</a> <span class="index">3</span> <span class="date">2007-06-22T18:12:23Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">This would be kind of neat, but I could foresee some tricky situations with lag. The program would have to constantly check each drone to see if it can move.<br>
+<br>
+But if you can think of a better idea, I'm pro for this idea.</div></div>
+<div class="post" id="p334546"><div class="post-head"><a class="id" href="../t/17981.html#p334546">#334546</a> <span class="index">4</span> <span class="date">2007-06-22T18:53:04Z</span> <span class="author"><a href="../u/9371577.html">Ad</a></span></div><div class="post-body">/me gives a thumbs up.<br>
+<br>
+Like the idea.</div></div>
+<div class="post" id="p334554"><div class="post-head"><a class="id" href="../t/17981.html#p334554">#334554</a> <span class="index">5</span> <span class="date">2007-06-22T19:00:12Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334535">Quote: Gforce20, June 22, 2007 01:12 pm</a></div> This would be kind of neat, but I could foresee some tricky situations with lag. The program would have to constantly check each drone to see if it can move.<br>
+<br>
+But if you can think of a better idea, I'm pro for this idea.  </blockquote> <br>
+ Erm, it does that all the time. Otherwise they would just go through walls  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"></div></div>
+<div class="post" id="p334561"><div class="post-head"><a class="id" href="../t/17981.html#p334561">#334561</a> <span class="index">6</span> <span class="date">2007-06-22T19:09:42Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334554">Quote: Exberance, June 22, 2007 07:00 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334535">Quote: Gforce20, June 22, 2007 01:12 pm</a></div> This would be kind of neat, but I could foresee some tricky situations with lag. The program would have to constantly check each drone to see if it can move.<br>
+<br>
+But if you can think of a better idea, I'm pro for this idea. </blockquote>Erm, it does that all the time. Otherwise they would just go through walls  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared">  </blockquote> <br>
+ *smacks forehead*<br>
+<br>
+I think my IQ just dropped a couple hundred points.</div></div>
+<div class="post" id="p334565"><div class="post-head"><a class="id" href="../t/17981.html#p334565">#334565</a> <span class="index">7</span> <span class="date">2007-06-22T19:12:49Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334561">Quote: Gforce20, June 22, 2007 02:09 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334554">Quote: Exberance, June 22, 2007 07:00 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334535">Quote: Gforce20, June 22, 2007 01:12 pm</a></div> This would be kind of neat, but I could foresee some tricky situations with lag. The program would have to constantly check each drone to see if it can move.<br>
+<br>
+But if you can think of a better idea, I'm pro for this idea. </blockquote>Erm, it does that all the time. Otherwise they would just go through walls  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> </blockquote>*smacks forehead*<br>
+<br>
+I think my IQ just dropped a couple hundred points.  </blockquote> <br>
+ ROFL<br>
+<br>
+You are sort of right in a way I guess.<br>
+There will be more collisions occuring, and the drone will have to check all 4 angles before exiting the loop (the loop being checking each angle; it may not even be programed as a loop), so it will make N slow a bit, but it really should be negligible unless you put like 50 drones in.</div></div>
+<div class="post" id="p334678"><div class="post-head"><a class="id" href="../t/17981.html#p334678">#334678</a> <span class="index">8</span> <span class="date">2007-06-23T01:08:31Z</span> <span class="author"><a href="../u/9374569.html">cman4</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334554">Quote: Exberance, June 22, 2007 07:00 pm</a></div> <blockquote class="quote"><div class="quote-head"><a href="../t/17981.html#p334535">Quote: Gforce20, June 22, 2007 01:12 pm</a></div> This would be kind of neat, but I could foresee some tricky situations with lag. The program would have to constantly check each drone to see if it can move.<br>
+<br>
+But if you can think of a better idea, I'm pro for this idea. </blockquote>Erm, it does that all the time. Otherwise they would just go through walls  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared">  </blockquote> <br>
+ That's exactly what I was thinking.<br>
+<br>
+And this would be awesome.</div></div>
+</main>
+</body>
+</html>

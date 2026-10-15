@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; Linux...</nav></header>
+<main>
+<div class="post" id="p20381"><div class="post-head"><a class="id" href="../t/22742.html#p20381">#20381</a> <span class="index">1</span> <span class="date">2008-05-30T21:55:21Z</span> <span class="author"><a href="../u/9376246.html">nerfherder23</a></span></div><div class="post-body">I downloaded N for Linux today.<br>
+<br>
+I'm running Ubuntu 7.10 right now, and currently have no internet to the my computer (using my mom's right now) because of bad grades.  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> <br>
+<br>
+I downloaded N for Linux, and took it to my PC via flash drive.  When I installed it, it was fine.  I tried to start a game, and I couldn't.  The game seems to ignore my keyboard input now.  I quit out of it, restarted it, and tried changing key binds in the configuration.  The keyboard worked fine.<br>
+I tried a game again, and none of the keys work.  Not even "Q" or "Tab".<br>
+<br>
+When I tried clicking "~" on the main menu, nothing happened then either.<br>
+<br>
+Could anyone provide assistance?</div></div>
+<div class="post" id="p440706"><div class="post-head"><a class="id" href="../t/22742.html#p440706">#440706</a> <span class="index">2</span> <span class="date">2008-05-31T08:06:44Z</span> <span class="author"><a href="../u/9373523.html">Strife</a></span></div><div class="post-body">It sounds like settings aren't being saved; make sure you have write permissions to all of the game files.<br>
+<br>
+Alternatively...<br>
+Amusingly enough, the most success in playing N in linux for a number of users here has been running the Windows version with WINE.<br>
+<b>apt-cache search wine</b> should bring up brief package information, but then again I'm using Ubuntu 8.04 (Hardy Heron), so I'm searching in the hardy repositories. I don't remember if wine joined the default Ubuntu repositories before then. If you can't find it, make sure you uncomment the "universe" and "multiverse" entries in <b>/etc/apt/sources.list</b>, do <b>sudo aptitude update</b>, and then search again. If that doesn't list it, go to <a href="http://www.winehq.org">http://www.winehq.org</a><br>
+<br>
+<b>sudo aptitude install wine<br>
+wine </b>[wherever]/<b>n_v14.exe</b><br>
+...although you may want to give the game highest priority:<br>
+<b>sudo nice -n 20 wine </b>[wherever]/<b>n_v14.exe</b><br>
+<br>
+You <i>may</i> be given grief about a particular C++ library (I was back when I tried it for the first time in Ubuntu 5.10). If that's the case, just Google the library name, download it, put it into /usr/lib or wherever the executable is looking for it, and you should be all set.</div></div>
+<div class="post" id="p441394"><div class="post-head"><a class="id" href="../t/22742.html#p441394">#441394</a> <span class="index">3</span> <span class="date">2008-06-02T23:10:06Z</span> <span class="author"><a href="../u/9376246.html">nerfherder23</a></span></div><div class="post-body">I'm sort of a newbie with computers, so Masters-degree-Dad usually helps me with all of my problems.  I'm not sure if he's set up Wine yet.<br>
+<br>
+So, if I must, I suppose I could play it in Windows XP.  My PC originally had Windows, but my dad despises Windows, and likes Linux, so he convinced me to get it.  I must say I like it more.<br>
+<br>
+Anyway, I have almost $400 worth of games (maybe more) for Windows, so I managed to persuade my dad to leave it on.  I run both Windows and Linux.<br>
+<br>
+I had just hoped that I could run it in Linux, so that when I suddenly felt like playing it I didn't have to reboot into Windows.<br>
+<br>
+Sorry for ranting.   <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">   I'll try the permissions thing.</div></div>
+</main>
+</body>
+</html>

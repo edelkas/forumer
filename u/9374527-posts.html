@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by Derakon - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9374527.html">Derakon</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p15414"><div class="post-head"><a class="id" href="../t/17538.html#p15414">#15414</a> <span class="index">1</span> <span class="date">2007-05-29T01:38:41Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Like many people here, I'm sure, I'm posting because I've run into a small difficulty with SAT, and the N tutorials were basically my sole source of information on how they work. Thank you very much, O creators of N, for making not just a great gamee, but an excellent set of tutorials. I'm working on my own game engine, in C++, which is largely complete; however, I've discovered one annoying bug that I haven't yet figured out how to deal with. It is my hope that once I've finished my game, I'll be able to release the engine as open-source, and thereby provide a working implementation of SAT for arbitrary convex polygons. However, first I have to deal with this situation:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/polygon3.png" alt="" loading="lazy"><br>
+<br>
+Here I have a polygon A (the player) moving up a slope B by continually trying to move sideways (at v_a) and then getting pushed back along the slope's normal. This works fine. However, when the player reaches the top of the slope and moves sideways into it, suddenly he has two small overlap regions - one onto the vector &lt;0, -1&gt; and one onto the vector &lt;.707, .707&gt;. The one I <i>want</i> to use is the latter one, but depending on where precisely the player happens to be, sometimes he gets the former. And when that happens, suddenly he thinks that he has to get pushed <i>into the terrain</i> to get out of collision, and that's just all bad. <br>
+<br>
+Now, according to the SAT tutorial, and specifically, according to <a href="http://www.harveycartel.org/metanet/tutorials/tutorialA.html#section4">this bit</a>, this kind of situation is largely due to fast-moving or small objects, and is utterly intractible. My objects are slow, and large (moving at about 5% of their total size in a given frame), but I still see similar behaviour. I must admit that I don't see any way to eliminate the problem; sweeping the polygons along their velocity vectors doesn't improve things any, and multisampling just reduces the chances; it can never eliminate them. About the only fix I can think of is to eliminate any terrain with slope greater than or equal to 45. Well, either that, or use SAT solely to determine if a collision existed or not, and then to write my own algorithm to determine which edge was hit first. And I really, really don't want to do that, because I've <i>tried</i> that before, and after three months of hacking it still didn't work properly. Granted, in that case I didn't have the constraint of convex-only polygons, and I was trying to sweep them along their velocity vectors, but still. I'd like to get to the content creation part of this game sometime during this year, y'see. <br>
+<br>
+The only other idea I've had is to keep track of <i>all</i> projection overlaps (not just the smallest one) and if, at the end, the two smallest are vaguely close in magnitude, pick the one that pushes the polygon away from the center of the other poly the most. There's a lot of fuzz in that "solution", though; it's inelegant and I'm concerned that it would introduce unreliable behaviour. Does it sound like it would work? Does anyone have any advice for how I can deal with this situation? <br>
+<br>
+Thanks for any feedback you can provide.</div></div>
+<div class="post" id="p325182"><div class="post-head"><a class="id" href="../t/17426.html#p325182">#325182</a> <span class="index">8</span> <span class="date">2007-05-29T01:49:37Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17426.html#p323373">Quote: ZeroTruths, May 22, 2007 10:41 pm</a></div> Hmm, I must say, that is some nice code TS.<br>
+However, while your code is small and siml,e I perfer my code to be flexible  and organized for whatever I might need to find or change.<br>
+Personally, I think it's just a matter of taste. </blockquote>I use <a href="http://hkn.eecs.berkeley.edu/~mcmartin/vcontrol/">VControl</a> for my C++ work; it's a library that's intended to abstract away the keyboard into a "virtual controller" (hence the name). The short of it is that you can take a file that looks like this:<br>
+<pre class="code">jump: key Space
+left: key Left
+right: key Right</pre>feed it into VControl's initialization, and then turn your input loop into this:<pre class="code">  while (SDL_PollEvent(&amp;event))
+  {
+    VControl_HandleEvent(&amp;event);
+  }
+  for (int i = 0; i &lt; numActions; ++i)
+  {
+    if (curInputState[i] != 0)
+    {
+      switch (controlTable[i].name)
+      {
+        case INPUT_JUMP:
+          foo;
+          break;
+        case INPUT_LEFT:
+          bar; 
+          break;
+        case ET_CETERA:
+          break;
+      }
+    }
+  }</pre>where numActions is the number of actions you have recorded in the text file and controlTable is an array of VControl_NameBindings that you get when you initialize it. It's all pretty simple; you don't need to worry about keydowns, keyups, and the like, and you can assign arbitrary names to keys (and multiple keys can get the same name, for example if you wanted to have multiple keys for left and right).<br>
+<br>
+The big win, mind you, is that all of your control definitions are in a text file, so they're easy to change, either by you or by your players.</div></div>
+<div class="post" id="p325207"><div class="post-head"><a class="id" href="../t/17538.html#p325207">#325207</a> <span class="index">3</span> <span class="date">2007-05-29T03:14:40Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17538.html#p325199">Quote: Raigan, May 29, 2007 02:51 am</a></div> I think there may be a bug in your code -- it's true that using the tutorial method the projection direction may "jump" from one face to another, but it should never push the object down into the tile -- the object should be pushed _up_ by m.<br>
+<br>
+The overlap/penetration on a given axis doesn't have a sign/direction, so for a given overlap there are two potential directions to project: +n or -n, where n is the axis vector. There are several ways to choose which direction to push, one being to project the objcenter-&gt;objcenter vector onto n and see which way that points.<br>
+<br>
+Another option is to rearrange your axis tests so that the direction info isn't lost; the only reason you have an ambiguous +n/-n case is that you're calculating the unsigned overlap along the n axis -- instead you could calculate the _signed_ overlap along +n and -n seperately. This will result in more axis tests (i.e objects with parallel faces can't "share" axis tests) but may help simplify things for you. <br>
+<br>
+raigan  </blockquote> <br>
+ Thanks very much! I should've thought to check the normal before returning; stupid mistake. I just added this to the end of my doSAT function:<pre class="code">    //Minor fix time - if the normal we have calculated would push the polygon
+    //*towards* the other polygon, as can happen in certain cases with acute
+    //angles, then flip the normal.
+    if (result.normal.dot(alt-&gt;getCenter() - center) &lt; 0)
+    {
+        result.normal = result.normal * -1;
+    } </pre>and now the bug is gone. <br>
+<br>
+I could probably fix this more elegantly (i.e. when the normal is first calculated instead of when I'm returning results), but dot products and if statements are both cheap, so I'm not too worried. Correctness is paramount right now.</div></div>
+<div class="post" id="p325684"><div class="post-head"><a class="id" href="../t/17538.html#p325684">#325684</a> <span class="index">5</span> <span class="date">2007-05-30T14:39:09Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17538.html#p325381">Quote: Raigan, May 29, 2007 04:51 pm</a></div> Great -- whenever you have something to show, we'd love to see it!<br>
+<br>
+raigan  </blockquote> <br>
+ Will do! It's going to be a while, since I'd like to be able to release the completed game with the engine, and there's a lot of content yet to be created. But I think I've solved the last of the really hard problems now, so I just have to keep truckin' along.</div></div>
+<div class="post" id="p326247"><div class="post-head"><a class="id" href="../t/17590.html#p326247">#326247</a> <span class="index">2</span> <span class="date">2007-06-01T14:47:22Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17590.html#p15466">Quote: mattk210, June 01, 2007 08:47 am</a></div> yes, i do suck. I can't seem to get my head around the math for circle-line intersection, which i need to solve <br>
+the problem described in this thread:<br>
+<br>
+<a href="../t/16803.html">http://metanet.2.forumer.com/index.php?showtopic=16803</a><br>
+<br>
+can anyone help in this regard, explaining how i can write an algorithm to find intersection points?<br>
+<br>
+the information i have is:<br>
+<br>
+the delta-x of the line<br>
+the delta-y of the line<br>
+a point on the line<br>
+the radius of the circle<br>
+the coordinates of the center of the circle<br>
+<br>
+I don't want to calculate the gradient because vertical lines cause a div-by-zero, so i can't use y=mx+b form. </blockquote>Do you have the length of the line, or two endpoints? Or did you mean that dx and dy are the x- and y-components of the line, and not the components of its slope, as I originally read it? Or are you really trying to collide a circle with an infinite line? That's a lot easier than collision detection against a line segment (since for the line segment you have to do infinite-line collision and endpoint collision). In any event, I found that I had to simply special-case the vertical lines into my code; it's annoying and not very pretty, but it does work. <br>
+<br>
+EDIT: the following logic assumes that the line passes through the origin. This really makes a lot of things easier. Fortunately, you can modify things so you don't have to worry about the line's y-intercept. All that matters here is the relative positioning of your objects, after all. Say your line has a y-intercept of b. If you simply subtract b from the line's y-intercept, then the line passes through the origin. However, now the line is no longer in the same place relative to your circle that it was before. So subtract b from the circle's position as well! You've just moved both objects by the same amount, so their relative positions are the same. The only difference is that now the line passes through the origin, making the math much easier. END EDIT.<br>
+<br>
+To collide a circle against an infinite line, all you need to know is a) how far the circle is from the line. Usually you'll also want b) which side of the line the circle is on, but that's more for what to do after you've detected a collision. To get a), you need the closest point on the line to the circle; to get b) you need to know the normal of the line. Fortunately, getting a) is easy - all you have to do is project the circle's center onto the line. You have the line's slope &lt;dx, dy&gt;, which, incidentally, should be normalized (√(dx + dy) == 1) and the circle's center &lt;cx, cy&gt;. If you do a dot product on them, then you'll get the distance that you need to multiply &lt;dx, dy&gt; by to get the point &lt;cx, cy&gt; projected onto the line. In other words, if dx * cx + dy * cy = d, then the point &lt;d * dx, d * dy&gt; is the closest point on the line to the center of the circle. Now that you have that point, you can determine how far it is from the center of the circle by finding the length of the vector from &lt;d * dx, d * dy&gt; to &lt;cx, cy&gt;. That vector is &lt;cx - d * dx, cy - d * dy&gt;. Get its magnitude and compare it to your circle's radius, and if it's less, then you have a collision! <br>
+<br>
+Now, to determine which side of the line the circle hit, you can make use of a nice property of the dot product. If you dot two vectors together that are pointing in the same direction, not off by more than 90, then the result will be positive. If they are perpendicular - that is, exactly 90 opposed - then the result will be zero. If they are opposed, anywhere from 90 on up, then the result will be negative. Now your line has a slope &lt;dx, dy&gt;, which means that it has a normal &lt;-dy, dx&gt;. I'm going to assume that you know which side of the line that's on; typically you want your normal to be facing "outwards". You also have your vector &lt;cx - d * dx, cy - d * dy&gt; from the last exercise. Dot them together! The result will tell you if the circle is "inside" the line or not. Said result is -dy * (cx - d * dx) + dx * (cy - d * dy). If it's greater than zero, then the vector drawn from the line to the circle is pointing in the same direction as the normal of the line, which, if your normal is pointing outwards, means that the circle's center is outside the line. If it's negative, then the circle's center is inside. <br>
+<br>
+If you want to do line segment intersections, then you have to deal with endpoints. This is a bit more annoying, and I don't have time to get into it here. Sorry!</div></div>
+<div class="post" id="p326382"><div class="post-head"><a class="id" href="../t/17538.html#p326382">#326382</a> <span class="index">7</span> <span class="date">2007-06-01T23:21:48Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Hah. I spoke too soon. Here's my current situation:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/polygon4.png" alt="" loading="lazy"><br>
+<br>
+Here we have polygon C moving up and to the right into the ceiling. When C performs collision detection, first it detects the collision with B, and pushes itself to the left until it no longer overlaps B's left edge. Then it does detection against A and gets pushed down. Individually, each polygon is behaving as desired; however, the net effect is that it is impossible to "fly" along the underside of polygons, because A's horizontal velocity is always cancelled by B. If I were to do the collision detection in the reverse order, then first A would push C down, and then C would no longer intersect with B, so B would be unable to cancel C's horizontal velocity. This is good! However, then I can't have C flying up and to the <i>left</i> or the same problem occurs in the other direction. <br>
+<br>
+About the only thing I can think of here is for C to keep track of every "terrain" polygon it runs into (every sprite belongs to a group that I can use for large-scale classification of interactions), and if it hits more than one, try different orderings of reactions until it finds a "minimal" set (i.e. the minimum number of backtracks needed to avoid collision with all terrain polygons). This is rather nasty logic though, and requires re-performing collision detection. <br>
+<br>
+For reference, the system I'm working with here consists of a C++ game engine and Lua-based scripting for game logic. The C++ side handles asset management, display, and collision detection, while the Lua side handles pretty much everything else. I'm trying to keep the C++ side fully generic, so I'm reluctant to try to work in some kind of "smart" ordering of polygon pairings for collision detection, disregarding the problem that such an idea would have to handle a myriad set of edge cases and would in general be very ugly.<br>
+<br>
+Any ideas?<br>
+<br>
+Edit: I should point out that my game engine is not inherently tile-based. I'm going for a tile-based <i>look</i>, but the engine itself uses a quadtree to store the locations of all objects, and thus I can't take advantage of tile-based logic for purposes of collision detection. Additionally, the two terrain squares in the diagram are actually touching; I separated them for clarity's sake.</div></div>
+<div class="post" id="p326449"><div class="post-head"><a class="id" href="../t/17590.html#p326449">#326449</a> <span class="index">4</span> <span class="date">2007-06-02T02:58:11Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17590.html#p326443">Quote: mattk210, June 02, 2007 02:24 am</a></div> it's great to see new members who know what they're talking about, especially when they're better than me <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+yes, it's an infinite line, but the results i wanted were the 2 intersection points of the line to the circle (see crappy diagram). there's the possibility of 2, 1, or 0 intersections, and my brain falls apart.<br>
+<br>
+and the only thng i need are those 2 points of intersection (or lack thereof), i dont need any additional data. </blockquote>Okay, in the event that the circle is tangent to the line, you already have your point - it's the projection of the circle's center onto the line. In the (much more likely) event that the circle intersects the line at two points, you should probably work from triangles:<br>
+<br>
+<img class="bb-img" src="http://66.235.60.44/~chriswei/temp/circle1.png" alt="" loading="lazy"><br>
+<br>
+<b>EDIT</b><br>
+Okay, gaze in awe at my diagram, then realize that you don't need to deal with sines, or cosines, or any of that nasty stuff. You have two limbs of the triangle - r and p - c! Use Pythagoras for the win. <br>
+<br>
+d / 2 = ?(r + (p - c)****)<br>
+<br>
+If you feel like reminding yourself of highschool geometry, keep reading. Also, the delta in the diagram (that weird 'd' symbol) has a keyboard equivalent, but evidently the board software doesn't like it, so I had to write it out. Ahh, well. <br>
+<b>END EDIT</b><br>
+<br>
+You know that the two equal limbs have distance r because they go from the center of the circle to the perimeter. What you want to find is d, or more specifically d / 2, because if you add and subtract d / 2 from the point p (which is the circle's center projected onto the line), then you can find the intersection points. Given that you have a triangle where you know the three sides, you can find all three angles involved; however, you only need delta. By drawing a line from the center of the circle to p, you get two right-angle triangles, where for each of them you know two sides (one is r, one is p - c) and one angle (90, for each of them). Using the law of cosines,<br>
+<br>
+cos(delta / 2) = (p - c) / r<br>
+-&gt;<br>
+delta / 2 = acos((p - c) / r)<br>
+<br>
+Now, using the law of sines,<br>
+<br>
+sin(delta / 2) = (d / 2) / r<br>
+-&gt;<br>
+r * sin(delta / 2) = d / 2<br>
+<br>
+And now you have d! If your line has slope &lt;dx, dy&gt; and p is &lt;px, py&gt;, then your points of intersection are simply &lt;px + d * dx / 2, py + d * dy / 2&gt;. <br>
+<br>
+Makes sense?</div></div>
+<div class="post" id="p327423"><div class="post-head"><a class="id" href="../t/17652.html#p327423">#327423</a> <span class="index">2</span> <span class="date">2007-06-04T20:15:43Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">It seems to me that you'll need to use planes instead of axes when you do your projections. This will in turn give you a set of convex polygons that you can run 2D SAT on (whew!). I don't have any proof for this, mind; it's just a gut feeling. It's possible that SAT can't be extended to 3D at all. However, if it does work, at least projecting 3D objects onto 2D ones is fairly simple - rotate them so that the separating plane is axis-aligned, and then drop the relevant coordinate for each vertex.<br>
+<br>
+Edit: Gah, didn't mean to quote you.</div></div>
+<div class="post" id="p327428"><div class="post-head"><a class="id" href="../t/17538.html#p327428">#327428</a> <span class="index">9</span> <span class="date">2007-06-04T20:25:26Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Well, the solution I postulated in my previous post worked. In short:<br>
+<br>
+1) update() is called on all objects/sprites, during which time they perform whatever physics modifications they need.<br>
+<br>
+2) The engine checks all sprites for collisions with each other. <br>
+<br>
+3) When a collision occurs, sprite A notes down all details of the collision (surface normal, backout distance along normal, backout distance along velocity, name of other object).<br>
+<br>
+4) After all collision detection has been done, update2() is called on all objects. Sprite A calls its processCollisions() function, which:<br>
+<br>
+4a) checks every collision that occurred, to see if any one backout attempt clears A of collision with all other collided objects. If so, it uses that backout; if not, then<br>
+<br>
+4b) it performs the first backout, then gets collision data for the second object, performs that backout, and iterates until it has done backouts for all objects.<br>
+<br>
+Fortunately, in most cases the player is unlikely to be colliding with more than two terrain tiles at a time; three if they're backed into a right-angle corner. Still, the addition of an entire second update cycle, not to mention all the extra collision checks, rankles. 4a requires performing N * (N - 1) collision checks, and 4b requires an additional N such checks. I'm just glad that SAT is good at short-circuiting when possible. <br>
+<br>
+Mind you, at the moment my costliest code is the part that blanks the screen each frame. I'll eventually remove that (since I'll be drawing every pixel every frame anyway, blanking won't be needed), but drawing will remain expensive compared to everything else.</div></div>
+<div class="post" id="p333543"><div class="post-head"><a class="id" href="../t/17652.html#p333543">#333543</a> <span class="index">9</span> <span class="date">2007-06-20T16:53:51Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">Probably your best bet is to take the projection plane, rotate it so that it's paralell to the x-z plane (or whatever), and then apply the same rotations to the vertices of the ramp. Then you can simply drop the y component of each vertex's position to project it onto the plane. From there, it should be straightforward to project the shape onto a line.</div></div>
+<div class="post" id="p333546"><div class="post-head"><a class="id" href="../t/17654.html#p333546">#333546</a> <span class="index">12</span> <span class="date">2007-06-20T16:57:30Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">For what it's worth, when terrain-following, almost always you'll want to push the object out along the surface normal of the terrain. This gives you automatic "it's slower to climb up hills than to walk along flat ground", and is in general more accurate. The only time I've found when you want to avoid this is when the sprite is standing still on slanted ground. Gravity will push the sprite down a bit into the terrain each frame, but if you then push the sprite out along the terrain's surface normal, it'll gradually slide down the slope. So in my game I've hacked the sprite to specifically check for when its X velocity is small and its Y velocity is aligned with gravity, and push it out along its velocity vector instead in those situations.<br>
+<br>
+My problem right now is figuring out how to get the sprite to run <i>down</i> slopes when the downward velocity would be faster than gravity.</div></div>
+<div class="post" id="p338430"><div class="post-head"><a class="id" href="../t/18099.html#p338430">#338430</a> <span class="index">7</span> <span class="date">2007-07-03T17:37:25Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">What I ended up doing for multiple-tile collisions was to store all collisions that occur in a given frame, and then after they've all been collected, iterate through them to find the right reaction. That is to say:<br>
+<br>
+* Object A collides with terrain object B, generating backout vector <i>u</i>, which is stored<br>
+* Object A collides with terrain object C, generating backout vector <i>v</i>, which is stored<br>
+* Object A looks at <i>u</i>. Will backing out along <i>u</i> prevent collision with both B and C? If so, then use <i>u</i> as a backout vector. If not...<br>
+** Object A looks at <i>v</i>. Will backing out along <i>v</i> prevent collision with both B and C? If so, then use <i>v</i> as a backout vector. If not...<br>
+*** Object A applies both <i>u</i> and <i>v</i> to back out (or, in a case of colliding with three or more objects, it keeps applying backout vectors until it is no longer colliding with anything). <br>
+<br>
+Note that this does not handle case C, which I've resolved will simply not occur in my game. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Also, I have a hack in place specifically for when the player's X velocity is neglible, their Y velocity is aligned with gravity, and they hit something with a normal opposed to gravity. In that particular case, they're probably "standing" on some terrain, so instead of backing out along the surface normal of the terrain, I back out along the object's velocity vector. This keeps objects from slowly sliding down slanted terrain.</div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cannot access user levels (parsing data) - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; cannot access user levels (parsing data)</nav></header>
+<main>
+<div class="post" id="p5332"><div class="post-head"><a class="id" href="../t/5841.html#p5332">#5332</a> <span class="index">1</span> <span class="date">2005-11-23T07:50:32Z</span> <span class="author">tyir <span class="guest">(guest)</span></span></div><div class="post-body">Hi,<br>
+<br>
+First, this is under Linux.<br>
+<br>
+When I click 'user levels' in the main menu, all that shows up in the middle is "parsing data...". I am just doing a ./n_v14, and there definately is a userlevels.txt in the folder, and it is definately readable. In fact, i just redownloaded the .tar.gz and reran, and I get the exact same thing.<br>
+<br>
+Everythint else works fine, the game, accessing people's highscores, etc.<br>
+<br>
+Any ideas? Thanks</div></div>
+<div class="post" id="p117282"><div class="post-head"><a class="id" href="../t/5841.html#p117282">#117282</a> <span class="index">2</span> <span class="date">2005-11-23T13:25:36Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Maybe takes some time to load under linux?</div></div>
+<div class="post" id="p117388"><div class="post-head"><a class="id" href="../t/5841.html#p117388">#117388</a> <span class="index">3</span> <span class="date">2005-11-23T20:44:03Z</span> <span class="author">Nemesis <span class="guest">(guest)</span></span></div><div class="post-body">You didn't happen to alter any of the text within the userlevels.txt file?</div></div>
+<div class="post" id="p117408"><div class="post-head"><a class="id" href="../t/5841.html#p117408">#117408</a> <span class="index">4</span> <span class="date">2005-11-23T22:09:08Z</span> <span class="author"><a href="../u/9371295.html">Ixi</a></span></div><div class="post-body">It's a stretch, but do permissions on the bin and userlevels.txt look ok?</div></div>
+<div class="post" id="p117522"><div class="post-head"><a class="id" href="../t/5841.html#p117522">#117522</a> <span class="index">5</span> <span class="date">2005-11-24T03:33:19Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body">In order:<br>
+<br>
+Nope, I left it run for a good 5 minutes, and this is a 2.2Ghz processor.<br>
+<br>
+I definately didn't edit userlevels.txt, and i re unzipped it and ran the new executable with a new userlevels.txt to be sure.<br>
+<br>
+And yes, I even check the permissions, they all look fine.<br>
+-rwxr-xr-x  1 kaplowr users 3213436 May 15  2005 n_v14*<br>
+-rw-r--r--  1 kaplowr users   11449 May 16  2005 readme.txt<br>
+-rw-r--r--  1 kaplowr users  421047 May 16  2005 userlevels.txt<br>
+<br>
+<br>
+Thanks though! Any other ideas?</div></div>
+<div class="post" id="p118161"><div class="post-head"><a class="id" href="../t/5841.html#p118161">#118161</a> <span class="index">6</span> <span class="date">2005-11-26T07:37:40Z</span> <span class="author"><a href="../u/9371295.html">Ixi</a></span></div><div class="post-body">Hey, it looks like someone else had the same problem but found a solution: <a href="../t/3233.html">http://metanet.2.forumer.com/index.php?showtopic=3233</a><br>
+<br>
+Basically, userlevels.txt has to be one directory up from where the program is.</div></div>
+<div class="post" id="p119844"><div class="post-head"><a class="id" href="../t/5841.html#p119844">#119844</a> <span class="index">7</span> <span class="date">2005-12-02T17:51:30Z</span> <span class="author">tyir <span class="guest">(guest)</span></span></div><div class="post-body">ahhh, that was the problem!<br>
+<br>
+Very odd... and it seems to be common among the Linux version.<br>
+<br>
+Are the developers aware of this?</div></div>
+<div class="post" id="p119846"><div class="post-head"><a class="id" href="../t/5841.html#p119846">#119846</a> <span class="index">8</span> <span class="date">2005-12-02T18:20:43Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">we are _now_.. we'd better add it to the readme i guess.<br>
+<br>
+i can't wait until macromedia released a proper flashplayer for linux..</div></div>
+<div class="post" id="p119866"><div class="post-head"><a class="id" href="../t/5841.html#p119866">#119866</a> <span class="index">9</span> <span class="date">2005-12-02T19:40:38Z</span> <span class="author"><a href="../u/9371295.html">Ixi</a></span></div><div class="post-body">And I can't wait until Macromedia starts supporting 64-bit architectures! I have an AMD64 processor, and I dual boot with Ubuntu Linux, but I'm very upset about not being able to do ANYTHING with Flash on it. It makes no sense to me (although I suspect they have some sneaky commercial scheme).</div></div>
+</main>
+</body>
+</html>

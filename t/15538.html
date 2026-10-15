@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Basic Games - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; <a href="../f/27.html">Other Games</a> &rsaquo; Visual Basic Games</nav></header>
+<main>
+<div class="post" id="p13759"><div class="post-head"><a class="id" href="../t/15538.html#p13759">#13759</a> <span class="index">1</span> <span class="date">2007-01-28T22:15:22Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">Listed below are two games I made in visual basic, there really bad. Seriously, they were both made in two hours. Also note, you need visual basic to run these on your computer, just open it and click F5. If someone who has Visual Basic could makes these .exe and host them somewhere that would be great.</div></div>
+<div class="post" id="p291138"><div class="post-head"><a class="id" href="../t/15538.html#p291138">#291138</a> <span class="index">2</span> <span class="date">2007-01-28T22:16:22Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">Game One <div class="attachment attachment-missing">Attachment (lost): post-27-1170022582.vbp</div></div></div>
+<div class="post" id="p291139"><div class="post-head"><a class="id" href="../t/15538.html#p291139">#291139</a> <span class="index">3</span> <span class="date">2007-01-28T22:17:17Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">Game Two <div class="attachment attachment-missing">Attachment (lost): post-27-1170022637.vbp</div></div></div>
+<div class="post" id="p291140"><div class="post-head"><a class="id" href="../t/15538.html#p291140">#291140</a> <span class="index">4</span> <span class="date">2007-01-28T22:27:05Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">I have a feeling these won't work...<br>
+I was right. You've only included the .pro file, not the main bit - the .frm file.<br>
+<br>
+Stick all of 'em into a .zip, and attach that. Or, better yet, make them into .exes yourself (if you actually have VB, simply click file&gt;make pro1.exe)</div></div>
+<div class="post" id="p291141"><div class="post-head"><a class="id" href="../t/15538.html#p291141">#291141</a> <span class="index">5</span> <span class="date">2007-01-28T22:27:59Z</span> <span class="author"><a href="../u/9373826.html">Ethrel</a></span></div><div class="post-body">To do that, we also need:<br>
+<br>
+for project1:<br>
+form1.frm<br>
+collision module.bas<br>
+form2.frm<br>
+pingpong.frm<br>
+<br>
+for Invadertest:<br>
+invaderTEST.frm<br>
+collision module.bas<br>
+<br>
+EDIT: Hmm...iangb beat me to it <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"><br>
+BUT, mine is a better list <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+EDIT 2: I think his problem is hosting a .exe file. IF will not alllow .exe files to be uploaded (if I remember correctly)</div></div>
+<div class="post" id="p291143"><div class="post-head"><a class="id" href="../t/15538.html#p291143">#291143</a> <span class="index">6</span> <span class="date">2007-01-28T22:31:46Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">zip em up, and it'll work fine.</div></div>
+<div class="post" id="p291148"><div class="post-head"><a class="id" href="../t/15538.html#p291148">#291148</a> <span class="index">7</span> <span class="date">2007-01-28T22:42:07Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">Sorry, I hope this time it works. <div class="attachment attachment-missing">Attachment (lost): post-27-1170024186.zip</div></div></div>
+<div class="post" id="p291173"><div class="post-head"><a class="id" href="../t/15538.html#p291173">#291173</a> <span class="index">8</span> <span class="date">2007-01-28T23:53:32Z</span> <span class="author"><a href="../u/9370664.html">iangb</a></span></div><div class="post-body">OK.... I can make this (for example: 'space invaders' much better, very easilly.<br>
+<br>
+For example, you can replace all the code in collision.bas with this, which will account for every possible collision between o1 and o2:<br>
+<pre class="code">Public Function coll(o1 As Object, o2 As Object)
+    Dim result As Boolean
+    result = False
+    
+    if (o1.left + o1.width) &gt; o2.left and o1.left &lt; (o2.left +o2.width) then 'horizontal collision 
+          if (o1.top + o1.height) &gt; o2.top and o1.top &lt; (o2.top + o2.height) then 'vertical collision
+               result = true
+          end if
+    end if
+
+    coll = result
+End Function</pre></div></div>
+<div class="post" id="p291189"><div class="post-head"><a class="id" href="../t/15538.html#p291189">#291189</a> <span class="index">9</span> <span class="date">2007-01-29T00:49:21Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/15538.html#p291173">Quote: iangb, January 28, 2007 11:53 pm</a></div> OK.... I can make this (for example: 'space invaders' much better, very easilly.<br>
+<br>
+For example, you can replace all the code in collision.bas with this, which will account for every possible collision between o1 and o2:<br>
+<pre class="code">Public Function coll(o1 As Object, o2 As Object)
+    Dim result As Boolean
+    result = False
+    
+    if (o1.left + o1.width) &gt; o2.left and o1.left &lt; (o2.left +o2.width) then 'horizontal collision 
+          if (o1.top + o1.height) &gt; o2.top and o1.top &lt; (o2.top + o2.height) then 'vertical collision
+               result = true
+          end if
+    end if
+
+    coll = result
+End Function</pre>  </blockquote> <br>
+ Oh my, I can't believe I didn't see that. That makes the file smaller and makes a more accurate collision.</div></div>
+</main>
+</body>
+</html>

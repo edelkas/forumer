@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buggy collision detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Buggy collision detection</nav></header>
+<main>
+<div class="post" id="p10510"><div class="post-head"><a class="id" href="../t/11756.html#p10510">#10510</a> <span class="index">1</span> <span class="date">2006-08-07T16:04:47Z</span> <span class="author"><a href="../u/9372891.html">Grazer2</a></span></div><div class="post-body">Hey there,<br>
+First off, thanks a lot to the developers of this lovely game called N. Thanks not only for creating this fun little game, but also for putting up these extremely nice tutorials about the tile-based collision detection.<br>
+Now let me get to the point. I'm in the middle of creating my own little N clone using C++ and OpenGL. I was able to get everything described in the tutorials working quite nicely and in general the collision detection and response works really well.<br>
+However there are a couple of nasty "special cases" where the system fails. This happens only about 0.01% of the time playing but as you might see it is kinda annoying, and it's bad for my ego. I'd really like to have a smooth working system at any time.<br>
+<br>
+Let me get a little more precise now. Instead of trying to describe the problems by hand i'll just give drawings of 2 of such cases:<br>
+<br>
+<img class="bb-img" src="http://grazer.fichtenmoped.at/misc/col_problem1.jpg" alt="" loading="lazy"><br>
+<br>
+My main problem is the following. As soon as a collision occurs i set the velocity that's pointing in direction of the projection vector to 0. This means for example if I'm falling onto a regular box tile from the top that the vertical velocity will be set to 0. This is needed so the player doesn't keep accelerating into the tile.<br>
+<br>
+Now when looking at figure A, which is a situation that can happen when the player (red bounding box) is running along 2 regular tiles, in some cases it might happen that the bounding box ends up in this position before the collision detection. Now the player will be projected vertically up by box 1 and his vertical speed will be set to 0. This is all fine and just how it should be. But, the collision detection will also find that box 2 is projecting the player to the right to move him out of his right side because it's the shortest way. Additionally it will set his horicontal speed to 0.<br>
+And that is the part where all of a sudden the player will  be starting to move choppy for the blink of an eye.<br>
+A similar thing occurs with figure B, but I'm not gonna get into details with this as it's pretty similar.<br>
+<br>
+My main question would be if there was a clean way to fix this issue. How should the position and the velocity of the player behave when colliding against 2 or more tiles to get around these issues?<br>
+Among the things I've tried was calculating a summed projection vector (like the sum of the projection vectors from box1 and 2) and cancelling the velocity along that vector. Another version was to project the player immediately after collision with tile 1 and then calculating the projection vector of box 2 with this updated position and so on and so on.<br>
+As soon as I fixed one special case with one of those methods another similar problem would occur.<br>
+So before wasting any more time I was wondering if anybody would have a good solution to treat these cases. Does a general solution even exist or do I have to catch all of those special cases with a set of if clauses all by one and react to them separately?<br>
+Any advice?<br>
+Thanks to whoever even got this far reading.</div></div>
+<div class="post" id="p212778"><div class="post-head"><a class="id" href="../t/11756.html#p212778">#212778</a> <span class="index">2</span> <span class="date">2006-08-07T18:40:14Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">this is indeed a problem, which was sort of glossed-over by the turorials. in fact, the situation on the right occurs in the game, and it my most-hated bug.<br>
+<br>
+to start with, you absolutely should always be updating the object position after collision with each tile. this is how this sort of method works.. you're finding the global solution (move object out of all tiles) by interatively finding local solutions (move object out of tile X).. the assumption being that finding the global solution all at once is hard/impossible, and that repeatedly applying local solutions will converge to the global solution. <br>
+<br>
+however, this won't totally fix things since the result depends on the order in which you test tiles (testing vs tile2 first will work; testing vs tile1 will result in hitting the invisible wall). still, it works well enough in general, aside from the problem you're having. if you look in tutorial B, you'll see that we first find the 4 tiles an object overlaps with, and then process the collisions in a specific order.. this was a "rule-based method" (i.e hack) to fix some of the problems with naively processing collisions one-by-one.<br>
+<br>
+<br>
+the _real_ solution is to switch from a convex-chunk-based method (i.e a set of tiles that describe the area of the world) to a surface-based method (i.e a set of linesegs that describe the surface of the world)..  with tiles you don't have an explicit representation of the world's surface, which sucks when what you want to do is push something onto the surface of the world.<br>
+<br>
+in fact, we retro-fitted a surface-based engine into the tile-based code as part of r&amp;d for our new game.. however, that's a big and rather painful change, and probably not necessary to get results that are "good enough". <br>
+<br>
+<br>
+in N, we fixed most of these problems by using edge-flags to approximate the world's surface.. tutorial B explains this, looking through the source code will hopefully make things more clear. it's a bit hacky.. this really only fixes things when the surface is axis-aligned, which is why we still have problems with slopes.<br>
+<br>
+i'd love to know how other people handle this, because all the literature says to handle concave shapes by splitting them into several convex chunks, and colliding vs each chunk individually (which is what tile-based collision does).. but noone ever mentions your problem. but they MUST be solving it somehow..<br>
+<br>
+<br>
+the problem pretty much boils down to: you need to add extra information to the algorithm, because otherwise the algorithm will only know about tiles individually.<br>
+<br>
+<br>
+one idea that's just occurred to me is this: if you look at both your cases, it is the case that the solution you desire is also the single projection which moves the shape out of collision with BOTH shapes at once. for A that's vertical projection out of tile1, and for B it's projection out of either of the tiles' diagonal faces.<br>
+<br>
+so, a simple algorithm would be something like:<br>
+(assuming we already know obj is colliding with tiles t0 and t1)<br>
+-for(each axis in t0)<br>
+   -remember original position of obj<br>
+   -push obj out of the tile along that axis<br>
+   -test if obj is colliding with t1<br>
+       -if so, we didn't find a solution; restore obj's position and continue<br>
+       -if not, you found the solution<br>
+-repeat the above for each axis of t1<br>
+-if we found a solution, good (respond by altering object velocity/etc); if not, fall back to colliding vs each tile individually.<br>
+<br>
+anyway, i don't know if this will work, but i suspect that there should be some rule-based game-specific solution that will patch up the problems "well enough", and will be much easier than totally changing your collision system.<br>
+<br>
+<br>
+let us know if you find something that works,<br>
+raigan<br>
+p.s - "munging" projection vectors together in various ways doesn't work.. at least, we've spent weeks trying that sort of thing and didn't find a formula that worked consistently.</div></div>
+<div class="post" id="p212895"><div class="post-head"><a class="id" href="../t/11756.html#p212895">#212895</a> <span class="index">3</span> <span class="date">2006-08-07T21:22:02Z</span> <span class="author"><a href="../u/9372552.html">failrate</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p10510">Quote: Grazer2, 2006-08-07T16:04:47Z</a></div> As soon as a collision occurs i set the velocity that's pointing in direction of the projection vector to 0.</blockquote>I believe this step is unnecessary.  I tried with and without, and I didn't notice any real difference.</div></div>
+<div class="post" id="p213233"><div class="post-head"><a class="id" href="../t/11756.html#p213233">#213233</a> <span class="index">4</span> <span class="date">2006-08-08T17:33:39Z</span> <span class="author"><a href="../u/9372891.html">Grazer2</a></span></div><div class="post-body">@Raigan:<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p212778">Quote: Raigan, 2006-08-07T18:40:14Z</a></div>to start with, you absolutely should always be updating the object position after collision with each tile. this is how this sort of method works.. you're finding the global solution (move object out of all tiles) by interatively finding local solutions (move object out of tile X).. the assumption being that finding the global solution all at once is hard/impossible, and that repeatedly applying local solutions will converge to the global solution.</blockquote><br>
+now i see where the whole algorithm comes from. thanks for that input.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p212778">Quote: Raigan, 2006-08-07T18:40:14Z</a></div>the _real_ solution is to switch from a convex-chunk-based method (i.e a set of tiles that describe the area of the world) to a surface-based method (i.e a set of linesegs that describe the surface of the world)..</blockquote><br>
+yeah, that's what I was thinking when i ran into my problems. In fact, when looking at slide nr. 76 of your "FITC_beyondHittest07.swf" I got a little confused and was thinking that maybe you have been using line-segs already in N.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p212778">Quote: Raigan, 2006-08-07T18:40:14Z</a></div>i'd love to know how other people handle this, because all the literature says to handle concave shapes by splitting them into several convex chunks, and colliding vs each chunk individually (which is what tile-based collision does).. but noone ever mentions your problem. but they MUST be solving it somehow..</blockquote><br>
+The main problem i see with the tiles are mainly the "cracks" between 2 coplanar surfaces. When starting out with a concave tile you probably wouldn't start a split in the middle of a straight ramp. Instead you'd prolly split at some corner where 2 edges with different angles meet. And at such a spot you'd probably not notice a little glitch in the colission detection as easy as a glitch that occurs when running along the middle of a straight surface.<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p212778">Quote: Raigan, 2006-08-07T18:40:14Z</a></div>one idea that's just occurred to me is this: if you look at both your cases, it is the case that the solution you desire is also the single projection which moves the shape out of collision with BOTH shapes at once. for A that's vertical projection out of tile1, and for B it's projection out of either of the tiles' diagonal faces.</blockquote><br>
+Hmmm, this could be it. For now I can say that I just added this system to my collsion detection and the first couple of minutes of playtesting it seemed to fix all of my issues. I'll keep you updated in case any problems with this occur. But right now it looks like a really good and clean solution.<br>
+On a sidenote I only got box and triangle tiles in my little program so far. So not sure how it behaves with other tile types.<br>
+Anyway, things look good so far. Thanks again for sharing your thoughts on this problem.<br>
+<br>
+@failrate:<br>
+<br>
+<blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p212895">Quote: failrate, 2006-08-07T21:22:02Z</a></div><blockquote class="quote"><div class="quote-head"><a href="../t/11756.html#p10510">Quote: Grazer2, 2006-08-07T16:04:47Z</a></div> As soon as a collision occurs i set the velocity that's pointing in direction of the projection vector to 0.</blockquote>I believe this step is unnecessary.  I tried with and without, and I didn't notice any real difference.</blockquote><br>
+Well it might depend a little on how you implemented gravity and in general how forces act on your objects. But think of the following situation. The player falls down on a box tile and hits the tile-surface with a vertical speed of say 50m/s. Now if I don't reset this vertical speed, as soon as i walk off a side of the box my player would be immediately moving down with this high speed he still had from his initial fall. But that's not what I want. If my player lands on a tile, and then walks off of it he should start falling down with 0m/s and accelerating gently according to gravitation. Not sure how this is handled in your implementation but I definately have to react in the way described.</div></div>
+<div class="post" id="p213328"><div class="post-head"><a class="id" href="../t/11756.html#p213328">#213328</a> <span class="index">5</span> <span class="date">2006-08-08T22:35:09Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">cool, i'm glad that helped fix it -- let us know if you have any other problems or find some new tricks.</div></div>
+</main>
+</body>
+</html>

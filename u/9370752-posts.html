@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by TMT - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9370752.html">TMT</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p2047"><div class="post-head"><a class="id" href="../t/2292.html#p2047">#2047</a> <span class="index">1</span> <span class="date">2005-02-19T23:52:27Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Hey N level makers.<br>
+<br>
+I got a few questions for you. Have you came up with a file format for storing N levels?<br>
+<br>
+I'm making an N level editor and I'd like to know if such thing exists to make it compatible with the current format. I already implemented one, but it would be better to be compatible with what you have if such thing exists.<br>
+<br>
+The editor I'm working on has many features, some of wihich are:<br>
+<br>
+Editor<ul><li>Drawing tiles by dragging the mouse</li><li>Copying areas and pasting them</li><li>Using different pivot points for pasting so you can leave some parts of what is being pasted out</li><li>Fast copying of all text data with a button, to test in N</li><li>Auto copying of all data with just changing to another window</li><li>Showing the border of the level or not, to save screen space</li><li>Grid and half snap grid, with custom colors</li><li>Saving comments, author, difficulty, etc in the level file</li><li>500 undo/redo levels</li><li>Opening levels from the shell by double clicking</li><li>Plus many more things...</li></ul><b>Edit:</b>  File is now posted here for easier access. To see what's new, read the readme.txt file inside the zip. For an image of what the program looks like, scroll down a little to my next post.<br>
+<br>
+- TMT <div class="attachment attachment-missing">Attachment (lost): post-33-1115186260.zip</div></div></div>
+<div class="post" id="p51016"><div class="post-head"><a class="id" href="../t/2292.html#p51016">#51016</a> <span class="index">4</span> <span class="date">2005-02-20T01:35:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So far I am using txt files, but with a different extension (.tnnl) so when you double click them the program opens. That way I won't screw your (.txt) file association. But you can still open the file with notepad and change it.<br>
+<br>
+I thought there was more of a common file format used by everyone. Maybe we should set one file format so everyone can share it, regardless of the tool. Maybe even use it to upload files to NUMA.<br>
+<br>
+This is what I'm doing so far:<br>
+<br>
+Author:<br>
+TMT<br>
+<br>
+Level Name:<br>
+My test level<br>
+<br>
+Category:<br>
+Rescue Mission<br>
+<br>
+Difficulty:<br>
+Very Easy<br>
+<br>
+N Version:<br>
+1.3c<br>
+<br>
+Created:<br>
+2005-02-14<br>
+<br>
+Last Modified:<br>
+2005-02-16<br>
+<br>
+Description:<br>
+This is a test for the description...<br>
+<br>
+Level Data:<br>
+0000000000000000000000000000000000000000000000000000000000000.....<br>
+<br>
+<br>
+As you can see, it's really easy to parse. First line is the value name, next line the value and then an empty line. and repeat. Also, the information there is what I managed to gather from all the work you have done classifying levels. Am I missing something?<br>
+<br>
+BTW, It's not Visual Basic, It's C++.<br>
+And every pane you see there, can be scrolled, so if you have a small screen resolution, you see scrollbars in the level or the tools or whenever you need them.<br>
+<br>
+<b>Edit:</b> Now showing here a picture of the latest version.<br>
+<br>
+-TMT <div class="attachment attachment-missing">Attachment (lost): post-33-1115186620.png</div></div></div>
+<div class="post" id="p51096"><div class="post-head"><a class="id" href="../t/2292.html#p51096">#51096</a> <span class="index">11</span> <span class="date">2005-02-21T00:24:00Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">To be honest, I had no idea there were previous editors when I started this. Then I saw that new editor that came out and there I found out about the previous cancelled one.<br>
+<br>
+In any case, I want mine to be as easy to use as possible but also with as many "useful" features as possible.<br>
+<br>
+I almost finish the tile placement part, so if any of you wants to test it to tell me how it feels it would be great. So, any volunteers? (Windows only)<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51098"><div class="post-head"><a class="id" href="../t/2292.html#p51098">#51098</a> <span class="index">13</span> <span class="date">2005-02-21T01:31:24Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I think I wil post it here so you can try it. I just need to finish a couple of details.<br>
+<br>
+The 2 things you asked are already there. The third to last button in the toolbar is pushed, and that's the grid. The next one enables the border of tiles. (Also selectable in the View menu)<br>
+<br>
+About .ned. I checked that extension and is already taken by some microsoft software. Since I didn't want to mess with anyone's extensions, I didn't choose it.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51330"><div class="post-head"><a class="id" href="../t/2292.html#p51330">#51330</a> <span class="index">18</span> <span class="date">2005-02-23T06:12:04Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Right now I'd like a few more volunteers for testing Tnnl. It is still a beta, only tile placing works (no objects yet), but I would like to know how it feels for you level editors before moving on to finish it. I would rather not post it here to avoid spreading unfinished applications, but if that is what you prefer, so be it.<br>
+<br>
+Anyone else?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51359"><div class="post-head"><a class="id" href="../t/2292.html#p51359">#51359</a> <span class="index">21</span> <span class="date">2005-02-23T15:24:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Yeah, Windows only. I don't own a Mac.<br>
+<br>
+So here it is, a beta release. I think I've already said it is not complete. This is mostly for feedback. So try it.<br>
+<br>
+EDIT: File removed from this post. Look at the first post.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51369"><div class="post-head"><a class="id" href="../t/2292.html#p51369">#51369</a> <span class="index">24</span> <span class="date">2005-02-23T15:59:25Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac: If you want to use it as Ned, just activate the Ned compatibility mode in Edit &gt; Options. That way it works like Ned. Or at least it should  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Eeyore: I'm not sure about the objects yet. Maybe handle each one based on what it is. Like the gold, maybe able to draw a group of them, like tiles. But objects like mines or turrets should be placed one by one. Good luck with your own editor. Looking forward to using it.<br>
+<br>
+So it is good to know it works  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51396"><div class="post-head"><a class="id" href="../t/2292.html#p51396">#51396</a> <span class="index">28</span> <span class="date">2005-02-23T23:09:24Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">-Gc-: What I meant is that I learned when you cancelled yours as M&amp;R asked you to stop working on it. I know you are back working on it. Looking forward to use yours too.<br>
+<br>
+trib4lmaniac: Those are very interesting ideas. But there are a couple of issues. Rotation would only be possible if you select a square area. Otherwise the rotation wouldn't be even. However, how about copying and then rotating the tiles before pasting them? That way you could choose which tiles stay and which get overwritten.<br>
+<br>
+But for both rotation and flipping, it would be more than just reordering the tiles. If I only reorder, then it would look li ke the picture. So I'm assuming you mean keeping the original shape, which involves finding the tiles that are the angled counterparts.<br>
+<br>
+As for flipping, the same can be done, and it can be done by just selecting or pasting. <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51397"><div class="post-head"><a class="id" href="../t/2292.html#p51397">#51397</a> <span class="index">29</span> <span class="date">2005-02-23T23:10:05Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Oops, here is the picture I referenced in the last post  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+ <div class="attachment attachment-missing">Attachment (lost): post-7-1109200205.png</div></div></div>
+<div class="post" id="p51434"><div class="post-head"><a class="id" href="../t/2292.html#p51434">#51434</a> <span class="index">31</span> <span class="date">2005-02-24T01:11:15Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac, I'm working on fixing the bugs. However I'm not sure about your request for using delete to clear the selected tiles. Not that I won't implement that, but I intend to use delete for changing between tiles and objs, just like Ned, so people adapt fast. Any other key you might want to suggest? So far I'm using Ctrl+Shift+X for deleting.<br>
+<br>
+Unless emulating Ned is not that big of a deal, then I could use delete for that.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51444"><div class="post-head"><a class="id" href="../t/2292.html#p51444">#51444</a> <span class="index">34</span> <span class="date">2005-02-24T01:51:48Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">TornadoTK: Can you be a little more specific. I kind of have an idea of what you mean, but... do you mean filling tiles like in Ned, using Ned compatibility mode? You leave the key pressed and move out?<br>
+<br>
+Or is it just dragging a block of tiles?<br>
+<br>
+Tile layout? The one when you choose the tile to use? What is confusing?<br>
+<br>
+No offense taken, that's why I made it an open beta, to see where I was falling short.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51504"><div class="post-head"><a class="id" href="../t/2292.html#p51504">#51504</a> <span class="index">39</span> <span class="date">2005-02-24T15:11:09Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I'm going to use Banannakid suggestion and use Backspace as shortcut, and TornadoTK's idea of using one mouse button for dragging a block of tiles and the other to draw them<br>
+<br>
+brickman: I don't know what you mean but you can select tiles with the keyboard in my editor just like Ned, with the same keys. And if that's not enough, you can make it draw tiles like Ned too.<br>
+<br>
+trib4lmaniac: I like your idea about rotating the tiles. What I meant with the rotation picture is that when you rotate, there are 2 issues. The first is that to keep the shape of what you rotated, the actual tile values have to change. Think of a set of 4 tiles making a diamond using the 4 tiles of the third row in the tile selector. It'd be a talled than wider diamond. Once rotated 90 degrees, it'd be wider than taller. I was just pointing that out.<br>
+Second issue is that if you select some tiles and rotate them, then if the selection is not square then I'm sure you can see how it'd mess the tiles around.<br>
+<br>
+However, I just implemented the rotation. You copy what you want and as you paste, you rotate and when you get what you want, click.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  Same for flipping.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51623"><div class="post-head"><a class="id" href="../t/2292.html#p51623">#51623</a> <span class="index">41</span> <span class="date">2005-02-26T01:34:10Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">New Tnnl version with some of the fetures you suggested.<br>
+<br>
+* Once you copy the data, you can rotate it and flip it before pasting it.<br>
+* Cut and Delete implemented<br>
+* You can place tiles like drawing with the right mouse button<br>
+<br>
+I did a fix to the bug trib4lmaniac mentioned but that's not how I want it fixed, and also I didn't fix the Text box bug. I might do some big rework in part of the code to make new features easier to implement.<br>
+<br>
+In any case, test this new version and tell me how it works for you.<br>
+<br>
+You can download it from the post where the previous version used to be.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p51749"><div class="post-head"><a class="id" href="../t/2292.html#p51749">#51749</a> <span class="index">44</span> <span class="date">2005-02-26T22:29:34Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Thanks everyone.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+Keep using it and at least try to use it as a substitute for Ned in tile placement. Any ideas you get, post them here.<br>
+<br>
+I think I'm going to do a rewrite of certain part of the code to make it a lot easier to implement more features and do really interesting stuff with the objects.<br>
+<br>
+trib4lmaniac: it is some of your ideas that I could implement now, but I will rather rewrite part of the code so they are easier to implement.<br>
+<br>
+Maniac: Why don't you code it in java?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p57146"><div class="post-head"><a class="id" href="../t/2292.html#p57146">#57146</a> <span class="index">55</span> <span class="date">2005-03-30T18:49:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I'm still working on Tnnl. So far I've concentrated on cleaning and improving the source code so I can add many features easily, since I'm sure all you will come up with suggestions. Also, since N 1.4 is supposed to be done soon, I'm waiting to see what's new so I can implement those changes without double working.<br>
+<br>
+Anyone who wants to beta test can download it. It is an open beta so I can get as many suggestions as possible.  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p57299"><div class="post-head"><a class="id" href="../t/2292.html#p57299">#57299</a> <span class="index">60</span> <span class="date">2005-03-31T06:57:16Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2292.html#p57242">Quote: 117, Mar 30 2005, 07:04 PM</a></div> Where do we dounload it from TMT  </blockquote> <br>
+ Get it in this thread, I attached the program in one of my earlier posts. But bear in mind that it is a beta and it isn't complete by far. But I'm always interested in (constructive) comments.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p57464"><div class="post-head"><a class="id" href="../t/2651.html#p57464">#57464</a> <span class="index">54</span> <span class="date">2005-04-01T01:09:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So, any word on what's comming for the next Ned? Just curious <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p57674"><div class="post-head"><a class="id" href="../t/2651.html#p57674">#57674</a> <span class="index">114</span> <span class="date">2005-04-02T01:01:49Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Ok, another question then...<br>
+<br>
+Are you going to keep the size of the game locked? I think you said this is for performance reasons but , would it be too hard to have a switch for it? Maybe just 2x size increase, in case any scaling is not possible? N is a little small in my screen...<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p2622"><div class="post-head"><a class="id" href="../t/2921.html#p2622">#2622</a> <span class="index">1</span> <span class="date">2005-04-22T14:42:12Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">For those who want to post files but their compressed size is way too big, you might want to try 7-zip.<br>
+<br>
+No, it's not a commercial program. It is open source. It is completely free. No strings attached. Check their website at <a href="http://www.7-zip.org/">http://www.7-zip.org/</a>. It also opens zips and I don't know what else.<br>
+<br>
+BTW, I think this topic should be left here, since it might help file posters.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61373"><div class="post-head"><a class="id" href="../t/2888.html#p61373">#61373</a> <span class="index">30</span> <span class="date">2005-04-22T15:23:05Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">IQ does increase with age, but only to a certain point it seems. It seems it is different for everyone, but I'd say 18-25?<br>
+<br>
+Anyway, I just wanted to say that IQ is not calculated by Metal Age / Real Age anymore. Today is done by statistical means, using the normal distribution (Gaussian). In other words, what the average person gets is 100. The smartest person would get 200. And the dumbest would be 0. No one can go over 200 with this new method.<br>
+<br>
+MENSA is for people in the top 2%. And there are other groups with higher standards.<br>
+<br>
+I know of some people with scores over 200 but those were calculated with the old method.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61687"><div class="post-head"><a class="id" href="../t/2911.html#p61687">#61687</a> <span class="index">7</span> <span class="date">2005-04-23T23:16:52Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Not to be picky, but this part<br>
+<br>
+var px = nx*diff;//px,py is a unit-length vector that points from A to B and which<br>
+var py = ny*diff;//is the same length as the amount of overlap between the circles<br>
+<br>
+says in the comments that px,py us a unit-length vector. Didn't you change the unit length property by multiplying by diff? (unless diff has a value of 1). I just want to know if the comment in the code is right or maybe I am missing something.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p61904"><div class="post-head"><a class="id" href="../t/2921.html#p61904">#61904</a> <span class="index">4</span> <span class="date">2005-04-24T21:49:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I don't think larger files is normal. Did you make sure the compression level was Ultra? Also make sure that compression method is LZMA. Increasing the dictionary size improves compression but you will need more memory. If your are doing multiple files choose solid. Word size also helps. Check the help of the program, the Add file to archive section. You might want to try moving parameters here and there.<br>
+<br>
+Even if you choose the zip file compression, it is a little better than the other zips (according to their website)<br>
+<br>
+It seems to be a little better than rar. It might help some of you with files too large to be posted here.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62109"><div class="post-head"><a class="id" href="../t/2959.html#p62109">#62109</a> <span class="index">2</span> <span class="date">2005-04-26T00:27:13Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Why make it? I think you can find one already made on the net. Either html based (with refreshes) or Java based.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p2665"><div class="post-head"><a class="id" href="../t/2969.html#p2665">#2665</a> <span class="index">1</span> <span class="date">2005-04-26T19:20:30Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body"><a href="http://www.gdconf.com/media/2005photos/igf_awards/index.htm">http://www.gdconf.com/media/2005photos/igf_awards/index.htm</a><br>
+<br>
+I don't know if this url has already been posted. If it has, please some Admin delete this post please.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62496"><div class="post-head"><a class="id" href="../t/2921.html#p62496">#62496</a> <span class="index">7</span> <span class="date">2005-04-28T05:46:36Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">As for the best compression algorithm, I'm not so sure bzip2 is the best of all. 7-zip supports bzip2 too. Maybe a test is in order. What do you think should be tested?<br>
+<br>
+And as for what Einstein said, remember what Niels Bohr replied to him: "Einstein, don't tell God what to do"<br>
+ <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62717"><div class="post-head"><a class="id" href="../t/2921.html#p62717">#62717</a> <span class="index">10</span> <span class="date">2005-04-29T05:25:25Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So I did a test of 3 compressors:<br>
+<br>
+7-Zip with LZMA compression<br>
+7-Zip with BZip2 compression<br>
+WinRar<br>
+<br>
+Here are the results<br>
+<br>
+<pre class="code">7-Zip 4.14 beta
+Format: 7z
+Compression Level: Ultra
+Compression Method: LZMA
+Dictionary Size: 32MB
+Word Size: 128
+Solid Archive
+
+7-Zip 4.14 beta
+Format: zip
+Compression Level: Ultra
+Compression Method: BZip2
+Dictionary Size: 900KB (only option)
+Word Size: N/A
+Solid Archive N/A
+
+WinRAR 3.30
+Format: rar
+Compression Method: Best
+Dictionary Size: 4096 KB (max)
+Enable Delta Compression
+Solid Archive
+
+
+-- 1 --
+
+10 MP3s
+101 MB (106,784,992 bytes)
+
+LZMA  101 MB (106,943,510 bytes) 100.1484459540 %
+
+BZip2 101 MB (106,498,743 bytes)  99.7319389227 % &lt;- Best
+
+RAR   101 MB (106,554,557 bytes)  99.7842065672 %
+
+
+-- 2 --
+
+10 BMPs
+22.5 MB (23,593,500 bytes)
+
+LZMA  11.7 MB (12,283,352 bytes) 54.3667514993 %
+
+BZip2 11.4 MB (11,973,561 bytes) 52.9956005046 %
+
+RAR   8.57 MB (8,995,211 bytes)  39.8132693031 % &lt;- Best
+
+
+-- 3 --
+
+10 JPGs
+1.90 MB (1,992,961 bytes)
+
+LZMA  1.89 MB (1,991,419 bytes) 99.9226276881 %
+
+BZip2 1.89 MB (1,988,055 bytes) 99.7538336174 %
+
+RAR   1.89 MB (1,983,586 bytes) 99.5295944075 % &lt;- Best
+
+
+-- 4 --
+
+Bible TXT
+4.33 MB (4,545,377 bytes)
+
+LZMA  1.00 MB (1,059,157 bytes) 23.3018515296 %
+
+BZip2  978 KB (1,001,503 bytes) 22.0334418905 %
+
+RAR    832 KB (852,422 bytes)   18.7536039365 % &lt;- Best
+
+
+-- 5 --
+
+77 PDFs
+153 MB (160,668,949 bytes)
+
+LZMA  102 MB (107,671,418 bytes) 67.0144534275 % &lt;- Best
+
+BZip2 126 MB (132,576,861 bytes) 82.5155462989 %
+
+RAR   117 MB (122,815,239 bytes) 76.4399342651 %
+
+
+-- 6 --
+
+N 1.3c Distribution (1 EXE, 1 DOC, 4 TXT)
+1.53 MB (1,605,457 bytes)
+
+LZMA   941 KB (964,510 bytes)   60.0769749673 % &lt;- Best
+
+BZip2 1.02 MB (1,076,824 bytes) 67.0727400360 %
+
+RAR    979 KB (1,002,902 bytes) 62.4683189895 %
+
+
+Of interest:
+n_v13c.exe
+
+Original 1.45 MB (1,521,210 bytes) (1485K)
+
+LZMA  927K (Doesn't show exact byte size)
+
+BZip2 1,053,757
+
+RAR   986,972</pre><br>
+As you can see, WinRAR won 3, 7-Zip LZMA won 2 and BZip2 won 1.<br>
+<br>
+In the one won by BZip2, the difference is quite negligible<br>
+<br>
+I pointed out how the exe file from N was compressed because some in this forum might want to see how the exe was compressed.<br>
+<br>
+Of course, different results will be experienced by different files. But I think this helps to get a rough idea of what to use. In any case, if maximum compression is needed, better to test with all of them to see which is better<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62968"><div class="post-head"><a class="id" href="../t/2292.html#p62968">#62968</a> <span class="index">63</span> <span class="date">2005-04-30T18:00:45Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">New version. I implemented great_sea suggestion for disabling the half grid. Also, D and E not working was a bug and I hadn't noticed it <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue">. It used to work before I rewrote part of the code. It's fixed now  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  plus many more bugs fixed.<br>
+<br>
+Now the program is located in the first post of this thread. Grab it while it's hot  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62973"><div class="post-head"><a class="id" href="../t/2045.html#p62973">#62973</a> <span class="index">42</span> <span class="date">2005-04-30T18:41:31Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Since this topic got revived and I don't see anyone saying anything about it... This game has already been translated. Get the patch here<br>
+<br>
+<a href="http://agtp.romhack.net/doukutsu.html">http://agtp.romhack.net/doukutsu.html</a><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p62979"><div class="post-head"><a class="id" href="../t/2921.html#p62979">#62979</a> <span class="index">13</span> <span class="date">2005-04-30T18:59:18Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Just because something is compressed doesn't mean it is optimally compressed. Also, further compression may be gained if a solid archive is created.<br>
+<br>
+Now, for which compressor is the best. It seems neither 7-Zip LZMA or BZip2 are the best.<br>
+<br>
+For a very good compression comparison, chech this page<br>
+<a href="http://studwww.ugent.be/~jdebock/last_updates.htm">http://studwww.ugent.be/~jdebock/last_updates.htm</a><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63178"><div class="post-head"><a class="id" href="../t/2921.html#p63178">#63178</a> <span class="index">15</span> <span class="date">2005-05-01T19:28:19Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">If what you compress is text files, you might want to try PAsQDa. In the web page I posted, it shows it is the best text compressor. I also saw those claims in other test websites.<br>
+<br>
+Might help you save some backup costs  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63213"><div class="post-head"><a class="id" href="../t/2921.html#p63213">#63213</a> <span class="index">18</span> <span class="date">2005-05-01T21:06:34Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Syntax, no arguing here, just a friendly exchange of ideas  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Besides, the point for this thread was to help those not being able to compress enough their files to post them here. I chose 7-Zip mainly because it is relatively "popular", has a somewhat decent graphic interface and is available for many OS's. Just by looking at that list you can see a lot of compression programs and each one probably with a lot of options. But how many are command line only and not easy to use for the average user? In your case, given that massive amount of data, it sure doesn't matter if it's command line. And if that's the best compressor or the most convenient for your work, that's good. Actually I will probably try it more often along with the others when I need good compression.  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63284"><div class="post-head"><a class="id" href="../t/2921.html#p63284">#63284</a> <span class="index">23</span> <span class="date">2005-05-02T00:37:09Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I agree with you Arachnid. Lossy compressed data is hard to compress. Mostly you can get a little more from the headers as you mentioned, but also maybe a little more from anything a solid compression might find.<br>
+<br>
+And syntax, shouldn't your tag be [sarcastic] ?  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> <br>
+<br>
+Seriously though, I'm glad I did that little test. It's good to know how good WinRar can be and that is way more common than 7-zip.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63699"><div class="post-head"><a class="id" href="../t/2292.html#p63699">#63699</a> <span class="index">64</span> <span class="date">2005-05-04T06:02:56Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">And another new version. In this one you can flip and rotate tiles by just selecting them. However, this type of rotation only works with selections of the same width and height. Also added a few more grid options. Not as many as what the new Ned has, but hopefully will be enough. And also added the new N version to the level properties, so you can save your new maps properly.<br>
+<br>
+Comments, Bugs? <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";("> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p63993"><div class="post-head"><a class="id" href="../t/2292.html#p63993">#63993</a> <span class="index">68</span> <span class="date">2005-05-06T20:35:23Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">You are not supposed to rotate non-square selections, because then you'd overwrite other tiles.<br>
+<br>
+But how did you get that error message? Did you try rotating a non-square area? The option shouldn't be available unless the selected area is a square... <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> <br>
+<br>
+Details?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p64262"><div class="post-head"><a class="id" href="../t/2292.html#p64262">#64262</a> <span class="index">70</span> <span class="date">2005-05-08T06:50:59Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">To clarify, you can rotate something you are pasting, no matter if it is square shaped or not. But if you just select a non square area, the rotation buttons should be disabled. Only if the selected area is square shaped, then you can rotate it, without the need to copy and paste.<br>
+<br>
+As for the bug, did it happen when you pasted something? Because that message you showed me is important.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p64492"><div class="post-head"><a class="id" href="../t/2292.html#p64492">#64492</a> <span class="index">74</span> <span class="date">2005-05-09T00:26:27Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">trib4lmaniac, I did what you told me, cut, paste (with keyboard shortcut), rotate with toolbar and nothing. clicked to paste and nothing. I had that error before every now and then, and was a somewhat known bug to me, but in version 233, I found what I thought was causing the bug and fixed it.<br>
+If you find a way to replicate the error, tell me. Also check if you are using 233.<br>
+<br>
+Eldrial, Tnnl has 500 undo/redo levels. I don't know how deep the undo stack (if any) of the new Ned is. I think undo is only for objects, but I might be wrong. Btw, if 500 is not enough, just tell me to increase it. With Tnnl you can draw tiles with keyboard (Ned compatible) or mouse, by dragging a block of as if you were paint-brushing. You can select tiles and flip them horizontally or vertically, which helps if you are making symmetric levels. You can also rotate them. You can copy any amount of tiles, and rotate or flip them before pasting them. You can store each level in its file, along with its information. You can edit any level you already made by just double clicking the file. And if you feel lazy, you can do all this with just the mouse, almost no pressing keys required. <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+Plus I still got more things cooking (objects), but it's a little slow because I only code it in my spare time.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p64721"><div class="post-head"><a class="id" href="../t/2432.html#p64721">#64721</a> <span class="index">9</span> <span class="date">2005-05-10T01:56:57Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">In your tutorials you point to the ioi.dk webpage for the Jakobsen paper and as it was pointed out it doesn't work anymore  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/"> . Maybe change the link in the tutorials? I know it's not that high priority, but whenever you can would be good. Your tutorials are a good reference. I hope they don't get lost someday.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p70428"><div class="post-head"><a class="id" href="../t/3392.html#p70428">#70428</a> <span class="index">3</span> <span class="date">2005-05-28T23:21:11Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I'll give it a shot, since I'm working on the object stuff right now. I suppose you mean ordering by object id right? Mines before gold before turrets?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p3091"><div class="post-head"><a class="id" href="../t/3423.html#p3091">#3091</a> <span class="index">1</span> <span class="date">2005-05-30T06:51:42Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">First, I did search the forum to see if anyone talked about this and at a glance I didn't see anything. I could have missed it thought, but if that's the case, then my search didn't show the topic so obviously. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+Anyway, I was just testing the zap drones behavior in Ned, and I created 4, one facing up the other left the other down and the last right. They used the surfacefollow CCW pathfinding, and the chase algorithm was disabled. So they would just run in CCW circles. But as I was looking how they moved, I noticed they one I selected as starting up, started moving to the left. The one I chose for the left, moved down and so on. Is this ok? Am I missing something? They were placed in the middle of an empty map, with more than 5-tile space between them.<br>
+<br>
+Anyone with experience in this?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p71199"><div class="post-head"><a class="id" href="../t/3392.html#p71199">#71199</a> <span class="index">14</span> <span class="date">2005-05-31T06:11:20Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">If you really want this done fast, just do a fast python script. But then you'd need the interpreter installed. But this kind of tasks are done really fast in scripting languages.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p71205"><div class="post-head"><a class="id" href="../t/3423.html#p71205">#71205</a> <span class="index">8</span> <span class="date">2005-05-31T06:22:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">So I guess what I'm seeing is correct.<br>
+<br>
+From what I have seen, the behavior for surface follow ccw is like this:<br>
+<br>
+If you chose starting to the right, it goes up, if you chose up it goes left, if left, down, if down, right.<br>
+In other words, if you do a list of all directions (up, left, down, right), it does the next one of what you chose.<br>
+<br>
+Once started, its motion will be moving one tile in the current direction, then change to the next one, in CCW fashion.<br>
+<br>
+And that's it, it moves in an area of 4 tiles (2x2)<br>
+<br>
+But...<br>
+<br>
+If any of those 4 tiles is occupied by any kind of tile, then it starts to follow around the surface, in CCW fashion.<br>
+<br>
+If any of you having problems with this follows these rules, I think you could make your maps more predictable. And if you can confirm this theory, let me know  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+Anyway, I just wanted to see if this behavior was normal and I guess it is.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p71394"><div class="post-head"><a class="id" href="../t/3392.html#p71394">#71394</a> <span class="index">18</span> <span class="date">2005-06-01T03:49:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">If anyone has a place where to run a php script, I can do it using PHP before I put it in Tnnl.<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p3246"><div class="post-head"><a class="id" href="../t/3585.html#p3246">#3246</a> <span class="index">1</span> <span class="date">2005-06-09T02:02:19Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">I wasn't sure where was the best place to start this topic so it just fell here. If the mods think of a better place, move it.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+Anyway, this is more of a question for all of the "pro" map makers around here. How ofter, if ever, do you use launch pads with modified angles that are not multiples of 45 degrees? What is your reason for using/not using them?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p73347"><div class="post-head"><a class="id" href="../t/3586.html#p73347">#73347</a> <span class="index">2</span> <span class="date">2005-06-09T02:05:48Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Wouldn't using the hex values be a little easier?  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p73385"><div class="post-head"><a class="id" href="../t/3586.html#p73385">#73385</a> <span class="index">5</span> <span class="date">2005-06-09T04:17:09Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Well, it doesn't really translate into anything at all, even with a program. We just assign a meaning to each number, and we use programs to show us the number as text by drawing figures on the screen. But as far as the computer (CPU, Memory, etc) and the software are concerned, it is all numbers. Of course this is a very anal definition  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p73388"><div class="post-head"><a class="id" href="../t/3585.html#p73388">#73388</a> <span class="index">3</span> <span class="date">2005-06-09T04:27:13Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Ok, so how do you work with those values? How do you change the angle and speed?<br>
+<br>
+-TMT</div></div>
+<div class="post" id="p73400"><div class="post-head"><a class="id" href="../t/3585.html#p73400">#73400</a> <span class="index">7</span> <span class="date">2005-06-09T06:12:59Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Alright, thanks for that info.  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+However, there I see what I kind of tested myself. What I would like to know now is if anyone of the experienced map makers has decoded why the forces applied to each axis behave that way. It seems up needs lower numbers than the others, even though when working with resultant vector forces of 1 (defaults) doesn't seem to be affected by this. <img class="bb-img" src="http://img205.echo.cx/img205/1570/unknw7jt.gif" alt="" loading="lazy"><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p74016"><div class="post-head"><a class="id" href="../t/3580.html#p74016">#74016</a> <span class="index">24</span> <span class="date">2005-06-11T18:07:18Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Gamespot Gamespotting<br>
+<br>
+I know, weird <img class="bb-img" src="http://img205.echo.cx/img205/4162/tease8le.gif" alt="" loading="lazy"><br>
+<br>
+-TMT</div></div>
+<div class="post" id="p74019"><div class="post-head"><a class="id" href="../t/3598.html#p74019">#74019</a> <span class="index">7</span> <span class="date">2005-06-11T18:13:55Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">This is what I also wanted to know. How to predict the exact trajectory given the 2 values specified in the launch pad.<br>
+<br>
+Looking forward for the information, if it ever gets posted  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute"> <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p75627"><div class="post-head"><a class="id" href="../t/3598.html#p75627">#75627</a> <span class="index">11</span> <span class="date">2005-06-17T06:58:58Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">Do you mean making a complex signature with quotes or images?<br>
+<br>
+So you think it is "noob" to use signatures with only your name in text? Didn't you ever use command line, text only, 1200bps bbs'?  ;) <br>
+<br>
+-TMT</div></div>
+<div class="post" id="p76528"><div class="post-head"><a class="id" href="../t/3727.html#p76528">#76528</a> <span class="index">3</span> <span class="date">2005-06-19T19:50:17Z</span> <span class="author"><a href="../u/9370752.html">TMT</a></span></div><div class="post-body">the vector equivalent? I'm not sure what you mean, but if you get the y component and divide by the vector magnitude you get the sine. Remember Pythagoras?<br>
+If you want the sine to be even faster use a lookup table. an array with the sine values of integer values. Of course you won't have very good precision if you angle is in between integer values but maybe you can interpolate?<br>
+<br>
+-TMT</div></div>
+</main>
+</body>
+</html>

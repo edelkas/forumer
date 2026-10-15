@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In spite of teleporter tutorial...help needed - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; In spite of teleporter tutorial...help needed</nav></header>
+<main>
+<div class="post" id="p9344"><div class="post-head"><a class="id" href="../t/10402.html#p9344">#9344</a> <span class="index">1</span> <span class="date">2006-06-09T07:56:13Z</span> <span class="author"><a href="../u/9371701.html">Zakk</a></span></div><div class="post-body">Hi all,<br>
+<br>
+I searched the forum and found the teleporter tutorial, but somehow it doesn't work for me. I tried a *very* simple map to begin making teleporters, but even if I do find the right yacc to put the ninja into the target area within the second frame, he continues flying up and leaves the map. When lowering that yacc value he smashes outside the wall of the target area or inside the target area itself, so what am I doing wrong?<br>
+<br>
+You may want to take a look at the level code I've added here:<br>
+<br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111100000111100000000010001000000000000000000111110000011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|5^324,274!2^324,276,0,1!2^324,576,0,-5<br>
+<br>
+Thx, Zakk</div></div>
+<div class="post" id="p186673"><div class="post-head"><a class="id" href="../t/10402.html#p186673">#186673</a> <span class="index">2</span> <span class="date">2006-06-09T10:27:00Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body">If something like this happens (i.e. the ninja hits the launchpad but dies anyway), then you're probably overshooting it just a tiny bit and embedding your ninja into the tile. Lower the number a small amount - 0.1 or even 0.01 sometimes. In this case, setting it to -4.8 worked for me.</div></div>
+<div class="post" id="p186713"><div class="post-head"><a class="id" href="../t/10402.html#p186713">#186713</a> <span class="index">3</span> <span class="date">2006-06-09T12:02:17Z</span> <span class="author"><a href="../u/9371701.html">Zakk</a></span></div><div class="post-body">Ugh! I'd never have had the idea to use decimals...  <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> thx Viking!<br>
+<br>
+Zakk</div></div>
+</main>
+</body>
+</html>

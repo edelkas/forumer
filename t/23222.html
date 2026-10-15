@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Different kinds of drones - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/62.html">NReality</a> &rsaquo; Different kinds of drones</nav></header>
+<main>
+<div class="post" id="p20839"><div class="post-head"><a class="id" href="../t/23222.html#p20839">#20839</a> <span class="index">1</span> <span class="date">2008-07-20T00:25:15Z</span> <span class="author"><a href="../u/9376196.html">Maser</a></span></div><div class="post-body">I was experimenting some, and now I have come to the critic part, where error and trial is needed, and a very time-absorbing such.<br>
+<br>
+I was trying to get a explination to the drone's code, and what I got was this:<br>
+<br>
+<br>
+6^(x coordinate), (y coordinate), (way of movement), (chase or not), (what kind of drone), (start direction)!<br>
+Where the (...) is replaced with numbers.<br>
+<br>
+X and Y coordinates is easy, just where the drones appear on the map.<br>
+<br>
+Way of movement:<br>
+0=right, follows the wall (clockwise)<br>
+1=left, follows the wall (counter clockwise)<br>
+2=dumb, right<br>
+3=dumb, left<br>
+4=dumb, alt. (right first)<br>
+5=random (or same as 4, but start with left?)<br>
+Every higher number will be replaced with one of these when you load it.<br>
+chase:<br>
+0=regular (don't chase)<br>
+1=chase, if you make a laser drone chase, it rotates instead (clockwise, I don't really know how to make it rotate counter clockwise), and never stops. If you make a chaindrone chase, it also rotates, but it stops and it's not very useable.<br>
+<br>
+start direction:<br>
+0=right<br>
+1=down<br>
+2=left<br>
+3=up<br>
+Every higher will be replaced with one of these when you load it.<br>
+<br>
+Yes I skipped one, what kind of drone it is.<br>
+It starts easy:<br>
+0= regular blue drone<br>
+1= laser drone<br>
+2= chaingun drone<br>
+Now the hard part begins. Not like start direction or way of movement, this one stay changed, and instead makes another kind of drone!<br>
+So, if we need new kind of drones, just try every number here, from 3 to infinity, and I guess that you already know that it will take alot of time.<br>
+<br>
+BUT, we are not alone, just try some, and write here what new drones you have discovered.<br>
+<br>
+Me myselft have tried from 3 to 15, and all I got was a puny little drone that doesn't do anything. (maybe something for N-art though =P)<br>
+I know that 121 is rocky drone, or moving tile if you wanna call it that, it's can be very useful, especially in drone path maps or dda's.<br>
+<br>
+Have any one tried the numbers 15-120? 122-infinity? Just go and try, NOW! <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p453950"><div class="post-head"><a class="id" href="../t/23222.html#p453950">#453950</a> <span class="index">2</span> <span class="date">2008-07-20T01:40:47Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body">I think the puny little drone you're talking about is a drone eye. It's like a laser drone that doesn't have the octagonal outline and doesn't fire.<br>
+There's also a forcefield drone, but I'm not sure what the code for that is.</div></div>
+<div class="post" id="p453963"><div class="post-head"><a class="id" href="../t/23222.html#p453963">#453963</a> <span class="index">3</span> <span class="date">2008-07-20T03:01:30Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">This has been known for a long time. Any number other than the three associated with normal drones will produce a harmless dot.<br>
+<br>
+By the way, the <a href="http://n.wikia.com/wiki/Code_editing">N Wikia</a> has a description of the effects of every object variable, if you're interested in that sort of thing.</div></div>
+<div class="post" id="p455505"><div class="post-head"><a class="id" href="../t/23222.html#p455505">#455505</a> <span class="index">4</span> <span class="date">2008-07-28T14:46:25Z</span> <span class="author"><a href="../u/9376342.html">RN</a></span></div><div class="post-body">I assume you're referring to nreality...<br>
+Yeah, most of this stuff is on the n wikia. but nice explaintion.</div></div>
+<div class="post" id="p458759"><div class="post-head"><a class="id" href="../t/23222.html#p458759">#458759</a> <span class="index">5</span> <span class="date">2008-08-06T18:16:16Z</span> <span class="author"><a href="../u/9376196.html">Maser</a></span></div><div class="post-body">Yes, n'reality. As I said: 0 is blue drone, 1 is laser drone, 2 is chaingun, and 121 is rocky. Any other numbers I have tried have ended up in a harmless moving dot - no fun at all.<br>
+<br>
+Please, tell me if you know any other kind of drones, since the rocky drone exists (try it!), there can be more kinds out there, somewhere.<br>
+<br>
+Just a thought: Maybe numbers with only 0s, 1s and 2s will work?</div></div>
+<div class="post" id="p458772"><div class="post-head"><a class="id" href="../t/23222.html#p458772">#458772</a> <span class="index">6</span> <span class="date">2008-08-06T18:51:30Z</span> <span class="author"><a href="../u/9375173.html">bhz</a></span></div><div class="post-body">0: zap<br>
+1: laser<br>
+2: chaingun<br>
+16: force field<br>
+101 through 103: ghost drone type 1 to 3<br>
+121: rocky<br>
+141: greedy<br>
+<br>
+<i>Maybe numbers with only 0s, 1s and 2s will work?</i><br>
+~Maser<br>
+<br>
+Nah, FF drone is 16, greedy drone (takes your time away) is 141<br>
+<br>
+<a href="http://n.wikia.com/wiki/List_of_NReality_Mods">Here are some other cool NReality mods</a><br>
+And...uh...<a href="../f/62.html">we have an NReality forum <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></a></div></div>
+<div class="post" id="p459196"><div class="post-head"><a class="id" href="../t/23222.html#p459196">#459196</a> <span class="index">7</span> <span class="date">2008-08-08T03:21:23Z</span> <span class="author"><a href="../u/9375421.html">PsychoSnail</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/23222.html#p458772">Quote: bhz, August 06, 2008 11:51 am</a></div> And...uh...<a href="../f/62.html">we have an NReality forum <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></a>  </blockquote> <br>
+ Well, the NReality forum didn't exist when this topic was made. Though it probably should be moved now.</div></div>
+</main>
+</body>
+</html>

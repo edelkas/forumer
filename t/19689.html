@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Basic. HELP! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Visual Basic. HELP!</nav></header>
+<main>
+<div class="post" id="p17485"><div class="post-head"><a class="id" href="../t/19689.html#p17485">#17485</a> <span class="index">1</span> <span class="date">2007-10-09T00:56:59Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">I really need help with visual basic. <br>
+<a href="http://myskitch.com/neil/ben-20071008-165355.jpg">http://myskitch.com/neil/ben-20071008-165355.jpg</a><br>
+<br>
+Thats a list of problems, If you could post the code for any of them I would be very gratefull.<br>
+Oh an also, you have to do them using loops.</div></div>
+<div class="post" id="p370740"><div class="post-head"><a class="id" href="../t/19689.html#p370740">#370740</a> <span class="index">2</span> <span class="date">2007-10-09T03:52:48Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body">I can do about 2 of those, and my dad is a computer programmer, I think I could give you all the answers tomorrow.<br>
+<br>
+Or get on a coding forum, that's your best bet, because I'm not reliable <img class="smiley" src="../files/smilies/24.gif" alt="wth" title="wth"></div></div>
+<div class="post" id="p370956"><div class="post-head"><a class="id" href="../t/19689.html#p370956">#370956</a> <span class="index">3</span> <span class="date">2007-10-10T02:43:41Z</span> <span class="author"><a href="../u/9373695.html">Weisslenny0</a></span></div><div class="post-body">Hmm, shame it's VB. I"m not too good at VB, and probably can't do any of those. If it was Excel though I could probably do all of them <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p371054"><div class="post-head"><a class="id" href="../t/19689.html#p371054">#371054</a> <span class="index">4</span> <span class="date">2007-10-10T16:48:21Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">All of those are dead-easy.<br>
+You should be able to do 'em yourself <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+Otherwise, the solution to every VB problem:<br>
+<blockquote class="quote"><div class="quote-head">Quote: Every self-respectable programmer</div>Don't use Basic.</blockquote>I also noticed two typos in that thing. I wonder if there are more...</div></div>
+<div class="post" id="p371152"><div class="post-head"><a class="id" href="../t/19689.html#p371152">#371152</a> <span class="index">5</span> <span class="date">2007-10-11T01:58:57Z</span> <span class="author"><a href="../u/9371179.html">Sketch</a></span></div><div class="post-body">Sure they're easy for you, <br>
+but for someone who just switched from flash to basic a week ago...</div></div>
+<div class="post" id="p371507"><div class="post-head"><a class="id" href="../t/19689.html#p371507">#371507</a> <span class="index">6</span> <span class="date">2007-10-12T17:00:47Z</span> <span class="author"><a href="../u/9370724.html">astro</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/19689.html#p371152">Quote: Sketch, October 11, 2007 12:28 pm</a></div> Sure they're easy for you, <br>
+but for someone who just switched from flash to basic a week ago...  </blockquote> <br>
+ Seems like you're going backwards.</div></div>
+<div class="post" id="p371817"><div class="post-head"><a class="id" href="../t/19689.html#p371817">#371817</a> <span class="index">7</span> <span class="date">2007-10-14T02:35:44Z</span> <span class="author"><a href="../u/9375190.html">rcadble</a></span></div><div class="post-body">I used to program in VB, but I had no formal education (I just kind of figured it out), so don't expect perfect coding.<br>
+<br>
+<pre class="code">Public Function Factorial(ByVal lngFact As Long) As Long
+    Dim i As Long
+    Dim lngAnswer As Long: lngAnswer = 1
+        For i = lngFact To 2 Step -1
+            lngAnswer = lngAnswer * i
+        Next
+        Factorial = lngAnswer
+End Function</pre><br>
+NOTE: I'm lazy, I may or may not add some answers to other problems.</div></div>
+<div class="post" id="p371942"><div class="post-head"><a class="id" href="../t/19689.html#p371942">#371942</a> <span class="index">8</span> <span class="date">2007-10-14T16:19:18Z</span> <span class="author"><a href="../u/9373670.html">usaswim</a></span></div><div class="post-body"><b>1. Factorial of a number.</b><br>
+<pre class="code">Public Function Factoral(ByVal intnumber As Integer) As Integer
+        Dim tempvar As Integer
+        tempvar = 1
+        For i As Integer = intnumber To 1 Step -1
+            tempvar *= i
+        Next
+        Return tempvar
+    End Function</pre><br>
+<b>2.1. First 20 Triangular #s</b><br>
+<pre class="code">    Private Function tnum(ByVal tri As Integer) As Integer
+        Dim trinum As Integer
+        For e As Integer = 1 To 20
+            trinum += e
+        Next
+        Return trinum
+    End Function</pre><br>
+<b>2.2. Determining Triangular #s</b><br>
+<pre class="code">    Private Function dettnum(ByVal dettri As Integer) As Boolean
+        Dim dettrinum As Integer = 0
+        Dim i As Integer
+        Dim iDiff As Integer = 1
+
+        While (iDiff &gt; 0)
+            dettrinum += i
+            iDiff = dettri - dettrinum
+            i += 1
+        End While
+
+        If iDiff = 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function</pre></div></div>
+</main>
+</body>
+</html>

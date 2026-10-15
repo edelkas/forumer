@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Some Suggestions - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; Some Suggestions</nav></header>
+<main>
+<div class="post" id="p376"><div class="post-head"><a class="id" href="../t/453.html#p376">#376</a> <span class="index">1</span> <span class="date">2004-06-28T18:48:09Z</span> <span class="author"><a href="../u/9370389.html">gamedope</a></span></div><div class="post-body">In Boss mode why not minimizing and pausing the game then just pausing it?<br>
+The Q key on the keyboard should be availible while playing the game for faster exiting.<br>
+And finaly the should be a falling animation. When N is falling for a great high and he's going to splat, he should do somthing like moving his arms and legs and yalling...</div></div>
+<div class="post" id="p23959"><div class="post-head"><a class="id" href="../t/453.html#p23959">#23959</a> <span class="index">2</span> <span class="date">2004-06-28T18:58:54Z</span> <span class="author"><a href="../u/9370443.html">Hamsterhead</a></span></div><div class="post-body">no ninja sounds please, He's like a shadow, he moves with the agility and precision of a really well agile and precise animal of some sort, <br>
+<br>
+he is alone<br>
+<br>
+he is silent. <br>
+<br>
+he KEEPS RUNNING OUT OF TIME GOD I'm so bad at this game</div></div>
+<div class="post" id="p23965"><div class="post-head"><a class="id" href="../t/453.html#p23965">#23965</a> <span class="index">3</span> <span class="date">2004-06-28T19:21:39Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+sadly we can't issue windows events like "minimize" ;(<br>
+<br>
+also, the thing about the falling animations is that we never know if the ninja's going to die until they actually hit the ground. for instance, falling down from a certain height onto flat ground will kill you, while falling from the same height onto a "halfpipe" curved section won't kill you -- and if a halfpipe and flat piece are side-by-side, it's sort of hard to determine which one the ninja will hit <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+raigan<br>
+p.s - we wanted to avoid people accidentally pressing "Q" when playing the game, BUT if you have boss mode set to "ctrl", you can just ctrl-q to quit, it's almost as fast <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p23983"><div class="post-head"><a class="id" href="../t/453.html#p23983">#23983</a> <span class="index">4</span> <span class="date">2004-06-28T22:10:24Z</span> <span class="author"><a href="../u/9370457.html">Oneiromancer</a></span></div><div class="post-body">It would be ideal if boss mode paused the game...so that if I'm in mid-jump or something, when I come back to the game I can react better.<br>
+<br>
+Game on,<br>
+<br>
+The Oneiromancer</div></div>
+<div class="post" id="p23993"><div class="post-head"><a class="id" href="../t/453.html#p23993">#23993</a> <span class="index">5</span> <span class="date">2004-06-29T02:15:40Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+because of the way boss mode works, we can't do this <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+it basically knows nothing about N, it doesn't know if you're in a game or whatever -- it just hijacks the cpu back from N, and hides N's graphics.<br>
+<br>
+sorry..<br>
+raigan<br>
+p.s - if you want to really delicious the cpu, minimize after starting boss mode -- on our systme (winXP) the processor usage goes down to 30%.</div></div>
+<div class="post" id="p24012"><div class="post-head"><a class="id" href="../t/453.html#p24012">#24012</a> <span class="index">6</span> <span class="date">2004-06-29T05:48:23Z</span> <span class="author"><a href="../u/9370389.html">gamedope</a></span></div><div class="post-body">Raigan you are right about the boss thing. It does work and my cpu's usage aloso falls to about 50, because I have other programs working... Anyway...<br>
+About the falling I dont agree... The ninja should do something when he reaches that speed from which he is going to die. Yea he can grab to somrhing and dont die but anyway, the dieing animation should mark that he is going to die if he dont grab something...</div></div>
+<div class="post" id="p24028"><div class="post-head"><a class="id" href="../t/453.html#p24028">#24028</a> <span class="index">7</span> <span class="date">2004-06-29T11:44:13Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+i guess the thing is: it's not just about the ninja's _speed_, it's a combination of the ninja's velocity (speed+falling direction) and the ground's direction (i.e how sloped it is).<br>
+<br>
+in order to start playing an animation, you need to know that it's appropriate -- in this case, we need to know that falling will kill you. but, we can't know this without knowing (a) what direction you'll be moving when you hit the ground (B) what tile you'll hit.<br>
+<br>
+but both (a) and (B) can change up to the instant you hit the ground.. so we couldn't play an animation before that.<br>
+<br>
+sorry if this doesn't make sense ;)<br>
+raigan</div></div>
+<div class="post" id="p24032"><div class="post-head"><a class="id" href="../t/453.html#p24032">#24032</a> <span class="index">8</span> <span class="date">2004-06-29T14:08:14Z</span> <span class="author"><a href="../u/9370408.html">LLCoolDave</a></span></div><div class="post-body">What about starting an animation as soon as your fall becomes critical, but stop it when you're a few frames away from hitting a ground, a wall or something.</div></div>
+<div class="post" id="p24038"><div class="post-head"><a class="id" href="../t/453.html#p24038">#24038</a> <span class="index">9</span> <span class="date">2004-06-29T15:07:59Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">Sometimes the falling damage doesn't even happen when "falling", its just that I'm making a long jump across the level and hit   slope and go squish, even though I only fell as high as I can jump.  So there's no  way to predict death by falling in most cases, and in the ones you can it would seem inconsistent.</div></div>
+<div class="post" id="p24048"><div class="post-head"><a class="id" href="../t/453.html#p24048">#24048</a> <span class="index">10</span> <span class="date">2004-06-29T17:18:05Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+you should really watch the "help" items on falling <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+death by falling has very cilantro to do with:<br>
+-height<br>
+-speed<br>
+<br>
+it _only_ depends on your velocity (speed + direction) when you hit a surface, and the direction that surface points. when you hit the ground, your velocity is measured perpendicular to the surface -- if it's larger than a certain threshold amount, you die. this is more or less how it works in real life -- if you fall straight down onto flat ground, it's worse than if you fell onto a steep slope.<br>
+<br>
+for instance, i'm guessing that in your jumping case, you're jumping, say, left to right, moving fast horizontally, and hitting a sloped surface that looks like this: /<br>
+<br>
+which means your velocity is almost perfectly perpendicular to the slope's surface -- which is the worst possible case. if you want to survive, start pressing &lt;- in midair so you're moving more slowly when you hit.<br>
+<br>
+we realise that most platformers use vertical distance to determine jump-deaths, but we thought that given the weirdness of N, this more "realistic" calculation method would be better.<br>
+<br>
+if you want to make sure you don't die from a jump, just make sure you don't hit the landing surface too hard. hit it at a glancing angle instead of straight into it..<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24075"><div class="post-head"><a class="id" href="../t/453.html#p24075">#24075</a> <span class="index">11</span> <span class="date">2004-06-29T18:39:18Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">I know that, I'm happy with it, I actually read every single section of your help/demonstration thing, and it is realistic.  I'm just enforcing the point that there's no way to predict whether he will die until he does.</div></div>
+<div class="post" id="p26633"><div class="post-head"><a class="id" href="../t/453.html#p26633">#26633</a> <span class="index">12</span> <span class="date">2004-09-02T19:40:48Z</span> <span class="author"><a href="../u/9370473.html">James</a></span></div><div class="post-body">For those of you who don't understand what perpendicular means...<br>
+<br>
+If N falls onto the ground at a certain speed, he dies. However, you may have noticed that if N walljumps too hard, he dies in the cieling. It's as if you turned the game upside down. So basically, if N is moving too fast horizontally, and he hits a flat wall, he dies. If he is moving diagonally, and hits a surface that is flat (to his point of view), he dies.<br>
+<br>
+However, I think the animation would be possible, because if N reaches a certain speed (regardless of direction), he will make the animation, no matter what he will hit. He will make the animation only because he is going too fast through midair, not because he will hit something.</div></div>
+</main>
+</body>
+</html>

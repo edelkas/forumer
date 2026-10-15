@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N is "jerky" on my Linux box - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; N is "jerky" on my Linux box</nav></header>
+<main>
+<div class="post" id="p860"><div class="post-head"><a class="id" href="../t/978.html#p860">#860</a> <span class="index">1</span> <span class="date">2004-09-16T21:27:02Z</span> <span class="author">Guest</span></div><div class="post-body">N is a pretty cool game, but I have a problem which makes it practically unplayable for me.<br>
+<br>
+When the game is running, every 2 seconds or so the screen updates will freeze for maybe .1 second, <br>
+although the actual game mechanics keep going. Obviously this often leads to instant death and unplayabilty.<br>
+<br>
+I'm playing N on a Linux box. I have no idea what causes this problem. Can anybody help?</div></div>
+<div class="post" id="p27914"><div class="post-head"><a class="id" href="../t/978.html#p27914">#27914</a> <span class="index">2</span> <span class="date">2004-09-16T21:30:38Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">How fast is your processor and how much ram?</div></div>
+<div class="post" id="p27915"><div class="post-head"><a class="id" href="../t/978.html#p27915">#27915</a> <span class="index">3</span> <span class="date">2004-09-16T21:33:39Z</span> <span class="author">Guest</span></div><div class="post-body">Processor: 2.8G<br>
+Ram: 1G</div></div>
+<div class="post" id="p27916"><div class="post-head"><a class="id" href="../t/978.html#p27916">#27916</a> <span class="index">4</span> <span class="date">2004-09-16T21:40:17Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Hmm...I use windows and have a 3 GHz 512mb. I don't know.</div></div>
+<div class="post" id="p27919"><div class="post-head"><a class="id" href="../t/978.html#p27919">#27919</a> <span class="index">5</span> <span class="date">2004-09-16T21:43:15Z</span> <span class="author">Guest</span></div><div class="post-body">What distro are you using? I heard it runs pretty jerky on Debian. Also, make sure you close all other running processes before starting N, it's the only way to make sure.</div></div>
+<div class="post" id="p27969"><div class="post-head"><a class="id" href="../t/978.html#p27969">#27969</a> <span class="index">6</span> <span class="date">2004-09-17T08:25:26Z</span> <span class="author">Guest</span></div><div class="post-body">I've tried it on a Linux box, and It seemed pretty good to me. It was a tad slow, and I noticed just a smidge of lag, but it wasn't bad enough to make my playing any worse than it already is.  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p28383"><div class="post-head"><a class="id" href="../t/978.html#p28383">#28383</a> <span class="index">7</span> <span class="date">2004-09-18T18:07:52Z</span> <span class="author">Guest</span></div><div class="post-body">I'm using Gentoo on an AMD Athlon 2500+ (1.8 gHz) with 512 mb RAM and a geForce 4 MX based recipe card, and I'm experiencing the exact same jerkiness as Hans, the original poster.  I've re-niced the process to near real time and it doesn't seem to help.</div></div>
+<div class="post" id="p28555"><div class="post-head"><a class="id" href="../t/978.html#p28555">#28555</a> <span class="index">8</span> <span class="date">2004-09-19T19:35:46Z</span> <span class="author">Guest</span></div><div class="post-body">Word, I found the source of the problem: sound.  The Flash player apparently has an issue with audio in Linux, but simply turning down the volume to 0 is obviously not enough; you have to make something occupy the audio driver before you start the game so that Flash can't use it.  I happen to use KDE, so I trigger a sound event right before starting the game, which makes aRts take control of the audio driver long enough to start N.<br>
+<br>
+I've been playing for so many consecutive hours that my thumb is sore on the side from hitting the arrow keys.</div></div>
+<div class="post" id="p28677"><div class="post-head"><a class="id" href="../t/978.html#p28677">#28677</a> <span class="index">9</span> <span class="date">2004-09-20T17:20:16Z</span> <span class="author">Guest</span></div><div class="post-body">Dan, that makes sense.  Sadly I have no idea how to accomplish what you did with the sound.<br>
+Does anybody have any ideas?  (I don't use KDE.)</div></div>
+<div class="post" id="p34910"><div class="post-head"><a class="id" href="../t/978.html#p34910">#34910</a> <span class="index">10</span> <span class="date">2004-11-02T07:31:12Z</span> <span class="author">Guest</span></div><div class="post-body">This is slightly off-topic, but could help in getting N to work in Linux.<br>
+<br>
+With WineX, (and likely WINE) the Windows version works fairly well, after a bit of work.<br>
+<br>
+Usually, when running on WineX, the keys do not do anything. I discovered this is due to a missing registry key. After adding the key, Windows N is playable in Linux. (The input is still a bit. . .odd, though.)<br>
+<br>
+The correct file to edit is user.reg. This is either in ~/.wine, ~/.transgaming, or ~/.point2play/N, depending on which variety of Wine you used.<br>
+<br>
+Find the [Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders] section, and add:<br>
+"AppData"="C:\\My Documents"<br>
+to it.<br>
+<br>
+After doing this, run N. Flash should come up with a message about N trying to store data on the computer; allow it, and it should work.</div></div>
+</main>
+</body>
+</html>

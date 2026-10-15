@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weighted System for Multiple Tile Collisions - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Weighted System for Multiple Tile Collisions</nav></header>
+<main>
+<div class="post" id="p15949"><div class="post-head"><a class="id" href="../t/18099.html#p15949">#15949</a> <span class="index">1</span> <span class="date">2007-06-28T23:46:50Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I have been screwing around with the multiple tile collision problem, and am brainstorming a weighted system to determine which way to project the object.  I have an image here that illistrates a few problems with pairwise operations.  <br>
+<br>
+Figure A:  Alot of times, characters will be falling into the floor constantly due to gravity.  In this figure, the charater is moving to the right, and gravity is pulling them down into the tiles.  If you were to test the square that the character is only barely touching (no. 2), it would prevent the character from walking (due to the fact that it penetrates more along the y axis than the x).  I'm tring to think of a way to instead pick the smallest projection, I could remember all of the potential projections, and somehow give the y axis more priority due to the fact that two different objects are pushing it that way, and only one is tring to push it the small distatnce to the left (in fact, the other wants to push it to the right).<br>
+<br>
+Figure B:  This is also a common occurance.  The player is running into a wall.  Here an up projection would gain some weight from tiles 1 and 2, but 3 wouldn't add to it because its up projection is way too big.  3 and 4 would add weight to a left vector, making the result (somehow) a vector pushing up and to the left.  This is just a brainstorm, so I don't know how the accual algorithm would go, but I think the idea has some potential, and seeing if anyone else could get some inspiration from it.  The details are still really fuzzy to me.  Also I would want weight be on the left projection, even if tile 4 wasn't there, so maybe weight should be increased if there is a small projection on one axis, and a really large projection on another.  For figure A, a little weight would be put on the left projection of out 2, but not alot cause the up projection isnt that much either.<br>
+<br>
+Figure C:  Here, an object moving kinda fast (not really fast) gets lodged in the tiles so the up and down vectors are smaller than the ones to the left.  This is a problem because now it will just bounce the object between them, and in my engine, that accually causes the character to die (getting crushed, remembering the first tiles projection, the second would see that the character is getting crushed).  But a better outcome would be moving the object to the left, that I would somehow detect by the fact that two tiles want to move it that way, and its not too much larger than the y axis projections. <br>
+<br>
+Figure D:  This is where things get really complicated, so far I was thinking of spliting all projections (not just remembering the smallest) and taking either the x or y axis.  With slanted tiles, you get different kinds of non-aligned axies.  Haven't thought that through too much.<br>
+<br>
+Figure E:  This one is interesting, because the two y axis projections are small, and the x ones are large.  I wouldn't want the algorithm to decide that since both want to move it way to the left, it should forget the y axis.  So I'm guessing I would only add weight to an axis if the projection is "small enough".   Here accually the outcome should be death or damage due to crushing.  <br>
+<br>
+Still real fuzzy, need to play with it some more, but If anyone has any revalations, please share... <div class="attachment attachment-missing">Attachment (lost): post-14-1183074410.gif</div></div></div>
+<div class="post" id="p336944"><div class="post-head"><a class="id" href="../t/18099.html#p336944">#336944</a> <span class="index">2</span> <span class="date">2007-06-29T15:44:51Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">We spent quite a while attempting to do something similar (i.e given several individual penetration vectors, "combine" them somehow to generate a single correct penetration vector), and in the end we never found anything that worked better than just pushing the object out of each collision individually.<br>
+<br>
+It might help you to think about the real/correct result you're trying to approximate: your tests are equivalent to shrinking the box down to a point, and inflating the tiles by the box's dimensions, then finding the point in the inflated tile surface closest to your box-point. The boxpoint-&gt;closestpoint vector is the correct penetration vector.<br>
+<br>
+This sort of inflation-by-a-shape is called a Minkowski sum, and I find it incredibly fascinating, it's just really, really weird and interesting. It's quite a strange idea to wrap your head around; here's a site that might help, it shows two shapes and their minkowski sum: <a href="http://www.cut-the-knot.org/Curriculum/Geometry/PolyAddition.shtml">http://www.cut-the-knot.org/Curriculum/Geo...yAddition.shtml</a><br>
+<br>
+This site has some great tutorials: <br>
+<a href="http://essentialmath.com/tutorial.htm">http://essentialmath.com/tutorial.htm</a><br>
+<br>
+This one specifically should be a good read: <a href="http://www.eiserloh.net/gdc2006_Eiserloh_Squirrel_PhysicsTutorial.ppt">http://www.eiserloh.net/gdc2006_Eiserloh_S...icsTutorial.ppt</a></div></div>
+<div class="post" id="p337269"><div class="post-head"><a class="id" href="../t/18099.html#p337269">#337269</a> <span class="index">3</span> <span class="date">2007-06-30T15:22:45Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Wow, that looks really interesting.  Unfortunatly I would have to start all over, cause I already have SAT working with several shapes when there are only two colliding.  No time to start a whole new research project.  <br>
+<br>
+I think I'm going to try this policy:  Get all axis for all objects a single object is colliding with.  Then throw out axies that go in opposite directions.  Then use the smallest projection from the object that has the largest average projection distance along all the axies tested for that object that haven't been throw out.  A threshold will be useded for objects that have nearly the same average, and the smallest projection from both objects will be added together.  If that projection distance is too large, don't use it, and notify that object that it is being crushed.  <br>
+<br>
+Gonna see how that works out.  Unfortunatly I will have to change alot of my shape interface to be able to process the axies of all of the objects.  I think this algorithm will take care of all of the cases above, I plan on simply not allowing other configurations of objects.</div></div>
+<div class="post" id="p337545"><div class="post-head"><a class="id" href="../t/18099.html#p337545">#337545</a> <span class="index">4</span> <span class="date">2007-07-01T19:05:50Z</span> <span class="author"><a href="../u/9374126.html">Gforce20</a></span></div><div class="post-body">My head hurts. &gt;.&lt;<br>
+<br>
+This sounds really interesting, though. I'd like to see what the finished computation is.</div></div>
+<div class="post" id="p337775"><div class="post-head"><a class="id" href="../t/18099.html#p337775">#337775</a> <span class="index">5</span> <span class="date">2007-07-02T04:43:42Z</span> <span class="author"><a href="../u/9374653.html">kydo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18099.html#p337545">Quote: Gforce20, July 01, 2007 07:05 pm</a></div> My head hurts. &gt;.&lt;<br>
+<br>
+This sounds really interesting, though. I'd like to see what the finished computation is.  </blockquote> <br>
+ Agreed.<br>
+<br>
+I feel so dumb. <img class="smiley" src="../files/smilies/23.gif" alt="&gt;_&lt;" title="&gt;_&lt;"></div></div>
+<div class="post" id="p337953"><div class="post-head"><a class="id" href="../t/18099.html#p337953">#337953</a> <span class="index">6</span> <span class="date">2007-07-02T18:11:40Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">I think the head hurting is the result of it not making much sense.  I think I have settled with only useing circles and ellipoids for avatars, (this will solve case C)  Then using only the most sigificant intersectors, which are the object with the highest average axis intersection (which is an aproximation for most intersecting area).  That will solve cases A, B and D.  Case E can be solved by after doing all of the projecting, to just do one final test to see if there is still a sigificant overlap of axies which would result in a crush notification.<br>
+<br>
+Another option would be to sweep objects one at a time, this would provide perfect non-penetration constraints, but would cause some problems if an object would have been able to move if an object infront of it moved first (order of movement would have significant impact on the simulation).  <br>
+<br>
+Perhaps I could do some ordering based on position &amp; velocity.  The order that makes the most sense is ordering along the z axis, cause most objects will fall down from gravity.  So if the objects at the bottom fall first, the objects above will have the opportunity to fall that same frame.<br>
+<br>
+Or I could have it so if an object hits another object that hasn't completed its sweep, I could put it back at the end of the line, so the object that still needs to move more has a chance to move.  Then any object that is stopped by an object that has completed its sweep, or an object that can't move, it would be taken out of the list of objects that still need updating.  Sweeps would assume all other objects were not moving.  Relative sweeps that factor in the motion of the other object would botch things up cause its possible that the other object would be constrained by other objects.<br>
+<br>
+Not sure how fast that would go.</div></div>
+<div class="post" id="p338430"><div class="post-head"><a class="id" href="../t/18099.html#p338430">#338430</a> <span class="index">7</span> <span class="date">2007-07-03T17:37:25Z</span> <span class="author"><a href="../u/9374527.html">Derakon</a></span></div><div class="post-body">What I ended up doing for multiple-tile collisions was to store all collisions that occur in a given frame, and then after they've all been collected, iterate through them to find the right reaction. That is to say:<br>
+<br>
+* Object A collides with terrain object B, generating backout vector <i>u</i>, which is stored<br>
+* Object A collides with terrain object C, generating backout vector <i>v</i>, which is stored<br>
+* Object A looks at <i>u</i>. Will backing out along <i>u</i> prevent collision with both B and C? If so, then use <i>u</i> as a backout vector. If not...<br>
+** Object A looks at <i>v</i>. Will backing out along <i>v</i> prevent collision with both B and C? If so, then use <i>v</i> as a backout vector. If not...<br>
+*** Object A applies both <i>u</i> and <i>v</i> to back out (or, in a case of colliding with three or more objects, it keeps applying backout vectors until it is no longer colliding with anything). <br>
+<br>
+Note that this does not handle case C, which I've resolved will simply not occur in my game. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Also, I have a hack in place specifically for when the player's X velocity is neglible, their Y velocity is aligned with gravity, and they hit something with a normal opposed to gravity. In that particular case, they're probably "standing" on some terrain, so instead of backing out along the surface normal of the terrain, I back out along the object's velocity vector. This keeps objects from slowly sliding down slanted terrain.</div></div>
+<div class="post" id="p348055"><div class="post-head"><a class="id" href="../t/18099.html#p348055">#348055</a> <span class="index">8</span> <span class="date">2007-07-27T19:39:18Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">How do you calculate the distance the object needs to be moved out of the direction of the gravity vector?  When you project a ramp to the y axis, you get the same result as with a box.  Do you project the projection vector of the normal to the y axis or something?</div></div>
+<div class="post" id="p357166"><div class="post-head"><a class="id" href="../t/18099.html#p357166">#357166</a> <span class="index">9</span> <span class="date">2007-08-19T19:02:20Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Another idea that may work here is instead of choosing the least projection vector, would be to figure out which side of the object has the most contact.  In the case of C, the tiles 1 and 2 would cover the right side more than either one would cover the bottom or top.  <br>
+<br>
+So its like a bitwise and for every pixel around the perimeter of the object in question, then using that do decide which way the object goes.  I think you would only have to do this twice per frame, once to make sure theres no x axis penetration, and one in case the largest side overlap doesn't create non-penetration for the other side. <br>
+<br>
+If the top and bottom, or left and right are tagged, then you would have a crushed object.</div></div>
+<div class="post" id="p357186"><div class="post-head"><a class="id" href="../t/18099.html#p357186">#357186</a> <span class="index">10</span> <span class="date">2007-08-19T19:51:01Z</span> <span class="author"><a href="../u/9374905.html">rje</a></span></div><div class="post-body">I'm also starting to have a think about this (I'm running into the same problem more relatively often with the AS3 version).<br>
+<br>
+For A, cant you just check if the tile your transitioning to is the same as the current one and just use that same projection?<br>
+<br>
+I need to spend some time thinking about this...</div></div>
+<div class="post" id="p441331"><div class="post-head"><a class="id" href="../t/18099.html#p441331">#441331</a> <span class="index">11</span> <span class="date">2008-06-02T15:15:53Z</span> <span class="author"><a href="../u/9374560.html">Jason</a></span></div><div class="post-body">Here's a demo a made awhile back, it has a system for multiple collisions with tiles.  Really it just finds the tiles the player collides with in a single frame, then sorts them by "most significant overlap".  I forget what the function was for that, I think it just took the average of all of the projection vectors for each axis tested.  It then just projects them in the order that they were sorted.  This method solves many of the problems illustrated above.  I'm not sure if it fixed "C" for all cases.  This engine potentially can detect squish events, by simply remembering if the player was projected in two opposite directions in a single frame.  This gets difficult when you start introducing the slanted tiles however.  The player could accually crush himself just by walking into a loft like ceiling.  This is because all slopes project the player strait up on the y-axis to prevent sliding.<br>
+<br>
+Demo:  <a href="http://eatjason.googlepages.com/castle.zip">http://eatjason.googlepages.com/castle.zip</a><br>
+<br>
+Also I noticed that the Ninja in N+ no longer jitters around when dropped in an acute angle, and that he runs up slopes much easier.  Were these the main changes made to the physics?  Having it be easier to run up slopes helped the game play a lot.</div></div>
+<div class="post" id="p441366"><div class="post-head"><a class="id" href="../t/18099.html#p441366">#441366</a> <span class="index">12</span> <span class="date">2008-06-02T20:18:56Z</span> <span class="author"><a href="../u/9371779.html">Mosh</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18099.html#p338430">Quote: Derakon, July 03, 2007 09:37 am</a></div> What I ended up doing for multiple-tile collisions was to store all collisions that occur in a given frame, and then after they've all been collected, iterate through them to find the right reaction. That is to say:<br>
+<br>
+* Object A collides with terrain object B, generating backout vector <i>u</i>, which is stored<br>
+* Object A collides with terrain object C, generating backout vector <i>v</i>, which is stored<br>
+* Object A looks at <i>u</i>. Will backing out along <i>u</i> prevent collision with both B and C? If so, then use <i>u</i> as a backout vector. If not...<br>
+** Object A looks at <i>v</i>. Will backing out along <i>v</i> prevent collision with both B and C? If so, then use <i>v</i> as a backout vector. If not...<br>
+*** Object A applies both <i>u</i> and <i>v</i> to back out (or, in a case of colliding with three or more objects, it keeps applying backout vectors until it is no longer colliding with anything). <br>
+<br>
+Note that this does not handle case C, which I've resolved will simply not occur in my game. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+Also, I have a hack in place specifically for when the player's X velocity is neglible, their Y velocity is aligned with gravity, and they hit something with a normal opposed to gravity. In that particular case, they're probably "standing" on some terrain, so instead of backing out along the surface normal of the terrain, I back out along the object's velocity vector. This keeps objects from slowly sliding down slanted terrain.  </blockquote> <br>
+ I'm no coder (graphics man, myself), but would all the storage and overwriting of <i>u</i> and <i>v</i> on a constant basis kind of convolute the data being processed? Or am I overlooking a fool-proof anti-infinite-loop block that is common grounds for everyone code-savvy?</div></div>
+<div class="post" id="p441477"><div class="post-head"><a class="id" href="../t/18099.html#p441477">#441477</a> <span class="index">13</span> <span class="date">2008-06-03T04:42:25Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">it definitely won't be infinite (as many times as there are overlapping tiles), and storing simple values without even doing much calculation is nothing for modern computers<br>
+<br>
+as for the actual problem, i semi-solved it in my game using a partial implementation of a system raigan described with inflated edges:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>hi,<br>
+This is a fundamental problem with any sort of tile-based collision, which is: you're only solving the problem on a tile-by-tile basis, not for all tiles at once. the reason is that solving for all tiles at once is _much_ harder.<br>
+<br>
+To answer your follow-up question, there is no simple way to add (or otherwise "munge") individual penetration info from different tiles to get a single vector that solves them all together. We spent quite a while about a year ago trying to figure out if this was possible, and concluded that it just isn't -- you have to solve the all-at-once problem for real if you want a good solution.<br>
+<br>
+One approach that might be very useful is to look at the problem from a different point of view: instead of circle-vs-world, think of this as point-vs-inflated-world: shrink your circle from radius = r to radius = 0 (i.e a point), and expand/inflate the world by r. This is an equivalent problem (i.e a vector that moves the point to the surface of the inflated world will also move the circle to the surface of the non-inflated world), but it's a bit easier to see what you're actually trying to do.<br>
+<br>
+I'll attach a picture of what i mean -- in the picture, the actual surface of the world is grey, and the inflated surface is black. <br>
+<br>
+If you sketch out these sort of things you'll find a pattern:<br>
+1) if your circle is penetrating only one edge of the world (a line or a circular arc), it should be pushed out of that edge along the edge's normal, by the amount of penetration (i.e this is what the tutorial code does)<br>
+2) if your circle is penetrating _two_ edges, then it should be pushed out to the point where the two edge's  _inflated_ versions intersect.<br>
+<br>
+the problem with (2) is that it's still only a local solution, i.e it will fail in cases where the circle penetrates more than 2 edges at once (in such cases there really 0 solutions, because the 3 or more inflated edges may not all intersect in a single point), or where the two edges' inflated surfaces never intersect (i.e if they're parallel). <br>
+<br>
+We spent some time trying to explicitly generate the inflated-intersection points, etc, but in the end it was much faster to calculate the inflated surface approximately, by using the "repeatedly push the circle out of a single edge" method.<br>
+<br>
+raigan</blockquote><br>
+although this method may require a lot of changes to work for AABB's as well as circles</div></div>
+<div class="post" id="p441699"><div class="post-head"><a class="id" href="../t/18099.html#p441699">#441699</a> <span class="index">14</span> <span class="date">2008-06-04T00:41:34Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/18099.html#p441331">Quote: Jason, June 02, 2008 03:15 pm</a></div> Also I noticed that the Ninja in N+ no longer jitters around when dropped in an acute angle, and that he runs up slopes much easier.  Were these the main changes made to the physics?  Having it be easier to run up slopes helped the game play a lot.  </blockquote> <br>
+ Yeah, Nick improved the collision to get rid of that horrible "jittering up slopes". It was weird when we started testing since I found myself instinctively avoiding the sort of movement that causes those problems in N!</div></div>
+<div class="post" id="p453178"><div class="post-head"><a class="id" href="../t/18099.html#p453178">#453178</a> <span class="index">15</span> <span class="date">2008-07-16T04:34:54Z</span> <span class="author"><a href="../u/9372876.html">Decoy</a></span></div><div class="post-body">In a tile-based system like this you have the potential for a pretty easy solution, one that I believe was used for some unrelated things in N. Store the 'edge info' (<a href="http://www.harveycartel.org/metanet/tutorials/tutorialB.html">section 2 of this link</a>). Then, when considering adjacent tiles, simply ignore projections in the direction where the tiles are both solid edges. So in figure A, the smallest 'legal' projection would be up in both cases, thus solving that problem. Same goes for figures B and D.<br>
+<br>
+Your solution for figure C seems reasonable, and I can't see any problem with figure E, since it is clearly not tile-based. Just implement something where your figure C solution only applies to tile-collisions. Am I missing something?</div></div>
+</main>
+</body>
+</html>

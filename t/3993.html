@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shock Tiles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/11.html">Level/Ned Help</a> &rsaquo; Shock Tiles</nav></header>
+<main>
+<div class="post" id="p3630"><div class="post-head"><a class="id" href="../t/3993.html#p3630">#3630</a> <span class="index">1</span> <span class="date">2005-07-10T09:44:14Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">Well, I figured out how THWUMPER'S numbers go...<br>
+<br>
+<span style="color:BLUE">!</span><span style="color:RED">8^</span><span style="color:PURPLE">420</span>,<span style="color:ORANGE">540</span>,<span style="color:GREEN">1</span><br>
+<br>
+The <b><span style="color:BLUE">!</span></b> tells N that's its something new, the <b><span style="color:RED">8^</span></b> tells N it's a thwumper and it's about to give location, the <b><span style="color:PURPLE">420</span></b> is it's position on the X axis, the <b><span style="color:ORANGE">540</span></b> is it's position on the Y axis, and the <b><span style="color:GREEN">1</span></b> is the direction the thwumper is facing.<br>
+<br>
+If you change the <b><span style="color:GREEN">1</span></b> to anything other than <b>1-4</b>, it'll shock from YOUR right, computer screen's left.<br>
+<br>
+Now, you can make tiles like this, makes walls like this...<br>
+<br>
+I made a crappy little teleport, added some stuff, made a WALL OF EVIL and a shock block...<br>
+<br>
+So far I haven't figured out how to make it shock up, down, or your left, computers right without the thwumper moving. I've tried BIG numbers, I've tried NEGATIVE numbers, it never works.<br>
+<br>
+Anyway, my level code is:<br>
+<pre class="code">000000000000000000N0000000000000000000000N0000000000000000000000 N0000000000000000000000N0000000000000000000000N0000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000001000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000 00000000000000000000000|5^252,36!7^36,72,3!7^60,72,3!7^84,72,3!7^108,72,3!7 ^132,72,3!7^156,72,3!7^180,72,3!7^204,72,3!7^228,72,3!2^252,60,0,32!2^252,540 ,0,-1!2^756,576,0,-1.5!8^494,540,5!1^300,492!1^204,492!1^660,348!8^14,570,5!8^ 14,550,5!8^14,530,5!8^14,510,5!8^14,490,5!0^72,192!0^72,204!0^72,216!0^84,228 !0^96,216!0^96,204!0^108,228!0^120,216!0^120,204!0^120,192!0^114,222!0^102, 222!0^90,222!0^78,222!0^72,210!0^72,198!0^96,210!0^120,210!0^120,198!0^150, 192!0^156,192!0^162,192!0^144,198!0^138,204!0^138,210!0^138,216!0^138,228!0 ^138,222!0^144,216!0^150,216!0^156,216!0^168,198!0^174,204!0^174,210!0^174 ,216!0^174,222!0^174,228!0^162,216!0^168,216!0^192,198!0^192,192!0^192,204! 0^192,210!0^192,216!0^192,222!0^192,228!0^198,228!0^204,228!0^210,228!0^21 6,228!0^234,192!0^234,198!0^234,204!0^234,210!0^234,216!0^234,222!0^234,228 !0^240,228!0^246,228!0^246,228!0^252,228!0^258,228!0^120,270!0^126,270!0^13 2,270!0^138,276!0^114,276!0^114,282!0^114,288!0^114,294!0^114,300!0^114,306 !0^120,312!0^126,312!0^132,312!0^138,306!0^138,300!0^138,294!0^138,288!0^13 8,282!0^162,270!0^162,276!0^162,282!0^162,288!0^162,294!0^162,300!0^162,306 !0^162,312!0^168,270!0^174,270!0^180,270!0^186,270!0^168,288!0^174,288!0^18 0,288!0^72,342!0^72,348!0^72,354!0^72,360!0^72,366!0^72,372!0^72,378!0^78,37 8!0^84,378!0^90,378!0^96,378!0^78,342!0^84,342!0^90,342!0^96,342!0^78,360!0^ 84,360!0^90,360!0^114,342!0^114,348!0^114,354!0^114,360!0^114,366!0^120,372! 0^126,378!0^132,372!0^138,366!0^138,360!0^138,354!0^138,348!0^138,342!0^156 ,342!0^162,342!0^168,342!0^174,342!0^180,342!0^168,348!0^168,354!0^168,360!0 ^168,366!0^168,372!0^168,378!0^162,378!0^156,378!0^174,378!0^180,378!0^198, 342!0^198,348!0^198,354!0^198,366!0^198,360!0^198,372!0^198,378!0^204,378!0 ^210,378!0^216,378!0^222,378!0^42,456!0^42,450!0^42,444!0^42,438!0^42,432!0 ^48,456!0^54,456!0^60,456!0^66,456!0^48,450!0^54,444!0^60,438!0^66,432!0^72 ,426!0^78,420!0^84,414</pre><br>
+Delete spaces as needed. (I didn't feel like stretching the page)<br>
+<br>
+Also, if you put a launch pad at ground level, and change it to -1.5 going up, you'll make it to the top of the level.<br>
+<br>
+If you put it in a corner and wallkick/launch, you'll die from the top!</div></div>
+<div class="post" id="p82529"><div class="post-head"><a class="id" href="../t/3993.html#p82529">#82529</a> <span class="index">2</span> <span class="date">2005-07-10T10:06:48Z</span> <span class="author"><a href="../u/9370706.html">sweep</a></span></div><div class="post-body">That's cool. Someone needs to make a level where all walls are bugged.<br>
+<br>
+Oh, and you have tonnes of NaNs.</div></div>
+<div class="post" id="p82541"><div class="post-head"><a class="id" href="../t/3993.html#p82541">#82541</a> <span class="index">3</span> <span class="date">2005-07-10T11:35:19Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">That's because I had to add spaces, I have this on NUMA, called Wall of Doom in testing.<br>
+<br>
+I'd make one with all the walls bugged, but I can't get it so it faces up, down, or my left...</div></div>
+<div class="post" id="p82556"><div class="post-head"><a class="id" href="../t/3993.html#p82556">#82556</a> <span class="index">4</span> <span class="date">2005-07-10T13:03:40Z</span> <span class="author"><a href="../u/9370909.html">Red Reamer</a></span></div><div class="post-body">Was the teleporter sposed to work, cause it didnt for me.</div></div>
+<div class="post" id="p82572"><div class="post-head"><a class="id" href="../t/3993.html#p82572">#82572</a> <span class="index">5</span> <span class="date">2005-07-10T15:18:05Z</span> <span class="author"><a href="../u/9370933.html">Razorstar</a></span></div><div class="post-body">Data never seems to work properly off the forums for me, so I can't even look at it.</div></div>
+<div class="post" id="p82629"><div class="post-head"><a class="id" href="../t/3993.html#p82629">#82629</a> <span class="index">6</span> <span class="date">2005-07-10T20:46:39Z</span> <span class="author"><a href="../u/9370982.html">the_V_dude</a></span></div><div class="post-body">It's on NUMA, let me find it...<br>
+<br>
+The teleporter works fine for me...<br>
+<br>
+EDIT: Found it, <a href="https://www.nmaps.net/10328">Wall Of DOOM!</a></div></div>
+</main>
+</body>
+</html>

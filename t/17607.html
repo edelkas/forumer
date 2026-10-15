@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Something I Made - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; <a href="../f/27.html">Other Games</a> &rsaquo; Something I Made</nav></header>
+<main>
+<div class="post" id="p15483"><div class="post-head"><a class="id" href="../t/17607.html#p15483">#15483</a> <span class="index">1</span> <span class="date">2007-06-02T03:37:14Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body">A little while ago I made a version of pong on a program called Dark Basic. Its not that significant but I just wanted to know what you think about it and if I should do more to it. So far it doesn't have audio because I can't find anything. But the computer will play against you (though it's rather dumb).<br>
+<br>
+I will take suggestions to make it better. But please keep it simple as DB is complicated when it comes to these things. Right now I'm trying to figure out how to implement power ups. <div class="attachment attachment-missing">Attachment (lost): post-27-1180755434.rar</div></div></div>
+<div class="post" id="p326530"><div class="post-head"><a class="id" href="../t/17607.html#p326530">#326530</a> <span class="index">2</span> <span class="date">2007-06-02T12:25:53Z</span> <span class="author"><a href="../u/9371854.html">faemir</a></span></div><div class="post-body">That's cool, I got dark basic, but never got round to trying it out.<br>
+<br>
+suggestions:<br>
+<br>
+perhaps a background?<br>
+more interesting paddles and ball? <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+powerups would be fun <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+make it possible to accelerate the ball more, as, at the moment it's all the same speed and a bit slow.</div></div>
+<div class="post" id="p326668"><div class="post-head"><a class="id" href="../t/17607.html#p326668">#326668</a> <span class="index">3</span> <span class="date">2007-06-02T18:41:35Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17607.html#p326530">Quote: fingolfin, June 02, 2007 12:25 pm</a></div> That's cool, I got dark basic, but never got round to trying it out.<br>
+<br>
+suggestions:<br>
+<br>
+perhaps a background?<br>
+more interesting paddles and ball? <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+powerups would be fun <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+make it possible to accelerate the ball more, as, at the moment it's all the same speed and a bit slow. </blockquote>I'm planing on going on <a href="http://www.thegamecreators.com/">The Game Creators</a> to look for some sprites and maybe a few sounds.<br>
+<br>
+I recently tried using power-ups and it half an hour to get one to work. And its still all buggy. I'll get it eventually.<br>
+<br>
+Edit: And Fingolfin, if you ever need help with Dark Basic, I can help you. I'm using that thing all the time.</div></div>
+<div class="post" id="p326710"><div class="post-head"><a class="id" href="../t/17607.html#p326710">#326710</a> <span class="index">4</span> <span class="date">2007-06-02T20:12:55Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Are we allowed to see the source? Because I have an idea on how to make a powerup work.</div></div>
+<div class="post" id="p326711"><div class="post-head"><a class="id" href="../t/17607.html#p326711">#326711</a> <span class="index">5</span> <span class="date">2007-06-02T20:15:59Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body">hold on let me get it.<br>
+<br>
+Edit: here's the code. It might be a bit hard to make it out like this.<br>
+sorry but I deleted the power-up because it was starting to cause problems.<br>
+ <details class="spoiler"><summary>Spoiler</summary>global img_ball as word=1<br>
+global img_paddle1 as word=2<br>
+global img_paddle2 as word=3<br>
+global img_background as word=10<br>
+global spr_ball as word=1<br>
+global spr_paddle1 as word=2<br>
+global spr_paddle2 as word=3<br>
+global ballspeedx as integer=4<br>
+global ballspeedy as integer=4<br>
+global ballx as integer=10<br>
+global bally as integer=10<br>
+global score1 as integer=0<br>
+global score2 as integer=0<br>
+global paddley1 as integer=220<br>
+global paddley2 as integer=220<br>
+global paddlespeedy as integer=5<br>
+global h as integer=280<br>
+global scorelimit as integer=0<br>
+hide mouse<br>
+l=rgb(255,100,100)<br>
+ink l,0<br>
+center text 320,160,"Choose score limit"<br>
+center text 320,180,"A. 500"<br>
+center text 320,195,"B. 1000"<br>
+center text 320,210,"C. 1500"<br>
+do<br>
+if inkey$()="a" or inkey$()="A"<br>
+scorelimit=500<br>
+exit<br>
+endif<br>
+if inkey$()="b" or inkey$()="B"<br>
+scorelimit=1000<br>
+exit<br>
+endif<br>
+if inkey$()="c" or inkey$()="C"<br>
+scorelimit=1500<br>
+exit<br>
+endif<br>
+loop<br>
+sync on<br>
+sync rate 45<br>
+load image "background.jpg",img_background<br>
+load image "ball.jpg",img_ball<br>
+load image "paddle1.jpg",img_paddle1<br>
+load image "paddle2.jpg",img_paddle2<br>
+create animated sprite spr_ball,"ball.jpg",1,1,img_ball<br>
+create animated sprite spr_paddle1,"paddle1.jpg",1,1,img_paddle1<br>
+create animated sprite spr_paddle2,"paddle2.jpg",1,1,img_paddle2<br>
+do<br>
+paste image img_background,0,0<br>
+set cursor 10,10<br>
+g=rgb(255,0,0)<br>
+ink g,0<br>
+print "Player 1= ";score1<br>
+if score1=scorelimit<br>
+sync off<br>
+hide all sprites<br>
+delete image img_background<br>
+cls<br>
+do<br>
+center text 320,240,"Player 1 Wins!"<br>
+center text 320,252,"Press ESC to exit"<br>
+loop<br>
+endif<br>
+set cursor 520,10<br>
+t=rgb(0,0,255)<br>
+ink t,0<br>
+print "Player 2= ";score2<br>
+if score2=scorelimit<br>
+sync off<br>
+hide all sprites<br>
+delete image img_background<br>
+cls<br>
+do<br>
+center text 320,240,"Player 2 Wins!"<br>
+center text 320,252,"Press ESC to exit"<br>
+loop<br>
+endif<br>
+draw_ball()<br>
+draw_paddles()<br>
+sync<br>
+loop<br>
+function draw_ball()<br>
+inc ballx,ballspeedx<br>
+inc bally,ballspeedy<br>
+sprite spr_ball,ballx,bally,img_ball<br>
+if ballx&lt;5<br>
+ballx=10<br>
+bally=10<br>
+ballspeedx=4<br>
+ballspeedy=4<br>
+inc score2,100<br>
+endif<br>
+if ballx&gt;635<br>
+ballx=10<br>
+bally=10<br>
+ballspeedx=4<br>
+ballspeedy=4<br>
+inc score1,100<br>
+endif<br>
+if bally&lt;5<br>
+ballspeedy=ballspeedy*-1<br>
+endif<br>
+if bally&gt;475<br>
+ballspeedy=ballspeedy*-1<br>
+endif<br>
+endfunction<br>
+function draw_paddles()<br>
+sprite spr_paddle1,5,paddley1,img_paddle1<br>
+sprite spr_paddle2,630,paddley2,img_paddle2<br>
+if upkey()<br>
+dec paddley2,paddlespeedy<br>
+endif<br>
+if downkey()<br>
+inc paddley2,paddlespeedy<br>
+endif<br>
+if paddley2&lt;5 then paddley2=5<br>
+if paddley2&gt;430 then paddley2=430<br>
+if sprite collision(spr_ball,spr_paddle1)<br>
+ballspeedx=ballspeedx*-1<br>
+endif<br>
+if paddley1&lt;5 then paddley1=5<br>
+if paddley1&gt;430 then paddley1=430<br>
+if sprite collision(spr_ball,spr_paddle2)<br>
+ballspeedx=ballspeedx*-1<br>
+h=rnd(250)+50<br>
+endif<br>
+animate_paddle()<br>
+endfunction<br>
+function animate_paddle()<br>
+if ballx&lt;h<br>
+centery=paddley1+sprite width(spr_paddle1)/2<br>
+if bally&lt;centery then dec paddley1,paddlespeedy<br>
+if bally&gt;centery then inc paddley1,paddlespeedy<br>
+endif<br>
+endfunction</details></div></div>
+<div class="post" id="p329352"><div class="post-head"><a class="id" href="../t/17607.html#p329352">#329352</a> <span class="index">6</span> <span class="date">2007-06-09T22:28:20Z</span> <span class="author"><a href="../u/9374296.html">Mr__X</a></span></div><div class="post-body">Some advice:<br>
+<br>
+Y'know how in pong, the paddles are (theoretically) shaped like ), so if it hits nearer the top or bottom, it goes off at a different angle? That would make the game a lot more interesting.</div></div>
+<div class="post" id="p329683"><div class="post-head"><a class="id" href="../t/17607.html#p329683">#329683</a> <span class="index">7</span> <span class="date">2007-06-10T18:16:40Z</span> <span class="author"><a href="../u/9373108.html">Exüberance</a></span></div><div class="post-body">The source code reminds me of Turing  <img class="smiley" src="../files/smilies/40.gif" alt=":ugh:" title=":ugh:"> I hated that programming language. I kept putting in <br>
+<br>
+<span style="font-family:COURIER"><b>if</b> (&lt;condition&gt;) <b>{</b><br>
+	&lt;effect&gt;<br>
+<b>}</b></span><br>
+<br>
+instead of<br>
+<br>
+<span style="font-family:COURIER"><b>if</b> &lt;condition&gt; <b>then</b><br>
+	&lt;effect&gt;<br>
+<b>end if</b></span></div></div>
+<div class="post" id="p329688"><div class="post-head"><a class="id" href="../t/17607.html#p329688">#329688</a> <span class="index">8</span> <span class="date">2007-06-10T18:58:32Z</span> <span class="author"><a href="../u/9372465.html">Xév</a></span></div><div class="post-body">I would play it, but... How do you use an .rar file?</div></div>
+<div class="post" id="p329699"><div class="post-head"><a class="id" href="../t/17607.html#p329699">#329699</a> <span class="index">9</span> <span class="date">2007-06-10T19:47:46Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Wait....<img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"> You don't have <a href="http://www.winrar.com">WinRar</a> <img class="smiley" src="../files/smilies/8.gif" alt="scared" title="scared"></div></div>
+<div class="post" id="p329709"><div class="post-head"><a class="id" href="../t/17607.html#p329709">#329709</a> <span class="index">10</span> <span class="date">2007-06-10T20:27:37Z</span> <span class="author"><a href="../u/9371744.html">Zres</a></span></div><div class="post-body">I prefer <a href="http://www.7-zip.org/">7-Zip</a>. It's free.</div></div>
+<div class="post" id="p330093"><div class="post-head"><a class="id" href="../t/17607.html#p330093">#330093</a> <span class="index">11</span> <span class="date">2007-06-11T18:31:23Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17607.html#p329709">Quote: Zres, June 10, 2007 01:27 pm</a></div> I prefer <a href="http://www.7-zip.org/">7-Zip</a>. It's free.  </blockquote> <br>
+ The reason I use WinRar is that it can pack down a file even smaller. Because with any other zip programs, the file was 120 kb to big to upload. with WinRar, the file was reduced to 320 kb. Plus my computer had an error and thinks that any default zip file is an executable and not a folder.</div></div>
+<div class="post" id="p330227"><div class="post-head"><a class="id" href="../t/17607.html#p330227">#330227</a> <span class="index">12</span> <span class="date">2007-06-11T23:49:49Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">WinRAR is only nagware. It doesn't suddenly stop functioning after the supposed "time limit" passes; the only thing that's annoying is the popup window nagging you to pay, and even then you can avoid that completely by extracting the .RAR (or whatever) via its integrated right-click functions.</div></div>
+<div class="post" id="p330238"><div class="post-head"><a class="id" href="../t/17607.html#p330238">#330238</a> <span class="index">13</span> <span class="date">2007-06-12T00:35:40Z</span> <span class="author"><a href="../u/9371732.html">Topolord</a></span></div><div class="post-body">aside from power-ups, you should do something to make your pong different from other pongs.  Like paddles that jump out from the wall, or something.</div></div>
+<div class="post" id="p330452"><div class="post-head"><a class="id" href="../t/17607.html#p330452">#330452</a> <span class="index">14</span> <span class="date">2007-06-12T17:57:30Z</span> <span class="author"><a href="../u/9374331.html">Sniperwhere</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/17607.html#p330238">Quote: Topolord, June 11, 2007 05:35 pm</a></div> aside from power-ups, you should do something to make your pong different from other pongs.  Like paddles that jump out from the wall, or something.  </blockquote> <br>
+ I'll see if that will work. I can see some problems with that but they shouldn't be that bad.</div></div>
+</main>
+</body>
+</html>

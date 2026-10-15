@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>help me with actionscript. - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; help me with actionscript.</nav></header>
+<main>
+<div class="post" id="p2924"><div class="post-head"><a class="id" href="../t/3244.html#p2924">#2924</a> <span class="index">1</span> <span class="date">2005-05-19T23:54:06Z</span> <span class="author"><a href="../u/9370839.html">dhNINJA</a></span></div><div class="post-body">how do you make it when you click on something it closes the application... I know it sounds really easy, but i dont know what the command is...<br>
+<br>
+another thing is, how do you make it so that when you right click no menu is shown...</div></div>
+<div class="post" id="p68008"><div class="post-head"><a class="id" href="../t/3244.html#p68008">#68008</a> <span class="index">2</span> <span class="date">2005-05-20T00:00:21Z</span> <span class="author">Guest</span></div><div class="post-body">the "quit" thing is an fscommand i think; lookup fscommand in the help.<br>
+<br>
+the menu thing is a property of the movie, it's either something you set in the publish settings, or there's a global variable you set, like _quality.. it should be in the help somewhere <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+sorry i'm not more help, i don't remember off the top of my head and i'm a bit busy!<br>
+<br>
+raigan</div></div>
+<div class="post" id="p68110"><div class="post-head"><a class="id" href="../t/3244.html#p68110">#68110</a> <span class="index">3</span> <span class="date">2005-05-20T11:58:05Z</span> <span class="author"><a href="../u/9370856.html">shoftee</a></span></div><div class="post-body">Ok.... the quit thing is:<br>
+<br>
+<pre class="code">fscommand ("quit", "true");</pre><br>
+and... the right-click menu (or also called a context menu) is a bit more difficult.<br>
+The problem is that you can't "disable" it completely.<br>
+The only thing you can do is shorten it a bit <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> <br>
+<br>
+<pre class="code">fscommand("showmenu", "false");</pre><br>
+That removes all context menu items except "About Flash Player..." and "Settings...". Now... if you want to put your own things in the context menu... that's a lot more difficult (well not A LOT, but I'm too lazy to explain <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"> )<br>
+<br>
+I hope I've helped<br>
+<br>
+TS</div></div>
+</main>
+</body>
+</html>

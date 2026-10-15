@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ummm - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; ummm</nav></header>
+<main>
+<div class="post" id="p1621"><div class="post-head"><a class="id" href="../t/1824.html#p1621">#1621</a> <span class="index">1</span> <span class="date">2004-12-16T18:03:48Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head">Quote</div>DB Error: connect failed</blockquote><br>
+I get that every time I try to get onto numa... I can't even access teh main page...<br>
+<br>
+does any one else have this problem?</div></div>
+<div class="post" id="p41503"><div class="post-head"><a class="id" href="../t/1824.html#p41503">#41503</a> <span class="index">2</span> <span class="date">2004-12-16T18:13:52Z</span> <span class="author"><a href="../u/9370694.html">bombermaster2</a></span></div><div class="post-body">Doesn't work for me either.</div></div>
+<div class="post" id="p41504"><div class="post-head"><a class="id" href="../t/1824.html#p41504">#41504</a> <span class="index">3</span> <span class="date">2004-12-16T18:41:53Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">that sucks... I want to see comment on road rage and I want to post road rage tilt</div></div>
+<div class="post" id="p41507"><div class="post-head"><a class="id" href="../t/1824.html#p41507">#41507</a> <span class="index">4</span> <span class="date">2004-12-16T19:32:45Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body">Fixed. Sorry 'bout that. I'm doing some general sysadmin stuff in preparation for moving most of my sites and services - including numa - to (another) new server. This time it'll be on real hardware, cohosted here in NZ. The high load or high memory usage caused the DB server to crash - hopefully it won't happen again. It certainly won't happen once I'm on the new server. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p41511"><div class="post-head"><a class="id" href="../t/1824.html#p41511">#41511</a> <span class="index">5</span> <span class="date">2004-12-16T21:01:17Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">okay, is this why numa has been like molassas moving up hill lately arachnid?<br>
+<br>
+I figured we were short on bandwith/memory room stuff.<br>
+<br>
+thanks for the hard work man, and it's working now.</div></div>
+<div class="post" id="p41514"><div class="post-head"><a class="id" href="../t/1824.html#p41514">#41514</a> <span class="index">6</span> <span class="date">2004-12-16T21:05:45Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/1824.html#p41511">Quote: maximo, Dec 16 2004, 09:01 PM</a></div> okay, is this why numa has been like molassas moving up hill lately arachnid?<br>
+<br>
+I figured we were short on bandwith/memory room stuff.<br>
+<br>
+thanks for the hard work man, and it's working now.  </blockquote> <br>
+ More or less. Here's the long story:<br>
+I have a spam filtering tool for my email called 'dspam'. It's great - I get about 100 spams a day, and perhaps 1 a day slips through the filter.<br>
+The problem is, dspam requires you to run a program once a day to clean useless information out of its database. This was automatically set up to run once a day by the setup script. I just discovered that the script got it wrong, though, and the cleanup process hasn't run since I installed dspam. Now I've got to run it  before I move my spam DB to the new server, and it's taking an age to run, slowing down everything else (including NUMA) until it's done. This is made worse by the virtual server I'm currently on having IO limiting - limiting the rate at which I can read and write to disk so I don't hog it.<br>
+<br>
+Hopefully it'll be done soon. Hopefully.</div></div>
+<div class="post" id="p41516"><div class="post-head"><a class="id" href="../t/1824.html#p41516">#41516</a> <span class="index">7</span> <span class="date">2004-12-16T21:11:06Z</span> <span class="author"><a href="../u/9370441.html">maximo</a></span></div><div class="post-body">ahh, that sucks.  Okay, I know it wasn't my box becuase LV and I are both having the problem.  That's fine arachnid, I mean you do have a life outside of numa, I can respect that.<br>
+<br>
+I'll bear through it, its not like I *need* n to live.</div></div>
+<div class="post" id="p41517"><div class="post-head"><a class="id" href="../t/1824.html#p41517">#41517</a> <span class="index">8</span> <span class="date">2004-12-16T21:19:44Z</span> <span class="author"><a href="../u/9370641.html">Arachnid</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/1824.html#p41516">Quote: maximo, Dec 16 2004, 09:11 PM</a></div> ahh, that sucks.  Okay, I know it wasn't my box becuase LV and I are both having the problem.  That's fine arachnid, I mean you do have a life outside of numa, I can respect that.<br>
+<br>
+I'll bear through it, its not like I *need* n to live.  </blockquote> <br>
+ I'm just hoping I can swap NUMA itself over to the new server with a minimum of downtime when the time comes, or I'll _really_ hear an outcry! <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p41537"><div class="post-head"><a class="id" href="../t/1824.html#p41537">#41537</a> <span class="index">9</span> <span class="date">2004-12-16T23:15:28Z</span> <span class="author"><a href="../u/9370426.html">Tsukatu</a></span></div><div class="post-body"><img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> <br>
+No <i>wonder</i> NUMA was slower than my handicapped grandmother! I thought it was a problem with my connection or something...</div></div>
+<div class="post" id="p41583"><div class="post-head"><a class="id" href="../t/1824.html#p41583">#41583</a> <span class="index">10</span> <span class="date">2004-12-17T04:23:06Z</span> <span class="author"><a href="../u/9370466.html">Castaway</a></span></div><div class="post-body">whoa, i was about to ask that, when my ADD kicked in and i lost interest. Okay, thanks for the explaination.</div></div>
+</main>
+</body>
+</html>

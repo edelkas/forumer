@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animation on click - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; animation on click</nav></header>
+<main>
+<div class="post" id="p8516"><div class="post-head"><a class="id" href="../t/9482.html#p8516">#8516</a> <span class="index">1</span> <span class="date">2006-05-06T10:51:11Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">Hi <br>
+Iam Kishore<br>
+can anybody say the actionscript required to animate a movie clip when i click it <br>
+and stop the animation when released<br>
+if any please say</div></div>
+<div class="post" id="p172685"><div class="post-head"><a class="id" href="../t/9482.html#p172685">#172685</a> <span class="index">2</span> <span class="date">2006-05-06T11:06:16Z</span> <span class="author"><a href="../u/9370891.html">Mark</a></span></div><div class="post-body"><b>ACTUALLY</b> Don't do that. I'm wrong.<br>
+<br>
+This is how you do it...<br>
+<br>
+Once you've made the invisible button over your animation, click on it in the main screen and add the following actionscript:<br>
+<br>
+on(press){<br>
+	play();<br>
+}<br>
+on(release){<br>
+	stop();<br>
+}<br>
+<br>
+Also, click on the first frame of your animation and put in stop(); in actionscript<br>
+<br>
+<br>
+(by the way, this probably shouldn't be in N help...)</div></div>
+<div class="post" id="p172689"><div class="post-head"><a class="id" href="../t/9482.html#p172689">#172689</a> <span class="index">3</span> <span class="date">2006-05-06T11:42:51Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">no not that <br>
+what i need is the movie clip should move to and hit the walls and then bounce of again<br>
+this should be done when i click the movieclip<br>
+the instance name of movieclip is ball and walls is wall</div></div>
+<div class="post" id="p172690"><div class="post-head"><a class="id" href="../t/9482.html#p172690">#172690</a> <span class="index">4</span> <span class="date">2006-05-06T11:50:06Z</span> <span class="author"><a href="../u/9370891.html">Mark</a></span></div><div class="post-body">It may help if you show us or explain what you're trying to do in more detail...</div></div>
+<div class="post" id="p172691"><div class="post-head"><a class="id" href="../t/9482.html#p172691">#172691</a> <span class="index">5</span> <span class="date">2006-05-06T11:57:36Z</span> <span class="author"><a href="../u/9372268.html">abyu</a></span></div><div class="post-body">MY movie contains a ball and fourwalls<br>
+the objective is tha when i click the ball the should bounce of and the number of mouseclicks should be displayed to the user as the score<br>
+when the hits the bottom wall the score should drop to 0<br>
+and when hits the top,left or right wall it should bounce<br>
+this is my movie <br>
+very simple isn't it <br>
+and help me</div></div>
+<div class="post" id="p172721"><div class="post-head"><a class="id" href="../t/9482.html#p172721">#172721</a> <span class="index">6</span> <span class="date">2006-05-06T13:25:08Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">The collision is pretty easy, except for the cursor. If you can detect collision from it then you just multiply the Y speed by -1 and increase a variable.</div></div>
+<div class="post" id="p172725"><div class="post-head"><a class="id" href="../t/9482.html#p172725">#172725</a> <span class="index">7</span> <span class="date">2006-05-06T13:30:20Z</span> <span class="author"><a href="../u/9370891.html">Mark</a></span></div><div class="post-body">So you're trying to make a keepy-uppy style game? Like keeping up a football.<br>
+<br>
+Actually, programming something like that would be quite hard. You'd need to create your own gravity rules and rules of acceleration and friction, etc.</div></div>
+<div class="post" id="p172732"><div class="post-head"><a class="id" href="../t/9482.html#p172732">#172732</a> <span class="index">8</span> <span class="date">2006-05-06T13:39:39Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Not acceration or friction nesscarly. The ball just has to move in seemingly random way and bounce off everything it touches.</div></div>
+<div class="post" id="p172746"><div class="post-head"><a class="id" href="../t/9482.html#p172746">#172746</a> <span class="index">9</span> <span class="date">2006-05-06T13:51:17Z</span> <span class="author"><a href="../u/9370891.html">Mark</a></span></div><div class="post-body">Well, I assumed you'd need acceleration because there would be gravity, and therefore the higher the ball falls from the higher it sould bounce before it slows down and begins accelerating under the force of gravity again. Maybe not friction then if you want it to be random. It would also be hard to have directional control (if you hit the ball sideways with the mouse).</div></div>
+<div class="post" id="p172748"><div class="post-head"><a class="id" href="../t/9482.html#p172748">#172748</a> <span class="index">10</span> <span class="date">2006-05-06T13:55:18Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Okay, disregard everything I've said in this topic.</div></div>
+</main>
+</body>
+</html>

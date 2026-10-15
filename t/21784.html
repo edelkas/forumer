@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N not running in Linux - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; <a href="../f/2.html">Troubleshooting</a> &rsaquo; N not running in Linux</nav></header>
+<main>
+<div class="post" id="p19476"><div class="post-head"><a class="id" href="../t/21784.html#p19476">#19476</a> <span class="index">1</span> <span class="date">2008-03-11T16:54:16Z</span> <span class="author"><a href="../u/9375895.html">Marc N</a></span></div><div class="post-body">Hey there, I'm trying to run N in Linux and basically, it's not running at all.<br>
+<br>
+I'm trying to run the exe using Wine, but I'm not getting any response at all. Any help?<br>
+<br>
+I apologise if this has been mentioned before, but there was a heck of a lot of stuff to search through...  <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"></div></div>
+<div class="post" id="p415880"><div class="post-head"><a class="id" href="../t/21784.html#p415880">#415880</a> <span class="index">2</span> <span class="date">2008-03-11T16:58:39Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Try running through the Terminal, or pick up the Linux version from the <a href="http://www.thewayoftheninja.org/n_downloads.html">download page. </a></div></div>
+<div class="post" id="p415907"><div class="post-head"><a class="id" href="../t/21784.html#p415907">#415907</a> <span class="index">3</span> <span class="date">2008-03-11T18:40:05Z</span> <span class="author"><a href="../u/9375895.html">Marc N</a></span></div><div class="post-body">I'm using the Linux version, and I've tried running through the terminal, but no cigar.<br>
+<br>
+When I try running it in the terminal, I get the same error as Kalir. I noticed it worked for him in Wine, so that was what I tried first.<br>
+<br>
+If it helps, I'm running Ubuntu 7.10 Desktop edition in a dual boot with Windows XP SP2</div></div>
+<div class="post" id="p415921"><div class="post-head"><a class="id" href="../t/21784.html#p415921">#415921</a> <span class="index">4</span> <span class="date">2008-03-11T19:33:26Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/21784.html#p415907">Quote: Marc N, March 11, 2008 06:40 pm</a></div> same error as Kalir.  </blockquote> <br>
+ What error is that?  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?"></div></div>
+<div class="post" id="p415936"><div class="post-head"><a class="id" href="../t/21784.html#p415936">#415936</a> <span class="index">5</span> <span class="date">2008-03-11T20:19:04Z</span> <span class="author"><a href="../u/9375895.html">Marc N</a></span></div><div class="post-body">From the terminal:<br>
+bal@bal-desktop:~/Desktop/n_v1linux$ ./n_v14<br>
+./n_v14: error while loading shared libraries: libgtk-1.2.so.0: cannot open shared object file: No such file or directory</div></div>
+<div class="post" id="p416146"><div class="post-head"><a class="id" href="../t/21784.html#p416146">#416146</a> <span class="index">6</span> <span class="date">2008-03-12T02:22:52Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">Do you have GTK installed?  Try "sudo apt-get install libgtk-1.2", then try the native version again.</div></div>
+<div class="post" id="p416304"><div class="post-head"><a class="id" href="../t/21784.html#p416304">#416304</a> <span class="index">7</span> <span class="date">2008-03-12T19:36:45Z</span> <span class="author"><a href="../u/9375895.html">Marc N</a></span></div><div class="post-body">Just tried that, but it couldn't find the package.<br>
+<br>
+I can run the windows version through wine but it lags <i>horribly.</i> I believe this is a known issue though. However it would be nice to try and get the linux version working as I'm sure the performance quality is better.<br>
+<br>
+Edit: Could the problem be that it runs from an exe, which Linux doesn't like?</div></div>
+<div class="post" id="p416305"><div class="post-head"><a class="id" href="../t/21784.html#p416305">#416305</a> <span class="index">8</span> <span class="date">2008-03-12T20:06:05Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">It doesn't. Most files in Linux don't have an extension, this inlcluded, IIRC.</div></div>
+<div class="post" id="p416327"><div class="post-head"><a class="id" href="../t/21784.html#p416327">#416327</a> <span class="index">9</span> <span class="date">2008-03-12T20:52:35Z</span> <span class="author"><a href="../u/9375895.html">Marc N</a></span></div><div class="post-body">Hmm, when I check the properties, it says it's an executable...</div></div>
+<div class="post" id="p416329"><div class="post-head"><a class="id" href="../t/21784.html#p416329">#416329</a> <span class="index">10</span> <span class="date">2008-03-12T20:57:33Z</span> <span class="author"><a href="../u/9371407.html">ZZ9</a></span></div><div class="post-body">Yes, but that isn't the same as a .exe, which is a Windows executable.</div></div>
+<div class="post" id="p416417"><div class="post-head"><a class="id" href="../t/21784.html#p416417">#416417</a> <span class="index">11</span> <span class="date">2008-03-13T02:31:38Z</span> <span class="author"><a href="../u/9375879.html">taaveti</a></span></div><div class="post-body">I'd suggest you use the package manager to try to find the appropriate package for libgtk 1.2.  Without an Ubuntu box in front of me, I can't tell you exactly what the package will be, but some possibilities from googling "libgtk-1.2.so package" include "libgtk1.2", "libgtk1.2-common", "libgtk-1.2".<br>
+<br>
+[edit]More from google: see <a href="http://www.uluga.ubuntuforums.org/showthread.php?t=599032">this</a> thread from the Ubuntu forums.[/edit]</div></div>
+</main>
+</body>
+</html>

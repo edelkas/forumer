@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I broke gravity - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; <a href="../f/10.html">Custom Levels</a> &rsaquo; I broke gravity</nav></header>
+<main>
+<div class="post" id="p17802"><div class="post-head"><a class="id" href="../t/20038.html#p17802">#17802</a> <span class="index">1</span> <span class="date">2007-11-04T15:38:56Z</span> <span class="author"><a href="../u/9375259.html">insertnamehere</a></span></div><div class="post-body">I orginaly intended to make a level where the ninja dies (like an execution) but instead this happened<br>
+<a href="https://www.nmaps.net/107094">http://numa.notdot.net/map/107094</a><br>
+When you hold left or right you can hover around, even through walls.</div></div>
+<div class="post" id="p376888"><div class="post-head"><a class="id" href="../t/20038.html#p376888">#376888</a> <span class="index">2</span> <span class="date">2007-11-04T15:40:27Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">Can you post a demo? All I seem to do is slide down the wall.<br>
+<br>
+Edit: Oh, I see what you've done. Try clicking in the demo data box before pressing loading the map and see what happens. The reason this bug manifests is because you inadvertently create an NaN'ed launchpad.</div></div>
+<div class="post" id="p376890"><div class="post-head"><a class="id" href="../t/20038.html#p376890">#376890</a> <span class="index">3</span> <span class="date">2007-11-04T15:47:31Z</span> <span class="author"><a href="../u/9375259.html">insertnamehere</a></span></div><div class="post-body">Wait till the door opens then move. NaN'ed launchpad? what that?</div></div>
+<div class="post" id="p376893"><div class="post-head"><a class="id" href="../t/20038.html#p376893">#376893</a> <span class="index">4</span> <span class="date">2007-11-04T15:53:11Z</span> <span class="author"><a href="../u/9371651.html">3v!1</a></span></div><div class="post-body">When you press "L" to load the map, you put the L onto the end of the code that decides a value used by the launchpad (I think it's launch strength). As the game doesn't recognize (sp?) letters in the level code, it replaces the code with NaN ("Not a Number). This means the launchpad has an unknown level of power, and so it bugs.<br>
+<br>
+When you press right won't make any difference. It's all to do with the data. You can get round this by clicking into the demo data box before you load (as I've said), or using the Userlevels+ data (the lower box on your map).</div></div>
+</main>
+</body>
+</html>

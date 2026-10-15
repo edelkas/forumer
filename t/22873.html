@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash Collision Detection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Flash Collision Detection</nav></header>
+<main>
+<div class="post" id="p20505"><div class="post-head"><a class="id" href="../t/22873.html#p20505">#20505</a> <span class="index">1</span> <span class="date">2008-06-12T05:17:08Z</span> <span class="author"><a href="../u/9371278.html">ska</a></span></div><div class="post-body">Hey guys, My name is ska (or Ben_Schultz_11 on the highscores boards)<br>
+<br>
+I'm currently doing a subject called Vet Multimedia.<br>
+<br>
+Basically I have to design and create a game using flash. I wanted to attach it below to download but the forum won't let me... It's incomplete but I think the start has potential.. I was just wondering what direction I should take this and If I were to attempt collision detection what would be the easiest way to go about it. Please  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"> Any tips??  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> <br>
+<br>
+I am a complete newbie in flash game design.. <img class="smiley" src="../files/smilies/2.gif" alt="tongue" title="tongue"><br>
+<br>
+If anyone wants me to email them the original flash file (.fla) or a working export (.swf) just PM with your email address and I'll contact you. Thanks and Bye!</div></div>
+<div class="post" id="p444197"><div class="post-head"><a class="id" href="../t/22873.html#p444197">#444197</a> <span class="index">2</span> <span class="date">2008-06-13T12:53:56Z</span> <span class="author"><a href="../u/9371874.html">mattk210</a></span></div><div class="post-body">rename the fla to something allowed like gif and we can convert it back. Will that work?<br>
+<br>
+if you're a complete newbie, the easiest way is a function called hittest which compares the bounding boxes of two movieclips (so its really only accurate with rectangular shapes). Alternatively, hittest supports exact edge collision with a point (ie: collide a scribble with a point), which can be used for mouse collision. You can use various inefficient hacks to support proper shape-to shape collision which I can explain if you want.<br>
+<br>
+Ideally, you should be coding your own collision though, metanet has a very good tutorial for SAT based collision but you can quite easily code your own with a simple grasp of logic.<br>
+<br>
+it would help if you outlined the exact problem you're having.</div></div>
+</main>
+</body>
+</html>

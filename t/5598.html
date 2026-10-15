@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help with my collision detection algorithm - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Help with my collision detection algorithm</nav></header>
+<main>
+<div class="post" id="p5114"><div class="post-head"><a class="id" href="../t/5598.html#p5114">#5114</a> <span class="index">1</span> <span class="date">2005-11-10T23:55:57Z</span> <span class="author">Guest</span></div><div class="post-body">After reading the first tutorial i decided to attempt to implement it into the game i'm writing currently. I am however running into some problems. First of all, i'm using an AABB for the player position and only triangles as the solid imoveable objects. I made a box out of triangles that the player can move inside. Now i don't want the player to be able to go out of this box. The collision detection works fine for inside most of the box, the problem occurs when i go near the corner of the box. if i'm in the bottom left corner for example, and i try to move down and left, the player pops right through. I'm not sure whats causing this but if anyone has any ideas that would help alot. Here's the code (in C++.. ):<br>
+<br>
+void Triangle::CollisionDetectAndResponse( Vertex &amp; pos )<br>
+{<br>
+	Vertex moveVec1, moveVec2, moveVec3;<br>
+	float moveLen1, moveLen2, moveLen3;<br>
+	moveVec1 = EdgeCollisionDetectAndResponse( pos, 0, 1, 2 );<br>
+	if( moveVec1.x == 0.0 &amp;&amp; moveVec1.y == 0.0 )<br>
+		return;<br>
+	moveVec2 = EdgeCollisionDetectAndResponse( pos, 1, 2, 0 );<br>
+	if( moveVec2.x == 0.0 &amp;&amp; moveVec2.y == 0.0 )<br>
+		return;<br>
+	moveVec3 = EdgeCollisionDetectAndResponse( pos, 2, 0, 1 );<br>
+	if( moveVec3.x == 0.0 &amp;&amp; moveVec3.y == 0.0 )<br>
+		return;<br>
+	moveLen1 = moveVec1.length();<br>
+	moveLen2 = moveVec2.length();<br>
+	moveLen3 = moveVec3.length();<br>
+	if( moveLen1 &lt; moveLen2 &amp;&amp; moveLen1 &lt; moveLen3 )<br>
+		pos += moveVec1;<br>
+	if( moveLen2 &lt; moveLen1 &amp;&amp; moveLen2 &lt; moveLen3 )<br>
+		pos += moveVec2;<br>
+	if( moveLen3 &lt; moveLen1 &amp;&amp; moveLen3 &lt; moveLen2 )<br>
+		pos += moveVec3;<br>
+}<br>
+<br>
+Vertex Triangle::EdgeCollisionDetectAndResponse( Vertex &amp; pos, int index1, int index2, int index3 )<br>
+{<br>
+	Vertex edgeNormal;<br>
+	Vertex projT;<br>
+	Vertex projP [ 4 ];<br>
+	Vertex centerOfTri;<br>
+	<br>
+	centerOfTri.x = v[ index1 ].x + v[ index2 ].x + v[ index3 ].x;<br>
+	centerOfTri.y = v[ index1 ].y + v[ index2 ].y + v[ index3 ].y;<br>
+	<br>
+	edgeNormal.x = v[ index1 ].y - v[ index2 ].y;<br>
+	edgeNormal.y = v[ index2 ].x - v[ index1 ].x;<br>
+	<br>
+	projT = getProjection( v[ index3 ] - v[ index1 ], edgeNormal );<br>
+	projP[ 0 ] = getProjection( Vertex( pos.x - 2, pos.y - 4 ) - v[ index1 ], edgeNormal );<br>
+	projP[ 1 ] = getProjection( Vertex( pos.x + 2, pos.y - 4 ) - v[ index1 ], edgeNormal );<br>
+	projP[ 2 ] = getProjection( Vertex( pos.x + 2, pos.y + 4 ) - v[ index1 ], edgeNormal );<br>
+	projP[ 3 ] = getProjection( Vertex( pos.x - 2, pos.y + 4 ) - v[ index1 ], edgeNormal );<br>
+<br>
+	return getMovementVector( projT, projP, pos - centerOfTri );<br>
+}<br>
+<br>
+Vertex Triangle::getProjection ( Vertex a, Vertex b )<br>
+{<br>
+	Vertex result;<br>
+	float dpOverLen;<br>
+	<br>
+	dpOverLen = ( a.x * b.x + a.y * b.y ) / ( b.x * b.x + b.y * b.y );<br>
+	<br>
+	result.x = dpOverLen * b.x;<br>
+	result.y = dpOverLen * b.y;<br>
+	<br>
+	return result;<br>
+}<br>
+<br>
+Vertex Triangle::getMovementVector ( Vertex projT, Vertex projP[ 4 ], Vertex deltaV )<br>
+{<br>
+	Vertex lowP, highP, lowT, highT;<br>
+	Vertex moveVec;<br>
+	<br>
+	highT.x = projT.x;<br>
+	highT.y = projT.y;<br>
+	lowP.x = projP[ 0 ].x;<br>
+	lowP.y = projP[ 0 ].y;<br>
+	highP.x = projP[ 0 ].x;<br>
+	highP.y = projP[ 0 ].y;<br>
+	for( int i = 1; i &lt; 4; i++ )<br>
+	{<br>
+		if( ( projP[ i ].x + projP[ i ].y ) &gt; ( highP.x + highP.y ) )<br>
+		{<br>
+			highP.x = projP[ i ].x;<br>
+			highP.y = projP[ i ].y;<br>
+		}<br>
+		if( ( projP[ i ].x + projP[ i ].y ) &lt; ( lowP.x + lowP.y ) )<br>
+		{<br>
+			lowP.x = projP[ i ].x;<br>
+			lowP.y = projP[ i ].y;<br>
+		}<br>
+	}<br>
+	if( ( projT.x + projT.y ) &lt; 0.0 )<br>
+	{<br>
+		lowT.x = projT.x;<br>
+		lowT.y = projT.y;<br>
+		highT.setVertex( 0.0, 0.0 );<br>
+	}<br>
+	if( ( highT.x + highT.y ) &lt; ( lowP.x + lowP.y ) || ( highP.x + highP.y ) &lt; ( lowT.x + lowT.y ) )<br>
+	{<br>
+		moveVec.setVertex( 0.0, 0.0 );<br>
+	}<br>
+	else if( ( highT.x + highT.y ) &gt;= ( lowP.x + lowP.y ) &amp;&amp; ( lowP.x + lowP.y ) &gt; ( lowT.x + lowT.y ) )<br>
+	{<br>
+		moveVec = lowP - highT;<br>
+		if( ( moveVec.x * deltaV.x + moveVec.y * deltaV.y ) &lt; 0 )<br>
+			moveVec = highT - lowP;<br>
+	}<br>
+	else if( ( highP.x + highP.y ) &gt;= ( lowT.x + lowT.y ) &amp;&amp; ( lowT.x + lowT.y ) &gt;= ( lowP.x + lowP.y ) )<br>
+	{<br>
+		moveVec = lowT - highP;<br>
+		if( ( moveVec.x * deltaV.x + moveVec.y * deltaV.y ) &lt; 0 )<br>
+			moveVec = highP - lowT;<br>
+	}<br>
+	return moveVec;<br>
+}<br>
+<br>
+[/code]<br>
+<br>
+I'm also having a bit of trouble trying to determine if a line overlaps another ( the projection vectors) and by how much....</div></div>
+</main>
+</body>
+</html>

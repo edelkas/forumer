@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How about the type for the N sprite? - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; How about the type for the N sprite?</nav></header>
+<main>
+<div class="post" id="p5374"><div class="post-head"><a class="id" href="../t/5887.html#p5374">#5374</a> <span class="index">1</span> <span class="date">2005-11-25T07:47:31Z</span> <span class="author"><a href="../u/9371318.html">arcus</a></span></div><div class="post-body">hi, all<br>
+How about the type for the N sprite when collision detection? It is AABB or circle? Does anyone have idea about this?<br>
+<br>
+Thank you very much<br>
+Frank</div></div>
+<div class="post" id="p117797"><div class="post-head"><a class="id" href="../t/5887.html#p117797">#117797</a> <span class="index">2</span> <span class="date">2005-11-25T08:05:30Z</span> <span class="author"><a href="../u/9370959.html">KinGAleX</a></span></div><div class="post-body">I'm pretty sure that the ninja is based on a circle. Don't quote me on that, but I'm 80 percent sure.</div></div>
+<div class="post" id="p117895"><div class="post-head"><a class="id" href="../t/5887.html#p117895">#117895</a> <span class="index">3</span> <span class="date">2005-11-25T15:43:39Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">it is indeed a circle, if you read through the tutorials you might be able to glean some additional information: <a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a></div></div>
+<div class="post" id="p117903"><div class="post-head"><a class="id" href="../t/5887.html#p117903">#117903</a> <span class="index">4</span> <span class="date">2005-11-25T16:38:10Z</span> <span class="author"><a href="../u/9370528.html">Maniac</a></span></div><div class="post-body">Yeah, the ninja is a circle. This is really useful for many situations, e.g. going up a concave curve(or convex? I forget), and tipping over the edge.<br>
+<br>
+Until he dies, in which case he turns into a ragdoll, which is much more complicated.</div></div>
+<div class="post" id="p118477"><div class="post-head"><a class="id" href="../t/5887.html#p118477">#118477</a> <span class="index">5</span> <span class="date">2005-11-27T14:08:00Z</span> <span class="author"><a href="../u/9371090.html">Sucker</a></span></div><div class="post-body">Yeah, a ragdoll is just five points sticking together, I suppose.</div></div>
+<div class="post" id="p118615"><div class="post-head"><a class="id" href="../t/5887.html#p118615">#118615</a> <span class="index">6</span> <span class="date">2005-11-28T01:46:59Z</span> <span class="author"><a href="../u/9371318.html">arcus</a></span></div><div class="post-body">Thanks a lot for the reply.<br>
+Using circle mode make it easy to fit many situation. And the animation switch between the different situation is quite good. Does anyone has any hint for the animation?<br>
+<br>
+Any help and suggestion will be welcome!<br>
+<br>
+Frank</div></div>
+<div class="post" id="p123664"><div class="post-head"><a class="id" href="../t/5887.html#p123664">#123664</a> <span class="index">7</span> <span class="date">2005-12-17T00:51:01Z</span> <span class="author">Guest <span class="guest">(guest)</span></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/5887.html#p117895">Quote: Raigan, Nov 25 2005, 03:43 PM</a></div> it is indeed a circle, if you read through the tutorials you might be able to glean some additional information: <a href="http://www.harveycartel.org/metanet/tutorials.html">http://www.harveycartel.org/metanet/tutorials.html</a>  </blockquote> <br>
+ Hmm, then how did you make the N sprite's leg touch the slope perfectly with the whole body inclined (or declined) depending on going down or up the slope.<br>
+<br>
+Let me take a random guess, you find the normal of the circle(representing the N sprite) to the slope and then use that as an angle and rotate the sprite accordingly ?<br>
+<br>
+I've been trying to code a very very simple platformer just for sake of having done it. But slopes are killing me even at the thinking stage. Without slopes it'll be like 100 times easier... sigh.<br>
+<br>
+Any suggestions on a way of implementing slopes ? Not the x pixels into slope, shift y pixel up/down method though...<br>
+<br>
+~pcx</div></div>
+<div class="post" id="p123768"><div class="post-head"><a class="id" href="../t/5887.html#p123768">#123768</a> <span class="index">8</span> <span class="date">2005-12-17T03:53:00Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">that's exactly it, you need a collision method which will return the normal of collision, and you just rotate the sprite to align to the normal.</div></div>
+</main>
+</body>
+</html>

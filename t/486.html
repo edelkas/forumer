@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux Version - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/7.html">General Community</a> &rsaquo; Linux Version</nav></header>
+<main>
+<div class="post" id="p407"><div class="post-head"><a class="id" href="../t/486.html#p407">#407</a> <span class="index">1</span> <span class="date">2004-07-01T01:24:25Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+we've got a linnux version up; we'll try to get a couple more, and see which works for most people.<br>
+<br>
+<br>
+<br>
+please let us know if there are any problems, etc.<br>
+<br>
+thanks,<br>
+raigan and mare<br>
+p.s - remove the .zip -- it's an executable, we added .zip to prevent some browsers from opening it as html</div></div>
+<div class="post" id="p24161"><div class="post-head"><a class="id" href="../t/486.html#p24161">#24161</a> <span class="index">2</span> <span class="date">2004-07-01T01:55:27Z</span> <span class="author"><a href="../u/9370454.html">Stud_Bagel</a></span></div><div class="post-body">Opera just tried to open that link as html.  Go figure.<br>
+<br>
+To the linuxmobile!</div></div>
+<div class="post" id="p24165"><div class="post-head"><a class="id" href="../t/486.html#p24165">#24165</a> <span class="index">3</span> <span class="date">2004-07-01T02:19:56Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+sorry -- try the link now (changed the phony extension to .zip)<br>
+raigan</div></div>
+<div class="post" id="p24169"><div class="post-head"><a class="id" href="../t/486.html#p24169">#24169</a> <span class="index">4</span> <span class="date">2004-07-01T03:04:51Z</span> <span class="author"><a href="../u/9370454.html">Stud_Bagel</a></span></div><div class="post-body">Preliminary report: <br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>error while loading shared libraries: <br>
+libstdc++<br>
+libc6.2-2.so.3<br>
+cannot open shared object file: No such file or directory</blockquote><br>
+I'm not fluent in linux error messages, so I'm not sure if this means there is a problem with the program or my linux.  I'll get the libraries  and give it another try.</div></div>
+<div class="post" id="p24213"><div class="post-head"><a class="id" href="../t/486.html#p24213">#24213</a> <span class="index">5</span> <span class="date">2004-07-01T22:54:29Z</span> <span class="author"><a href="../u/9370454.html">Stud_Bagel</a></span></div><div class="post-body">Okay, those libraries got it working.  Everything seems functional.  Serious problems with performance though.  The framerate doesn't drop, but every second or two all animation stops.  The juddering was so bad I couldn't beat 00-2.  <br>
+<br>
+I watched the system monitor while demos were running and noticed that N was fighting X, the display manager, over the CPU.  Changing the priority of N, or chaning the display quality, had no effect.  So it could just be my recipe drivers.  I just have the default drivers in there now, so I'll mess with that and report back.</div></div>
+<div class="post" id="p24217"><div class="post-head"><a class="id" href="../t/486.html#p24217">#24217</a> <span class="index">6</span> <span class="date">2004-07-01T23:32:22Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+thanks for the details!<br>
+<br>
+it might be that the linux player is v6, whereas the pc/mac player is v7, which had several speed improvements made -- it's possible the v6 player can't handle it.<br>
+<br>
+what are your system specs?<br>
+<br>
+thanks,<br>
+raigan</div></div>
+<div class="post" id="p24227"><div class="post-head"><a class="id" href="../t/486.html#p24227">#24227</a> <span class="index">7</span> <span class="date">2004-07-02T02:05:29Z</span> <span class="author"><a href="../u/9370454.html">Stud_Bagel</a></span></div><div class="post-body">Athlon 2100+<br>
+512 megs of PC2100 ram<br>
+Ati Radeon 8500dv<br>
+<br>
+N runs fine in Windows XP, I can even play a divx movie on the side without hurting the framerate.<br>
+<br>
+I haven't had any luck making it work better in Linux.  I did manage to make it run a whole lot worse at one point.  It seems that I haven't got the AGP stuff set up right, but that shouldn't be effecting N.  I tried loading up some shockwave animations in Mozilla, and they played smoothly enough.  The projector is the prime suspect now.</div></div>
+<div class="post" id="p24321"><div class="post-head"><a class="id" href="../t/486.html#p24321">#24321</a> <span class="index">8</span> <span class="date">2004-07-06T11:10:27Z</span> <span class="author"><a href="../u/9370460.html">xerom</a></span></div><div class="post-body">Hello,<br>
+I have the same problem, the animation also stops every second or two.<br>
+I've tried it in <a href="http://www.merlot.net">wine</a> and runs perfectly, but I can't submit my scores...<br>
+<br>
+Athlon XP 2000+<br>
+512MB ram<br>
+GeForce4 Ti 4200 with latest drivers<br>
+Debian sid<br>
+kernel version: 2.6.7 from kernel.org<br>
+<br>
+Hope this helps in any way!</div></div>
+<div class="post" id="p24324"><div class="post-head"><a class="id" href="../t/486.html#p24324">#24324</a> <span class="index">9</span> <span class="date">2004-07-06T15:29:14Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+have you tried the latest winex release?<br>
+<br>
+can you view/download the online highscores, or is _all_ the network stuff not working in <a href="http://www.merlot.net">wine</a>?<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24330"><div class="post-head"><a class="id" href="../t/486.html#p24330">#24330</a> <span class="index">10</span> <span class="date">2004-07-06T17:56:43Z</span> <span class="author"><a href="../u/9370460.html">xerom</a></span></div><div class="post-body">Yes, I have tried the last release (cedega) and all the network stuff isn't working, whenever I try to create a new user, or change user it gives 'waiting for server response...' and then just 'error:', but it tries something, because there's a cilantro network activity whenever I try one of those options.<br>
+When I go to the highscores, it stays in 'downloading records..' forever.<br>
+With other games it works, but they don't use flash...</div></div>
+<div class="post" id="p24333"><div class="post-head"><a class="id" href="../t/486.html#p24333">#24333</a> <span class="index">11</span> <span class="date">2004-07-06T18:50:20Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+well, the fact that it gave you an "error:" message means that it _did_ connect to the server, and _did_ get something back -- but i'm guessing what it sent and/or received was null, since otherwise the error message would have been a bit more verbose <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"><br>
+<br>
+afaik flash isn't doing anything weird, it's sending/receiving to/from php, and it _should_ be identical to a browser accessing the php pages...<br>
+<br>
+raigan</div></div>
+<div class="post" id="p24340"><div class="post-head"><a class="id" href="../t/486.html#p24340">#24340</a> <span class="index">12</span> <span class="date">2004-07-06T21:49:26Z</span> <span class="author"><a href="../u/9370460.html">xerom</a></span></div><div class="post-body">Well, in the version for linux you posted, all the network part works well, but in the windows version on <a href="http://www.merlot.net">wine</a>, it doesn't work...</div></div>
+<div class="post" id="p24527"><div class="post-head"><a class="id" href="../t/486.html#p24527">#24527</a> <span class="index">13</span> <span class="date">2004-07-10T12:05:30Z</span> <span class="author"><a href="../u/9370477.html">tunah</a></span></div><div class="post-body">The animation problem seems to trigger at the point when the last sound effect finishes (so we have silence). Apparently this is a problem with the OSS support in the linux flash player. (Doesn't support ALSA in this day and age? ;-)<br>
+Found this info .<br>
+The workaround is to use the esd support instead. First, make sure you've got ESD installed (comes with gnome, doesn't it?). Then run<br>
+"esd &amp;" to start esd in the background. Then start N. <br>
+ESD will automatically quit after a period of inactivity.<br>
+The downside for me is quite a bit of delay for sounds, so I just turn the volume to zero. (If turning the volume to zero disabled sounds completely, then ESD would be unneccesary, that'd be a nice feature to have).<br>
+Hope this helps.</div></div>
+<div class="post" id="p24537"><div class="post-head"><a class="id" href="../t/486.html#p24537">#24537</a> <span class="index">14</span> <span class="date">2004-07-10T13:53:47Z</span> <span class="author"><a href="../u/9370521.html">fractic</a></span></div><div class="post-body">would it be possible to get a unix version too. I would like to play N at the university</div></div>
+<div class="post" id="p24575"><div class="post-head"><a class="id" href="../t/486.html#p24575">#24575</a> <span class="index">15</span> <span class="date">2004-07-10T20:08:03Z</span> <span class="author"><a href="../u/9370460.html">xerom</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/486.html#p24527">Quote: tunah, Jul 10 2004, 12:05 PM</a></div>The animation problem seems to trigger at the point when the last sound effect finishes (so we have silence). Apparently this is a problem with the OSS support in the linux flash player. (Doesn't support ALSA in this day and age? ;-)<br>
+Found this info .<br>
+The workaround is to use the esd support instead. First, make sure you've got ESD installed (comes with gnome, doesn't it?). Then run<br>
+"esd &amp;" to start esd in the background. Then start N. <br>
+ESD will automatically quit after a period of inactivity.<br>
+The downside for me is quite a bit of delay for sounds, so I just turn the volume to zero. (If turning the volume to zero disabled sounds completely, then ESD would be unneccesary, that'd be a nice feature to have).<br>
+Hope this helps.</blockquote>Thanks! Now it works like a charm <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+I didn't even tought it was a sound problem...<br>
+If you don't want sound at all, you can use esdctl off, or instead of using esd, you can link /dev/null to /dev/dsp</div></div>
+<div class="post" id="p25415"><div class="post-head"><a class="id" href="../t/486.html#p25415">#25415</a> <span class="index">16</span> <span class="date">2004-08-01T12:54:12Z</span> <span class="author">Guest</span></div><div class="post-body">Im on Gentoo Ill be glad to test it ive been wineing it for sometime now but doesnt work too good with <a href="http://www.merlot.net">wine</a>.  <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+<div class="post" id="p25574"><div class="post-head"><a class="id" href="../t/486.html#p25574">#25574</a> <span class="index">17</span> <span class="date">2004-08-06T04:52:39Z</span> <span class="author">Guest</span></div><div class="post-body">You sure the zip file isn't corrupt? I downloaded it, and unzip is saying it's not a zip file... <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono"></div></div>
+<div class="post" id="p25595"><div class="post-head"><a class="id" href="../t/486.html#p25595">#25595</a> <span class="index">18</span> <span class="date">2004-08-06T13:47:58Z</span> <span class="author">Guest</span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/486.html#p407">Quote: Raigan, Jun 30 2004, 09:24 PM</a></div> <br>
+p.s - remove the .zip -- it's an executable, we added .zip to prevent some browsers from opening it as html  </blockquote> <br>
+ it's not a zip.  <br>
+<br>
+<br>
+Tomorrow I'll post the link on the N sour cream page; it'll be .tar.gz'd.<br>
+sorry about that!</div></div>
+<div class="post" id="p25875"><div class="post-head"><a class="id" href="../t/486.html#p25875">#25875</a> <span class="index">19</span> <span class="date">2004-08-15T09:54:37Z</span> <span class="author">Guest</span></div><div class="post-body">Tried it out here, and it works just fine, sadly it has quite bad FPS, just enough to ruin the experience. :-/ I was hoping I could get it for Linux too, as my home computer runs Gentoo - I play this game on my laptop and it absolutely rocks!<br>
+<br>
+I see there is some debate as to whether it is the projector or the falsh version (or both) that is the problem. Not knowing how this application is written, would it be possible to export and run it as a normal .swf? Flash Player 7 is available for Linux (running it now), though I do not know if the projector is in any newer edition. Anyhow, if it would play fine inside my browser, that would help pinpoint what the trouble is. If it is the same, it would be aproblem with flash support on Linux, plain and simple. It is usually that. ;-)</div></div>
+<div class="post" id="p25997"><div class="post-head"><a class="id" href="../t/486.html#p25997">#25997</a> <span class="index">20</span> <span class="date">2004-08-18T18:52:34Z</span> <span class="author">Guest</span></div><div class="post-body">I'm in love with this game, and i've long out-grown the "gaming" phase of my life. The only thing i would like to see is a linux version, so i hope you guys haven't given up on that idea. I <i>must</i> have this on my laptop  <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"> <br>
+More generally, great burrito, N is the most innovative game i've seen in a while. Kudos!</div></div>
+<div class="post" id="p26053"><div class="post-head"><a class="id" href="../t/486.html#p26053">#26053</a> <span class="index">21</span> <span class="date">2004-08-19T21:22:08Z</span> <span class="author">Guest</span></div><div class="post-body">sry -- we've been crazy busy.  I swear I will have that linux version up by the end of the weekend.  So that's by the end of August 22, for you sticklers.</div></div>
+<div class="post" id="p26199"><div class="post-head"><a class="id" href="../t/486.html#p26199">#26199</a> <span class="index">22</span> <span class="date">2004-08-22T19:28:13Z</span> <span class="author">Guest</span></div><div class="post-body">Hey, it works fine for me (great frame rate etc), except for the OSS sound freezing thing. Can't get it to use esd either. Would it be possible to get a nosound version, or (preferably) a swf file?</div></div>
+<div class="post" id="p26262"><div class="post-head"><a class="id" href="../t/486.html#p26262">#26262</a> <span class="index">23</span> <span class="date">2004-08-24T14:01:50Z</span> <span class="author"><a href="../u/9370589.html">Malach</a></span></div><div class="post-body">Hmm.. so the version posted in this thread was the one released? That's a damn shame... I have a lot of trouble getting this game to run well enough to even think about doing anything but the first few levels... <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"> The problem of course is the pausing frequently which apparently is caused by OSS. So... what's happening on this front? Is this the "It compiles, ship it!" release or can we expect another release?<br>
+<br>
+Cheers<br>
+<br>
+BTW, I love the game. It reminds me much of the CPMA mod for Quake3 (<a href="http://www.promode.org">www.promode.org</a>).</div></div>
+<div class="post" id="p26264"><div class="post-head"><a class="id" href="../t/486.html#p26264">#26264</a> <span class="index">24</span> <span class="date">2004-08-24T18:54:44Z</span> <span class="author">Guest</span></div><div class="post-body">Perhaps this has been fixed in Flash Player 7? Can we get a version using that?</div></div>
+<div class="post" id="p26269"><div class="post-head"><a class="id" href="../t/486.html#p26269">#26269</a> <span class="index">25</span> <span class="date">2004-08-24T22:50:19Z</span> <span class="author"><a href="../u/9370486.html">Banannakid</a></span></div><div class="post-body">N is already compiled in flash player 7.</div></div>
+<div class="post" id="p26272"><div class="post-head"><a class="id" href="../t/486.html#p26272">#26272</a> <span class="index">26</span> <span class="date">2004-08-25T00:46:18Z</span> <span class="author"><a href="../u/9370589.html">Malach</a></span></div><div class="post-body">Not the linux one. The Linux version to download has now been tarred and gzipped with some text files, but it appears as though the executable hasn't changed. Damn shame <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry"></div></div>
+<div class="post" id="p26290"><div class="post-head"><a class="id" href="../t/486.html#p26290">#26290</a> <span class="index">27</span> <span class="date">2004-08-25T19:24:26Z</span> <span class="author">Guest</span></div><div class="post-body">sorry about that -- we're still working on a good Linux version.</div></div>
+<div class="post" id="p26300"><div class="post-head"><a class="id" href="../t/486.html#p26300">#26300</a> <span class="index">28</span> <span class="date">2004-08-26T07:15:45Z</span> <span class="author"><a href="../u/9370589.html">Malach</a></span></div><div class="post-body">Cool, glad to hear that. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"></div></div>
+<div class="post" id="p28388"><div class="post-head"><a class="id" href="../t/486.html#p28388">#28388</a> <span class="index">29</span> <span class="date">2004-09-18T19:11:05Z</span> <span class="author"><a href="../u/9370589.html">Malach</a></span></div><div class="post-body">Sorry to bump the thread, but is there any news regarding the linux version of N? If you've scrapped the port of N, I hope that your next game will have a quality native version. You would indeed make my day if you did <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"><br>
+<br>
+Cheers</div></div>
+<div class="post" id="p40518"><div class="post-head"><a class="id" href="../t/486.html#p40518">#40518</a> <span class="index">30</span> <span class="date">2004-12-11T10:59:18Z</span> <span class="author">Guest</span></div><div class="post-body">Bump  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"></div></div>
+<div class="post" id="p40558"><div class="post-head"><a class="id" href="../t/486.html#p40558">#40558</a> <span class="index">31</span> <span class="date">2004-12-11T17:52:55Z</span> <span class="author">Guest</span></div><div class="post-body">hey,<br>
+now that flashplayer7 is out for linux there should be a better version coming "some time". the main problem is first we need to tke one of our old computers and turn it into a linux box...<br>
+<br>
+raigan</div></div>
+<div class="post" id="p43652"><div class="post-head"><a class="id" href="../t/486.html#p43652">#43652</a> <span class="index">32</span> <span class="date">2005-01-01T00:48:54Z</span> <span class="author">Guest</span></div><div class="post-body">That is good news, I was almost despairing here. <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+I don't know what it takes to do the actual packaging, but maybe Knoppix or CoLinux could be enough to do the actual work? Knoppix is Linux booted of a CD, and CoLinux is Linux run under Windows. The second one may have the problem of not having much of a GUI by default, I'm not sure...<br>
+<br>
+Well anyways, just letting you know that I really look forward to a Linux port!</div></div>
+<div class="post" id="p48101"><div class="post-head"><a class="id" href="../t/486.html#p48101">#48101</a> <span class="index">33</span> <span class="date">2005-01-26T15:46:47Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+i downloaded the linux version but i couldn't get it to work.<br>
+after i unzip/untar it, since the game isn't executable, i give it execution permissions with "chmod +x n_v13c", but when i try to run it i get the error:<br>
+<br>
+<blockquote class="quote"><div class="quote-head">Quote</div>./n_v13c: error while loading shared libraries: libstdc++-libc6.2-2.so.3: cannot open shared object file: No such file or directory</blockquote>i tried to find libstdc++-libc6.2-2.so.3 in rpmfind.net but i couldnt.<br>
+<br>
+i would be very happy if i could get some help <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+thanks</div></div>
+<div class="post" id="p199040"><div class="post-head"><a class="id" href="../t/486.html#p199040">#199040</a> <span class="index">34</span> <span class="date">2006-07-05T02:55:05Z</span> <span class="author"><a href="../u/9372721.html">dash</a></span></div><div class="post-body">I had that problem too, was told that libstdc++2.10-glibc2.2 solves it, which it apparently does.  The only problem now is that it runs very choppily.  I am on a 2.2GHz, 2GB RAM [+3GB swap] PC, and it pauses about twice per second.  For the non pause times, I get about 8 mspf [125 fps], but it spikes to usually around 190 mspf [5.25 fps], or so it claims.  There are actually no frames displayed when it pauses, and death is the most common result, as you have no control over the character when it does this.  Anybody have any ideas on how to make this playable again?</div></div>
+</main>
+</body>
+</html>

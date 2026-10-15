@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts by lost260 - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../users.html">Users</a> &rsaquo; <a href="../u/9375266.html">lost260</a> &rsaquo; Posts</nav></header>
+<main>
+<div class="post" id="p17785"><div class="post-head"><a class="id" href="../t/20021.html#p17785">#17785</a> <span class="index">1</span> <span class="date">2007-11-03T16:18:53Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">Sorry if already exists, I am so tired I did not search the forums. Anyways, here is everything you need to know in order to make N userlevels without the editor, typing directly into the userlevels.txt file. Please note, that one step means two 1/2 snap movements of the cursor or one movement of the little gray box surrounding the white X. Tile code and Object code must be divided by a vertical divider "|" (without the quotes). Please also note, that this is intended for people who have used the editor before, have read the instructions, and no what I am referring to. For anyone who doesn't know, the X and Y coordinates refers to the number of Pixels. Please let me know if there is anything I forgot, or if you are just confused.<br>
+<br>
+units:<br>
+        1 step = 24 pixels<br>
+        1/2 step = 12 pixels<br>
+        1/4 step = 6 pixels<br>
+<br>
+corners (the center of each corner square:<br>
+        upper left = 36, 36<br>
+        upper right = 756, 36<br>
+        lower left = 36, 564<br>
+        lower right = 756, 564<br>
+                (x coordinate, y coordinate)<br>
+<br>
+vector1/vector2:<br>
+        0/0 = right<br>
+        -1/0 = left<br>
+        0/1 = down<br>
+        0/-1= up<br>
+<br>
+non-vectored directions<br>
+        0 = right<br>
+        1 = down<br>
+        2 = left<br>
+        3 = up<br>
+<br>
+object coding:<br>
+        0 = gold<br>
+                id^x,y<br>
+        1 = bounce block<br>
+                id^x,y<br>
+        2 = launch pad<br>
+                id^x,y,vector1,vector2<br>
+        3 = gauss turret<br>
+                id^x,y<br>
+        4 = floor guard<br>
+                id^x,y,1<br>
+        5 = ninja (must be placed first)<br>
+                id^x,y<br>
+        6 = zap drone/homing drone<br>
+                id^x,y,movement style,type1,type2,non-vectored direction<br>
+                        movement styles:<br>
+                                0 = surface follow CW<br>
+                                1 = surface follow CCW<br>
+                                2 = dumb CW<br>
+                                3 = dumb CCW<br>
+                                4 = alternating surface follow (CW/CCW)<br>
+                                5 = quasi-random<br>
+                        type1/type2<br>
+                                0/0 = zap drone<br>
+                                1/0 = homing zap drone<br>
+                                0/1 = laser drone<br>
+                                0/2 = chaingun drone<br>
+        7 = oneway platform<br>
+                id^x,y,non-vectored direction<br>
+        8 = thwump<br>
+                id^x,y,non-vectored direction<br>
+        9 = door:<br>
+                id^trigger x (normal door x), trigger y (normal door y),orient,type1,col,row,type2,vector1,vector2<br>
+                        type1/type2<br>
+                                0/0 = normal<br>
+                                0/1 = locked<br>
+                                1/0 = trap<br>
+                        orient<br>
+                                0 = horizontal (enter from left or right)<br>
+                                1 = vertical (enter from top or bottom)<br>
+                        vector1/vector2<br>
+                                -1/0 = left<br>
+                                0/-1 = up<br>
+                                0/0 = right<br>
+                                0/0 = down<br>
+        10 = homing launcher<br>
+                id^x,y<br>
+        11 = exit<br>
+                id^x,y,trigger x,trigger y<br>
+        12 = mine<br>
+                id^x,y<br>
+<br>
+<br>
+<br>
+tile coding (713 tiles per stage)<br>
+<br>
+0 = empty square<br>
+1 = full square<br>
+2 = triangular half (w)<br>
+3 = triangular half (q)<br>
+4 = triangular half (a)<br>
+5 = triangular half (s)<br>
+6 = concave curve (w)<br>
+7 = concave curve (q)<br>
+8 = concave curve (a)<br>
+9 = concave curve (s)<br>
+B = shallow triangle [part 1] (w)<br>
+C = shallow triangle [part 1] (q)<br>
+D = shallow triangle [part 1] (a)<br>
+E = shallow triangle [part 1] (s)<br>
+F = steep triangle [part 1] (w)<br>
+G = steep triangle [part 1] (q)<br>
+H = steep triangle [part 1] (a)<br>
+I = steep triangle [part 1] (s)<br>
+J = steep triangle [part 2] (w)<br>
+K = steep triangle [part 2] (q)<br>
+L = steep triangle [part 2] (a)<br>
+M = steep triangle [part 2] (s)<br>
+P = half square (w)<br>
+Q = half square (q)<br>
+N =  half square (a)<br>
+O = half square (s)<br>
+&gt; = shallow triangle [part 2] (w)<br>
+? = shallow triangle [part 2] (q)<br>
+@ = shallow triangle [part 2] (a)<br>
+A = shallow triangle [part 2] (s)<br>
+: = convex curve (w)<br>
+; = convex curve (q)<br>
+&lt; = convex curve (a)<br>
+= = convex curve (s)<br>
+<br>
+<br>
+<br>
+I figured this out without any help, and without decompiling the game. I deciphered the code by repetitive testing (this object has this code... let's see what happens if I put it here instead?), and double-checked everything. I would like to thank my father, who did point out how inefficient some of the code is.<br>
+<br>
+I have not beaten N, and I suck at most video games, but please see my new line of levels, styled after the Olympics.<br>
+<br>
+I added a download of the above data, for anyone who's interested...<br>
+<br>
+<br>
+--------------------------------------------------<br>
+Reading about myself on the forums:<br>
+ <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/17.gif" alt=":|" title=":|">  <img class="smiley" src="../files/smilies/11.gif" alt=":?" title=":?">  <img class="smiley" src="../files/smilies/16.gif" alt="nono" title="nono">  <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01">  <img class="smiley" src="../files/smilies/25.gif" alt=":no:" title=":no:">  <img class="smiley" src="../files/smilies/9.gif" alt="smiley-cry" title="smiley-cry">  <img class="smiley" src="../files/smilies/12.gif" alt=";(" title=";(">  <img class="smiley" src="../files/smilies/5.gif" alt=":/" title=":/">  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/32.png" alt=":mull:" title=":mull:">  <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes">  <img class="smiley" src="../files/smilies/3.gif" alt="cute" title="cute">  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02">  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"> <img class="smiley" src="../files/smilies/18.gif" alt=":yes:" title=":yes:"> <div class="attachment attachment-missing">Attachment (lost): post-14-1194107181.doc</div></div></div>
+<div class="post" id="p377129"><div class="post-head"><a class="id" href="../t/20021.html#p377129">#377129</a> <span class="index">7</span> <span class="date">2007-11-05T14:56:15Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">Thank you for the comments!<br>
+<br>
+To start with, some of the code seems redundant, such as when the 'normal door' uses an ID for orientation (horizontal or vertical), <i>and</i> an ID for vector. Wouldn't you just be able to use "1/0" for right and "0/1" for down? I am going very soon to decompile the game, as I am wondering why it takes so long to parse and load the Userlevels. From my estimation, it takes one second to load one-hundred K (kilo-bytes), which is much slower than it should be (one-tenth of a second). In terms of the way the map data was presented though, I can see why they did it that way. It definitely seems easiest to parse and edit that way.<br>
+<br>
+I am glad someone did this before, and I am also glad that you (whoever feels this way) prefer mine. I tried my best to make it simple and comprehensive.<br>
+<br>
+I think that I will wait and see what N v1.5 looks like before I attempt to recode a personal version. (It is a lot of work).<br>
+<br>
+Please, if someone could tell me how, or could just move this post for me, I would like to put it in the proper category (I will also need someone to tell me where that is).<br>
+<br>
+Lastly,<br>
+He/She?<br>
+<br>
+He... I think...<br>
+ <img class="smiley" src="../files/smilies/26.gif" alt=":shift:" title=":shift:"></div></div>
+<div class="post" id="p377130"><div class="post-head"><a class="id" href="../t/20021.html#p377130">#377130</a> <span class="index">8</span> <span class="date">2007-11-05T15:08:37Z</span> <span class="author"><a href="../u/9375266.html">lost260</a></span></div><div class="post-body">I have (slightly) edited my original post. I have changed some things that are/were wrong at the time of post.<br>
+<br>
+<br>
+Not that anyone really cares...</div></div>
+</main>
+</body>
+</html>

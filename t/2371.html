@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vector projection - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; vector projection</nav></header>
+<main>
+<div class="post" id="p2122"><div class="post-head"><a class="id" href="../t/2371.html#p2122">#2122</a> <span class="index">1</span> <span class="date">2005-03-04T08:54:07Z</span> <span class="author">Guest</span></div><div class="post-body">where can i find source of .fla in this article <a href="http://www.harveycartel.org/metanet/tutorials/tutorialA.html#appendixA">vector projection</a> ???</div></div>
+<div class="post" id="p52532"><div class="post-head"><a class="id" href="../t/2371.html#p52532">#52532</a> <span class="index">2</span> <span class="date">2005-03-04T09:48:26Z</span> <span class="author">Guest</span></div><div class="post-body">I'ma let Raigan field this one, since this is, by no means, my area of expertise.</div></div>
+<div class="post" id="p52536"><div class="post-head"><a class="id" href="../t/2371.html#p52536">#52536</a> <span class="index">3</span> <span class="date">2005-03-04T09:56:21Z</span> <span class="author">Guest</span></div><div class="post-body">can you send me source ???</div></div>
+<div class="post" id="p52540"><div class="post-head"><a class="id" href="../t/2371.html#p52540">#52540</a> <span class="index">4</span> <span class="date">2005-03-04T10:56:13Z</span> <span class="author">Guest</span></div><div class="post-body">The source for N will be released alongside v1.4, but I'm unsure as to when that will be. As I said before, Raigan is the man to speak to on this topic. He should be online later today, I believe.</div></div>
+<div class="post" id="p52602"><div class="post-head"><a class="id" href="../t/2371.html#p52602">#52602</a> <span class="index">5</span> <span class="date">2005-03-05T00:55:08Z</span> <span class="author">Guest</span></div><div class="post-body">hi,<br>
+the source for the diagram is worse than useless, because it's much more complicated to SHOW the projection than to just do it.<br>
+<br>
+here's some pseudocode; you can rearrange some of the steps for speed, but this will hopefully make it very clear what's going on:<br>
+<br>
+given vectors v= (vx,vy) and d=(dx,dy), you want to find the projection p=(px,py) of v onto d<br>
+<br>
+steo "zero" is: you want to have VECTORS, not points. if you have two points a=(ax,ay) and b=(bx,by), and you want to find the vector v=(vx,vy) from a <i>to</i> b:<br>
+<br>
+vx = bx - ax;<br>
+vy = by - ay;<br>
+<br>
+<br>
+so, assuming all of your vectors are actually vectors and not points/positions..<br>
+<br>
+first, you want to scale d until it's unit-length:<br>
+var dlen = Math.sqrt(dx*dx + dy*dy)<br>
+if(dlen == 0)<br>
+{<br>
+  //this is a problem/error -- we can't divide by 0 so stop here and don't continue<br>
+}<br>
+<br>
+dx /= dlen;<br>
+dy /= deln;//dx,dy is now a vector of length 1<br>
+<br>
+<br>
+now, we do the actual "projection"<br>
+<br>
+var dp = vx*dx + vy*dy;//dp is the dotproduct of v and d<br>
+<br>
+px = dp*dx;<br>
+py = dp*dy;<br>
+<br>
+<br>
+done!<br>
+<br>
+the LENGTH of p is Math.abs(dp). the direction is parallel to d, so it can be in one of two directions along d, depending on if dp is positive or negative.<br>
+<br>
+i hope this helps.<br>
+thanks,<br>
+raigan<br>
+p.s - wait.. we GAVE source code in that article! it's right there above the diagram!! aRGH!!!!! so basically what i just wrote is useless, it was already there in appendix A. if you want source for how to draw lines and stuff in flash, you should post on the flashkit boards <a href="http://www.flashkit.com">http://www.flashkit.com</a></div></div>
+</main>
+</body>
+</html>

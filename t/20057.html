@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>orientation of rigid body - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; orientation of rigid body</nav></header>
+<main>
+<div class="post" id="p17820"><div class="post-head"><a class="id" href="../t/20057.html#p17820">#17820</a> <span class="index">1</span> <span class="date">2007-11-05T18:17:36Z</span> <span class="author"><a href="../u/9375274.html">bid</a></span></div><div class="post-body">i am building a simple physics engine in AS3.It currently supports rectangle and circle particle.well most of the work is nearly competed but implementing true rotation of rigid body is really giving me a headache.the engine supports rotation only in case of a single contact point but in case of more than one contact point i couldn't figure out the calculation of the force at each contact point.Could anybody help me or give reference to a nice article explaining the orientation of rigid body after collission ?<br>
+here' s little demo of my engine(soft body).Make sure you have flash player 9</div></div>
+<div class="post" id="p377157"><div class="post-head"><a class="id" href="../t/20057.html#p377157">#377157</a> <span class="index">2</span> <span class="date">2007-11-05T18:24:53Z</span> <span class="author"><a href="../u/9370675.html">wedgie</a></span></div><div class="post-body">Erm, where is the demo? <img class="smiley" src="../files/smilies/22.gif" alt=";-)" title=";-)"></div></div>
+<div class="post" id="p377528"><div class="post-head"><a class="id" href="../t/20057.html#p377528">#377528</a> <span class="index">3</span> <span class="date">2007-11-07T14:23:03Z</span> <span class="author"><a href="../u/9375274.html">bid</a></span></div><div class="post-body">thanks for pointing<br>
+well, i havent't put the demo on the web so there is no link to my swf.I thought i could directly post my swf on the forum via the "file attachment" option but it didn't let me do so.if you are interested could you please post any mailing address of yours.the demo is inspired from slimyblob presented in polygonal lab but it is implement entirely using my own physics engine.</div></div>
+<div class="post" id="p377530"><div class="post-head"><a class="id" href="../t/20057.html#p377530">#377530</a> <span class="index">4</span> <span class="date">2007-11-07T15:07:02Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">you should be able to just proceed as usual for each contact, i.e apply impulses or whatever you're doing at each contact point, ignoring all of the others. of course, this isn't totally correct, but that's the solution most people use: just solve the constraints one-by-one rather than trying to figure out how they all interact with each other.</div></div>
+<div class="post" id="p377658"><div class="post-head"><a class="id" href="../t/20057.html#p377658">#377658</a> <span class="index">5</span> <span class="date">2007-11-08T06:09:14Z</span> <span class="author"><a href="../u/9375274.html">bid</a></span></div><div class="post-body">thanks raigan,<br>
+i saw the similar implementation as you stated in Erin Catto's Box2D example.I thought there could be much more realistic  approach to this but since everybody is using it I wil surely it a try. thanks for replying.</div></div>
+<div class="post" id="p377703"><div class="post-head"><a class="id" href="../t/20057.html#p377703">#377703</a> <span class="index">6</span> <span class="date">2007-11-08T16:10:47Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">It's sort of the same thing: if you try to solve all the contacts at once, you end up with a system of equations which encodes how each contact affects the others. One way to solve such a system is Gauss-Seidel relaxation, where you solve each row of the matrix individually -- this is identical to simply solving each contact individually. <br>
+<br>
+So in a way Box2D/etc. _are_ solving all the contacts at once, they're just using an iterative method to find the solution.</div></div>
+<div class="post" id="p380135"><div class="post-head"><a class="id" href="../t/20057.html#p380135">#380135</a> <span class="index">7</span> <span class="date">2007-11-17T10:04:57Z</span> <span class="author"><a href="../u/9375274.html">bid</a></span></div><div class="post-body">raigan,<br>
+i'm having problems with the impulses at the contact point.It's causing too many jitters.Is there any  method to avoid it?<br>
+waiting for your answers.<br>
+thanks</div></div>
+<div class="post" id="p380418"><div class="post-head"><a class="id" href="../t/20057.html#p380418">#380418</a> <span class="index">8</span> <span class="date">2007-11-18T03:44:47Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">definitely read erin catto's slides, they explain how to properly clamp the impulses to avoid jitter.<br>
+<br>
+<a href="http://www.gphysics.com/?page_id=16">http://www.gphysics.com/?page_id=16</a><br>
+<br>
+<a href="http://www.gphysics.com/files/GDC2007_ErinCatto.zip">http://www.gphysics.com/files/GDC2007_ErinCatto.zip</a></div></div>
+<div class="post" id="p392714"><div class="post-head"><a class="id" href="../t/20057.html#p392714">#392714</a> <span class="index">9</span> <span class="date">2007-12-23T17:04:34Z</span> <span class="author"><a href="../u/9375274.html">bid</a></span></div><div class="post-body">thanks raigan the slides were really useful<br>
+sorry for replying late</div></div>
+</main>
+</body>
+</html>

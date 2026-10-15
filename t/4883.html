@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit your system's general tab! - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/66.html">General</a> &rsaquo; <a href="../f/5.html">Off-Topic</a> &rsaquo; Edit your system's general tab!</nav></header>
+<main>
+<div class="post" id="p4453"><div class="post-head"><a class="id" href="../t/4883.html#p4453">#4453</a> <span class="index">1</span> <span class="date">2005-09-18T14:26:19Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">Requirements: Windows 98/Me/2000/2003/XP<br>
+<br>
+You ever wanted to change whom the PC is registered to and change to manufacter logo? Here's a neat way.<br>
+First, create a new text document anywhere. Rename it to OEMINFO.INI.<br>
+Add this:<br>
+[General]<br>
+Manufacturer=Your Manufacturer<br>
+Model=Model #<br>
+<br>
+Save the .INI and in XP/2000, move it to<br>
+%windows directory%/system32<br>
+In 98/me, it is<br>
+%windows directory%/system<br>
+If you want to add a picture, get your picture/make one. It has to be no larger than Height-114 pixels and Width-180 pixels.<br>
+Save it as OEMLOGO.bmp, (IT MUST BE IN A BMP FORMAT). Move it to the same directory where we moved OEMINFO.ini, (depending on your OS).<br>
+<br>
+How to edit your name and organization.<br>
+Go to start, hit run, type "REGEDIT," and hit enter.<br>
+Go to:<br>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion<br>
+Now on the right panel, you'll see many objects. Look for the objects<br>
+"RegisteredOrganization." Right click it, hit modify. FIll in anything you want for that and hit "OK."<br>
+If you want to change your name, go to<br>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion<br>
+and right click the object "Registered Owner."<br>
+Change it to whatever you like, and hit "OK."<br>
+Exit out of regedit. No reboot required. Go to control panel, hit "system." You should have something like this:<br>
+<img class="bb-img" src="http://img165.imageshack.us/img165/4013/oemlogo8do.jpg" alt="" loading="lazy"><br>
+<br>
+Did you like the tutorial?</div></div>
+<div class="post" id="p101716"><div class="post-head"><a class="id" href="../t/4883.html#p101716">#101716</a> <span class="index">2</span> <span class="date">2005-09-18T15:29:16Z</span> <span class="author"><a href="../u/9370387.html">Keron Cyst</a></span></div><div class="post-body">Ugh, HP...</div></div>
+<div class="post" id="p102065"><div class="post-head"><a class="id" href="../t/4883.html#p102065">#102065</a> <span class="index">3</span> <span class="date">2005-09-19T03:28:24Z</span> <span class="author">Guest</span></div><div class="post-body">...<br>
+<br>
+Why is this even here? Is there really, really a need for changing your general tab? I mean, seriously, really. Really? Really. Really?</div></div>
+<div class="post" id="p102078"><div class="post-head"><a class="id" href="../t/4883.html#p102078">#102078</a> <span class="index">4</span> <span class="date">2005-09-19T04:45:48Z</span> <span class="author"><a href="../u/9370731.html">blue_tetris</a></span></div><div class="post-body">Actually, I had a virus on my computer a while back that changed the "Owner:" heading from my name to "not you no more".  It's still up there, even though I got rid of the virus.  This could be useful, being that I am slightly computer illiterate.</div></div>
+<div class="post" id="p102079"><div class="post-head"><a class="id" href="../t/4883.html#p102079">#102079</a> <span class="index">5</span> <span class="date">2005-09-19T05:04:29Z</span> <span class="author">Guest</span></div><div class="post-body">Huh... so it does have a use... How'bout that?  <img class="smiley" src="../files/smilies/6.gif" alt="lol" title="lol"></div></div>
+<div class="post" id="p439163"><div class="post-head"><a class="id" href="../t/4883.html#p439163">#439163</a> <span class="index">6</span> <span class="date">2008-05-25T23:20:17Z</span> <span class="author"><a href="../u/9376228.html">Norm</a></span></div><div class="post-body">My "registered to" data on the general tab was changed by a virus.  I spent lots of time searching MS and virus software suppliers trying to figure out how to get the productID No. back so MS would recognize my XP as a "genuine" product; not to mention going through two big Windows XP manuals.<br>
+&lt;P&gt;<br>
+After I deleted my user name and created a new one, I got my START MENU to show the "ALL PROGRAMS" item but the General Tab still showed "VIRUS ALERT" as the ProductID.<br>
+&lt;P&gt;<br>
+This was just what I was looking for.  Thanks of the very good post - took all of 2 minutes to fix (and ten minutes to get signed on here!).<br>
+Norm</div></div>
+<div class="post" id="p439184"><div class="post-head"><a class="id" href="../t/4883.html#p439184">#439184</a> <span class="index">7</span> <span class="date">2008-05-26T00:12:03Z</span> <span class="author"><a href="../u/9370595.html">7!</a></span></div><div class="post-body">No problem. Welcome to the forums! Also, I find it odd that your first post is on a topic that's 30 months old...</div></div>
+<div class="post" id="p439590"><div class="post-head"><a class="id" href="../t/4883.html#p439590">#439590</a> <span class="index">8</span> <span class="date">2008-05-27T05:28:31Z</span> <span class="author"><a href="../u/9373523.html">Strife</a></span></div><div class="post-body">He may have gotten here from a Google search, methinks, and perchance knows not what these fora discuss.</div></div>
+<div class="post" id="p439693"><div class="post-head"><a class="id" href="../t/4883.html#p439693">#439693</a> <span class="index">9</span> <span class="date">2008-05-27T15:03:45Z</span> <span class="author"><a href="../u/9372845.html">Grassman7z7</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/4883.html#p102065">Quote: Kablizzy, September 19, 2005 03:28 am</a></div> ...<br>
+<br>
+Why is this even here? Is there really, really a need for changing your general tab? I mean, seriously, really. Really? Really. Really?  </blockquote> <br>
+ Yes - I build computers for my friends.  This way, they know who made it, and then can ask me any questions they may have.<br>
+<br>
+Its got plenty of use, yo.</div></div>
+</main>
+</body>
+</html>

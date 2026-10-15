@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Right Triangles - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Right Triangles</nav></header>
+<main>
+<div class="post" id="p11802"><div class="post-head"><a class="id" href="../t/13256.html#p11802">#11802</a> <span class="index">1</span> <span class="date">2006-10-17T23:27:06Z</span> <span class="author"><a href="../u/9373248.html">Drc</a></span></div><div class="post-body">Ok i've been trying to implement the SAT collision detection method that you mention in your first tutorial (which is excellent btw) and I've been able to get AABB collisions to work like a charm. <br>
+<br>
+My problem though is getting the box to right triangle collision to work, specifically on the hypotenuse axis. In the flash example it looks like your taking one side of the triangle and projecting onto the axis normal and projecting the sum of both of the boxes halfwidth vectors like you'd normally do. <br>
+<br>
+Now this is the problem: no matter what I try I can't seem to figure out whether or not the projections are overlapping. I tried adding them together and then subtracting the projected distance between the triangle and boxes center but it doesn't work. <br>
+<br>
+Could you guys go into a little more detail on exactly how you handled the triangle case please? <br>
+<br>
+Thanks.</div></div>
+<div class="post" id="p242810"><div class="post-head"><a class="id" href="../t/13256.html#p242810">#242810</a> <span class="index">2</span> <span class="date">2006-10-18T08:47:07Z</span> <span class="author"><a href="../u/9370917.html">Gott</a></span></div><div class="post-body">I also tried to implement this AABB Triangle thing and made it after a alot of thinking and painting triangles and AABBs on nearly infinite sheets of paper. But unfortunateley ist some time ago and I forgot how I did it. But I can tell you how I continued my little Project. Use a circle instead of an AABB. I made the experience that they are much easier to handle and you can implement this cool edge behaviour on a quite simple way. All you need to know is the Pythagoras and some trigonometry.</div></div>
+</main>
+</body>
+</html>

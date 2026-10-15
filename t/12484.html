@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>high score verification - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/8.html">Suggestions</a> &rsaquo; high score verification</nav></header>
+<main>
+<div class="post" id="p11154"><div class="post-head"><a class="id" href="../t/12484.html#p11154">#11154</a> <span class="index">1</span> <span class="date">2006-09-10T03:22:37Z</span> <span class="author"><a href="../u/9373054.html">kolavar</a></span></div><div class="post-body">Isn't it possible for all the "bad" high scores to be filtered out of the list automatically?<br>
+<br>
+My idea would be to code an N daemon that would attempt to playback the replay in realtime and cross-check the resulting score against the submitted score. Scores that don't match are tossed, and the submitter's IP can be logged, blacklisted, whatever. Scores that match are forwarded to whatever is in place already for high score and replay processing.<br>
+<br>
+That way, even the geniuses (read: morons) that submit a falsified replay in addition to a falsified high score are caught.<br>
+<br>
+I don't do any AS or Flash stuff, but I'm fairly certain that there are APIs in place for this sort of thing.<br>
+<br>
+Thanks, kolavar.</div></div>
+<div class="post" id="p226646"><div class="post-head"><a class="id" href="../t/12484.html#p226646">#226646</a> <span class="index">2</span> <span class="date">2006-09-10T05:51:50Z</span> <span class="author"><a href="../u/9371029.html">Atilla</a></span></div><div class="post-body">Improved verification of highscores is already going to be implemented in v1.5.</div></div>
+<div class="post" id="p226698"><div class="post-head"><a class="id" href="../t/12484.html#p226698">#226698</a> <span class="index">3</span> <span class="date">2006-09-10T09:59:31Z</span> <span class="author"><a href="../u/9371728.html">JeCa</a></span></div><div class="post-body">But then atleast it's a good idea. <br>
+That's more than most stuff that comes in here... <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p226776"><div class="post-head"><a class="id" href="../t/12484.html#p226776">#226776</a> <span class="index">4</span> <span class="date">2006-09-10T15:35:36Z</span> <span class="author"><a href="../u/9372544.html">Shark</a></span></div><div class="post-body">that would only help with blatantly corrupt high scores. Would it be able to catch cheat engine runs?</div></div>
+<div class="post" id="p226809"><div class="post-head"><a class="id" href="../t/12484.html#p226809">#226809</a> <span class="index">5</span> <span class="date">2006-09-10T16:21:10Z</span> <span class="author"><a href="../u/9371468.html">smartalco</a></span></div><div class="post-body">probably not but someone else suggested a way to fix that in a different thread awhile ago</div></div>
+<div class="post" id="p226925"><div class="post-head"><a class="id" href="../t/12484.html#p226925">#226925</a> <span class="index">6</span> <span class="date">2006-09-10T20:40:11Z</span> <span class="author"><a href="../u/9373054.html">kolavar</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/12484.html#p226776">Quote: Shark, September 10, 2006 03:35 pm</a></div> That would only help with blatantly corrupt high scores. </blockquote>On the contrary, it would be able to catch *any* corrupt high score. As I described, when a replay is submitted, it would be automatically played back by a computer, and the score resulting from that replay is checked against the submitted score. Because the replay code only contains information regarding user input, any client-side cheating would result in different behavior on the replay computer than on the client.<br>
+<br>
+For any Halo PC players, it is like trying to play a cheat-modified map on a server that isn't running the same cheat-modified map: it might look like you're shooting tank rounds out of your pistol but the server is only counting them as pistol shots.<br>
+<br>
+The real question is, do the costs for running a replay-verification server justify cheater-proof highscores? In my opinion, yes, but, of course, it is ultimately up to the guys at metanet.</div></div>
+<div class="post" id="p226938"><div class="post-head"><a class="id" href="../t/12484.html#p226938">#226938</a> <span class="index">7</span> <span class="date">2006-09-10T21:16:20Z</span> <span class="author"><a href="../u/9371754.html">the splodin' chipmunk</a></span></div><div class="post-body">Sounds like you know your stuff. I didn't catch a word. <img class="smiley" src="../files/smilies/10.gif" alt="confused01" title="confused01"> . But it sounds good with the keep the high score |-| @ &gt;&lt; &gt;&lt; 0 |2 7_ out</div></div>
+</main>
+</body>
+</html>

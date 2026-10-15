@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unwanted turret... - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/23.html">N Help</a> &rsaquo; unwanted turret...</nav></header>
+<main>
+<div class="post" id="p2030"><div class="post-head"><a class="id" href="../t/2275.html#p2030">#2030</a> <span class="index">1</span> <span class="date">2005-02-16T09:41:30Z</span> <span class="author">dcarey <span class="guest">(guest)</span></span></div><div class="post-body">Help!!<br>
+<br>
+I seem to have a turret that is living outside of the play area.<br>
+<br>
+I cant delete it and when the level is played it fires continuously <br>
+at nothing aparantly.<br>
+<br>
+I've enclosed the level data within the speach marks if anyone needs<br>
+a visual example.<br>
+<br>
+"000000010000001000000000000000P000P00P00P00000000000000001<br>
+000001000000000021111011111111QQ10000000240000000000100N00<br>
+00000024000000000100000000000024000000001000100000000024000<br>
+00001000000000000002400000010000000000000002400000100000000<br>
+00000000211110100000000000000000000001000100000000000000000<br>
+01000000000000000000000010000000000000000000000100000000000<br>
+00000000001100000000000000000000001000100000078000000000010<br>
+00000000069000000000010000000000000000000000100000000000000<br>
+0000000010000000000000;&lt;000000010001000000000:=000000010000<br>
+00000000000000000010000000000000000000000100000000000000000<br>
+00000100N0000000000000000000180N0000000000000000000:1111000<br>
+0000000000000000000000QQQQQQQQQQQQQQQ000000000000000000<br>
+00000071111|5^720,564!3^468,180!3^444,180!3^444,204!0^132,216!0<br>
+^144,228!0^156,240!0^168,252!0^132,240!0^132,264!0^144,252!0^168<br>
+,264!0^156,276!0^144,276!0^132,300!0^144,300!0^156,288!0^180,288<br>
+!0^180,288!0^180,300!0^192,312!0^168,312!0^156,324!0^156,312!0^1<br>
+44,336!0^168,336!0^180,336!0^192,312!0^168,276!0^168,264!0^132,3<br>
+24!0^132,324!0^132,336!0^156,348!0^156,372!0^192,348!0^204,336!0<br>
+^216,312!0^192,288!0^192,276!0^216,312!0^216,324!0^228,336!0^22<br>
+8,336!0^204,348!0^180,360!0^156,360!0^144,360!0^132,372!0^132,37<br>
+2!2^588,156,-0.707106781186547,-0.707106781186547!9^96,564,0,0,4,<br>
+23,0,-1,0!11^660,564,132,216!6^564,516,4,1,0,2!6^228,492,4,1,0,0!1^2<br>
+04,372!2^396,156,-0.707106781186547,-0.707106781186547!2^192,156<br>
+,-0.707106781186547,-0.707106781186547!9^708,60,1,0,1,18,1,0,-1!9^4<br>
+44,72,1,0,3,15,1,0,-1!9^216,72,1,0,1,12,1,0,-1!9^36,72,1,0,3,8,1,0,-1!8^<br>
+708,84,1!10^588,NaN!0^744,420!0^756,384!0^744,348!0^756,312!0^74<br>
+4,276!0^756,240!0^744,204!0^756,168!0^744,132!0^756,96!3^468,204<br>
+!6^564,228,1,0,1,2!12^288,324!12^264,300!12^240,276!12^216,252!12<br>
+^192,228!12^168,204!1^240,192!1^288,240!1^324,288!1^360,NaN!4^1<br>
+32,450,1!4^660,450,1!9^660,492,0,0,11,18,1,0,0!4^276,570,1!4^396,57<br>
+0,1!4^516,570,1!9^444,564,0,0,4,11,1,-1,0 "</div></div>
+<div class="post" id="p50558"><div class="post-head"><a class="id" href="../t/2275.html#p50558">#50558</a> <span class="index">2</span> <span class="date">2005-02-16T09:57:46Z</span> <span class="author"><a href="../u/9370598.html">Igelós</a></span></div><div class="post-body">You have to find "NaN from your level data and remove it... and use search first. <img class="smiley" src="../files/smilies/13.gif" alt="rolleyes" title="rolleyes"></div></div>
+<div class="post" id="p50592"><div class="post-head"><a class="id" href="../t/2275.html#p50592">#50592</a> <span class="index">3</span> <span class="date">2005-02-16T21:12:55Z</span> <span class="author"><a href="../u/9370492.html">brickman</a></span></div><div class="post-body">*Stabs the geust repeatedly*<br>
+<br>
+Look, this has only been discussed 50000 times, including this very bug.  If something doesn't work right and/or can't be deleted, its a NaN, and you must manually remove it from the level code.</div></div>
+<div class="post" id="p50733"><div class="post-head"><a class="id" href="../t/2275.html#p50733">#50733</a> <span class="index">4</span> <span class="date">2005-02-18T05:51:25Z</span> <span class="author"><a href="../u/9370552.html">LittleViking</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/2275.html#p2030">Quote: dcarey, Feb 16 2005, 01:41 AM</a></div>44,72,1,0,3,15,1,0,-1!9^216,72,1,0,1,12,1,0,-1!9^36,72,1,0,3,8,1,0,-1!8^<br>
+708,84,1<b>!10^588,NaN</b>!0^744,420!0^756,384!0^744,348!0^756,312!0^74<br>
+4,276!0^756,240!0^744,204!0^756,168!0^744,132!0^756,96!3^468,204<br>
+!6^564,228,1,0,1,2!12^288,324!12^264,300!12^240,276!12^216,252!12<br>
+^192,228!12^168,204!1^240,192!1^288,240!1^324,288<b>!1^360,NaN</b>!4^1<br>
+32,450,1!4^660,450,1!9^660,492,0,0,11,18,1,0,0!4^276,570,1!4^396,57<br>
+0,1!4^516,570,1!9^444,564,0,0,4,11,1,-1,0 "</blockquote>Delete the bolded parts.</div></div>
+<div class="post" id="p50757"><div class="post-head"><a class="id" href="../t/2275.html#p50757">#50757</a> <span class="index">5</span> <span class="date">2005-02-18T11:41:17Z</span> <span class="author">DCarey <span class="guest">(guest)</span></span></div><div class="post-body">" *Stabs the geust repeatedly*".......hmmmmm No comment needed really.<br>
+<br>
+Thanks for the info it was a great help, i only stumbled onto this awesome game<br>
+the other day and as such hav'nt had time to browse through the forums at all.<br>
+<br>
+Well done to the makers and upkeepers for making this game which has started to dominate my time. <img class="smiley" src="../files/smilies/1.gif" alt="yay" title="yay"></div></div>
+</main>
+</body>
+</html>

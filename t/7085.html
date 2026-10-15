@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leviathan: Ragdolls - Metanet Forums</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="board"><a href="../index.html">Metanet Forums</a></div><nav class="shortcuts"><a href="../users.html">Users</a> &middot; <a href="../stats.html">Statistics</a></nav><nav class="crumbs"><a href="../index.html">Index</a> &rsaquo; <a href="../f/64.html">N</a> &rsaquo; <a href="../f/14.html">Developers' Tutorials</a> &rsaquo; Leviathan: Ragdolls</nav></header>
+<main>
+<div class="post" id="p6458"><div class="post-head"><a class="id" href="../t/7085.html#p6458">#6458</a> <span class="index">1</span> <span class="date">2006-01-26T14:21:25Z</span> <span class="author"><a href="../u/9371246.html">Rapier</a></span></div><div class="post-body"><a href="http://media.putfile.com/ragdolls">http://media.putfile.com/ragdolls</a><br>
+<br>
+Finished the ragdolls! Controls: zqsd to hold bodyparts!  <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"></div></div>
+<div class="post" id="p136091"><div class="post-head"><a class="id" href="../t/7085.html#p136091">#136091</a> <span class="index">2</span> <span class="date">2006-01-26T15:23:06Z</span> <span class="author"><a href="../u/9371128.html">Evil Bob</a></span></div><div class="post-body">Cool . But it falls apart too much.  <img class="smiley" src="../files/smilies/30.gif" alt="cool02" title="cool02"></div></div>
+<div class="post" id="p136130"><div class="post-head"><a class="id" href="../t/7085.html#p136130">#136130</a> <span class="index">3</span> <span class="date">2006-01-26T18:55:22Z</span> <span class="author"><a href="../u/9371290.html">Raigan</a></span></div><div class="post-body">nice! how are you doing the angular constraints?<br>
+<br>
+p.s - about the "falling apart" comment: you can iterate over the sticks multiple times per frame to make them "stiffer"</div></div>
+<div class="post" id="p136150"><div class="post-head"><a class="id" href="../t/7085.html#p136150">#136150</a> <span class="index">4</span> <span class="date">2006-01-26T19:42:08Z</span> <span class="author">Guest_Rapier <span class="guest">(guest)</span></span></div><div class="post-body">Oh really! I"ll try that!</div></div>
+<div class="post" id="p136425"><div class="post-head"><a class="id" href="../t/7085.html#p136425">#136425</a> <span class="index">5</span> <span class="date">2006-01-27T19:13:47Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">Very cool indeed.<br>
+<br>
+How did you do that collision detection? Is it tile-based or does it work in some other way? It works really nice at least <img class="smiley" src="../files/smilies/4.gif" alt="thumbsup" title="thumbsup"><br>
+<br>
+(And in case someone is curious: here is my angular constraint <img class="smiley" src="../files/smilies/7.gif" alt="wink02" title="wink02"> Almost 100% working, but now am I learning openGL so I guess it'll as frustrating to convert it to 3D as it was writing it from the beginning)<br>
+<pre class="code">particleC.prototype.addAngeledConstraint = function(point1, point2, min, max) {
+	this.acL.push([point1, point2, min, max])
+}
+
+particleC.prototype.relaxAngle = function() {
+	for (var i in this.acL) {
+  var p0 = this.acL[i][0]
+  var p1 = this
+  var p2 = this.acL[i][1]
+  var dx1 = p1.x - p0.x
+  var dx2 = p1.x - p2.x
+  var dy1 = p1.y - p0.y
+  var dy2 = p1.y - p2.y
+  var dist1 = Math.sqrt(dx1*dx1+dy1*dy1)
+  var minDeg = this.acL[i][2]
+  var maxDeg = this.acL[i][3]
+  var deg1 = new degree(p1, p0)
+  var deg2 = new degree(p1, p2)
+  maxDeg = maxDeg / 180 * Math.PI
+  minDeg = minDeg / 180 * Math.PI
+  var deg = deg1.rad() - deg2.rad()
+
+  if (deg &lt; 0) {
+  	deg += 2*Math.PI
+  }
+      
+  var fixAngle = false
+  if (deg &gt; maxDeg) {
+  	deg -= (deg-maxDeg)/2
+  	fixAngle = true
+  	
+  } else if(deg &lt;minDeg) {
+  	
+  	deg -= (deg-minDeg)/2
+  	fixAngle = true
+  }
+    
+  if (fixAngle) {
+  if (deg &lt; 0) {
+  	deg += 2*Math.PI
+  } else if(deg&gt;2*Math.PI) {
+  	deg -= 2*Math.PI
+  }
+  var finalDeg = deg2.rad() + deg
+  
+  p0.x = p1.x + Math.cos(finalDeg) * dist1
+  var dx = p0.x - p0.oldX
+  p0.oldX += dx/10
+  p0.y = p1.y + Math.sin(finalDeg) * dist1
+  var dy = p0.y - p0.oldY
+  p0.oldY += dy/10
+  }
+  
+	}
+}</pre></div></div>
+<div class="post" id="p140993"><div class="post-head"><a class="id" href="../t/7085.html#p140993">#140993</a> <span class="index">6</span> <span class="date">2006-02-08T23:04:48Z</span> <span class="author"><a href="../u/9371108.html">OpethRockr55</a></span></div><div class="post-body">Here's my angular constraint code (Not Rapier's if you wanted to know, his is way too stiff to be mine). Needs a couple tweeks to fix a sudden change from 360 to 0 so that the minimum angle is not constrained, but the maximum is. Works perfectly other than that.<br>
+<br>
+<pre class="code">Particle.prototype.addAngStick = function(Leg1, Vertex, Leg2, MinAng, MaxAng) {
+	this.apList = new Array();
+	this.angList = new Array();
+	this.apList.push(Leg1);
+	this.apList.push(Vertex);
+	this.apList.push(Leg2);
+	if (_root.hrgt) {
+ this.angList.push(360-MaxAng);
+ this.angList.push(360-MinAng);
+	} else {
+ this.angList.push(MinAng);
+ this.angList.push(MaxAng);
+	}
+};
+Particle.prototype.arelax = function() {
+	if (this.apList != undefined) {
+ var apL = this.apList;
+ var angL = this.angList;
+ var l0 = apL[0];
+ var l1 = apL[1];
+ var l2 = apL[2];
+ var MINA = angL[0];
+ var MAXA = angL[1];
+ var dx1 = l0.x-l1.x;
+ var dy1 = l0.y-l1.y;
+ var dx2 = l2.x-l1.x;
+ var dy2 = l2.y-l1.y;
+ var octx = (l0.x+l1.x+l2.x)/3;
+ var octy = (l0.y+l1.y+l2.y)/3;
+ var dist1 = Math.sqrt(dx1*dx1+dy1*dy1);
+ var dist2 = Math.sqrt(dx2*dx2+dy2*dy2);
+ var ang1 = Math.atan2(dy1, dx1);
+ var ang2 = Math.atan2(dy2, dx2);
+ var ANG = (ang1-ang2)*(180/Math.PI);
+ if (ANG&lt;0) {
+ 	ANG += 360;
+ }
+ if (ANG&lt;MINA) {
+ 	var dAng = (MINA-ANG)/180/Math.PI/2;
+ 	l0.x = (dist1*Math.cos(ang1+dAng)+l1.x);
+ 	l0.y = (dist1*Math.sin(ang1+dAng)+l1.y);
+ 	l2.x = (dist2*Math.cos(ang2-dAng)+l1.x);
+ 	l2.y = (dist2*Math.sin(ang2-dAng)+l1.y);
+ } else if (ANG&gt;MAXA) {
+ 	var dAng = (MAXA-ANG)/180/Math.PI/2;
+ 	l0.x = (dist1*Math.cos(ang1+dAng)+l1.x);
+ 	l0.y = (dist1*Math.sin(ang1+dAng)+l1.y);
+ 	l2.x = (dist2*Math.cos(ang2-dAng)+l1.x);
+ 	l2.y = (dist2*Math.sin(ang2-dAng)+l1.y);
+ }
+ var nctx = (l0.x+l1.x+l2.x)/3;
+ var ncty = (l0.y+l1.y+l2.y)/3;
+ var ctx = nctx-octx;
+ var cty = ncty-octy;
+ l0.x -= ctx;
+ l0.y -= cty;
+ l1.x -= ctx;
+ l1.y -= cty;
+ l2.x -= ctx;
+ l2.y -= cty;
+	}
+};</pre><br>
+Oh, Wazaa, it's Flade collision, which I'm thinking about doing since I'm becoming slightly overwhelmed by where to start on my own.</div></div>
+<div class="post" id="p144129"><div class="post-head"><a class="id" href="../t/7085.html#p144129">#144129</a> <span class="index">7</span> <span class="date">2006-02-15T20:29:38Z</span> <span class="author"><a href="../u/9371419.html">Zugbop</a></span></div><div class="post-body">Have a look at this one. It's really funny.<br>
+<br>
+<a href="http://gprime.net/game.php/fallinggirl">Falling Girl</a><br>
+<br>
+Zugbop</div></div>
+<div class="post" id="p144219"><div class="post-head"><a class="id" href="../t/7085.html#p144219">#144219</a> <span class="index">8</span> <span class="date">2006-02-15T23:40:33Z</span> <span class="author"><a href="../u/9371108.html">OpethRockr55</a></span></div><div class="post-body">At the risk of sounding mean, I can't think of anyone who hasn't seen that already.</div></div>
+<div class="post" id="p145380"><div class="post-head"><a class="id" href="../t/7085.html#p145380">#145380</a> <span class="index">9</span> <span class="date">2006-02-18T19:53:25Z</span> <span class="author"><a href="../u/9370973.html">The Wazaa</a></span></div><div class="post-body">I haven't  <img class="smiley" src="../files/smilies/20.gif" alt=":roll:" title=":roll:"> <br>
+<br>
+Ah, so it's flade collision, I've been thinking about trying that, but now I'm into 3D so I guess I have to pass it.<br>
+<br>
+And, I also had problems with the 0-360 degree rotation. Dont know if I ever fixed it.<br>
+<br>
+Nice game, good luck with it.<br>
+<br>
+The Wazaa</div></div>
+<div class="post" id="p166290"><div class="post-head"><a class="id" href="../t/7085.html#p166290">#166290</a> <span class="index">10</span> <span class="date">2006-04-18T21:39:00Z</span> <span class="author">Obby <span class="guest">(guest)</span></span></div><div class="post-body">neeeeeeeeeeeeeeeeeeeeeeeeeeeeeet, actually pretty nice</div></div>
+<div class="post" id="p182944"><div class="post-head"><a class="id" href="../t/7085.html#p182944">#182944</a> <span class="index">11</span> <span class="date">2006-06-01T02:52:29Z</span> <span class="author"><a href="../u/9371530.html">Epyon</a></span></div><div class="post-body">I don't mean to ressurrect, but... The link seems to be dead, now. It says the file was removed, or something.</div></div>
+<div class="post" id="p256271"><div class="post-head"><a class="id" href="../t/7085.html#p256271">#256271</a> <span class="index">12</span> <span class="date">2006-11-18T02:28:02Z</span> <span class="author"><a href="../u/9373256.html">zalo</a></span></div><div class="post-body"><blockquote class="quote"><div class="quote-head"><a href="../t/7085.html#p144129">Quote: Zugbop, February 15, 2006 08:29 pm</a></div> Have a look at this one. It's really funny.<br>
+<br>
+<a href="http://gprime.net/game.php/fallinggirl">Falling Girl</a><br>
+<br>
+Zugbop </blockquote>This one is of bush with the .fla <br>
+<br>
+<a href="http://www.flashkit.com/movies/Games/georgew-Angel-11589/index.php">Falling Bush</a></div></div>
+</main>
+</body>
+</html>
